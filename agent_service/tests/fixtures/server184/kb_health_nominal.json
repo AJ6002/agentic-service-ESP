@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "service": "esp_kb_service",
+  "version": "1.0.0",
+  "qdrant_connected": false,
+  "neo4j_connected": false,
+  "indexed_documents": 3657,
+  "deterministic_faults": 13
+}

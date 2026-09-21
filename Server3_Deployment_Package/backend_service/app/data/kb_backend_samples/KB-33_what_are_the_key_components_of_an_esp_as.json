@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-33",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What are the key components of an ESP assembly?",
+    "target_well": "FS-031",
+    "latency_ms": 4206.67,
+    "timestamp": "2026-09-04T18:18:54Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-356da2",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:18:54Z",
+    "assessment": "An ESP assembly consists of several key components, including the electric motor, impeller, stator, and housing. The motor is responsible for driving the impeller, which in turn propels the liquid through the well. The stator provides the magnetic field necessary for the motor to generate torque. The housing protects the components and ensures proper operation.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-356da2",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

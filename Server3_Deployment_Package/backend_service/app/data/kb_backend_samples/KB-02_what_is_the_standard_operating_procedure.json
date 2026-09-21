@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "test_id": "KB-02",
+    "category": "Standard Operating Procedures",
+    "query": "What is the standard operating procedure for ESP startup ramp?",
+    "target_well": "FS-031",
+    "latency_ms": 4328.9,
+    "timestamp": "2026-09-04T18:12:46Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-d5c447",
+    "asset_id": "FS-031",
+    "objective_id": "OP06_PROCEDURE_LOOKUP",
+    "timestamp": "2026-09-04T18:12:46Z",
+    "assessment": "The ESP pump is operating left of the BEP, indicating potential intake gas interference.",
+    "evidence": [
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:SOP_PUMP_STARTUP",
+        "observation": "Knowledge Base: SOP_PUMP_STARTUP",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S4",
+        "observation": "Knowledge Base: DOC-STD-API-11S4",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-4f0858",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-0338ec",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S:Section 6: Startup & Commissioning",
+        "observation": "Knowledge Base: API_RP_11S §Section 6 § Startup & Commissioning",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:SOP_PUMP_STARTUP:Standard Commissioning Checklist",
+        "observation": "Knowledge Base: SOP_PUMP_STARTUP §Standard Commissioning Checklist",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S4:Sizing & Installation Guidelines",
+        "observation": "Knowledge Base: DOC-STD-API-11S4 §Sizing & Installation Guidelines",
+        "timestamp": "2026-09-04T18:12:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      }
+    ],
+    "diagnosis": "API RP 11S standard operating procedure for ESP pump startup and commissioning.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Perform a gas analysis to confirm the presence of gas in the wellbore and implement appropriate mitigation strategies if gas is detected.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "NEVER initiate startup with closed wing or master valves on wellhead.",
+      "NEVER ramp VFD faster than 0.5 Hz / minute during initial fluid lift phase.",
+      "NEVER run pump if motor insulation resistance tests below 10 MΩ."
+    ],
+    "verification": [
+      "1. Conduct a gas analysis using a gas chromatograph (GC) to determine the presence of gas in the wellbore."
+    ],
+    "provenance": [
+      "API RP 11S Section 6 (Startup & Commissioning)",
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=3984ms | tokens=1405",
+      "telemetry_source: UNVERIFIED",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-d5c447",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Perform a gas analysis to confirm the presence of gas in the wellbore and implement appropriate mitigation strategies if gas is detected.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [
+      {
+        "parameter": "Minimum Startup Speed",
+        "normal": "35.0 Hz",
+        "warning": "< 30.0 Hz",
+        "trip": "< 25.0 Hz (No Lift)",
+        "action": "Ensure minimum flow velocity past motor"
+      },
+      {
+        "parameter": "Frequency Ramp Rate",
+        "normal": "0.5 Hz/min",
+        "warning": "> 1.0 Hz/min",
+        "trip": "Instantaneous Step (Overcurrent)",
+        "action": "Smooth VFD acceleration"
+      },
+      {
+        "parameter": "Motor Insulation",
+        "normal": "> 50 MΩ",
+        "warning": "< 20 MΩ",
+        "trip": "< 10 MΩ (No Start)",
+        "action": "Cable repair required if low"
+      }
+    ],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "👉 Inspect full document excerpt in PDF manual",
+      "👉 Compare current telemetry against these warning limits",
+      "👉 Check connected failure modes in Knowledge Graph"
+    ]
+  }
+}

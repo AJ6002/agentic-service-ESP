@@ -1,0 +1,21 @@
+{
+  "domain_id": "ESP_PUMPS_VFD",
+  "schema_version": "2.0",
+  "description": "Field mapping from VFD MQTT signal names to canonical semantic names. Keys match STANDARD_SENSORS in ESP_APM_models/calibration_registry.py exactly.",
+  "field_mappings": [
+    { "source_field": "Inp bar/psi",       "canonical_field": "intake_pressure",      "data_type": "float", "unit": "psi",  "valid_range": [50.0, 3000.0],  "is_required": true },
+    { "source_field": "Int temp \u00b0C",       "canonical_field": "intake_temperature",   "data_type": "float", "unit": "\u00b0C",   "valid_range": [20.0, 100.0],   "is_required": true },
+    { "source_field": "Motor temp \u00b0C",     "canonical_field": "motor_temperature",    "data_type": "float", "unit": "\u00b0C",   "valid_range": [40.0, 150.0],   "is_required": true },
+    { "source_field": "Disch pr. Bar/psi", "canonical_field": "discharge_pressure",   "data_type": "float", "unit": "psi",  "valid_range": [200.0, 4000.0], "is_required": true },
+    { "source_field": "Vibration G's-Vx",  "canonical_field": "vibration_x",          "data_type": "float", "unit": "g",    "valid_range": [0.0, 5.0],      "is_required": true },
+    { "source_field": "Leak Current Ct",   "canonical_field": "leakage_current",      "data_type": "float", "unit": "mA",   "valid_range": [0.0, 100.0],    "is_required": true },
+    { "source_field": "Volt",              "canonical_field": "supply_voltage",        "data_type": "float", "unit": "V",    "valid_range": [200.0, 1200.0], "is_required": true },
+    { "source_field": "VSD Amps/Load",     "canonical_field": "drive_current",         "data_type": "float", "unit": "A",    "valid_range": [5.0, 300.0],    "is_required": true },
+    { "source_field": "Frequency",         "canonical_field": "operating_frequency",   "data_type": "float", "unit": "Hz",   "valid_range": [20.0, 70.0],    "is_required": true },
+    { "source_field": "DHG Current",       "canonical_field": "dhg_current",           "data_type": "float", "unit": "mA",   "valid_range": [5.0, 50.0],     "is_required": false },
+    { "source_field": "WHP (PSI)",         "canonical_field": "wellhead_pressure",     "data_type": "float", "unit": "psi",  "valid_range": [10.0, 500.0],   "is_required": false },
+    { "source_field": "FLP (PSI)",         "canonical_field": "flowline_pressure",     "data_type": "float", "unit": "psi",  "valid_range": [5.0, 400.0],    "is_required": false },
+    { "source_field": "AP (PSI)",          "canonical_field": "annulus_pressure",      "data_type": "float", "unit": "psi",  "valid_range": [0.0, 200.0],    "is_required": false },
+    { "source_field": "VFD STS",           "canonical_field": "vfd_run_status",        "data_type": "int",   "unit": "flag", "valid_range": [0, 1],          "is_required": true }
+  ]
+}

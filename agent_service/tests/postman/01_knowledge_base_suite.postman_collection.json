@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "824c6660-71c7-4ecb-a9d1-3d5590180092",
+    "name": "01. Knowledge Base Service (:8085)",
+    "description": "Comprehensive tests for ESP Knowledge Base Microservice running on Server 184 (:8085).\nValidates health, readiness, semantic search, document retrieval, causal graph tracing, fault lookup, and standard clauses with real data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "kb_url",
+      "value": "http://192.168.1.184:8085",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. KB Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Service is esp_kb_service and status ok\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.service).to.eql(\"esp_kb_service\");",
+              "    pm.expect(jsonData.status).to.eql(\"ok\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/health",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02. KB Readiness Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Readiness flags are valid\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"ready\");",
+              "    pm.expect(jsonData.ready).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/readiness",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "readiness"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03. Semantic Search - Motor Overtemp",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Search returned hits array with doc references\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"hits\");",
+              "    pm.expect(jsonData.hits).to.be.an(\"array\");",
+              "    pm.expect(jsonData.hits.length).to.be.above(0);",
+              "    var hit = jsonData.hits[0];",
+              "    pm.expect(hit).to.have.property(\"doc_id\");",
+              "    pm.expect(hit).to.have.property(\"score\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/search",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "search"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"why did ESP motor trip on high temperature?\",\n  \"top_k\": 5\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04. Semantic Search - Gas Locking",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Search returned relevant gas locking docs\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.hits.length).to.be.above(0);",
+              "    pm.expect(jsonData.query).to.include(\"gas locking\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/search",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "search"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"gas locking symptoms and mitigation in ESP systems\",\n  \"top_k\": 3\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05. Specific Document Retrieval (DOC-001)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Document payload structured properly\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"doc_id\");",
+              "    pm.expect(jsonData.doc_id).to.eql(\"DOC-001\");",
+              "    pm.expect(jsonData).to.have.property(\"content\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/documents/DOC-001",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "documents",
+            "DOC-001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06. Causal Graph Trace",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Graph trace returns root cause chain\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"nodes\");",
+              "    pm.expect(jsonData).to.have.property(\"paths\");",
+              "    pm.expect(jsonData.nodes).to.be.an(\"array\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/graph/trace",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "graph",
+            "trace"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"symptom_ids\": [\n    \"SYMP-OVERTEMP\",\n    \"SYMP-HIGH-VIB\"\n  ]\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07. Fault Profile - Motor Overheat",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Fault profile returned with diagnostic signatures\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"fault_id\");",
+              "    pm.expect(jsonData.fault_id).to.eql(\"FAULT-MOTOR-OVERHEAT\");",
+              "    pm.expect(jsonData).to.have.property(\"recommended_actions\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/faults/FAULT-MOTOR-OVERHEAT",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "faults",
+            "FAULT-MOTOR-OVERHEAT"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08. Fault Profile - Gas Lock",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Gas lock fault profile has mitigation procedures\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.fault_id).to.eql(\"FAULT-GAS-LOCK\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/faults/FAULT-GAS-LOCK",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "faults",
+            "FAULT-GAS-LOCK"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09. Standard Clause - API RP 11S",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Standard reference clause returned\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"standard_id\");",
+              "    pm.expect(jsonData.standard_id).to.eql(\"API-RP-11S\");",
+              "    pm.expect(jsonData).to.have.property(\"title\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/standards/API-RP-11S",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "standards",
+            "API-RP-11S"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Standard Clause - ISO 15551",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"ISO 15551 standard verified\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.standard_id).to.eql(\"ISO-15551\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{kb_url}}/api/kb/standards/ISO-15551",
+          "host": [
+            "{{kb_url}}"
+          ],
+          "path": [
+            "api",
+            "kb",
+            "standards",
+            "ISO-15551"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

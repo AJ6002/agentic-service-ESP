@@ -1,0 +1,19 @@
+{
+  "objective_id": "OP05_EARLY_WARNING",
+  "version": "1.0",
+  "title": "Early Warning Anomaly Detection",
+  "description": "Detect early subtle multi-variate signal anomalies before alarms trip.",
+  "strategic_objectives": ["O2", "O5"],
+  "intent_classes": ["anomaly", "early warning", "unusual", "deviation", "subtle change", "motor temperature rising", "trip limit", "threshold violations", "approaching minimum submergence"],
+  "required_asset_context": ["asset_id"],
+  "required_signals": ["vibration_x", "intake_temperature", "motor_temperature", "tool_current"],
+  "required_evidence": ["anomaly_model_output", "rule_status"],
+  "required_tools": ["model_adapter.get_model_output"],
+  "allowed_specialists": ["reliability"],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["anomaly score calculated", "contributing signals isolated"],
+  "verification_steps": ["Inspect high-rate telemetry sample logs for signal noise or drift"]
+}

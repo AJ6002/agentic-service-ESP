@@ -1,0 +1,41 @@
+# Deterministic asset alias / nickname table.
+# Maps layman terms and shorthand references to canonical asset IDs.
+# Lookup is a plain normalized substring match — no LLM, no fuzzy scoring.
+# See CONTRACTS_PLAN.md §3/§9 (AssetBinding.match_method = ALIAS).
+
+FS-17:
+  aliases:
+    - "the flowstation"
+    - "flowstation 17"
+    - "flow station 17"
+    - "station 17"
+    - "fs17"
+    - "fs-017"
+    - "fs017"
+
+FS-91:
+  aliases:
+    - "flowstation 91"
+    - "flow station 91"
+    - "station 91"
+    - "fs91"
+    - "fs-091"
+    - "fs091"
+
+FNW-01:
+  aliases:
+    - "the northwest well"
+    - "northwest well"
+    - "well nw1"
+    - "fnw1"
+    - "fnw01"
+
+FWS-06:
+  aliases:
+    - "the west station"
+    - "west station 6"
+    - "west station"
+    - "fws6"
+    - "fws-06"
+    - "fws06"
+

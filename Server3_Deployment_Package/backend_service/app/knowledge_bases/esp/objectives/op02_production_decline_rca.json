@@ -1,0 +1,42 @@
+{
+  "objective_id": "OP02_PRODUCTION_DECLINE_RCA",
+  "version": "1.0",
+  "title": "Production Decline Root Cause Analysis",
+  "description": "Diagnose root causes for reduced liquid rate, low pump efficiency, or unexpected production drop.",
+  "workflow_variants": [
+    {
+      "variant_id": "current_state_rca",
+      "title": "Current State Decline RCA",
+      "description": "Evaluate historical pressure and drawdown to diagnose why production dropped.",
+      "intent_classes": ["production decline", "why is production declining", "production drop", "declining production", "low production", "producing less", "low flow", "bpd drop", "flow decline", "efficiency loss", "rate drop"],
+      "required_tools": ["get_asset_context", "calculate_tdh", "get_latest_telemetry"],
+      "allowed_specialists": ["well_performance", "reliability", "knowledge"]
+    },
+    {
+      "variant_id": "frequency_whatif",
+      "title": "Frequency & Speed What-If Simulation",
+      "description": "Simulate hydraulic and thermal impacts of increasing or adjusting pump frequency.",
+      "intent_classes": ["what if frequency", "simulate frequency", "simulate frequency increase", "what if speed", "simulate speed", "speed what-if"],
+      "required_tools": ["simulate_frequency_change", "calculate_tdh", "get_asset_context"],
+      "allowed_specialists": ["well_performance", "engineering"]
+    }
+  ],
+  "strategic_objectives": ["O1", "O5"],
+  "intent_classes": ["production decline", "why is production declining", "production drop", "declining production", "low production", "producing less", "low flow", "bpd drop", "flow decline", "efficiency loss", "rate drop", "why did production drop", "liquid rate decline", "flow rate reduction"],
+  "required_asset_context": ["asset_id", "tag_mapping", "be_point_bpd", "pump_model"],
+  "required_signals": ["flowline_pressure", "intake_pressure", "discharge_pressure", "frequency", "drive_current_average", "motor_temperature"],
+  "required_evidence": ["current_snapshot", "6h_history", "24h_history", "events", "fault_objects", "similar_cases"],
+  "required_tools": ["get_asset_context", "get_live_snapshot", "calculate_operating_point", "calculate_BEP", "calculate_TDH", "knowledge.search_faults"],
+  "allowed_specialists": ["well_performance", "reliability", "knowledge"],
+  "safety": {
+    "advisory_only": true,
+    "forbidden_actions": ["autonomous_speed_increase", "automatic_trip_reset"]
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["ranked hypotheses", "evidence cited", "contradictions surfaced", "verification steps provided"],
+  "verification_steps": [
+    "1. Verify wellhead pressure against flowline header backpressure.",
+    "2. Measure liquid flow rate via test separator.",
+    "3. Check intake pressure for gas interference signatures."
+  ]
+}

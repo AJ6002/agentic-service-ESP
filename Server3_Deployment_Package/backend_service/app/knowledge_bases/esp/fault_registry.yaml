@@ -1,0 +1,248 @@
+# ==============================================================================
+# Central Machine-Readable 13-Fault Registry for ESP Diagnostic Intelligence
+# Authoritative single source of truth for fault taxonomy, detection methods,
+# required inputs, ground truth data availability, and validation status.
+# ==============================================================================
+
+version: "1.0"
+taxonomy_name: "Manager Required 13-Fault ESP Diagnostic Architecture"
+
+faults:
+  - fault_id: "DRY_WELL_PUMP_OFF"
+    display_name: "Dry-Well Pump Off"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 6091
+    event_count: 6
+    affected_wells: ["FSWS-001-A", "FSWS-005", "FS-017", "FS-028", "FSWS-003", "FSWS-012"]
+    required_inputs: ["intake_pressure_psi", "motor_current_a", "discharge_pressure_psi", "flow_rate_bpd"]
+    severity: "CRITICAL"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Intake Pressure < 150 PSI AND Motor Current < 20 A (underload) with falling discharge pressure."
+    operator_action: "Throttle production choke or pause pump to allow reservoir fluid level recovery."
+    explanation_template: "Pump intake pressure collapsed below safety margin with electrical underload, indicating fluid prime loss."
+
+  - fault_id: "BLOCKED_INTAKE"
+    display_name: "Blocked Intake"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 1015
+    event_count: 1
+    affected_wells: ["FSWS-008"]
+    required_inputs: ["intake_pressure_psi", "flow_rate_bpd", "frequency_hz"]
+    severity: "HIGH"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Intake Pressure drop > 25% AND Flow Rate drop > 30% while Frequency remains constant."
+    operator_action: "Perform intake screen backwash or cycle pump; inspect for scale or debris deposition."
+    explanation_template: "Physical obstruction detected at pump intake screen with simultaneous flow and intake pressure drop."
+
+  - fault_id: "SCALE_OR_PUMP_WEAR"
+    display_name: "Scale or Pump Wear"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["discharge_pressure_psi", "intake_pressure_psi", "flow_rate_bpd", "motor_current_a"]
+    severity: "MEDIUM"
+    confidence_method: "DETERMINISTIC_RULE_HYSTERESIS"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Generated differential pressure (PDP - PIP) degraded > 20% relative to electrical power draw over time."
+    operator_action: "Schedule chemical scale inhibitor squeeze treatment or plan pump workover."
+    explanation_template: "Hydraulic head degradation detected relative to power draw, indicating internal stage wear or scale accumulation."
+
+  - fault_id: "HIGH_VISCOSITY_COLD_START"
+    display_name: "High Viscosity Cold Start"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["motor_temperature_c", "intake_temperature_c", "motor_current_a", "frequency_hz"]
+    severity: "LOW"
+    confidence_method: "DETERMINISTIC_RULE_HYSTERESIS"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Motor Temperature < 45°C AND Motor Current > 115% FLA during startup ramp."
+    operator_action: "Maintain controlled low frequency ramp rate to allow thermal fluid thinning."
+    explanation_template: "Cold wellbore fluids creating high viscous drag during initial pump startup ramp."
+
+  - fault_id: "HIGH_BACKPRESSURE"
+    display_name: "High Backpressure"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["discharge_pressure_psi", "flowline_pressure_psi", "flow_rate_bpd"]
+    severity: "HIGH"
+    confidence_method: "DETERMINISTIC_RULE_HYSTERESIS"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Discharge Pressure > 2200 PSI OR Flowline Pressure elevated with restricted liquid production."
+    operator_action: "Inspect surface flowlines, valves, heater-treater, and separator manifold for restrictions."
+    explanation_template: "Surface flowline restriction or closed valve causing excessive hydraulic backpressure on pump discharge."
+
+  - fault_id: "OPEN_CHOKE"
+    display_name: "Open Choke"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["flow_rate_bpd", "choke_size_64ths", "discharge_pressure_psi"]
+    severity: "MEDIUM"
+    confidence_method: "DETERMINISTIC_RULE_HYSTERESIS"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Liquid Rate > 1500 BPD AND Choke Size > 48/64 with depressed discharge head."
+    operator_action: "Trim surface choke orifice to restore ESP operating point to recommended range."
+    explanation_template: "Surface choke over-opened, forcing pump to operate on right-hand down-thrust region of pump curve."
+
+  - fault_id: "UNDERVOLTAGE"
+    display_name: "Undervoltage"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 2031
+    event_count: 2
+    affected_wells: ["FS-013", "FS-042"]
+    required_inputs: ["motor_voltage_v", "motor_current_a"]
+    severity: "HIGH"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Motor Voltage < 380 V (or < 85% nominal grid rating)."
+    operator_action: "Check electrical feeder, surface transformer tap setting, and VFD DC bus voltage."
+    explanation_template: "Electrical supply voltage depressed significantly below manufacturer operating tolerance."
+
+  - fault_id: "PHASE_IMBALANCE"
+    display_name: "Phase Imbalance"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 1015
+    event_count: 1
+    affected_wells: ["FS-018"]
+    required_inputs: ["motor_current_a", "motor_voltage_v", "motor_temperature_c"]
+    severity: "HIGH"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Current / Voltage variance between phases > 5% causing abnormal motor thermal ramp."
+    operator_action: "Perform phase-level current and voltage balance check at surface switchboard."
+    explanation_template: "Phase unbalance detected in motor power feed, creating negative-sequence heating."
+
+  - fault_id: "MOTOR_OVERLOAD"
+    display_name: "Motor Overload"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["motor_current_a", "motor_temperature_c", "motor_load_pct"]
+    severity: "CRITICAL"
+    confidence_method: "DETERMINISTIC_RULE_HYSTERESIS"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Motor Current > 40 A (> 115% FLA) AND Motor Temperature > 115°C continuously."
+    operator_action: "Reduce VFD frequency or throttle choke immediately to prevent motor winding burnout."
+    explanation_template: "Motor thermal and electrical overload condition; continuous operation above nameplate capacity."
+
+  - fault_id: "POWER_LOSS"
+    display_name: "Power Loss"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["motor_voltage_v", "motor_current_a"]
+    severity: "CRITICAL"
+    confidence_method: "INSTANTANEOUS_THRESHOLD"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Motor Voltage < 50 V AND Motor Current < 2 A instantaneously during running state."
+    operator_action: "Inspect surface substation breakers, utility power feed, and VFD trip log."
+    explanation_template: "Sudden complete loss of electrical supply power."
+
+  - fault_id: "SENSOR_DRIFT"
+    display_name: "Sensor Drift"
+    detection_method: "RULE_ONLY"
+    ml_supported: false
+    rule_supported: true
+    training_examples: 0
+    event_count: 0
+    affected_wells: []
+    required_inputs: ["discharge_pressure_psi", "intake_pressure_psi", "casing_pressure_psi"]
+    severity: "LOW"
+    confidence_method: "HYDRAULIC_CROSS_VALIDATION"
+    validation_status: "UNVALIDATED_DATA_REQUIRED"
+    readiness: "RULE_READY_DATA_REQUIRED"
+    rule_definition: "Downhole sensor reading persistently deviates from hydraulic equilibrium with casing/surface pressure."
+    operator_action: "Recalibrate downhole gauge; switch condition monitoring to secondary casing pressure correlation."
+    explanation_template: "Downhole pressure or temperature transducer drift detected via hydraulic inconsistency."
+
+  - fault_id: "SAND_INGESTION"
+    display_name: "Sand Ingestion"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 1016
+    event_count: 1
+    affected_wells: ["FS-038"]
+    required_inputs: ["vibration_rms", "motor_current_a", "flow_rate_bpd"]
+    severity: "HIGH"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Vibration RMS > 0.45 g AND Erratic Motor Current fluctuations."
+    operator_action: "Choke well back to reduce fluid drawdown velocity; inspect surface sand separators."
+    explanation_template: "Abrasive solids or formation sand passing through pump stages causing mechanical vibration and torque spikes."
+
+  - fault_id: "BEARING_DEGRADATION"
+    display_name: "Bearing Degradation"
+    detection_method: "ML + RULE"
+    ml_supported: true
+    rule_supported: true
+    training_examples: 1016
+    event_count: 1
+    affected_wells: ["FS-023"]
+    required_inputs: ["vibration_rms", "motor_temperature_c"]
+    severity: "HIGH"
+    confidence_method: "CALIBRATED_CLASSIFIER_PLUS_RULE"
+    validation_status: "HISTORICAL_VALIDATED"
+    readiness: "READY_FOR_LIVE_VALIDATION"
+    rule_definition: "Vibration RMS > 0.50 g AND Motor Winding Temperature increasing steadily."
+    operator_action: "Monitor vibration spectrum closely; schedule preventative pump replacement before motor seizure."
+    explanation_template: "Mechanical bearing wear or shaft misalignment causing elevated vibration and frictional heating."
+
+non_fault_states:
+  - state_id: "HEALTHY"
+    display_name: "Healthy Operation"
+    detection_method: "ML + RULE + ANOMALY"
+    ml_supported: true
+    training_examples: 15258
+    event_count: 16
+    severity: "NONE"
+    operator_action: "Continue standard operational monitoring."
+    explanation_template: "All physical parameters operating stably inside reference safety envelope."
+
+  - state_id: "UNKNOWN_UNSEEN"
+    display_name: "Unknown / Low Confidence"
+    detection_method: "CALIBRATION_FALLBACK"
+    severity: "LOW"
+    operator_action: "Review parameter trajectories and perform engineering assessment."
+    explanation_template: "Operating pattern does not match verified historical fault signatures with sufficient confidence."

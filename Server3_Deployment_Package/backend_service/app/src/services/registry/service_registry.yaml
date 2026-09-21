@@ -1,0 +1,171 @@
+# Service Contract Registry
+# Single Source of Truth for ESP APM Application Services
+# Grounded in ESP_APM_PHASE_5_FINAL_Service_Tool_MCP_Implementation_Design.docx §6
+
+version: "1.0.0"
+environment: "production"
+
+services:
+  asset_context_service:
+    service_id: "asset_context_service"
+    name: "Asset Context Service"
+    owner: "Asset Management Team"
+    version: "1.0.0"
+    base_path: "/api/v1/assets"
+    source_of_truth: "ADVAIT Asset Registry"
+    endpoints:
+      get_context:
+        method: "GET"
+        path: "/{asset_id}/context"
+        summary: "Retrieve canonical asset context payload"
+      get_tags:
+        method: "GET"
+        path: "/{asset_id}/tags"
+        summary: "Retrieve tag mapping registry for asset"
+      get_fault_catalog:
+        method: "GET"
+        path: "/{asset_id}/fault-catalog"
+        summary: "Retrieve simulator fault scenario catalog"
+
+  telemetry_service:
+    service_id: "telemetry_service"
+    name: "Telemetry & Historian Service"
+    owner: "OT / Telemetry Team"
+    version: "1.0.0"
+    base_path: "/api/v1/telemetry"
+    source_of_truth: "SCADA / Historian"
+    endpoints:
+      ingest_telemetry:
+        method: "POST"
+        path: "/"
+        summary: "Ingest runtime telemetry sample"
+      get_latest:
+        method: "GET"
+        path: "/{asset_id}/latest"
+        summary: "Retrieve latest timestamped telemetry sample"
+      get_history:
+        method: "GET"
+        path: "/{asset_id}/history"
+        summary: "Retrieve time-series window"
+      get_snapshot:
+        method: "GET"
+        path: "/{asset_id}/snapshot"
+        summary: "Combined asset context + telemetry read"
+
+  engineering_service:
+    service_id: "engineering_service"
+    name: "Deterministic Engineering Physics Service"
+    owner: "Production Engineering Team"
+    version: "1.0.0"
+    base_path: "/api/v1/engineering"
+    source_of_truth: "Approved Physics Algorithms"
+    endpoints:
+      calculate_tdh:
+        method: "POST"
+        path: "/tdh"
+        summary: "Calculate Total Dynamic Head (TDH)"
+      calculate_bep:
+        method: "POST"
+        path: "/bep"
+        summary: "Calculate Best Efficiency Point (BEP) deviation"
+      calculate_drawdown:
+        method: "POST"
+        path: "/drawdown"
+        summary: "Calculate well drawdown differential"
+
+  knowledge_service:
+    service_id: "knowledge_service"
+    name: "Knowledge & Domain Standards Service"
+    owner: "Knowledge Management Team"
+    version: "1.0.0"
+    base_path: "/api/v1/knowledge"
+    source_of_truth: "OEM Manuals / API RP Standards / pgvector KB"
+    endpoints:
+      search_documents:
+        method: "POST"
+        path: "/search"
+        summary: "Hybrid BM25 + pgvector document search"
+      search_faults:
+        method: "POST"
+        path: "/faults"
+        summary: "Query structured fault catalog taxonomy"
+
+  ml_model_service:
+    service_id: "ml_model_service"
+    name: "ML & Model Adapter Service"
+    owner: "Data Science & Reliability Team"
+    version: "1.0.0"
+    base_path: "/api/v1/models"
+    source_of_truth: "ESP Predictive ML Models"
+    endpoints:
+      predict_all:
+        method: "POST"
+        path: "/predict"
+        summary: "Aggregate outputs across Rules, Anomaly, Failure, Fault, Health models"
+
+  case_outcome_service:
+    service_id: "case_outcome_service"
+    name: "RCA Case & Outcome Learning Service"
+    owner: "Reliability & Field Operations Team"
+    version: "1.0.0"
+    base_path: "/api/v1/cases"
+    source_of_truth: "Teardown Reports / Outcome Store"
+    endpoints:
+      search_cases:
+        method: "POST"
+        path: "/search"
+        summary: "Search similar historical RCA cases"
+      get_verification_checks:
+        method: "GET"
+        path: "/verification-checks"
+        summary: "Fetch operator verification checks catalog"
+      capture_outcome:
+        method: "POST"
+        path: "/outcome"
+        summary: "Capture operator feedback and verified outcomes"
+
+  digital_twin_service:
+    service_id: "digital_twin_service"
+    name: "Digital Twin & Simulation Service"
+    owner: "Reservoir & Production Optimization Team"
+    version: "1.0.0"
+    base_path: "/api/v1/twin"
+    source_of_truth: "Nodal Analysis & ESP Twin Engine"
+    endpoints:
+      what_if_frequency:
+        method: "POST"
+        path: "/what-if/frequency"
+        summary: "Simulate operating point change under VSD frequency adjustment"
+      what_if_watercut:
+        method: "POST"
+        path: "/what-if/watercut"
+        summary: "Simulate fluid density and TDH change under varying water cut"
+      what_if_whp:
+        method: "POST"
+        path: "/what-if/whp"
+        summary: "Simulate wellhead pressure variation impact"
+      optimize:
+        method: "POST"
+        path: "/optimize"
+        summary: "Constrained VSD frequency optimization"
+
+  audit_service:
+    service_id: "audit_service"
+    name: "Advisory & Tool Audit Service"
+    owner: "Governance & Security Team"
+    version: "1.0.0"
+    base_path: "/api/v1/audit"
+    source_of_truth: "Audit Trace Store"
+    endpoints:
+      log_advisory:
+        method: "POST"
+        path: "/advisory"
+        summary: "Persist complete generated StandardAdvisoryPayload"
+      log_tool_call:
+        method: "POST"
+        path: "/tool-call"
+        summary: "Persist material tool call and service response"
+      get_trace:
+        method: "GET"
+        path: "/{trace_id}"
+        summary: "Reconstruct end-to-end execution path"

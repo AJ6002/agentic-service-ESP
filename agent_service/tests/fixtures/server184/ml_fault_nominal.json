@@ -1,0 +1,15 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-09-17T11:28:47.329365Z",
+  "fault_class": "MOTOR_OVERLOAD",
+  "probability": 0.78,
+  "top_k": [
+    { "fault_class": "MOTOR_OVERLOAD", "probability": 0.78 },
+    { "fault_class": "OVERLOAD_SOLIDS", "probability": 0.15 },
+    { "fault_class": "HIGH_VISCOSITY", "probability": 0.07 }
+  ],
+  "model_id": "fault_classifier_v3",
+  "model_version": "3.0.1",
+  "feature_version": "1.3.0",
+  "confidence": 0.78
+}

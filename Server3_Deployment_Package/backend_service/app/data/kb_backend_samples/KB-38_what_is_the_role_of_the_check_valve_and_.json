@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-38",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the role of the check valve and drain valve above the pump?",
+    "target_well": "FS-031",
+    "latency_ms": 1607.87,
+    "timestamp": "2026-09-04T18:19:21Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-ebc73e",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:21Z",
+    "assessment": "The check valve above the ESP is typically used to prevent the ESP from backflowing, which could damage the pump or cause contamination of the well. The drain valve is used to release any excess water or fluid that may accumulate in the pump's bypass line, to prevent overpressure and potential damage to the pump or other equipment. Both valves are critical for maintaining the proper operation of the ESP.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-ebc73e",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

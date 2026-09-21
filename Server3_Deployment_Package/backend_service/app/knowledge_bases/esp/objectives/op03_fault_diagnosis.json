@@ -1,0 +1,21 @@
+{
+  "objective_id": "OP03_FAULT_DIAGNOSIS",
+  "version": "1.0",
+  "title": "ESP Fault & Anomaly Diagnosis",
+  "description": "Identify downhole equipment faults, electrical anomalies, thermal overload, or gas locking risks.",
+  "hypothesis_source": "fault_registry",
+  "strategic_objectives": ["O2", "O5"],
+  "intent_classes": ["diagnose", "fault", "issue", "problem", "overheating", "vibration", "low pressure", "abnormal", "trip reason", "abnormal behavior", "rank the likely causes", "rank the top failure mode hypotheses", "failure mode", "gas interference", "mechanical pump wear", "pump wear", "insulation degradation", "electrical insulation degradation", "electrical degradation", "motor insulation", "underload trip", "trip on underload"],
+  "required_asset_context": ["asset_id", "pump_model", "motor_rating_hp", "nameplate_current_amps"],
+  "required_signals": ["motor_temperature", "intake_temperature", "vibration_x", "tool_current", "drive_current_average"],
+  "required_evidence": ["current_snapshot", "model_predictions", "rule_violations", "knowledge_citations"],
+  "required_tools": ["get_asset_context", "get_live_snapshot", "model_adapter.get_model_output", "knowledge.search_faults"],
+  "allowed_specialists": ["reliability", "knowledge"],
+  "safety": {
+    "advisory_only": true,
+    "forbidden_actions": ["autonomous_control"]
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["fault classified with confidence score", "contributing telemetry tags listed", "risk assessment provided"],
+  "verification_steps": ["Inspect surface junction box and VSD trip logs", "Check motor winding resistance"]
+}

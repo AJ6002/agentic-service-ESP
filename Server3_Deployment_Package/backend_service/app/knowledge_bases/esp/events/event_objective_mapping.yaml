@@ -1,0 +1,56 @@
+# Event to Level-2 Objective Mapping Registry
+# Grounded in Phase 6 Event-Driven Architecture Spec §11, §26
+# Reconciled 100% against Phase 4 Objective Catalog (OP00 - OP06)
+
+version: "1.0"
+
+mappings:
+  - event_type: "ESP_TRIPPED"
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+    minimum_severity: "CRITICAL"
+    description: "SCADA trip triggers fault diagnosis workflow"
+
+  - event_type: "FAILURE_RISK_INCREASED"
+    target_objective_id: "OP05_EARLY_WARNING"
+    minimum_severity: "HIGH"
+    description: "Elevated 7-day failure risk triggers early warning workflow"
+
+  - event_type: "FAILURE_RISK_PERSISTED"
+    target_objective_id: "OP05_EARLY_WARNING"
+    minimum_severity: "HIGH"
+    description: "Sustained failure risk triggers early warning workflow"
+
+  - event_type: "PUMP_DEGRADATION_DETECTED"
+    target_objective_id: "OP04_HEALTH_ASSESSMENT"
+    minimum_severity: "MEDIUM"
+    description: "Pump hydraulic/electrical degradation triggers health assessment workflow"
+
+  - event_type: "THERMAL_RISK_INCREASED"
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+    minimum_severity: "HIGH"
+    description: "Motor temperature elevation triggers thermal fault diagnosis"
+
+  - event_type: "GAS_INTERFERENCE_DETECTED"
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+    minimum_severity: "HIGH"
+    description: "Gas interference instability triggers fault diagnosis"
+
+  - event_type: "ANOMALY_DETECTED"
+    target_objective_id: "OP05_EARLY_WARNING"
+    minimum_severity: "MEDIUM"
+    description: "Multi-signal anomaly detection triggers early warning"
+
+  - event_type: "PRODUCTION_DECLINE_DETECTED"
+    target_objective_id: "OP02_PRODUCTION_DECLINE_RCA"
+    minimum_severity: "MEDIUM"
+    description: "Unexplained liquid rate drop triggers production decline RCA workflow"
+
+  - event_type: "ASSET_CONFIGURATION_CHANGED"
+    target_objective_id: "OP01_CURRENT_STATUS"
+    minimum_severity: "INFO"
+    description: "Advait registry asset change triggers status refresh and audit"
+
+  - event_type: "CONTROL_COMMAND_ATTEMPTED"
+    target_objective_id: "OP00_OPERATIONAL_CONTROL"
+    minimum_severity: "HIGH"
+    description: "Direct control attempt triggers safety refusal advisory"

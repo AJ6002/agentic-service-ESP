@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-29",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the relation between motor current, voltage, and power factor?",
+    "target_well": "FS-031",
+    "latency_ms": 8844.38,
+    "timestamp": "2026-09-04T18:18:33Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-3b108b",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:18:33Z",
+    "assessment": "Hello! The relationship between motor current, voltage, and power factor is fundamental in electrical engineering. The power factor (PF) is a measure of how efficiently a motor is converting electrical power into mechanical power. It is defined as the ratio of real power (active power) to apparent power (the product of voltage and current).\n\nThe formula for power factor is:\n\n\\[ \\text{Power Factor} (\\cos \\phi) = \\frac{\\text{Real Power (W)}}{\\text{Apparent Power (VA)}} = \\frac{\\text{Voltage (V)} \\times \\text{Current (A)}}{\\sqrt{\\text{Voltage (V)}^2 + \\text{Current (A)}^2}} \\]\n\n### Key Points:\n\n1. **Real Power (W):** This is the power that is actually used to do work, such as turning a pump. It is the product of voltage and current at the angle of their phase difference.\n\n2. **Apparent Power (VA):** This is the total power in terms of voltage and current, regardless of the phase angle. It is calculated as \\( \\text{Voltage} \\times \\text{Current} \\).\n\n3. **Phase Angle (\\(\\phi\\)):** This is the difference in phase between the voltage and current. A power factor of 1 indicates that the motor is operating at its most efficient, with no phase lag or lead.\n\n### Importance:\n\n- **Efficiency:** A high power factor",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-3b108b",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

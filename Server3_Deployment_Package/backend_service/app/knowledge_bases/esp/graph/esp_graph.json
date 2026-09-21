@@ -1,0 +1,400 @@
+{
+  "asset": "ESP-Well-001",
+  "subsystems": [
+    "Motor Section",
+    "Pump Section",
+    "Seal Section",
+    "Intake Section",
+    "Power Delivery & Cabling"
+  ],
+  "components": [
+    {
+      "name": "Stator Winding",
+      "subsystem": "Motor Section",
+      "metrics": [
+        "primary_thermal_metric",
+        "primary_electrical_load"
+      ]
+    },
+    {
+      "name": "Motor Bearing",
+      "subsystem": "Motor Section",
+      "metrics": [
+        "vibration_metric",
+        "axial_vibration_metric"
+      ]
+    },
+    {
+      "name": "Impeller",
+      "subsystem": "Pump Section",
+      "metrics": [
+        "flow_metric",
+        "efficiency_metric"
+      ]
+    },
+    {
+      "name": "Shaft",
+      "subsystem": "Pump Section",
+      "metrics": [
+        "vibration_metric"
+      ]
+    },
+    {
+      "name": "Mechanical Seal",
+      "subsystem": "Seal Section",
+      "metrics": [
+        "primary_intake_pressure"
+      ]
+    },
+    {
+      "name": "Pothead & Cable Penetrator",
+      "subsystem": "Power Delivery & Cabling",
+      "metrics": [
+        "insulation_resistance",
+        "harmonic_thd"
+      ]
+    },
+    {
+      "name": "Protector Mechanical Seal",
+      "subsystem": "Seal Section",
+      "metrics": [
+        "seal_chamber_pressure",
+        "dielectric_strength"
+      ]
+    },
+    {
+      "name": "Protector Thrust Bearing",
+      "subsystem": "Seal Section",
+      "metrics": [
+        "thrust_load",
+        "axial_vibration_metric"
+      ]
+    },
+    {
+      "name": "Pump Shaft & Coupling",
+      "subsystem": "Pump Section",
+      "metrics": [
+        "vibration_metric",
+        "shaft_torque"
+      ]
+    },
+    {
+      "name": "Pump Impeller & Diffuser",
+      "subsystem": "Pump Section",
+      "metrics": [
+        "head_capacity_curve",
+        "flow_metric"
+      ]
+    }
+  ],
+  "sensors": [
+    "Motor Temperature Sensor",
+    "PIP Sensor",
+    "PDP Sensor",
+    "Vibration Sensor"
+  ],
+  "failure_modes": [
+    "Bearing Wear",
+    "Motor Overheating",
+    "Gas Lock",
+    "Pump Wear",
+    "Scale Deposition",
+    "Abrasive Wear",
+    "Voltage Imbalance",
+    "Spline Shaft Torsion Shear",
+    "Deadheading Stator Burnout",
+    "Pothead Electrical Breakdown",
+    "Current Reflection Insulation Breakdown",
+    "Broken Shaft Mechanical Shear",
+    "Thrust Bearing Hydrodynamic Collapse",
+    "Well Fluid Ingress & Seal Emulsification",
+    "Abrasive Slurry Erosion"
+  ],
+  "symptoms": [
+    "Excessive Vibration",
+    "High Motor Temperature",
+    "Low Intake Pressure",
+    "Flow Rate Decrease",
+    "Current Imbalance",
+    "Pump Efficiency Decrease",
+    "Backspin Condition",
+    "Zero Flow Low Current",
+    "Underload Trip",
+    "Zero Discharge Pressure",
+    "Idle Motor Amperage",
+    "Axial Vibration Surge",
+    "Dielectric Breakdown (< 5 MOhm)",
+    "VSD Harmonic Distortion (THD > 5%)"
+  ],
+  "relationships": [
+    {
+      "source": "ESP-Well-001",
+      "type": "has_subsystem",
+      "target": "Motor Section"
+    },
+    {
+      "source": "ESP-Well-001",
+      "type": "has_subsystem",
+      "target": "Pump Section"
+    },
+    {
+      "source": "ESP-Well-001",
+      "type": "has_subsystem",
+      "target": "Seal Section"
+    },
+    {
+      "source": "ESP-Well-001",
+      "type": "has_subsystem",
+      "target": "Intake Section"
+    },
+    {
+      "source": "Motor Section",
+      "type": "has_component",
+      "target": "Motor Bearing"
+    },
+    {
+      "source": "Motor Section",
+      "type": "has_component",
+      "target": "Stator Winding"
+    },
+    {
+      "source": "Pump Section",
+      "type": "has_component",
+      "target": "Impeller"
+    },
+    {
+      "source": "Motor Bearing",
+      "type": "can_fail_with",
+      "target": "Bearing Wear"
+    },
+    {
+      "source": "Stator Winding",
+      "type": "can_fail_with",
+      "target": "Motor Overheating"
+    },
+    {
+      "source": "Intake Section",
+      "type": "can_fail_with",
+      "target": "Gas Lock"
+    },
+    {
+      "source": "Bearing Wear",
+      "type": "has_symptom",
+      "target": "Excessive Vibration"
+    },
+    {
+      "source": "Motor Overheating",
+      "type": "has_symptom",
+      "target": "High Motor Temperature"
+    },
+    {
+      "source": "Gas Lock",
+      "type": "has_symptom",
+      "target": "Low Intake Pressure"
+    },
+    {
+      "source": "HIGH_FREE_GAS",
+      "type": "causes",
+      "target": "GAS_INTERFERENCE",
+      "mechanism": "Higher free-gas content reduces effective centrifugal pump liquid handling."
+    },
+    {
+      "source": "GAS_INTERFERENCE",
+      "type": "causes",
+      "target": "GAS_LOCK",
+      "mechanism": "Severe gas accumulation prevents effective liquid pumping."
+    },
+    {
+      "source": "PUMP_WEAR",
+      "type": "causes",
+      "target": "PUMP_EFFICIENCY_DECREASE",
+      "mechanism": "Internal losses and damaged clearances reduce hydraulic efficiency."
+    },
+    {
+      "source": "SCALING",
+      "type": "causes",
+      "target": "FLOW_RESTRICTION",
+      "mechanism": "Scale deposits reduce effective flow area."
+    },
+    {
+      "source": "BEARING_DEGRADATION",
+      "type": "causes",
+      "target": "VIBRATION_INCREASE",
+      "mechanism": "Degraded rotating support increases mechanical vibration."
+    },
+    {
+      "source": "VOLTAGE_IMBALANCE",
+      "type": "causes",
+      "target": "CURRENT_IMBALANCE",
+      "mechanism": "Unbalanced phase voltage results in unbalanced motor currents and unequal heating."
+    },
+    {
+      "source": "Backspin Condition",
+      "type": "causes",
+      "target": "Spline Shaft Torsion Shear",
+      "mechanism": "Starting pump whilst rotor backspins from fluid backflow causes immediate spline shaft shear."
+    },
+    {
+      "source": "Zero Flow Low Current",
+      "type": "causes",
+      "target": "Deadheading Stator Burnout",
+      "mechanism": "Zero flow through pump removes convective fluid cooling past motor, causing stator burnout in < 1 hour."
+    },
+    {
+      "source": "Water Cut Surge",
+      "type": "causes",
+      "target": "Motor Overheating",
+      "mechanism": "Water cut jump increases fluid specific gravity to 1.05, raising required power to 128% nameplate."
+    },
+    {
+      "source": "ESP-Well-001",
+      "type": "has_subsystem",
+      "target": "Power Delivery & Cabling"
+    },
+    {
+      "source": "Power Delivery & Cabling",
+      "type": "has_component",
+      "target": "Pothead & Cable Penetrator"
+    },
+    {
+      "source": "Seal Section",
+      "type": "has_component",
+      "target": "Protector Mechanical Seal"
+    },
+    {
+      "source": "Seal Section",
+      "type": "has_component",
+      "target": "Protector Thrust Bearing"
+    },
+    {
+      "source": "Pump Section",
+      "type": "has_component",
+      "target": "Pump Shaft & Coupling"
+    },
+    {
+      "source": "Pump Section",
+      "type": "has_component",
+      "target": "Pump Impeller & Diffuser"
+    },
+    {
+      "source": "Pothead & Cable Penetrator",
+      "type": "can_fail_with",
+      "target": "Pothead Electrical Breakdown"
+    },
+    {
+      "source": "Pothead & Cable Penetrator",
+      "type": "can_fail_with",
+      "target": "Current Reflection Insulation Breakdown"
+    },
+    {
+      "source": "Pump Shaft & Coupling",
+      "type": "can_fail_with",
+      "target": "Broken Shaft Mechanical Shear"
+    },
+    {
+      "source": "Protector Thrust Bearing",
+      "type": "can_fail_with",
+      "target": "Thrust Bearing Hydrodynamic Collapse"
+    },
+    {
+      "source": "Protector Mechanical Seal",
+      "type": "can_fail_with",
+      "target": "Well Fluid Ingress & Seal Emulsification"
+    },
+    {
+      "source": "Pump Impeller & Diffuser",
+      "type": "can_fail_with",
+      "target": "Abrasive Slurry Erosion"
+    },
+    {
+      "source": "VSD Harmonic Distortion (THD > 5%)",
+      "type": "causes",
+      "target": "Pothead Electrical Breakdown",
+      "mechanism": "Excessive high-frequency PWM switching harmonics accelerate dielectric aging at impedance boundaries."
+    },
+    {
+      "source": "Pothead Electrical Breakdown",
+      "type": "has_symptom",
+      "target": "Dielectric Breakdown (< 5 MOhm)"
+    },
+    {
+      "source": "Broken Shaft Mechanical Shear",
+      "type": "has_symptom",
+      "target": "Zero Discharge Pressure"
+    },
+    {
+      "source": "Broken Shaft Mechanical Shear",
+      "type": "has_symptom",
+      "target": "Idle Motor Amperage"
+    },
+    {
+      "source": "Thrust Bearing Hydrodynamic Collapse",
+      "type": "has_symptom",
+      "target": "Axial Vibration Surge"
+    },
+    {
+      "source": "Well Fluid Ingress & Seal Emulsification",
+      "type": "has_symptom",
+      "target": "High Motor Temperature"
+    }
+  ],
+  "node_chunk_mappings": {
+    "Motor Overheating": [
+      "DOC-STD-API-11S_p14_c1",
+      "DOC-AI-ADVAIT-001_p12_c2",
+      "seed_alerts_motor_temp"
+    ],
+    "Bearing Wear": [
+      "DOC-STD-API-11S8_p4_c1",
+      "DOC-STD-IEC-60034-14_p8_c1"
+    ],
+    "Gas Lock": [
+      "DOC-TB-UNBRIDLED-001_p2_c1",
+      "DOC-OEM-BH-001_p35_c1"
+    ],
+    "Pump Wear": [
+      "DOC-ENG-TAKACS-001_p45_c2",
+      "DOC-OEM-WF-001_p112_c1"
+    ],
+    "Scale Deposition": [
+      "DOC-OEM-WF-001_p88_c1"
+    ],
+    "Excessive Vibration": [
+      "DOC-STD-API-11S8_p4_c1",
+      "DOC-STD-IEC-60034-14_p6_c2"
+    ],
+    "Spline Shaft Torsion Shear": [
+      "DOC-STD-API-11S1-V4_p18_c1"
+    ],
+    "Deadheading Stator Burnout": [
+      "DOC-STD-API-11S_p22_c2"
+    ],
+    "Backspin Condition": [
+      "DOC-STD-API-11S_p16_c1"
+    ],
+    "Pothead Electrical Breakdown": [
+      "KB2_700746239-ESP-Failure_c1",
+      "KB2_700746239-ESP-Failure_c2"
+    ],
+    "Current Reflection Insulation Breakdown": [
+      "KB2_700746239-ESP-Failure_c2",
+      "KB2_700746239-ESP-Failure_c3"
+    ],
+    "Broken Shaft Mechanical Shear": [
+      "KB2_667807164-Combined-Troubleshooting-Guide-7-25-2022_c1",
+      "KB2_728680985-24-Well-Troubleshooting-Cases_c1"
+    ],
+    "Thrust Bearing Hydrodynamic Collapse": [
+      "KB2_635100092-Esp-DIFA_c1",
+      "KB2_908974441-Protector_c1"
+    ],
+    "Well Fluid Ingress & Seal Emulsification": [
+      "KB2_635100092-Esp-DIFA_c2",
+      "KB2_908974441-Protector_c2"
+    ],
+    "Abrasive Slurry Erosion": [
+      "KB2_785722074-ALFORM-D-Ver-3-2_c1",
+      "KB2_802296155-Electric-Submersible-Pump-Vibration-Anal_c2"
+    ]
+  }
+}

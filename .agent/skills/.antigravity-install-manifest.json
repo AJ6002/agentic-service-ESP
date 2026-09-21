@@ -1,0 +1,158 @@
+{
+  "academic-paper": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "academic-paper-reviewer": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "academic-pipeline": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "agent-memory-systems": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "antigravity-workflows": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "api-patterns": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "backend-architect": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "brainstorming": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "cavecrew": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "caveman": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "claude-code-guide": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "deep-research": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "frontend-design": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "gha": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "graphify": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "half-clone": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "handoff": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "jenny": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "karen": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "karpathy": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "karpathy-guidelines": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "last30days": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "loki-mode": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "nextjs-best-practices": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "pre-ci-check": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "pydantic-models-py": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "python-patterns": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "quarter-clone": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "react-patterns": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "security-auditor": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "shadcn": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "systematic-debugging": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "tailwind-patterns": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "tdd-workflow": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "ultrathink-debugger": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "writing-plans": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "writing-skills": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "zero-hallucination-coder": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  },
+  "zustand-store-ts": {
+    "installed_at": "2026-08-22T16:35:00Z",
+    "source": "ykdojo/claude-code-tips"
+  }
+}

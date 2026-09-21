@@ -1,0 +1,20 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-09-13T10:37:40Z",
+  "card_id": "health-score",
+  "component_id": "section-summary-health-assessment",
+  "widget_title": "ESP Health Index",
+  "widget_type": "gauge_card",
+  "value": 71.4,
+  "unit": "0-100",
+  "status_band": "DEGRADED",
+  "thresholds": {
+    "low_critical": 50.0,
+    "low_warning": 75.0,
+    "high_warning": null,
+    "high_critical": null
+  },
+  "representation": "Composite ESP health reflecting thermal, vibration and electrical state.",
+  "plot_style": "Gauge card with banded arc, DEGRADED band in amber.",
+  "agent_guidance": "Primary health rating. <75 requires mitigation; <50 indicates imminent trip danger."
+}

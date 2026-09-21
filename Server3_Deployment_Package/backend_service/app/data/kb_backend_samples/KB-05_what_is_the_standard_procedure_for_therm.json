@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "test_id": "KB-05",
+    "category": "Standard Operating Procedures",
+    "query": "What is the standard procedure for thermal well shutdown?",
+    "target_well": "FS-031",
+    "latency_ms": 6879.2,
+    "timestamp": "2026-09-04T18:13:43Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-5e8980",
+    "asset_id": "FS-031",
+    "objective_id": "OP06_PROCEDURE_LOOKUP",
+    "timestamp": "2026-09-04T18:13:43Z",
+    "assessment": "The ESP is experiencing electrical motor overheating, which is a critical issue that requires immediate attention.",
+    "evidence": [
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-abb216",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S:Protection & Monitoring §5",
+        "observation": "Knowledge Base: API_RP_11S §Protection & Monitoring §5",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json:Critical Limits Register",
+        "observation": "Knowledge Base: diagnostic_rules.json §Critical Limits Register",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8:Vibration & Mechanical Safeguards",
+        "observation": "Knowledge Base: DOC-STD-API-11S8 §Vibration & Mechanical Safeguards",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "AST",
+        "source_id": "EVID-AST-da178a",
+        "observation": "Asset Context: Equipment specification or installed configuration",
+        "timestamp": "2026-09-04T18:13:43Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openAssetDeepDive=FS-031"
+      }
+    ],
+    "diagnosis": "Operational thresholds retrieved for: Motor Internal Temperature.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "NEVER operate continuously when Motor Internal Temperature exceeds 130.0 °C."
+    ],
+    "verification": [
+      "1. Confirm that the motor temperature is indeed at 135.0°C using the thermocouple.",
+      "2. Check the ambient temperature and cooling system efficiency to ensure they are within acceptable limits.",
+      "3. Verify that the ESP is not experiencing any mechanical issues that may have caused the underload.",
+      "4. Restart the ESP according to the manufacturer's recommended procedures.",
+      "5. Monitor the motor temperature and other relevant parameters for any signs of improvement."
+    ],
+    "provenance": [
+      "API RP 11S & OEM Technical Manuals",
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=6532ms | tokens=1434",
+      "telemetry_source: UNVERIFIED",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-5e8980",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [
+      {
+        "parameter": "Motor Internal Temperature",
+        "normal": "< 125.0 °C",
+        "warning": "130.0 °C",
+        "trip": "150.0 °C (Critical Trip)",
+        "action": "Immediate engineering review, inspect cooling flow, evaluate controlled shutdown."
+      }
+    ],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "👉 Inspect full document excerpt in PDF manual",
+      "👉 Compare current telemetry against these warning limits",
+      "👉 Check connected failure modes in Knowledge Graph"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-36",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What type of electric motor is used in ESP downhole systems?",
+    "target_well": "FS-031",
+    "latency_ms": 4567.52,
+    "timestamp": "2026-09-04T18:19:14Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-727a29",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:14Z",
+    "assessment": "In ESP (Electric Submersible Pump) downhole systems, a variable frequency motor (VFD) is typically used. This motor allows for precise control of the pump's speed, which is crucial for optimizing well performance and reducing energy consumption. The VFD can adjust the speed from 0 to the maximum speed of the motor, providing fine-tuned control over the pump's operation.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-727a29",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

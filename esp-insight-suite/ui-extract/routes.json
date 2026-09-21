@@ -1,0 +1,175 @@
+[
+  {
+    "route": "/",
+    "label": "Fleet Cockpit",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 1,
+    "auth_required": false,
+    "file": "src/routes/index.tsx",
+    "description": "ESP fleet surveillance overview across all 3 fields and 25 ESP wells with KPI cards, exception counters, and fleet table."
+  },
+  {
+    "route": "/wells",
+    "label": "Well Directory",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 2,
+    "auth_required": false,
+    "file": "src/routes/wells.index.tsx",
+    "description": "Fleet well list view directing users to select an individual well for telemetry and downhole monitoring."
+  },
+  {
+    "route": "/wells/$wellId",
+    "label": "Well Monitor",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 2,
+    "sample_ids": ["ESP-101", "ESP-104", "ESP-201"],
+    "auth_required": false,
+    "file": "src/routes/wells.$wellId.tsx",
+    "description": "Single-well operational monitoring featuring downhole ESP schematic, electrical & hydraulic gauges, pressure profile, and Advisor panel."
+  },
+  {
+    "route": "/exceptions",
+    "label": "Exceptions",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 3,
+    "auth_required": false,
+    "file": "src/routes/exceptions.tsx",
+    "description": "Operational exception and opportunity triage queue detailing wells in critical/warning states (gas lock, pump wear, VSD trips)."
+  },
+  {
+    "route": "/troubleshooting",
+    "label": "Troubleshooting",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 4,
+    "auth_required": false,
+    "file": "src/routes/troubleshooting.tsx",
+    "description": "Guided ESP diagnostics tool with interactive decision trees, VSD trip code lookup, and recommended action steps."
+  },
+  {
+    "route": "/reliability",
+    "label": "Reliability",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 5,
+    "auth_required": false,
+    "file": "src/routes/reliability.tsx",
+    "description": "Run life statistics, MTBF metrics, bad actors ranking, teardown failure mode findings, and intervention planning."
+  },
+  {
+    "route": "/reports",
+    "label": "Reports",
+    "workspace": "operations",
+    "group": "Operations",
+    "nav_order": 6,
+    "auth_required": false,
+    "file": "src/routes/reports.tsx",
+    "description": "Executive scorecards, weekly field performance summaries, deferment analysis, and printable operational reports."
+  },
+  {
+    "route": "/engineering",
+    "label": "Engineering Home",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 7,
+    "auth_required": false,
+    "file": "src/routes/engineering.index.tsx",
+    "description": "Overview of governed ESP master data, catalog equipment, installed assemblies, and calculation-grade governance."
+  },
+  {
+    "route": "/engineering/catalog",
+    "label": "Equipment Catalog",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 8,
+    "auth_required": false,
+    "file": "src/routes/engineering.catalog.index.tsx",
+    "description": "Master catalog of OEM pumps, motors, protectors, gas separators, and cables with digitized performance curves."
+  },
+  {
+    "route": "/engineering/catalog/pumps/$modelId",
+    "label": "Pump Model Specification",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 8,
+    "sample_ids": ["DN1750", "P100", "J400"],
+    "auth_required": false,
+    "file": "src/routes/engineering.catalog.pumps.$modelId.tsx",
+    "description": "Detailed OEM pump model specs, digitized head/power/efficiency data points, and operating range limits."
+  },
+  {
+    "route": "/engineering/installations",
+    "label": "Installed Fleet",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 9,
+    "auth_required": false,
+    "file": "src/routes/engineering.installations.index.tsx",
+    "description": "Installed ESP systems list showing equipment assemblies, pump stages, motor HP ratings, and installation dates."
+  },
+  {
+    "route": "/engineering/installations/$systemId",
+    "label": "Installation Detail",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 9,
+    "sample_ids": ["SYS-ESP-101", "SYS-ESP-104"],
+    "auth_required": false,
+    "file": "src/routes/engineering.installations.$systemId.tsx",
+    "description": "Full downhole string assembly detail, fluid properties, well trajectory limits, and calculation-grade readiness check."
+  },
+  {
+    "route": "/engineering/definition",
+    "label": "Well Definition",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 10,
+    "auth_required": false,
+    "file": "src/routes/engineering.definition.index.tsx",
+    "description": "Per-well governed revisions, provenance contract tracking, and OT tag dictionary mappings."
+  },
+  {
+    "route": "/engineering/governance/validation",
+    "label": "Governance Validation",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 11,
+    "auth_required": false,
+    "file": "src/routes/engineering.governance.validation.tsx",
+    "description": "Assembly calculation-grade validation matrix (A1-D classification), missing tag checks, and curve digitization audits."
+  },
+  {
+    "route": "/engineering/workbench",
+    "label": "Engineering Workbench",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 12,
+    "auth_required": false,
+    "file": "src/routes/engineering.workbench.tsx",
+    "description": "Interactive curve plotting, TDH vs Pump Head calculations, BEP/ROR evaluation, and frequency scenario modeling."
+  },
+  {
+    "route": "/engineering/design-cases",
+    "label": "Design Cases",
+    "workspace": "configuration",
+    "group": "Engineering",
+    "nav_order": 13,
+    "auth_required": false,
+    "file": "src/routes/engineering.design-cases.tsx",
+    "description": "ESP design case vs actual operating point comparisons across initial, present, and future reservoir conditions."
+  },
+  {
+    "route": "/administration",
+    "label": "Administration",
+    "workspace": "configuration",
+    "group": "Administration",
+    "nav_order": 14,
+    "auth_required": false,
+    "file": "src/routes/administration.tsx",
+    "description": "Platform integration settings for OTConnex, Asset ConneX, alarm rule thresholds, and user access roles."
+  }
+]

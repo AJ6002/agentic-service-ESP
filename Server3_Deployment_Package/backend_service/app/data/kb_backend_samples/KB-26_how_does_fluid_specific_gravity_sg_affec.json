@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "test_id": "KB-26",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "How does fluid Specific Gravity (SG) affect pump discharge pressure?",
+    "target_well": "FS-031",
+    "latency_ms": 43568.58,
+    "timestamp": "2026-09-04T18:18:11Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-5a673d",
+    "asset_id": "FS-031",
+    "objective_id": "OP02_PRODUCTION_DECLINE_RCA",
+    "timestamp": "2026-09-04T18:18:11Z",
+    "assessment": "Fluid Specific Gravity (SG) has a direct impact on pump discharge pressure. Higher SG results in a higher density of the fluid, which increases the pressure required to overcome the fluid's weight and maintain flow.",
+    "evidence": [
+      {
+        "source_type": "ML Model",
+        "source_id": "esp:model:FS-031:fault:MOTOR_OVERHEATING",
+        "observation": "ML Model: Active fault classification → MOTOR_OVERHEATING",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": "http://localhost:7474/browser/?cmd=play&arg=MATCH%20(n%3AFaultMode%20%7Bname%3A%27Motor Overheating%27%7D)-%5Br%5D-(m)%20RETURN%20n%2Cr%2Cm"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-87ae5f",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-451c80",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-3b63ef",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "VFD",
+        "source_id": "EVID-VFD-FS-031-0ebd27",
+        "observation": "ESP_APM_models Live Diagnosis: Normal Operation (confidence 95.0%, health 94.4/100)",
+        "timestamp": "2026-09-04T18:18:11Z",
+        "page": null,
+        "source_deep_link": "http://127.0.0.1:8000/api/vfd/diagnostics/FS-031"
+      }
+    ],
+    "diagnosis": "Higher SG leads to increased pump discharge pressure.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Monitor fluid SG closely and adjust pump settings if SG exceeds the recommended range to maintain optimal pump performance.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "autonomous_speed_increase",
+      "automatic_trip_reset"
+    ],
+    "verification": [
+      "1. Measure and record the fluid SG at regular intervals."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=5422ms | tokens=1973",
+      "telemetry_source: FALLBACK",
+      "model_source: MOCK",
+      "Run ID: REQ-KB-5a673d",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Monitor fluid SG closely and adjust pump settings if SG exceeds the recommended range to maintain optimal pump performance.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": "Thermal slope: -6.36°C/hr | Differential Head: 1644.8 PSI | Torque proxy: 0.408 A/Hz",
+    "expected_vs_actual": [
+      {
+        "parameter": "Intake Pressure",
+        "current_value": "236.5 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Discharge Pressure",
+        "current_value": "1881.3 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Current",
+        "current_value": "18.9 A",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "VFD Frequency",
+        "current_value": "46.3 Hz",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Temperature",
+        "current_value": "78.7 °C",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      }
+    ],
+    "ranked_hypotheses": [
+      {
+        "cause": "Higher SG leads to increased pump discharge pressure.",
+        "confidence": 0.95,
+        "reasoning": "The relationship between SG and pump discharge pressure is well-established in the literature. Higher SG increases the fluid's density, requiring more pressure to overcome this increased weight.",
+        "supporting_evidence": [
+          "esp:kb:API_RP_11S",
+          "esp:kb:DOC-STD-API-11S8"
+        ],
+        "contradicting_evidence": []
+      }
+    ],
+    "follow_up_prompts": [
+      "Would you like me to compare this with the last 7 days?",
+      "Show forensic tipping timeline and evidence",
+      "Check governing tripping limits and SOP"
+    ]
+  }
+}

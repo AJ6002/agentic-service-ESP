@@ -1,0 +1,155 @@
+# ==============================================================================
+# Git Ignore Configuration for ESP_APM_server
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Large Model Weights, Binaries & Archives (>50MB / GitHub hard limit 100MB)
+# ------------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.iso
+
+# Machine learning model weights & tensors
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.h5
+*.tflite
+
+# Local LLM service binaries & downloaded models
+agent_service/llm_service/bin/
+agent_service/llm_service/models/*
+!agent_service/llm_service/models/.gitkeep
+
+# Compiled native libraries & executables
+*.dll
+*.so
+*.dylib
+*.exe
+*.obj
+*.lib
+*.exp
+
+# ------------------------------------------------------------------------------
+# 2. Python Environments, Caches & Bytecode
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ------------------------------------------------------------------------------
+# 3. Node.js, Frontend Build Artifacts & Package Managers
+# ------------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# Vite / React / TanStack Start output
+.output/
+.vinxi/
+.tanstack-start/
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+
+# ------------------------------------------------------------------------------
+# 4. Environment Variables, Secrets & Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa
+id_rsa.pub
+
+# ------------------------------------------------------------------------------
+# 5. SQLite Runtime Databases, Storage Historians & Logs
+# ------------------------------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+*.log
+logs/
+
+# ------------------------------------------------------------------------------
+# 6. IDE, Operating System & Scratch Files
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Editors
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Temporary curl outputs & scratch traces
+*_curl_output.txt
+scratch/
+.system_generated/

@@ -1,0 +1,160 @@
+# Master Card Registry for ESP APM
+# Source: ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md §5.2 + OP04/OP05 Extensions
+cards:
+  gross-liquid-rate:
+    component_id: section-production-kpi-liquid-rate
+    unit: BPD
+    widget_type: ribbon_card
+    required_signals:
+      - liquid_rate_bpd
+
+  net-oil-rate:
+    component_id: section-production-kpi-oil-rate
+    unit: BOPD
+    widget_type: ribbon_card
+    required_signals:
+      - oil_rate_bopd
+
+  water-cut:
+    component_id: section-production-kpi-water-cut
+    unit: "%"
+    widget_type: ribbon_card
+    required_signals:
+      - water_cut_pct
+
+  associated-gas:
+    component_id: section-production-kpi-associated-gas
+    unit: MSCFD
+    widget_type: ribbon_card
+    required_signals:
+      - gas_rate_mscfd
+
+  production-deferment:
+    component_id: section-production-kpi-deferment
+    unit: BPD
+    widget_type: ribbon_card
+    required_signals:
+      - liquid_rate_bpd
+
+  energy-balance:
+    component_id: section-production-kpi-energy-balance
+    unit: "%"
+    widget_type: ribbon_card
+    required_signals:
+      - volt_v
+      - amp_a
+
+  health-score:
+    component_id: section-summary-health-assessment
+    unit: "0-100"
+    widget_type: gauge_card
+    required_signals:
+      - health_score
+
+  anomaly-score:
+    component_id: section-intelligence-anomaly
+    unit: "0.0-1.0"
+    widget_type: metric_box
+    required_signals:
+      - score
+
+  fault-classification:
+    component_id: section-diagnosis-banner
+    unit: discrete
+    widget_type: alert_banner
+    required_signals:
+      - probability
+
+  motor-load:
+    component_id: section-stability-motor-load
+    unit: "%"
+    widget_type: stability_card
+    required_signals:
+      - amp_a
+
+  motor-temperature:
+    component_id: section-stability-motor-temp
+    unit: "°C"
+    widget_type: stability_card
+    required_signals:
+      - motor_temp_c
+
+  vibration:
+    component_id: section-stability-vibration
+    unit: "g RMS"
+    widget_type: stability_card
+    required_signals:
+      - vibration_g
+
+  intake-pressure:
+    component_id: section-stability-intake-press
+    unit: PSI
+    widget_type: stability_card
+    required_signals:
+      - int_prs_psi
+
+  discharge-pressure:
+    component_id: section-stability-disch-press
+    unit: PSI
+    widget_type: stability_card
+    required_signals:
+      - disch_prs_psi
+
+  vsd-advisor:
+    component_id: section-vsd-advisor
+    unit: Hz
+    widget_type: advisor_card
+    required_signals:
+      - freq_hz
+
+  fleet-health:
+    component_id: section-summary-fleet-health
+    unit: wells
+    widget_type: summary_box
+    required_signals: []
+
+  system-ingestion:
+    component_id: section-summary-ingestion-rate
+    unit: msg/s
+    widget_type: summary_box
+    required_signals: []
+
+  degradation-trend:
+    component_id: section-health-degradation-trend
+    unit: "points/day"
+    widget_type: trend_card
+    required_signals:
+      - rate_per_day
+
+  risk-trajectory:
+    component_id: section-health-risk-trajectory
+    unit: "days"
+    widget_type: forecast_card
+    required_signals:
+      - projected_days_to_threshold
+
+  production-decline:
+    component_id: section-production-decline
+    unit: BPD/day
+    widget_type: decline_card
+    required_signals:
+      - liquid_rate_bpd
+
+  pressure-corridor:
+    component_id: section-pressure-corridor
+    unit: PSI
+    widget_type: corridor_card
+    required_signals:
+      - int_prs_psi
+
+  trip-timeline:
+    component_id: section-trip-timeline
+    unit: events
+    widget_type: timeline_card
+    required_signals: []
+
+  evidence-cards:
+    component_id: section-kb-evidence-cards
+    unit: hits
+    widget_type: evidence_card
+    required_signals: []

@@ -1,0 +1,113 @@
+# MCP Capability Registry — declarative governance for the ESP agentic tool layer.
+# The Python ToolRegistry (src/mcp/tool_registry.py) is authoritative; this file provides
+# human-readable documentation and optional allowed_objectives overrides that the registry
+# loads at build time. Use "*" to allow a tool under any objective.
+
+mcp_servers:
+  engineering_mcp:
+    mcp_server_id: "engineering_mcp_server"
+    name: "Engineering Physics MCP Tools"
+    description: "Deterministic ESP physics calculations (read-only)."
+    tools:
+      calculate_tdh:
+        tool_name: "calculate_tdh"
+        description: "Calculate Total Dynamic Head (TDH) in feet."
+        service_backing: "EngineeringService.calculate_tdh"
+        read_only: true
+        allowed_objectives: ["*"]
+      calculate_bep:
+        tool_name: "calculate_bep"
+        description: "Calculate Best Efficiency Point deviation and operating region."
+        service_backing: "EngineeringService.calculate_bep"
+        read_only: true
+        allowed_objectives: ["*"]
+      calculate_drawdown:
+        tool_name: "calculate_drawdown"
+        description: "Calculate reservoir drawdown differential."
+        service_backing: "EngineeringService.calculate_drawdown"
+        read_only: true
+        allowed_objectives: ["*"]
+
+  telemetry_mcp:
+    mcp_server_id: "telemetry_mcp_server"
+    name: "Telemetry MCP Tools"
+    description: "Live telemetry snapshot access (read-only)."
+    tools:
+      get_latest_telemetry:
+        tool_name: "get_latest_telemetry"
+        description: "Fetch latest telemetry snapshot for an asset."
+        service_backing: "TelemetryService.get_latest"
+        read_only: true
+        allowed_objectives: ["*"]
+
+  ml_mcp:
+    mcp_server_id: "ml_mcp_server"
+    name: "ML Assessment MCP Tools"
+    description: "Live ML health/fault assessment from cced_esp (read-only)."
+    tools:
+      get_ml_assessment:
+        tool_name: "get_ml_assessment"
+        description: "Fetch live ML health/fault assessment for an asset."
+        service_backing: "LiveDataBridge.get_ml_assessment"
+        read_only: true
+        allowed_objectives: ["*"]
+
+  asset_mcp:
+    mcp_server_id: "asset_mcp_server"
+    name: "Asset Context MCP Tools"
+    description: "Canonical asset context resolution (read-only)."
+    tools:
+      get_asset_context:
+        tool_name: "get_asset_context"
+        description: "Fetch canonical asset context (hierarchy, ESP config, tags)."
+        service_backing: "AssetContextService.get_context"
+        read_only: true
+        allowed_objectives: ["*"]
+
+  twin_mcp:
+    mcp_server_id: "twin_mcp_server"
+    name: "Digital Twin MCP Tools"
+    description: "What-if simulation & constrained optimization (scoped)."
+    tools:
+      simulate_frequency_change:
+        tool_name: "simulate_frequency_change"
+        description: "Simulate flow/motor-temp/power under a VSD frequency change."
+        service_backing: "DigitalTwinService.simulate_frequency_change"
+        read_only: true
+        allowed_objectives: ["OP02_PRODUCTION_DECLINE_RCA", "OP03_FAULT_DIAGNOSIS", "OP04_HEALTH_ASSESSMENT"]
+      optimize_vsd_speed:
+        tool_name: "optimize_vsd_speed"
+        description: "Constrained optimization for max production within envelope."
+        service_backing: "DigitalTwinService.optimize_vsd_speed"
+        read_only: true
+        allowed_objectives: ["OP02_PRODUCTION_DECLINE_RCA"]
+
+  knowledge_mcp:
+    mcp_server_id: "knowledge_mcp_server"
+    name: "Knowledge Retrieval MCP Tools"
+    description: "Hybrid KB retrieval, fault taxonomy, pump curves, glossary (read-only)."
+    tools:
+      search_knowledge:
+        tool_name: "search_knowledge"
+        description: "Hybrid KB retrieval with authority sort."
+        service_backing: "RetrievalService.hybrid_retrieve"
+        read_only: true
+        allowed_objectives: ["*"]
+      search_fault_taxonomy:
+        tool_name: "search_fault_taxonomy"
+        description: "Look up fault patterns by symptom/category/ID."
+        service_backing: "RetrievalService.search_fault_taxonomy"
+        read_only: true
+        allowed_objectives: ["*"]
+      get_pump_curve:
+        tool_name: "get_pump_curve"
+        description: "Exact pump curve lookup by OEM model."
+        service_backing: "RetrievalService.get_pump_curve"
+        read_only: true
+        allowed_objectives: ["*"]
+      search_glossary:
+        tool_name: "search_glossary"
+        description: "Exact glossary term lookup."
+        service_backing: "RetrievalService.search_glossary"
+        read_only: true
+        allowed_objectives: ["*"]

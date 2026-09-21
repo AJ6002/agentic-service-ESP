@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "test_id": "KB-01",
+    "category": "Standard Operating Procedures",
+    "query": "What is the procedure for backspin?",
+    "target_well": "FS-031",
+    "latency_ms": 4704.86,
+    "timestamp": "2026-09-04T18:12:41Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-1be39d",
+    "asset_id": "FS-031",
+    "objective_id": "OP06_PROCEDURE_LOOKUP",
+    "timestamp": "2026-09-04T18:12:41Z",
+    "assessment": "The pump is operating left of the BEP, indicating potential intake gas interference.",
+    "evidence": [
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S1_V4",
+        "observation": "Knowledge Base: API_RP_11S1_V4",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S_p16_c1",
+        "observation": "Knowledge Base: DOC-STD-API-11S_p16_c1",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-OEM-BH-001",
+        "observation": "Knowledge Base: DOC-OEM-BH-001",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-fc1ef7",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S1_V4:Section 5.3: Backspin Safeguard",
+        "observation": "Knowledge Base: API_RP_11S1_V4 §Section 5.3 § Backspin Safeguard",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S_p16_c1:Restart Delay Protocols",
+        "observation": "Knowledge Base: DOC-STD-API-11S_p16_c1 §Restart Delay Protocols",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-OEM-BH-001:Centrilift Operations Manual §4",
+        "observation": "Knowledge Base: DOC-OEM-BH-001 §Centrilift Operations Manual §4",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "AST",
+        "source_id": "EVID-AST-f9f9b5",
+        "observation": "Asset Context: Equipment specification or installed configuration",
+        "timestamp": "2026-09-04T18:12:41Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openAssetDeepDive=FS-031"
+      }
+    ],
+    "diagnosis": "API RP 11S Section 6.4 mandatory backspin restart delay and mechanical shaft protection protocol.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Perform a gas analysis to confirm the presence of gas in the wellbore and implement appropriate mitigation strategies if gas is detected.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "CRITICAL: NEVER attempt restart while pump is backspinning (causes instantaneous spline shaft torsion shear).",
+      "NEVER bypass VFD backspin timer relay under any operational circumstance.",
+      "NEVER close surface flowline master valve while fluid is actively falling back through tubing."
+    ],
+    "verification": [
+      "1. Conduct a gas analysis using a gas chromatograph (GC) to determine the presence of gas in the wellbore."
+    ],
+    "provenance": [
+      "API RP 11S §6.4 (Backspin Protocol)",
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=4188ms | tokens=1320",
+      "telemetry_source: UNVERIFIED",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-1be39d",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Perform a gas analysis to confirm the presence of gas in the wellbore and implement appropriate mitigation strategies if gas is detected.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [
+      {
+        "parameter": "Backspin Rotation",
+        "normal": "0 RPM (Stationary)",
+        "warning": "Reverse rotation active",
+        "trip": "Start Lockout Engaged",
+        "action": "Wait full 30-45 min timer"
+      },
+      {
+        "parameter": "Lockout Timer Duration",
+        "normal": "0 min (Ready)",
+        "warning": "< 15 min remaining",
+        "trip": "30.0 min minimum",
+        "action": "Do not override relay"
+      },
+      {
+        "parameter": "Motor Insulation",
+        "normal": "> 50 MΩ",
+        "warning": "< 20 MΩ",
+        "trip": "< 10 MΩ (Abort Start)",
+        "action": "Megger test downhole cable"
+      }
+    ],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "👉 Inspect full document excerpt in PDF manual",
+      "👉 Compare current telemetry against these warning limits",
+      "👉 Check connected failure modes in Knowledge Graph"
+    ]
+  }
+}

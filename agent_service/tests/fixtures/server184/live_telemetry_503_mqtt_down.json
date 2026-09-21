@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": "MQTT_DISCONNECTED",
+    "message": "MQTT broker at 192.168.1.155:1883 unreachable",
+    "detail": {
+      "broker": "192.168.1.155:1883"
+    }
+  }
+}

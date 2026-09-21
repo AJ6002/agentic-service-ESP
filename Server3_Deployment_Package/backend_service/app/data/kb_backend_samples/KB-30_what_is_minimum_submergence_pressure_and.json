@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-30",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is minimum submergence pressure and how is it determined?",
+    "target_well": "FS-031",
+    "latency_ms": 8659.13,
+    "timestamp": "2026-09-04T18:18:42Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-b51ff5",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:18:42Z",
+    "assessment": "Minimum submergence pressure refers to the lowest pressure at which an electric submersible pump (ESP) can operate safely without exceeding the allowable damage threshold due to cavitation. This pressure is crucial for ensuring the reliability and longevity of the ESP system. It is typically determined through a series of tests and calculations based on several key factors:\n\n1. **Well Characteristics**: The specific characteristics of the well, such as the depth, the type of formation, and the presence of any obstacles, affect the minimum submergence pressure.\n\n2. **Pump Design**: The design of the ESP, including its components like the impeller, pump body, and seal, influences the allowable pressure range.\n\n3. **Material Properties**: The material used for the pump components, such as the casing and impeller, must be able to withstand the pressure and temperature conditions encountered.\n\n4. **Environmental Factors**: Temperature variations, pressure changes, and the presence of corrosive fluids can impact the pressure limit.\n\nTo determine the minimum submergence pressure, engineers perform several tests:\n\n- **Static Pressure Testing**: This involves pumping water into the well without a pump running to measure the pressure at various depths.\n\n- **Dynamic Pressure Testing**: This involves running the pump at different speeds to determine the maximum pressure it can handle.\n\n- **Cavitation Testing**: This tests the pump under conditions where cavitation might occur, ensuring the system can operate without causing damage.\n\n- **Seal Testing**: This checks the reliability of the pump",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-b51ff5",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

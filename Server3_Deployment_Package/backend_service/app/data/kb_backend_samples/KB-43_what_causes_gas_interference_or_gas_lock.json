@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "test_id": "KB-43",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes gas interference or gas lock in an ESP?",
+    "target_well": "FS-031",
+    "latency_ms": 45009.25,
+    "timestamp": "2026-09-04T18:20:46Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-b1b0b2",
+    "asset_id": "FS-031",
+    "objective_id": "OP03_FAULT_DIAGNOSIS",
+    "timestamp": "2026-09-04T18:20:46Z",
+    "assessment": "Gas interference or gas lock in an ESP can be caused by cyclical PIP acoustic spikes, motor amp dips, high GOR, and pump operating left of BEP.",
+    "evidence": [
+      {
+        "source_type": "ML Model",
+        "source_id": "esp:model:FS-031:fault:MOTOR_OVERHEATING",
+        "observation": "ML Model: Active fault classification → MOTOR_OVERHEATING",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:7474/browser/?cmd=play&arg=MATCH%20(n%3AFaultMode%20%7Bname%3A%27Motor Overheating%27%7D)-%5Br%5D-(m)%20RETURN%20n%2Cr%2Cm"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-7b458e",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-41b887",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-1cdf16",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "VFD",
+        "source_id": "EVID-VFD-FS-031-b182d2",
+        "observation": "ESP_APM_models Live Diagnosis: Normal Operation (confidence 95.0%, health 94.4/100)",
+        "timestamp": "2026-09-04T18:20:46Z",
+        "page": null,
+        "source_deep_link": "http://127.0.0.1:8000/api/vfd/diagnostics/FS-031"
+      }
+    ],
+    "diagnosis": "Cyclical PIP acoustic spikes",
+    "confidence": 0.9,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "No specific action required at this time.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "autonomous_control"
+    ],
+    "verification": [
+      "1. Verify sensor alignment."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=10031ms | tokens=2101",
+      "telemetry_source: FALLBACK",
+      "model_source: MOCK",
+      "Run ID: REQ-KB-b1b0b2",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "No specific action required at this time.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.9,
+    "trend": "Thermal slope: -6.36°C/hr | Differential Head: 1644.8 PSI | Torque proxy: 0.408 A/Hz",
+    "expected_vs_actual": [
+      {
+        "parameter": "Intake Pressure",
+        "current_value": "236.5 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Discharge Pressure",
+        "current_value": "1881.3 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Current",
+        "current_value": "18.9 A",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "VFD Frequency",
+        "current_value": "46.3 Hz",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Temperature",
+        "current_value": "78.7 °C",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      }
+    ],
+    "ranked_hypotheses": [
+      {
+        "cause": "Cyclical PIP acoustic spikes",
+        "confidence": 0.9,
+        "reasoning": "The presence of cyclical PIP acoustic spikes is a strong indicator of gas interference or gas lock, as these spikes are typically associated with gas flow issues.",
+        "supporting_evidence": [
+          "esp:rule:FS-031:R001:WARNING"
+        ],
+        "contradicting_evidence": []
+      },
+      {
+        "cause": "Motor amp dips",
+        "confidence": 0.85,
+        "reasoning": "Motor amp dips can be a sign of gas interference or gas lock, as they indicate a decrease in pump performance due to gas flow.",
+        "supporting_evidence": [
+          "esp:rule:FS-031:R001:WARNING"
+        ],
+        "contradicting_evidence": []
+      },
+      {
+        "cause": "High GOR",
+        "confidence": 0.8,
+        "reasoning": "High GOR can lead to gas interference or gas lock, as it increases the pressure drop across the pump and reduces the pump's ability to deliver flow.",
+        "supporting_evidence": [
+          "esp:rule:FS-031:R001:WARNING"
+        ],
+        "contradicting_evidence": []
+      },
+      {
+        "cause": "Pump operating left of BEP",
+        "confidence": 0.75,
+        "reasoning": "Operating the pump left of BEP can lead to gas interference or gas lock, as it reduces the pump's ability to deliver flow and increases the pressure drop across the pump.",
+        "supporting_evidence": [
+          "esp:rule:FS-031:R001:WARNING"
+        ],
+        "contradicting_evidence": []
+      }
+    ],
+    "follow_up_prompts": [
+      "Would you like me to compare this with the last 7 days?",
+      "Show forensic tipping timeline and evidence",
+      "Check governing tripping limits and SOP"
+    ]
+  }
+}

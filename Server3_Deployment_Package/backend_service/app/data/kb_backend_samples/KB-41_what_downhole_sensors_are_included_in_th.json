@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-41",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What downhole sensors are included in the ESP gauge package?",
+    "target_well": "FS-031",
+    "latency_ms": 8654.86,
+    "timestamp": "2026-09-04T18:19:51Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-134bb5",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:51Z",
+    "assessment": "The ESP gauge package typically includes a variety of downhole sensors to provide real-time data on well performance, pump efficiency, and submersible pump health. These sensors can include:\n\n1. **Flow Rate Sensors**: These measure the flow rate of the fluid being pumped through the ESP. Common types include electromagnetic flow meters, ultrasonic meters, and vortex flow meters.\n\n2. **Temperature Sensors**: These measure the temperature of the fluid being pumped. Temperature sensors are crucial for maintaining optimal pump performance and can help detect issues like overheating or freezing.\n\n3. **Pressure Sensors**: These measure the pressure of the fluid being pumped, which can indicate pump efficiency and fluid flow conditions. They can also help detect issues like pump cavitation or excessive wear.\n\n4. **Depth Sensors**: These measure the depth of the pump in the well. They are essential for monitoring the pump's position and can help detect issues related to pump movement or sticking.\n\n5. **Electrical Current Sensors**: These measure the electrical current drawn by the ESP motor. They can help detect issues like motor overload or malfunction.\n\n6. **Wear Indicators**: These sensors measure wear and tear on the pump components, such as the impeller or motor. They are crucial for predicting when maintenance is needed.\n\n7. **Acoustic Sensors**: These sensors detect acoustic signals from the pump or the wellbore, which can indicate issues like pump cavitation or fluid contamination.\n\n8. **Pressure Transmitters**: These measure the pressure of the",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-134bb5",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

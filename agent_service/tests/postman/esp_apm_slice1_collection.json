@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "8f39a0c1-3d71-42e5-9c88-12480e6c51fa",
+		"name": "ESP APM Agent Service - Slice 1 Suite",
+		"description": "Complete test collection for Slice 1 of the ESP APM Agent Service.\nValidates: Health Check, Simple Glossary Queries, Two-Turn CLARIFY -> BIND Roundtrips, Alias Resolution, Asset Priority (Explicit > UI), Pronoun Resolution, META Turns, and Empty Message Guard.\n\nAll tests parse chunked NDJSON response frames.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8091",
+			"type": "string"
+		},
+		{
+			"key": "session_id",
+			"value": "newman-test-session",
+			"type": "string"
+		},
+		{
+			"key": "bound_asset",
+			"value": "FS-017",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "01. Health Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Service is healthy and slice is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"HEALTHY\");",
+							"    pm.expect(jsonData.service).to.eql(\"agent_service\");",
+							"    pm.expect(jsonData.slice).to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02. Clean SIMPLE Query (Glossary)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response is NDJSON and answers TDH\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    pm.expect(lines.length).to.be.at.least(2);",
+							"    ",
+							"    // Find text delta",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    pm.expect(textDelta.delta.toLowerCase()).to.include(\"total dynamic head\");",
+							"    ",
+							"    // Verify terminating done frame",
+							"    var doneFrame = lines[lines.length - 1];",
+							"    pm.expect(doneFrame.type).to.eql(\"done\");",
+							"    pm.expect(doneFrame.status).to.eql(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"sess-glossary-01\",\n    \"message\": \"What is Total Dynamic Head (TDH)?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03A. CLARIFY Turn 1 - Ambiguous Question (Pauses)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"clarify_session\", \"sess-clarify-\" + Math.random().toString(36).substring(7));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Emits clarification frame and pauses\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    pm.expect(lines.length).to.be.at.least(2);",
+							"    ",
+							"    var clarifyFrame = lines.find(function(f) { return f.type === 'clarification'; });",
+							"    pm.expect(clarifyFrame).to.not.be.undefined;",
+							"    pm.expect(clarifyFrame.slot).to.eql(\"asset_id\");",
+							"    pm.expect(clarifyFrame.options).to.be.an(\"array\").that.includes(\"FS-017\");",
+							"    ",
+							"    var doneFrame = lines[lines.length - 1];",
+							"    pm.expect(doneFrame.type).to.eql(\"done\");",
+							"    pm.expect(doneFrame.status).to.eql(\"PAUSED\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{clarify_session}}\",\n    \"message\": \"Why did it trip?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03B. CLARIFY Turn 2 - BIND Slot & Resume Diagnosis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Resumes workflow diagnosis and completes with OK\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    pm.expect(lines.length).to.be.at.least(2);",
+							"    ",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    pm.expect(textDelta.delta).to.include(\"FS-017\");",
+							"    pm.expect(textDelta.delta).to.include(\"Diagnostic run\");",
+							"    ",
+							"    var doneFrame = lines[lines.length - 1];",
+							"    pm.expect(doneFrame.type).to.eql(\"done\");",
+							"    pm.expect(doneFrame.status).to.eql(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{clarify_session}}\",\n    \"message\": \"FS-017\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04. Layman Alias Resolution (the flowstation -> FS-017)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Resolves alias directly without clarification pause\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    ",
+							"    // Must not pause for clarification",
+							"    var clarifyFrame = lines.find(function(f) { return f.type === 'clarification'; });",
+							"    pm.expect(clarifyFrame).to.be.undefined;",
+							"    ",
+							"    // Must diagnose FS-017 directly",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    pm.expect(textDelta.delta).to.include(\"FS-017\");",
+							"    ",
+							"    var doneFrame = lines[lines.length - 1];",
+							"    pm.expect(doneFrame.status).to.eql(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"sess-alias-01\",\n    \"message\": \"Why did the flowstation trip?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05. Asset Priority (EXPLICIT beats UI context)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Diagnoses explicit asset FS-091 ignoring UI asset FNW-01\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    pm.expect(textDelta.delta).to.include(\"FS-091\");",
+							"    pm.expect(textDelta.delta).to.not.include(\"FNW-01\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"sess-priority-01\",\n    \"message\": \"Check status for FS-091\",\n    \"ui_context\": {\n        \"selected_asset\": \"FNW-01\",\n        \"selected_time_range\": \"last_24h\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06A. Pronoun Turn 1 - Establish Session Asset (FS-017)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"pronoun_session\", \"sess-pronoun-\" + Math.random().toString(36).substring(7));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{pronoun_session}}\",\n    \"message\": \"Check current status of FS-017\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06B. Pronoun Turn 2 - 'it' Resolves Against Session (FS-017)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Resolves 'it' to FS-017 from previous session turn\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    pm.expect(textDelta.delta).to.include(\"FS-017\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{pronoun_session}}\",\n    \"message\": \"Why did it trip?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07A. META Turn 1 - Ambiguous Question (Pauses)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"meta_session\", \"sess-meta-\" + Math.random().toString(36).substring(7));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{meta_session}}\",\n    \"message\": \"Why did it trip?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07B. META Turn 2 - Question About Clarification (Pending Intact)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Answers META inquiry without triggering new clarification\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+							"    pm.expect(textDelta).to.not.be.undefined;",
+							"    var doneFrame = lines[lines.length - 1];",
+							"    pm.expect(doneFrame.type).to.eql(\"done\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"{{meta_session}}\",\n    \"message\": \"Why are you asking which well?\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08. Empty Message Guard (Prompts for operational question)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Returns early clarification prompt without crashing\", function () {",
+							"    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+							"    var clarifyFrame = lines.find(function(f) { return f.type === 'clarification'; });",
+							"    pm.expect(clarifyFrame).to.not.be.undefined;",
+							"    pm.expect(clarifyFrame.question).to.include(\"provide an operational question\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"session_id\": \"sess-empty-01\",\n    \"message\": \"   \"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/query",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

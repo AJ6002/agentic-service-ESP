@@ -1,0 +1,32 @@
+{
+  "objective_id": "OP12_FLEET_CASE_ANALYTICS",
+  "version": "1.0",
+  "title": "Cross-Asset Case Similarity & Failure Clustering",
+  "description": "Correlate active fleet anomalies with verified historical well trips and failure patterns.",
+  "scope": "fleet",
+  "strategic_objectives": ["O3", "O5"],
+  "intent_classes": [
+    "recurring failure clusters",
+    "fleet case similarity",
+    "similar trips across fleet",
+    "recurring failures",
+    "cluster failure patterns",
+    "fleet incident history",
+    "historical patterns across wells",
+    "find historical cases",
+    "similar scale accumulation",
+    "past workover success rates",
+    "past workover success"
+  ],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": ["fleet_asset_list", "historical_case_matches"],
+  "required_tools": ["list_fleet_assets", "search_knowledge"],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["top recurring fault modes identified", "affected asset clusters mapped"],
+  "verification_steps": ["Review pull reports from matched historical workover records"]
+}

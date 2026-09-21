@@ -1,0 +1,35 @@
+{
+  "objective_id": "OP09_FLEET_PRODUCTION_OPTIMIZATION",
+  "version": "1.0",
+  "title": "Fleet Production Optimization & Headroom Ranking",
+  "description": "Rank fleet assets by production upside (BPD gain) and identify optimal operating frequencies across wells.",
+  "scope": "fleet",
+  "strategic_objectives": ["O1", "O5"],
+  "intent_classes": [
+    "fleet production optimization",
+    "optimize fleet",
+    "fleet upside",
+    "rank production upside",
+    "which wells have most upside",
+    "optimize production across the fleet",
+    "fleet optimization",
+    "rank fleet production",
+    "production gain potential",
+    "rank all operating wells",
+    "deviation from best efficiency point",
+    "optimize total field production",
+    "within power limits"
+  ],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": ["fleet_asset_list", "fleet_headroom_ranking"],
+  "required_tools": ["list_fleet_assets", "simulate_frequency_change", "calculate_tdh"],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true,
+    "forbidden_actions": ["autonomous_fleet_frequency_override"]
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["fleet assets ranked by production upside", "potential BPD gains calculated per well", "operating envelope verified"],
+  "verification_steps": ["Review top 3 candidate wells against surface choke capacity before adjusting frequency"]
+}

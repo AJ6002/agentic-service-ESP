@@ -1,0 +1,20 @@
+<service>
+  <id>esp-frontend-service</id>
+  <name>esp-frontend-service</name>
+  <description>ESP APM Unified React Operations Dashboard Static &amp; Reverse-Proxy Service (Port 3000)</description>
+  <executable>%BASE%\..\..\.venv\Scripts\python.exe</executable>
+  <arguments>serve_frontend.py</arguments>
+  <workingdirectory>%BASE%\..</workingdirectory>
+  <logpath>%BASE%\..\logs</logpath>
+  <log mode="roll-by-size-time">
+    <sizeThreshold>10240</sizeThreshold>
+    <pattern>yyyy-MM-dd</pattern>
+    <autoRollAtTime>00:00:00</autoRollAtTime>
+    <zipOlderThanNumDays>5</zipOlderThanNumDays>
+  </log>
+  <startmode>Automatic</startmode>
+  <delayedAutoStart>true</delayedAutoStart>
+  <onfailure action="restart" delay="5 sec"/>
+  <onfailure action="restart" delay="10 sec"/>
+  <resetfailure>1 hour</resetfailure>
+</service>

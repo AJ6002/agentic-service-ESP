@@ -1,0 +1,102 @@
+# Quality of Data (QoD) Freshness, Staleness & Timestamp Keys
+# Reference: ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md v2.0.0 §2
+
+domains:
+  asset:
+    endpoint_pattern: "/live/asset/*"
+    timestamp_key: null
+    age_key: null
+    nominal_interval_sec: null
+    warning_staleness_sec: null
+    critical_staleness_sec: null
+    never_stale: true
+    invalidation_action: null
+
+  live_telemetry:
+    endpoint_pattern: "/live/telemetry/*"
+    timestamp_key: "timestamp"
+    age_key: "age_sec"
+    nominal_interval_sec: 1.0
+    warning_staleness_sec: 5.0
+    critical_staleness_sec: 30.0
+    invalidation_action: "FLAG_STALE"
+
+  live_vfm:
+    endpoint_pattern: "/live/vfm/*"
+    timestamp_key: "timestamp"
+    age_key: "age_sec"
+    nominal_interval_sec: 1.0
+    warning_staleness_sec: 5.0
+    critical_staleness_sec: 30.0
+    invalidation_action: "FLAG_ESTIMATE_DRIFTED"
+
+  live_status:
+    endpoint_pattern: "/live/status"
+    timestamp_key: "last_heartbeat"
+    age_key: null
+    nominal_interval_sec: 5.0
+    warning_staleness_sec: 15.0
+    critical_staleness_sec: 60.0
+    invalidation_action: "SIMULATOR_HEARTBEAT_LOST"
+
+  events:
+    endpoint_pattern: "/events/*"
+    timestamp_key: "timestamp"
+    age_key: null
+    nominal_interval_sec: null
+    warning_staleness_sec: null
+    critical_staleness_sec: null
+    never_stale: true
+    invalidation_action: null
+
+  ml:
+    endpoint_pattern: "/ml/*"
+    timestamp_key: "timestamp"
+    age_key: null
+    nominal_interval_sec: 5.0
+    warning_staleness_sec: 60.0
+    critical_staleness_sec: 300.0
+    invalidation_action: "FLAG_ML_STALE"
+
+  kpi:
+    endpoint_pattern: "/kpi/*"
+    timestamp_key: "timestamp"
+    age_key: null
+    nominal_interval_sec: 5.0
+    warning_staleness_sec: null
+    critical_staleness_sec: null
+    never_stale: true
+    invalidation_action: "RECOMPUTE_CARD"
+
+  cards:
+    endpoint_pattern: "/cards/*"
+    timestamp_key: "timestamp"
+    age_key: null
+    nominal_interval_sec: 5.0
+    warning_staleness_sec: 30.0
+    critical_staleness_sec: 120.0
+    invalidation_action: "RECOMPUTE_CARD"
+
+  historian:
+    endpoint_pattern: "/historian/*"
+    timestamp_key: "timestamp"
+    age_key: null
+    nominal_interval_sec: null
+    warning_staleness_sec: null
+    critical_staleness_sec: null
+    never_stale: true
+    invalidation_action: null
+
+  kb:
+    # esp_kb_service (:8085) — static engineering documents/standards.
+    # Search results carry no per-hit timestamp; the corpus itself is
+    # versioned by document revision, not by freshness, so the same
+    # never_stale treatment as historian applies.
+    endpoint_pattern: "/api/kb/*"
+    timestamp_key: null
+    age_key: null
+    nominal_interval_sec: null
+    warning_staleness_sec: null
+    critical_staleness_sec: null
+    never_stale: true
+    invalidation_action: null

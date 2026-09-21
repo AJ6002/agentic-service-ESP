@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "test_id": "KB-25",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the Recommended Operating Range (ROR) of an ESP?",
+    "target_well": "FS-031",
+    "latency_ms": 4158.12,
+    "timestamp": "2026-09-04T18:17:27Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-915000",
+    "asset_id": "FLEET",
+    "objective_id": "OP10_FLEET_DESIGN_SIZING",
+    "timestamp": "2026-09-04T18:17:27Z",
+    "assessment": "Fleet Design Sizing Audit: 29 asset(s) evaluated against manufacturer BEP envelopes.",
+    "evidence": [],
+    "diagnosis": "All screened assets currently operate within allowable continuous hydraulic operating windows.",
+    "confidence": 1.0,
+    "risk": "N/A - fleet aggregate intelligence",
+    "recommendation": "Maintain standard baseline monitoring; no severe downthrust or upthrust risks detected.",
+    "expected_impact": "Informational / operational decision support for field management.",
+    "constraints": [],
+    "verification": [
+      "Cross-check total counts and rankings with field engineering leads."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (Multi-Fleet Map-Reduce Engine)",
+      "fleet_source: cced_esp_live",
+      "Run ID: REQ-KB-915000",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Maintain standard baseline monitoring; no severe downthrust or upthrust risks detected.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

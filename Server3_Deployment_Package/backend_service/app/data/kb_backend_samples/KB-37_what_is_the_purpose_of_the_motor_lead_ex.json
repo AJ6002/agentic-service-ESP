@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-37",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the purpose of the motor lead extension (MLE)?",
+    "target_well": "FS-031",
+    "latency_ms": 5402.35,
+    "timestamp": "2026-09-04T18:19:19Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-36c984",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:19Z",
+    "assessment": "The Motor Lead Extension (MLE) is a component used in electric submersible pumps (ESPs) to provide additional electrical leads that connect to the motor. This extension allows for better control and monitoring of the pump's performance, especially when the pump is installed in deep wells or under challenging operating conditions. The MLE typically consists of a set of cables that extend from the pump's motor to the surface, providing a longer distance for communication and control lines. This is crucial for maintaining reliable operation in deepwater or high-pressure environments, where direct access to the pump is limited.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-36c984",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

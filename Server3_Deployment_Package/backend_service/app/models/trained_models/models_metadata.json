@@ -1,0 +1,75 @@
+{
+  "training_source": "C:\\Users\\admin.DESKTOP-17T37DJ\\Desktop\\cced",
+  "dataset_details": {
+    "categorized_wells_path": "C:\\Users\\admin.DESKTOP-17T37DJ\\Desktop\\cced\\categorized_wells",
+    "vfd_equipment_catalog": "C:\\Users\\admin.DESKTOP-17T37DJ\\Desktop\\cced\\VFD Details - Copy.xlsx",
+    "total_field_records_ingested": 29200,
+    "wells_represented": 73
+  },
+  "families": {
+    "B400": {
+      "model_file": "b400_isolation_forest.joblib",
+      "sample_count": 14400,
+      "nominal_score_mean": 0.1379,
+      "nominal_score_p5": 0.014,
+      "nominal_score_min": -0.0535,
+      "sigmoid_midpoint": -0.021
+    },
+    "B538": {
+      "model_file": "b538_isolation_forest.joblib",
+      "sample_count": 2000,
+      "nominal_score_mean": 0.1647,
+      "nominal_score_p5": 0.0483,
+      "nominal_score_min": -0.0782,
+      "sigmoid_midpoint": 0.0133
+    },
+    "TD": {
+      "model_file": "td_isolation_forest.joblib",
+      "sample_count": 8000,
+      "nominal_score_mean": 0.0723,
+      "nominal_score_p5": 0.0055,
+      "nominal_score_min": -0.0387,
+      "sigmoid_midpoint": -0.0295
+    },
+    "TE2700": {
+      "model_file": "te2700_isolation_forest.joblib",
+      "sample_count": 1200,
+      "nominal_score_mean": 0.2124,
+      "nominal_score_p5": 0.0261,
+      "nominal_score_min": -0.0478,
+      "sigmoid_midpoint": -0.0089
+    },
+    "FIELD_SCADA": {
+      "model_file": "field_scada_isolation_forest.joblib",
+      "sample_count": 4400,
+      "nominal_score_mean": 0.0663,
+      "nominal_score_p5": 0.0078,
+      "nominal_score_min": -0.0721,
+      "sigmoid_midpoint": -0.0272
+    },
+    "FLEET_GLOBAL": {
+      "model_file": "fleet_global_isolation_forest.joblib",
+      "sample_count": 29200,
+      "nominal_score_mean": 0.1621,
+      "nominal_score_p5": 0.0337,
+      "nominal_score_min": -0.0321,
+      "sigmoid_midpoint": -0.0013
+    }
+  },
+  "feature_order": [
+    "norm_Inp bar/psi",
+    "norm_Int temp \u00b0C",
+    "norm_Motor temp \u00b0C",
+    "norm_Disch pr. Bar/psi",
+    "norm_Vibration G's-Vx",
+    "norm_Leak Current Ct",
+    "norm_Volt",
+    "norm_VSD Amps/Load",
+    "norm_Frequency",
+    "norm_DHG Current",
+    "norm_WHP (PSI)",
+    "norm_FLP (PSI)",
+    "norm_AP (PSI)"
+  ],
+  "created_at": "2026-09-10T18:00:00Z"
+}

@@ -1,0 +1,32 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-01-17T00:00:00Z",
+  "asset": {
+    "pump_type": "B400-400",
+    "stages": 342,
+    "motor_hp_50hz": 53.0,
+    "volt_50hz": 1669.0,
+    "rated_amp_a": 20.3,
+    "cluster": "SB247",
+    "vsd_model": "VECTOR PLUS",
+    "vsd_kva": 104.0,
+    "transformer_kva": 160.0,
+    "installation_date": "2026-01-17",
+    "tvd_ft": 4800.0,
+    "oil_sg": 0.858,
+    "water_sg": 1.072,
+    "bo": 1.14,
+    "pump_curve_coeffs": {
+      "A": -0.00012,
+      "B": -0.01,
+      "C": -0.78,
+      "D": 440.0
+    }
+  },
+  "cluster": {
+    "cluster_id": "SB247",
+    "wells": ["FS-17"],
+    "well_count": 1,
+    "total_rated_amp": 20.3
+  }
+}

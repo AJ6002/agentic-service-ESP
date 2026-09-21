@@ -1,0 +1,3429 @@
+{
+  "definitionId": "EAD-ESP-104",
+  "wellId": "ESP-104",
+  "fieldId": "NRD",
+  "revision": "R2",
+  "status": "approved",
+  "createdBy": "P. Osei",
+  "createdAt": "2025-06-27",
+  "updatedBy": "P. Osei",
+  "updatedAt": "2026-06-28",
+  "approvedBy": "V. Kulkarni",
+  "approvedAt": "2026-06-28",
+  "supersededBy": null,
+  "changeSummary": "Approved engineering baseline: curve set attached, envelope E3, OT mapping completed.",
+  "governance": {
+    "customer": {
+      "value": "Fictional Upstream Co.",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceRef": "MSA-2024-017"
+      }
+    },
+    "businessUnit": {
+      "value": "Onshore Production BU",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "assetName": {
+      "value": "Nardah North",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "fieldName": {
+      "value": "Nardah North",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "blockOrConcession": {
+      "value": "Block NRD-4",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "country": {
+      "value": "Country X (demo)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "region": {
+      "value": "Onshore Basin A",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "basin": {
+      "value": "Basin A/B composite",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "fieldId": {
+      "value": "NRD",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "padId": {
+      "value": "NRD-Pad-2",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "customerWellName": {
+      "value": "NRD-Pad-2 104",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "advaitWellId": {
+      "value": "ESP-104",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceRef": "Asset ConneX canonical ID"
+      }
+    },
+    "aliases": {
+      "value": "NRD-104",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "legacyIds": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "low",
+        "required": false,
+        "validation": "unverified"
+      }
+    },
+    "environment": {
+      "value": "Onshore",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "timezone": {
+      "value": "UTC+00:00 (demo)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "unitSystem": {
+      "value": "Field (US oilfield)",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "currency": {
+      "value": "USD",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "assetCriticality": {
+      "value": "1 - Critical",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "productionPriority": {
+      "value": "Rank 2 of 25",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "dataOwner": {
+      "value": "L. Fontaine",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "engineeringOwner": {
+      "value": "P. Osei",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "operationsOwner": {
+      "value": "H. Nakamura",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "reliabilityOwner": {
+      "value": "D. Whelan",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "effectiveFrom": {
+      "value": "2025-06-27",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "effectiveTo": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "low",
+        "required": false,
+        "validation": "unverified"
+      }
+    },
+    "sourceDocuments": {
+      "value": "ESP-DESIGN-ESP-104.pdf; COMPL-ESP-104-A.pdf; PVT-NRD-2025.pdf",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "notes": {
+      "value": "Demo definition \u2014 all names and values are fictional.",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    }
+  },
+  "hierarchy": [
+    {
+      "assetId": "AC:NRD",
+      "parentAssetId": null,
+      "level": "Field",
+      "assetClass": "Field",
+      "relationshipType": "contains",
+      "name": "Nardah North",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27"
+    },
+    {
+      "assetId": "AC:NRD:NRD-Pad-2",
+      "parentAssetId": "AC:NRD",
+      "level": "Pad/Facility",
+      "assetClass": "Pad",
+      "relationshipType": "contains",
+      "name": "NRD-Pad-2",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27"
+    },
+    {
+      "assetId": "AC:NRD:ESP-104",
+      "parentAssetId": "AC:NRD:NRD-Pad-2",
+      "level": "Well",
+      "assetClass": "Well",
+      "relationshipType": "contains",
+      "name": "ESP-104 \u2014 NRD-Pad-2 104",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27"
+    },
+    {
+      "assetId": "AC:NRD:ESP-104:COMPL",
+      "parentAssetId": "AC:NRD:ESP-104",
+      "level": "Completion",
+      "assetClass": "Completion",
+      "relationshipType": "contains",
+      "name": "Single-zone cased-hole completion",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27",
+      "documentRef": "COMPL-ESP-104-A"
+    },
+    {
+      "assetId": "AC:NRD:ESP-104:ALS",
+      "parentAssetId": "AC:NRD:ESP-104:COMPL",
+      "level": "Artificial Lift System",
+      "assetClass": "Artificial Lift System",
+      "relationshipType": "installed-in",
+      "name": "ESP artificial lift system",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27"
+    },
+    {
+      "assetId": "AC:NRD:ESP-104:ESP-ASSY",
+      "parentAssetId": "AC:NRD:ESP-104:ALS",
+      "level": "ESP Assembly",
+      "assetClass": "ESP Assembly",
+      "relationshipType": "contains",
+      "name": "Vertek Lift VX-Series assembly",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27"
+    },
+    {
+      "assetId": "AC:NRD:ESP-104:ESP-ASSY:PUMP-1",
+      "parentAssetId": "AC:NRD:ESP-104:ESP-ASSY",
+      "level": "ESP Component",
+      "assetClass": "Pump Section",
+      "relationshipType": "contains",
+      "name": "VX-540 pump (upper)",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27",
+      "make": "Vertek Lift",
+      "family": "VX-Series",
+      "model": "VX-540",
+      "serialNumber": "PMP-13552",
+      "partNumber": "VX-540-STG",
+      "seriesOrDiameterIn": 5.38,
+      "rating": "148 stages",
+      "materialSpec": "Ni-resist / high-chrome stages",
+      "stringOrder": 1
+    },
+    {
+      "assetId": "AC:NRD:ESP-104:ESP-ASSY:INTAKE",
+      "parentAssetId": "AC:NRD:ESP-104:ESP-ASSY",
+      "level": "ESP Component",
+      "assetClass": "Intake",
+      "relationshipType": "connected-to",
+      "name": "Bolt-on pump intake",
+      "status": "installed",
+      "installDate": "2025-06-27",
+      "commissioningDate": "2025-06-27",
+      "make": "Vertek Lift",
+      "model": "IN-38",
+      "serialNumber": "INT-77811",
+      "stringOrder": 2
+    }
+  ],
+  "geometry": {
+    "wellType": {
+      "value": "Oil producer",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "trajectoryType": {
+      "value": "Vertical",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "surfaceLatitude": {
+      "value": 24.7742,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "deg"
+    },
+    "surfaceLongitude": {
+      "value": 52.3194,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "deg"
+    },
+    "datumReference": {
+      "value": "KB (kelly bushing)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "referenceElevationFt": {
+      "value": 47,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "totalMdFt": {
+      "value": 7857,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "totalTvdFt": {
+      "value": 7817,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "deviationSurveyRef": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "low",
+        "required": false,
+        "validation": "unverified"
+      }
+    },
+    "packerDepthMdFt": {
+      "value": 6195,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "perfTopMdFt": {
+      "value": 7437,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "perfBottomMdFt": {
+      "value": 7617,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "perfTopTvdFt": {
+      "value": 7377,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "perfBottomTvdFt": {
+      "value": 7552,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "completionInterval": {
+      "value": "Zone B-2 sandstone",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pumpSettingMdFt": {
+      "value": 6455,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "pumpSettingTvdFt": {
+      "value": 6365,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "producingFluidLevelFt": {
+      "value": 5445,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "staticFluidLevelFt": {
+      "value": 2237,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "annulusPressureReference": {
+      "value": "Casing head gauge, atmospheric reference",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "wellheadConfiguration": {
+      "value": "5K conventional wellhead with ESP penetrator",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "chokeSizeIn64": {
+      "value": 32,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "/64 in"
+    },
+    "flowlineContext": {
+      "value": "NRD-Pad-2 flowline to group separator",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "separatorPressurePsi": {
+      "value": 131,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "knownRestrictions": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "low",
+        "required": false,
+        "validation": "unverified"
+      }
+    },
+    "maxAllowableWorkingPressurePsi": {
+      "value": 5000,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "casingSections": [
+      {
+        "id": "ESP-104-csg-1",
+        "label": "Surface casing",
+        "odIn": 13.375,
+        "idIn": 12.415,
+        "weightLbFt": 68,
+        "grade": "K-55",
+        "topMdFt": 0,
+        "shoeMdFt": 1800,
+        "shoeTvdFt": 1800,
+        "sourceClass": "Customer"
+      },
+      {
+        "id": "ESP-104-csg-2",
+        "label": "Intermediate casing",
+        "odIn": 9.625,
+        "idIn": 8.681,
+        "weightLbFt": 47,
+        "grade": "N-80",
+        "topMdFt": 0,
+        "shoeMdFt": 5200,
+        "shoeTvdFt": 5150,
+        "sourceClass": "Customer"
+      },
+      {
+        "id": "ESP-104-csg-3",
+        "label": "Production casing",
+        "odIn": 7,
+        "idIn": 6.276,
+        "weightLbFt": 26,
+        "grade": "L-80",
+        "topMdFt": 0,
+        "shoeMdFt": 7757,
+        "shoeTvdFt": 7717,
+        "sourceClass": "Customer"
+      }
+    ],
+    "tubingSections": [
+      {
+        "id": "ESP-104-tbg-1",
+        "label": "Production tubing",
+        "odIn": 2.875,
+        "idIn": 2.441,
+        "material": "L-80 EUE",
+        "roughnessIn": 0.0006,
+        "topMdFt": 0,
+        "bottomMdFt": 6455,
+        "sourceClass": "Customer"
+      }
+    ]
+  },
+  "reservoir": {
+    "reservoirPressurePsi": {
+      "value": 2566,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceRef": "PBU-ESP-104-2025",
+        "sourceTimestamp": "2026-05-04"
+      },
+      "unit": "psi"
+    },
+    "flowingBhpPsi": {
+      "value": 875,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "notes": "Derived from PIP + fluid gradient to datum."
+      },
+      "unit": "psi"
+    },
+    "reservoirTemperatureF": {
+      "value": 212,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "degF"
+    },
+    "bubblePointPsi": {
+      "value": 1580,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceRef": "PVT-NRD-2025"
+      },
+      "unit": "psi"
+    },
+    "productivityIndexBpdPsi": {
+      "value": 1.04,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceTimestamp": "2026-05-04"
+      },
+      "unit": "bpd/psi"
+    },
+    "aofBpd": {
+      "value": 2082,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "inflowModel": {
+      "value": "Composite",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "skinOrModifier": {
+      "value": 2.3,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "datumDepthTvdFt": {
+      "value": 7340,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "testDate": {
+      "value": "2026-05-04",
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "testMethod": {
+      "value": "Multi-rate test with downhole gauge",
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "quality": {
+      "value": "High",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "notes": {
+      "value": "Consistent with recent well test.",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    }
+  },
+  "fluid": {
+    "oilApiGravity": {
+      "value": 28,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceRef": "PVT-NRD-2025"
+      },
+      "unit": "degAPI"
+    },
+    "oilSg": {
+      "value": 0.887,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "waterSg": {
+      "value": 1.045,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "gasSg": {
+      "value": 0.741,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "waterCutPct": {
+      "value": 38,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceTimestamp": "2026-08-05"
+      },
+      "unit": "%"
+    },
+    "producedGorScfStb": {
+      "value": 705,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceTimestamp": "2026-08-05"
+      },
+      "unit": "scf/stb"
+    },
+    "solutionGorScfStb": {
+      "value": 508,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "scf/stb"
+    },
+    "boRbStb": {
+      "value": 1.247,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "rb/stb"
+    },
+    "bgRcfScf": {
+      "value": 0.00719,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "rcf/scf"
+    },
+    "oilViscosityCp": {
+      "value": 1.7,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "cP"
+    },
+    "waterViscosityCp": {
+      "value": 0.46,
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "cP"
+    },
+    "gasZFactor": {
+      "value": 0.87,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "salinityPpm": {
+      "value": 44675,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ppm NaCl"
+    },
+    "h2sPpm": {
+      "value": 70,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "ppm"
+    },
+    "co2MolPct": {
+      "value": 0.72,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "mol%"
+    },
+    "solidsIndicator": {
+      "value": "Intermittent sand production reported",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "solidsConcentrationPptb": {
+      "value": 3.5,
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "pptb"
+    },
+    "depositionTendencies": {
+      "value": "Low deposition tendency",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "fluidTemperatureF": {
+      "value": 194,
+      "provenance": {
+        "sourceClass": "OT",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "degF"
+    },
+    "pvtModel": {
+      "value": "Standing / Vazquez-Beggs (ADVAIT generic demo set)",
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "labReportRef": {
+      "value": "PVT-NRD-2025.pdf",
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "testDate": {
+      "value": "2025-11-22",
+      "provenance": {
+        "sourceClass": "Field Test",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    }
+  },
+  "designBasis": {
+    "designCaseId": {
+      "value": "DC-ESP-104-R2",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceTimestamp": "2025-06-27",
+        "approvedBy": "V. Kulkarni"
+      }
+    },
+    "designRevision": {
+      "value": "R2",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "approvalStatus": {
+      "value": "Draft",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "approvedBy": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "low",
+        "required": true,
+        "validation": "error"
+      }
+    },
+    "approvedDate": {
+      "value": null,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "low",
+        "required": false,
+        "validation": "unverified"
+      }
+    },
+    "targetLiquidBpd": {
+      "value": 2352,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "targetOilBopd": {
+      "value": 1458,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bopd"
+    },
+    "minDesiredRateBpd": {
+      "value": 1728,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "nominalRateBpd": {
+      "value": 2400,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "maxDesiredRateBpd": {
+      "value": 3024,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "designWaterCutPct": {
+      "value": 32,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "designGorScfStb": {
+      "value": 599,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "scf/stb"
+    },
+    "designWhpPsi": {
+      "value": 260,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designCasingPressurePsi": {
+      "value": 153,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designReservoirPressurePsi": {
+      "value": 2566,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designPwfPsi": {
+      "value": 915,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designPipPsi": {
+      "value": 471,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designPdpPsi": {
+      "value": 2431,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "designFrequencyHz": {
+      "value": 55,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "designTdhFt": {
+      "value": 3949,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft"
+    },
+    "pumpDifferentialPsi": {
+      "value": 1960,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "pumpFlowDownholeBpd": {
+      "value": 2493,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "pumpMake": {
+      "value": "Vertek Lift",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pumpFamily": {
+      "value": "VX-Series",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pumpModel": {
+      "value": "VX-540",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pumpSeriesIn": {
+      "value": 5.38,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "in"
+    },
+    "stages": {
+      "value": 148,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pumpSections": {
+      "value": 1,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "designBepBpd": {
+      "value": 2400,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "rorLowBpd": {
+      "value": 1728,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "rorHighBpd": {
+      "value": 3024,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "headPerStageFt": {
+      "value": 29,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "ft/stage"
+    },
+    "pumpEfficiencyPct": {
+      "value": 67,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "requiredBhp": {
+      "value": 89,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "hp"
+    },
+    "gasAtIntakeGvfPct": {
+      "value": 21.5,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "separatorEfficiencyPct": {
+      "value": 82,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "motorHp": {
+      "value": 120,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "hp"
+    },
+    "motorKw": {
+      "value": 89,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "kW"
+    },
+    "motorVoltageV": {
+      "value": 2100,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "motorCurrentA": {
+      "value": 74,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "A"
+    },
+    "motorFrequencyHz": {
+      "value": 60,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "motorServiceFactor": {
+      "value": 1.15,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "protectorSelection": {
+      "value": "SL-31 tandem, labyrinth + bag",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "cableSelection": {
+      "value": "#4 AWG flat, 5 kV, EPDM/lead",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "transformerSizingKva": {
+      "value": 750,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "kVA"
+    },
+    "vsdSizing": {
+      "value": "VSD-Q6 480 V, 6-pulse, sine-wave filter",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "assumptions": {
+      "value": "Steady-state single-zone inflow; no downhole choking; sand-free operation; design water cut per PVT report.",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "exclusions": {
+      "value": "Transient start-up loads, tubing scale build-up and reservoir depletion beyond 2 years excluded.",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "engineeringDocumentRef": {
+      "value": "ESP-DESIGN-ESP-104.pdf",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    }
+  },
+  "curveSets": [
+    {
+      "curveSetId": "CS-Vertek-VX-540-60",
+      "oem": "Vertek Lift",
+      "family": "VX-Series",
+      "model": "VX-540",
+      "seriesOrDiameterIn": 5.38,
+      "curveRevision": "Rev C (2025-03)",
+      "effectiveDate": "2025-03-01",
+      "baseFrequencyHz": 60,
+      "referenceFluidSg": 1,
+      "referenceViscosityCp": 1,
+      "testBasis": "Water test, single-stage, ADVAIT original sample curve (not OEM artwork)",
+      "bepBpd": 2400,
+      "rorLowBpd": 1728,
+      "rorHighBpd": 3024,
+      "toleranceMetadata": "\u00b15% head, \u00b18% power (catalogue tolerance)",
+      "points": [
+        {
+          "flowBpd": 0,
+          "headPerStageFt": 37.12,
+          "efficiencyPct": 2.7,
+          "bhpPerStage": 0
+        },
+        {
+          "flowBpd": 310,
+          "headPerStageFt": 36.47,
+          "efficiencyPct": 2.7,
+          "bhpPerStage": 2.3723
+        },
+        {
+          "flowBpd": 620,
+          "headPerStageFt": 35.41,
+          "efficiencyPct": 2.7,
+          "bhpPerStage": 4.6068
+        },
+        {
+          "flowBpd": 930,
+          "headPerStageFt": 33.95,
+          "efficiencyPct": 15.7,
+          "bhpPerStage": 6.6243
+        },
+        {
+          "flowBpd": 1240,
+          "headPerStageFt": 32.07,
+          "efficiencyPct": 35.4,
+          "bhpPerStage": 7.0655
+        },
+        {
+          "flowBpd": 1550,
+          "headPerStageFt": 29.79,
+          "efficiencyPct": 50.5,
+          "bhpPerStage": 5.7547
+        },
+        {
+          "flowBpd": 1860,
+          "headPerStageFt": 27.11,
+          "efficiencyPct": 60.9,
+          "bhpPerStage": 5.2088
+        }
+      ],
+      "additionalFrequenciesHz": [
+        50,
+        55
+      ],
+      "catalogDocumentRef": "CATALOG-VX-Series-2025.pdf",
+      "provenance": {
+        "sourceClass": "OEM",
+        "sourceRef": "CATALOG-VX-Series-2025.pdf",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    }
+  ],
+  "components": {
+    "pump": {
+      "model": {
+        "value": "VX-540",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "seriesIn": {
+        "value": 5.38,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "in"
+      },
+      "stageType": {
+        "value": "Mixed flow",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "stages": {
+        "value": 148,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "sections": {
+        "value": 1,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "ratedRangeBpd": {
+        "value": "1728\u20133024",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "bpd"
+      },
+      "shaftMaterialNotes": {
+        "value": "Monel shaft, high-chrome stages, abrasion-resistant bearings",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      }
+    },
+    "intake": {
+      "intakeType": {
+        "value": "Integrated intake with gas handling",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "gasHandlingType": {
+        "value": "Gas separator",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "ratedGasHandlingGvfPct": {
+        "value": 42,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "%"
+      },
+      "separatorEfficiencyAssumptionPct": {
+        "value": 82,
+        "provenance": {
+          "sourceClass": "Engineering",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "%"
+      }
+    },
+    "protector": {
+      "type": {
+        "value": "Tandem protector",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "configuration": {
+        "value": "Labyrinth + positive seal bag",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "chamberType": {
+        "value": "Two-chamber",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "thrustRatingLb": {
+        "value": 6800,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "lbf"
+      }
+    },
+    "motor": {
+      "make": {
+        "value": "Vertek Lift",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "model": {
+        "value": "MT-56",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "series": {
+        "value": "562 series",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "hp": {
+        "value": 120,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "hp"
+      },
+      "kw": {
+        "value": 89,
+        "provenance": {
+          "sourceClass": "Calculated",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "kW"
+      },
+      "ratedVoltageV": {
+        "value": 2100,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "V"
+      },
+      "ratedCurrentA": {
+        "value": 74,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "A"
+      },
+      "frequencyHz": {
+        "value": 60,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "Hz"
+      },
+      "speedRpm": {
+        "value": 3500,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "rpm"
+      },
+      "temperatureClass": {
+        "value": "Class H, 400 degF winding",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "serviceFactor": {
+        "value": 1.15,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      }
+    },
+    "gauge": {
+      "make": {
+        "value": "Sentiq Instruments",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "model": {
+        "value": "DG-9",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "channels": {
+        "value": "PIP, PDP, intake temp, motor temp, XY vibration, leakage current",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "pressureRangePsi": {
+        "value": "0\u20135,000",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "psi"
+      },
+      "temperatureRangeF": {
+        "value": "32\u2013400",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "degF"
+      },
+      "vibrationCapability": {
+        "value": "0\u20135 g, XY axes",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "leakageCurrentCapability": {
+        "value": "0\u2013100 mA",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "accuracy": {
+        "value": "\u00b10.1% FS pressure, \u00b12 degF temperature",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      }
+    },
+    "cable": {
+      "type": {
+        "value": "Flat power cable + MLE",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "sizeAwg": {
+        "value": "#4 AWG",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "conductor": {
+        "value": "Solid copper",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "insulation": {
+        "value": "EPDM with lead barrier",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "lengthFt": {
+        "value": 6277,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "ft"
+      },
+      "temperatureRatingF": {
+        "value": 400,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "degF"
+      },
+      "voltageRatingV": {
+        "value": 5000,
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        },
+        "unit": "V"
+      },
+      "estimatedVoltageDropV": {
+        "value": 111,
+        "provenance": {
+          "sourceClass": "Calculated",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        },
+        "unit": "V"
+      },
+      "mleType": {
+        "value": "Flat MLE, 400 degF",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      }
+    },
+    "surface": {
+      "transformerRating": {
+        "value": "750 kVA, 480 V / 2,100 V",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "vsdMake": {
+        "value": "Corenta Systems",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "vsdModel": {
+        "value": "VSD-Q6",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "vsdRating": {
+        "value": "480 V, 250 kVA, 6-pulse",
+        "provenance": {
+          "sourceClass": "OEM",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "vsdControlMode": {
+        "value": "V/Hz open loop (monitoring reference only)",
+        "provenance": {
+          "sourceClass": "Customer",
+          "confidence": "high",
+          "required": true,
+          "validation": "valid"
+        }
+      },
+      "junctionBoxId": {
+        "value": "JB-104",
+        "provenance": {
+          "sourceClass": "Customer",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      },
+      "switchboardId": {
+        "value": "SB-NRD-Pad-2",
+        "provenance": {
+          "sourceClass": "Customer",
+          "confidence": "high",
+          "required": false,
+          "validation": "valid"
+        }
+      }
+    }
+  },
+  "electrical": {
+    "powerSource": {
+      "value": "Field grid via pad substation",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "nominalSupplyVoltageV": {
+      "value": 480,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "transformerPrimaryV": {
+      "value": 480,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "transformerSecondaryV": {
+      "value": 2100,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "transformerKva": {
+      "value": 750,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "kVA"
+    },
+    "vsdMake": {
+      "value": "Corenta Systems",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "vsdModel": {
+      "value": "VSD-Q6",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "vsdFirmwareRef": {
+      "value": "FW 4.2.1 (demo)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "vsdRatedKva": {
+      "value": 250,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "kVA"
+    },
+    "vsdRatedCurrentA": {
+      "value": 100,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "A"
+    },
+    "vsdRatedVoltageV": {
+      "value": 480,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "minFrequencyHz": {
+      "value": 35,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "maxFrequencyHz": {
+      "value": 62,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "nominalFrequencyHz": {
+      "value": 55,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "outputVoltageRangeV": {
+      "value": "0\u2013480 (drive) / 0\u20132,300 (secondary)",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "outputCurrentRangeA": {
+      "value": "0\u2013100",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "motorRatedVoltageV": {
+      "value": 2100,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "V"
+    },
+    "motorRatedCurrentA": {
+      "value": 74,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "A"
+    },
+    "motorRatedHp": {
+      "value": 120,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "hp"
+    },
+    "motorRatedKw": {
+      "value": 89,
+      "provenance": {
+        "sourceClass": "Calculated",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "kW"
+    },
+    "currentImbalanceLimitPct": {
+      "value": 5,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "voltageImbalanceLimitPct": {
+      "value": 3,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "overloadLimitPct": {
+      "value": 115,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "underloadLimitPct": {
+      "value": 45,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "powerFactor": {
+      "value": 0.9,
+      "provenance": {
+        "sourceClass": "OT",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "cableVoltageDropAssumption": {
+      "value": "IEEE-style resistive drop at 60 degC conductor temperature",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "groundingConfigurationRef": {
+      "value": "GND-NRD-Pad-2-STD",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "restartDelayStrategy": {
+      "value": "30 min backspin dwell then 3 restart attempts (configuration reference only)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "backspinWaitMin": {
+      "value": 30,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "min"
+    },
+    "tripCodeDictionaryRef": {
+      "value": "VSD-Q6 trip code dictionary v4 (F-0xx series)",
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    }
+  },
+  "signalMappings": [
+    {
+      "canonicalId": "ESP.RUN_STATUS",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-vsd",
+      "sourceSystem": "VSD",
+      "sourceTagPath": "OTX://NRD/ESP-104/VSD/run_status",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Modbus TCP (via OTConnex)",
+      "rawUnit": null,
+      "engineeringUnit": "bool",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "bool",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0,
+      "rangeMin": 0,
+      "rangeMax": 1,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:53",
+      "required": true,
+      "usedBy": [
+        "Availability",
+        "Uptime",
+        "All surveillance"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.FREQUENCY",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-vsd",
+      "sourceSystem": "VSD",
+      "sourceTagPath": "OTX://NRD/ESP-104/VSD/frequency",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Modbus TCP (via OTConnex)",
+      "rawUnit": "Hz",
+      "engineeringUnit": "Hz",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 20,
+      "rangeMax": 70,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:50",
+      "required": true,
+      "usedBy": [
+        "Affinity scaling",
+        "Pump curve",
+        "TDH"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.MOTOR_CURRENT",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-vsd",
+      "sourceSystem": "VSD",
+      "sourceTagPath": "OTX://NRD/ESP-104/VSD/motor_current",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Modbus TCP (via OTConnex)",
+      "rawUnit": "A",
+      "engineeringUnit": "A",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 200,
+      "limitLowLow": null,
+      "limitLow": 26,
+      "limitHigh": 63,
+      "limitHighHigh": 74,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:54",
+      "required": true,
+      "usedBy": [
+        "Motor loading",
+        "Gas diagnostics",
+        "Wear diagnostics"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.WHP",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-scada",
+      "sourceSystem": "SCADA",
+      "sourceTagPath": "OTX://NRD/ESP-104/SCADA/whp",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "OPC UA (via OTConnex)",
+      "rawUnit": "psi",
+      "engineeringUnit": "psi",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 5000,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:55",
+      "required": true,
+      "usedBy": [
+        "Pressure analysis",
+        "TDH"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.PIP",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-downhole-gauge",
+      "sourceSystem": "Downhole gauge",
+      "sourceTagPath": "OTX://NRD/ESP-104/Downholegauge/pip",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Historian API",
+      "rawUnit": "psi",
+      "engineeringUnit": "psi",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 5000,
+      "limitLowLow": null,
+      "limitLow": 250,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:58",
+      "required": true,
+      "usedBy": [
+        "Pressure analysis",
+        "Gas diagnostics",
+        "Drawdown"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.PDP",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-downhole-gauge",
+      "sourceSystem": "Downhole gauge",
+      "sourceTagPath": "OTX://NRD/ESP-104/Downholegauge/pdp",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Historian API",
+      "rawUnit": "psi",
+      "engineeringUnit": "psi",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 6000,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:55",
+      "required": true,
+      "usedBy": [
+        "Pump performance",
+        "Head per stage"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.MOTOR_TEMP",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-downhole-gauge",
+      "sourceSystem": "Downhole gauge",
+      "sourceTagPath": "OTX://NRD/ESP-104/Downholegauge/motor_temp",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Historian API",
+      "rawUnit": "degF",
+      "engineeringUnit": "degF",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 450,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": 265,
+      "limitHighHigh": 285,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:57",
+      "required": true,
+      "usedBy": [
+        "Thermal margin",
+        "Reliability"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.LIQUID_RATE",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-production-system",
+      "sourceSystem": "Production system",
+      "sourceTagPath": "OTX://NRD/ESP-104/Productionsystem/liquid_rate",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Historian API",
+      "rawUnit": "bpd",
+      "engineeringUnit": "bpd",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 3600,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 12000,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:57",
+      "required": true,
+      "usedBy": [
+        "Operating point",
+        "ROR compliance"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    },
+    {
+      "canonicalId": "ESP.DQ_HEARTBEAT",
+      "wellId": "ESP-104",
+      "sourceAssetId": "ESP-104-downhole-gauge",
+      "sourceSystem": "Downhole gauge",
+      "sourceTagPath": "OTX://NRD/ESP-104/Downholegauge/dq_heartbeat",
+      "connectionRef": "OTConnex-conn-nrd-01",
+      "protocol": "Historian API",
+      "rawUnit": "sec",
+      "engineeringUnit": "sec",
+      "scale": 1,
+      "offset": 0,
+      "dataType": "float",
+      "sampleRateSec": 2,
+      "historianEnabled": true,
+      "deadband": 0.1,
+      "rangeMin": 0,
+      "rangeMax": 3600,
+      "limitLowLow": null,
+      "limitLow": null,
+      "limitHigh": null,
+      "limitHighHigh": null,
+      "quality": "good",
+      "lastGoodAt": "2026-08-13 15:54",
+      "required": true,
+      "usedBy": [
+        "Confidence gating",
+        "All analytics"
+      ],
+      "fallbackSource": null,
+      "inferred": false,
+      "timeSyncRule": "Source timestamp preferred; historian receipt time as fallback (UTC).",
+      "mappingStatus": "mapped",
+      "sourceClass": "OT",
+      "confidence": "high"
+    }
+  ],
+  "wellTests": [
+    {
+      "id": "WT-ESP-104-2026-08-05",
+      "testStart": "2026-08-05 06:00",
+      "durationH": 12,
+      "source": "Test separator",
+      "method": "Two-phase separator test",
+      "liquidBpd": 1810,
+      "oilBopd": 1122,
+      "waterBwpd": 688,
+      "gasMscfd": 791,
+      "waterCutPct": 38,
+      "gorScfStb": 705,
+      "whpPsi": 260,
+      "casingPressurePsi": 161,
+      "pipPsi": 385,
+      "pdpPsi": 2360,
+      "frequencyHz": 54.5,
+      "motorCurrentA": 46.5,
+      "flowingBhpPsi": 875,
+      "fluidLevelFt": 5371,
+      "accepted": true,
+      "confidence": "high",
+      "comments": "Latest accepted test used for model calibration."
+    },
+    {
+      "id": "WT-ESP-104-2026-07-08",
+      "testStart": "2026-07-08 06:00",
+      "durationH": 12,
+      "source": "MPFM",
+      "method": "Inline multiphase measurement",
+      "liquidBpd": 1783,
+      "oilBopd": 1105,
+      "waterBwpd": 678,
+      "gasMscfd": 779,
+      "waterCutPct": 38,
+      "gorScfStb": 705,
+      "whpPsi": 260,
+      "casingPressurePsi": 170,
+      "pipPsi": 393,
+      "pdpPsi": 2384,
+      "frequencyHz": 54.5,
+      "motorCurrentA": 46.5,
+      "flowingBhpPsi": null,
+      "fluidLevelFt": null,
+      "accepted": true,
+      "confidence": "medium",
+      "comments": "Routine monthly test."
+    },
+    {
+      "id": "WT-ESP-104-2026-06-11",
+      "testStart": "2026-06-11 06:00",
+      "durationH": 12,
+      "source": "Group separator",
+      "method": "Inline multiphase measurement",
+      "liquidBpd": 1756,
+      "oilBopd": 1089,
+      "waterBwpd": 667,
+      "gasMscfd": 768,
+      "waterCutPct": 38,
+      "gorScfStb": 705,
+      "whpPsi": 260,
+      "casingPressurePsi": 203,
+      "pipPsi": 400,
+      "pdpPsi": 2407,
+      "frequencyHz": 54.5,
+      "motorCurrentA": 46.5,
+      "flowingBhpPsi": null,
+      "fluidLevelFt": null,
+      "accepted": false,
+      "confidence": "high",
+      "comments": "Routine monthly test."
+    }
+  ],
+  "envelope": {
+    "envelopeRevision": {
+      "value": "E3",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "approvalStatus": {
+      "value": "Approved",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "approvedBy": {
+      "value": "V. Kulkarni",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "limitSource": {
+      "value": "Engineering",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "minFrequencyHz": {
+      "value": 42,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "maxFrequencyHz": {
+      "value": 60,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "Hz"
+    },
+    "rorLowBpd": {
+      "value": 1728,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "rorHighBpd": {
+      "value": 3024,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "bepReferenceBpd": {
+      "value": 2400,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "lowFlowCautionBpd": {
+      "value": 1814,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "lowFlowTripPreventionBpd": {
+      "value": 1469,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "highFlowCautionBpd": {
+      "value": 2873,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bpd"
+    },
+    "minPipPsi": {
+      "value": 250,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "drawdownMarginPsi": {
+      "value": 120,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "gvfCautionPct": {
+      "value": 30,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "motorLoadMinPct": {
+      "value": 45,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "motorLoadMaxPct": {
+      "value": 85,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "motorTempWarningF": {
+      "value": 265,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "degF"
+    },
+    "motorTempCriticalF": {
+      "value": 285,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "degF"
+    },
+    "vibrationWarningG": {
+      "value": 0.5,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "g"
+    },
+    "vibrationCriticalG": {
+      "value": 0.85,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "g"
+    },
+    "maxWhpPsi": {
+      "value": 1200,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "maxPdpPsi": {
+      "value": 4200,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "psi"
+    },
+    "startsPerHourGuidance": {
+      "value": 1,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "startsPerDayGuidance": {
+      "value": 3,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "restartDwellMin": {
+      "value": 30,
+      "provenance": {
+        "sourceClass": "OEM",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "min"
+    },
+    "dataQualityPrerequisite": {
+      "value": "PIP, motor current and frequency quality = good within 15 min",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "hysteresisPct": {
+      "value": 3,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "persistenceMin": {
+      "value": 20,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "min"
+    }
+  },
+  "calculation": {
+    "unitSystem": {
+      "value": "Field (US oilfield)",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "iprMethod": {
+      "value": "Composite (Vogel below Pb)",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "pvtCorrelation": {
+      "value": "Standing / Vazquez-Beggs (generic demo)",
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "multiphaseCorrelation": {
+      "value": "Placeholder \u2014 Hagedorn & Brown style gradient (demo)",
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "frictionModel": {
+      "value": "Darcy-Weisbach with Colebrook friction factor",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "fluidDensityMethod": {
+      "value": "Water-cut weighted mixture density",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "separatorEfficiencyMethod": {
+      "value": "Fixed efficiency assumption from design basis",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "curveInterpolationMethod": {
+      "value": "Monotone cubic on catalogued curve points",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "frequencyCorrectionMethod": {
+      "value": "Affinity laws (Q\u221dN, H\u221dN\u00b2, P\u221dN\u00b3)",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "viscosityCorrectionMethod": {
+      "value": "Placeholder \u2014 no viscosity correction applied in demo",
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "gasCorrectionMethod": {
+      "value": "Placeholder \u2014 simple GVF derate at intake",
+      "provenance": {
+        "sourceClass": "Default",
+        "confidence": "low",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "tdhMethod": {
+      "value": "Net lift + friction + surface backpressure head",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "piCalculationMethod": {
+      "value": "Rate / (Pr \u2212 Pwf) at test conditions",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "headToPressureBasis": {
+      "value": "Mixture SG at intake conditions",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "calculationWindow": {
+      "value": "15-minute rolling window",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "smoothing": {
+      "value": "Median-of-5 on noisy electrical channels",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "minDataQuality": {
+      "value": "Quality = good on required signals; heartbeat < 300 s",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "calculationVersionId": {
+      "value": "ESP-CALC-2026.08.1",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "engineeringOwner": {
+      "value": "V. Kulkarni",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "approvalStatus": {
+      "value": "Approved for demo use",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "genericCorrelations": true
+  },
+  "lifecycle": [
+    {
+      "id": "LC-ESP-104-1",
+      "type": "Installation",
+      "date": "2025-06-27",
+      "runHours": null,
+      "runLifeDays": null,
+      "startsCount": null,
+      "stopsCount": null,
+      "tripsCount": null,
+      "failureMode": null,
+      "suspectedCause": null,
+      "confirmedRootCause": null,
+      "componentFailed": null,
+      "interventionAction": "ESP VX-540 / 120 hp installed on NRD-Pad-2",
+      "difaFinding": null,
+      "evidenceRef": "WO-ESP-104-INSTALL",
+      "repeatFailure": false,
+      "conditionsBeforeFailure": null
+    },
+    {
+      "id": "LC-ESP-104-2",
+      "type": "Commissioning",
+      "date": "2025-06-27",
+      "runHours": 0,
+      "runLifeDays": 0,
+      "startsCount": 1,
+      "stopsCount": 0,
+      "tripsCount": 0,
+      "failureMode": null,
+      "suspectedCause": null,
+      "confirmedRootCause": null,
+      "componentFailed": null,
+      "interventionAction": "Start-up, ramp to design frequency, baseline test recorded",
+      "difaFinding": null,
+      "evidenceRef": "COMM-ESP-104",
+      "repeatFailure": false,
+      "conditionsBeforeFailure": null
+    },
+    {
+      "id": "LC-ESP-104-3",
+      "type": "Failure",
+      "date": "2025-05-28",
+      "runHours": 21604,
+      "runLifeDays": 982,
+      "startsCount": 23,
+      "stopsCount": 29,
+      "tripsCount": 14,
+      "failureMode": "Pump stage wear / loss of head",
+      "suspectedCause": "Abrasive wear from produced solids",
+      "confirmedRootCause": "Sand ingress through intake",
+      "componentFailed": "Pump section",
+      "interventionAction": "Workover \u2014 full ESP string replacement",
+      "difaFinding": "Teardown confirmed downthrust wear on lower stages; motor windings discoloured.",
+      "evidenceRef": "DIFA-ESP-104-982",
+      "repeatFailure": false,
+      "conditionsBeforeFailure": "Rising motor temperature with declining rate over the final 21 days."
+    }
+  ],
+  "riskFactors": [
+    {
+      "key": "Sizing quality",
+      "score": 43,
+      "basis": "Operating point vs ROR and BEP",
+      "sourceClass": "Calculated"
+    },
+    {
+      "key": "Bottomhole temperature",
+      "score": 44,
+      "basis": "Motor temperature vs class rating",
+      "sourceClass": "OT"
+    },
+    {
+      "key": "Free gas",
+      "score": 85,
+      "basis": "GVF at intake vs handling rating",
+      "sourceClass": "Calculated"
+    },
+    {
+      "key": "Viscosity",
+      "score": 42,
+      "basis": "Oil viscosity from PVT report",
+      "sourceClass": "Field Test"
+    },
+    {
+      "key": "Corrosion",
+      "score": 36,
+      "basis": "CO2 / H2S content and water chemistry",
+      "sourceClass": "Field Test"
+    },
+    {
+      "key": "Sand / foreign material",
+      "score": 74,
+      "basis": "Solids reports and vibration signature",
+      "sourceClass": "Customer"
+    }
+  ],
+  "economics": {
+    "baselineOilBopd": {
+      "value": 1290,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "bopd"
+    },
+    "allocatedOilSource": {
+      "value": "Pad allocation from group separator, back-allocated by MPFM",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "defermentBasis": {
+      "value": "Expected oil (design/curve based) minus allocated oil, floored at zero",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "targetOilBopd": {
+      "value": 1355,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      },
+      "unit": "bopd"
+    },
+    "uptimeTargetPct": {
+      "value": 96,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "%"
+    },
+    "oilPriceUsdBbl": {
+      "value": 72,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid",
+        "sourceTimestamp": "2026-07-01",
+        "notes": "Assumption \u2014 planning price, effective 2026-07-01."
+      },
+      "unit": "USD/bbl"
+    },
+    "valueBasis": {
+      "value": "Net realised price less variable lifting cost (assumption)",
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "interventionCostKUsd": {
+      "value": 420,
+      "provenance": {
+        "sourceClass": "Customer",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      },
+      "unit": "kUSD"
+    },
+    "opportunityValuationBasis": {
+      "value": "Incremental oil \u00d7 price \u00d7 expected persistence (30 d)",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": true,
+        "validation": "valid"
+      }
+    },
+    "productionCriticality": {
+      "value": "High",
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    },
+    "rankingWeight": {
+      "value": 0.81,
+      "provenance": {
+        "sourceClass": "Engineering",
+        "confidence": "high",
+        "required": false,
+        "validation": "valid"
+      }
+    }
+  }
+}

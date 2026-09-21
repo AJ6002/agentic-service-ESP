@@ -1,0 +1,95 @@
+================================================================================
+NEWMAN EXECUTION AUDIT REPORT: COLLECTION 01 - KNOWLEDGE BASE SERVICE (:8085)
+File: 01_knowledge_base_suite.postman_collection.json
+Target Host: http://192.168.1.184:8085
+Executed: 2026-09-19
+================================================================================
+
+1. SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+Total Iterations:        1
+Total HTTP Requests:    10
+Total Test Assertions:  30
+Assertions Passed:      18 (60.0%)
+Assertions Failed:      12 (40.0%)
+Total Run Duration:     2.8s
+Average Response Time:  209ms (Min: 72ms, Max: 800ms)
+
+2. REQUEST-BY-REQUEST BREAKDOWN & STUBNESS AUDIT
+--------------------------------------------------------------------------------
+
+[PASS] 01. KB Service Health Check
+  - Endpoint: GET /health
+  - Status: 200 OK (72ms)
+  - Realness / Stubness: 100% REAL. Returns actual Qdrant collection status,
+    indexed_documents count, and deterministic_faults count.
+
+[FAIL] 02. KB Readiness Check
+  - Endpoint: GET /readiness
+  - Status: 404 Not Found
+  - Fault Analysis: The service does not implement a dedicated /readiness route;
+    readiness is reported inside root "/" and "/health" endpoints.
+  - Stubness: Zero stub. Missing route on backend.
+
+[PASS] 03. Semantic Search - Underload Fluid Starvation
+  - Endpoint: POST /api/kb/search (Query: "underload fluid starvation trip")
+  - Status: 200 OK (800ms)
+  - Realness / Stubness: 100% REAL. Hit live Qdrant vector database, executed
+    dense vector similarity search on Takacs ESP engineering manuals, and returned
+    genuine document excerpts with confidence scores and source metadata.
+
+[PASS] 04. Semantic Search - Gas Lock Interference
+  - Endpoint: POST /api/kb/search (Query: "gas lock and gas interference troubleshooting")
+  - Status: 200 OK (263ms)
+  - Realness / Stubness: 100% REAL. Returned genuine chunk excerpts citing
+    multiphase pump operations and gas separation standards.
+
+[FAIL] 05. Specific Document Retrieval (DOC-001)
+  - Endpoint: GET /api/kb/document/DOC-001
+  - Status: 404 Not Found
+  - Fault Analysis: Knowledge base does not store documents by static arbitrary
+    IDs like "DOC-001"; documents are stored as chunked embeddings in Qdrant.
+    There is no /api/kb/document/{id} endpoint in esp_kb_service.
+
+[FAIL] 06. Causal Graph Trace
+  - Endpoint: POST /api/kb/graph/trace (Payload: {"symptoms": ["OVERHEAT", "VIBRATION"]})
+  - Status: 200 OK (110ms)
+  - Fault Analysis: Endpoint is LIVE and functional, but response schema
+    returned `{ "symptom_ids": [...], "causes": [...], "remedies": [...] }`
+    whereas test assertion strictly looked for property `nodes`.
+  - Realness / Stubness: 100% REAL causal trace engine.
+
+[FAIL] 07. Fault Profile - Motor Overheat
+  - Endpoint: GET /api/kb/fault/OVERHEAT
+  - Status: 404 Not Found
+  - Fault Analysis: ROUTE MISMATCH. Backend defines route as `/api/kb/faults/{fault_id}`
+    (plural "faults"), but test requested `/api/kb/fault/{fault_id}` (singular).
+
+[FAIL] 08. Fault Profile - Gas Lock
+  - Endpoint: GET /api/kb/fault/GAS_LOCK
+  - Status: 404 Not Found
+  - Fault Analysis: Same route mismatch as #07. Target route must be `/api/kb/faults/GAS_LOCK`.
+
+[FAIL] 09. Standard Clause - API RP 11S
+  - Endpoint: GET /api/kb/standards/API_RP_11S
+  - Status: 200 OK (95ms)
+  - Fault Analysis: Endpoint is 100% LIVE and returned complete API RP 11S standard
+    clauses, but test assertion expected string 'API-RP-11S' (hyphenated), while
+    real database returns 'API_RP_11S' (underscored).
+
+[FAIL] 10. Standard Clause - ISO 15551
+  - Endpoint: GET /api/kb/standards/ISO_15551
+  - Status: 404 Not Found
+  - Fault Analysis: ISO 15551 standard is not present in deterministic SQLite
+    standards dictionary (currently contains API RP 11S5, 11S1, 11S8).
+
+3. OVERALL VERDICT ON STUBNESS & QUALITY
+--------------------------------------------------------------------------------
+- Realness Level: 100% REAL. There are NO mocked responses, fake stubs, or hardcoded
+  simulations in esp_kb_service (:8085).
+- Root Cause of Test Failures:
+  1. Test calls nonexistent convenience routes (/readiness, /api/kb/document/DOC-001).
+  2. Typo in test path: singular /fault/ instead of plural /faults/.
+  3. Schema mismatch: assertions looking for 'nodes' instead of real 'symptom_ids'/'causes'.
+  4. String delimiter mismatch: assertion wanted 'API-RP-11S', real API gave 'API_RP_11S'.
+================================================================================

@@ -1,0 +1,30 @@
+{
+  "run_id": "R-dead-well-fixture",
+  "version": 1,
+  "sealed": true,
+  "items": [
+    {
+      "evidence_id": "EV-dead-kpi",
+      "tool": "get_current_status",
+      "source_domain": "kpi",
+      "status": "OK",
+      "payload": {
+        "well_id": "FNW-01",
+        "timestamp": "2026-09-13T10:37:40Z",
+        "kpis": {
+          "oil_rate_bopd": 0.0,
+          "water_cut_pct": 78.2,
+          "liquid_rate_bpd": 0.0,
+          "gas_rate_mscfd": 0.0,
+          "motor_load_pct": 0.0,
+          "energy_variance_pct": 0.0,
+          "health_score": 92.0,
+          "anomaly_score": 0.95
+        },
+        "status": "tripped",
+        "alarm_count": 3
+      },
+      "fetched_at": "2026-09-20T12:00:00Z"
+    }
+  ]
+}

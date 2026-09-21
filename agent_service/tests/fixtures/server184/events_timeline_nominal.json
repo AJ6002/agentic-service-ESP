@@ -1,0 +1,22 @@
+{
+  "well_id": "FNW-01",
+  "start": "2026-09-01T00:00:00Z",
+  "end": "2026-09-30T00:00:00Z",
+  "event_count": 1,
+  "events": [
+    {
+      "event_id": "EV-20260913-100000-1010",
+      "timestamp": "2026-09-13T10:00:00Z",
+      "well_id": "FNW-01",
+      "operating_state": "tripped",
+      "scenario": "dry_well_pump_off",
+      "trip_cause": "UNDERLOAD_PUMP_OFF",
+      "alarms": [
+        "LOW_INTAKE_PRESSURE",
+        "UNDERLOAD",
+        "TRIP_UNDERLOAD_PUMP_OFF"
+      ],
+      "event_type": "trip"
+    }
+  ]
+}

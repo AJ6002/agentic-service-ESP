@@ -1,0 +1,27 @@
+objective_id: OP05_EARLY_WARNING
+tool: get_anomaly
+safety_class: READ
+scope: ASSET
+max_gapfill_rounds: 1
+required_evidence:
+  - get_asset_context
+  - get_anomaly
+  - get_historian_aggregates
+optional_evidence:
+  - get_current_status
+  - get_health_index
+  - get_events
+  - get_explanation
+allowed_visuals:
+  - anomaly-score
+  - risk-trajectory
+  - vibration
+  - intake-pressure
+  - motor-temperature
+arg_schema:
+  type: object
+  properties:
+    asset_id:
+      type: string
+  required:
+    - asset_id

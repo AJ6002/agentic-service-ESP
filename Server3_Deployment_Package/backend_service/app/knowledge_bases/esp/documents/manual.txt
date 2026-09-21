@@ -1,0 +1,30 @@
+ELECTRIC SUBMERSIBLE PUMP (ESP) SYSTEM OPERATING MANUAL
+
+1. System Overview
+Electric Submersible Pumps (ESPs) are multi-stage centrifugal pumps powered by a downhole electric motor. ESPs operate in fluid-producing wells to lift oil, water, and gas mixtures to the surface.
+
+2. Standard Operating Ranges & Alarm Thresholds
+- Motor Temperature:
+  * Normal Operating Range: 80.0°C to 120.0°C
+  * Warning Threshold: > 130.0°C (High motor temperature alert)
+  * Critical Threshold: > 150.0°C (Emergency shutdown required)
+
+- Intake Pressure (PIP):
+  * Normal Operating Range: 200.0 psi to 500.0 psi
+  * Warning Threshold: < 150.0 psi (Gas lock risk / Pump-off condition warning)
+  * Critical Threshold: < 100.0 psi (Severe pump cavitation / Low pressure trip)
+
+- Radial Vibration:
+  * Normal Operating Range: 0.5 g to 1.5 g
+  * Warning Threshold: > 3.0 g (Bearing wear / Imbalance alert)
+  * Critical Threshold: > 5.0 g (Structural damage risk / Mechanical trip)
+
+- Axial Vibration:
+  * Normal Operating Range: 0.1 g to 1.0 g
+  * Warning Threshold: > 1.5 g
+
+3. Installation & Pre-Commissioning Procedures
+Ensure electrical isolation and mechanical check of all motor leads. Verify static reservoir pressure and ensure downhole sensor telemetry is calibrated prior to starting the drive controller.
+
+4. Normal Operating Procedures
+Operate drive within recommended frequency limits (45 Hz to 65 Hz). Maintain intake pressure above minimum liquid level to prevent gas lock. Monitor motor winding temperature continuously.

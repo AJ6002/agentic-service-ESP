@@ -1,0 +1,15 @@
+CRITICAL ERROR: Your previous response was not valid JSON matching the Advisory schema.
+You MUST output ONLY raw valid JSON with no markdown formatting, no code fences (do NOT use ```json), and no additional explanation.
+
+Schema:
+{
+  "objective_id": "<string>",
+  "assessment": "<string>",
+  "hypotheses": ["<string>", ...],
+  "recommendation": "<string>",
+  "verification_steps": ["<string>", ...],
+  "confidence": <float>,
+  "cited_evidence_ids": ["<string>", ...]
+}
+
+Return ONLY the JSON object now:

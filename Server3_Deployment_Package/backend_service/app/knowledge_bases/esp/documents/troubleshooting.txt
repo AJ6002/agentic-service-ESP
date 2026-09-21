@@ -1,0 +1,16 @@
+ESP TROUBLESHOOTING & DIAGNOSTIC GUIDE
+
+Symptom 1: High Motor Temperature (>130°C)
+- Potential Causes: Low fluid flow across motor housing, scale deposition on motor sleeve, high fluid viscosity, or electrical imbalance.
+- Diagnosis: Check telemetry for motor temperature >130°C and verify flow rate.
+- Immediate Action: Reduce flow rate to lower motor temperature, check PIP, inspect for scale deposition.
+
+Symptom 2: Excessive Radial Vibration (>3.0 g)
+- Potential Causes: Bearing wear, rotor imbalance, stage misalignment, or shaft deflection.
+- Diagnosis: Observe radial vibration exceeding 3.0 g.
+- Immediate Action: Inspect journal bearings, check rotor alignment, verify pump stage alignment, replace worn bearings.
+
+Symptom 3: Low Pump Intake Pressure (<150 psi)
+- Potential Causes: Gas lock risk, well pump-off, gas breakout in pump intake, or separator blockage.
+- Diagnosis: Telemetry shows intake pressure falling below 150 psi threshold.
+- Immediate Action: Reduce flow rate, activate VSD agitation cycles, verify gas separator is functioning properly.

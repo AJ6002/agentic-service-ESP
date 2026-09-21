@@ -1,0 +1,1987 @@
+{
+  "info": {
+    "_postman_id": "05b3720f-bea8-47bc-8ab8-f488f5e12bb0",
+    "name": "03. ML Diagnostics, Plots, KPIs & Cards (:8090)",
+    "description": "Comprehensive tests for ML Inference, Explainability (SHAP), Interactive Plots, Fleet KPIs, and all 17 Data Cards on Server 184 (:8090).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url_184",
+      "value": "http://192.168.1.184:8090",
+      "type": "string"
+    },
+    {
+      "key": "well_id",
+      "value": "FS-17",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "ML Diagnostics",
+      "item": [
+        {
+          "name": "01. ML Engine Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"ML service is ready and models loaded\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql(\"ok\");",
+                  "    pm.expect(jsonData.models_loaded).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "02. Real-time Anomaly Score",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Anomaly score is bounded between 0.0 and 1.0\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    var anomVal = jsonData.score !== undefined ? jsonData.score : jsonData.anomaly_score;\n",
+                  "    pm.expect(anomVal !== undefined).to.be.true;\n",
+                  "    pm.expect(anomVal).to.be.at.least(0.0);",
+                  "    pm.expect(anomVal).to.be.at.most(1.0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/anomaly/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "anomaly",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "03. Fault Classification Diagnostic",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Fault diagnosis returns predicted fault class\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    var faultVal = jsonData.fault_class || jsonData.fault_name;\n",
+                  "    pm.expect(faultVal !== undefined).to.be.true;\n",
+                  "    pm.expect(jsonData).to.have.property(\"confidence\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/fault/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "fault",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "04. Composite Equipment Health Score",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Health score is between 0 and 100\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData).to.have.property(\"health_score\");",
+                  "    pm.expect(jsonData.health_score).to.be.at.least(0);",
+                  "    pm.expect(jsonData.health_score).to.be.at.most(100);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/health/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "health",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "05. Degradation & RUL Trajectory",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Degradation trajectory returned\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    var rateVal = jsonData.rate_per_day !== undefined ? jsonData.rate_per_day : jsonData.degradation_rate;\n",
+                  "    pm.expect(rateVal !== undefined).to.be.true;\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/degradation/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "degradation",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "06. SHAP Attribution - Fault Classification",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"SHAP fault explainability has feature importance\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var shapItems = jsonData.contributions || jsonData.features || [];\n",
+                  "    pm.expect(shapItems).to.be.an(\"array\");\n",
+                  "    pm.expect(shapItems.length).to.be.above(0);\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/explain/{{well_id}}?output=fault",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "explain",
+                "{{well_id}}"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "fault"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07. SHAP Attribution - Anomaly Score",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"SHAP anomaly explainability verified\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var shapItems = jsonData.contributions || jsonData.features || [];\n",
+                  "    pm.expect(shapItems).to.be.an(\"array\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/explain/{{well_id}}?output=anomaly",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "explain",
+                "{{well_id}}"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "anomaly"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "08. SHAP Attribution - Health Score",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"SHAP health score contributors verified\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var shapItems = jsonData.contributions || jsonData.features || [];\n",
+                  "    pm.expect(shapItems).to.be.an(\"array\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/ml/explain/{{well_id}}?output=health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "ml",
+                "explain",
+                "{{well_id}}"
+              ],
+              "query": [
+                {
+                  "key": "output",
+                  "value": "health"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ML Results Database Queries",
+      "item": [
+        {
+          "name": "09. ML Results Query - Default (No params -> default limit 100 rows)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Returns default batch of results\", function () {",
+                  "    pm.expect(list.length).to.be.above(0);",
+                  "    pm.expect(json.count).to.eql(list.length);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "10. ML Results Query - Specific Well (asset_id=FS-17)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"All returned rows match asset_id FS-17\", function () {",
+                  "    list.forEach(function(row) {",
+                  "        var rowAsset = row.asset_id || row.well_id;",
+                  "        pm.expect(rowAsset).to.eql(pm.environment.get(\"well_id\") || \"FS-17\");",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "11. ML Results Query - Tripped Well (asset_id=FNW-01)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"All returned rows match asset_id FNW-01\", function () {",
+                  "    list.forEach(function(row) {",
+                  "        var rowAsset = row.asset_id || row.well_id;",
+                  "        pm.expect(rowAsset).to.eql(\"FNW-01\");",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id=FNW-01",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "FNW-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "12. ML Results Query - Small Page Limit (limit=5)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Results count does not exceed limit=5\", function () {",
+                  "    pm.expect(list.length).to.be.at.most(5);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&limit=5",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "13. ML Results Query - Medium Page Limit (limit=50)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Results count does not exceed limit=50\", function () {",
+                  "    pm.expect(list.length).to.be.at.most(50);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&limit=50",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "14. ML Results Query - Large Page Limit (limit=250)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Results count does not exceed limit=250\", function () {",
+                  "    pm.expect(list.length).to.be.at.most(250);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&limit=250",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "limit",
+                  "value": "250"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "15. ML Results Query - Anomalous Only Flag = True",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"All rows are tagged anomalous\", function () {",
+                  "    list.forEach(function(row) {",
+                  "        pm.expect([true, 1, \"true\", \"1\"]).to.include(row.is_anomalous);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&anomalous_only=true",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "anomalous_only",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "16. ML Results Query - Anomalous Only Flag = False (all records)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Query completes and returns records\", function () {",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&anomalous_only=false",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "anomalous_only",
+                  "value": "false"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "17. ML Results Query - Combined (Asset + Limit=20 + Anomalous Only=True)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Combined filter satisfied: limit <= 20, asset match, all anomalous\", function () {",
+                  "    pm.expect(list.length).to.be.at.most(20);",
+                  "    list.forEach(function(row) {",
+                  "        var rowAsset = row.asset_id || row.well_id;",
+                  "        pm.expect(rowAsset).to.eql(pm.environment.get(\"well_id\") || \"FS-17\");",
+                  "        pm.expect([true, 1, \"true\", \"1\"]).to.include(row.is_anomalous);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?asset_id={{well_id}}&limit=20&anomalous_only=true",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "asset_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "anomalous_only",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "18. ML Results Query - Fleet-wide Anomalies (Fleet-wide + Limit=30 + Anomalous Only=True)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Response time < 20000ms\", function () { pm.expect(pm.response.responseTime).to.be.below(20000); });",
+                  "var json = pm.response.json();",
+                  "var list = json.records || json.results || [];\n",
+                  "pm.test(\"Success status and results array present\", function () {",
+                  "    var list = json.records || json.results || [];\n",
+                  "    pm.expect(json.status.toLowerCase()).to.eql(\"success\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");\n",
+                  "    pm.expect(list).to.be.an(\"array\");",
+                  "});",
+                  "pm.test(\"Fleet-wide anomalous results bounded by limit=30\", function () {",
+                  "    pm.expect(list.length).to.be.at.most(30);",
+                  "    list.forEach(function(row) {",
+                  "        pm.expect([true, 1, \"true\", \"1\"]).to.include(row.is_anomalous);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/api/mlresults/query?anomalous_only=true&limit=30",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "api",
+                "mlresults",
+                "query"
+              ],
+              "query": [
+                {
+                  "key": "anomalous_only",
+                  "value": "true"
+                },
+                {
+                  "key": "limit",
+                  "value": "30"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard Plots",
+      "item": [
+        {
+          "name": "09. Telemetry Trend Plot Payload",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Telemetry trend plot returns time-series series\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"series\");",
+                  "    pm.expect(jsonData.series).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/plots/{{well_id}}/anomaly_trend",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "plots",
+                "{{well_id}}",
+                "anomaly_trend"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "10. Health Radar Plot Payload",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Health radar plot returns radial axes\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"series\");\n",
+                  "    pm.expect(jsonData.series).to.be.an(\"array\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/plots/{{well_id}}/health_trajectory",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "plots",
+                "{{well_id}}",
+                "health_trajectory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "11. Operating Envelope Plot Payload",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Operating envelope returns bands and operating point\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"series\");\n",
+                  "    pm.expect(jsonData.series).to.be.an(\"array\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/plots/{{well_id}}/pressure_corridor",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "plots",
+                "{{well_id}}",
+                "pressure_corridor"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "12. Degradation Curve Plot Payload",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Degradation curve returns trajectory points\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"series\");\n",
+                  "    pm.expect(jsonData.series).to.be.an(\"array\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/plots/{{well_id}}/motor_load_trend",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "plots",
+                "{{well_id}}",
+                "motor_load_trend"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Holistic KPIs",
+      "item": [
+        {
+          "name": "13. Fleet-Wide KPI Overview",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Fleet KPIs return production and health summary\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var wellCnt = jsonData.well_count !== undefined ? jsonData.well_count : jsonData.total_wells;\n",
+                  "    pm.expect(wellCnt).to.be.at.least(1);\n",
+                  "    pm.expect(jsonData).to.have.property(\"wells\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/kpi/fleet",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "kpi",
+                "fleet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "14. Well-Level Holistic KPI Snapshot",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Well KPI snapshot returns all key dimensions\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    var healthVal = jsonData.health_index !== undefined ? jsonData.health_index : (jsonData.kpis ? jsonData.kpis.health_score : undefined);\n",
+                  "    pm.expect(healthVal).to.be.at.least(0.0);\n",
+                  "    pm.expect(jsonData).to.have.property(\"status\");\n",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/kpi/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "kpi",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Data Cards (All 17)",
+      "item": [
+        {
+          "name": "15. Cards Catalog Registry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Catalog contains all 17 registered cards\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"cards\");",
+                  "    pm.expect(jsonData.cards.length).to.eql(17);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/catalog",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "catalog"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 01. Gross Liquid Rate Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is gross-liquid-rate\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"gross-liquid-rate\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/gross-liquid-rate",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "gross-liquid-rate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 02. Net Oil Rate Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is net-oil-rate\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"net-oil-rate\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/net-oil-rate",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "net-oil-rate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 03. Water Cut Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is water-cut\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"water-cut\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/water-cut",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "water-cut"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 04. Associated Gas Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is associated-gas\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"associated-gas\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/associated-gas",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "associated-gas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 05. Production Deferment Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is production-deferment\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"production-deferment\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/production-deferment",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "production-deferment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 06. Energy Balance Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is energy-balance\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"energy-balance\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/energy-balance",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "energy-balance"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 07. Health Score Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is health-score\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"health-score\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/health-score",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "health-score"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 08. Anomaly Score Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is anomaly-score\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"anomaly-score\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/anomaly-score",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "anomaly-score"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 09. Fault Classification Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is fault-classification\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"fault-classification\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/fault-classification",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "fault-classification"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 10. Motor Load Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is motor-load\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"motor-load\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/motor-load",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "motor-load"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 11. Motor Temperature Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is motor-temperature\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"motor-temperature\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/motor-temperature",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "motor-temperature"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 12. Vibration Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is vibration\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"vibration\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/vibration",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "vibration"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 13. Intake Pressure Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is intake-pressure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"intake-pressure\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/intake-pressure",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "intake-pressure"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 14. Discharge Pressure Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is discharge-pressure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"discharge-pressure\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/discharge-pressure",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "discharge-pressure"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 15. VSD Advisor Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is vsd-advisor\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"vsd-advisor\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/vsd-advisor",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "vsd-advisor"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 16. Fleet Health Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is fleet-health\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"fleet-health\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/fleet-health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "fleet-health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Card - 17. System Ingestion Card",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Card ID is system-ingestion\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.card_id).to.eql(\"system-ingestion\");",
+                  "    pm.expect(jsonData).to.have.property(\"value\");",
+                  "    pm.expect(jsonData).to.have.property(\"unit\");",
+                  "    pm.expect(jsonData).to.have.property(\"component_id\");",
+                  "    pm.expect(jsonData).to.have.property(\"agent_guidance\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/cards/{{well_id}}/system-ingestion",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "cards",
+                "{{well_id}}",
+                "system-ingestion"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "query": "underload trip fluid starvation current drop",
+  "hits": [
+    {
+      "doc_id": "API_RP_11S1_Dismantle_Failure_Analysis_2022",
+      "section": "Underload & Gas Protection",
+      "revision": "2022",
+      "authority": "LEVEL_A_STANDARD",
+      "applicability": ["All"],
+      "page": 7,
+      "snippet": "Underload protection trips when motor load falls below preset threshold due to fluid starvation or gas breakout in the pump stages...",
+      "score": 0.845
+    }
+  ],
+  "total_found": 1,
+  "service_ms": 26.0
+}

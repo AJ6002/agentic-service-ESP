@@ -1,0 +1,131 @@
+[
+  {
+    "path": "/",
+    "type": "page",
+    "component": "IndexRoute",
+    "file": "src/routes/index.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/wells",
+    "type": "page",
+    "component": "WellsIndexRoute",
+    "file": "src/routes/wells.index.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/wells/$wellId",
+    "type": "page",
+    "component": "WellsWellIdRoute",
+    "file": "src/routes/wells.$wellId.tsx",
+    "parent": "__root__",
+    "params": ["wellId"]
+  },
+  {
+    "path": "/exceptions",
+    "type": "page",
+    "component": "ExceptionsRoute",
+    "file": "src/routes/exceptions.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/troubleshooting",
+    "type": "page",
+    "component": "TroubleshootingRoute",
+    "file": "src/routes/troubleshooting.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/reliability",
+    "type": "page",
+    "component": "ReliabilityRoute",
+    "file": "src/routes/reliability.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/reports",
+    "type": "page",
+    "component": "ReportsRoute",
+    "file": "src/routes/reports.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/engineering",
+    "type": "layout",
+    "component": "EngineeringRoute",
+    "file": "src/routes/engineering.tsx",
+    "parent": "__root__"
+  },
+  {
+    "path": "/engineering/workbench",
+    "type": "page",
+    "component": "EngineeringWorkbenchRoute",
+    "file": "src/routes/engineering.workbench.tsx",
+    "parent": "EngineeringRoute"
+  },
+  {
+    "path": "/engineering/catalog",
+    "type": "layout",
+    "component": "EngineeringCatalogRoute",
+    "file": "src/routes/engineering.catalog.tsx",
+    "parent": "EngineeringRoute"
+  },
+  {
+    "path": "/engineering/catalog/",
+    "type": "page",
+    "component": "EngineeringCatalogIndexRoute",
+    "file": "src/routes/engineering.catalog.index.tsx",
+    "parent": "EngineeringCatalogRoute"
+  },
+  {
+    "path": "/engineering/catalog/pumps/$modelId",
+    "type": "page",
+    "component": "EngineeringCatalogPumpsModelIdRoute",
+    "file": "src/routes/engineering.catalog.pumps.$modelId.tsx",
+    "parent": "EngineeringCatalogRoute",
+    "params": ["modelId"]
+  },
+  {
+    "path": "/engineering/installations",
+    "type": "layout",
+    "component": "EngineeringInstallationsRoute",
+    "file": "src/routes/engineering.installations.tsx",
+    "parent": "EngineeringRoute"
+  },
+  {
+    "path": "/engineering/installations/",
+    "type": "page",
+    "component": "EngineeringInstallationsIndexRoute",
+    "file": "src/routes/engineering.installations.index.tsx",
+    "parent": "EngineeringInstallationsRoute"
+  },
+  {
+    "path": "/engineering/installations/$systemId",
+    "type": "page",
+    "component": "EngineeringInstallationsSystemIdRoute",
+    "file": "src/routes/engineering.installations.$systemId.tsx",
+    "parent": "EngineeringInstallationsRoute",
+    "params": ["systemId"]
+  },
+  {
+    "path": "/engineering/governance",
+    "type": "layout",
+    "component": "EngineeringGovernanceRoute",
+    "file": "src/routes/engineering.governance.tsx",
+    "parent": "EngineeringRoute"
+  },
+  {
+    "path": "/engineering/governance/validation",
+    "type": "page",
+    "component": "EngineeringGovernanceValidationRoute",
+    "file": "src/routes/engineering.governance.validation.tsx",
+    "parent": "EngineeringGovernanceRoute"
+  },
+  {
+    "path": "/administration",
+    "type": "page",
+    "component": "AdministrationRoute",
+    "file": "src/routes/administration.tsx",
+    "parent": "__root__"
+  }
+]

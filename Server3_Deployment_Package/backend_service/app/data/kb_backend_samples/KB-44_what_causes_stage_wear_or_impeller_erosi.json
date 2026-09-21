@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "test_id": "KB-44",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes stage wear or impeller erosion?",
+    "target_well": "FS-031",
+    "latency_ms": 43410.89,
+    "timestamp": "2026-09-04T18:21:29Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-401b15",
+    "asset_id": "FS-031",
+    "objective_id": "OP03_FAULT_DIAGNOSIS",
+    "timestamp": "2026-09-04T18:21:29Z",
+    "assessment": "Stage wear or impeller erosion is likely due to mechanical pump wear, which can be caused by linear head decline and stable motor current.",
+    "evidence": [
+      {
+        "source_type": "ML Model",
+        "source_id": "esp:model:FS-031:fault:MOTOR_OVERHEATING",
+        "observation": "ML Model: Active fault classification → MOTOR_OVERHEATING",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": "http://localhost:7474/browser/?cmd=play&arg=MATCH%20(n%3AFaultMode%20%7Bname%3A%27Motor Overheating%27%7D)-%5Br%5D-(m)%20RETURN%20n%2Cr%2Cm"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-fe9f0c",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-69bdbb",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-dcb0f1",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "VFD",
+        "source_id": "EVID-VFD-FS-031-9800c8",
+        "observation": "ESP_APM_models Live Diagnosis: Normal Operation (confidence 95.0%, health 94.4/100)",
+        "timestamp": "2026-09-04T18:21:29Z",
+        "page": null,
+        "source_deep_link": "http://127.0.0.1:8000/api/vfd/diagnostics/FS-031"
+      }
+    ],
+    "diagnosis": "Mechanical Pump Wear",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Monitor the pump's performance closely and consider implementing load management strategies to prevent further wear.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "autonomous_control"
+    ],
+    "verification": [
+      "1. Confirm the linear head decline and stable motor current using telemetry data and engineering calculations."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=5281ms | tokens=1824",
+      "telemetry_source: FALLBACK",
+      "model_source: MOCK",
+      "Run ID: REQ-KB-401b15",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Monitor the pump's performance closely and consider implementing load management strategies to prevent further wear.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": "Thermal slope: -6.36°C/hr | Differential Head: 1644.8 PSI | Torque proxy: 0.408 A/Hz",
+    "expected_vs_actual": [
+      {
+        "parameter": "Intake Pressure",
+        "current_value": "236.5 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Discharge Pressure",
+        "current_value": "1881.3 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Current",
+        "current_value": "18.9 A",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "VFD Frequency",
+        "current_value": "46.3 Hz",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Temperature",
+        "current_value": "78.7 °C",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      }
+    ],
+    "ranked_hypotheses": [
+      {
+        "cause": "Mechanical Pump Wear",
+        "confidence": 0.95,
+        "reasoning": "The linear head decline (-15%+) and stable motor current indicate that the pump is operating left of the BEP, which is a common cause of mechanical pump wear.",
+        "supporting_evidence": [
+          "esp:rule:FS-031:R002:HEAD_DECLINE",
+          "esp:rule:FS-031:R003:STABLE_CURRENT"
+        ],
+        "contradicting_evidence": []
+      }
+    ],
+    "follow_up_prompts": [
+      "Would you like me to compare this with the last 7 days?",
+      "Show forensic tipping timeline and evidence",
+      "Check governing tripping limits and SOP"
+    ]
+  }
+}

@@ -1,0 +1,1169 @@
+{
+  "info": {
+    "_postman_id": "49282b92-a025-4389-a95e-8dd6e2b3e790",
+    "name": "02. Historian, Live Telemetry & Events (:8090)",
+    "description": "Comprehensive tests for DuckDB Historian, Live MQTT Facade, and Events Services on Server 184 (:8090).\nValidates telemetry windows, latest reads, aggregates, coverage, live buffer, VFM, asset nameplates, and trip timelines.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url_184",
+      "value": "http://192.168.1.184:8090",
+      "type": "string"
+    },
+    {
+      "key": "well_id",
+      "value": "FS-17",
+      "type": "string"
+    },
+    {
+      "key": "tripped_well_id",
+      "value": "FNW-01",
+      "type": "string"
+    },
+    {
+      "key": "start_ts",
+      "value": "2026-08-01T00:00:00Z",
+      "type": "string"
+    },
+    {
+      "key": "end_ts",
+      "value": "2026-08-30T00:00:00Z",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Historian",
+      "item": [
+        {
+          "name": "01. Historian Health Check",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"DuckDB attached and rows exist\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql(\"ok\");",
+                  "    pm.expect(jsonData.db_attached).to.be.true;",
+                  "    pm.expect(jsonData.row_count).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/historian/health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "02. Time-Series Window Telemetry",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Window query returns columns and data rows\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"columns\");",
+                  "    pm.expect(jsonData).to.have.property(\"rows\");",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData.rows.length).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/historian/window?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&signals=amp_a,freq_hz,motor_temp_c,int_prs_psi,pmp_dis_prs_psi&limit=50",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "signals",
+                  "value": "amp_a,freq_hz,motor_temp_c,int_prs_psi,pmp_dis_prs_psi"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "03. Latest Historian Snapshot",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Latest snapshot contains numeric sensor values\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData).to.have.property(\"values\");",
+                  "    pm.expect(jsonData.values).to.have.property(\"int_prs_psi\");",
+                  "    pm.expect(jsonData.values.int_prs_psi).to.be.a(\"number\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/historian/latest?well_id={{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "latest"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "04. Downsampled Aggregates (1h bucket)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Aggregates computed successfully\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"aggregates\");",
+                  "    pm.expect(jsonData.aggregates).to.have.property(\"amp_a\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/historian/aggregates?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&bucket=1h&signals=amp_a,motor_temp_c",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "aggregates"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "bucket",
+                  "value": "1h"
+                },
+                {
+                  "key": "signals",
+                  "value": "amp_a,motor_temp_c"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "05. Data Coverage & Bounds",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Coverage timestamps are valid ISO strings\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"earliest_ts\");",
+                  "    pm.expect(jsonData).to.have.property(\"latest_ts\");",
+                  "    pm.expect(jsonData.total_records).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/historian/coverage?well_id={{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "coverage"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "06. Window - Electrical Signals Subset (amp_a, freq_hz, volt_v)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 404\", function () { pm.expect([200, 404]).to.include(pm.response.code); });",
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    pm.test(\"Columns contain requested signals\", function () {",
+                  "        pm.expect(json.columns).to.include(\"amp_a\");",
+                  "        pm.expect(json.columns).to.include(\"freq_hz\");",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/historian/window?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&signals=amp_a,freq_hz,volt_v&limit=25",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "signals",
+                  "value": "amp_a,freq_hz,volt_v"
+                },
+                {
+                  "key": "limit",
+                  "value": "25"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07. Window - Thermal & Vibration Signals Subset",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 404\", function () { pm.expect([200, 404]).to.include(pm.response.code); });",
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    pm.test(\"Rows bounded by limit=50\", function () { pm.expect(json.rows.length).to.be.at.most(50); });",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/historian/window?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&signals=motor_temp_c,vib_x_g,vib_y_g&limit=50",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "signals",
+                  "value": "motor_temp_c,vib_x_g,vib_y_g"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "08. Window - Large Bounded Slice (limit=500)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 404\", function () { pm.expect([200, 404]).to.include(pm.response.code); });",
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    pm.expect(json.rows.length).to.be.at.most(500);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/historian/window?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&limit=500",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "window"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "limit",
+                  "value": "500"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "09. Aggregates - 15-Minute Max Bucketing",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200 or 404\", function () { pm.expect([200, 404]).to.include(pm.response.code); });",
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    pm.expect(json.bucket).to.eql(\"15m\");",
+                  "    pm.expect(json.agg).to.eql(\"max\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/historian/aggregates?well_id={{well_id}}&start={{start_ts}}&end={{end_ts}}&signals=amp_a,motor_temp_c&bucket=15m&agg=max",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "historian",
+                "aggregates"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "{{start_ts}}"
+                },
+                {
+                  "key": "end",
+                  "value": "{{end_ts}}"
+                },
+                {
+                  "key": "signals",
+                  "value": "amp_a,motor_temp_c"
+                },
+                {
+                  "key": "bucket",
+                  "value": "15m"
+                },
+                {
+                  "key": "agg",
+                  "value": "max"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Live Telemetry",
+      "item": [
+        {
+          "name": "06. Live MQTT Facade Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"MQTT is connected and buffer operational\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql(\"ok\");",
+                  "    pm.expect(jsonData.mqtt_connected).to.be.true;",
+                  "    pm.expect(jsonData.wells_tracked).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07. Latest Real-time Telemetry Packet",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Live telemetry packet contains live measurements\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData).to.have.property(\"measurements\");",
+                  "    pm.expect(jsonData.measurements).to.have.property(\"motor_temp_c\");",
+                  "    pm.expect(jsonData.measurements.motor_temp_c).to.be.a(\"number\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/telemetry/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "telemetry",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "08. Recent Ring Buffer Window (30s)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Recent buffer returns array of live frames\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"rows\");",
+                  "    pm.expect(jsonData.rows).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/telemetry/{{well_id}}/recent?seconds=30",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "telemetry",
+                "{{well_id}}",
+                "recent"
+              ],
+              "query": [
+                {
+                  "key": "seconds",
+                  "value": "30"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "09. Virtual Flow Metering (VFM)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"VFM estimates rates correctly\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData).to.have.property(\"liquid_flow_rate_bpd\");",
+                  "    pm.expect(jsonData.liquid_flow_rate_bpd).to.be.a(\"number\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/vfm/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "vfm",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "10. Live Asset Nameplate Specs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Asset nameplate metadata verified\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"asset\");",
+                  "    pm.expect(jsonData.asset.well_id).to.eql(\"FS-17\");",
+                  "    pm.expect(jsonData.asset).to.have.property(\"pump_type\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/asset/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "asset",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "11. Live Simulator Heartbeat",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Simulator heartbeat is online\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.online).to.be.true;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/status",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "12. Active Publishing Wells List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Active wells include FS-17\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.wells).to.be.an(\"array\");",
+                  "    pm.expect(jsonData.wells).to.include(\"FS-17\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/live/wells",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "live",
+                "wells"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "13. Events Service Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Events service is healthy\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql(\"ok\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/events/health",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "14. Event Timeline Window",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Timeline returns structured events array\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"events\");",
+                  "    pm.expect(jsonData.events).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/events/timeline?well_id={{well_id}}&start=2026-08-01T00:00:00Z&end=2026-09-18T00:00:00Z",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "timeline"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                },
+                {
+                  "key": "start",
+                  "value": "2026-08-01T00:00:00Z"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-09-18T00:00:00Z"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "15. Filtered Trip Events - Healthy Well (FS-17)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Trips endpoint returns valid structure\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"trips\");",
+                  "    pm.expect(jsonData.trips).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/events/trips?well_id={{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "trips"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{well_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "16. Filtered Trip Events - Tripped Well (FNW-01)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Tripped well has trip records\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.well_id).to.eql(\"FNW-01\");",
+                  "    pm.expect(jsonData.trips.length).to.be.above(0);",
+                  "    pm.expect(jsonData.trips[0]).to.have.property(\"event_type\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/events/trips?well_id={{tripped_well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "trips"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "{{tripped_well_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "17. Latest Event for Well",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+                  "});",
+                  "pm.test(\"Latest event schema verified\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"well_id\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url_184}}/events/latest/{{well_id}}",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "latest",
+                "{{well_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "06. Timeline - Tripped Well Window (FNW-01)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Events array returned for FNW-01\", function () {",
+                  "    pm.expect(json).to.have.property(\"events\");",
+                  "    pm.expect(json.events).to.be.an(\"array\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/events/timeline?well_id=FNW-01&start=2026-08-01T00:00:00Z&end=2026-09-30T00:00:00Z&limit=25",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "timeline"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "FNW-01"
+                },
+                {
+                  "key": "start",
+                  "value": "2026-08-01T00:00:00Z"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-09-30T00:00:00Z"
+                },
+                {
+                  "key": "limit",
+                  "value": "25"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "07. Trips - Filtered for Tripped Well (FNW-01)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "var json = pm.response.json();",
+                  "pm.test(\"Contains events or trips array\", function () {",
+                  "    pm.expect(json).to.satisfy(function(o) { return \"events\" in o || \"trips\" in o; });",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_184}}/events/trips?well_id=FNW-01",
+              "host": [
+                "{{base_url_184}}"
+              ],
+              "path": [
+                "events",
+                "trips"
+              ],
+              "query": [
+                {
+                  "key": "well_id",
+                  "value": "FNW-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

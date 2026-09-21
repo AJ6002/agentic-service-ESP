@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "test_id": "KB-13",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What are the governing tripping thresholds for radial vibration?",
+    "target_well": "FS-031",
+    "latency_ms": 7979.19,
+    "timestamp": "2026-09-04T18:14:56Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-934635",
+    "asset_id": "FS-031",
+    "objective_id": "OP06_PROCEDURE_LOOKUP",
+    "timestamp": "2026-09-04T18:14:56Z",
+    "assessment": "The ESP is operating within the recommended parameters, but there are some potential issues that need to be addressed.",
+    "evidence": [
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-b6acea",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-18c213",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S:Protection & Monitoring §5",
+        "observation": "Knowledge Base: API_RP_11S §Protection & Monitoring §5",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json:Critical Limits Register",
+        "observation": "Knowledge Base: diagnostic_rules.json §Critical Limits Register",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8:Vibration & Mechanical Safeguards",
+        "observation": "Knowledge Base: DOC-STD-API-11S8 §Vibration & Mechanical Safeguards",
+        "timestamp": "2026-09-04T18:14:56Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      }
+    ],
+    "diagnosis": "Operational thresholds retrieved for: Radial Vibration, Axial Vibration.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "NEVER operate continuously when Radial Vibration exceeds > 3.0 g RMS.",
+      "NEVER operate continuously when Axial Vibration exceeds > 1.5 g RMS."
+    ],
+    "verification": [
+      "Check the pump's intake pressure and flow rate to ensure they are within the recommended operating range.",
+      "Check the pump's radial and axial vibration levels to ensure they are within the recommended operating range.",
+      "Check the pump's motor temperature to ensure it is within the recommended operating range.",
+      "Check the pump's discharge pressure to ensure it is within the recommended operating range."
+    ],
+    "provenance": [
+      "API RP 11S & OEM Technical Manuals",
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=7687ms | tokens=1573",
+      "telemetry_source: UNVERIFIED",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-934635",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [
+      {
+        "parameter": "Radial Vibration",
+        "normal": "< 1.5 g RMS",
+        "warning": "> 3.0 g RMS",
+        "trip": "> 5.0 g RMS (Critical Trip)",
+        "action": "Inspect vibration frequency spectrum, avoid resonance speeds, schedule bearing inspection."
+      },
+      {
+        "parameter": "Axial Vibration",
+        "normal": "< 0.8 g RMS",
+        "warning": "> 1.5 g RMS",
+        "trip": "> 2.5 g RMS",
+        "action": "Verify pump thrust bearing condition and fluid gas fraction."
+      }
+    ],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "👉 Inspect full document excerpt in PDF manual",
+      "👉 Compare current telemetry against these warning limits",
+      "👉 Check connected failure modes in Knowledge Graph"
+    ]
+  }
+}

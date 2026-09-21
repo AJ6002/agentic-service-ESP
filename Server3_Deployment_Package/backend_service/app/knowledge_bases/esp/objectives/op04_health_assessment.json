@@ -1,0 +1,19 @@
+{
+  "objective_id": "OP04_HEALTH_ASSESSMENT",
+  "version": "1.0",
+  "title": "ESP System Health & Degradation Index",
+  "description": "Calculate overall asset health index, failure risk horizon (24h/72h/7d), and remaining useful life (RUL).",
+  "strategic_objectives": ["O2", "O5"],
+  "intent_classes": ["health", "degradation", "operating envelope", "health score", "health index", "rul", "remaining life", "failure risk", "pump degradation", "remaining useful life", "assess condition", "condition of electrical", "component condition", "equipment condition"],
+  "required_asset_context": ["asset_id", "status", "operating_envelope"],
+  "required_signals": ["motor_temperature", "vibration_x", "intake_pressure", "drive_current_average"],
+  "required_evidence": ["health_index_model", "failure_risk_model", "anomaly_model"],
+  "required_tools": ["get_asset_context", "model_adapter.get_model_output"],
+  "allowed_specialists": ["reliability"],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["health index score 0-100", "24h risk horizon percentage", "key degradation contributors listed"],
+  "verification_steps": ["Review historical trend of Health Index over past 30 days"]
+}

@@ -1,0 +1,120 @@
+# Event Taxonomy Registry
+# Grounded in Phase 6 Event-Driven Architecture Spec §7, §10, §20
+
+version: "1.0"
+
+event_categories:
+  operational: "SCADA & ESP operational state change events"
+  model: "ML predictive model outputs & threshold deviation events"
+  asset_config: "Advait asset registry & configuration updates"
+  agent_feedback: "Agent advisories, operator actions, and outcome verification"
+  platform: "Infrastructure, service degradation, and pipeline status events"
+
+event_types:
+  ESP_TRIPPED:
+    category: "operational"
+    owner: "SCADA / OT Team"
+    default_severity: "CRITICAL"
+    hysteresis_window_seconds: 0
+    min_persistence_samples: 1
+    suppression_cooldown_seconds: 0
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+
+  FAILURE_RISK_INCREASED:
+    category: "model"
+    owner: "Reliability & Data Science Team"
+    default_severity: "HIGH"
+    hysteresis_window_seconds: 900
+    min_persistence_samples: 3
+    suppression_cooldown_seconds: 1800
+    target_objective_id: "OP05_EARLY_WARNING"
+
+  FAILURE_RISK_PERSISTED:
+    category: "model"
+    owner: "Reliability & Data Science Team"
+    default_severity: "HIGH"
+    hysteresis_window_seconds: 900
+    min_persistence_samples: 3
+    suppression_cooldown_seconds: 1800
+    target_objective_id: "OP05_EARLY_WARNING"
+
+  PUMP_DEGRADATION_DETECTED:
+    category: "model"
+    owner: "Production Engineering Team"
+    default_severity: "MEDIUM"
+    hysteresis_window_seconds: 1800
+    min_persistence_samples: 3
+    suppression_cooldown_seconds: 3600
+    target_objective_id: "OP04_HEALTH_ASSESSMENT"
+
+  THERMAL_RISK_INCREASED:
+    category: "model"
+    owner: "Reliability & OT Team"
+    default_severity: "HIGH"
+    hysteresis_window_seconds: 600
+    min_persistence_samples: 2
+    suppression_cooldown_seconds: 1800
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+
+  GAS_INTERFERENCE_DETECTED:
+    category: "model"
+    owner: "Production Engineering Team"
+    default_severity: "HIGH"
+    hysteresis_window_seconds: 300
+    min_persistence_samples: 2
+    suppression_cooldown_seconds: 1800
+    target_objective_id: "OP03_FAULT_DIAGNOSIS"
+
+  ANOMALY_DETECTED:
+    category: "model"
+    owner: "Reliability & Data Science Team"
+    default_severity: "MEDIUM"
+    hysteresis_window_seconds: 300
+    min_persistence_samples: 2
+    suppression_cooldown_seconds: 900
+    target_objective_id: "OP05_EARLY_WARNING"
+
+  PRODUCTION_DECLINE_DETECTED:
+    category: "operational"
+    owner: "Production Operations Team"
+    default_severity: "MEDIUM"
+    hysteresis_window_seconds: 3600
+    min_persistence_samples: 4
+    suppression_cooldown_seconds: 3600
+    target_objective_id: "OP02_PRODUCTION_DECLINE_RCA"
+
+  ASSET_CONFIGURATION_CHANGED:
+    category: "asset_config"
+    owner: "Asset Management / Advait Team"
+    default_severity: "INFO"
+    hysteresis_window_seconds: 0
+    min_persistence_samples: 1
+    suppression_cooldown_seconds: 0
+    target_objective_id: "OP01_CURRENT_STATUS"
+
+  CONTROL_COMMAND_ATTEMPTED:
+    category: "operational"
+    owner: "Control System / Safety Team"
+    default_severity: "HIGH"
+    hysteresis_window_seconds: 0
+    min_persistence_samples: 1
+    suppression_cooldown_seconds: 0
+    target_objective_id: "OP00_OPERATIONAL_CONTROL"
+
+  ADVISORY_CREATED:
+    category: "agent_feedback"
+    owner: "ESP Agent Platform"
+    default_severity: "INFO"
+    hysteresis_window_seconds: 0
+    min_persistence_samples: 1
+    suppression_cooldown_seconds: 0
+    target_objective_id: null
+
+  OUTCOME_CONFIRMED:
+    category: "agent_feedback"
+    owner: "Field Operations Team"
+    default_severity: "INFO"
+    hysteresis_window_seconds: 0
+    min_persistence_samples: 1
+    suppression_cooldown_seconds: 0
+    target_objective_id: null

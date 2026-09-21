@@ -1,0 +1,14 @@
+==========================================================
+TEST      : Q3 Simple Direct Answer (gas lock)
+CURL CMD  : curl -X POST http://localhost:8091/query -H "Content-Type: application/json" -d '{"session_id":"curl-q3-5059","message":"What does gas lock mean in an ESP system?"}'
+QUERY     : What does gas lock mean in an ESP system?
+SESSION   : curl-q3-5059
+TIMESTAMP : 2026-09-21T11:40:03Z
+----------------------------------------------------------
+FRAME TYPES: text_delta | done
+DONE STATUS: OK
+TEXT DELTA : Gas lock in an ESP system occurs when gas bubbles form in the wellbore, preventing the pump from drawing liquid into the pump chamber. This can lead to pump failure and require intervention to clear t...
+----------------------------------------------------------
+RAW NDJSON:
+{"type":"text_delta","run_id":"R-88670d7d","delta":"Gas lock in an ESP system occurs when gas bubbles form in the wellbore, preventing the pump from drawing liquid into the pump chamber. This can lead to pump failure and require intervention to clear the gas."} {"type":"done","run_id":"R-88670d7d","status":"OK"}
+==========================================================

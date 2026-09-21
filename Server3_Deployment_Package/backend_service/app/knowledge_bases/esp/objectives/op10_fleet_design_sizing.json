@@ -1,0 +1,33 @@
+{
+  "objective_id": "OP10_FLEET_DESIGN_SIZING",
+  "version": "1.0",
+  "title": "Fleet Design Sizing & Operating Envelope Audit",
+  "description": "Audit fleet-wide operating points against manufacturer BEP envelopes to flag downthrust/upthrust risks.",
+  "scope": "fleet",
+  "strategic_objectives": ["O1", "O2"],
+  "intent_classes": [
+    "fleet sizing",
+    "fleet design check",
+    "envelope audit",
+    "which wells outside bep",
+    "upthrust risk fleet",
+    "downthrust risk fleet",
+    "operating envelope fleet",
+    "compare operating envelopes",
+    "pump sizing across all active wells",
+    "operating outside their recommended",
+    "head-capacity envelope",
+    "hydraulic design suitability"
+  ],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": ["fleet_asset_list", "fleet_sizing_audit"],
+  "required_tools": ["list_fleet_assets", "calculate_tdh"],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["operating point vs BEP calculated for all assets", "categorized by thrust risk regime"],
+  "verification_steps": ["Verify wellhead backpressure sensor calibrations on high-deviation wells"]
+}

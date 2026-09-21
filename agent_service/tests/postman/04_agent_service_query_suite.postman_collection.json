@@ -1,0 +1,408 @@
+{
+  "info": {
+    "_postman_id": "eb635a26-bd9e-4523-84b9-df1bffd0c626",
+    "name": "04. Agent Service End-to-End Suite (:8091)",
+    "description": "End-to-End tests for local Agent Service running on :8091.\nValidates health, multi-source evidence synthesis, NDJSON streaming, and defensive guardrails.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "agent_url",
+      "value": "http://127.0.0.1:8091",
+      "type": "string"
+    },
+    {
+      "key": "well_id",
+      "value": "FS-17",
+      "type": "string"
+    },
+    {
+      "key": "tripped_well_id",
+      "value": "FNW-01",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Agent Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Agent service is healthy and slice is 2\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.status).to.eql(\"HEALTHY\");",
+              "    pm.expect(jsonData.service).to.eql(\"agent_service\");",
+              "    pm.expect(jsonData.slice).to.eql(2);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{agent_url}}/health",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02. OP01 - Real-time Status Query",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Stream contains text delta and terminates cleanly with done\", function () {",
+              "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+              "    pm.expect(lines.length).to.be.above(2);",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+              "    pm.expect(textDelta).to.not.be.undefined;",
+              "    pm.expect(textDelta.delta.length).to.be.above(10);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"what is current status of FS-17?\",\n  \"asset_id\": \"FS-17\",\n  \"session_id\": \"newman-op01-status\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03. OP02 - Window Telemetry Analysis",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Window query streams analysis and completes OK\", function () {",
+              "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"show me intake pressure and motor temperature for FS-17 over past 7 days\",\n  \"asset_id\": \"FS-17\",\n  \"session_id\": \"newman-op02-window\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "04. OP03 - Fault Diagnosis Investigation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is within SLA (< 20000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);",
+              "});",
+              "pm.test(\"Fault query investigates multi-source evidence\", function () {",
+              "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"why did FS-17 trip? investigate causes\",\n  \"asset_id\": \"FS-17\",\n  \"session_id\": \"newman-op03-fault\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "05. Parameterized Query - Extract Limit & Anomalous Only (show 10 anomalies for FS-17)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response time is within SLA (< 25000ms)\", function () { pm.expect(pm.response.responseTime).to.be.below(25000); });",
+              "var lines = pm.response.text().trim().split(\"\\n\").map(function(l) { return JSON.parse(l); });",
+              "pm.test(\"NDJSON stream contains terminal done frame\", function () {",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});",
+              "pm.test(\"Text delta or visual emitted for parameterized anomaly query\", function () {",
+              "    var hasContent = lines.some(function(f) { return f.type === \"text_delta\" || f.type === \"visual\"; });",
+              "    pm.expect(hasContent).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"session_id\": \"test_pm_pnc\", \"message\": \"show 10 anomalies for FS-17\"}"
+        },
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "06. Parameterized Query - Time Window + Tripped Well (show events for FNW-01 over the past 2 hours)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response time is within SLA (< 25000ms)\", function () { pm.expect(pm.response.responseTime).to.be.below(25000); });",
+              "var lines = pm.response.text().trim().split(\"\\n\").map(function(l) { return JSON.parse(l); });",
+              "pm.test(\"NDJSON stream contains terminal done frame\", function () {",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});",
+              "pm.test(\"Events window evaluated accurately\", function () {",
+              "    var textDeltas = lines.filter(function(f) { return f.type === \"text_delta\"; }).map(function(f) { return f.delta; }).join(\"\");",
+              "    pm.expect(textDeltas.toLowerCase()).to.satisfy(function(t) {",
+              "        return t.includes(\"event\") || t.includes(\"fnw-01\") || t.includes(\"record\");",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"session_id\": \"test_pm_pnc\", \"message\": \"show events for FNW-01 over the past 2 hours\"}"
+        },
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07. Parameterized Query - Higher Page Limit (show 50 anomalies for FS-17)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response time is within SLA (< 25000ms)\", function () { pm.expect(pm.response.responseTime).to.be.below(25000); });",
+              "var lines = pm.response.text().trim().split(\"\\n\").map(function(l) { return JSON.parse(l); });",
+              "pm.test(\"NDJSON stream contains terminal done frame\", function () {",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});",
+              "pm.test(\"Executes without errors and completes successfully\", function () {",
+              "    var doneFrame = lines.find(function(f) { return f.type === \"done\"; });",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"session_id\": \"test_pm_pnc\", \"message\": \"show 50 anomalies for FS-17\"}"
+        },
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08. Baseline Query - No Parameters (status of FS-17)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response time is within SLA (< 25000ms)\", function () { pm.expect(pm.response.responseTime).to.be.below(25000); });",
+              "var lines = pm.response.text().trim().split(\"\\n\").map(function(l) { return JSON.parse(l); });",
+              "pm.test(\"NDJSON stream contains terminal done frame\", function () {",
+              "    var doneFrame = lines[lines.length - 1];",
+              "    pm.expect(doneFrame.type).to.eql(\"done\");",
+              "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+              "});",
+              "pm.test(\"Unparameterized baseline operates cleanly with defaults\", function () {",
+              "    var hasVisual = lines.some(function(f) { return f.type === \"visual\"; });",
+              "    pm.expect(hasVisual).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"session_id\": \"test_pm_pnc\", \"message\": \"status of FS-17\"}"
+        },
+        "url": {
+          "raw": "{{agent_url}}/query",
+          "host": [
+            "{{agent_url}}"
+          ],
+          "path": [
+            "query"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

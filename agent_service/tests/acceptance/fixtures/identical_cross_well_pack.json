@@ -1,0 +1,24 @@
+{
+  "well_a": {
+    "well_id": "FS-17",
+    "measurements": {
+      "motor_current_a": 35.0,
+      "frequency_hz": 50.0,
+      "motor_temp_c": 85.0,
+      "intake_pressure_psi": 350.0,
+      "discharge_pressure_psi": 2100.0,
+      "vibration_g": 0.08
+    }
+  },
+  "well_b": {
+    "well_id": "FS-91",
+    "measurements": {
+      "motor_current_a": 35.0,
+      "frequency_hz": 50.0,
+      "motor_temp_c": 85.0,
+      "intake_pressure_psi": 350.0,
+      "discharge_pressure_psi": 2100.0,
+      "vibration_g": 0.08
+    }
+  }
+}

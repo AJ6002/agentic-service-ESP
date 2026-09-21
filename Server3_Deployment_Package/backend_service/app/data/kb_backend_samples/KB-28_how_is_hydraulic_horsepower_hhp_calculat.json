@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-28",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "How is Hydraulic Horsepower (HHP) calculated for an ESP?",
+    "target_well": "FS-031",
+    "latency_ms": 6275.91,
+    "timestamp": "2026-09-04T18:18:25Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-97c4c2",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:18:25Z",
+    "assessment": "Hydraulic Horsepower (HHP) for an ESP is calculated using the formula:\n\n\\[ \\text{HHP} = \\frac{\\text{Flow Rate (Q)} \\times \\text{Head (H)}}{\\text{Specific Gravity (SG)}} \\]\n\nWhere:\n- \\( Q \\) is the flow rate of the liquid in gallons per minute (gpm).\n- \\( H \\) is the head of the liquid in feet.\n- \\( SG \\) is the specific gravity of the liquid being pumped.\n\nThe specific gravity is the ratio of the density of the liquid being pumped to the density of water (approximately 1 for fresh water and 1.06 for salt water). This calculation helps in determining the amount of power required to move the liquid through the ESP pump.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-97c4c2",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

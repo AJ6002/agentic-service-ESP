@@ -1,0 +1,209 @@
+================================================================================
+LOVABLE DASHBOARD (OPERATIONS WORKSPACE) COMPONENTS ABSENT IN SERVER 184
+================================================================================
+Target System: ADVAIT ESP-PMM (Lovable Frontend - Operations Workspace)
+Compared Against: OTConnex Production ML Dashboard (Server 3 / Server 184 Runtime)
+Scope: Operations Workspace Only (Excluding Engineering Master Data Workspace)
+Generated At: 2026-09-21
+================================================================================
+
+This document lists all visual regions, micro-components, KPIs, analytical tabs,
+and operational workflows that are present in the Lovable Operations Dashboard
+(enumeration.md) but are completely ABSENT or MISSING in the Server 184 ML
+Dashboard (Enumeration-OTConnex_ML_Dashboard.md).
+
+--------------------------------------------------------------------------------
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1. Global Application Shell (L1)
+2. Page P1: Fleet Cockpit (/)
+3. Page P2: Well Directory (/wells)
+4. Page P3: Well Monitor (/wells/$wellId)
+5. Page P4: Exceptions & Opportunities Queue (/exceptions)
+6. Page P5: Troubleshooting Assistant (/troubleshooting)
+7. Page P6: Reliability & Run Life Management (/reliability)
+8. Page P7: Management Scorecard & Executive Reports (/reports)
+9. Summary Statistics of Absent Components
+
+================================================================================
+1. GLOBAL APPLICATION SHELL (L1 - AppShell)
+================================================================================
+Components present in Lovable L1 but ABSENT in Server 184:
+
+- [Workspace Mode Switcher] (Dropdown allowing instant switching between Real-Time Operations and Governed Asset ConneX Engineering master data).
+- [Field Scope Selector] (Global dropdown filter for operational fields: All Fields, Nardah North, Kalisto West, Tamrin Deep).
+- [Collapsible Left Navigation Rail] (Expandable/collapsible sidebar supporting 56px icon rail and 196px full navigation drawer).
+- [User Identity & Role Pill] (Visual avatar with user role context, e.g., "VK - Operations Engineer").
+- [Real-Time Critical Exceptions Counter Badge] (Global header counter showing open critical exceptions requiring operator triage).
+
+================================================================================
+2. PAGE P1: FLEET COCKPIT (/)
+================================================================================
+Components present in Lovable P1 but ABSENT in Server 184:
+
+- [Field Summary Status Chips Bar] (Row of status pills showing active wells and off-normal counts per field: Nardah North, Kalisto West, Tamrin Deep, plus Envelope Compliance % across fields).
+- [Executive Financial & Production KPIs]:
+    * PRODUCTION DEFERMENT KPI Card (Quantifies daily oil barrels lost across the fleet vs. design potential: e.g. 4,676 bopd).
+    * OPTIMIZATION UPSIDE KPI Card (Quantifies potential daily oil barrel gain from frequency adjustments: e.g. 190 bopd).
+    * AVOIDABLE PULLS RISK KPI Card (Count of wells operating under severe mechanical stress threatening premature workovers).
+- [NEEDS ATTENTION NOW Widget] (Urgent triage queue listing highest-priority anomalous wells with direct 1-click links to troubleshooting).
+- [OPTIMIZATION OPPORTUNITIES Widget] (Actionable upside queue listing wells capable of frequency increase with estimated bopd gain).
+- [OPEN EXCEPTIONS BY CATEGORY Breakdown Chips] (Quick categorization pills grouping exceptions into Electrical, Thermal, Hydraulic, and Mechanical).
+- [Interactive Selected Well Visual Preview] (Embedded EspWellVisual schematic that updates immediately upon selecting any row in the Fleet Register).
+- [DEFERMENT & UPSIDE BY FIELD Chart] (Grouped comparison bar chart comparing lost production vs. identified upside across distinct oilfields).
+- [WORST ACTORS - HEALTH INDEX Ranking List] (Prioritized ranking table listing lowest-health wells with repeat failure history flags).
+
+================================================================================
+3. PAGE P2: WELL DIRECTORY (/wells)
+================================================================================
+Components present in Lovable P2 but ABSENT in Server 184:
+
+- [Multi-Field Tabbed Filter Switcher] (Tabs to filter the fleet by geographical producing field: All, Nardah North, Kalisto West, Tamrin Deep).
+- [14-Column Dense Fleet Table]:
+    * Oil Rate column (Allocated daily oil production in bopd).
+    * Production Deferment column (Lost bopd per individual well).
+    * Identified Upside column (Potential bopd gain per individual well).
+    * Envelope Compliance % column (Statistical adherence to safe operating window).
+    * Repeat Failure Flag badge (Identifies chronic bad-actor wells).
+- [Batch Fleet Selection & Export Actions] (Controls to select multiple wells for bulk report generation or work order scheduling).
+
+================================================================================
+4. PAGE P3: WELL MONITOR (/wells/$wellId)
+================================================================================
+Components present in Lovable P3 but ABSENT in Server 184:
+
+- [Well Status Metric Banner]:
+    * Current Run Life counter (Cumulative runtime in days: e.g. 842 d).
+    * Power Consumption gauge (Active electrical draw: e.g. 142 kW).
+- [6-Tab Dedicated Single-Well Architecture] (Structured separation into Overview, Diagnostics, Trends, Pump Curve, History, Limits):
+    * Tab 5: HISTORY (Wellbore historical pull log, installation history, past DIFA findings, and failure mode chronology).
+    * Tab 6: LIMITS (Governed alarm & trip setpoints table with P10/P50/P90 statistical thresholds and mechanical limits).
+- [Interactive Frequency Slider on Certified OEM Curve] (Allows engineers to dynamically drag frequency between 30 Hz and 70 Hz to simulate head/power shifts against the certified OEM curve).
+- [Downhole Gauge Health Indicator Badge] (Communication status and drift detection for downhole sensor package).
+- [Persistent Right-Rail Advisor Drawer] (Collapsible right-side drawer containing live engineering recommendations with 1-click "Acknowledge" and "Assign" buttons).
+
+================================================================================
+5. PAGE P4: EXCEPTIONS & OPPORTUNITIES QUEUE (/exceptions)
+================================================================================
+*Note: The entire Exception Triage Workflow Page is ABSENT in Server 184.
+Server 184 only possesses a scrolling text alarm ticker, with no ticket management.
+
+Components present in Lovable P4 but ABSENT in Server 184:
+
+- [6 View Filter Tabs] (All, Critical, Warning, Watch, Opportunities, Unassigned).
+- [7 Queue Financial & Impact KPIs]:
+    * Critical Exceptions Count (e.g. 3).
+    * Warning Exceptions Count (e.g. 6).
+    * Watch Exceptions Count (e.g. 5).
+    * Identified Opportunities Count (e.g. 4).
+    * Impact at Risk KPI (Total daily oil volume threatened by active exceptions: e.g. 2,840 bopd).
+    * Upside Identified KPI (Total potential production upside: e.g. 190 bopd).
+    * Value at Stake KPI (Total financial exposure in $k/day at current oil price).
+- [2-Column Interactive Triage Split Layout]:
+    * Left Panel: Scrollable Queue list with severity badges, well names, issue titles, and time elapsed.
+    * Right Panel: Complete Investigation Dossier containing:
+        - RULE Box (Governing physics/engineering rule violated).
+        - OBSERVATION Box (Exact sensor anomaly signature observed).
+        - EVIDENCE Bullet List (Quantified sensor tags and baseline deviations).
+        - LIKELY CAUSES RANKED Table (Ranked hypotheses with probability percentages).
+        - VERIFICATION STEPS Checklist (Step-by-step field verification tasks).
+        - RECOMMENDED ACTIONS Box (Engineering recommendations).
+- [Optimistic Workflow Action Buttons] (Interactive buttons allowing operators to change status: "Acknowledge", "Assign to Engineer", "Close Ticket").
+
+================================================================================
+6. PAGE P5: TROUBLESHOOTING ASSISTANT (/troubleshooting)
+================================================================================
+Components present in Lovable P5 but ABSENT in Server 184:
+
+- [Pre-Built Signature Library Table] (Standardized catalog of known ESP operational trip signatures with codes TS-01 through TS-12).
+- [Direction-of-Change Summary Matrix] (Visual trend indicators using arrow glyphs: ▲ Increasing, ▼ Decreasing, ▬ Steady, ∿ Fluctuating).
+- [Subsystem-Targeted Dynamic Wellbore Visual] (Interactive SVG that dynamically color-codes and highlights only the specific faulty subsystem: e.g., highlighting the pump intake red during gas lock).
+- [VSD Trip Code Cross-Reference Table] (Direct mapping between surface variable speed drive fault codes and downhole root causes).
+
+================================================================================
+7. PAGE P6: RELIABILITY & RUN LIFE MANAGEMENT (/reliability)
+================================================================================
+*Note: The entire Run-Life & Reliability Engineering Workspace is ABSENT in Server 184.
+Server 184 has zero run-life calculations, Weibull curves, DIFA tracking, or workover records.
+
+Components present in Lovable P6 but ABSENT in Server 184:
+
+- [7 Fleet Reliability KPIs]:
+    * Mean Run Life KPI (e.g. 842 days).
+    * Repeat Failure Rate KPI (e.g. 29%).
+    * Recorded Pulls KPI (e.g. 34 historical pulls).
+    * Intervention Spend KPI (e.g. $4.1M cumulative spend).
+    * Deferred Volume KPI (e.g. 186,000 bbl lost to downtime).
+    * High-Risk Wells Count (e.g. 4 wells approaching end-of-life).
+    * Planned Interventions Count (e.g. 7 queued workovers).
+- [5 Dedicated Reliability Tabs]:
+    * Tab 1: RUN LIFE:
+        - Run-Life Distribution by Field Bar Chart.
+        - Run Life by Field Statistics Table (Pulls, Mean, Median, Shortest, Repeat %).
+        - Mean Run Life by Pump Family Vertical Bar Chart.
+        - Run-Life Influencing Factors Weighted Table.
+    * Tab 2: FAILURE ANALYSIS:
+        - Failure Mode Pareto Chart (Ranked failure causes + cumulative % curve).
+        - Failures by Component Vertical Bar Chart.
+        - Failure Mode by Field Matrix Table.
+    * Tab 3: BAD ACTORS:
+        - Chronic Bad-Actor Ranking Table (Well, Field, Risk Score, Health, Run Life, Prior Run Life, Pull Count, Repeat %, Dominant Factor, ML RUL days, Deferment bopd).
+        - Mini ESP String Visual Cards (EspWellMini) for high-risk assets.
+    * Tab 4: INTERVENTIONS:
+        - Planned Intervention Queue Table (ID, Well, Type, Priority, Scheduling Window, Reason, Impact bopd, Risk, Status).
+        - Intervention Spend by Type Breakdown Chart.
+    * Tab 5: DIFA RECORDS:
+        - Dismantle Inspection & Failure Analysis History Table (Record ID, Well, Pull Date, Run Life, Component, Failure Mode, Root-Cause Factor, Teardown Summary, Repair Cost in $kUSD).
+
+================================================================================
+8. PAGE P7: MANAGEMENT SCORECARD & EXECUTIVE REPORTS (/reports)
+================================================================================
+*Note: The entire Management Scorecard & Executive Reporting Page is ABSENT in Server 184.
+Server 184 has zero executive KPI scorecards or multi-field comparative reporting.
+
+Components present in Lovable P7 but ABSENT in Server 184:
+
+- [7 Executive Leadership KPIs]:
+    * Fleet Availability % (e.g. 88%).
+    * Fleet Health Index (e.g. 65.7).
+    * Envelope Compliance % (e.g. 76%).
+    * Fleet Deferment (e.g. 4,676 bopd).
+    * Identified Upside (e.g. 190 bopd).
+    * Repeat / Avoidable Pulls Count (e.g. 10).
+    * Rig Work Queued Count (e.g. 5 wells).
+- [Field Scorecard Master Table] (Comprehensive comparative table tracking: Field Name, Monitored Wells, Availability %, Health Score, Gross Oil bopd, Deferment bopd, Upside bopd, Envelope Compliance %, Open Exceptions).
+- [Deferment and Upside by Field Comparative Chart] (Visual bar chart comparing lost production vs. gain potential per field).
+- [WHERE TO FOCUS THIS WEEK Action Table] (Executive priority list ranking wells by risk, deferment impact, and dominant operational issue).
+- [Run Life by Field Comparison Bar Chart] (Mean vs. Median run life comparison across operational fields).
+- [Top Failure Modes Cumulative Pareto Table] (Executive summary of dominant failure mechanisms with cumulative percentage impact).
+- [Automated Scheduled Reporting & Executive PDF Export Trigger] (Tool to generate management distribution decks).
+
+================================================================================
+9. SUMMARY STATISTICS OF ABSENT COMPONENTS
+================================================================================
+- Entire Functional Pages Present in Lovable but ABSENT in Server 184: 3 Complete Pages
+    * P4: Exceptions & Opportunity Queue (/exceptions)
+    * P6: Reliability & Run Life Workspace (/reliability)
+    * P7: Management Scorecard & Reports (/reports)
+
+- Dedicated Sub-Tabs Present in Lovable but ABSENT in Server 184: 7 Sub-Tabs
+    * Well Monitor History Tab (Pull history & teardowns)
+    * Well Monitor Limits Tab (Setpoints & alarms)
+    * Reliability Run Life Tab
+    * Reliability Failure Analysis Tab
+    * Reliability Bad Actors Tab
+    * Reliability Interventions Tab
+    * Reliability DIFA Records Tab
+
+- High-Level KPIs Present in Lovable but ABSENT in Server 184: 21 Distinct KPIs
+    * 3 Financial/Production KPIs on Fleet Cockpit
+    * 7 Impact & Financial Exposure KPIs on Exceptions Queue
+    * 7 Reliability & Run-Life KPIs on Reliability Page
+    * 7 Executive Health & Scorecard KPIs on Reports Page
+
+- Operational Action Workflows Present in Lovable but ABSENT in Server 184: 4 Workflows
+    * Exception Triage Ticket Management (Acknowledge / Assign / Close)
+    * Signature Library Failure Matching (TS-01 to TS-12)
+    * Intervention & Rig Workorder Scheduling Queue
+    * Executive Field Scorecard Comparison & PDF Reporting
+================================================================================

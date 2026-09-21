@@ -1,0 +1,16 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-09-13T10:37:40Z",
+  "kpis": {
+    "oil_rate_bopd": 399.1,
+    "water_cut_pct": 0.0,
+    "liquid_rate_bpd": 399.1,
+    "gas_rate_mscfd": 119.7,
+    "motor_load_pct": 102.5,
+    "energy_variance_pct": 29.23,
+    "health_score": 71.4,
+    "anomaly_score": 0.72
+  },
+  "status": "running",
+  "alarm_count": 1
+}

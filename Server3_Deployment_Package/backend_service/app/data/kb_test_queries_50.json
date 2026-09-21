@@ -1,0 +1,402 @@
+[
+  {
+    "id": "KB-01",
+    "category": "Standard Operating Procedures",
+    "query": "What is the procedure for backspin?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "API_RP_11S1_V4"]
+  },
+  {
+    "id": "KB-02",
+    "category": "Standard Operating Procedures",
+    "query": "What is the standard operating procedure for ESP startup ramp?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-03",
+    "category": "Standard Operating Procedures",
+    "query": "What is the approved procedure for clearing gas lock?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-04",
+    "category": "Standard Operating Procedures",
+    "query": "Find the procedure for restarting an ESP after an underload trip",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "seed_alerts.yaml"]
+  },
+  {
+    "id": "KB-05",
+    "category": "Standard Operating Procedures",
+    "query": "What is the standard procedure for thermal well shutdown?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "seed_alerts.yaml"]
+  },
+  {
+    "id": "KB-06",
+    "category": "Standard Operating Procedures",
+    "query": "Find procedure for handling high sand production on an ESP",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-07",
+    "category": "Standard Operating Procedures",
+    "query": "Lookup CCED standard for high casing pressure management",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-08",
+    "category": "Standard Operating Procedures",
+    "query": "What is the SOP for VFD drive current imbalance limits?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "seed_alerts.yaml"]
+  },
+  {
+    "id": "KB-09",
+    "category": "Standard Operating Procedures",
+    "query": "Find standard operating procedure for ESP commissioning",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-10",
+    "category": "Standard Operating Procedures",
+    "query": "What procedure should be followed for suspected broken shaft?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "seed_alerts.yaml"]
+  },
+  {
+    "id": "KB-11",
+    "category": "Standard Operating Procedures",
+    "query": "What is the protocol for chemical batch dosing or scale squeeze?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-12",
+    "category": "Standard Operating Procedures",
+    "query": "Lookup emergency well shut-in procedure for surface facility upset",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-13",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What are the governing tripping thresholds for radial vibration?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-14",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What should an operator do when motor temperature exceeds 130°C?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-15",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "Lookup alert response protocol for motor temperature exceeding 150°C",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-16",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "Lookup standard operating limits for intake pressure (PIP)",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-17",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What is the maximum allowable discharge pressure (PDP) threshold?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-18",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What does the SOP specify for maximum allowable motor current?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-19",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What are the alert limits for motor underload or undercurrent?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-20",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What is the allowable operating frequency range on the VSD?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-21",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What radial vibration level triggers a warning threshold?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-22",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What actions are forbidden when motor temperature is critical?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-23",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "How is Total Dynamic Head (TDH) calculated?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-24",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is Best Efficiency Point (BEP)?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-25",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the Recommended Operating Range (ROR) of an ESP?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-26",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "How does fluid Specific Gravity (SG) affect pump discharge pressure?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-27",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "Explain pump affinity laws when changing ESP frequency",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-28",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "How is Hydraulic Horsepower (HHP) calculated for an ESP?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-29",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the relation between motor current, voltage, and power factor?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-30",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is minimum submergence pressure and how is it determined?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-31",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the canonical unit for motor temperature in the ESP platform?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-32",
+    "category": "Equipment Physics & Engineering Standards",
+    "query": "What is the canonical unit for intake pressure?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-33",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What are the key components of an ESP assembly?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-34",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the function of the downhole protector and seal section?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-35",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the difference between a rotary gas separator and gas handler?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-36",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What type of electric motor is used in ESP downhole systems?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-37",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the purpose of the motor lead extension (MLE)?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-38",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the role of the check valve and drain valve above the pump?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-39",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What are the manufacturer recommended operating corridor limits?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-40",
+    "category": "Equipment Assembly & Specifications",
+    "query": "Explain how a Variable Speed Drive (VSD) controls downhole pumps",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-41",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What downhole sensors are included in the ESP gauge package?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-42",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What are the specifications of API RP 11S for ESP operation?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "API_RP_11S1_V4"]
+  },
+  {
+    "id": "KB-43",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes gas interference or gas lock in an ESP?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-44",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes stage wear or impeller erosion?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-45",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What indicates motor overheating in telemetry metrics?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["seed_alerts.yaml", "API_RP_11S"]
+  },
+  {
+    "id": "KB-46",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What are the symptoms of electrical insulation breakdown downhole?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-STD-API-11S_p16_c1"]
+  },
+  {
+    "id": "KB-47",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes upthrust condition in an ESP pump?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-48",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What causes downthrust wear on pump stage washers?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-49",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "How does scale deposition impact pump stage hydraulics?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "DOC-OEM-BH-001"]
+  },
+  {
+    "id": "KB-50",
+    "category": "Fault Troubleshooting & Causal Mechanisms",
+    "query": "What are the indicators of a sheared pump shaft versus gas lock?",
+    "target_well": "FS-031",
+    "expected_objective": "OP06_PROCEDURE_LOOKUP",
+    "expected_sources": ["API_RP_11S", "seed_alerts.yaml"]
+  }
+]

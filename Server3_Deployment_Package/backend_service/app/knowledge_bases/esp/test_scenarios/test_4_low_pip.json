@@ -1,0 +1,9 @@
+{
+  "scenario_name": "Test 4 - Low Intake Pressure",
+  "user_query": "ESP-Well-001 PIP dropped to 120 psi",
+  "asset_id": "ESP-Well-001",
+  "expected_diagnosis": "Gas lock risk",
+  "expected_confidence": 0.85,
+  "expected_severity": "warning",
+  "expected_recommendation": "Reduce flow rate, activate VSD agitation"
+}

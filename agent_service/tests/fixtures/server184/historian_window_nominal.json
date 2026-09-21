@@ -1,0 +1,18 @@
+{
+  "well_id": "FS-17",
+  "start": "2026-08-01T00:00:00Z",
+  "end": "2026-08-30T00:00:00Z",
+  "row_count": 2,
+  "truncated": false,
+  "columns": ["timestamp", "amp_a", "freq_hz", "motor_temp_c", "int_prs_psi"],
+  "units": {
+    "amp_a": "A",
+    "freq_hz": "Hz",
+    "motor_temp_c": "°C",
+    "int_prs_psi": "PSI"
+  },
+  "rows": [
+    ["2026-08-27T07:20:21.749959Z", 35.7, 53.1, 87.71, 395.4],
+    ["2026-08-27T07:20:22.749959Z", 35.8, 53.1, 87.72, 395.1]
+  ]
+}

@@ -1,0 +1,21 @@
+objective_id: OP01_CURRENT_STATUS
+tool: get_current_status
+safety_class: READ
+scope: ASSET
+required_evidence:
+  - get_asset_context
+  - get_live_telemetry
+optional_evidence:
+  - get_events
+allowed_visuals:
+  - health-score
+  - intake-pressure
+  - gross-liquid-rate
+  - production-deferment
+arg_schema:
+  type: object
+  properties:
+    asset_id:
+      type: string
+  required:
+    - asset_id

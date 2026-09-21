@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": "WELL_NOT_FOUND",
+    "message": "Provided well_id is unknown",
+    "detail": {
+      "well_id": "FWS-04"
+    }
+  }
+}

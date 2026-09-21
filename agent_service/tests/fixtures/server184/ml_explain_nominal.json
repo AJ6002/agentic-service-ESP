@@ -1,0 +1,13 @@
+{
+  "well_id": "FS-17",
+  "output": "fault",
+  "timestamp": "2026-09-17T11:28:47.329365Z",
+  "base_value": 0.20,
+  "contributions": [
+    { "feature": "amp_a", "value": 35.7, "shap": 0.31 },
+    { "feature": "freq_hz", "value": 53.1, "shap": 0.09 },
+    { "feature": "motor_temp_c", "value": 87.71, "shap": 0.18 }
+  ],
+  "model_version": "3.0.1",
+  "confidence": 0.85
+}

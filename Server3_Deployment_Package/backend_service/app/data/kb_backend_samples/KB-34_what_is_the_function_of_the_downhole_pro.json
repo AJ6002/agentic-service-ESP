@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-34",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the function of the downhole protector and seal section?",
+    "target_well": "FS-031",
+    "latency_ms": 8854.31,
+    "timestamp": "2026-09-04T18:19:02Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-8c3565",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:02Z",
+    "assessment": "The downhole protector and seal section is a critical component of an ESP (Electric Submersible Pump) system designed to protect the pump and ensure safe operation. Its primary functions include:\n\n1. **Protection of the Pump**: The downhole protector seals the pump from the environment, preventing debris, sand, or other contaminants from entering the pump's housing. This prevents damage to the pump seals and bearings, which could lead to catastrophic failure.\n\n2. **Sealing Against Pressure**: The seal section is responsible for maintaining the pressure inside the pump housing, which is crucial for the efficient operation of the pump. It prevents the pump from drawing in too much fluid, which could cause overloading and damage.\n\n3. **Temperature Control**: The downhole protector and seal section can also help regulate the temperature inside the pump housing. This is important for maintaining optimal pump performance and preventing overheating.\n\n4. **Eco-Friendly Operation**: By sealing out contaminants and maintaining the pump's integrity, the downhole protector and seal section help ensure that the ESP operates efficiently and safely, reducing the need for frequent maintenance and repairs.\n\n5. **Longevity**: By protecting the pump from the harsh environment of the well, the downhole protector and seal section help extend the lifespan of the pump, reducing the overall cost of operation.\n\nOverall, the downhole protector and seal section is a vital component of an ESP system, ensuring safe, reliable, and efficient operation in the harsh environment of a well.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-8c3565",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

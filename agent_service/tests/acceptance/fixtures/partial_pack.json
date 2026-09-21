@@ -1,0 +1,30 @@
+{
+  "run_id": "R-partial-pack-fixture",
+  "version": 1,
+  "sealed": false,
+  "items": [
+    {
+      "evidence_id": "EV-partial-telem",
+      "tool": "get_live_telemetry",
+      "source_domain": "live",
+      "status": "OK",
+      "payload": {
+        "well_id": "FS-17",
+        "measurements": {
+          "vibration_g": 3.5,
+          "int_prs_psi": 850.0,
+          "motor_temp_c": 115.0
+        }
+      },
+      "fetched_at": "2026-09-20T12:00:00Z"
+    }
+  ],
+  "gaps": [
+    {
+      "source_domain": "historian",
+      "tool": "get_historian_window",
+      "reason": "TIMEOUT",
+      "required": true
+    }
+  ]
+}

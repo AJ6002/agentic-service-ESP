@@ -1,0 +1,14 @@
+==========================================================
+TEST      : Q4 CLARIFY PAUSED (missing asset)
+CURL CMD  : curl -X POST http://localhost:8091/query -H "Content-Type: application/json" -d '{"session_id":"curl-q4-6691","message":"Why did it trip?"}'
+QUERY     : Why did it trip?
+SESSION   : curl-q4-6691
+TIMESTAMP : 2026-09-21T11:40:06Z
+----------------------------------------------------------
+FRAME TYPES: clarification | done
+DONE STATUS: PAUSED
+CLARIFY Q  : Which well would you like me to analyze?
+----------------------------------------------------------
+RAW NDJSON:
+{"type":"clarification","run_id":"R-0ebe3065","question":"Which well would you like me to analyze?","options":["FS-17","FS-91","FNW-01","FWS-06"],"slot":"asset_id","pending_ref":"esp:session:curl-q4-6691:pending"} {"type":"done","run_id":"R-0ebe3065","status":"PAUSED"}
+==========================================================

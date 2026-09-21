@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "test_id": "KB-20",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What is the allowable operating frequency range on the VSD?",
+    "target_well": "FS-031",
+    "latency_ms": 20384.92,
+    "timestamp": "2026-09-04T18:16:34Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-d8c13d",
+    "asset_id": "FS-031",
+    "objective_id": "OP01_CURRENT_STATUS",
+    "timestamp": "2026-09-04T18:16:34Z",
+    "assessment": "Current Operational Status for Well FS-031:\n\n• Operating Frequency: 50.0 Hz\n• Motor Current: 62.0 A\n• Motor Internal Temperature: 135.0 °C\n• Intake Pressure (PIP): 350.0 psi\n• Discharge Pressure (PDP): 2100.0 psi\n• Radial Vibration: 1.2 g RMS\n\nOperating State: Continuous operation within normal operating corridor.",
+    "evidence": [
+      {
+        "source_type": "Specialist",
+        "source_id": "esp:telemetry:FS-031:flow_rate:1450.0",
+        "observation": "Reference: esp:telemetry:FS-031:flow_rate:1450.0",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "Engineering",
+        "source_id": "esp:engineering:tdh:4755.9",
+        "observation": "Engineering: Total Dynamic Head calculated at 4755.9 ft",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openAssetDeepDive=FS-031"
+      },
+      {
+        "source_type": "Engineering",
+        "source_id": "esp:engineering:bep_dev:-17.1%",
+        "observation": "Engineering: BEP deviation at -17.1%% — pump efficiency variance detected",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openAssetDeepDive=FS-031"
+      },
+      {
+        "source_type": "AST",
+        "source_id": "EVID-AST-038796",
+        "observation": "Asset Context: Equipment specification or installed configuration",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openAssetDeepDive=FS-031"
+      },
+      {
+        "source_type": "TEL",
+        "source_id": "EVID-TEL-69bceb",
+        "observation": "Telemetry: Live sensor measurement from Historian — validated signal",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openDbViewer=unlabelled_recovered&asset=FS-031"
+      },
+      {
+        "source_type": "TEL",
+        "source_id": "EVID-TEL-4b073f",
+        "observation": "Telemetry: Live sensor measurement from Historian — validated signal",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openDbViewer=unlabelled_recovered&asset=FS-031"
+      },
+      {
+        "source_type": "TEL",
+        "source_id": "EVID-TEL-c16bf9",
+        "observation": "Telemetry: Live sensor measurement from Historian — validated signal",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openDbViewer=unlabelled_recovered&asset=FS-031"
+      },
+      {
+        "source_type": "TEL",
+        "source_id": "EVID-TEL-815e1e",
+        "observation": "Telemetry: Live sensor measurement from Historian — validated signal",
+        "timestamp": "2026-09-04T18:16:34Z",
+        "page": null,
+        "source_deep_link": "http://localhost:3000/?openDbViewer=unlabelled_recovered&asset=FS-031"
+      }
+    ],
+    "diagnosis": "Asset FS-031 operating nominally at 50.0 Hz.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Maintain current operating parameters; continue routine SCADA surveillance.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "autonomous_control"
+    ],
+    "verification": [
+      "1. Confirm SCADA polling interval.",
+      "2. Verify surface choke alignment."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / Qwen2.5-Coder-3B-Instruct-Q4_K_M) | (no completed call this run — health probe only)",
+      "telemetry_source: FALLBACK",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-d8c13d",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Maintain current operating parameters; continue routine SCADA surveillance.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "Would you like me to compare this with the last 7 days?",
+      "Show forensic tipping timeline and evidence",
+      "Check governing tripping limits and SOP"
+    ]
+  }
+}

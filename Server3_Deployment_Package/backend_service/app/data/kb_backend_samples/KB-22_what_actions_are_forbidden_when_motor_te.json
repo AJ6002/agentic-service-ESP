@@ -1,0 +1,46 @@
+{
+  "metadata": {
+    "test_id": "KB-22",
+    "category": "Alert Playbooks & Operational Limits",
+    "query": "What actions are forbidden when motor temperature is critical?",
+    "target_well": "FS-031",
+    "latency_ms": 3802.29,
+    "timestamp": "2026-09-04T18:16:58Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-db8fee",
+    "asset_id": "FS-031",
+    "objective_id": "OP00_OPERATIONAL_CONTROL",
+    "timestamp": "2026-09-04T18:16:58Z",
+    "assessment": "Request refused: autonomous operational control is not permitted.",
+    "evidence": [],
+    "diagnosis": "This system is advisory-only and cannot execute equipment control commands (e.g. change frequency, start/stop/trip a pump) autonomously.",
+    "confidence": 1.0,
+    "risk": "N/A - request blocked before execution",
+    "recommendation": "A qualified field engineer must review and manually execute any operational control action through the appropriate SCADA/VSD control system.",
+    "expected_impact": "No action taken.",
+    "constraints": [
+      "autonomous_control"
+    ],
+    "verification": [
+      "Verify command request with lead field engineer."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "Safety Gate: HARD REFUSAL (pre-execution)",
+      "Run ID: REQ-KB-db8fee",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "A qualified field engineer must review and manually execute any operational control action through the appropriate SCADA/VSD control system.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

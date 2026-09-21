@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "test_id": "KB-06",
+    "category": "Standard Operating Procedures",
+    "query": "Find procedure for handling high sand production on an ESP",
+    "target_well": "FS-031",
+    "latency_ms": 9074.68,
+    "timestamp": "2026-09-04T18:13:52Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-3f27ba",
+    "asset_id": "FS-031",
+    "objective_id": "OP06_PROCEDURE_LOOKUP",
+    "timestamp": "2026-09-04T18:13:52Z",
+    "assessment": "The ESP is operating within the recommended parameters, but there are some potential issues that need to be addressed.",
+    "evidence": [
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-16c1c2",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-76fb8a",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "KB",
+        "source_id": "EVID-KB-287542",
+        "observation": "Knowledge Base: Applicable operating procedure or SOP reference",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S:Protection & Monitoring §5",
+        "observation": "Knowledge Base: API_RP_11S §Protection & Monitoring §5",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json:Critical Limits Register",
+        "observation": "Knowledge Base: diagnostic_rules.json §Critical Limits Register",
+        "timestamp": "2026-09-04T18:13:52Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      }
+    ],
+    "diagnosis": "Operational thresholds retrieved for: Motor Internal Temperature, Pump Intake Pressure, Radial Vibration.",
+    "confidence": 0.95,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "NEVER operate pump outside Recommended Operating Range (ROR) defined in pump performance curves."
+    ],
+    "verification": [
+      "Check the motor temperature and ensure it is within the recommended envelope.",
+      "Check the pump intake pressure and ensure it is within the recommended envelope.",
+      "Check for any mechanical issues that may have caused the underload, such as worn bearings or damaged seals."
+    ],
+    "provenance": [
+      "API RP 11S & OEM Technical Manuals",
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=8844ms | tokens=1717",
+      "telemetry_source: UNVERIFIED",
+      "model_source: UNVERIFIED",
+      "Run ID: REQ-KB-3f27ba",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.95,
+    "trend": null,
+    "expected_vs_actual": [
+      {
+        "parameter": "Motor Internal Temperature",
+        "normal": "< 125.0 °C",
+        "warning": "130.0 °C",
+        "trip": "150.0 °C (Critical Trip)",
+        "action": "Inspect cooling flow, evaluate controlled shutdown."
+      },
+      {
+        "parameter": "Pump Intake Pressure",
+        "normal": "> 200.0 psi",
+        "warning": "< 150.0 psi",
+        "trip": "< 100.0 psi (Critical Trip)",
+        "action": "Reduce VFD frequency, check choke setting."
+      },
+      {
+        "parameter": "Radial Vibration",
+        "normal": "< 1.5 g RMS",
+        "warning": "> 3.0 g RMS",
+        "trip": "> 5.0 g RMS (Critical Trip)",
+        "action": "Check for mechanical unbalance or gas slugging."
+      }
+    ],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": [
+      "👉 Inspect full document excerpt in PDF manual",
+      "👉 Compare current telemetry against these warning limits",
+      "👉 Check connected failure modes in Knowledge Graph"
+    ]
+  }
+}

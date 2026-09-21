@@ -1,0 +1,23 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-09-17T12:32:34.270090Z",
+  "age_sec": 0.82,
+  "manufacturer": "Borets / Levare",
+  "model_id": "B400-400",
+  "measurements": {
+    "STD_INT_PRS_PSI": 395.4,
+    "STD_DISCH_PRS_PSI": 1883.1,
+    "STD_INT_TEMP_C": 64.53,
+    "STD_MOTOR_TEMP_C": 87.71,
+    "STD_VIBRATION_G": 0.082,
+    "STD_VOLT_V": 594.1,
+    "STD_AMP_A": 35.7,
+    "STD_FREQ_HZ": 53.1,
+    "STD_LEAK_CURRENT_CT": 15.0,
+    "STD_DHG_CURRENT_MA": 10.7,
+    "STD_WHP_PSI": 180.3,
+    "STD_FLP_PSI": 171.0,
+    "STD_AP_PSI": 155.5,
+    "STD_VFD_STS": true
+  }
+}

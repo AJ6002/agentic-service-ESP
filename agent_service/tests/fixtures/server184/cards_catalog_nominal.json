@@ -1,0 +1,23 @@
+{
+  "_fixture_note": "Derived from API spec v2.0.0 §5.2 card registry table. The spec does not publish a verbatim /cards/catalog response body, so this shape is inferred from the individual-card contract (§5.1) plus the 17-card table. Replace with a real captured response once one is available.",
+  "card_count": 17,
+  "cards": [
+    { "card_id": "gross-liquid-rate", "component_id": "section-production-kpi-liquid-rate", "unit": "BPD", "widget_type": "ribbon_card" },
+    { "card_id": "net-oil-rate", "component_id": "section-production-kpi-oil-rate", "unit": "BOPD", "widget_type": "ribbon_card" },
+    { "card_id": "water-cut", "component_id": "section-production-kpi-water-cut", "unit": "%", "widget_type": "ribbon_card" },
+    { "card_id": "associated-gas", "component_id": "section-production-kpi-associated-gas", "unit": "MSCFD", "widget_type": "ribbon_card" },
+    { "card_id": "production-deferment", "component_id": "section-production-kpi-deferment", "unit": "BPD", "widget_type": "ribbon_card" },
+    { "card_id": "energy-balance", "component_id": "section-production-kpi-energy-balance", "unit": "%", "widget_type": "ribbon_card" },
+    { "card_id": "health-score", "component_id": "section-summary-health-assessment", "unit": "0-100", "widget_type": "gauge_card" },
+    { "card_id": "anomaly-score", "component_id": "section-intelligence-anomaly", "unit": "0.0-1.0", "widget_type": "metric_box" },
+    { "card_id": "fault-classification", "component_id": "section-diagnosis-banner", "unit": "discrete", "widget_type": "alert_banner" },
+    { "card_id": "motor-load", "component_id": "section-stability-motor-load", "unit": "%", "widget_type": "stability_card" },
+    { "card_id": "motor-temperature", "component_id": "section-stability-motor-temp", "unit": "°C", "widget_type": "stability_card" },
+    { "card_id": "vibration", "component_id": "section-stability-vibration", "unit": "g RMS", "widget_type": "stability_card" },
+    { "card_id": "intake-pressure", "component_id": "section-stability-intake-press", "unit": "PSI", "widget_type": "stability_card" },
+    { "card_id": "discharge-pressure", "component_id": "section-stability-disch-press", "unit": "PSI", "widget_type": "stability_card" },
+    { "card_id": "vsd-advisor", "component_id": "section-vsd-advisor", "unit": "Hz", "widget_type": "advisor_card" },
+    { "card_id": "fleet-health", "component_id": "section-summary-fleet-health", "unit": "wells", "widget_type": "summary_box" },
+    { "card_id": "system-ingestion", "component_id": "section-summary-ingestion-rate", "unit": "msg/s", "widget_type": "summary_box" }
+  ]
+}

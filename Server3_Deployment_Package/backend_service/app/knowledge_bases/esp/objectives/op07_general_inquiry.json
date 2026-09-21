@@ -1,0 +1,40 @@
+{
+  "objective_id": "OP07_GENERAL_INQUIRY",
+  "version": "1.0",
+  "title": "General Inquiry & Conversational Assistance",
+  "description": "Handle greetings, identity/capability questions, and general non-diagnostic conversational queries. No telemetry, specialists, or evidence required; responds directly via advisory synthesis.",
+  "strategic_objectives": [],
+  "intent_classes": [
+    "hi", "hello", "helo", "hey", "howdy", "heya", "greetings", "salutations", "hiya", "yo", "sup",
+    "whats up", "what's up", "what's good", "whats good", "what's new", "whats new",
+    "hola", "bonjour", "marhaba", "salam", "namaste", "ciao",
+    "good morning", "good afternoon", "good evening", "good day", "morning", "afternoon", "evening",
+    "start of shift", "shift change", "night shift hello", "on shift",
+    "how are you", "how are you doing", "how are things", "how's it going", "hows it going", "how is everything",
+    "how have you been", "how do you do", "how r u", "how you doing", "how are u", "how's life", "how is life",
+    "are you okay", "are you good", "hope all is well", "hope you are well", "are you alive", "are you ready",
+    "who are you", "what is your name", "who is jane", "who is agent jane", "what is agent jane", "what are you",
+    "what can you do", "what is your role", "how can you help", "how can you help me", "what can you help me with",
+    "what are your capabilities", "what are your skills", "what features do you have", "what are you capable of",
+    "help", "role", "identity", "greeting", "capabilities for esp", "how do you analyze", "introduce yourself",
+    "tell me about yourself", "give me an intro", "are you an ai", "are you a bot", "are you human", "are you an agent",
+    "nice to meet you", "glad to meet you", "pleased to meet you",
+    "thank you", "thanks", "thx", "ty", "thanks a lot", "thank you so much", "thank you very much",
+    "much appreciated", "appreciate it", "cheers", "good job", "great job", "well done", "nice work", "awesome work",
+    "ok", "okay", "got it", "cool", "nice", "great", "awesome", "perfect", "sure", "understood", "noted", "sounds good", "roger that", "copy that",
+    "bye", "goodbye", "see you", "see ya", "talk later", "catch you later", "see you later", "take care", "good night", "have a good day",
+    "what is an esp", "what is esp", "define esp", "explain esp", "tell me about esp", "tell me about electric submersible pumps", "how does esp work", "what does esp stand for"
+  ],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": [],
+  "required_tools": [],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true,
+    "forbidden_actions": ["autonomous_control"]
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["conversational response provided"],
+  "verification_steps": []
+}

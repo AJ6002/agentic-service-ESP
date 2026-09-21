@@ -1,0 +1,318 @@
+{
+  "info": {
+    "_postman_id": "8f3b2a19-92c1-4b77-8025-a6e5b4c3d2e1",
+    "name": "slice 2 query testing",
+    "description": "Comprehensive suite testing 10 natural operator queries mapped to the 3 working objectives (OP07, OP01, OP03) in Slice 2 against Agent Service (:8091).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "agent_url",
+      "value": "http://127.0.0.1:8091",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "OP07 — General Inquiry",
+      "item": [
+        {
+          "name": "01. What does gas lock mean in an ESP?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Streams valid text delta response\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame.status).to.eql(\"OK\");",
+                  "    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+                  "    pm.expect(textDelta).to.not.be.undefined;",
+                  "    pm.expect(textDelta.delta.toLowerCase()).to.include(\"gas\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op07-01\",\n  \"message\": \"What does gas lock mean in an ESP?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "02. Explain what underload trip is and why it happens.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Returns clarification or text explanation\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op07-02\",\n  \"message\": \"Explain what underload trip is and why it happens.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "03. What is the difference between intake pressure and discharge pressure?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Streams glossary differentiation\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var textDelta = lines.find(function(f) { return f.type === 'text_delta'; });",
+                  "    pm.expect(textDelta).to.not.be.undefined;",
+                  "    pm.expect(textDelta.delta.toLowerCase()).to.include(\"pressure\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op07-03\",\n  \"message\": \"What is the difference between intake pressure and discharge pressure?\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "OP01 — Current Status",
+      "item": [
+        {
+          "name": "04. What's the current status of FS-17?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Resolves FS-17 and produces status advisory / cards\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "    var adv = lines.find(function(f) { return f.type === 'advisory'; });",
+                  "    if (adv) { pm.expect(adv.advisory.objective_id).to.eql(\"OP01_CURRENT_STATUS\"); }",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op01-04\",\n  \"message\": \"What is the current status of FS-17?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "05. How is FS-91 doing right now?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Resolves FS-91 accurately\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op01-05\",\n  \"message\": \"How is FS-91 doing right now?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "06. Is FS-17 running okay at the moment?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Streams assessment\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op01-06\",\n  \"message\": \"Is FS-17 running okay at the moment?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "07. Give me the latest readings for FNW-01.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Resolves FNW-01 telemetry readings\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op01-07\",\n  \"message\": \"Give me the latest readings for FNW-01.\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "OP03 — Fault Diagnosis",
+      "item": [
+        {
+          "name": "08. Why did FS-17 trip?",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Executes OP03 diagnostic or returns graceful evidence status\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op03-08\",\n  \"message\": \"Why did FS-17 trip?\"\n}"
+            }
+          }
+        },
+        {
+          "name": "09. What's wrong with FS-91 — it keeps shutting down.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Executes OP03 diagnostic on FS-91\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op03-09\",\n  \"message\": \"What is wrong with FS-91 - it keeps shutting down.\"\n}"
+            }
+          }
+        },
+        {
+          "name": "10. Diagnose the fault on FS-17 and tell me what to check.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+                  "pm.test(\"Executes OP03 and returns diagnostic or evidence options\", function () {",
+                  "    var lines = pm.response.text().trim().split('\\n').map(function(l) { return JSON.parse(l); });",
+                  "    var doneFrame = lines.find(function(f) { return f.type === 'done'; });",
+                  "    pm.expect(doneFrame).to.not.be.undefined;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{agent_url}}/query", "host": ["{{agent_url}}"], "path": ["query"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"slice2-op03-10\",\n  \"message\": \"Diagnose the fault on FS-17 and tell me what to check.\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "scenario_name": "Test 3 - Excessive Vibration",
+  "user_query": "ESP-Well-001 has high vibration (3.5 g radial)",
+  "asset_id": "ESP-Well-001",
+  "expected_diagnosis": "Bearing wear",
+  "expected_confidence": 0.75,
+  "expected_severity": "warning",
+  "expected_recommendation": "Inspect bearings, check alignment"
+}

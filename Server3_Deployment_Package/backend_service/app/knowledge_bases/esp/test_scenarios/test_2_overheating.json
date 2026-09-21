@@ -1,0 +1,9 @@
+{
+  "scenario_name": "Test 2 - Motor Overheating",
+  "user_query": "ESP-Well-001 motor temperature is 140°C, what should I do?",
+  "asset_id": "ESP-Well-001",
+  "expected_diagnosis": "Motor overheating",
+  "expected_confidence": 0.8,
+  "expected_severity": "warning",
+  "expected_recommendation": "Reduce flow rate, check PIP, inspect for scale"
+}

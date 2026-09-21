@@ -1,0 +1,11 @@
+objective_id: OP07_GENERAL_INQUIRY
+tool: search_knowledge
+safety_class: READ
+scope: GLOBAL
+required_evidence: []
+optional_evidence:
+  - search_knowledge
+allowed_visuals: []
+arg_schema:
+  type: object
+  properties: {}

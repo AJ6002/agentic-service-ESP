@@ -1,0 +1,20 @@
+{
+  "objective_id": "OP08_FLEET_INVENTORY",
+  "version": "1.0",
+  "title": "Fleet Asset Inventory & Counts",
+  "description": "List, count, and categorize assets across the fleet (types, pump models, totals). Cross-asset/aggregate query — not scoped to a single asset_id.",
+  "scope": "fleet",
+  "strategic_objectives": ["O1"],
+  "intent_classes": ["list all assets", "all assets", "list assets", "fleet inventory", "fleet overview", "overview of fleet", "overview of the fleet", "field overview", "give me the fleet overview", "how many wells", "how many assets", "asset types", "asset count", "count of assets", "all wells in field", "fleet asset list", "running vs stopped", "compare the installed", "list all active esp wells", "how many pumps are currently", "total number of", "total number of wells", "total number of assets", "total wells", "total assets", "well count", "fleet count"],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": ["fleet_asset_list"],
+  "required_tools": ["list_fleet_assets"],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["total asset count reported", "breakdown by type/pump model provided"],
+  "verification_steps": ["Cross-check total count against the canonical fleet registry"]
+}

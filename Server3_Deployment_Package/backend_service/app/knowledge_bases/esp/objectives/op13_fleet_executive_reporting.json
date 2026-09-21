@@ -1,0 +1,33 @@
+{
+  "objective_id": "OP13_FLEET_EXECUTIVE_REPORTING",
+  "version": "1.0",
+  "title": "Fleet Executive Performance & Health Summary",
+  "description": "Generate an aggregated field-wide operational report synthesizing uptime, production rate, and critical risks.",
+  "scope": "fleet",
+  "strategic_objectives": ["O1", "O2", "O4"],
+  "intent_classes": [
+    "generate executive fleet performance report",
+    "fleet report",
+    "executive summary",
+    "field performance report",
+    "generate fleet report",
+    "fleet health summary",
+    "overall field status",
+    "fleet dashboard report",
+    "overall field uptime",
+    "total bpd",
+    "fleet health index distribution",
+    "weekly management report"
+  ],
+  "required_asset_context": [],
+  "required_signals": [],
+  "required_evidence": ["fleet_asset_list", "fleet_summary_metrics"],
+  "required_tools": ["list_fleet_assets", "get_model_output"],
+  "allowed_specialists": [],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["total active vs inactive counts reported", "top production bottlenecks highlighted", "executive recommendation generated"],
+  "verification_steps": ["Sign off by lead field production engineer"]
+}

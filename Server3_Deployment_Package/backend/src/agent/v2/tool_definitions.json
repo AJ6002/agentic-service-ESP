@@ -1,0 +1,413 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "set_operating_frequency",
+      "description": "Adjust the ESP target operating frequency (Hz) via VFD control. OP00 Operational Control.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset (e.g., 'ESP-Well-001')"
+          },
+          "target_frequency_hz": {
+            "type": "number",
+            "description": "Target electrical drive frequency in Hertz (Hz), e.g., 55.0"
+          }
+        },
+        "required": [
+          "asset_id",
+          "target_frequency_hz"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_asset_status",
+      "description": "Retrieve current operating status, live sensor telemetry, and engineering state for an ESP asset. OP01 Current Status.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "analyze_production_decline",
+      "description": "Perform production decline root cause analysis (RCA) comparing current flow rates with operating envelopes. OP02 Production Decline RCA.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "diagnose_fault",
+      "description": "Diagnose downhole ESP equipment electrical and mechanical faults based on telemetry symptoms. OP03 Fault Diagnosis.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          },
+          "symptom": {
+            "type": "string",
+            "description": "Observed symptom, trip code, or anomaly description (e.g., 'motor overheating', 'underload trip')"
+          }
+        },
+        "required": [
+          "asset_id",
+          "symptom"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_health_index",
+      "description": "Compute and retrieve composite health index (0-100) and remaining useful life (RUL) estimation. OP04 Health Assessment.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "check_early_warnings",
+      "description": "Evaluate leading indicators and multi-sensor trends for early warning fault detection before trip thresholds are breached. OP05 Early Warning.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "lookup_sop_procedure",
+      "description": "Query technical standards and standard operating procedures (SOP) from the deterministic knowledge base. OP06 Procedure Lookup.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query describing the procedure, operational protocol, or limit lookup"
+          },
+          "standard": {
+            "type": "string",
+            "description": "Governing operational standard, standard code, or procedure category (e.g., 'CCED_ESP_SOP_REV3', 'API_RP_11S')"
+          }
+        },
+        "required": [
+          "query",
+          "standard"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "general_inquiry",
+      "description": "Answer general domain inquiries, terminology definitions, and conceptual questions regarding artificial lift. OP07 General Inquiry.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The general inquiry question or concept to explain"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_inventory",
+      "description": "Retrieve global fleet inventory status, asset classifications, and operational distribution across all fields. OP08 Fleet Inventory.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_production_optimization",
+      "description": "Aggregate fleet-level production optimization opportunities, choke/frequency adjustment candidates, and uplift potential. OP09 Fleet Production Optimization.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_design_sizing",
+      "description": "Perform fleet-wide ESP design sizing validation, pump stage suitability checks, and BEP alignment analysis. OP10 Fleet Design Sizing.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_maintenance_priority",
+      "description": "Generate prioritized maintenance ranking, workover urgency scoring, and intervention recommendations across the fleet. OP11 Fleet Maintenance Priority.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_case_analytics",
+      "description": "Analyze historical fleet incident patterns, mean time between failures (MTBF), and recurring trip causes across wells. OP12 Fleet Case Analytics.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_fleet_executive_report",
+      "description": "Compile executive summary dashboard including fleet health distribution, production vs target, and high-risk wells. OP13 Fleet Executive Report.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_operational_history",
+      "description": "Retrieve operational history, historian sensor time-series, and trip log records for an asset over a specified time window. OP14 Operational History.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset"
+          },
+          "range": {
+            "type": "string",
+            "description": "Time range window for historical telemetry (e.g., '1h', '6h', '24h', '7d', '30d')"
+          }
+        },
+        "required": [
+          "asset_id",
+          "range"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "ask_clarification",
+      "description": "Formulate a targeted clarification question back to the operator when intent is ambiguous or required context is missing.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Clarification question presented to the user"
+          },
+          "missing_context": {
+            "type": "string",
+            "description": "Explanation of the missing parameters or ambiguous context needed"
+          }
+        },
+        "required": [
+          "question",
+          "missing_context"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_agent_profile",
+      "description": "Inspect agent capabilities, specialist team structure, operational constraints, and version metadata.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Agent capability area or topic (e.g., 'specialists', 'governance', 'version', 'safety')"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "explain_widget",
+      "description": "Explain the chart or SCADA visualization visible on the operator screen: governing physics, standards citation, on-screen title, and live operating state.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "widget_id": {
+            "type": "string",
+            "description": "Widget slug or on-screen title (e.g. 'pump-curve', 'operating-envelope', 'forensics-timeline', or 'ESP Pump Performance Curve')"
+          },
+          "asset_id": {
+            "type": "string",
+            "description": "Optional asset identifier (e.g. 'FS-031')"
+          },
+          "topic": {
+            "type": "string",
+            "description": "Explanation scope: 'all', 'live_data', 'physics', 'identity'"
+          }
+        },
+        "required": [
+          "widget_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_ml_results",
+      "description": "Query the latest machine learning classification verdicts, health scores, and anomaly detections from mlresults.db for an ESP asset.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "description": "Unique identifier of the ESP asset (e.g. 'FS-031')"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of recent ML results to return (default 10)"
+          }
+        },
+        "required": [
+          "asset_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "render_visual",
+      "description": "Renders an interactive engineering visualization, multi-parameter strip chart, or digital twin component in the chat deck as visual evidence.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "widget_id": {
+            "type": "string",
+            "description": "Identifier of visual component to render: 'forensics-timeline' (Visual 1: Synchronized Dynamic Tipping Timeline), 'subsystem-equalizer' (Visual 2: Subsystem Health Equalizer & Depth Pressure Profile), 'pump-curve' (Visual 3: In-Situ H-Q Pump Performance Curve & BEP Drift), 'operating-envelope' (Visual 4: P10-P90 Statistical Boundary Monitoring), 'synchronized-trends' (Multi-Parameter Synchronized Trends), or 'well-schematic' (Downhole Well Schematic Digital Twin).",
+            "enum": [
+              "forensics-timeline",
+              "subsystem-equalizer",
+              "pump-curve",
+              "operating-envelope",
+              "synchronized-trends",
+              "well-schematic"
+            ]
+          },
+          "asset_id": {
+            "type": "string",
+            "description": "Target ESP asset identifier (e.g. 'FS-031')"
+          },
+          "focus": {
+            "type": "string",
+            "description": "Optional focal aspect (e.g., 'breakout', 'trip', 'bep', 'corridor', 'harmonics')"
+          }
+        },
+        "required": [
+          "widget_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]

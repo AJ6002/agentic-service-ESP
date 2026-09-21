@@ -1,0 +1,34 @@
+{
+  "strategic_objectives": [
+    {
+      "id": "O1",
+      "name": "Maximize Liquid Production Rate",
+      "description": "Optimize fluid drawdown while staying within pump operating envelope."
+    },
+    {
+      "id": "O2",
+      "name": "Extend Run-Life & Prevent Premature Failure",
+      "description": "Protect downhole equipment against thermal, electrical, and mechanical stress."
+    },
+    {
+      "id": "O3",
+      "name": "Minimize Energy & Power Consumption per Barrel",
+      "description": "Improve VSD motor efficiency and operating point alignment."
+    },
+    {
+      "id": "O4",
+      "name": "Ensure Asset Safety & Regulatory Compliance",
+      "description": "Enforce strict operating envelope limits and safety trip interlocks."
+    },
+    {
+      "id": "O5",
+      "name": "Early Detection & Root-Cause Diagnosis of Abnormalities",
+      "description": "Detect subtle signal deviations before catastrophic system failure."
+    },
+    {
+      "id": "O6",
+      "name": "Accelerate Troubleshooting & Resolution Guidance",
+      "description": "Provide actionable, evidence-backed recommendations with step-by-step verification."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+==========================================================
+TEST      : Q5 INSUFFICIENT nonexistent well FS-9999
+CURL CMD  : curl -X POST http://localhost:8091/query -H "Content-Type: application/json" -d '{"session_id":"curl-q5-7277","message":"Why did FS-9999 trip?"}'
+QUERY     : Why did FS-9999 trip?
+SESSION   : curl-q5-7277
+TIMESTAMP : 2026-09-21T11:40:08Z
+----------------------------------------------------------
+FRAME TYPES: error | done
+DONE STATUS: INSUFFICIENT
+ERROR CODE : INSUFFICIENT_EVIDENCE
+ERROR MSG  : Diagnostic run for FS-9999 (objective: OP03_FAULT_DIAGNOSIS) could not be completed: required evidence missing (get_historian_window). Status notes: get_historian_window: ABSENT; get_trips: DEGRADED; diagnose_fault: DEGRADED.
+----------------------------------------------------------
+RAW NDJSON:
+{"type":"error","run_id":"R-27576723","code":"INSUFFICIENT_EVIDENCE","message":"Diagnostic run for FS-9999 (objective: OP03_FAULT_DIAGNOSIS) could not be completed: required evidence missing (get_historian_window). Status notes: get_historian_window: ABSENT; get_trips: DEGRADED; diagnose_fault: DEGRADED."} {"type":"done","run_id":"R-27576723","status":"INSUFFICIENT"}
+==========================================================

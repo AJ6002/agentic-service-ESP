@@ -1,0 +1,24 @@
+Your previous response could not be parsed as valid JSON. This is a strict
+retry. You MUST return ONLY a single JSON object, with no markdown code
+fences, no explanation text before or after it, and no trailing commas.
+
+Schema (all fields required, use null where a field does not apply):
+{
+  "route": "SIMPLE" | "WORKFLOW" | "FOLLOW_UP",
+  "intent": "general_inquiry" | "diagnose" | "status" | "actuation",
+  "objective_id": string | null,
+  "args": { "asset_id": string | null },
+  "confidence": float (0.0 to 1.0),
+  "deferred_intents": [string],
+  "clarification_needed": boolean,
+  "clarify_reason": "CLARIFY" | "INSUFFICIENT" | "APPROVE" | null,
+  "clarify_slot": "asset_id" | null,
+  "clarify_options": [string]
+}
+
+Rules:
+1. "SIMPLE" is for general glossary/knowledge inquiries.
+2. "WORKFLOW" is for questions about well status, sensor readings, or fault diagnosis.
+3. If an asset is required but unresolved, route "WORKFLOW" -> OP03_FAULT_DIAGNOSIS,
+   clarification_needed=true, clarify_slot="asset_id".
+4. Output ONLY the JSON object. Nothing else.

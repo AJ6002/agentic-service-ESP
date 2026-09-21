@@ -1,0 +1,14 @@
+{
+  "well_id": "FS-17",
+  "timestamp": "2026-09-17T11:28:47.329365Z",
+  "health_score": 71.4,
+  "band": "DEGRADED",
+  "contributors": [
+    { "signal": "motor_temp_c", "contribution": -0.18 },
+    { "signal": "vibration_g", "contribution": -0.11 },
+    { "signal": "amp_a", "contribution": -0.06 }
+  ],
+  "model_id": "health_v1",
+  "model_version": "1.0.4",
+  "confidence": 0.88
+}

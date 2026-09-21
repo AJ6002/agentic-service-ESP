@@ -1,0 +1,9 @@
+{
+  "scenario_name": "Test 1 - Healthy Operation",
+  "user_query": "ESP-Well-001 is operating normally, any issues?",
+  "asset_id": "ESP-Well-001",
+  "expected_diagnosis": "No issues detected",
+  "expected_confidence": 0.9,
+  "expected_severity": "normal",
+  "expected_recommendation": "Maintain standard operating procedures"
+}

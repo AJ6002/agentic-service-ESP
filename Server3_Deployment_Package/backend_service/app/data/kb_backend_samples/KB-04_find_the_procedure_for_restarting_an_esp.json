@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "test_id": "KB-04",
+    "category": "Standard Operating Procedures",
+    "query": "Find the procedure for restarting an ESP after an underload trip",
+    "target_well": "FS-031",
+    "latency_ms": 41741.48,
+    "timestamp": "2026-09-04T18:13:36Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-REQ-KB-973a33",
+    "asset_id": "FS-031",
+    "objective_id": "OP03_FAULT_DIAGNOSIS",
+    "timestamp": "2026-09-04T18:13:36Z",
+    "assessment": "An underload trip in the ESP requires a detailed analysis to determine the root cause and appropriate restart procedure.",
+    "evidence": [
+      {
+        "source_type": "ML Model",
+        "source_id": "esp:model:FS-031:fault:MOTOR_OVERHEATING",
+        "observation": "ML Model: Active fault classification → MOTOR_OVERHEATING",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": "http://localhost:7474/browser/?cmd=play&arg=MATCH%20(n%3AFaultMode%20%7Bname%3A%27Motor Overheating%27%7D)-%5Br%5D-(m)%20RETURN%20n%2Cr%2Cm"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:API_RP_11S",
+        "observation": "Knowledge Base: API_RP_11S",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:diagnostic_rules.json",
+        "observation": "Knowledge Base: diagnostic_rules.json",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "Knowledge Base",
+        "source_id": "esp:kb:DOC-STD-API-11S8",
+        "observation": "Knowledge Base: DOC-STD-API-11S8",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": "http://localhost:6333/dashboard#/collections/esp_kb"
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-2ffbe3",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-8d8abf",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "ML",
+        "source_id": "EVID-ML-793994",
+        "observation": "ML Model: Fault classifier or health-index inference output",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": null
+      },
+      {
+        "source_type": "VFD",
+        "source_id": "EVID-VFD-FS-031-aeebf1",
+        "observation": "ESP_APM_models Live Diagnosis: Normal Operation (confidence 95.0%, health 94.4/100)",
+        "timestamp": "2026-09-04T18:13:36Z",
+        "page": null,
+        "source_deep_link": "http://127.0.0.1:8000/api/vfd/diagnostics/FS-031"
+      }
+    ],
+    "diagnosis": "Electrical Motor Overheating",
+    "confidence": 0.87,
+    "risk": "Medium - Operational monitoring recommended",
+    "recommendation": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+    "expected_impact": "Ensure baseline liquid rate stability.",
+    "constraints": [
+      "autonomous_control"
+    ],
+    "verification": [
+      "Check the motor temperature again after restarting the ESP to ensure it has returned to normal operating levels.",
+      "Inspect the pump for any visible signs of mechanical wear or damage.",
+      "Verify that the flow rate and pressure are returning to normal levels.",
+      "Monitor the ESP for any further issues that may arise."
+    ],
+    "provenance": [
+      "Supervisor Orchestrator v7.0 (LLM Phase 10)",
+      "LLM Engine: ONLINE (llama.cpp CPU / models\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf) | latency=6688ms | tokens=1903",
+      "telemetry_source: FALLBACK",
+      "model_source: MOCK",
+      "Run ID: REQ-KB-973a33",
+      "User Entry Adapter v7.0 (Path_A_Deterministic)"
+    ],
+    "recommended_action": {
+      "action_title": "Restart the ESP by following the manufacturer's recommended procedures for underload trips, including ensuring proper cooling and checking for any mechanical issues that may have caused the underload.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 0.87,
+    "trend": "Thermal slope: -6.36°C/hr | Differential Head: 1644.8 PSI | Torque proxy: 0.408 A/Hz",
+    "expected_vs_actual": [
+      {
+        "parameter": "Intake Pressure",
+        "current_value": "236.5 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Discharge Pressure",
+        "current_value": "1881.3 PSI",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Current",
+        "current_value": "18.9 A",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "VFD Frequency",
+        "current_value": "46.3 Hz",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      },
+      {
+        "parameter": "Motor Temperature",
+        "current_value": "78.7 °C",
+        "nominal_corridor": "Nominal Dynamic",
+        "deviation_pct": "0.0%",
+        "status": "In Range"
+      }
+    ],
+    "ranked_hypotheses": [
+      {
+        "cause": "Electrical Motor Overheating",
+        "confidence": 0.87,
+        "reasoning": "The elevated motor temperature (135°C) is a strong indicator of electrical motor overheating, which is a common cause of underload trips.",
+        "supporting_evidence": [
+          "esp:model:FS-031:fault:MOTOR_OVERHEATING",
+          "esp:rule:FS-031:R001:WARNING"
+        ],
+        "contradicting_evidence": []
+      }
+    ],
+    "follow_up_prompts": [
+      "Would you like me to compare this with the last 7 days?",
+      "Show forensic tipping timeline and evidence",
+      "Check governing tripping limits and SOP"
+    ]
+  }
+}

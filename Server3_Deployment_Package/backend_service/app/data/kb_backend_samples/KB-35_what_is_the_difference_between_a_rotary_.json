@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "test_id": "KB-35",
+    "category": "Equipment Assembly & Specifications",
+    "query": "What is the difference between a rotary gas separator and gas handler?",
+    "target_well": "FS-031",
+    "latency_ms": 7015.36,
+    "timestamp": "2026-09-04T18:19:09Z",
+    "raw_backend_note": "This is the exact JSON payload returned by the LangGraph Supervisor before Streamlit HTML cards rendering."
+  },
+  "backend_advisory_payload": {
+    "advisory_id": "ADV-GEN-REQ-KB-148351",
+    "asset_id": "FS-031",
+    "objective_id": "OP07_GENERAL_INQUIRY",
+    "timestamp": "2026-09-04T18:19:09Z",
+    "assessment": "A rotary gas separator and a gas handler are both used to process natural gas, but they serve different purposes and operate in different ways.\n\nA rotary gas separator is a mechanical device that separates liquid hydrocarbons from natural gas. It works by rotating a cylinder filled with a porous material that traps hydrocarbons. The gas passes through the cylinder, and the liquid hydrocarbons are collected at the bottom. This process is efficient for removing liquids like condensate from natural gas.\n\nOn the other hand, a gas handler is a more general term that can refer to any device or system used to process natural gas. It can include gas compressors, filters, and other equipment that help to improve the quality and flow of natural gas. Gas handlers are used to control the flow rate and pressure of natural gas, as well as to remove impurities and contaminants.\n\nIn summary, a rotary gas separator is specifically designed to separate liquid hydrocarbons from natural gas, while a gas handler is a more general term that can refer to any device or system used to process natural gas.",
+    "evidence": [],
+    "diagnosis": "Conversational inquiry handled directly without telemetry or diagnostic execution.",
+    "confidence": 1.0,
+    "risk": "None",
+    "recommendation": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+    "expected_impact": "Informational clarity provided.",
+    "constraints": [],
+    "verification": [],
+    "provenance": [
+      "Conversational Node (Bypassed Specialist & Telemetry Execution)",
+      "Run ID: REQ-KB-148351",
+      "User Entry Adapter v7.0 (Path_LLM_Fallback)"
+    ],
+    "recommended_action": {
+      "action_title": "Select or mention a well (e.g., FS-031) to inspect live conditions, or ask any operational question.",
+      "urgency": "HIGH",
+      "recommended_parameters": {}
+    },
+    "confidence_score": 1.0,
+    "trend": null,
+    "expected_vs_actual": [],
+    "ranked_hypotheses": [],
+    "follow_up_prompts": []
+  }
+}

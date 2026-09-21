@@ -1,0 +1,30 @@
+objective_id: OP14_OPERATIONAL_HISTORY
+tool: get_historian_window
+safety_class: READ
+scope: ASSET
+max_gapfill_rounds: 1
+required_evidence:
+  - get_asset_context
+  - get_historian_window
+  - get_historian_aggregates
+  - get_events
+optional_evidence:
+  - get_trips
+  - get_historian_coverage
+allowed_visuals:
+  - intake-pressure
+  - discharge-pressure
+  - motor-load
+  - gross-liquid-rate
+  - energy-balance
+arg_schema:
+  type: object
+  properties:
+    asset_id:
+      type: string
+    start:
+      type: string
+    end:
+      type: string
+  required:
+    - asset_id

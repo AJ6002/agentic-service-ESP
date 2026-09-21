@@ -1,0 +1,26 @@
+objective_id: OP04_HEALTH_ASSESSMENT
+tool: get_health_index
+safety_class: READ
+scope: ASSET
+max_gapfill_rounds: 1
+required_evidence:
+  - get_asset_context
+  - get_health_index
+  - get_historian_aggregates
+optional_evidence:
+  - get_current_status
+  - get_anomaly
+  - get_events
+allowed_visuals:
+  - health-score
+  - degradation-trend
+  - risk-trajectory
+  - motor-temperature
+  - vibration
+arg_schema:
+  type: object
+  properties:
+    asset_id:
+      type: string
+  required:
+    - asset_id

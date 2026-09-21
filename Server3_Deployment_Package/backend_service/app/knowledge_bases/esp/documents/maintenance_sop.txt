@@ -1,0 +1,15 @@
+STANDARD OPERATING PROCEDURE: ESP MAINTENANCE & REPAIR
+
+SOP 101: Motor Bearing Replacement Procedure
+- Scope: Applies to downhole motor bearing overhaul and replacement.
+- Required Tools: Bearing puller, hydraulic press, torque wrench, micrometer set.
+- Required Parts: Bearing assembly P/N ABC-456.
+- Safety Precautions: Isolate electrical supply at surface drive unit, lockout-tagout (LOTO), verify wellhead pressure is zero psi.
+- Step-by-step Execution:
+  1. Dismantle motor housing end bell.
+  2. Remove old bearings using approved hydraulic bearing puller.
+  3. Clean shaft and seat area thoroughly with solvent.
+  4. Install new bearings (P/N ABC-456) using hydraulic press.
+  5. Verify shaft runout and alignment with dial indicator.
+  6. Reassemble motor end bell and torque bolts to 85 ft-lbs.
+- Expected Duration: 4 hours.

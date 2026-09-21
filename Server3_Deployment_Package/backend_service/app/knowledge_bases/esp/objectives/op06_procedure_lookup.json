@@ -1,0 +1,27 @@
+{
+  "objective_id": "OP06_PROCEDURE_LOOKUP",
+  "version": "1.0",
+  "title": "Standard Operating Procedure & Manual Lookup",
+  "description": "Retrieve governing API RP guidelines, OEM manuals, or standard operating procedures.",
+  "strategic_objectives": ["O6"],
+  "intent_classes": [
+    "procedure", "manual", "sop", "standard", "api rp", "how to fix", "troubleshooting",
+    "tripping limits", "tripping limit", "operating limits", "operating limit", "limits", "limit",
+    "thresholds", "threshold", "operating thresholds", "operating threshold", "alert limits", "alert limit", "alarm limits", "alarm limit",
+    "what indicates", "what causes", "symptoms", "indicators", "causes of",
+    "faults that could occur", "common faults", "failure modes", "failure mode",
+    "troubleshooting steps", "troubleshooting procedure", "motor overheating", "overheating",
+    "broken shaft", "sheared shaft", "gas locking", "gas lock", "faults", "failure mechanisms"
+  ],
+  "required_asset_context": ["pump_model"],
+  "required_signals": [],
+  "required_evidence": ["knowledge_citations"],
+  "required_tools": ["retrieval_service.hybrid_retrieve"],
+  "allowed_specialists": ["knowledge"],
+  "safety": {
+    "advisory_only": true
+  },
+  "output_format": "advisory_v1",
+  "success_criteria": ["citations with document_id and page numbers"],
+  "verification_steps": ["Cross-reference cited section with local document repository"]
+}

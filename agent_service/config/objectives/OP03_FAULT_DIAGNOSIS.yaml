@@ -1,0 +1,28 @@
+objective_id: OP03_FAULT_DIAGNOSIS
+tool: diagnose_fault
+safety_class: READ
+scope: ASSET
+max_gapfill_rounds: 1
+required_evidence:
+  - get_asset_context
+  - get_live_telemetry
+  - get_historian_window
+optional_evidence:
+  - get_ml_results
+  - search_knowledge
+  - get_events
+  - get_trips
+allowed_visuals:
+  - fault-classification
+  - health-score
+  - motor-temperature
+  - vibration
+arg_schema:
+  type: object
+  properties:
+    asset_id:
+      type: string
+    trip_ts:
+      type: string
+  required:
+    - asset_id

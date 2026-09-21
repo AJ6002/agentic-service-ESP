@@ -1,0 +1,16 @@
+objective_id: OP06_KNOWLEDGE_LOOKUP
+tool: search_knowledge
+safety_class: READ
+scope: GLOBAL
+max_gapfill_rounds: 0
+required_evidence:
+  - search_knowledge
+optional_evidence: []
+allowed_visuals:
+  - evidence-cards
+arg_schema:
+  type: object
+  properties:
+    query:
+      type: string
+  required: []
