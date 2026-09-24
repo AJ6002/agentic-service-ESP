@@ -78,10 +78,10 @@ class ResponseAssembler:
         if advisory:
             source_refs = []
             if isinstance(advisory, Advisory):
-                source_refs = advisory.cited_evidence_ids
+                source_refs = list(dict.fromkeys(advisory.cited_evidence_ids))
                 adv_dict = advisory.model_dump()
             elif isinstance(advisory, dict):
-                source_refs = advisory.get("cited_evidence_ids", [])
+                source_refs = list(dict.fromkeys(advisory.get("cited_evidence_ids", [])))
                 adv_dict = advisory
             else:
                 adv_dict = {}
@@ -92,7 +92,7 @@ class ResponseAssembler:
             ).model_dump_json() + "\n"
 
         # 5. Visual Frame (WORKFLOW cards selection)
-        if visualization:
+        if visualization and route != "SIMPLE":
             has_cards = False
             if isinstance(visualization, VisualizationSpec):
                 has_cards = bool(visualization.card_ids)

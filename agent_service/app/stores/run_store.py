@@ -49,3 +49,26 @@ def get_pack(run_id: str, version: str = "latest") -> Optional[dict]:
     if not data:
         return None
     return json.loads(data)
+
+
+def _artifacts_key(run_id: str) -> str:
+    return f"{RUN_PREFIX}:{run_id}:artifacts"
+
+def save_run_artifacts(run_id: str, advisory: Optional[dict] = None, visualization: Optional[dict] = None, ttl_sec: int = 86400) -> None:
+    r = get_redis_client()
+    data = {
+        "advisory": advisory or {},
+        "visualization": visualization or {},
+    }
+    r.set(_artifacts_key(run_id), json.dumps(data), ex=ttl_sec)
+
+def get_run_artifacts(run_id: str) -> tuple[Optional[dict], Optional[dict]]:
+    r = get_redis_client()
+    data = r.get(_artifacts_key(run_id))
+    if not data:
+        return None, None
+    try:
+        parsed = json.loads(data)
+        return parsed.get("advisory"), parsed.get("visualization")
+    except Exception:
+        return None, None

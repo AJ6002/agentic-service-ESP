@@ -1,3 +1,5 @@
+
+
 """
 Tool Gateway.
 Dispatches plan calls to domain adapters against Server 184 (:8090).
@@ -17,6 +19,27 @@ from app.contracts.plan import PlanArtifact, PlanCall
 from app.context.well_ids import normalize_well_id
 from .adapters import cards, events, historian, kb, kpi, live, ml
 from .adapters.common import AdapterError, DEFAULT_TIMEOUT_SEC, get_gateway_base_url, handle_adapter_response
+
+_FAULT_MAPPING_CACHE: Optional[dict[str, Any]] = None
+
+def _get_fault_mapping(fault_class: str) -> Optional[dict[str, Any]]:
+    global _FAULT_MAPPING_CACHE
+    if _FAULT_MAPPING_CACHE is None:
+        from pathlib import Path as _Path
+        import yaml as _yaml
+        cfg_path = _Path(__file__).resolve().parent.parent.parent / "config" / "fault_taxonomy_mapping.yaml"
+        if cfg_path.exists():
+            try:
+                with open(cfg_path, "r", encoding="utf-8") as f:
+                    data = _yaml.safe_load(f) or {}
+                    _FAULT_MAPPING_CACHE = data.get("mappings", {})
+            except Exception:
+                _FAULT_MAPPING_CACHE = {}
+        else:
+            _FAULT_MAPPING_CACHE = {}
+    clean_cls = str(fault_class).strip().upper().replace(" ", "_")
+    return _FAULT_MAPPING_CACHE.get(clean_cls)
+
 
 # Fallback window span (seconds) used only when a call needs a start/end
 # and the caller supplied neither — i.e. the user asked no explicit time
@@ -73,7 +96,7 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
             latency = round((time.time() - start_time) * 1000, 2)
             return CallResult(seq=call.seq, status="OK", raw_response=data, latency_ms=latency)
 
-        if not well_id and tool not in ("get_cards_catalog", "get_fleet_kpi", "get_live_wells"):
+        if not well_id and tool not in ("get_cards_catalog", "get_fleet_kpi", "get_live_wells", "get_fault_taxonomy", "trace_causal_graph", "search_knowledge"):
             latency = round((time.time() - start_time) * 1000, 2)
             return CallResult(
                 seq=call.seq,
@@ -214,6 +237,55 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
 
         elif tool == "get_cards_catalog":
             data = await cards.fetch_cards_catalog(client=client)
+
+        elif tool == "get_fault_taxonomy":
+            fault_id = args.get("fault_id")
+            if not fault_id:
+                fault_class = args.get("fault_class")
+                if not fault_class and well_id:
+                    try:
+                        ml_fault = await ml.fetch_ml_fault(well_id, client=client)
+                        fault_class = ml_fault.get("fault_class")
+                    except Exception:
+                        pass
+                if fault_class:
+                    mapping = _get_fault_mapping(fault_class)
+                    if mapping:
+                        fault_id = mapping.get("primary_fault_id")
+            if not fault_id:
+                latency = round((time.time() - start_time) * 1000, 2)
+                return CallResult(
+                    seq=call.seq,
+                    status="OK",
+                    raw_response={"unmapped": True, "note": "No fault taxonomy mapping found for fault class"},
+                    latency_ms=latency,
+                )
+            data = await kb.get_kb_fault(fault_id, client=client)
+
+        elif tool == "trace_causal_graph":
+            symptom_ids = args.get("symptom_ids") or args.get("symptoms")
+            if not symptom_ids:
+                fault_class = args.get("fault_class")
+                if not fault_class and well_id:
+                    try:
+                        ml_fault = await ml.fetch_ml_fault(well_id, client=client)
+                        fault_class = ml_fault.get("fault_class")
+                    except Exception:
+                        pass
+                if fault_class:
+                    mapping = _get_fault_mapping(fault_class)
+                    if mapping:
+                        symptom_ids = mapping.get("symptoms", [])
+            if not symptom_ids:
+                latency = round((time.time() - start_time) * 1000, 2)
+                return CallResult(
+                    seq=call.seq,
+                    status="OK",
+                    raw_response={"unmapped": True, "note": "No symptom mapping found for fault class"},
+                    latency_ms=latency,
+                )
+            observed_params = args.get("observed_parameters")
+            data = await kb.trace_kb_graph(symptom_ids, observed_parameters=observed_params, client=client)
 
         else:
             latency = round((time.time() - start_time) * 1000, 2)

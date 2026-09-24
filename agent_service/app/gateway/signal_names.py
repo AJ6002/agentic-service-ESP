@@ -53,6 +53,8 @@ CANONICAL_SIGNALS: set[str] = {
     "health_score",
     "anomaly_score",
     "score",
+    "rate_per_day",
+    "projected_days_to_threshold",
 }
 
 

@@ -13,5 +13,6 @@ def get_redis_client() -> redis.Redis:
         _redis_pool = redis.ConnectionPool.from_url(
             redis_url,
             decode_responses=True,
+            protocol=2,
         )
     return redis.Redis(connection_pool=_redis_pool)

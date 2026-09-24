@@ -65,6 +65,8 @@ _REQUIRED_FIELDS: dict[str, list[str]] = {
     # per esp_kb_service spec §3 — "hits" is the one field that must be
     # present (an empty list is a valid zero-result search, not missing data).
     "search_knowledge":   ["hits"],
+    "get_fault_taxonomy": [],
+    "trace_causal_graph": [],
 }
 
 # Map tool name → freshness domain key in qod_freshness.yaml
@@ -90,6 +92,8 @@ _TOOL_TO_DOMAIN: dict[str, str] = {
     "get_asset_context":    "asset",           # /live/asset → static pump curves & nameplate
     "get_live_wells":       "live_telemetry",
     "search_knowledge":     "kb",
+    "get_fault_taxonomy":   "kb",
+    "trace_causal_graph":   "kb",
 }
 
 

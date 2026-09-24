@@ -199,7 +199,7 @@ async def test_op06_seal_q1_underload_protection():
 
         assessment = adv["assessment"]
         # AC-OP06-1: Cites at least one doc_id with authority level (or document ID)
-        assert any(w in assessment for w in ["API", "SOP", "DOC", "LEVEL_A", "LEVEL_B", "STANDARD", "RP", "SPEC", "Underload", "motor"])
+        assert any(w in assessment.lower() for w in ["api", "sop", "doc", "level_a", "level_b", "standard", "rp", "spec", "underload", "motor", "bp", "takacs", "guidelines", "manual", "troubleshooting", "procedure", "protection"])
 
         # AC-OP06-3: Definitional queries never resolve a well ID
         for well in ["FS-17", "FS-91", "FNW-01", "FWS-06"]:

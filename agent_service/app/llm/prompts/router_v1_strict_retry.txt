@@ -5,7 +5,7 @@ fences, no explanation text before or after it, and no trailing commas.
 Schema (all fields required, use null where a field does not apply):
 {
   "route": "SIMPLE" | "WORKFLOW" | "FOLLOW_UP",
-  "intent": "general_inquiry" | "diagnose" | "status" | "actuation",
+  "intent": "general_inquiry" | "diagnose" | "status" | "actuation" | "explain_prior",
   "objective_id": string | null,
   "args": { "asset_id": string | null },
   "confidence": float (0.0 to 1.0),

@@ -91,7 +91,7 @@ def _v1_pack_insufficient() -> tuple[EvidencePack, SealResult]:
 # Case 1: Happy path — gap-fill succeeds, pack v2 is COMPLETE
 # ---------------------------------------------------------------------------
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_gapfill_happy_path():
     pack_v1, seal_v1 = _v1_pack_insufficient()
     manifest = _manifest(max_gapfill_rounds=1)
@@ -144,7 +144,7 @@ async def test_gapfill_happy_path():
 # Case 2: Still INSUFFICIENT after gap-fill -> honest refusal path fires
 # ---------------------------------------------------------------------------
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_gapfill_still_insufficient():
     pack_v1, seal_v1 = _v1_pack_insufficient()
     manifest = _manifest(max_gapfill_rounds=1)
@@ -207,7 +207,7 @@ def test_gapfill_disabled_when_zero_rounds():
 # Case 4: Hash reuse — OK v1 items are NOT re-dispatched in the delta plan
 # ---------------------------------------------------------------------------
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_gapfill_only_dispatches_missing_tools():
     pack_v1, seal_v1 = _v1_pack_insufficient()
     manifest = _manifest(max_gapfill_rounds=1)
@@ -250,7 +250,7 @@ async def test_gapfill_only_dispatches_missing_tools():
 # Case 5: ABSENT gap is NOT retried (permanent failure like WELL_NOT_FOUND)
 # ---------------------------------------------------------------------------
 
-@pytest.mark.asyncio
+@pytest.mark.anyio
 async def test_gapfill_skips_absent_gaps():
     """
     If the v1 gap for a missing required tool has reason=ABSENT (e.g. WELL_NOT_FOUND),

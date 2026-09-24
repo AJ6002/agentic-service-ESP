@@ -11,6 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Optional
 
+from app.audit.audit_sink import record_audit
 from app.contracts.advisory import Advisory, ProvenanceResult
 from app.contracts.evidence import CallResult, EvidencePack, SealResult
 from app.contracts.plan import PlanArtifact
@@ -27,9 +28,11 @@ from app.policy.policy_gate import validate_plan
 from app.routing.objective_registry import get_objective
 from app.synthesis.kpi_alarm_check import KpiAlarmResult
 from app.synthesis.numeric_check import check_numeric_provenance
+from app.synthesis.citation_check import check_citation_provenance, CitationCheckResult
 from app.synthesis.gapfill import run_gapfill
 from app.synthesis.xai import synthesize_advisory
 from app.visualization.planner import plan_visualization
+from app.stores.run_store import save_pack, save_run_artifacts
 
 
 # Phrases that indicate a "healthy/normal" assessment — used by the post-synthesis
@@ -61,6 +64,7 @@ class WorkflowResult:
     visualization: VisualizationSpec | None = None
     insufficient_evidence: bool = False
     missing_required: list[str] = field(default_factory=list)
+    llm_available: bool = True
 
 
 def _format_advisory_text(
@@ -100,6 +104,10 @@ def _format_advisory_text(
         if advisory.verification_steps:
             lines.append("\nVerification Steps:")
             for s in advisory.verification_steps:
+                lines.append(f" - {s}")
+        if advisory.troubleshooting_steps:
+            lines.append("\nTroubleshooting Steps:")
+            for s in advisory.troubleshooting_steps:
                 lines.append(f" - {s}")
         if advisory.cited_evidence_ids:
             lines.append(f"\nCited Evidence: {', '.join(advisory.cited_evidence_ids)}")
@@ -188,6 +196,9 @@ async def run_workflow(
             manifest=manifest,
             existing_pack=pack,
         )
+    if seal_res.status == "COMPLETE" or pack.sealed:
+        save_pack(run_id, pack.version, pack.model_dump(mode="json"), ttl_sec=86400)
+
     if seal_res.status == "INSUFFICIENT" and not allow_partial:
         missing_text = ", ".join(seal_res.missing_required)
         status_notes = []
@@ -215,13 +226,18 @@ async def run_workflow(
     # 7. XAI Synthesizer (LLM #3)
     advisory: Optional[Advisory] = None
     alarm_result: Optional[KpiAlarmResult] = None
+    llm_available = True
     try:
         advisory, alarm_result = await synthesize_advisory(
             objective_id=objective_id,
             evidence=formatted_evidence,
             user_query=user_query or f"Diagnose well {args.get('asset_id', '')}",
         )
-    except (LLMUnavailableError, Exception):
+    except LLMUnavailableError:
+        advisory = None
+        alarm_result = None
+        llm_available = False
+    except Exception:
         advisory = None
         alarm_result = None
 
@@ -256,11 +272,37 @@ async def run_workflow(
     if advisory:
         provenance = check_numeric_provenance(advisory, formatted_evidence)
 
+    # 8b. Troubleshooting Citation & Zero-Fabrication Guard (Phase 4.5)
+    if advisory:
+        has_kb = any(
+            item.tool in ("search_knowledge", "get_fault_taxonomy", "trace_causal_graph")
+            and isinstance(item.payload, dict)
+            and (item.payload.get("hits") or item.payload.get("name") or item.payload.get("paths"))
+            for item in (pack.items if pack else [])
+        )
+        if not has_kb:
+            advisory.troubleshooting_steps = []
+        elif advisory.troubleshooting_steps and pack:
+            citation_res = check_citation_provenance(advisory, pack)
+            if not citation_res.passed:
+                record_audit("citation_provenance_flag", payload={
+                    "run_id": run_id,
+                    "unverified": citation_res.unverified_citations,
+                })
+
     # 9. Visualization Planner
     viz_spec = plan_visualization(objective_id, pack, formatted_evidence)
 
     # 10. Assemble Text
     text = _format_advisory_text(objective_id, args, advisory, pack, provenance, results)
+
+    # Persist artifacts for subsequent FOLLOW_UP route reuse
+    if advisory or viz_spec:
+        save_run_artifacts(
+            run_id=run_id,
+            advisory=advisory.model_dump() if advisory else {},
+            visualization=viz_spec.model_dump() if viz_spec else {},
+        )
 
     return WorkflowResult(
         text=text,
@@ -274,5 +316,6 @@ async def run_workflow(
         visualization=viz_spec,
         insufficient_evidence=False if allow_partial else (seal_res.status == "INSUFFICIENT"),
         missing_required=seal_res.missing_required if seal_res.status == "INSUFFICIENT" else [],
+        llm_available=llm_available,
     )
 

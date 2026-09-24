@@ -21,6 +21,7 @@ from app.stores.session_store import get_pending, get_session
 
 WELL_ID_REGEX = re.compile(r"\b(FSWS-\d+-[A-Za-z0-9]+|FNW-\d+|FWS-\d+|ULFA-\d+|FS-\d+)\b", re.IGNORECASE)
 PRONOUN_REGEX = re.compile(r"\b(it|this well|the well|that well|the pump)\b", re.IGNORECASE)
+CONTINUATION_REGEX = re.compile(r"\b(recheck|rerun|re-check|re-run|re-evaluate|check again)\b", re.IGNORECASE)
 META_QUESTION_REGEX = re.compile(
     r"\b(why.*(ask|need|want)|what.*(choice|option|mean by)|which.*(choice|option))\b",
     re.IGNORECASE,
@@ -277,9 +278,9 @@ def resolve_asset(
             match_method="ALIAS",
         )
 
-    # SESSION — pronoun reference ("it", "that well") resolved against the
-    # last asset touched in this session.
-    if has_pronoun and session_snapshot:
+    # SESSION — pronoun reference ("it", "that well") or continuation query ("recheck")
+    # resolved against the last asset touched in this session.
+    if (has_pronoun or CONTINUATION_REGEX.search(raw_message)) and session_snapshot:
         session_asset = session_snapshot.last_asset_id
         if session_asset:
             return AssetBinding(

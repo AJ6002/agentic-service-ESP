@@ -639,3 +639,90 @@ class TestSearchKnowledgeToolDispatch:
         assert res.status == "OK"
         assert res.error_code is None
         assert res.raw_response["hits"][0]["doc_id"] == "API_RP_11S1_Dismantle_Failure_Analysis_2022"
+
+
+class TestPhase45KbToolDispatch:
+    @pytest.mark.anyio
+    async def test_trace_kb_graph_url_and_payload(self):
+        cap: dict = {}
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            cap["path"] = request.url.path
+            cap["method"] = request.method
+            cap["json"] = json.loads(request.content)
+            return httpx.Response(200, json={
+                "symptom_ids": ["high_motor_temperature"],
+                "paths": [
+                    {
+                        "fault_id": "MOTOR_OVERHEATING",
+                        "fault_name": "Motor Overheating",
+                        "confidence": 0.9,
+                        "chain": ["symptom -> fault"],
+                        "recommended_sop": {"sop_id": "SOP_1", "action": "Inspect cooling"}
+                    }
+                ],
+                "total_paths": 1
+            })
+
+        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
+            data = await kb.trace_kb_graph(["high_motor_temperature"], client=c)
+
+        assert cap["method"] == "POST"
+        assert cap["path"] == "/api/kb/graph/trace"
+        assert cap["json"]["symptom_ids"] == ["high_motor_temperature"]
+        assert data["total_paths"] == 1
+        assert data["paths"][0]["fault_id"] == "MOTOR_OVERHEATING"
+
+    @pytest.mark.anyio
+    async def test_get_fault_taxonomy_tool_dispatch(self, monkeypatch):
+        from app.contracts.plan import PlanCall
+        from app.gateway import tool_gateway as tg_mod
+
+        async def fake_get_kb_fault(fault_id, client=None):
+            assert fault_id == "MOTOR_OVERHEATING"
+            return {
+                "fault_id": "MOTOR_OVERHEATING",
+                "name": "Motor Overheating",
+                "applicable_manual": "API_RP_11S",
+                "recommended_actions": ["Verify thermal baseline"]
+            }
+
+        monkeypatch.setattr(tg_mod.kb, "get_kb_fault", fake_get_kb_fault)
+
+        call = PlanCall(seq=1, kind="READ", tool="get_fault_taxonomy", args={"fault_id": "MOTOR_OVERHEATING"})
+        res = await tg_mod.execute_tool_call(call)
+
+        assert res.status == "OK"
+        assert res.raw_response["fault_id"] == "MOTOR_OVERHEATING"
+        assert res.raw_response["name"] == "Motor Overheating"
+
+    @pytest.mark.anyio
+    async def test_trace_causal_graph_tool_dispatch(self, monkeypatch):
+        from app.contracts.plan import PlanCall
+        from app.gateway import tool_gateway as tg_mod
+
+        async def fake_trace_kb_graph(symptom_ids, observed_parameters=None, client=None):
+            return {
+                "symptom_ids": symptom_ids,
+                "paths": [{"fault_id": "GAS_LOCK", "confidence": 0.85}],
+                "total_paths": 1
+            }
+
+        monkeypatch.setattr(tg_mod.kb, "trace_kb_graph", fake_trace_kb_graph)
+
+        call = PlanCall(seq=1, kind="READ", tool="trace_causal_graph", args={"symptoms": ["low_intake_pressure"]})
+        res = await tg_mod.execute_tool_call(call)
+
+        assert res.status == "OK"
+        assert res.raw_response["total_paths"] == 1
+
+    @pytest.mark.anyio
+    async def test_unmapped_fault_class_graceful_skip(self):
+        from app.contracts.plan import PlanCall
+        from app.gateway import tool_gateway as tg_mod
+
+        call = PlanCall(seq=1, kind="READ", tool="get_fault_taxonomy", args={"fault_class": "COMPLETELY_FICTIONAL_FAULT_CLASS_999"})
+        res = await tg_mod.execute_tool_call(call)
+
+        assert res.status == "OK"
+        assert res.raw_response.get("unmapped") is True

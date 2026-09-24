@@ -19,7 +19,10 @@ from app.evidence.formatter import format_pack, FormattedEvidence
 # Helpers / Fixtures
 # ---------------------------------------------------------------------------
 
-_FRESH_TS = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+def _fresh_ts() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+_FRESH_TS = _fresh_ts()
 
 
 def _live_telemetry_payload(
@@ -418,7 +421,7 @@ class TestQoDTopLevelRangeSanity:
     def test_ml_health_nominal_accepted(self):
         payload = {
             "well_id": "FS-17",
-            "timestamp": _FRESH_TS,
+            "timestamp": _fresh_ts(),
             "health_score": 71.4,
             "band": "DEGRADED",
         }
@@ -429,7 +432,7 @@ class TestQoDTopLevelRangeSanity:
     def test_ml_health_out_of_range_rejected(self):
         payload = {
             "well_id": "FS-17",
-            "timestamp": _FRESH_TS,
+            "timestamp": _fresh_ts(),
             "health_score": -999.0,
         }
         result = _make_ok_result(1, payload)
@@ -439,34 +442,34 @@ class TestQoDTopLevelRangeSanity:
 
     def test_ml_anomaly_score_out_of_bounds_rejected(self):
         """score is physically bounded 0.0-1.0 per signal_bounds.yaml anomaly_score."""
-        payload = {"well_id": "FS-17", "timestamp": _FRESH_TS, "score": 47.0, "threshold": 0.65}
+        payload = {"well_id": "FS-17", "timestamp": _fresh_ts(), "score": 47.0, "threshold": 0.65}
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-ml-003", tool="get_anomaly")
         assert qod.accepted is False
         assert "score" in qod.rejection_reason
 
     def test_ml_anomaly_score_nominal_accepted(self):
-        payload = {"well_id": "FS-17", "timestamp": _FRESH_TS, "score": 0.72, "threshold": 0.65}
+        payload = {"well_id": "FS-17", "timestamp": _fresh_ts(), "score": 0.72, "threshold": 0.65}
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-ml-004", tool="get_anomaly")
         assert qod.accepted is True
 
     def test_fault_probability_out_of_range_rejected(self):
         """probability must be within [0.0, 1.0]."""
-        payload = {"well_id": "FS-17", "timestamp": _FRESH_TS, "fault_class": "X", "probability": 5.0}
+        payload = {"well_id": "FS-17", "timestamp": _fresh_ts(), "fault_class": "X", "probability": 5.0}
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-ml-005", tool="diagnose_fault")
         assert qod.accepted is False
         assert "probability" in qod.rejection_reason
 
     def test_fault_probability_nominal_accepted(self):
-        payload = {"well_id": "FS-17", "timestamp": _FRESH_TS, "fault_class": "MOTOR_OVERLOAD", "probability": 0.78}
+        payload = {"well_id": "FS-17", "timestamp": _fresh_ts(), "fault_class": "MOTOR_OVERLOAD", "probability": 0.78}
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-ml-006", tool="diagnose_fault")
         assert qod.accepted is True
 
     def test_negative_probability_rejected(self):
-        payload = {"well_id": "FS-17", "timestamp": _FRESH_TS, "fault_class": "X", "probability": -0.1}
+        payload = {"well_id": "FS-17", "timestamp": _fresh_ts(), "fault_class": "X", "probability": -0.1}
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-ml-007", tool="diagnose_fault")
         assert qod.accepted is False

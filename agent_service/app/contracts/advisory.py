@@ -22,6 +22,7 @@ class Advisory(BaseModel):
     hypotheses: list[str] = Field(default_factory=list)
     recommendation: str
     verification_steps: list[str] = Field(default_factory=list)
+    troubleshooting_steps: list[str] = Field(default_factory=list)
     confidence: float = 1.0
     cited_evidence_ids: list[str] = Field(default_factory=list)
 

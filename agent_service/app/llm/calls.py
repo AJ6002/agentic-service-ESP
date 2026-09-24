@@ -27,7 +27,12 @@ import json
 from typing import Optional
 
 from app.contracts.routing import RouteDecision
-from app.llm.client import LLMUnavailableError, call_llm_chat
+from app.llm.client import LLMUnavailableError
+import app.llm.client as _client
+
+async def call_llm_chat(*args, **kwargs):
+    return await _client.call_llm_chat(*args, **kwargs)
+
 from app.llm.prompt_loader import load_prompt
 
 
@@ -66,7 +71,7 @@ async def route(raw_message: str, context_block: str) -> RouteDecision:
     currently also falls back to the keyword heuristic, but logged and
     counted separately from an outage).
     """
-    system_prompt = load_prompt("router_v1.txt")
+    system_prompt = load_prompt("router_v2.txt")
     user_content = f"User message: {raw_message}\n{context_block}"
 
     content = await call_llm_chat(
@@ -218,3 +223,24 @@ async def gapfill(missing_tools: list[str], candidate_tools: list[str]) -> list[
     # Filter defensively to only tools actually in the candidate set.
     candidate_set = set(candidate_tools)
     return [t for t in missing_tools if t in candidate_set]
+
+
+async def followup_narrate(user_query: str, evidence_text: str, prior_advisory_text: str) -> str:
+    """
+    LLM #5 — Follow-Up Re-Narrator.
+    Explains a prior diagnostic outcome using only the existing sealed evidence.
+    Forbids introducing new facts or numbers not in evidence_text.
+    """
+    system_prompt = load_prompt("followup_narrator_v1.txt")
+    user_content = (
+        f"User Question: {user_query}\n\n"
+        f"Prior Diagnostic Findings:\n{prior_advisory_text}\n\n"
+        f"Available Evidence Pack:\n{evidence_text}"
+    )
+    content = await call_llm_chat(
+        system_prompt=system_prompt,
+        user_content=user_content,
+        temperature=0.0,
+        caller="followup_narrator",
+    )
+    return content.strip()

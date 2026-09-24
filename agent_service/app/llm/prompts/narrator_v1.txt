@@ -25,6 +25,13 @@ KPI INTERPRETATION RULES (check BEFORE writing the assessment):
    This is NOT a normal state. The higher the score (max 1.0), the more severe the anomaly.
 8. motor_load_pct = 0.00 means the motor is not running. This is a shutdown or trip state.
 
+
+9. PROCEDURAL TROUBLESHOOTING RULES:
+   - When APPROVED KNOWLEDGE BASE CITATIONS, FAULT TAXONOMY, or CAUSAL GRAPH TRACES are present in the evidence, emit actionable procedural troubleshooting steps in "troubleshooting_steps".
+   - Every troubleshooting step MUST cite its document and section inline: e.g., "[API_RP_11S §5.4] Check rotation direction" or "[Takacs_ESP_Manual §4.2] Clean pump intake screen".
+   - Only restate procedures found in the verified evidence, NEVER invent or speculate.
+   - If no approved KB evidence or procedures exist in the pack, "troubleshooting_steps" MUST be an empty array [].
+
 You must respond with ONLY a single JSON object matching this schema:
 {
   "objective_id": "<objective_id>",
@@ -32,6 +39,7 @@ You must respond with ONLY a single JSON object matching this schema:
   "hypotheses": ["<probable root cause 1>", "<probable root cause 2>"],
   "recommendation": "<clear, actionable operational recommendation>",
   "verification_steps": ["<step 1 for operator to verify in field>", "<step 2>"],
+  "troubleshooting_steps": ["<step 1 citing KB doc inline, e.g. [API_RP_11S §5.4] Action>", ...],
   "confidence": <float between 0.0 and 1.0>,
   "cited_evidence_ids": ["<EV-...>", ...]
 }

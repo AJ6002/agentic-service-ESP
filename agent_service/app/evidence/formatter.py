@@ -323,7 +323,56 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     )
 
 
-# 5. Knowledge Base Search Hits (search_knowledge)
+# 5. Knowledge Base Integration (search_knowledge, get_fault_taxonomy, trace_causal_graph)
+    if item.tool == "get_fault_taxonomy" and not payload.get("unmapped"):
+        fault_name = payload.get("name") or payload.get("fault_id", "Unknown Fault")
+        doc_id = payload.get("applicable_manual") or "API_RP_11S"
+        criticality = payload.get("criticality", "WARNING")
+        symptoms = payload.get("symptoms", [])
+        actions = payload.get("recommended_actions", [])
+        for act in actions:
+            result.kb_hits.append(
+                FormattedKbHit(
+                    evidence_id=item.evidence_id,
+                    doc_id=doc_id,
+                    section=payload.get("fault_id", "Remedies"),
+                    revision="Latest",
+                    authority="LEVEL_A_STANDARD" if ("API" in doc_id or "IEC" in doc_id) else "LEVEL_B_OEM",
+                    snippet=f"Fault: {fault_name} ({criticality}). Procedure: {act}. Symptoms: {', '.join(symptoms)}",
+                    score=1.0,
+                )
+            )
+
+    if item.tool == "trace_causal_graph" and not payload.get("unmapped"):
+        paths = payload.get("paths", [])
+        for p in paths:
+            if isinstance(p, dict):
+                sop = p.get("recommended_sop", {})
+                std_ref = sop.get("standard_ref") or "API_RP_11S"
+                doc_id = "API_RP_11S"
+                section = sop.get("sop_id", "Recovery_SOP")
+                if "Section" in str(std_ref):
+                    parts = str(std_ref).split("Section")
+                    doc_id = parts[0].strip().replace(" ", "_")
+                    section = "§" + parts[1].strip()
+                elif "+" in str(std_ref):
+                    doc_id = str(std_ref).split("+")[-1].strip().replace(" ", "_")
+                elif " " in str(std_ref):
+                    doc_id = str(std_ref).replace(" ", "_")
+                chain_str = " -> ".join(p.get("chain", []))
+                action_text = sop.get("action", f"Initiate recovery SOP for {p.get('fault_name')}")
+                result.kb_hits.append(
+                    FormattedKbHit(
+                        evidence_id=item.evidence_id,
+                        doc_id=doc_id,
+                        section=section,
+                        revision="Latest",
+                        authority="LEVEL_A_STANDARD" if ("API" in doc_id or "IEC" in doc_id) else "LEVEL_B_OEM",
+                        snippet=f"SOP Action: {action_text}. Root Cause Chain: {chain_str}",
+                        score=float(p.get("confidence", 0.9)),
+                    )
+                )
+
     if item.tool == "search_knowledge" or "hits" in payload:
         raw_hits = payload.get("hits")
         if isinstance(raw_hits, list):

@@ -14,8 +14,22 @@ ACTUATION_REGEX = re.compile(r"\b(set|bump|change|increase|decrease|speed up)\b.
 
 # Regex for definitional/explanatory intent -- matches before any diagnostic keyword scan.
 # Mirrors Rule 0 in router_v1.txt: "explain what X is" must win over trigger words inside X.
+# Regex for follow-up explanatory intent
+FOLLOWUP_PATTERNS = re.compile(
+    r"\b(why\s+(did\s+you|you)\s+(say|said|conclude|concluded|flag|flagged|choose|chose|diagnose|diagnosed)|"
+    r"what\s+data\s+(did\s+you|was)\s+use|"
+    r"explain\s+(that|the\s+graph|the\s+chart|your\s+reasoning|the\s+diagnosis)|"
+    r"what\s+does\s+(that|the)\s+(mean|chart|graph|diagnosis|plot|trend)(\s+(mean|show|indicate|represent))?|"
+    r"can\s+you\s+elaborate\s+on\s+that)\b",
+    re.IGNORECASE,
+)
+AMBIGUOUS_FOLLOWUP_PATTERNS = re.compile(
+    r"^\s*(why\s+did\s+that\s+happen|how\s+did\s+that\s+occur|what\s+happened\s+there)\??\s*$",
+    re.IGNORECASE,
+)
+
 DEFINITIONAL_PATTERNS = re.compile(
-    r"^\s*(what\s+(is|does|are|\'?s)\b|explain\s+(what\s+|how\s+)?|define\s+|describe\s+"
+    r"^\s*(what\s+(is|does|are|\'?s)\b|explain\s+(what\s+|how\s+)?|how\s+(do\s+i|can\s+i|to)\b|procedure\s+(for|to)|define\s+|describe\s+"
     r"|what(\'?s)?\s+the\s+(difference|meaning)|tell\s+me\s+(what|about)|what\s+causes)",
     re.IGNORECASE,
 )
@@ -38,9 +52,36 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     fallback_used=True that this path was used, so it can be surfaced to
     the user and to audit rather than silently trusted as normal routing.
     """
-    # Rule 0 guard: definitional intent wins over any diagnostic keyword.
+    # Ambiguity guard: "Why did that happen?" -> CLARIFY
+    if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.4,
+            deferred_intents=deferred,
+            clarification_needed=True,
+            clarify_reason="CLARIFY",
+            clarify_slot="followup_or_new",
+            clarify_options=["Explain previous diagnosis", "Run new diagnosis on current telemetry"],
+        )
+
+    # Follow-up intent check: past-tense explanatory inquiries
+    if FOLLOWUP_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="FOLLOW_UP",
+            intent="explain_prior",
+            objective_id=None,
+            args={"asset_id": router_input.asset_id},
+            confidence=0.9,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
+
+    # Rule 0 guard: definitional intent wins over any diagnostic keyword when no asset is named.
     # Mirrors router_v1.txt Rule 0 so the fallback cannot misclassify during LLM outages.
-    if DEFINITIONAL_PATTERNS.search(router_input.raw_message):
+    if router_input.asset_id is None and DEFINITIONAL_PATTERNS.search(router_input.raw_message):
         return RouteDecision(
             route="SIMPLE",
             intent="general_inquiry",
@@ -65,7 +106,7 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             obj_id = "OP05_EARLY_WARNING"
         elif any(w in raw_lower for w in ["history", "operational history", "runtime", "historical"]):
             obj_id = "OP14_OPERATIONAL_HISTORY"
-        elif any(w in raw_lower for w in ["decline", "drop in production", "dropped", "producing less", "production drop", "production decline"]):
+        elif any(w in raw_lower for w in ["decline", "drop in production", "dropped", "producing less", "production drop", "production decline", "production analysis"]):
             obj_id = "OP02_PRODUCTION_DECLINE_RCA" 
         elif any(w in raw_lower for w in ["status", "reading", "sensor", "telemetry"]):
             obj_id = "OP01_CURRENT_STATUS"
@@ -82,65 +123,89 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             clarify_slot="asset_id",
             clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
         )
-    if any(w in raw_lower for w in ["decline", "drop in production", "dropped", "producing less", "production drop", "production decline"]) and router_input.asset_id:
+    if any(w in raw_lower for w in ["decline", "drop in production", "dropped", "producing less", "production drop", "production decline", "production analysis"]):
+        needs_clarify = not bool(router_input.asset_id)
         return RouteDecision(
             route="WORKFLOW",
             intent="decline_rca",
             objective_id="OP02_PRODUCTION_DECLINE_RCA",
             args={"asset_id": router_input.asset_id},
-            confidence=0.5,
+            confidence=0.5 if not needs_clarify else 0.4,
             deferred_intents=deferred,
-            clarification_needed=False,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
         )
-    if any(w in raw_lower for w in ["status", "reading", "sensor", "telemetry"]) and router_input.asset_id:
-        return RouteDecision(
-            route="WORKFLOW",
-            intent="status",
-            objective_id="OP01_CURRENT_STATUS",
-            args={"asset_id": router_input.asset_id},
-            confidence=0.5,
-            deferred_intents=deferred,
-            clarification_needed=False,
-        )
-    if any(w in raw_lower for w in ["trip", "alarm", "fault", "why did"]) and router_input.asset_id:
-        return RouteDecision(
-            route="WORKFLOW",
-            intent="diagnose",
-            objective_id="OP03_FAULT_DIAGNOSIS",
-            args={"asset_id": router_input.asset_id},
-            confidence=0.5,
-            deferred_intents=deferred,
-            clarification_needed=False,
-        )
-    if any(w in raw_lower for w in ["health", "condition", "rul", "remaining useful", "degradation"]) and router_input.asset_id:
+    if any(w in raw_lower for w in ["health", "condition", "rul", "remaining useful", "degradation"]):
+        needs_clarify = not bool(router_input.asset_id)
         return RouteDecision(
             route="WORKFLOW",
             intent="health",
             objective_id="OP04_HEALTH_ASSESSMENT",
             args={"asset_id": router_input.asset_id},
-            confidence=0.5,
+            confidence=0.5 if not needs_clarify else 0.4,
             deferred_intents=deferred,
-            clarification_needed=False,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
         )
-    if any(w in raw_lower for w in ["early warning", "warning sign", "anomaly", "subtle"]) and router_input.asset_id:
+    if any(w in raw_lower for w in ["early warning", "warning sign", "anomaly", "subtle"]):
+        needs_clarify = not bool(router_input.asset_id)
         return RouteDecision(
             route="WORKFLOW",
             intent="early_warning",
             objective_id="OP05_EARLY_WARNING",
             args={"asset_id": router_input.asset_id},
-            confidence=0.5,
+            confidence=0.5 if not needs_clarify else 0.4,
             deferred_intents=deferred,
-            clarification_needed=False,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
         )
-    if any(w in raw_lower for w in ["history", "operational history", "historical", "past performance", "runtime hours"]) and router_input.asset_id:
+    if any(w in raw_lower for w in ["history", "operational history", "historical", "past performance", "runtime hours", "runtime"]):
+        needs_clarify = not bool(router_input.asset_id)
         return RouteDecision(
             route="WORKFLOW",
             intent="history",
             objective_id="OP14_OPERATIONAL_HISTORY",
             args={"asset_id": router_input.asset_id},
-            confidence=0.5,
+            confidence=0.5 if not needs_clarify else 0.4,
             deferred_intents=deferred,
-            clarification_needed=False,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
+        )
+    if any(w in raw_lower for w in ["trip", "alarm", "fault", "why did", "recheck", "re-check", "rerun", "re-run", "diagnose", "diagnosis", "troubleshoot", "troubleshooting", "wrong", "issue", "problem"]):
+        needs_clarify = not bool(router_input.asset_id)
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.5 if not needs_clarify else 0.4,
+            deferred_intents=deferred,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
+        )
+    if any(w in raw_lower for w in ["status", "reading", "sensor", "telemetry"]):
+        needs_clarify = not bool(router_input.asset_id)
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="status",
+            objective_id="OP01_CURRENT_STATUS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.5 if not needs_clarify else 0.4,
+            deferred_intents=deferred,
+            clarification_needed=needs_clarify,
+            clarify_reason="CLARIFY" if needs_clarify else None,
+            clarify_slot="asset_id" if needs_clarify else None,
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"] if needs_clarify else [],
         )
     return RouteDecision(
         route="SIMPLE",
@@ -197,17 +262,49 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         if decision.confidence < conf_threshold:
             decision.clarification_needed = True
             decision.clarify_reason = "CLARIFY"
-        # Rule 0 guard: Definitional intent with no asset must never pause for asset clarification
-        if decision.clarification_needed and router_input.asset_id is None and DEFINITIONAL_PATTERNS.search(router_input.raw_message):
+        # Rule 0 guard: Definitional intent with no asset in text must route to SIMPLE (OP06)
+        from app.context.resolver import WELL_ID_REGEX
+        is_telemetry_ask = any(w in router_input.raw_message.lower() for w in ['telemetry', 'status', 'reading', 'sensor', 'live'])
+        if DEFINITIONAL_PATTERNS.search(router_input.raw_message) and not WELL_ID_REGEX.search(router_input.raw_message) and not (router_input.asset_id and is_telemetry_ask):
             decision.route = "SIMPLE"
             decision.intent = "general_inquiry"
-            decision.objective_id = "OP07_GENERAL_INQUIRY"
+            decision.objective_id = "OP06_KNOWLEDGE_LOOKUP"
             decision.args = {}
             decision.clarification_needed = False
             decision.clarify_reason = None
             decision.clarify_slot = None
             decision.clarify_options = []
             decision.confidence = 0.95
+
+        # Health query disambiguation: queries mentioning health/condition on an asset route to OP04, not OP01
+        if any(w in router_input.raw_message.lower() for w in ["health", "degradation", "condition"]) and router_input.asset_id:
+            if decision.objective_id == "OP01_CURRENT_STATUS":
+                decision.objective_id = "OP04_HEALTH_ASSESSMENT"
+                decision.intent = "health"
+
+        # Ambiguous follow-up guard: "Why did that happen?" -> CLARIFY
+        if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message):
+            decision.route = "WORKFLOW"
+            decision.intent = "diagnose"
+            decision.objective_id = "OP03_FAULT_DIAGNOSIS"
+            decision.args = {"asset_id": router_input.asset_id}
+            decision.confidence = 0.4
+            decision.clarification_needed = True
+            decision.clarify_reason = "CLARIFY"
+            decision.clarify_slot = "followup_or_new"
+            decision.clarify_options = ["Explain previous diagnosis", "Run new diagnosis on current telemetry"]
+
+        # Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
+        elif FOLLOWUP_PATTERNS.search(router_input.raw_message):
+            decision.route = "FOLLOW_UP"
+            decision.intent = "explain_prior"
+            decision.objective_id = None
+            decision.args = {"asset_id": router_input.asset_id}
+            decision.confidence = 0.95
+            decision.clarification_needed = False
+            decision.clarify_reason = None
+            decision.clarify_slot = None
+            decision.clarify_options = []
     except LLMUnavailableError:
         llm_available = False
     except RouterOutputInvalid as ex:
@@ -215,6 +312,9 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         # after the retry inside llm_route() — a router/prompt defect,
         # not an outage. Flagged distinctly from llm_available=False.
         record_audit("router_malformed_output", payload={"error": str(ex)})
+    except Exception as ex:
+        llm_available = False
+        record_audit("router_llm_exception", payload={"error": str(ex)})
 
     fallback_used = decision is None
     if decision is None:

@@ -8,6 +8,7 @@ Schema:
   "hypotheses": ["<string>", ...],
   "recommendation": "<string>",
   "verification_steps": ["<string>", ...],
+  "troubleshooting_steps": ["<string>", ...],
   "confidence": <float>,
   "cited_evidence_ids": ["<string>", ...]
 }

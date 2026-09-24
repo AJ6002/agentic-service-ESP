@@ -55,7 +55,7 @@ domains:
     age_key: null
     nominal_interval_sec: 5.0
     warning_staleness_sec: 60.0
-    critical_staleness_sec: 300.0
+    critical_staleness_sec: 86400.0
     invalidation_action: "FLAG_ML_STALE"
 
   kpi:

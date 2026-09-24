@@ -159,4 +159,29 @@ async def synthesize_advisory(
             if "stable" not in advisory.assessment.lower() and "no decline" not in advisory.assessment.lower():
                 advisory.assessment = "Production rate is stable with no abnormal decline detected. " + advisory.assessment
 
+    # Post-synthesis troubleshooting grounding guarantee for OP03 (Phase 4.5)
+    if "OP03" in objective_id and advisory is not None:
+        if not evidence.kb_hits:
+            advisory.troubleshooting_steps = []
+        elif advisory.troubleshooting_steps:
+            grounded_steps = []
+            for step in advisory.troubleshooting_steps:
+                if "[" in step and "]" in step:
+                    grounded_steps.append(step)
+                else:
+                    best_hit = None
+                    best_overlap = 0
+                    step_lower = step.lower()
+                    for hit in evidence.kb_hits:
+                        overlap = sum(1 for word in hit.snippet.lower().split() if len(word) > 3 and word in step_lower)
+                        if overlap > best_overlap:
+                            best_overlap = overlap
+                            best_hit = hit
+                    if best_hit is None and evidence.kb_hits:
+                        best_hit = evidence.kb_hits[0]
+                    if best_hit:
+                        sec_str = f" §{best_hit.section}" if best_hit.section and not str(best_hit.section).startswith("§") else (f" {best_hit.section}" if best_hit.section else "")
+                        grounded_steps.append(f"[{best_hit.doc_id}{sec_str}] {step}")
+            advisory.troubleshooting_steps = grounded_steps[:7]
+
     return advisory, alarm_result

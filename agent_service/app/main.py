@@ -18,6 +18,7 @@ from app.hitl.interrupts import raise_clarify, register_resume_handler, resume
 from app.observability.stage_log import log_stage
 from app.routing.capability_retrieval import retrieve_candidates
 from app.routing.router import route_query_full
+from app.routing.followup_handler import handle_followup
 from app.synthesis.direct_handler import handle_direct_query
 from app.synthesis.response_assembler import ResponseAssembler
 from app.stores.run_store import get_run, save_run
@@ -447,6 +448,61 @@ async def handle_query(req: QueryRequest):
             _timed_stream(stream, run_id, decision.route), media_type="application/x-ndjson"
         )
 
+    # If route is FOLLOW_UP
+    if decision.route == "FOLLOW_UP":
+        _t0 = time.perf_counter()
+        req_analysis = decision.args.get("analysis_id") if isinstance(decision.args, dict) else None
+        followup_res = await handle_followup(session_id, raw_msg, req_analysis)
+        log_stage(
+            "followup_handler",
+            (time.perf_counter() - _t0) * 1000,
+            "OK" if followup_res.ok else "ERROR",
+            run_id=run_id,
+            session_id=session_id,
+            analysis_id=followup_res.analysis_id,
+        )
+        run = get_run(run_id)
+        if run:
+            run.status = "DONE" if followup_res.ok else "INSUFFICIENT"
+            save_run(run)
+        record_audit(
+            "query_completed",
+            run_id=run_id,
+            session_id=session_id,
+            payload={"route": "FOLLOW_UP", "ok": followup_res.ok, "code": followup_res.code},
+        )
+        # Advance turn count, but preserve last_asset_id and last_analysis_id
+        _persist_session_turn(session_id, frame)
+
+        if not followup_res.ok:
+            err = ErrorFrame(
+                run_id=run_id,
+                code=followup_res.code or "FOLLOWUP_FAILED",
+                message=followup_res.message or "Follow-up request could not be fulfilled.",
+            )
+            stream = ResponseAssembler.assemble_stream(
+                run_id=run_id,
+                route="FOLLOW_UP",
+                error=err,
+                done_status="INSUFFICIENT",
+                llm_available=route_result.llm_available,
+            )
+            return StreamingResponse(
+                _timed_stream(stream, run_id, "FOLLOW_UP"), media_type="application/x-ndjson"
+            )
+
+        stream = ResponseAssembler.assemble_stream(
+            run_id=run_id,
+            route="FOLLOW_UP",
+            text=followup_res.text,
+            advisory=followup_res.advisory,
+            visualization=followup_res.visualization,
+            llm_available=route_result.llm_available,
+        )
+        return StreamingResponse(
+            _timed_stream(stream, run_id, "FOLLOW_UP"), media_type="application/x-ndjson"
+        )
+
     # If route is SIMPLE
     if decision.route == "SIMPLE":
         if decision.objective_id in ("OP06", "OP06_KNOWLEDGE_LOOKUP"):
@@ -680,7 +736,7 @@ async def handle_query(req: QueryRequest):
         text=workflow_result.text,
         advisory=workflow_result.advisory,
         visualization=workflow_result.visualization,
-        llm_available=route_result.llm_available,
+        llm_available=route_result.llm_available and workflow_result.llm_available,
     )
     return StreamingResponse(
         _timed_stream(stream, run_id, decision.route), media_type="application/x-ndjson"

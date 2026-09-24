@@ -77,6 +77,8 @@ def plan_visualization(
             # qualify if any item is in the pack
             if pack.items:
                 selected_cards.append(card_id)
+                for item in pack.items:
+                    cited_evidence_ids.add(item.evidence_id)
 
     return VisualizationSpec(
         widget_id="cards",

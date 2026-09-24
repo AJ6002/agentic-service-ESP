@@ -1,0 +1,240 @@
+# ==============================================================================
+# Fault Taxonomy Mapping Table (Phase 4.5)
+# Bridges Model Diagnostic Fault Classes to KB Deterministic Taxonomy IDs,
+# Causal Graph Symptom Tokens, and Authoritative Standard Manuals.
+# Covers all 13 ESP fault classes from Server 184 and Model Contracts.
+# ==============================================================================
+
+version: "1.0"
+
+mappings:
+  MOTOR_OVERLOAD:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+      - "PUMP_WEAR"
+    symptoms:
+      - "high_motor_temperature"
+      - "fluctuating_current"
+      - "High Motor Temperature (>130°C)"
+      - "Current Imbalance"
+    default_manual: "API_RP_11S"
+
+  OVERLOAD_SOLIDS:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+      - "PUMP_WEAR"
+    symptoms:
+      - "fluctuating_current"
+      - "Current Imbalance"
+    default_manual: "API_RP_11S"
+
+  HIGH_VISCOSITY:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "fluctuating_current"
+      - "High Motor Temperature (>130°C)"
+    default_manual: "API_RP_11S"
+
+  HIGH_VISCOSITY_COLD_START:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "fluctuating_current"
+      - "High Motor Temperature (>130°C)"
+    default_manual: "API_RP_11S"
+
+  OVERHEAT:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "high_motor_temperature"
+      - "High Motor Temperature (>130°C)"
+    default_manual: "API_RP_11S"
+
+  MOTOR_OVERHEATING:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "high_motor_temperature"
+      - "High Motor Temperature (>130°C)"
+    default_manual: "API_RP_11S"
+
+  GAS_INTERFERENCE:
+    primary_fault_id: "GAS_LOCK"
+    taxonomy_ids:
+      - "GAS_LOCK"
+    symptoms:
+      - "low_intake_pressure"
+      - "erratic_current"
+      - "Low Intake Pressure (<150 psi)"
+      - "Erratic Motor Current / Underload Trips"
+      - "Flow Rate Drop"
+    default_manual: "API_RP_11S"
+
+  GAS_LOCK:
+    primary_fault_id: "GAS_LOCK"
+    taxonomy_ids:
+      - "GAS_LOCK"
+    symptoms:
+      - "low_intake_pressure"
+      - "erratic_current"
+      - "Low Intake Pressure (<150 psi)"
+      - "Erratic Motor Current / Underload Trips"
+      - "Flow Rate Drop"
+    default_manual: "API_RP_11S"
+
+  UNDERLOAD:
+    primary_fault_id: "GAS_LOCK"
+    taxonomy_ids:
+      - "GAS_LOCK"
+      - "FAULT_003_UNDERLOAD_PUMP_OFF"
+    symptoms:
+      - "low_intake_pressure"
+      - "Low Intake Pressure (<150 psi)"
+      - "Erratic Motor Current / Underload Trips"
+    default_manual: "API_RP_11S"
+
+  DRY_WELL_PUMP_OFF:
+    primary_fault_id: "GAS_LOCK"
+    taxonomy_ids:
+      - "GAS_LOCK"
+      - "FAULT_003_UNDERLOAD_PUMP_OFF"
+    symptoms:
+      - "low_intake_pressure"
+      - "Low Intake Pressure (<150 psi)"
+      - "Erratic Motor Current / Underload Trips"
+    default_manual: "API_RP_11S"
+
+  BLOCKED_INTAKE:
+    primary_fault_id: "PUMP_WEAR"
+    taxonomy_ids:
+      - "PUMP_WEAR"
+      - "GAS_LOCK"
+    symptoms:
+      - "Flow Rate Decrease"
+      - "Low Intake Pressure (<150 psi)"
+      - "Flow Rate Drop"
+    default_manual: "API_RP_11S"
+
+  HIGH_VIBRATION:
+    primary_fault_id: "BEARING_WEAR"
+    taxonomy_ids:
+      - "BEARING_WEAR"
+    symptoms:
+      - "vibration"
+      - "Excessive Radial Vibration (>3.0g)"
+      - "Axial Vibration Spike (>1.5g)"
+    default_manual: "IEC_60034_14"
+
+  BEARING_WEAR:
+    primary_fault_id: "BEARING_WEAR"
+    taxonomy_ids:
+      - "BEARING_WEAR"
+    symptoms:
+      - "Excessive Radial Vibration (>3.0g)"
+      - "Axial Vibration Spike (>1.5g)"
+    default_manual: "IEC_60034_14"
+
+  BEARING_DEGRADATION:
+    primary_fault_id: "BEARING_WEAR"
+    taxonomy_ids:
+      - "BEARING_WEAR"
+    symptoms:
+      - "Excessive Radial Vibration (>3.0g)"
+      - "Axial Vibration Spike (>1.5g)"
+    default_manual: "IEC_60034_14"
+
+  SAND_INGESTION:
+    primary_fault_id: "PUMP_WEAR"
+    taxonomy_ids:
+      - "PUMP_WEAR"
+      - "BEARING_WEAR"
+    symptoms:
+      - "Flow Rate Decrease"
+      - "Excessive Radial Vibration (>3.0g)"
+    default_manual: "API_RP_11S"
+
+  SCALE_OR_PUMP_WEAR:
+    primary_fault_id: "SCALE_DEPOSITION"
+    taxonomy_ids:
+      - "SCALE_DEPOSITION"
+      - "PUMP_WEAR"
+    symptoms:
+      - "Gradual Flow Rate Decrease"
+      - "Motor Temperature Increase"
+      - "Flow Rate Decrease"
+    default_manual: "SPE-199091-MS"
+
+  SCALE_DEPOSITION:
+    primary_fault_id: "SCALE_DEPOSITION"
+    taxonomy_ids:
+      - "SCALE_DEPOSITION"
+    symptoms:
+      - "Gradual Flow Rate Decrease"
+      - "Motor Temperature Increase"
+    default_manual: "SPE-199091-MS"
+
+  PUMP_WEAR:
+    primary_fault_id: "PUMP_WEAR"
+    taxonomy_ids:
+      - "PUMP_WEAR"
+    symptoms:
+      - "Flow Rate Decrease"
+      - "Pump Efficiency Decrease (<60%)"
+    default_manual: "API_RP_11S"
+
+  HIGH_BACKPRESSURE:
+    primary_fault_id: "PUMP_WEAR"
+    taxonomy_ids:
+      - "PUMP_WEAR"
+    symptoms:
+      - "Flow Rate Decrease"
+    default_manual: "API_RP_11S"
+
+  OPEN_CHOKE:
+    primary_fault_id: "PUMP_WEAR"
+    taxonomy_ids:
+      - "PUMP_WEAR"
+    symptoms:
+      - "Flow Rate Decrease"
+    default_manual: "API_RP_11S"
+
+  UNDERVOLTAGE:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "Current Imbalance"
+    default_manual: "API_RP_11S"
+
+  PHASE_IMBALANCE:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "Current Imbalance"
+      - "High Motor Temperature (>130°C)"
+    default_manual: "API_RP_11S"
+
+  POWER_LOSS:
+    primary_fault_id: "MOTOR_OVERHEATING"
+    taxonomy_ids:
+      - "MOTOR_OVERHEATING"
+    symptoms:
+      - "Current Imbalance"
+    default_manual: "API_RP_11S"
+
+  SENSOR_DRIFT:
+    primary_fault_id: "SCALE_DEPOSITION"
+    taxonomy_ids:
+      - "SCALE_DEPOSITION"
+    symptoms:
+      - "Gradual Flow Rate Decrease"
+    default_manual: "SPE-199091-MS"

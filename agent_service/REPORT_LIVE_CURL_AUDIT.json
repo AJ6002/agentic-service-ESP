@@ -1,0 +1,578 @@
+[
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /historian/health",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:10.310300+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 2.12,
+      "error": null,
+      "body": "{\"status\":\"ok\",\"uptime_sec\":382934,\"db_attached\":true,\"row_count\":3078801,\"backend\":\"duckdb\"}"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /live/telemetry/FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:10.449197+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.139,
+      "signal_count": 7,
+      "sample": {
+        "motor_current_a": 35.0,
+        "frequency_hz": 50.0,
+        "motor_temperature_c": 85.0,
+        "intake_pressure_psi": 350.0,
+        "discharge_pressure_psi": 2100.0
+      }
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /live/asset/FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:10.590111+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.141,
+      "body": "{\"well_id\":\"FS-17\",\"timestamp\":\"2026-01-17T00:00:00Z\",\"asset\":{\"pump_type\":\"B400-400\",\"stages\":342,\"motor_hp_50hz\":53.0,\"volt_50hz\":1669.0,\"rated_amp_a\":20.3,\"cluster\":\"SB247\",\"vsd_model\":\"VECTOR PLUS"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /live/vfm/FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:10.836169+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.246,
+      "body": "{\"well_id\":\"FS-17\",\"timestamp\":\"2026-09-22T21:41:05.261454+00:00\",\"liquid_flow_rate_bpd\":400.0,\"net_oil_rate_bpd\":280.0,\"net_water_rate_bpd\":120.0,\"wa"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /live/wells",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:11.042435+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.206,
+      "well_count": 0,
+      "sample_wells": []
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /historian/window (FS-17, 2h)",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:11.847064+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.79,
+      "records": 0
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /events/trips?well_id=FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:11.977154+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.13,
+      "body": "{\"event_count\":0,\"events\":[]}"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /events/health",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:12.194368+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.218,
+      "body": "{\"status\":\"ok\",\"row_count\":3,\"last_event_ts\":\"2026-09-13T10:30:00Z\"}"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /ml/health",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:14.231190+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 2.036,
+      "body": "{\"status\":\"ok\",\"models_loaded\":4,\"last_inference_ts\":\"2026-09-22T21:41:11.520498Z\"}"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /ml/health/FS-17",
+    "status": "WARNING",
+    "timestamp": "2026-09-22T21:41:19.316153+00:00",
+    "details": {
+      "status_code": 0,
+      "elapsed_sec": 5.085,
+      "note": "Server 184 ML warm-up/latency behavior",
+      "body": ""
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /ml/fault/FS-17",
+    "status": "WARNING",
+    "timestamp": "2026-09-22T21:41:24.362629+00:00",
+    "details": {
+      "status_code": 0,
+      "elapsed_sec": 5.046,
+      "note": "Server 184 ML warm-up/latency behavior",
+      "body": ""
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /ml/anomaly/FS-17",
+    "status": "WARNING",
+    "timestamp": "2026-09-22T21:41:29.622993+00:00",
+    "details": {
+      "status_code": 0,
+      "elapsed_sec": 5.26,
+      "note": "Server 184 ML warm-up/latency behavior",
+      "body": ""
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /kpi/FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:35.534851+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 5.912,
+      "body": "{\"well_id\":\"FS-17\",\"timestamp\":\"2026-09-13T10:37:40Z\",\"kpis\":{\"oil_rate_bopd\":399.1,\"water_cut_pct\":0.0,\"liquid_rate_bpd\":399.1,\"gas_rate_mscfd\":119.7,\"motor_load_pct\":102.5,\"energy_variance_pct\":29.2"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /kpi/fleet",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:35.695651+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.161,
+      "body": "{\"timestamp\":\"2026-09-13T10:37:40Z\",\"well_count\":14,\"wells\":[{\"well_id\":\"FS-17\",\"status\":\"running\",\"oil_rate_bopd\":399.1,\"health_score\":71.4,\"alarm_count\":1},{\"well_id\":\"FS-121\",\"status\":\"running\",\"oi"
+    }
+  },
+  {
+    "section": "Slice0_Server184",
+    "title": "GET /cards/catalog",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:35.755760+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.059,
+      "body": "{\"card_count\":17,\"cards\":[{\"card_id\":\"gross-liquid-rate\",\"aliases\":[\"liquid-rate\",\"liquid_rate\",\"gross_liquid_rate\"],\"component_id\":\"section-production-kpi-liquid-rate\",\"widget_title\":\"Gross Liquid Ra"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "GET /health",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:36.354457+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.599,
+      "body": "{\"status\":\"ok\",\"service\":\"esp_kb_service\",\"version\":\"1.0.0\",\"qdrant_connected\":false,\"neo4j_connected\":false,\"indexed_documents\":3657,\"deterministic_f"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "POST /api/kb/search ('gas lock')",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:36.525006+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.169,
+      "hits_returned": 5,
+      "top_hit_title": "BP_ESP_Troubleshooting_Guidelines"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "POST /api/kb/search ('underload protection')",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:36.673147+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.148,
+      "hits_returned": 5,
+      "top_hit_title": "BP_ESP_Troubleshooting_Guidelines"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "POST /api/kb/search ('How do I restart an ESP?')",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:36.843318+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.171,
+      "hits_returned": 5,
+      "top_hit_title": "Baker_Hughes_FusionPro_Manual"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "POST /api/kb/search ('API RP 11S1')",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:37.057889+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.213,
+      "hits_returned": 5,
+      "top_hit_title": "API_RP_11S1_Teardown_Report_1997"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "GET /api/kb/faults/GAS_LOCK",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:37.162737+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.105,
+      "body": "{\"fault_id\":\"GAS_LOCK\",\"name\":\"Gas Lock / Gas Interference\",\"category\":\"HYDRAULIC\",\"criticality\":\"WARNING to CRITICAL\",\"symptoms\":[\"Low Intake Pressur"
+    }
+  },
+  {
+    "section": "KB_Service",
+    "title": "GET /api/kb/standards/API_RP_11S1",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:37.365774+00:00",
+    "details": {
+      "status_code": 404,
+      "elapsed_sec": 0.203,
+      "body": "{\"detail\":\"Standard 'API_RP_11S1' not found\"}"
+    }
+  },
+  {
+    "section": "LLM_Server",
+    "title": "GET /v1/models",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:37.371252+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.005,
+      "body": "{\"models\":[{\"name\":\"models\\\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf\",\"model\":\"models\\\\Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf\",\"modified_at\":\"\",\"size\":\"\","
+    }
+  },
+  {
+    "section": "Agent_Service",
+    "title": "GET /health",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:37.376021+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 0.005,
+      "body": "{\"status\":\"HEALTHY\",\"service\":\"agent_service\",\"slice\":2}"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "How do I troubleshoot underload trip?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:45.707809+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 8.33,
+      "frame_types": [
+        "advisory",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP06_KNOWLEDGE_LOOKUP",
+      "advisory_assessment": "To diagnose a well using ESP operations, refer to the BP_ESP_Troubleshooting_Guidelines (BP0757) document, Section BP075",
+      "cited_evidence": [
+        "EV-R-5d30ac43-0001"
+      ],
+      "visual_cards": [],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):\n\nAssessment: To diagnose a well using ESP oper"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Explain gas lock and restart procedure.",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:41:54.750870+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 9.04,
+      "frame_types": [
+        "advisory",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP06_KNOWLEDGE_LOOKUP",
+      "advisory_assessment": "To diagnose a well, the following steps should be taken according to the API RP 11S1 Dismantle Failure Analysis 2022 sta",
+      "cited_evidence": [
+        "EV-R-d2d12ede-0002"
+      ],
+      "visual_cards": [],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):\n\nAssessment: To diagnose a well, the following"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "How do I restart an ESP?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:42:04.522248+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 9.77,
+      "frame_types": [
+        "advisory",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP06_KNOWLEDGE_LOOKUP",
+      "advisory_assessment": "To diagnose a well, the following steps should be taken:",
+      "cited_evidence": [
+        "EV-R-7bc66552-0003",
+        "EV-R-7bc66552-0003",
+        "EV-R-7bc66552-0003",
+        "EV-R-7bc66552-0003",
+        "EV-R-7bc66552-0003",
+        "EV-R-7bc66552-0003"
+      ],
+      "visual_cards": [],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):\n\nAssessment: To diagnose a well, the following"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Why did FS-17 trip?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:42:21.086553+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 16.56,
+      "frame_types": [
+        "advisory",
+        "visual",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP03_FAULT_DIAGNOSIS",
+      "advisory_assessment": "The well FS-17 is currently operating within normal parameters based on the provided sensor and KPI measurements. The mo",
+      "cited_evidence": [
+        "EV-R-31541b09-0005",
+        "EV-R-31541b09-0006",
+        "EV-R-31541b09-0008",
+        "EV-R-31541b09-0010"
+      ],
+      "visual_cards": [
+        "fault-classification",
+        "motor-temperature",
+        "vibration"
+      ],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for FS-17 (objective: OP03_FAULT_DIAGNOSIS):\n\nTemporal Scope: 2026-09-22T19:42:06.998496Z to 2026-09-22T2"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Why did you say gas interference?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:42:27.308257+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 6.22,
+      "frame_types": [
+        "advisory",
+        "visual",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP03_FAULT_DIAGNOSIS",
+      "advisory_assessment": "The well FS-17 is currently operating within normal parameters based on the provided sensor and KPI measurements. The mo",
+      "cited_evidence": [
+        "EV-R-31541b09-0005",
+        "EV-R-31541b09-0006",
+        "EV-R-31541b09-0008",
+        "EV-R-31541b09-0010"
+      ],
+      "visual_cards": [
+        "fault-classification",
+        "motor-temperature",
+        "vibration"
+      ],
+      "clarify_question": null,
+      "text_preview": "Based on the provided evidence, there is no evidence of gas interference. The motor current, frequency, and temperature "
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "What data did you use?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:42:30.227513+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 2.92,
+      "frame_types": [
+        "advisory",
+        "visual",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP03_FAULT_DIAGNOSIS",
+      "advisory_assessment": "The well FS-17 is currently operating within normal parameters based on the provided sensor and KPI measurements. The mo",
+      "cited_evidence": [
+        "EV-R-31541b09-0005",
+        "EV-R-31541b09-0006",
+        "EV-R-31541b09-0008",
+        "EV-R-31541b09-0010"
+      ],
+      "visual_cards": [
+        "fault-classification",
+        "motor-temperature",
+        "vibration"
+      ],
+      "clarify_question": null,
+      "text_preview": "The prior analysis used the following evidence IDs: EV-R-31541b09-0004, EV-R-31541b09-0005, EV-R-31541b09-0006, EV-R-315"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Why has FS-17 production declined?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:42:43.622272+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 13.39,
+      "frame_types": [
+        "advisory",
+        "visual",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP02_PRODUCTION_DECLINE_RCA",
+      "advisory_assessment": "Production is stable and operating within normal expectations.",
+      "cited_evidence": [
+        "EV-R-38e0a91f-0012",
+        "EV-R-38e0a91f-0014",
+        "EV-R-38e0a91f-0015"
+      ],
+      "visual_cards": [
+        "production-decline",
+        "pressure-corridor",
+        "trip-timeline",
+        "gross-liquid-rate",
+        "net-oil-rate"
+      ],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for FS-17 (objective: OP02_PRODUCTION_DECLINE_RCA):\n\nTemporal Scope: 2026-09-22T19:42:32.449484Z to 2026-"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Assess the health of well FS-17",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:43:03.812201+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 20.19,
+      "frame_types": [
+        "advisory",
+        "visual",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP04_HEALTH_ASSESSMENT",
+      "advisory_assessment": "The well FS-17 is currently in a CRITICAL health band. The health score of 44.00 index indicates severe degradation, wit",
+      "cited_evidence": [
+        "EV-R-5c36260b-0017",
+        "EV-R-5c36260b-0018",
+        "EV-R-5c36260b-0019",
+        "EV-R-5c36260b-0020"
+      ],
+      "visual_cards": [
+        "health-score",
+        "motor-temperature"
+      ],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for FS-17 (objective: OP04_HEALTH_ASSESSMENT):\n\nTemporal Scope: 2026-09-22T19:42:45.898967Z to 2026-09-22"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "What is an ESP health index and how is it sco",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:43:12.341086+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 8.53,
+      "frame_types": [
+        "advisory",
+        "text_delta",
+        "done"
+      ],
+      "done_status": "OK",
+      "error": null,
+      "advisory_objective": "OP06_KNOWLEDGE_LOOKUP",
+      "advisory_assessment": "To diagnose a well using ESP operations, the following steps are recommended based on the provided evidence:",
+      "cited_evidence": [
+        "EV-R-63d52d18-0022",
+        "EV-R-63d52d18-0022",
+        "EV-R-63d52d18-0022",
+        "EV-R-63d52d18-0022",
+        "EV-R-63d52d18-0022"
+      ],
+      "visual_cards": [],
+      "clarify_question": null,
+      "text_preview": "Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):\n\nAssessment: To diagnose a well using ESP oper"
+    }
+  },
+  {
+    "section": "Agent_Query_API",
+    "title": "Why did the well trip?",
+    "status": "PASSED",
+    "timestamp": "2026-09-22T21:43:14.857757+00:00",
+    "details": {
+      "status_code": 200,
+      "elapsed_sec": 2.52,
+      "frame_types": [
+        "clarification",
+        "done"
+      ],
+      "done_status": "PAUSED",
+      "error": null,
+      "advisory_objective": null,
+      "advisory_assessment": null,
+      "cited_evidence": null,
+      "visual_cards": [],
+      "clarify_question": null,
+      "text_preview": null
+    }
+  }
+]

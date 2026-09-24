@@ -1,0 +1,101 @@
+=====================================================================================
+ESP AGENT SERVICE — FULL REGRESSION REPORT
+Generated: 2026-09-23 04:25:27
+=====================================================================================
+
+1. ENVIRONMENT
+-------------------------------------------------------------------------------------
+Python:  3.11.0
+OS:      Windows-10-10.0.26200-SP0
+Host:    AJ_PRIME
+Key packages:
+  fastapi==0.141.1
+  httpx==0.28.1
+  pydantic==2.13.5
+  pydantic_core==2.46.5
+  pytest==9.1.1
+  redis==8.1.0
+
+2. SERVICE PROBES
+-------------------------------------------------------------------------------------
+Redis (127.0.0.1:6381) = UP
+Agent (127.0.0.1:8091) = UP
+Server 184 (192.168.1.184:8090) = UP
+KB Service (192.168.1.184:8085) = UP
+llama-server (127.0.0.1:8080) = UP
+
+3. TEST COLLECTION
+-------------------------------------------------------------------------------------
+Total collected: 393
+
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_trip_query_after_op03[asyncio]
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_recheck_time_window[asyncio]
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_ambiguous_query[asyncio]
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_no_prior_analysis[asyncio]
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_definitional_unaffected[asyncio]
+tests/acceptance/phase4/test_followup_boundary.py::test_boundary_workflow_after_followup[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_llm_unavailable[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_llm_garbage_retry[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_pack_expired[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_pack_missing[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_pack_unsealed[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_redis_connection_error[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_malformed_analysis_id[asyncio]
+tests/acceptance/phase4/test_followup_failures.py::test_failure_prompt_injection[asyncio]
+tests/acceptance/phase4/test_followup_happy_path.py::test_followup_explain_finding[asyncio]
+tests/acceptance/phase4/test_followup_happy_path.py::test_followup_evidence_inquiry[asyncio]
+tests/acceptance/phase4/test_followup_happy_path.py::test_followup_graph_explanation[asyncio]
+tests/acceptance/phase4/test_followup_happy_path.py::test_followup_multi_turn_chain[asyncio]
+tests/acceptance/phase4/test_followup_happy_path.py::test_followup_explicit_analysis_id[asyncio]
+tests/acceptance/phase4/test_followup_provenance.py::test_provenance_clean_followup[asyncio]
+tests/acceptance/phase4/test_followup_provenance.py::test_provenance_injected_fake_number[asyncio]
+tests/acceptance/phase4/test_followup_provenance.py::test_provenance_regex_diff[asyncio]
+tests/acceptance/phase4/test_followup_state.py::test_state_last_analysis_id_unchanged[asyncio]
+tests/acceptance/phase4/test_followup_state.py::test_state_run_id_isolated[asyncio]
+tests/acceptance/phase4/test_followup_state.py::test_state_cross_session_isolation[asyncio]
+tests/acceptance/phase4/test_followup_state.py::test_state_followup_after_clarify[asyncio]
+tests/acceptance/phase4/test_followup_state.py::test_state_ttl_boundary_check[asyncio]
+tests/acceptance/phase4/test_followup_stream_shape.py::test_stream_shape_single_done_frame[asyncio]
+tests/acceptance/phase4/test_followup_stream_shape.py::test_stream_shape_expired_pack[asyncio]
+tests/acceptance/phase4/test_followup_stream_shape.py::test_stream_shape_valid_frame_types[asyncio]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Why did you say gas interference?-FOLLOW_UP-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-What data did you use?-FOLLOW_UP-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-What does that graph mean?-FOLLOW_UP-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Explain your reasoning on that diagnosis-FOLLOW_UP-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Why did you conclude that?-FOLLOW_UP-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Recheck with the last 2 hours-WORKFLOW-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-What's the current status now?-WORKFLOW-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-What is underload protection?-SIMPLE-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Explain gas lock.-SIMPLE-False]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_heuristic_table[asyncio-Why did that happen?-WORKFLOW-True]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_past_vs_present_tense[asyncio]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_why_trip_with_prior[asyncio]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_graph_query[asyncio]
+tests/acceptance/phase4/test_router_disambiguation.py::test_router_empty_session_handling[asyncio]
+tests/acceptance/test_contract_integrity.py::test_ac_1_1_failed_runs_must_not_return_status_ok[asyncio]
+tests/acceptance/test_contract_integrity.py::test_ac_1_2_failed_runs_must_not_emit_visual_frames[asyncio]
+tests/acceptance/test_contract_integrity.py::test_ac_1_3_errors_must_use_error_frame_never_text_delta[asyncio]
+tests/acceptance/test_contract_integrity.py::test_ac_1_4_every_stream_ends_with_exactly_one_done_frame[asyncio]
+tests/acceptance/test_contract_integrity.py::test_ac
+
+4. PER-PHASE RESULTS
+-------------------------------------------------------------------------------------
+
+--- tests/
+    ====================== 393 passed in 1069.83s (0:17:49) =======================
+    exit code: 0
+
+5. FAILURE DETAIL (full tracebacks)
+-------------------------------------------------------------------------------------
+No failures.
+
+6. SUMMARY
+-------------------------------------------------------------------------------------
+Passed:  393
+Failed:  0
+Skipped: 0
+Overall: GREEN
+
+=====================================================================================
+END OF REPORT
+=====================================================================================

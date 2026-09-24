@@ -20,6 +20,8 @@ ALLOWED_TOOLS = {
     "get_events_timeline",
     "get_trips",
     "search_knowledge",
+    "get_fault_taxonomy",
+    "trace_causal_graph",
     "diagnose_fault",
     "get_anomaly",
     "get_health_index",
