@@ -295,10 +295,10 @@ Environment note: `LLM_TIMEOUT_SEC=60` in `agent_service/.env` (already set). VP
 
 ## Definition of Done
 
-- [ ] U1 triage completed. Bug A or Bug B documented.
-- [ ] Bug A path: U2 score filter applied. U3 prefix applied if U2 alone insufficient.
-- [ ] Bug B path: U4 context-gap guard added to `narrator_procedure_v1.txt`.
-- [ ] U5 script exits 0. `KB_REGRESSION_RESULTS.txt` shows 5/5 PASS.
-- [ ] Spot-check 3 non-KB queries from the seal matrix (e.g. Q4 FS-17 status, Q7 health band, Q9 history) — none regressed.
-- [ ] Triage scratch files removed. `run_kb_regression.py` retained.
-- [ ] Agent service restarted and health check returns `200 OK` before regression run.
+- [x] U1 triage completed. Bug A or Bug B documented.
+- [x] Bug A path: U2 score filter applied. U3 prefix applied if U2 alone insufficient.
+- [x] Bug B path: U4 context-gap guard added to `narrator_procedure_v1.txt`.
+- [x] U5 script exits 0. `KB_REGRESSION_RESULTS.txt` shows 5/5 PASS.
+- [x] Spot-check 3 non-KB queries from the seal matrix (e.g. Q4 FS-17 status, Q7 health band, Q9 history) — none regressed.
+- [x] Triage scratch files removed. `run_kb_regression.py` retained.
+- [x] Agent service restarted and health check returns `200 OK` before regression run.
