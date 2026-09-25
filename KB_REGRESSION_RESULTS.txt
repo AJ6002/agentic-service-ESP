@@ -1,30 +1,31 @@
-KB Regression Results — 2026-09-25 18:52:54
+KB Regression Results — 2026-09-25 19:51:46
 Agent: http://127.0.0.1:8091/query
 ======================================================================
 
 [PASS] Q1: What is underload protection?
   Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive diagnostic content about well health or operational issues.
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive definitional content about this phenomenon.
 
 
-[FAIL] Q11: Why has FS-17 production declined?
-  Reason: timed out
-  Response: 
-
-[PASS] Q12: Explain gas lock
+[PASS] Q11: Explain gas lock
   Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. The provided citations focus on monitoring, troubleshooting, and degradation drivers, but do not provide a comprehensive procedure for diagnosing wells.
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. Relevant KB citations focused on monitoring, troubleshooting, and degradation drivers, but did not provide a comprehensive diagnosis process.
+
+
+[PASS] Q12: Explain what underload trip is.
+  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive diagnostic information about well operations.
 
 
 [PASS] Q20: What standard covers ESP vibration limits?
   Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of well None, but no KB citation contained substantive information about diagnosing wells or well operations.
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of well None, but no KB citation contained substantive information about diagnosing wells or well conditions.
 
 
 [PASS] Q-bonus: What is the definition of pump-off condition?
   Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells.
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. The provided citations are related to ESP origins, predictive maintenance, and vibration analysis, but do not address well diagnosis.
 
 
 
-SUMMARY: 4/5 PASSED
+SUMMARY: 5/5 PASSED

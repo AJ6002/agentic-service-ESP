@@ -31,13 +31,13 @@ QUERIES = [
     },
     {
         "id": "Q11",
-        "query": "Why has FS-17 production declined?",
-        "description": "KB-backed production context",
+        "query": "Explain gas lock",
+        "description": "Definitional — gas lock phenomenon",
     },
     {
         "id": "Q12",
-        "query": "Explain gas lock",
-        "description": "Definitional — gas lock phenomenon",
+        "query": "Explain what underload trip is.",
+        "description": "Definitional — underload trip",
     },
     {
         "id": "Q20",
