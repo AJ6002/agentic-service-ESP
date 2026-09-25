@@ -1,0 +1,30 @@
+KB Regression Results — 2026-09-25 18:52:54
+Agent: http://127.0.0.1:8091/query
+======================================================================
+
+[PASS] Q1: What is underload protection?
+  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive diagnostic content about well health or operational issues.
+
+
+[FAIL] Q11: Why has FS-17 production declined?
+  Reason: timed out
+  Response: 
+
+[PASS] Q12: Explain gas lock
+  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. The provided citations focus on monitoring, troubleshooting, and degradation drivers, but do not provide a comprehensive procedure for diagnosing wells.
+
+
+[PASS] Q20: What standard covers ESP vibration limits?
+  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of well None, but no KB citation contained substantive information about diagnosing wells or well operations.
+
+
+[PASS] Q-bonus: What is the definition of pump-off condition?
+  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
+  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells.
+
+
+
+SUMMARY: 4/5 PASSED
