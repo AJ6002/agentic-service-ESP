@@ -1,5 +1,8 @@
 import json
+import os
 import sys
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.stores.run_store import get_run, get_pack
 
 # Get RUN_ID from command line argument if provided, else use default

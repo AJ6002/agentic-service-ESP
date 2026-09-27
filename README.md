@@ -9,12 +9,26 @@ Enterprise Artificial Lift Asset Performance Management (APM) & Autonomous Agent
 This repository contains the complete end-to-end industrial software suite for real-time ESP telemetry ingestion, machine learning diagnostics, first-principles physics calculation, governed engineering master data (Asset ConneX), and an autonomous natural-language operational co-pilot.
 
 ```
-ESP_APM_server/
+ESP/
 ├── agent_service/                 # Autonomous AI Agent & Decision Engine (FastAPI, Redis, Local LLM)
+│   ├── app/                       # Core application (Routing, Gateway, LLM, Synthesis, Workflows)
+│   ├── tests/                     # 439-test automated regression & acceptance suite
+│   ├── scripts/                   # Developer CLI tools, test runners & benchmarks
+│   └── config/                    # Environment & configuration
 ├── Server3_Deployment_Package/    # Production ML & SCADA Ingestion Backend (FastAPI, SQLite, React UI)
-├── esp-insight-suite/             # ADVAIT ESP-PMM Enterprise Frontend (TanStack Router, Tailwind CSS)
+├── lovable-code-legacy/           # ADVAIT ESP-PMM Enterprise Frontend & UI Reference
+├── docker/                        # Mosquitto MQTT broker configuration
+├── docs/                          # Centralized Specifications, Architecture, Plans & Reports
+│   ├── api/                       # REST API & Postman/curl specifications
+│   ├── architecture/              # Agent service architecture & design docs
+│   ├── deployment/                # Server 184 deployment guides
+│   ├── guides/                    # Local startup & environment guides
+│   ├── plans/                     # Milestone implementation & seal plans
+│   ├── reports/                   # Official seal reports & benchmark logs
+│   └── history/                   # Chronological development history
+├── scripts/                       # Root utilities (backup, migration tools)
 ├── edge_live_service.py           # Field edge simulator & live telemetry publisher
-└── [Specifications & Docs]        # Comprehensive architectural, API, and enumeration specifications
+└── docker-compose.yml             # Local container orchestration
 ```
 
 ---
@@ -33,7 +47,7 @@ ESP_APM_server/
 - **Machine Learning Engine:** Real-time Isolation Forest anomaly detection, 14-class ESP failure mode probabilistic ranking, and SHAP attribution.
 - **Operations Dashboard:** React SPA with Virtual Flow Metering (VFM), synchronized multi-tag trend canvas, in-situ pump degradation tracker, and 4-subsystem physical health equalizers.
 
-### 3. `esp-insight-suite/` — ADVAIT ESP-PMM Enterprise Frontend
+### 3. `lovable-code-legacy/` — ADVAIT ESP-PMM Enterprise Frontend
 - **Framework:** TanStack Router + Tailwind CSS enterprise dashboard.
 - **Dual Workspace Separation:**
   - **Operations Workspace (`/`)**: Fleet Cockpit, Well Directory, Well Monitor (6 tabs + Advisor drawer), Exceptions Triage Desk, Troubleshooting Assistant, Reliability & Run Life, Management Scorecard.
@@ -45,46 +59,43 @@ ESP_APM_server/
 
 | Document | Purpose |
 | :--- | :--- |
-| [`Enumeration-OTConnex_ML_Dashboard.md`](./esp-insight-suite/Enumeration-OTConnex_ML_Dashboard.md) | Exhaustive component-by-component enumeration of the Server 3 Production ML Dashboard. |
-| [`OTConnex_Lovable_Mapping.md`](./esp-insight-suite/OTConnex_Lovable_Mapping.md) | Master architectural mapping, feature parity, and migration blueprint between Server 3 and Lovable. |
-| [`enumeration.md`](./esp-insight-suite/enumeration.md) | Exhaustive enumeration of the Operations Workspace in the Lovable frontend. |
-| [`Enumeration-Engineering_Configuration.md`](./esp-insight-suite/Enumeration-Engineering_Configuration.md) | Exhaustive enumeration of the governed Asset ConneX Engineering & Configuration Workspace. |
-| [`OT-Connex-Component-list.md`](./esp-insight-suite/OT-Connex-Component-list.md) | Pure hierarchical top-to-bottom master component list across all pages and views. |
-| [`ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md`](./ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md) | Complete OpenAPI/REST API specification for agent service endpoints. |
-| [`MQTT_LIVE_DATA_AND_EVENTS_SPECIFICATION.md`](./MQTT_LIVE_DATA_AND_EVENTS_SPECIFICATION.md) | SCADA MQTT topic structure, JSON packet schema, and 14-parameter tag dictionary. |
+| [`docs/api/ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md`](docs/api/ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md) | Complete OpenAPI/REST API specification for agent service endpoints. |
+| [`docs/api/ESP_KB_SERVICE_COMPLETE_API_SPECIFICATION.md`](docs/api/ESP_KB_SERVICE_COMPLETE_API_SPECIFICATION.md) | Vector Knowledge Base (Qdrant) query and ingestion API specification. |
+| [`docs/api/MQTT_LIVE_DATA_AND_EVENTS_SPECIFICATION.md`](docs/api/MQTT_LIVE_DATA_AND_EVENTS_SPECIFICATION.md) | SCADA MQTT topic structure, JSON packet schema, and 14-parameter tag dictionary. |
+| [`docs/api/AGENT_APIS_POSTMAN_AND_CURL_GUIDE.md`](docs/api/AGENT_APIS_POSTMAN_AND_CURL_GUIDE.md) | Postman collection & cURL command verification guide for Agent APIs. |
+| [`docs/architecture/AGENT_SERVICE_ARCHITECTURE.md`](docs/architecture/AGENT_SERVICE_ARCHITECTURE.md) | Master architectural guide for Agent Service routing, gateway, and synthesis. |
+| [`docs/guides/STARTUP_GUIDE.md`](docs/guides/STARTUP_GUIDE.md) | End-to-end setup and local testing guide for server configurations. |
+| [`docs/deployment/SERVER_DEPLOYMENT_README.md`](docs/deployment/SERVER_DEPLOYMENT_README.md) | Step-by-step production deployment guide for Server 184. |
+| [`docs/reports/FINAL_PHASE4_SEAL_AND_REGRESSION_REPORT.md`](docs/reports/FINAL_PHASE4_SEAL_AND_REGRESSION_REPORT.md) | Comprehensive Phase 4 & Pre-Phase 5 Seal & Regression Report. |
 
 ---
 
 ## 4. Port & Service Topology
 
-| Port | Service | Description |
-| :---: | :--- | :--- |
-| `1883` | Mosquitto MQTT Broker | Live SCADA telemetry ingest |
-| `8090` | Server 3 Backend API | FastAPI backend for telemetry, historian & ML inferencing |
-| `8000` | Agent Service API | FastAPI agent co-pilot & decision gateway |
-| `8080` / `8081` | ESP-Insight Suite | Enterprise TanStack Start frontend application |
-| `3000` | Server 3 Dashboard | Legacy React operations dashboard |
-| `6379` | Redis | Session state, audit trails & HITL approvals |
+| Port | Host | Service | Description |
+| :---: | :---: | :--- | :--- |
+| `1883` | `192.168.1.184` | Mosquitto MQTT Broker | Live SCADA telemetry ingest |
+| `8090` | `192.168.1.184` | Server 3 Backend API | FastAPI backend for telemetry, historian & ML inferencing |
+| `8085` | `192.168.1.184` | KB Qdrant Service | Vector Knowledge Base semantic search |
+| `8091` | `127.0.0.1` | Agent Service API | FastAPI agent co-pilot & decision gateway |
+| `8080` | `192.168.1.188` | Local LLM Server | `llama-server` running Qwen2.5-Coder-3B-Instruct |
+| `6379` | `192.168.1.184` | Redis | Session state, audit trails & HITL approvals |
 
 ---
 
 ## 5. Getting Started
 
-### Backend & Agent Setup (Python)
+### Agent Service Setup (Python)
 ```bash
-# Agent Service
 cd agent_service
-python -m venv .venv
-source .venv/bin/activate  # Or .venv\Scripts\Activate on Windows
-pip install -r requirements.txt
-uvicorn app.main:app --port 8000 --reload
-```
+# Activate virtual environment
+..\.venv\Scripts\Activate.ps1   # Windows PowerShell
 
-### Frontend Setup (Node.js / Bun)
-```bash
-cd esp-insight-suite
-bun install  # or npm install
-bun dev      # or npm run dev
+# Run full regression suite (439 tests)
+pytest tests/ -q
+
+# Start Agent Service
+uvicorn app.main:app --host 0.0.0.0 --port 8091 --reload
 ```
 
 ---

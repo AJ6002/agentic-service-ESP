@@ -1,6 +1,9 @@
 import json
-import httpx
+import os
 import sys
+import httpx
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app.stores.run_store import get_run, get_pack
 
 def run_query(message: str, selected_asset: str = "FS-17", session_id: str = "demo-session-last2h"):
