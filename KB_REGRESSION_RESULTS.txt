@@ -1,31 +1,41 @@
-KB Regression Results — 2026-09-25 19:51:46
+KB Regression Results — 2026-09-25 23:18:08
 Agent: http://127.0.0.1:8091/query
 ======================================================================
 
 [PASS] Q1: What is underload protection?
-  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive definitional content about this phenomenon.
+  Reason: Has on-topic substantive content with citation
+  Response: Underload protection is a safety feature in electric submersible pumps (ESP) that prevents the motor from overheating and burning due to low fluid flow rates. This is typically achieved through solid-state overload and underload protection circuits, which are integrated into the switchboard or motor controller cabinet. The switchboard contains recording ammeters, fused disconnects, and other safety devices to monitor and respond to these conditions.
+Ensure that the switchboard is properly config
 
-
-[PASS] Q11: Explain gas lock
-  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. Relevant KB citations focused on monitoring, troubleshooting, and degradation drivers, but did not provide a comprehensive diagnosis process.
-
+[PASS] Q11: Explain gas lock.
+  Reason: Has on-topic substantive content with citation
+  Response: Gas lock is a phenomenon where a pump is unable to draw sufficient fluid from the well due to the presence of free gas or gas interference, which can cause the pump to stall or operate inefficiently. This can lead to reduced flow, increased wear on the pump components, and potential damage to the well.
+To prevent gas lock, ensure that the well is properly designed and operated within its recommended operating range, and consider using gas separators or other gas management systems.
+Cited Evidenc
 
 [PASS] Q12: Explain what underload trip is.
-  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive diagnostic information about well operations.
+  Reason: Has on-topic substantive content with citation
+  Response: Underload trip refers to the condition where the electric submersible pump (ESP) stops operating due to insufficient cooling of the motor. This is typically triggered by the underload relay, which is set below the motor's idle speed. The underload relay monitors the motor's current and, when it detects a drop below the set threshold, it trips the pump, preventing damage to the motor and ensuring safe operation.
+Ensure that the underload relay is set at a safe threshold that is above the motor's 
 
+[PASS] Q20: How do I troubleshoot motor overload?
+  Reason: Has on-topic substantive content with citation
+  Response: The user is seeking troubleshooting steps for motor overload.
+Review the sensor and KPI measurements to ensure they are within the recommended range. Check the overload settings on the motor controller to ensure they are within the recommended range. Review the knowledge base citations and standards for motor overload protection.
+Cited Evidence: EV-R-4c2c9b7a-0004, EV-R-4c2c9b7a-0004, EV-R-4c2c9b7a-0004, EV-R-4c2c9b7a-0004, EV-R-4c2c9b7a-0004
+Diagnostic run for the selected asset (objective: OP0
 
-[PASS] Q20: What standard covers ESP vibration limits?
-  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of well None, but no KB citation contained substantive information about diagnosing wells or well conditions.
+[PASS] Q-pip: What does PIP stand for?
+  Reason: Has on-topic substantive content with citation
+  Response: PIP stands for Pump Inlet Pressure.
+Cited Evidence: EV-R-58ae5870-0005
+Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
 
+Assessment: PIP stands for Pump Inlet Pressure.
 
-[PASS] Q-bonus: What is the definition of pump-off condition?
-  Reason: INSUFFICIENT CONTEXT response (clean failure, not boilerplate)
-  Response: INSUFFICIENT CONTEXT: Asked for a diagnosis of a well, but no KB citation contained substantive information about diagnosing wells. The provided citations are related to ESP origins, predictive maintenance, and vibration analysis, but do not address well diagnosis.
+Recommendation: 
 
+Cited Evidence: EV-R-58ae5870-0005
 
 
 SUMMARY: 5/5 PASSED

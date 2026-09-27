@@ -42,6 +42,47 @@ FOLLOWUP_EVIDENCE_QUERY_REGEX = re.compile(
 )
 
 
+
+def _format_visualization_summary(
+    valid_viz: Optional[VisualizationSpec | dict],
+    formatted_evidence: FormattedEvidence,
+) -> str:
+    if not valid_viz:
+        return ""
+    if isinstance(valid_viz, VisualizationSpec):
+        card_ids = valid_viz.card_ids
+        widget_id = valid_viz.widget_id
+    elif isinstance(valid_viz, dict):
+        card_ids = valid_viz.get("card_ids", [])
+        widget_id = valid_viz.get("widget_id", "cards")
+    else:
+        return ""
+
+    if not card_ids:
+        return ""
+
+    from app.visualization.planner import _load_cards_registry
+    registry = _load_cards_registry()
+
+    card_descriptions = []
+    for cid in card_ids:
+        cfg = registry.get(cid, {})
+        wtype = cfg.get("widget_type", "card")
+        unit = cfg.get("unit", "")
+        req_signals = cfg.get("required_signals", [])
+
+        matched_vals = []
+        for sig in req_signals:
+            for fv in formatted_evidence.values:
+                if fv.signal == sig:
+                    matched_vals.append(f"{fv.signal}: {fv.value_str} [{fv.evidence_id}]")
+
+        val_str = f" (Current telemetry: {', '.join(matched_vals)})" if matched_vals else ""
+        card_descriptions.append(f"- Card '{cid}' ({wtype}, unit: {unit}){val_str}")
+
+    return "Displayed Visualizations / Charts:\n" + "\n".join(card_descriptions)
+
+
 async def handle_followup(
     session_id: str,
     raw_message: str,
@@ -134,13 +175,17 @@ async def handle_followup(
         )
 
     # Format inputs for LLM follow-up narrator
-    prior_adv_text = ""
+    prior_adv_parts = []
     if adv_dict:
-        prior_adv_text = (
+        prior_adv_parts.append(
             f"Assessment: {adv_dict.get('assessment', '')}\n"
             f"Recommendation: {adv_dict.get('recommendation', '')}\n"
             f"Hypotheses: {adv_dict.get('hypotheses', [])}"
         )
+    viz_summary = _format_visualization_summary(valid_viz, formatted_evidence)
+    if viz_summary:
+        prior_adv_parts.append(viz_summary)
+    prior_adv_text = "\n\n".join(prior_adv_parts)
 
     evidence_text = format_evidence_for_prompt(formatted_evidence)
 
@@ -165,6 +210,12 @@ async def handle_followup(
             analysis_id=analysis_id,
         )
 
+    # Sanitize relational comparisons and positive flow contradictions
+    from app.synthesis.xai import sanitize_relational_comparisons, sanitize_positive_production_contradictions
+    from app.workflow.runner import strip_unverified_provenance
+    narrative = sanitize_positive_production_contradictions(narrative, formatted_evidence)
+    narrative = sanitize_relational_comparisons(narrative)
+
     # Check numeric provenance: verify numbers in narrative trace to pack
     synthetic_advisory = Advisory(
         objective_id=session.last_objective or "FOLLOW_UP",
@@ -176,8 +227,10 @@ async def handle_followup(
 
     final_text = narrative
     if not provenance.passed and provenance.unattributed_numbers:
-        unverified_str = ", ".join(provenance.unattributed_numbers)
-        final_text += f"\n\n[Notice: Unverified numbers flagged: {unverified_str}]"
+        final_text = strip_unverified_provenance(narrative, provenance.unattributed_numbers)
+        if not final_text:
+            final_text = "Insufficient evidence to complete explanation — key figures are unverified."
+        final_text += f"\n\n[WARNING: {len(provenance.unattributed_numbers)} unverified figure(s) removed from explanation]"
 
     return FollowUpResult(
         ok=True,

@@ -45,9 +45,10 @@ Rules:
 
    CRITICAL BOUNDARIES BETWEEN FOLLOW_UP AND WORKFLOW:
    - "Why did it trip?" is an operational diagnostic inquiry -> WORKFLOW (OP03_FAULT_DIAGNOSIS), NOT FOLLOW_UP.
-   - "Recheck with the last 2 hours" requests fresh data / new time window -> WORKFLOW, NOT FOLLOW_UP.
+   - "Recheck with the last 2 hours" or "Recheck the last 2 hours" requests re-verification of the diagnosis -> WORKFLOW (OP03_FAULT_DIAGNOSIS), NOT OP01_CURRENT_STATUS, and NOT FOLLOW_UP.
    - "What is the current status now?" requests fresh live telemetry -> WORKFLOW (OP01_CURRENT_STATUS), NOT FOLLOW_UP.
-   - "Why did that happen?" is ambiguous when a prior diagnosis exists -> route to WORKFLOW with clarification_needed=true, options=["Explain previous diagnosis", "Run new diagnosis on current telemetry"].
+   - "Why did that happen?" or "Explain that" is ambiguous when no prior diagnosis exists or well is unspecified -> route to WORKFLOW (OP03_FAULT_DIAGNOSIS) with clarification_needed=true, clarify_slot="asset_id", options=["FS-17", "FS-91", "FNW-01", "FWS-06"].
+   - "Why did that happen?" when a prior diagnosis exists in session -> route to WORKFLOW with clarification_needed=true, clarify_slot="followup_or_new", options=["Explain previous diagnosis", "Run new diagnosis on current telemetry"].
 
 4. If an asset is required (e.g. "why did it trip?", "why has production dropped?") but asset_id is
    null/unresolved, route to "WORKFLOW" with the appropriate objective_id, args {"asset_id": null},

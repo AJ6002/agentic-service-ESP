@@ -89,6 +89,10 @@ def _clean_text_for_provenance(text: str) -> str:
       4. Numbered list prefixes: "1. step", "2) do"
       5. Well IDs:     FS-17, FNW-01, ULFA-5, FSWS-001-A
     """
+    # Strip bracketed citations (evidence IDs, document/section citations: [EV-...], [API_RP_11S §4.2], etc.)
+    text = re.sub(r"\[[^\]]+\]", " ", text)
+    # Strip document standards/SOPs with numeric codes: API 11S, API_RP_11S1, BP0757, ISO 15551
+    text = re.sub(r"\b(?:API|RP|ISO|IEC|BP|SOP)\s*[-_]?\d+[A-Za-z0-9_-]*\b", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"EV-[\w\-]+", " ", text)
     text = _WELL_ID_REGEX.sub(" ", text)
     text = re.sub(r"\b\d{4}[-/]\d{2}[-/]\d{2}\b", " ", text)
@@ -102,6 +106,7 @@ def _extract_pack_numbers(source: Union[EvidencePack, FormattedEvidence]) -> Set
     """
     Gathers all numbers present in verified evidence at multiple rounding
     levels (raw, 1dp, 2dp) for tolerant matching against LLM output.
+    Now also includes approved numbers appearing in KB citation snippets.
     """
     if isinstance(source, EvidencePack):
         fe = format_pack(source)
@@ -122,6 +127,18 @@ def _extract_pack_numbers(source: Union[EvidencePack, FormattedEvidence]) -> Set
                 numbers.update({v, round(v, 1), round(v, 2)})
             except ValueError:
                 pass
+
+    # Extract numbers from approved KB citation snippets in the pack
+    if hasattr(fe, "kb_hits") and fe.kb_hits:
+        for hit in fe.kb_hits:
+            if hit.snippet:
+                norm_snip = _normalise_text(hit.snippet)
+                for token in _NUMERIC_TOKEN_REGEX.findall(norm_snip):
+                    try:
+                        v = float(token)
+                        numbers.update({v, round(v, 1), round(v, 2)})
+                    except ValueError:
+                        pass
 
     return numbers
 

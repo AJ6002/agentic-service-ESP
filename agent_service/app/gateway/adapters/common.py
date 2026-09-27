@@ -7,12 +7,12 @@ import os
 from typing import Any, Optional
 import httpx
 
-# 20s default (env-overridable): Server 184 endpoints have been observed
-# taking up to ~8s under load, and several READ calls run concurrently
+# 30s default (env-overridable): Server 184 endpoints have been observed
+# taking up to ~8-15s under load, and several READ calls run concurrently
 # sharing one client. A tight ceiling caused working-but-slow calls to be
 # wrongly reported DEGRADED/TIMEOUT. Generous ceiling, not "no timeout" —
 # a genuinely hung upstream must still fail rather than block forever.
-DEFAULT_TIMEOUT_SEC = float(os.getenv("GATEWAY_TIMEOUT_SEC", "20.0"))
+DEFAULT_TIMEOUT_SEC = float(os.getenv("GATEWAY_TIMEOUT_SEC", "30.0"))
 
 
 def get_gateway_base_url() -> str:

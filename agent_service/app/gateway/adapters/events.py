@@ -51,10 +51,14 @@ async def fetch_events_trips(
     params = {"well_id": well_id}
     if client:
         resp = await client.get(url, params=params, timeout=DEFAULT_TIMEOUT_SEC)
-        return handle_adapter_response(resp, "events", "/events/trips")
-    async with httpx.AsyncClient() as c:
-        resp = await c.get(url, params=params, timeout=DEFAULT_TIMEOUT_SEC)
-        return handle_adapter_response(resp, "events", "/events/trips")
+        res = handle_adapter_response(resp, "events", "/events/trips")
+    else:
+        async with httpx.AsyncClient() as c:
+            resp = await c.get(url, params=params, timeout=DEFAULT_TIMEOUT_SEC)
+            res = handle_adapter_response(resp, "events", "/events/trips")
+    if isinstance(res, dict) and "well_id" not in res:
+        res["well_id"] = well_id
+    return res
 
 
 async def check_events_health(client: Optional[httpx.AsyncClient] = None) -> dict[str, Any]:

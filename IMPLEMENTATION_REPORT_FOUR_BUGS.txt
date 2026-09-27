@@ -1,0 +1,118 @@
+================================================================================
+ESP APM AGENT SERVICE — IMPLEMENTATION & 20-QUERY SEAL VERIFICATION REPORT
+Date: 2026-09-26
+Mode: /ce-work /karpathy-guidelines
+Scope: Complete Resolution of Core Problems, Follow-Up Edge Cases (Q14, Q15), & Full 20-Query Seal Matrix
+Status: ALL TESTS & LIVE QUERIES EMPIRICALLY VERIFIED (53/53 Tests Passed, 20/20 Queries Verified)
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+All core semantic, provenance integrity, and newly identified follow-up edge cases
+across the 20-Query Seal Matrix have been resolved following Karpathy design
+principles (minimal diffs, deterministic code guards, no non-deterministic LLM
+re-calls, and strict test isolation).
+
+1. Problem 1 (Q4): Dead-well false normal & oil-rate contradiction
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Added health score severity rules (<50.0 CRITICAL, 50-70 HIGH) in KPI alarm checker.
+   - Added physical production fact-checking pass in XAI synthesis that strips contradictory
+     "not producing" / "zero production" statements when telemetry rates are positive.
+   - Preserves valid telemetry numbers (e.g. 399.10 BOPD) via clause-level stripping.
+
+2. Problem 2 (Q10): Stable vs. declining contradiction
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Replaced naive string-prepending in OP02 with sentence-level contradiction filtering.
+   - Reconciles prose against FormattedEvidence ground truth (STABLE vs. DECLINING).
+
+3. Problem 3 (Q18): Follow-up on fresh/dead session routing to CLARIFY instead of ANALYSIS_EXPIRED
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Separated ambiguous follow-up phrases (pronoun-only like "why did it trip") from explicit
+     inquiries about prior conclusions ("Why did you conclude that?").
+   - Explicit inquiries consistently route to FOLLOW_UP, where handle_followup deterministically
+     emits an ANALYSIS_EXPIRED ErrorFrame and INSUFFICIENT DoneFrame when no prior pack exists.
+   - Fixed test session ID isolation in acceptance tests using dynamic UUIDs.
+
+4. Problem 4 (Q15, Q20): Provenance warning leaks & ungrounded verification steps
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Extended citation verification to cover both troubleshooting_steps and verification_steps.
+   - Switched from flag-and-leak to flag-and-strip: ungrounded numbers are stripped at the
+     clause level from assessment/recommendation prose, and uncited procedural steps are removed.
+   - Warning banners converted to count-only format (e.g. "[WARNING: N unverified figure(s) removed]").
+
+5. Problem A & B (Timeouts & ML Anomaly flakiness):
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Increased Gateway timeout (DEFAULT_TIMEOUT_SEC = 30.0s) in app/gateway/adapters/common.py.
+   - Q8 anomaly check consistently returns status OK (3 anomalous records retrieved from Server 184).
+
+6. Problem C (Q13 Relational Comparison & Q16 Production Contradictions):
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Implemented sanitize_relational_comparisons() in XAI synthesis correcting inverted operators.
+   - Implemented sanitize_positive_production_contradictions() across all flow rate fields.
+
+7. Problem D & E (Lossy Stripper & Diagnostic Metadata Leak):
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Clause-level stripping replaces naive sentence deletion, preserving factual telemetry figures.
+   - Stripped internal telemetry-formatted diagnostic metrics (e.g. `kb_hit_count`) in formatter.py.
+
+8. Problem F (Q14 Stream Shape & Q15 Follow-Up Blindness):
+   - Status: FIXED & EMPIRICALLY VERIFIED
+   - Q14: Verified full 4-frame NDJSON stream (`advisory`, `visual`, `text_delta`, `done: OK`) with 9 valid evidence IDs.
+   - Q15: Implemented _format_visualization_summary() in followup_handler.py to inject displayed card specs and telemetry into prior_advisory_text. Updated followup_narrator_v1.txt prompt rule 4 to forbid generic disclaimers and require direct references to displayed cards and parameters.
+
+===============================================================================
+LATENCY BENCHMARK: DIRECT LLM vs. AGENT SERVICE
+===============================================================================
+Target Endpoint Direct:  http://192.168.1.191:8080/v1/chat/completions (llama-server)
+Target Endpoint Agent:   http://127.0.0.1:8091/query (Agent Service Pipeline)
+
+1. Direct LLM Service:
+   - Latency: 8.69s (1 single turn, 54 completion tokens generated)
+   - Scope: Raw LLM inference with zero knowledge base or telemetry grounding.
+
+2. Full Agent Service Pipeline:
+   - Latency: 64.19s (End-to-End turn completion)
+   - Breakdown of ~7.4x Execution Overhead:
+     * LLM Call #1: Semantic Intent & Query Routing
+     * Gateway & Vector Search: Milvus hybrid KB retrieval & live telemetry fetch
+     * LLM Call #2: XAI Advisory Synthesis
+     * Provenance & Guard Engine: FormattedValue grounding check, clause-level stripping, and relation sanitization
+     * Visualization Planner & Stream Serializer: Card selection & NDJSON frame emission
+
+===============================================================================
+COMPLETE 20/20 SEAL MATRIX LIVE VERIFICATION (Port 8091)
+===============================================================================
+[PASS] Q1  (What is underload protection?)           --> OK (OP06 Real KB Definition)
+[PASS] Q2  (Explain that - empty session)            --> PAUSED (OP03 Clarification Frame)
+[PASS] Q3  (FS-17 - resume flow)                     --> OK (OP03 Diagnostic Advisory)
+[PASS] Q4  (Current status of FS-17)                 --> OK (OP01 Critical Health 44 preserved)
+[PASS] Q5  (Why did FS-17 trip?)                     --> OK (OP03 Gas Lock Recovery SOP)
+[PASS] Q6  (Diagnose FS-91)                          --> OK (OP03 No metadata leaks)
+[PASS] Q7  (How healthy is FS-17?)                   --> OK (OP04 Health Assessment)
+[PASS] Q8  (Any early warnings for FS-17?)           --> OK (OP05 3 Anomaly records from :8090)
+[PASS] Q9  (FS-17 history for last 7 days)           --> INSUFFICIENT (OP14 Historian Out-of-Bounds)
+[PASS] Q10 (Why has FS-17 production declined?)      --> OK (OP02 Zero Contradiction)
+[PASS] Q11 (Explain gas lock.)                       --> OK (OP06 Real KB Definition)
+[PASS] Q12 (Explain what underload trip is.)         --> OK (OP06 Real KB Definition)
+[PASS] Q13 (Why did you say gas interference?)       --> OK (FOLLOW_UP Relational Comparison Guard)
+[PASS] Q14 (What data did you use?)                  --> OK (FOLLOW_UP Complete 4-Frame Stream)
+[PASS] Q15 (What does that graph mean?)              --> OK (FOLLOW_UP Grounded Card Explanation)
+[PASS] Q16 (Recheck the last 2 hours)                --> OK (OP03 Production Contradiction Guard)
+[PASS] Q17 (Why did that happen? - fresh session)    --> PAUSED (Clarification Frame)
+[PASS] Q18 (Why did you conclude that? - dead pack)  --> INSUFFICIENT (ANALYSIS_EXPIRED)
+[PASS] Q19 (Troubleshoot FS-17)                      --> OK (OP03 Procedural SOPs)
+[PASS] Q20 (How do I troubleshoot motor overload?)   --> OK (OP06 Zero Uncited Steps)
+
+===============================================================================
+REGRESSION & UNIT TEST SUITE (100% PASS)
+===============================================================================
+pytest agent_service/tests/test_kpi_alarm_check.py            --> 15 passed
+pytest agent_service/tests/test_xai_guards.py                 --> 6 passed
+pytest agent_service/tests/test_provenance_strip.py           --> 3 passed
+pytest agent_service/tests/test_citation_check.py             --> 5 passed
+pytest agent_service/tests/test_router_followup_boundary.py   --> 5 passed
+pytest agent_service/tests/test_phase2_synthesis.py           --> 9 passed
+pytest agent_service/tests/test_bugs_c_d_e_regression.py     --> 4 passed
+pytest agent_service/tests/test_xai_trust_bug_regression.py  --> 6 passed
+Total Targeted Tests: 53 passed in 291.87s (100%)
+===============================================================================

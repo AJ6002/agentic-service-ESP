@@ -9,6 +9,10 @@ import httpx
 from .common import DEFAULT_TIMEOUT_SEC, get_gateway_base_url, handle_adapter_response, build_temporal_meta
 
 
+DEFAULT_HISTORIAN_SIGNALS = "amp_a,volt_v,freq_hz,motor_temp_c,int_prs_psi,disch_prs_psi,vibration_g,whp_psi,flp_psi"
+DEFAULT_AGG_SIGNALS = "amp_a,motor_temp_c,int_prs_psi,disch_prs_psi,freq_hz,volt_v,vibration_g"
+
+
 async def fetch_historian_window(
     well_id: str,
     start: str,
@@ -84,9 +88,8 @@ async def fetch_historian_latest(
     client: Optional[httpx.AsyncClient] = None,
 ) -> dict[str, Any]:
     base = get_gateway_base_url()
-    params = {"well_id": well_id}
-    if signals:
-        params["signals"] = signals
+    effective_signals = signals or DEFAULT_HISTORIAN_SIGNALS
+    params = {"well_id": well_id, "signals": effective_signals}
     url = f"{base}/historian/latest"
     if client:
         resp = await client.get(url, params=params, timeout=DEFAULT_TIMEOUT_SEC)

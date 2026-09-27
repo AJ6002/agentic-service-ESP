@@ -29,8 +29,6 @@ def format_evidence_for_prompt(evidence: FormattedEvidence) -> str:
         if temp.query_window_start and temp.query_window_end:
             span_str = f" ({temp.query_span_seconds}s span)" if temp.query_span_seconds is not None else ""
             t_lines.append(f"- Query Window Requested: {temp.query_window_start} to {temp.query_window_end}{span_str}")
-        if temp.executed_at:
-            t_lines.append(f"- API Call Executed At (UTC): {temp.executed_at}")
         if temp.data_earliest_ts and temp.data_latest_ts:
             t_lines.append(f"- Data Bounds Found ({temp.data_point_count} records): From {temp.data_earliest_ts} to {temp.data_latest_ts}")
         sections.append("\n".join(t_lines))
@@ -94,6 +92,124 @@ def format_evidence_with_alarms(evidence: FormattedEvidence) -> tuple[str, KpiAl
     return evidence_text, alarm_result
 
 
+import re
+
+
+def sanitize_relational_comparisons(text: str) -> str:
+    """
+    Detects and corrects/strips hallucinated inverted numeric comparisons in prose.
+    E.g.:
+      "350.40 PSI, which is below the recommended baseline of 150 psi"
+      -> "350.40 PSI, which is above the recommended baseline of 150 psi"
+    """
+    if not text:
+        return text
+
+    pattern = re.compile(
+        r"(\b\d+(?:\.\d+)?)\s*(?:PSI|psi|BOPD|bpd|BPD|A|V|Hz|°C|g)?\s*(?:,\s*which\s+is|\s+is|\s+was)\s+"
+        r"(below|less than|under|lower than|above|greater than|over|higher than|exceeds)\s+"
+        r"(?:the\s+)?(?:recommended\s+|minimum\s+|maximum\s+|nominal\s+)?(?:baseline|threshold|limit|target|norm|value|standard)?\s*(?:of\s+)?(\b\d+(?:\.\d+)?\b)",
+        re.IGNORECASE,
+    )
+
+    def _fix_match(m: re.Match) -> str:
+        full_match = m.group(0)
+        v1_str = m.group(1)
+        comp = m.group(2).lower()
+        v2_str = m.group(3)
+        try:
+            v1 = float(v1_str)
+            v2 = float(v2_str)
+        except ValueError:
+            return full_match
+
+        if comp in ("below", "less than", "under", "lower than"):
+            if v1 > v2:
+                fixed_comp = "above" if comp in ("below", "under", "lower than") else "greater than"
+                return full_match[:m.start(2) - m.start(0)] + fixed_comp + full_match[m.end(2) - m.start(0):]
+        elif comp in ("above", "greater than", "over", "higher than", "exceeds"):
+            if v1 < v2:
+                fixed_comp = "below" if comp in ("above", "over", "exceeds", "higher than") else "less than"
+                return full_match[:m.start(2) - m.start(0)] + fixed_comp + full_match[m.end(2) - m.start(0):]
+        return full_match
+
+    return pattern.sub(_fix_match, text)
+
+
+def sanitize_positive_production_contradictions(text: str, evidence: Optional[FormattedEvidence] = None) -> str:
+    """
+    Strips sentences claiming zero production, 'not producing', or 'flow rates are zero'
+    when evidence or the text itself confirms positive flow/oil/liquid rates.
+    """
+    if not text:
+        return text
+
+    has_positive_flow = False
+    if evidence:
+        for sig in ("oil_rate_bopd", "liquid_rate_bpd", "flow_rate", "flow_rate_bpd", "gross_rate", "oil_rate", "liquid_rate"):
+            item = evidence.by_signal(sig)
+            if item and item.raw is not None:
+                try:
+                    if float(item.raw) > 0.0:
+                        has_positive_flow = True
+                        break
+                except (ValueError, TypeError):
+                    pass
+
+    # Also check if text itself asserts positive flow rate (e.g. 'flow rate is 400.00 BOPD')
+    if not has_positive_flow:
+        flow_match = re.search(r"\b(?:flow|oil|liquid|production)\s*(?:rate)?\s*(?:is|of|measured at)?\s*([1-9]\d*(?:\.\d+)?)\s*(?:BOPD|BPD|bpd|bopd)\b", text, re.IGNORECASE)
+        if flow_match:
+            has_positive_flow = True
+
+    if has_positive_flow:
+        sents = re.split(r"(?<=[.!?])\s+", text)
+        filtered_sents = []
+        for s in sents:
+            s_lower = s.lower()
+            if any(p in s_lower for p in [
+                "not producing",
+                "zero production",
+                "no liquid production",
+                "no oil production",
+                "flow rates are zero",
+                "flow rate is zero",
+                "shut-in",
+                "shut in",
+            ]):
+                continue
+            filtered_sents.append(s)
+        return " ".join(filtered_sents).strip() if filtered_sents else text
+
+    return text
+
+
+def sanitize_api_timestamp_leaks(text: str) -> str:
+    """
+    Strips raw API execution timestamps regurgitated by the LLM from prompts,
+    such as 'The API call was executed at 2026-09-26T17:39:11.438377Z, and'.
+    """
+    if not text:
+        return text
+    text = re.sub(r"(?i)\bthe\s+api\s+call\s+was\s+executed\s+at\s+[^,;\.]+[,\.;]?\s*(?:and\s+)?", "", text)
+    text = re.sub(r"(?i)\bapi\s+call\s+executed\s+at\s+[^,;\.]+[,\.;]?\s*(?:and\s+)?", "", text)
+    return text.strip()
+
+
+def sanitize_normal_parameter_contradictions(text: str) -> str:
+    """
+    Purges 'normal parameters' and 'operating within normal parameters' from diagnostic outputs.
+    Replaces with accurate engineering phrasing: 'operational thresholds' or 'steady sensor readings'.
+    """
+    if not text:
+        return text
+    text = re.sub(r"(?i)\boperating\s+within\s+normal\s+parameters\b", "within operational thresholds", text)
+    text = re.sub(r"(?i)\bwithin\s+normal\s+parameters\b", "within operational thresholds", text)
+    text = re.sub(r"(?i)\bnormal\s+parameters\b", "operational thresholds", text)
+    text = re.sub(r"(?i)\boperating\s+normally\b", "operating stably", text)
+    return text
+
+
 async def synthesize_advisory(
     objective_id: str,
     evidence: FormattedEvidence,
@@ -138,32 +254,155 @@ async def synthesize_advisory(
                     band = "DEGRADED"
             advisory.assessment = f"Operating condition is categorized in the {band} band. " + advisory.assessment
 
+    # Fact-checking against physical evidence & relational comparisons
+    if advisory is not None:
+        advisory.assessment = sanitize_positive_production_contradictions(advisory.assessment, evidence)
+        advisory.assessment = sanitize_relational_comparisons(advisory.assessment)
+        advisory.assessment = sanitize_api_timestamp_leaks(advisory.assessment)
+        if "OP03" in objective_id:
+            advisory.assessment = sanitize_normal_parameter_contradictions(advisory.assessment)
+        if advisory.recommendation:
+            advisory.recommendation = sanitize_positive_production_contradictions(advisory.recommendation, evidence)
+            advisory.recommendation = sanitize_relational_comparisons(advisory.recommendation)
+            advisory.recommendation = sanitize_api_timestamp_leaks(advisory.recommendation)
+            if "OP03" in objective_id:
+                advisory.recommendation = sanitize_normal_parameter_contradictions(advisory.recommendation)
 
     # Post-synthesis decline rate & truth-telling guarantee for OP02
     if "OP02" in objective_id and advisory is not None:
+        import re as _re
         trend_item = evidence.by_signal("production_trend")
-        trend = str(trend_item.raw) if (trend_item and trend_item.raw) else "STABLE"
+        trend = str(trend_item.raw).upper() if (trend_item and trend_item.raw) else "STABLE"
         rate_item = evidence.by_signal("decline_rate_bpd_per_day")
 
         if trend == "DECLINING":
-            # 1. Ensure decline rate with BPD/day is named
+            # 1. Strip any sentence claiming stability
+            sents = _re.split(r"(?<=[.!?])\s+", advisory.assessment)
+            filtered_sents = []
+            for s in sents:
+                s_lower = s.lower()
+                if any(p in s_lower for p in ["stable", "no abnormal decline", "no decline"]):
+                    continue
+                filtered_sents.append(s)
+            advisory.assessment = " ".join(filtered_sents) if filtered_sents else advisory.assessment
+
+            # 2. Ensure decline rate with BPD/day is named
             if rate_item and "BPD/day" not in advisory.assessment:
                 advisory.assessment = f"Production has declined at an estimated rate of {rate_item.value_str}. " + advisory.assessment
-            # 2. Strip any forbidden 'normal' claims
+
+            # 3. Strip any forbidden 'normal' claims
             for phrase in ["operating normally", "is normal", "normal operation", "normal conditions", "healthy"]:
                 if phrase in advisory.assessment.lower():
-                    import re as _re
                     advisory.assessment = _re.sub(rf"\b{_re.escape(phrase)}\b", "abnormal production decline", advisory.assessment, flags=_re.IGNORECASE)
         else:
-            # Stable well: ensure assessment explicitly states stability and no fake decline is forced
-            if "stable" not in advisory.assessment.lower() and "no decline" not in advisory.assessment.lower():
-                advisory.assessment = "Production rate is stable with no abnormal decline detected. " + advisory.assessment
+            # Stable well: strip any sentence claiming decline
+            sents = _re.split(r"(?<=[.!?])\s+", advisory.assessment)
+            filtered_sents = []
+            for s in sents:
+                if _re.search(r"\b(declin\w+|falling|drop\w+|loss of production)\b", s, _re.IGNORECASE):
+                    continue
+                filtered_sents.append(s)
+            cleaned_text = " ".join(filtered_sents).strip()
 
-    # Post-synthesis troubleshooting grounding guarantee for OP03 (Phase 4.5)
+            # Ensure assessment explicitly states stability and no fake decline is forced
+            if "stable" not in cleaned_text.lower() and "no decline" not in cleaned_text.lower():
+                cleaned_text = ("Production rate is stable with no abnormal decline detected. " + cleaned_text).strip()
+            advisory.assessment = cleaned_text
+
+    # Post-synthesis anti-contradiction guarantee for OP03 (Fault Diagnosis)
     if "OP03" in objective_id and advisory is not None:
-        if not evidence.kb_hits:
+        import re as _re
+        health_item = evidence.by_signal("health_score")
+        health_val = None
+        if health_item and health_item.raw is not None:
+            try:
+                health_val = float(health_item.raw)
+            except (ValueError, TypeError):
+                pass
+
+        anom_item = evidence.by_signal("anomaly_score")
+        anom_val = None
+        if anom_item and anom_item.raw is not None:
+            try:
+                anom_val = float(anom_item.raw)
+            except (ValueError, TypeError):
+                pass
+
+        is_abnormal = (
+            (alarm_result is not None and alarm_result.has_critical)
+            or (health_val is not None and health_val < 50.0)
+            or (anom_val is not None and anom_val >= 0.65)
+        )
+
+        if is_abnormal:
+            # Strip contradictory claims of normal operating parameters
+            sents = _re.split(r"(?<=[.!?])\s+", advisory.assessment)
+            filtered_sents = []
+            for s in sents:
+                s_lower = s.lower()
+                if any(p in s_lower for p in [
+                    "operating within normal parameters",
+                    "within normal parameters",
+                    "operating normally",
+                    "operating quiescently",
+                    "no immediate issues",
+                    "no events or alarms were recorded",
+                    "no events or alarms recorded",
+                ]):
+                    continue
+                filtered_sents.append(s)
+            cleaned_text = " ".join(filtered_sents).strip()
+            if not cleaned_text or len(cleaned_text) < 25:
+                h_desc = f"health score {health_val:.2f}" if health_val is not None else "degraded health index"
+                cleaned_text = f"The well is in an abnormal operating condition with {h_desc}. Immediate diagnostic inspection is recommended."
+            advisory.assessment = cleaned_text
+
+    # Post-synthesis troubleshooting grounding & standardization guarantee for OP03 & OP06 (Cleanup Item 3)
+    if advisory is not None and ("OP03" in objective_id or "OP06" in objective_id):
+        import re as _re
+        text = advisory.assessment
+        has_numbered_steps = bool(_re.search(r"(?:^|\s+)(?:1\.|Step\s+1:?)\s+", text) and _re.search(r"(?:^|\s+)(?:2\.|Step\s+2:?)\s+", text))
+        if has_numbered_steps:
+            match = _re.search(r"(?:^|\s+)(?:1\.|Step\s+1:?)\s+", text)
+            if match:
+                intro = text[:match.start()].strip()
+                rest = text[match.start():]
+                step_chunks = _re.split(r"(?:^|\s+)(?:\d+\.|\bStep\s+\d+:?)\s+", rest)
+                extracted = []
+                for sc in step_chunks:
+                    sc_clean = sc.strip().rstrip(".").strip()
+                    if not sc_clean:
+                        continue
+                    for header in ["**Verification Steps**:", "Verification Steps:", "**Recommendation**:", "Recommendation:"]:
+                        if header in sc_clean:
+                            sc_clean = sc_clean.split(header)[0].strip()
+                    if sc_clean:
+                        extracted.append(sc_clean)
+                if extracted and not advisory.troubleshooting_steps:
+                    advisory.troubleshooting_steps = extracted
+                if intro:
+                    advisory.assessment = intro
+                else:
+                    advisory.assessment = "Approved standard operating procedure steps are detailed in the structured troubleshooting steps below."
+
+        # Clean inline troubleshooting phrases dumped into assessment prose
+        text = _re.sub(r"(?i),?\s*and\s+(?:the\s+)?troubleshooting\s+steps\s+are\s+to\s+[^,\.]+", "", text).strip()
+        advisory.assessment = text
+
+        if not evidence.kb_hits and "OP03" in objective_id:
             advisory.troubleshooting_steps = []
-        elif advisory.troubleshooting_steps:
+        elif evidence.kb_hits:
+            if not advisory.troubleshooting_steps:
+                # Synthesize grounded steps from available KB hits
+                kb_steps = []
+                for hit in evidence.kb_hits[:3]:
+                    sec_str = f" §{hit.section}" if hit.section and not str(hit.section).startswith("§") else (f" {hit.section}" if hit.section else "")
+                    snip = hit.snippet.strip()
+                    first_sent = snip.split(". ")[0].strip() if ". " in snip else snip[:120]
+                    if first_sent:
+                        kb_steps.append(f"[{hit.doc_id}{sec_str}] {first_sent}")
+                advisory.troubleshooting_steps = kb_steps
+
             grounded_steps = []
             for step in advisory.troubleshooting_steps:
                 if "[" in step and "]" in step:
@@ -182,6 +421,12 @@ async def synthesize_advisory(
                     if best_hit:
                         sec_str = f" §{best_hit.section}" if best_hit.section and not str(best_hit.section).startswith("§") else (f" {best_hit.section}" if best_hit.section else "")
                         grounded_steps.append(f"[{best_hit.doc_id}{sec_str}] {step}")
+                    else:
+                        grounded_steps.append(step)
             advisory.troubleshooting_steps = grounded_steps[:7]
+
+    # Terminology correction: PIP stands for Pump Intake Pressure, not Pump Inlet Pressure
+    if advisory is not None and "Pump Inlet Pressure" in advisory.assessment:
+        advisory.assessment = advisory.assessment.replace("Pump Inlet Pressure", "Pump Intake Pressure")
 
     return advisory, alarm_result

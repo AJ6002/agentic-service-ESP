@@ -266,7 +266,7 @@ async def test_op14_seal_q1_nominal():
             "/query",
             json={
                 "session_id": session_id,
-                "message": "Show operational history for FS-17 from 2026-09-18 to 2026-09-19",
+                "message": "Show operational history for FS-17",
             },
         )
         assert resp.status_code == 200
@@ -293,7 +293,7 @@ async def test_op14_seal_q2_secondary_well():
             "/query",
             json={
                 "session_id": session_id,
-                "message": "Provide operational history for FS-91 between 2026-09-18 and 2026-09-19",
+                "message": "Provide operational history for FS-91",
             },
         )
         assert resp.status_code == 200

@@ -49,7 +49,7 @@ async def test_followup_graph_explanation(seed_prior_analysis):
     session_id, run_id, _, _, viz = seed_prior_analysis("sess-happy-3", "run-diag-3")
     transport = ASGITransport(app=app)
 
-    with patch("app.llm.calls.call_llm_chat", return_value="The pressure corridor chart shows PIP at 412.0 psi [EV-002]."):
+    with patch("app.llm.calls.call_llm_chat", return_value="The pressure corridor chart shows PIP at 412.0 psi [EV-002].") as mock_llm:
         async with AsyncClient(transport=transport, base_url="http://test") as client:
             resp = await client.post("/query", json={
                 "session_id": session_id,
@@ -60,6 +60,10 @@ async def test_followup_graph_explanation(seed_prior_analysis):
             vis_frame = next((l for l in lines if l["type"] == "visual"), None)
             assert vis_frame is not None
             assert vis_frame["visualization"]["card_ids"] == viz["card_ids"]
+            assert mock_llm.called
+            user_content = mock_llm.call_args.kwargs.get("user_content", "")
+            assert "Displayed Visualizations" in user_content
+            assert "pressure-corridor" in user_content
 
 @pytest.mark.anyio
 async def test_followup_multi_turn_chain(seed_prior_analysis):
@@ -91,3 +95,23 @@ async def test_followup_explicit_analysis_id(seed_prior_analysis):
             assert resp.status_code == 200
             lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
             assert next(l for l in lines if l["type"] == "done")["status"] == "OK"
+
+@pytest.mark.anyio
+async def test_followup_conversational_data_inquiry_zero_refetch(seed_prior_analysis):
+    """AC-FUP-6: Conversational 'What data did you look at to figure that out?' reuses pack with 0 HTTP calls."""
+    session_id, run_id, _, _, _ = seed_prior_analysis("sess-happy-6", "run-diag-6")
+    transport = ASGITransport(app=app)
+
+    with patch("app.gateway.tool_gateway.execute_tool_call", side_effect=RuntimeError("Tool gateway forbidden on FOLLOW_UP")):
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={
+                "session_id": session_id,
+                "message": "What data did you look at to figure that out?",
+            })
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+            assert done["status"] == "OK"
+            delta = next(l for l in lines if l["type"] == "text_delta")
+            assert "EV-001" in delta["delta"]
+

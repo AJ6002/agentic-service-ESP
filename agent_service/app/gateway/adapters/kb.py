@@ -110,9 +110,12 @@ async def search_kb(
     After filtering, returns the top top_k clean hits.
     """
     url = f"{get_kb_base_url()}/api/kb/search"
-    # Over-fetch to compensate for expected garbage-hit filtering.
-    fetch_k = min(top_k * 2, 20)
-    body: dict[str, Any] = {"query": query, "top_k": fetch_k}
+    effective_query = query
+    q_lower = query.lower()
+    if "stand for" in q_lower or "mean" in q_lower or any(w.isupper() and 2 <= len(w) <= 5 for w in query.split()):
+        effective_query = f"{query} abbreviation acronym definition"
+
+    body: dict[str, Any] = {"query": effective_query, "top_k": top_k}
     if min_authority:
         body["min_authority"] = min_authority
     if category:
@@ -129,6 +132,15 @@ async def search_kb(
     hits = raw.get("hits")
     if isinstance(hits, list):
         clean = [h for h in hits if not _is_garbage_hit(h)]
+        stop_words = {"what", "is", "the", "for", "and", "about", "does", "that", "this", "how", "do", "i", "to", "explain", "stand"}
+        terms = [t.lower() for t in re.findall(r"\w+", query) if t.lower() not in stop_words and len(t) > 2]
+        if terms:
+            def term_score(h: dict) -> tuple[int, float]:
+                text = (str(h.get("snippet", "")) + " " + str(h.get("section", ""))).lower()
+                matches = sum(1 for t in terms if t in text)
+                score = float(h.get("score", 0.0) or 0.0)
+                return (matches, score)
+            clean.sort(key=term_score, reverse=True)
         raw["hits"] = clean[:top_k]
 
     return raw

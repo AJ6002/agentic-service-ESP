@@ -181,3 +181,37 @@ def test_has_high_includes_critical():
     result = check_kpi_alarms(ev)
     assert result.has_critical
     assert result.has_high
+
+
+# -- Health score threshold tests --
+
+def test_health_score_below_50_is_critical():
+    ev = _make_evidence(health_score=44.0)
+    result = check_kpi_alarms(ev)
+    assert result.has_critical
+    health_alarms = [a for a in result.alarms if a.signal == "health_score"]
+    assert len(health_alarms) == 1
+    assert health_alarms[0].severity == "CRITICAL"
+    assert "CRITICAL health band" in health_alarms[0].label
+
+
+def test_health_score_degraded_band_is_high():
+    ev = _make_evidence(health_score=65.0)
+    result = check_kpi_alarms(ev)
+    assert not result.has_critical
+    assert result.has_high
+    health_alarms = [a for a in result.alarms if a.signal == "health_score"]
+    assert len(health_alarms) == 1
+    assert health_alarms[0].severity == "HIGH"
+    assert "DEGRADED" in health_alarms[0].label
+
+
+def test_health_score_healthy_no_alarm():
+    ev = _make_evidence(health_score=85.0)
+    result = check_kpi_alarms(ev)
+    assert result.is_clean
+    assert not result.has_critical
+    assert not result.has_high
+    health_alarms = [a for a in result.alarms if a.signal == "health_score"]
+    assert len(health_alarms) == 0
+

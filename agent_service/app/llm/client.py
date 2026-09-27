@@ -37,9 +37,16 @@ class LLMResult:
 
 
 def _config() -> tuple[str, str, float]:
-    llm_url = os.getenv("LLM_GATEWAY_URL", "http://127.0.0.1:8080/v1")
+    from dotenv import load_dotenv
+    from pathlib import Path
+    env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+    if env_path.exists():
+        load_dotenv(env_path)
+    else:
+        load_dotenv()
+    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.191:8080/v1")
     model_name = os.getenv("LLM_MODEL_NAME", "Qwen2.5-Coder-3B-Instruct-Q4_K_M")
-    timeout = float(os.getenv("LLM_TIMEOUT_SEC", "30.0"))
+    timeout = float(os.getenv("LLM_TIMEOUT_SEC", "300.0"))
     return llm_url, model_name, timeout
 
 
@@ -74,6 +81,7 @@ async def call_llm_chat(
                         {"role": "user", "content": user_content},
                     ],
                     "temperature": temperature,
+                    "max_tokens": 2048,
                 },
             )
     except (httpx.ConnectError, httpx.TimeoutException, httpx.TransportError) as ex:

@@ -32,7 +32,9 @@ async def test_provenance_injected_fake_number(seed_prior_analysis):
             assert resp.status_code == 200
             lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
             delta = next(l for l in lines if l["type"] == "text_delta")
-            assert "Unverified numbers flagged" in delta["delta"]
+            assert "unverified figure(s) removed" in delta["delta"] or "Unverified" in delta["delta"]
+            assert "999.99" not in delta["delta"]
+            assert "777.77" not in delta["delta"]
 
 @pytest.mark.anyio
 async def test_provenance_regex_diff(seed_prior_analysis):

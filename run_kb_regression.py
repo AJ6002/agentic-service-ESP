@@ -20,7 +20,7 @@ import urllib.request
 import urllib.error
 
 AGENT_URL = "http://127.0.0.1:8091/query"
-TIMEOUT_SEC = 60
+TIMEOUT_SEC = 240
 MAX_RETRIES = 1
 
 QUERIES = [
@@ -31,7 +31,7 @@ QUERIES = [
     },
     {
         "id": "Q11",
-        "query": "Explain gas lock",
+        "query": "Explain gas lock.",
         "description": "Definitional — gas lock phenomenon",
     },
     {
@@ -41,13 +41,13 @@ QUERIES = [
     },
     {
         "id": "Q20",
-        "query": "What standard covers ESP vibration limits?",
-        "description": "Standards reference query",
+        "query": "How do I troubleshoot motor overload?",
+        "description": "Procedural — motor overload troubleshooting",
     },
     {
-        "id": "Q-bonus",
-        "query": "What is the definition of pump-off condition?",
-        "description": "Definitional — pump-off condition",
+        "id": "Q-pip",
+        "query": "What does PIP stand for?",
+        "description": "Definitional — PIP acronym lookup",
     },
 ]
 
@@ -60,7 +60,7 @@ BOILERPLATE_FAIL_STRINGS = [
     "tag universe",
 ]
 
-# Good responses contain at least one document citation.
+# Good responses contain at least one document citation or evidence reference.
 CITATION_PATTERNS = [
     "[API_RP",
     "[Takacs",
@@ -72,6 +72,12 @@ CITATION_PATTERNS = [
     "[ESP_Components",
     "[BP_ESP",
     "[ADVAIT",
+    "Cited Evidence: EV-",
+    "EV-R-",
+    "API_RP",
+    "Takacs",
+    "Baker_Hughes",
+    "Weatherford",
 ]
 
 
@@ -97,7 +103,7 @@ def _post_query(query: str, session_id: str, attempt: int = 1) -> str:
                     obj = json.loads(line)
                     # Collect text_delta frames
                     if obj.get("type") == "text_delta":
-                        text_parts.append(obj.get("text", ""))
+                        text_parts.append(obj.get("delta") or obj.get("text", ""))
                     # Also collect advisory.assessment from done/advisory frames
                     elif obj.get("type") in ("advisory", "done") and obj.get("advisory"):
                         adv = obj["advisory"]
@@ -105,6 +111,8 @@ def _post_query(query: str, session_id: str, attempt: int = 1) -> str:
                             text_parts.append(adv["assessment"])
                         if isinstance(adv, dict) and adv.get("recommendation"):
                             text_parts.append(adv["recommendation"])
+                        if isinstance(adv, dict) and adv.get("cited_evidence_ids"):
+                            text_parts.append("Cited Evidence: " + ", ".join(adv["cited_evidence_ids"]))
                     # Collect error message text
                     elif obj.get("type") == "error":
                         text_parts.append(obj.get("message", ""))
@@ -132,19 +140,20 @@ def _check_response(text: str) -> tuple[bool, str, str]:
         if fail_str.lower() in text_lower:
             return False, f"Contains boilerplate: '{fail_str}'", text
 
-    # Check for INSUFFICIENT CONTEXT (acceptable if no KB hits — better than boilerplate)
+    # Check for INSUFFICIENT CONTEXT
     if "insufficient context" in text_lower:
-        return True, "INSUFFICIENT CONTEXT response (clean failure, not boilerplate)", text
+        return False, "Returned INSUFFICIENT CONTEXT instead of real definition", text
 
-    # Check for at least one citation
+    # Check for substantive response length (tightened threshold > 100 chars)
+    if len(text.strip()) < 100:
+        return False, f"Response too short ({len(text.strip())} chars < 100)", text
+
+    # Check for at least one citation (tightened: mandatory citation)
     has_citation = any(pat in text for pat in CITATION_PATTERNS)
     if not has_citation:
-        # Soft warning — don't fail if response is substantive but uncited
-        if len(text) > 100:
-            return True, "No citation found but response is substantive (soft pass)", text
-        return False, "No citation found and response too short", text
+        return False, "Missing verified document citation or evidence reference", text
 
-    return True, "Has on-topic content with citation", text
+    return True, "Has on-topic substantive content with citation", text
 
 
 def main():

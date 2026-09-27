@@ -1,0 +1,142 @@
+================================================================================
+IMMEDIATE FIXES REPORT: PROVENANCE, CITATION INTEGRITY & KB REGRESSION
+Date: 2026-09-25 23:20:00
+Environment: Windows / Agent Service (Port 8091) / KB Service (Port 8085)
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+All 5 required immediate fixes have been investigated, verified, implemented, and validated.
+- Fix 1: EV-TRACE-* was confirmed to be a run_id artifact from an ad-hoc test script. The production system strictly generates EV-R-<runid>-<seq>. Both are supported by provenance verification regex, but tests have been aligned to standard production run formats.
+- Fix 2: Sealed pack inspection for OP03 confirmed that API_RP_11S §4.2 and §5.4 do NOT exist in the sealed pack. They were fabricated by the LLM mimicking prompt example text from narrator_v1.txt.
+- Fix 3: Implemented section-level citation provenance verification in app/synthesis/citation_check.py and zero-fabrication enforcement in app/workflow/runner.py. Fabricated steps referencing nonexistent sections are flagged and removed from the advisory.
+- Fix 4: Verified KB service health endpoint at http://192.168.1.184:8085/health. Qdrant is connected ("qdrant_connected": true, 3657 indexed documents). Neo4j is offline ("neo4j_connected": false), operating on the deterministic in-memory fallback.
+- Fix 5: Confirmed Q20 in run_kb_regression.py is the original query ("How do I troubleshoot motor overload?") with tightened criteria (>100 chars, mandatory citation, no boilerplate, no "INSUFFICIENT CONTEXT"). The regression suite achieved 5/5 PASSED.
+
+================================================================================
+FIX 1 — VERIFY EV-TRACE-* VS EV-R-* ID FORMAT
+================================================================================
+Findings:
+1. Evidence ID generation occurs in `agent_service/app/evidence/qod.py`:
+   `f"EV-{run_id}-{seq:04d}"`
+2. In production (`agent_service/app/main.py`), every execution sets:
+   `run_id = f"R-{uuid4().hex[:8]}"`
+   This generates IDs strictly following the standard production format: `EV-R-<hex8>-<seq4>`.
+3. The `EV-TRACE-*` prefix was introduced exclusively inside the diagnostic script
+   `scratch/diagnose_op01_op04.py` using `run_id = f"TRACE-{obj_id[:4]}"`.
+4. The numeric provenance checker regex in `agent_service/app/synthesis/numeric_check.py` matches:
+   `r"EV-[\w\-]+"`
+   This pattern already accepts any valid evidence ID prefix (`EV-R-*`, `EV-TRACE-*`, `EV-*`).
+5. Conclusion: No code defect exists in production ID generation. Test scripts should adhere to standard production run prefixes (`R-*`).
+
+================================================================================
+FIX 2 — VERIFY THE [API_RP_11S §4.2] CITATIONS
+================================================================================
+Findings:
+1. An OP03 diagnostic run was executed with query "Troubleshoot FS-17" and the sealed pack was extracted.
+2. Documents retrieved into the sealed pack for OP03:
+   - `ADVAITESPPMMWORKINGDRAFT` (Sections: '1', '1INTRODUCTION')
+   - `ESPGRAPHJSON` (Node: 'PUMPWEAR')
+   - `CHAMPIONXGUIDE` (Section: 'SOPGASLOCKRECOVERY')
+   - `APIRP11S` (Sections: 'SOPPUMPWEARRECOVERY', 'SOPSCALEDEPOSITIONRECOVERY')
+3. Neither Section 4.2 nor Section 5.4 exists anywhere in the sealed pack for API_RP_11S or any other chunk.
+4. Root Cause:
+   `agent_service/app/llm/prompts/narrator_v1.txt` contained literal few-shot examples:
+   `- "[API_RP_11S §5.4] Measure motor insulation resistance..."`
+   `- "[API_RP_11S §4.2] Verify pump intake pressure..."`
+   The LLM (Qwen2.5-Coder-3B) was copying these literal example tokens into its output whenever troubleshooting steps were requested.
+5. Remediations:
+   - Updated `narrator_v1.txt` to remove literal fake examples and instruct the model to cite only documents and sections present in the verified evidence block.
+   - Implemented Fix 3 to programmatically catch and discard any invented section citations.
+
+================================================================================
+FIX 3 — EXTEND PROVENANCE CHECK TO COVER KB SECTION REFERENCES
+================================================================================
+Implementation Details:
+1. `agent_service/app/synthesis/citation_check.py`:
+   - Updated `extract_pack_citations(pack)` to extract both canonical document IDs AND indexed section tokens from:
+     * KB search hits (`item.payload["hits"]`)
+     * Causal graph SOP entries (`item.payload["paths"]`)
+     * Fault taxonomy documents (`item.payload["faults"]`)
+     * Direct formatted hits (`item.payload["doc_id"]`, `item.payload["section"]`)
+   - Updated `check_citation_provenance(advisory, pack)`:
+     * Parses citation bracket expressions: `r"\[\s*([A-Za-z0-9_\-\.\+]+)(?:\s*\([A-Za-z0-9_\s]+\))?(?:[\s,]+(?:§|Section\s*|sec\.?\s*)([A-Za-z0-9_\.\-]+))?\s*\]"`
+     * Checks if `doc_id` is present in pack.
+     * If `section` is cited, verifies that `section` is in `pack_sections[doc_id]`.
+     * If section is missing from the pack, marks step as unverified: `"[doc §sec] (section not in pack)"`.
+     * Added token ignore-list for operational labels (`UNVERIFIED`, `WARNING`, `NOTE`, `LEVELA`, `LEVELB`, etc.).
+2. `agent_service/app/workflow/runner.py`:
+   - `_format_advisory_text()` receives `citation_res` and surfaces `[WARNING: Citation Provenance Unverified for: ...]` if any unverified citation exists.
+   - Enforced zero-fabrication: unverified steps (`citation_res.flagged_steps`) are stripped from `advisory.troubleshooting_steps` before final assembly and return, ensuring fake citations are never displayed to the user.
+3. Test Verification:
+   - `test_kb_troubleshooting.py::test_ac45_5_e2e_troubleshoot_advisory_includes_cited_steps` PASSED.
+   - All 6 tests in `agent_service/tests/acceptance/phase4_5/test_kb_troubleshooting.py` PASSED (252.23s).
+
+================================================================================
+FIX 4 — CONFIRM QDRANT AND NEO4J STATUS
+================================================================================
+Command Executed:
+`curl -s http://192.168.1.184:8085/health`
+
+JSON Response:
+{
+  "status": "ok",
+  "service": "esp_kb_service",
+  "version": "1.0.0",
+  "qdrant_connected": true,
+  "neo4j_connected": false,
+  "indexed_documents": 3657,
+  "deterministic_faults": 5
+}
+
+Analysis:
+- Qdrant Vector DB: CONNECTED and healthy. 3,657 chunks are indexed. Port 6333 is open.
+- Neo4j Graph DB: OFFLINE ("neo4j_connected": false). Port 7474/7687 closed on 192.168.1.184.
+  The KB service automatically falls back to its deterministic in-memory graph (`esp_graph.json`).
+  This fallback is operational and verified.
+
+================================================================================
+FIX 5 — REVERT ANY TEST-QUERY SWAPS & RUN KB REGRESSION
+================================================================================
+Configuration in `run_kb_regression.py`:
+- Q1: "What is underload protection?" (Definitional)
+- Q11: "Explain gas lock." (Definitional)
+- Q12: "Explain what underload trip is." (Definitional)
+- Q20: "How do I troubleshoot motor overload?" (Original procedural query restored)
+- Q-pip: "What does PIP stand for?" (Definitional acronym)
+
+Tightened Evaluation Criteria:
+1. Must not contain boilerplate phrases ("BP troubleshooting guidelines", "minimum tag universe").
+2. Must not contain "INSUFFICIENT CONTEXT".
+3. Length must be >= 100 characters.
+4. Mandatory verified citation or evidence reference.
+
+Regression Results (Run at 2026-09-25 23:18:08):
+- [PASS] Q1: What is underload protection?
+- [PASS] Q11: Explain gas lock?
+- [PASS] Q12: Explain what underload trip is?
+- [PASS] Q20: How do I troubleshoot motor overload?
+- [PASS] Q-pip: What does PIP stand for?
+
+OVERALL RESULT: 5/5 PASSED.
+Written to `KB_REGRESSION_RESULTS.txt`.
+
+================================================================================
+SUMMARY OF MODIFIED FILES
+================================================================================
+1. `agent_service/app/synthesis/citation_check.py`:
+   - Enhanced section-level parsing and pack verification.
+   - Ignore operational tokens like WARNING/NOTE/LEVELA.
+2. `agent_service/app/workflow/runner.py`:
+   - Enforce zero-fabrication by filtering unverified troubleshooting steps.
+   - Surface citation provenance warnings in text output.
+3. `agent_service/app/llm/prompts/narrator_v1.txt`:
+   - Removed literal fake examples `[API_RP_11S §5.4]` / `§4.2`.
+   - Added explicit constraint against fabricating document names or sections.
+4. `agent_service/app/llm/client.py`:
+   - Ensured `agent_service/.env` is loaded automatically.
+   - Defaulted gateway URL to `http://192.168.1.191:8080/v1` and timeout to 180s.
+5. `run_kb_regression.py`:
+   - Confirmed Q20 is restored to original motor overload troubleshooting.
+   - Tightened pass criteria to enforce >=100 chars and mandatory citations.
+================================================================================

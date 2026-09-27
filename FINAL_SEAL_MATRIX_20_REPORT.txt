@@ -1,0 +1,65 @@
+================================================================================
+ESP APM AGENT SERVICE — FULL 20-QUERY SEAL MATRIX COMPREHENSIVE REPORT
+Date: 2026-09-26 01:05:00
+Environment: Windows / Agent Service (Port 8091) / KB Service (Port 8085)
+LLM Server: Qwen2.5-Coder-3B-Instruct-Q4_K_M @ 192.168.1.191:8080
+Test Suite: run_full_seal_suite.py -> RESULTS_QUERIES_RUN.txt
+================================================================================
+
+EXECUTIVE SUMMARY
+-----------------
+All reported bugs (Bug A through Bug F) have been systematically resolved and verified against the live service:
+1. Bug A (B3 — CLARIFY reply starts new run): RESOLVED.
+   - When an ambiguous inquiry ("Explain that") arrives in an empty session, the agent raises CLARIFY with slot='asset_id' and candidate options.
+   - The follow-up reply "FS-17" binds via classify_resolution() to the pending interrupt, resumes the paused run, and completes OP03_FAULT_DIAGNOSIS for FS-17.
+2. Bug B (B4 — "Recheck the last 2 hours" routed to OP01): RESOLVED.
+   - Disambiguation and fallback guards in router.py now route recheck/rerun queries to OP03_FAULT_DIAGNOSIS (or prior_objective) rather than OP01_CURRENT_STATUS.
+   - Query 16 executed with objective OP03_FAULT_DIAGNOSIS and temporal scope of 7200s.
+3. Bug C (B5 — Provenance leaks & ungrounded numbers): RESOLVED.
+   - Updated numeric_check.py to clean bracketed citations and document standard numbers (e.g. API_RP_11S, BP0757) and extract valid numbers from KB snippets.
+   - Tightened prompt rules in followup_narrator_v1.txt and narrator_v1.txt to prevent inventing hypothetical operating ranges.
+4. Bug D (B7 — Duplicate evidence IDs): RESOLVED.
+   - Added list(dict.fromkeys(...)) deduplication in runner.py and response_assembler.py. Verified zero repeated evidence IDs in cited evidence lines across all 20 runs.
+5. Bug E (LLM single-slot / timeouts): RESOLVED.
+   - Client and server timeouts set to 300s.
+   - Enhanced _try_parse_advisory() in calls.py with tolerant JSON repair for truncated model outputs.
+6. Bug F (PIP expansion): RESOLVED.
+   - Corrected PIP to "Pump Intake Pressure" across glossary fallbacks (direct_handler.py) and post-synthesis terminology checks (xai.py).
+7. Prompt Sanitation:
+   - Scanned all 13 prompts in app/llm/prompts/. Removed all literal [X §Y] examples to prevent few-shot prompt bleed.
+
+================================================================================
+DETAILED 20-QUERY SEAL MATRIX RESULTS TABLE
+================================================================================
+Idx | Query Message                            | Route / Objective         | Done Status | Latency (ms) | Notes
+----+------------------------------------------+---------------------------+-------------+--------------+----------------------------------------------
+Q1  | What is underload protection?            | SIMPLE (OP06)             | OK          | 63,610.4     | Substantive definition + cited evidence
+Q2  | Explain that (empty session)             | WORKFLOW (OP03 CLARIFY)   | PAUSED      | 21,682.8     | Slot=asset_id, Options=['FS-17', 'FS-91',...]
+Q3  | FS-17 (reply to Q2)                      | RESUME (OP03)             | OK          | 83,264.7     | BIND -> Resumed OP03 for FS-17
+Q4  | What's the current status of FS-17?      | WORKFLOW (OP01)           | OK          | 83,960.7     | Live telemetry status cards emitted
+Q5  | Why did FS-17 trip?                      | WORKFLOW (OP03)           | OK          | 146,240.6    | Verified SOP citations in troubleshooting_steps
+Q6  | Diagnose FS-91 (historian missing)       | WORKFLOW (OP03)           | OK          | 110,389.8    | Graceful degradation with historian absent
+Q7  | How healthy is FS-17?                    | WORKFLOW (OP04)           | OK          | 73,713.4     | Health band & penalty contributors
+Q8  | Any early warnings for FS-17?            | WORKFLOW (OP05)           | OK          | 92,934.4     | Anomaly score and motor temp drift analysis
+Q9  | Show me FS-17 history for the last 7 d   | WORKFLOW (OP14)           | INSUFFICIENT| 19,046.0     | Correct contracts INSUFFICIENT_EVIDENCE
+Q10 | Why has FS-17 production declined?       | WORKFLOW (OP02)           | OK          | 62,125.3     | Decline rate & decline RCA cards
+Q11 | Explain gas lock.                        | SIMPLE (OP06)             | OK          | 66,052.0     | Definitional + cited KB evidence
+Q12 | Explain what underload trip is.          | SIMPLE (OP06)             | OK          | 64,559.8     | Definitional + cited KB evidence
+Q13 | Why did you say gas interference? (T2)   | FOLLOW_UP                 | OK          | 63,748.1     | Zero network fetches; 100% visualization reuse
+Q14 | What data did you use? (T3)              | FOLLOW_UP                 | OK          | 21,735.2     | Exact list of prior evidence IDs returned
+Q15 | What does that graph mean? (T4)          | FOLLOW_UP                 | OK          | 82,969.7     | Explanatory narrative on visual metrics
+Q16 | Recheck the last 2 hours (T5)            | WORKFLOW (OP03)           | OK          | 106,898.0    | Re-run diagnosis with 7200s window (NOT OP01)
+Q17 | Why did that happen? (fresh session)     | WORKFLOW (OP03 CLARIFY)   | PAUSED      | 21,603.4     | Clarification raised for asset_id
+Q18 | Why did you conclude that? (dead pack)   | WORKFLOW (OP03 CLARIFY)   | PAUSED      | 17,917.4     | Missing prior pack gracefully asks for asset
+Q19 | Troubleshoot FS-17                       | WORKFLOW (OP03)           | OK          | 232,256.6    | Procedural SOP steps with verified sections
+Q20 | How do I troubleshoot motor overload?    | SIMPLE (OP06)             | OK          | 135,360.3    | Procedural troubleshooting via approved KB
+
+================================================================================
+VERIFICATION SUMMARY
+================================================================================
+Total Queries Run:  20 / 20
+HTTP Timeouts:      0
+Uncaught Errors:    0
+Valid Contract:     20 / 20 (All emitted valid NDJSON ending in DoneFrame)
+Raw streaming logs saved in: RESULTS_QUERIES_RUN.txt
+================================================================================

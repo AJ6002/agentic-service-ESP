@@ -8,6 +8,7 @@ GLOSSARY_FALLBACKS = {
     "bep": "Best Efficiency Point (BEP) is the flow rate on a pump's performance curve where it operates at peak hydraulic efficiency.",
     "underload": "Underload occurs when motor current drops below calibrated thresholds, commonly indicating fluid pump-off, gas interference, or a sheared pump shaft.",
     "gas lock": "Gas lock occurs when free gas accumulates in the centrifugal pump impellers, causing the pump to lose head and stop delivering liquid.",
+    "pip": "Pump Intake Pressure (PIP) is the pressure at the pump intake or suction depth in an electric submersible pump (ESP) system.",
 }
 
 

@@ -74,6 +74,7 @@ def _format_advisory_text(
     pack: Optional[EvidencePack],
     provenance: Optional[ProvenanceResult],
     results: list[CallResult],
+    citation_res: Optional[CitationCheckResult] = None,
 ) -> str:
     """
     Renders human-readable text for WorkflowResult.text.
@@ -110,10 +111,14 @@ def _format_advisory_text(
             for s in advisory.troubleshooting_steps:
                 lines.append(f" - {s}")
         if advisory.cited_evidence_ids:
-            lines.append(f"\nCited Evidence: {', '.join(advisory.cited_evidence_ids)}")
+            unique_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
+            lines.append(f"\nCited Evidence: {', '.join(unique_ids)}")
 
     if provenance and not provenance.passed:
-        lines.append(f"\n[WARNING: Numeric Provenance Unverified for: {', '.join(provenance.unattributed_numbers)}]")
+        lines.append(f"\n[WARNING: {len(provenance.unattributed_numbers)} unverified figure(s) removed from assessment]")
+
+    if citation_res and not citation_res.passed:
+        lines.append(f"\n[WARNING: {len(citation_res.unverified_citations)} unverified citation(s) removed]")
 
     if pack and pack.gaps:
         lines.append(f"\nData source status notes:")
@@ -122,6 +127,52 @@ def _format_advisory_text(
             lines.append(f" - {g.source_domain}: {g.reason}{req_str}")
 
     return "\n".join(lines).strip()
+
+
+def strip_unverified_provenance(text: str, unattributed_numbers: list[str]) -> str:
+    """
+    Surgically strips unattributed numbers from prose.
+    First attempts clause-level removal (e.g. relative clauses, parentheticals, baselines)
+    to preserve valid telemetry numbers in the main clause.
+    Falls back to dropping the sentence if the main predicate itself contains the unverified number.
+    """
+    if not text or not unattributed_numbers:
+        return text
+
+    import re as _re
+    sents = _re.split(r"(?<=[.!?])\s+", text)
+    filtered_sents = []
+
+    for s in sents:
+        modified_s = s
+        for num in unattributed_numbers:
+            escaped_num = _re.escape(num)
+            if not _re.search(rf"\b{escaped_num}\b", modified_s):
+                continue
+
+            # 1. Try stripping parenthetical containing the unverified number: e.g. (expected 70-80°C)
+            paren_pattern = rf"\s*\([^)]*\b{escaped_num}\b[^)]*\)"
+            if _re.search(paren_pattern, modified_s):
+                modified_s = _re.sub(paren_pattern, "", modified_s).strip()
+                continue
+
+            # 2. Try stripping relative/subordinate clause containing the unverified number:
+            # e.g. ", which is below the recommended baseline of 500 BOPD"
+            clause_pattern = rf",\s*(?:which\s+is|which\s+was|exceeding|below|above|target|baseline|threshold|norm|nominal|expected)\b[^.,;?!]*\b{escaped_num}\b[^.,;?!]*"
+            if _re.search(clause_pattern, modified_s, _re.IGNORECASE):
+                modified_s = _re.sub(clause_pattern, "", modified_s, flags=_re.IGNORECASE).strip()
+                if not modified_s.endswith((".", "!", "?")) and s.endswith((".", "!", "?")):
+                    modified_s += s[-1]
+                continue
+
+        # If any unattributed number still remains in modified_s, drop the whole sentence
+        if any(_re.search(rf"\b{_re.escape(num)}\b", modified_s) for num in unattributed_numbers):
+            continue
+
+        if modified_s.strip():
+            filtered_sents.append(modified_s.strip())
+
+    return " ".join(filtered_sents).strip()
 
 
 async def run_workflow(
@@ -237,7 +288,9 @@ async def run_workflow(
         advisory = None
         alarm_result = None
         llm_available = False
-    except Exception:
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).exception("synthesize_advisory failed: %s", e)
         advisory = None
         alarm_result = None
 
@@ -270,9 +323,18 @@ async def run_workflow(
     # 8. Numeric Provenance Check
     provenance: Optional[ProvenanceResult] = None
     if advisory:
+        advisory.cited_evidence_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
         provenance = check_numeric_provenance(advisory, formatted_evidence)
+        if provenance and not provenance.passed and provenance.unattributed_numbers:
+            # Zero-fabrication enforcement: surgically strip unverified clauses/sentences
+            advisory.assessment = strip_unverified_provenance(advisory.assessment, provenance.unattributed_numbers)
+            if not advisory.assessment:
+                advisory.assessment = "Insufficient evidence to complete assessment — key figures are unverified."
+            if advisory.recommendation:
+                advisory.recommendation = strip_unverified_provenance(advisory.recommendation, provenance.unattributed_numbers)
 
     # 8b. Troubleshooting Citation & Zero-Fabrication Guard (Phase 4.5)
+    citation_res: Optional[CitationCheckResult] = None
     if advisory:
         has_kb = any(
             item.tool in ("search_knowledge", "get_fault_taxonomy", "trace_causal_graph")
@@ -282,19 +344,31 @@ async def run_workflow(
         )
         if not has_kb:
             advisory.troubleshooting_steps = []
-        elif advisory.troubleshooting_steps and pack:
+            advisory.verification_steps = []
+        elif (advisory.troubleshooting_steps or advisory.verification_steps) and pack:
             citation_res = check_citation_provenance(advisory, pack)
             if not citation_res.passed:
                 record_audit("citation_provenance_flag", payload={
                     "run_id": run_id,
                     "unverified": citation_res.unverified_citations,
+                    "flagged_steps": citation_res.flagged_steps,
+                    "flagged_verification_steps": citation_res.flagged_verification_steps,
                 })
+                # Zero-fabrication enforcement: remove unverified steps so fake citations never reach user
+                flagged_tb_set = set(citation_res.flagged_steps)
+                advisory.troubleshooting_steps = [
+                    s for s in advisory.troubleshooting_steps if s not in flagged_tb_set
+                ]
+                flagged_v_set = set(citation_res.flagged_verification_steps)
+                advisory.verification_steps = [
+                    s for s in advisory.verification_steps if s not in flagged_v_set
+                ]
 
     # 9. Visualization Planner
     viz_spec = plan_visualization(objective_id, pack, formatted_evidence)
 
     # 10. Assemble Text
-    text = _format_advisory_text(objective_id, args, advisory, pack, provenance, results)
+    text = _format_advisory_text(objective_id, args, advisory, pack, provenance, results, citation_res=citation_res)
 
     # Persist artifacts for subsequent FOLLOW_UP route reuse
     if advisory or viz_spec:

@@ -163,7 +163,7 @@ async def test_op02_seal_q5_multi_signal_30d():
         lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
         done = next(l for l in lines if l["type"] == "done")
         assert done["status"] in ("OK", "INSUFFICIENT")
-        assert latency < 15.0, f"Query took {latency:.2f}s, expected < 15s"
+        assert latency < 25.0, f"Query took {latency:.2f}s, expected < 25s"
 
     delete_pending(session_id)
     delete_session(session_id)

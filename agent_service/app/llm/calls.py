@@ -24,6 +24,7 @@ Rules for every function here:
 """
 
 import json
+import re
 from typing import Optional
 
 from app.contracts.routing import RouteDecision
@@ -47,14 +48,21 @@ class RouterOutputInvalid(Exception):
 
 def _strip_markdown_fence(content: str) -> str:
     content = content.strip()
-    if not content.startswith("```"):
-        return content
-    lines = content.splitlines()
-    if lines and lines[0].startswith("```"):
-        lines = lines[1:]
-    if lines and lines[-1].startswith("```"):
-        lines = lines[:-1]
-    return "\n".join(lines).strip()
+    match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", content)
+    if match:
+        return match.group(1).strip()
+    if content.startswith("```"):
+        lines = content.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].startswith("```"):
+            lines = lines[:-1]
+        return "\n".join(lines).strip()
+    start = content.find("{")
+    end = content.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        return content[start:end+1]
+    return content
 
 
 async def route(raw_message: str, context_block: str) -> RouteDecision:
@@ -136,12 +144,29 @@ class AdvisoryOutputInvalid(Exception):
 
 def _try_parse_advisory(content: str) -> Optional["Advisory"]:
     from app.contracts.advisory import Advisory
+    cleaned = _strip_markdown_fence(content)
     try:
-        cleaned = _strip_markdown_fence(content)
         parsed = json.loads(cleaned)
         return Advisory.model_validate(parsed)
     except (json.JSONDecodeError, ValueError):
-        return None
+        pass
+
+    # Tolerant repair for outputs truncated near closing boundaries
+    for suffix in [
+        '"]}',
+        '"\n}',
+        '\n}',
+        '}',
+        '"]\n}',
+        '", "hypotheses": [], "recommendation": "", "verification_steps": [], "troubleshooting_steps": [], "confidence": 0.8, "cited_evidence_ids": []}',
+        '"], "recommendation": "", "verification_steps": [], "troubleshooting_steps": [], "confidence": 0.8, "cited_evidence_ids": []}',
+    ]:
+        try:
+            parsed = json.loads(cleaned + suffix)
+            return Advisory.model_validate(parsed)
+        except Exception:
+            continue
+    return None
 
 
 async def narrate(objective_id: str, formatted_evidence_text: str, user_query: str = "") -> "Advisory":

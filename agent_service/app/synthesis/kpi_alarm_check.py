@@ -28,6 +28,15 @@ if TYPE_CHECKING:
     from app.evidence.formatter import FormattedEvidence
 
 
+import os
+
+# Threshold Configuration Constants (configurable via environment)
+HEALTH_SCORE_CRITICAL_THRESHOLD: float = float(os.getenv("HEALTH_SCORE_CRITICAL_THRESHOLD", "50.0"))
+HEALTH_SCORE_DEGRADED_THRESHOLD: float = float(os.getenv("HEALTH_SCORE_DEGRADED_THRESHOLD", "70.0"))
+ANOMALY_SCORE_CRITICAL_THRESHOLD: float = float(os.getenv("ANOMALY_SCORE_CRITICAL_THRESHOLD", "0.95"))
+ANOMALY_SCORE_HIGH_THRESHOLD: float = float(os.getenv("ANOMALY_SCORE_HIGH_THRESHOLD", "0.85"))
+WATER_CUT_HIGH_THRESHOLD: float = float(os.getenv("WATER_CUT_HIGH_THRESHOLD", "95.0"))
+
 # ---------------------------------------------------------------------------
 # Alarm rules -- each entry: (signal, condition_fn, severity, human_label)
 # Severity: "CRITICAL" > "HIGH" > "WARN"
@@ -58,17 +67,26 @@ _ALARM_RULES: list[tuple[str, object, str, str]] = [
     ),
     # Anomaly score thresholds (CRITICAL takes priority over HIGH -- see dedup logic)
     (
-        "anomaly_score", lambda v: v >= 0.95, "CRITICAL",
-        "anomaly score >= 0.95 -- severe anomalous state detected by ML model",
+        "anomaly_score", lambda v: v >= ANOMALY_SCORE_CRITICAL_THRESHOLD, "CRITICAL",
+        f"anomaly score >= {ANOMALY_SCORE_CRITICAL_THRESHOLD} -- severe anomalous state detected by ML model",
     ),
     (
-        "anomaly_score", lambda v: 0.85 <= v < 0.95, "HIGH",
-        "anomaly score >= 0.85 -- anomaly alarm band (ML model flagged anomalous state)",
+        "anomaly_score", lambda v: ANOMALY_SCORE_HIGH_THRESHOLD <= v < ANOMALY_SCORE_CRITICAL_THRESHOLD, "HIGH",
+        f"anomaly score >= {ANOMALY_SCORE_HIGH_THRESHOLD} -- anomaly alarm band (ML model flagged anomalous state)",
+    ),
+    # Health score thresholds (CRITICAL < 50, HIGH 50..70)
+    (
+        "health_score", lambda v: v < HEALTH_SCORE_CRITICAL_THRESHOLD, "CRITICAL",
+        f"health score < {HEALTH_SCORE_CRITICAL_THRESHOLD:.0f} -- well is in CRITICAL health band",
+    ),
+    (
+        "health_score", lambda v: HEALTH_SCORE_CRITICAL_THRESHOLD <= v < HEALTH_SCORE_DEGRADED_THRESHOLD, "HIGH",
+        f"health score in {HEALTH_SCORE_CRITICAL_THRESHOLD:.0f}-{HEALTH_SCORE_DEGRADED_THRESHOLD:.0f} band -- well is in DEGRADED health band",
     ),
     # Water cut: near-total water cut is a production problem
     (
-        "water_cut_pct", lambda v: v >= 95.0, "HIGH",
-        "water cut >= 95%% -- near-total water production, minimal oil",
+        "water_cut_pct", lambda v: v >= WATER_CUT_HIGH_THRESHOLD, "HIGH",
+        f"water cut >= {WATER_CUT_HIGH_THRESHOLD:.0f}%% -- near-total water production, minimal oil",
     ),
 ]
 

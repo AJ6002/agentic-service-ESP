@@ -17,14 +17,15 @@ ACTUATION_REGEX = re.compile(r"\b(set|bump|change|increase|decrease|speed up)\b.
 # Regex for follow-up explanatory intent
 FOLLOWUP_PATTERNS = re.compile(
     r"\b(why\s+(did\s+you|you)\s+(say|said|conclude|concluded|flag|flagged|choose|chose|diagnose|diagnosed)|"
-    r"what\s+data\s+(did\s+you|was)\s+use|"
-    r"explain\s+(that|the\s+graph|the\s+chart|your\s+reasoning|the\s+diagnosis)|"
+    r"what\s+data\s+(did\s+you|was)\s+(use|used|look\s+at|looked\s+at|check|checked|review|reviewed|rely\s+on|consult|consulted)|"
+    r"how\s+did\s+you\s+(figure\s+that\s+out|come\s+to\s+that|arrive\s+at\s+that)|"
+    r"explain\s+(the\s+graph|the\s+chart|your\s+reasoning|the\s+diagnosis)|"
     r"what\s+does\s+(that|the)\s+(mean|chart|graph|diagnosis|plot|trend)(\s+(mean|show|indicate|represent))?|"
     r"can\s+you\s+elaborate\s+on\s+that)\b",
     re.IGNORECASE,
 )
 AMBIGUOUS_FOLLOWUP_PATTERNS = re.compile(
-    r"^\s*(why\s+did\s+that\s+happen|how\s+did\s+that\s+occur|what\s+happened\s+there)\??\s*$",
+    r"^\s*(why\s+did\s+that\s+happen|how\s+did\s+that\s+occur|what\s+happened\s+there|explain\s+that)\??\s*$",
     re.IGNORECASE,
 )
 
@@ -52,8 +53,21 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     fallback_used=True that this path was used, so it can be surfaced to
     the user and to audit rather than silently trusted as normal routing.
     """
-    # Ambiguity guard: "Why did that happen?" -> CLARIFY
-    if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message):
+    raw_lower = router_input.raw_message.lower()
+
+    # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective
+    if any(w in raw_lower for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id=router_input.prior_objective or "OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.9,
+            deferred_intents=deferred,
+        )
+
+    # Ambiguity guard: "Why did that happen?" or "Explain that" in empty session -> CLARIFY
+    if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message) and not router_input.has_prior:
         return RouteDecision(
             route="WORKFLOW",
             intent="diagnose",
@@ -63,8 +77,8 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             deferred_intents=deferred,
             clarification_needed=True,
             clarify_reason="CLARIFY",
-            clarify_slot="followup_or_new",
-            clarify_options=["Explain previous diagnosis", "Run new diagnosis on current telemetry"],
+            clarify_slot="asset_id",
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
         )
 
     # Follow-up intent check: past-tense explanatory inquiries
@@ -255,6 +269,61 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
     decision: Optional[RouteDecision] = None
     llm_available = True
 
+    # Fast deterministic rules before LLM invocation:
+    from app.context.resolver import WELL_ID_REGEX
+    is_telemetry_ask = any(w in router_input.raw_message.lower() for w in ['telemetry', 'status', 'reading', 'sensor', 'live'])
+
+    # 1. Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
+    if FOLLOWUP_PATTERNS.search(router_input.raw_message):
+        return RouteResult(
+            decision=RouteDecision(
+                route="FOLLOW_UP",
+                intent="explain_prior",
+                objective_id=None,
+                args={"asset_id": router_input.asset_id},
+                confidence=0.95,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
+    # 2. Ambiguous follow-up guard: pronoun-only queries with no prior -> CLARIFY
+    if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message) and not router_input.has_prior:
+        return RouteResult(
+            decision=RouteDecision(
+                route="WORKFLOW",
+                intent="diagnose",
+                objective_id="OP03_FAULT_DIAGNOSIS",
+                args={"asset_id": router_input.asset_id},
+                confidence=0.4,
+                deferred_intents=deferred,
+                clarification_needed=True,
+                clarify_reason="CLARIFY",
+                clarify_slot="asset_id",
+                clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
+    # 3. Rule 0 guard: Definitional intent with no asset in text must route to SIMPLE (OP06)
+    if DEFINITIONAL_PATTERNS.search(router_input.raw_message) and not WELL_ID_REGEX.search(router_input.raw_message) and not (router_input.asset_id and is_telemetry_ask):
+        return RouteResult(
+            decision=RouteDecision(
+                route="SIMPLE",
+                intent="general_inquiry",
+                objective_id="OP06_KNOWLEDGE_LOOKUP",
+                args={},
+                confidence=0.95,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
     try:
         decision = await llm_route(router_input.raw_message, context_block)
         if deferred and not decision.deferred_intents:
@@ -262,19 +331,6 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         if decision.confidence < conf_threshold:
             decision.clarification_needed = True
             decision.clarify_reason = "CLARIFY"
-        # Rule 0 guard: Definitional intent with no asset in text must route to SIMPLE (OP06)
-        from app.context.resolver import WELL_ID_REGEX
-        is_telemetry_ask = any(w in router_input.raw_message.lower() for w in ['telemetry', 'status', 'reading', 'sensor', 'live'])
-        if DEFINITIONAL_PATTERNS.search(router_input.raw_message) and not WELL_ID_REGEX.search(router_input.raw_message) and not (router_input.asset_id and is_telemetry_ask):
-            decision.route = "SIMPLE"
-            decision.intent = "general_inquiry"
-            decision.objective_id = "OP06_KNOWLEDGE_LOOKUP"
-            decision.args = {}
-            decision.clarification_needed = False
-            decision.clarify_reason = None
-            decision.clarify_slot = None
-            decision.clarify_options = []
-            decision.confidence = 0.95
 
         # Health query disambiguation: queries mentioning health/condition on an asset route to OP04, not OP01
         if any(w in router_input.raw_message.lower() for w in ["health", "degradation", "condition"]) and router_input.asset_id:
@@ -282,29 +338,12 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 decision.objective_id = "OP04_HEALTH_ASSESSMENT"
                 decision.intent = "health"
 
-        # Ambiguous follow-up guard: "Why did that happen?" -> CLARIFY
-        if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message):
+        # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective, NOT OP01
+        if any(w in router_input.raw_message.lower() for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
             decision.route = "WORKFLOW"
             decision.intent = "diagnose"
-            decision.objective_id = "OP03_FAULT_DIAGNOSIS"
-            decision.args = {"asset_id": router_input.asset_id}
-            decision.confidence = 0.4
-            decision.clarification_needed = True
-            decision.clarify_reason = "CLARIFY"
-            decision.clarify_slot = "followup_or_new"
-            decision.clarify_options = ["Explain previous diagnosis", "Run new diagnosis on current telemetry"]
-
-        # Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
-        elif FOLLOWUP_PATTERNS.search(router_input.raw_message):
-            decision.route = "FOLLOW_UP"
-            decision.intent = "explain_prior"
-            decision.objective_id = None
-            decision.args = {"asset_id": router_input.asset_id}
+            decision.objective_id = router_input.prior_objective or "OP03_FAULT_DIAGNOSIS"
             decision.confidence = 0.95
-            decision.clarification_needed = False
-            decision.clarify_reason = None
-            decision.clarify_slot = None
-            decision.clarify_options = []
     except LLMUnavailableError:
         llm_available = False
     except RouterOutputInvalid as ex:

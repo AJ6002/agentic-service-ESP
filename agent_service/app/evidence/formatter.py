@@ -396,15 +396,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                             score=float(h.get("score", 0.0) or 0.0),
                         )
                     )
-            result.values.append(
-                FormattedValue(
-                    value_str=f"{len(raw_hits)} hits",
-                    unit="hits",
-                    evidence_id=item.evidence_id,
-                    signal="kb_hit_count",
-                    raw=len(raw_hits),
-                )
-            )
+
 
 
 def _format_value(value: Any, unit: str) -> str:

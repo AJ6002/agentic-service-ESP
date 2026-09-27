@@ -370,6 +370,8 @@ async def handle_query(req: QueryRequest):
         raw_message=raw_msg,
         asset_id=frame.asset.id,
         asset_source=frame.asset.source,
+        has_prior=bool(frame.session_snapshot.last_analysis_id),
+        prior_objective=frame.session_snapshot.last_objective,
         turn_count=frame.session_snapshot.turn_count + 1,
         candidate_objectives=cand_obj,
         candidate_tools=cand_tools,
@@ -518,6 +520,7 @@ async def handle_query(req: QueryRequest):
                 objective_id="OP06_KNOWLEDGE_LOOKUP",
                 args=kb_args,
                 confidence=decision.confidence,
+                user_query=raw_msg,
             )
             log_stage(
                 "workflow_runner",
@@ -621,6 +624,7 @@ async def handle_query(req: QueryRequest):
         objective_id=decision.objective_id,
         args=decision.args,
         confidence=decision.confidence,
+        user_query=raw_msg,
     )
     log_stage(
         "workflow_runner",

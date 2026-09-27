@@ -64,13 +64,10 @@ def _build_kb_query(well_id: Optional[str], args: dict[str, Any]) -> str:
     when no explicit query was supplied. Deterministic string composition,
     no LLM — the KB service itself does the semantic matching.
     """
-    parts = ["troubleshooting"]
-    if well_id:
-        parts.append(f"well {well_id}")
-    trip_ts = args.get("trip_ts")
-    if trip_ts:
-        parts.append(f"trip at {trip_ts}")
-    return " ".join(parts) if len(parts) > 1 else "ESP fault diagnosis general troubleshooting"
+    fault_type = args.get("fault_type") or args.get("scenario") or args.get("trip_cause")
+    if fault_type:
+        return f"ESP {fault_type} troubleshooting procedure"
+    return "ESP fault diagnosis troubleshooting procedure"
 
 
 async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] = None) -> CallResult:
@@ -144,10 +141,8 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
                 except AdapterError as ex:
                     if ex.code == "COVERAGE_EXCEEDED":
                         raise
-                except Exception:
-                    pass
-
-            data = await historian.fetch_historian_window(well_id, start, end, signals, limit, client=client)
+            effective_signals = signals or historian.DEFAULT_HISTORIAN_SIGNALS
+            data = await historian.fetch_historian_window(well_id, start, end, effective_signals, limit, client=client)
 
         elif tool == "get_historian_aggregates":
             _def_start, _def_end = _default_window()
