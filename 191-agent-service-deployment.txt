@@ -1,0 +1,277 @@
+================================================================================
+ESP APM AGENT SERVICE — SERVER 191 (UBUNTU 24.04 LTS) DEPLOYMENT MANUAL
+================================================================================
+Document: 191-agent-service-deployment.txt
+Date: 2026-09-28
+Target Host: Server 191 (192.168.1.191 — 60-vCPU Intel Xeon, Ubuntu 24.04 LTS)
+Target Architecture: Co-located Agent Service + Native LLM Server + Docker Redis
+Upstream Services: Server 184 (192.168.1.184:8090 Data Engine, 184:8085 KB Service)
+================================================================================
+
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1. Architecture & Port Topology
+2. Disk Space & LVM Partition Expansion (Fixing 100% Full Root)
+3. Docker CE Installation & Dependency Conflict Resolution
+4. Repository Setup & Directory Structure
+5. Dockerfile Creation for Agent Service
+6. Docker Compose Configuration (docker-compose.server191.yml)
+7. Port 6379 Conflict Resolution & Service Launch
+8. Complete Network Unblocking (Firewall / UFW / iptables)
+9. End-to-End Verification & Health Probes
+10. Day-2 Maintenance, Logs & Update Procedures
+================================================================================
+
+
+1. ARCHITECTURE & PORT TOPOLOGY
+--------------------------------------------------------------------------------
+Host: 192.168.1.191 (Server 191 - Ubuntu 24.04 LTS, 60-vCPU Intel Xeon)
+  - Native llama-server (systemd 'llama.service'): Port 8080 (Qwen2.5-Coder-3B-Instruct)
+  - Docker Container 'esp-agent' (FastAPI):        Port 8091 (network_mode: "host")
+  - Docker Container 'esp-redis' (Redis 7 Alpine): Port 6379
+
+Remote Host: 192.168.1.184 (Server 184 / Server 3 - Windows Server)
+  - Core APM / ML Backend Service:                 Port 8090
+  - KB Microservice (Vector + BM25 Search):        Port 8085
+  - Mosquitto MQTT Broker:                         Port 1883
+  - Operations Dashboard UI:                       Port 3000
+
+Remote Host: Frontend Clients / Laptops
+  - Connects to Agent Service via:                 http://192.168.1.191:8091
+
+
+2. DISK SPACE & LVM PARTITION EXPANSION
+--------------------------------------------------------------------------------
+Issue: Ubuntu default installer allocated only 99 GB out of 198 GB physical LVM.
+Root filesystem reached 100% utilization.
+
+Commands executed to expand root filesystem to full capacity:
+  # Check unallocated LVM extents:
+  sudo vgs
+
+  # Expand root Logical Volume to 100% of free Volume Group space:
+  sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv -r
+
+  # Verify partition now shows 195G total with >93G free:
+  df -h /
+
+Reclaiming additional disk space by removing unneeded telemetry database copies:
+  # Delete ~69 GB stale SQLite databases on 191 (Server 184 is the canonical Data Engine):
+  rm -f /home/tas-esp-ai/esp_platform/data/*.db*
+
+  # Clear pip and HuggingFace download cache (~2 GB):
+  rm -rf ~/.cache/pip ~/.cache/huggingface
+
+
+3. DOCKER CE INSTALLATION & DEPENDENCY CONFLICT RESOLUTION
+--------------------------------------------------------------------------------
+Issue: apt install docker.io conflicted with containerd.io from Docker official repos.
+
+Commands executed to clean conflict and install official Docker CE:
+  # 1. Remove conflicting packages:
+  sudo apt remove -y containerd runc 2>/dev/null || true
+
+  # 2. Install official Docker CE and Compose plugin:
+  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+  # 3. Enable and start Docker service:
+  sudo systemctl enable --now docker
+
+  # 4. Grant user permissions to run Docker without sudo:
+  sudo usermod -aG docker $USER
+  newgrp docker
+
+  # 5. Verify Docker is running:
+  docker ps
+  docker --version
+  docker compose version
+
+
+4. REPOSITORY SETUP & DIRECTORY STRUCTURE
+--------------------------------------------------------------------------------
+Commands executed on Server 191:
+  cd /home/tas-esp-ai
+
+  # Clone repository:
+  git clone https://github.com/AJ6002/agentic-service-ESP.git esp-apm
+  cd esp-apm
+
+  # If repo exists, pull latest:
+  git pull origin main
+
+
+5. DOCKERFILE CREATION FOR AGENT SERVICE
+--------------------------------------------------------------------------------
+File: /home/tas-esp-ai/esp-apm/agent_service/Dockerfile
+
+Created via command:
+--------------------------------------------------------------------------------
+cat << 'EOF' > /home/tas-esp-ai/esp-apm/agent_service/Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8091
+
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8091"]
+EOF
+--------------------------------------------------------------------------------
+
+
+6. DOCKER COMPOSE CONFIGURATION
+--------------------------------------------------------------------------------
+File: /home/tas-esp-ai/esp-apm/docker-compose.server191.yml
+
+Created via command:
+--------------------------------------------------------------------------------
+cat << 'EOF' > /home/tas-esp-ai/esp-apm/docker-compose.server191.yml
+services:
+  esp-redis:
+    image: redis:7-alpine
+    container_name: esp-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - esp_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  esp-agent:
+    build:
+      context: ./agent_service
+      dockerfile: Dockerfile
+    container_name: esp-agent
+    restart: unless-stopped
+    depends_on:
+      esp-redis:
+        condition: service_healthy
+    network_mode: "host"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8091
+      - LLM_GATEWAY_URL=http://127.0.0.1:8080/v1
+      - LLM_MODEL_NAME=Qwen2.5-Coder-3B-Instruct-Q4_K_M
+      - LLM_TIMEOUT_SEC=30
+      - REDIS_URL=redis://127.0.0.1:6379/0
+      - SERVER3_BASE_URL=http://192.168.1.184:8090
+      - KB_SERVICE_BASE_URL=http://192.168.1.184:8085
+      - CONFIDENCE_THRESHOLD=0.6
+      - PENDING_TTL_SEC=900
+      - RUN_TTL_SEC=86400
+
+volumes:
+  esp_redis_data:
+    name: esp_redis_data
+EOF
+--------------------------------------------------------------------------------
+
+Why network_mode: "host"?
+- Eliminates Docker container NAT overhead.
+- Allows Agent container to query native llama-server at http://127.0.0.1:8080 at raw memory/socket speed.
+- Directly reaches Server 184 LAN IPs without iptables bridging.
+
+
+7. PORT 6379 CONFLICT RESOLUTION & SERVICE LAUNCH
+--------------------------------------------------------------------------------
+Issue: apt install redis-server earlier started host redis service on port 6379,
+preventing container 'esp-redis' from binding 0.0.0.0:6379.
+
+Commands executed to stop host redis and launch Docker containers:
+  # 1. Stop and disable native host redis service:
+  sudo systemctl stop redis-server
+  sudo systemctl disable redis-server
+
+  # 2. Build and launch Docker Compose stack in background:
+  cd /home/tas-esp-ai/esp-apm
+  docker compose -f docker-compose.server191.yml up -d --build
+
+  # 3. Verify running containers:
+  docker ps
+  # Result:
+  # - esp-agent  (Status: Up, Image: esp-apm-esp-agent)
+  # - esp-redis  (Status: Up, Image: redis:7-alpine, Health: healthy)
+
+
+8. COMPLETE NETWORK UNBLOCKING (FIREWALL / UFW / IPTABLES)
+--------------------------------------------------------------------------------
+Commands executed to eliminate all incoming and outgoing firewall blocks:
+  # 1. Disable UFW software firewall:
+  sudo ufw disable
+
+  # 2. Set iptables default policy to ACCEPT:
+  sudo iptables -P INPUT ACCEPT
+  sudo iptables -P FORWARD ACCEPT
+  sudo iptables -P OUTPUT ACCEPT
+
+  # 3. Verify firewall status:
+  sudo ufw status
+  # Result: Status: inactive
+
+
+9. END-TO-END VERIFICATION & HEALTH PROBES
+--------------------------------------------------------------------------------
+Run these commands from Server 191 or any network workstation to verify full health:
+
+Probe 1: Agent Service Health
+  curl http://127.0.0.1:8091/health
+  # Expected Response: {"status":"HEALTHY","service":"agent_service","slice":2}
+
+Probe 2: Localhost Native LLM Service Health
+  curl http://127.0.0.1:8080/health
+  # Expected Response: {"status":"ok"}
+
+Probe 3: Server 184 Core APM & Historian Health
+  curl http://192.168.1.184:8090/health
+  # Expected Response: {"status":"ok","pipeline":"active",...}
+
+Probe 4: Server 184 KB Microservice Health
+  curl http://192.168.1.184:8085/health
+  # Expected Response: {"status":"ok","service":"esp_kb_service",...}
+
+Probe 5: Full NDJSON Query Stream Test
+  curl -N -X POST http://127.0.0.1:8091/query \
+    -H "Content-Type: application/json" \
+    -d '{"session_id":"smoke-test-191","message":"What is the status of FS-17?"}'
+
+
+10. DAY-2 MAINTENANCE, LOGS & UPDATE PROCEDURES
+--------------------------------------------------------------------------------
+View live Agent Service logs:
+  docker logs -f esp-agent
+
+View live Redis logs:
+  docker logs -f esp-redis
+
+View native LLM logs (systemd):
+  sudo journalctl -u llama -f
+
+Restart Agent Service:
+  cd /home/tas-esp-ai/esp-apm
+  docker compose -f docker-compose.server191.yml restart esp-agent
+
+Update Agent Service with latest Git code:
+  cd /home/tas-esp-ai/esp-apm
+  git pull origin main
+  docker compose -f docker-compose.server191.yml up -d --build esp-agent
+
+Stop the entire stack:
+  cd /home/tas-esp-ai/esp-apm
+  docker compose -f docker-compose.server191.yml down
+
+Start the entire stack:
+  cd /home/tas-esp-ai/esp-apm
+  docker compose -f docker-compose.server191.yml up -d
+================================================================================
