@@ -1,0 +1,16 @@
+{
+  "document_id": "DOC-REF-001",
+  "title": "ESP Performance Prediction Platform Phase-1 Knowledge Base Source Links",
+  "canonical_category": "manifests",
+  "doc_type": "REFERENCE_MANIFEST",
+  "author_publisher": "ADVAIT Team",
+  "publication_year": "2026",
+  "source_filename": "non_doc_references.txt",
+  "standardized_filename": "ESP_PMM_Reference_Links_Manifest.txt",
+  "file_path": "esp-knowledge\\sources\\manifests\\ESP_PMM_Reference_Links_Manifest.txt",
+  "file_size_bytes": 12155,
+  "sha256_checksum": "6adcb88c8392398425bed1ae35625658df9d0462d0a7d3c0bcf8c97969a111e6",
+  "total_pages": 1,
+  "extracted_char_count": 11867,
+  "status": "PARSED_AND_NORMALIZED"
+}

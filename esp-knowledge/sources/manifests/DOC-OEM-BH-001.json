@@ -1,0 +1,16 @@
+{
+  "document_id": "DOC-OEM-BH-001",
+  "title": "Baker Hughes FusionPro Operations and Installation Manual (500031032 Rev B)",
+  "canonical_category": "oem",
+  "doc_type": "OEM_MANUAL",
+  "author_publisher": "Baker Hughes Company",
+  "publication_year": "2025",
+  "source_filename": "500031032-B.pdf",
+  "standardized_filename": "Baker_Hughes_FusionPro_Manual.pdf",
+  "file_path": "esp-knowledge\\sources\\raw\\oem\\Baker_Hughes_FusionPro_Manual.pdf",
+  "file_size_bytes": 4909128,
+  "sha256_checksum": "2a25fd22df0bed4e69bfb92596d8fa76048104cc56634da2fbfc94a430d0a1f1",
+  "total_pages": 79,
+  "extracted_char_count": 120413,
+  "status": "PARSED_AND_NORMALIZED"
+}

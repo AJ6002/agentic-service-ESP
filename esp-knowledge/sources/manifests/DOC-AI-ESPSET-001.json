@@ -1,0 +1,13 @@
+{
+  "document_id": "DOC-AI-ESPSET-001",
+  "title": "ESPset v3: Open-Source Experimental Framework and Benchmark Dataset for ESP Fault Diagnosis",
+  "canonical_category": "ai_context",
+  "doc_type": "BENCHMARK_DATASET_AND_CODE",
+  "author_publisher": "NINFA Lab / Federal University of Esp\u00edrito Santo (UFES)",
+  "publication_year": "2024",
+  "source_filename": "NINFA-UFES/ESPset",
+  "standardized_filename": "ESPset_v3_Framework",
+  "file_path": "esp-knowledge/sources/raw/ai_context/ESPset",
+  "sha256_checksum": "git-commit-ninfa-ufes-espset",
+  "status": "INGESTED_AND_MANIFESTED"
+}

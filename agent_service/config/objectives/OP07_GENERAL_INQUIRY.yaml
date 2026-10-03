@@ -6,6 +6,7 @@ required_evidence: []
 optional_evidence:
   - search_knowledge
 allowed_visuals: []
+default_visuals: []
 arg_schema:
   type: object
   properties: {}

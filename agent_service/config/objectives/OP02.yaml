@@ -16,6 +16,9 @@ allowed_visuals:
   - trip-timeline
   - gross-liquid-rate
   - net-oil-rate
+default_visuals:
+  - production-decline
+  - pressure-corridor
 arg_schema:
   type: object
   properties:

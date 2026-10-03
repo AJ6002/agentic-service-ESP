@@ -44,7 +44,19 @@ def test_ac_5_2_missing_signals_drop_dependent_card():
             )
         ],
     )
-    spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, format_pack(pack))
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_AC_5_2",
+        tool="diagnose_fault",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["motor-temperature", "vibration"],
+    )
+    _OBJECTIVES["OP_AC_5_2"] = mock_manifest
+
+    spec = plan_visualization("OP_AC_5_2", pack, format_pack(pack))
     assert "motor-temperature" in spec.card_ids
     assert "vibration" not in spec.card_ids, "Vibration card must be dropped when vibration_g is absent"
 

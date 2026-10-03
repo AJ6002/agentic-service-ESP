@@ -85,7 +85,7 @@ signals:
     unit: "Hz"
     nominal_min: 45.0
     nominal_max: 58.0
-    min_plausible: 20.0
+    min_plausible: 0.0
     max_plausible: 70.0
     alarm_low: 35.0
     alarm_high: 62.0

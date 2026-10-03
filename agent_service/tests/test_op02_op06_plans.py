@@ -159,5 +159,7 @@ def test_op06_formatter_and_cards():
     assert fmt.kb_hits[0].authority == "LEVEL_A"
     assert fmt.kb_hits[0].doc_id == "API-RP-11S"
 
+    # Intent-driven rule: OP06 (knowledge lookup / definitional) emits 0 cards
     viz = plan_visualization("OP06_KNOWLEDGE_LOOKUP", pack, fmt)
-    assert "evidence-cards" in viz.card_ids
+    assert viz.card_ids == []
+

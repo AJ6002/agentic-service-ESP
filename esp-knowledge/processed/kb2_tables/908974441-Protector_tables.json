@@ -1,0 +1,195 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Environment:",
+      "Eastomer families - Qualified compounds only.Neoprene fiber reinforced",
+      "Eastomer families - Qualified compounds only.NIiile",
+      "Eastomer families - Qualified compounds only.HNBR",
+      "Eastomer families - Qualified compounds only.Viton",
+      "Eastomer families - Qualified compounds only.Aflas",
+      "Eastomer families - Qualified compounds only.Chemraz\u00ae",
+      "Eastomer families - Qualified compounds only.Kalrez"
+    ],
+    "rows": [
+      {
+        "Environment:": "Maximum recommended temperature",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "275\u00b0F",
+        "Eastomer families - Qualified compounds only.NIiile": "275\u00b0F",
+        "Eastomer families - Qualified compounds only.HNBR": "325\u00b0F",
+        "Eastomer families - Qualified compounds only.Viton": "400\u00b0F",
+        "Eastomer families - Qualified compounds only.Aflas": "450\u00b0F",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "550\u00b0F",
+        "Eastomer families - Qualified compounds only.Kalrez": "550\u00b0F"
+      },
+      {
+        "Environment:": "Minimum recommended temperature",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "75\u00b0F",
+        "Eastomer families - Qualified compounds only.NIiile": "minus 40\u00b0F",
+        "Eastomer families - Qualified compounds only.HNBR": "minus 40\u00b0F",
+        "Eastomer families - Qualified compounds only.Viton": "40\u00b0F",
+        "Eastomer families - Qualified compounds only.Aflas": "75\u00b0F",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "40\u00b0F",
+        "Eastomer families - Qualified compounds only.Kalrez": "75\u00b0\u2109"
+      },
+      {
+        "Environment:": "Crude oil",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "OK",
+        "Eastomer families - Qualified compounds only.HNBR": "OK",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "Natural gas w/ condensate",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "OK",
+        "Eastomer families - Qualified compounds only.HNBR": "OK",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "Formation or injected water",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "Up to 275\u00b0F",
+        "Eastomer families - Qualified compounds only.HNBR": "Up to 325\u00b0F",
+        "Eastomer families - Qualified compounds only.Viton": "Up to 300\u00baF",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "H{S",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "NO",
+        "Eastomer families - Qualified compounds only.NIiile": "Up to 10 pprm",
+        "Eastomer families - Qualified compounds only.HNBR": "Up to 100 ppm",
+        "Eastomer families - Qualified compounds only.Viton": "Up to 375\u00baF",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "O2 Gas",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "OK",
+        "Eastomer families - Qualified compounds only.HNBR": "OK",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "Water based mud",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "Up to 275\u00b0F",
+        "Eastomer families - Qualified compounds only.NIiile": "Up to 275\u00b0F",
+        "Eastomer families - Qualified compounds only.HNBR": "Up to 325F",
+        "Eastomer families - Qualified compounds only.Viton": "Up to 300\u00baF",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "al based mud",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "OK",
+        "Eastomer families - Qualified compounds only.HNBR": "OK",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "Ester containing mud",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "NO",
+        "Eastomer families - Qualified compounds only.NIiile": "NO",
+        "Eastomer families - Qualified compounds only.HNBR": "NO",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      },
+      {
+        "Environment:": "Diesel",
+        "Eastomer families - Qualified compounds only.Neoprene fiber reinforced": "OK",
+        "Eastomer families - Qualified compounds only.NIiile": "OK",
+        "Eastomer families - Qualified compounds only.HNBR": "OK",
+        "Eastomer families - Qualified compounds only.Viton": "OK",
+        "Eastomer families - Qualified compounds only.Aflas": "OK",
+        "Eastomer families - Qualified compounds only.Chemraz\u00ae": "OK",
+        "Eastomer families - Qualified compounds only.Kalrez": "OK"
+      }
+    ],
+    "csv": "Environment:,Eastomer families - Qualified compounds only.Neoprene fiber reinforced,Eastomer families - Qualified compounds only.NIiile,Eastomer families - Qualified compounds only.HNBR,Eastomer families - Qualified compounds only.Viton,Eastomer families - Qualified compounds only.Aflas,Eastomer families - Qualified compounds only.Chemraz\u00ae,Eastomer families - Qualified compounds only.Kalrez\r\nMaximum recommended temperature,275\u00b0F,275\u00b0F,325\u00b0F,400\u00b0F,450\u00b0F,550\u00b0F,550\u00b0F\r\nMinimum recommended temperature,75\u00b0F,minus 40\u00b0F,minus 40\u00b0F,40\u00b0F,75\u00b0F,40\u00b0F,75\u00b0\u2109\r\nCrude oil,OK,OK,OK,OK,OK,OK,OK\r\nNatural gas w/ condensate,OK,OK,OK,OK,OK,OK,OK\r\nFormation or injected water,OK,Up to 275\u00b0F,Up to 325\u00b0F,Up to 300\u00baF,OK,OK,OK\r\nH{S,NO,Up to 10 pprm,Up to 100 ppm,Up to 375\u00baF,OK,OK,OK\r\nO2 Gas,OK,OK,OK,OK,OK,OK,OK\r\nWater based mud,Up to 275\u00b0F,Up to 275\u00b0F,Up to 325F,Up to 300\u00baF,OK,OK,OK\r\nal based mud,OK,OK,OK,OK,OK,OK,OK\r\nEster containing mud,NO,NO,NO,OK,OK,OK,OK\r\nDiesel,OK,OK,OK,OK,OK,OK,OK\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Abbreviation",
+      "Full Name",
+      "Properties"
+    ],
+    "rows": [
+      {
+        "Abbreviation": "STB",
+        "Full Name": "REDA Babbit",
+        "Properties": "\u2022 Bi-Directional \u2022 Low temperature"
+      },
+      {
+        "Abbreviation": "NTB",
+        "Full Name": "REDA Bronze",
+        "Properties": "\u2022 Bi-Directional \u2022 Higher temperature"
+      },
+      {
+        "Abbreviation": "KTB",
+        "Full Name": "KMC Bronze",
+        "Properties": "\u2022 Bi-Directional \u2022 Higher load \u2022 Higher temperature"
+      },
+      {
+        "Abbreviation": "HL",
+        "Full Name": "High Load Tilt Pad",
+        "Properties": "\u2022 Uni-Directional \u2022 Highest load \u2022 Higher temperature"
+      }
+    ],
+    "csv": "Abbreviation,Full Name,Properties\r\nSTB,REDA Babbit,\u2022 Bi-Directional \u2022 Low temperature\r\nNTB,REDA Bronze,\u2022 Bi-Directional \u2022 Higher temperature\r\nKTB,KMC Bronze,\u2022 Bi-Directional \u2022 Higher load \u2022 Higher temperature\r\nHL,High Load Tilt Pad,\u2022 Uni-Directional \u2022 Highest load \u2022 Higher temperature\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Motor Internal Temperature (F / C)",
+      "Oil Name",
+      "Comments"
+    ],
+    "rows": [
+      {
+        "Motor Internal Temperature (F / C)": "< 270 / 130",
+        "Oil Name": "Reda # 3",
+        "Comments": "Cold well applications"
+      },
+      {
+        "Motor Internal Temperature (F / C)": "< 290 / 145",
+        "Oil Name": "Reda # 2",
+        "Comments": "Mineral Oil, recommended for production of drinking water"
+      },
+      {
+        "Motor Internal Temperature (F / C)": "< 360 / 180",
+        "Oil Name": "Reda # 5",
+        "Comments": "Default Motor oil in Dominator and Maximus Series"
+      },
+      {
+        "Motor Internal Temperature (F / C)": "< 400 / 204",
+        "Oil Name": "Reda # 6",
+        "Comments": "Viscous oil that requires motor internal temperature to be in between 300 and 400 F (150 to 204 C)"
+      },
+      {
+        "Motor Internal Temperature (F / C)": ">400 / 204",
+        "Oil Name": "Reda # 7",
+        "Comments": "SAGD, Hotline Motors"
+      }
+    ],
+    "csv": "Motor Internal Temperature (F / C),Oil Name,Comments\r\n< 270 / 130,Reda # 3,Cold well applications\r\n< 290 / 145,Reda # 2,\"Mineral Oil, recommended for production of drinking water\"\r\n< 360 / 180,Reda # 5,Default Motor oil in Dominator and Maximus Series\r\n< 400 / 204,Reda # 6,Viscous oil that requires motor internal temperature to be in between 300 and 400 F (150 to 204 C)\r\n>400 / 204,Reda # 7,\"SAGD, Hotline Motors\"\r\n"
+  }
+]

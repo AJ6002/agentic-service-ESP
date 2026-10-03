@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 from pydantic import BaseModel, Field
 from .enums import SafetyClass, Scope
 
@@ -10,6 +10,7 @@ class ObjectiveManifest(BaseModel):
     required_evidence: list[str] = Field(default_factory=list)
     optional_evidence: list[str] = Field(default_factory=list)
     allowed_visuals: list[str] = Field(default_factory=list)
+    default_visuals: Optional[list[str]] = None
     arg_schema: dict[str, Any] = Field(default_factory=dict)
     # Number of gap-fill retry rounds allowed (0 = disabled). Only OP03 opts in.
     max_gapfill_rounds: int = 0

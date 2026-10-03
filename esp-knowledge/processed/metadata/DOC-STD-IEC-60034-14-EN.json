@@ -1,0 +1,120 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-IEC-60034-14-EN",
+    "title": "IEC 60034-14: Mechanical Vibration of Certain Machines (Ed 4.0 2018 English/French)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "International Electrotechnical Commission",
+    "publication_year": "2018",
+    "source_filename": "ilide.info-iec-60034-14-mechanical-vibration-for-shaft-height-56mm-above-pr_a6c24ff7b014d8eba82d942f406690f3.pdf",
+    "standardized_filename": "IEC_60034_14_Vibration_2018_EN.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\IEC_60034_14_Vibration_2018_EN.pdf",
+    "file_size_bytes": 996083,
+    "sha256_checksum": "1112b7de153f13345fd5dd3b65ea90b955b962804053d68d11a37914fba343f3",
+    "total_pages": 20,
+    "extracted_char_count": 72474,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 909,
+      "word_count": 365
+    },
+    {
+      "page_number": 2,
+      "char_count": 9293,
+      "word_count": 3948
+    },
+    {
+      "page_number": 3,
+      "char_count": 1749,
+      "word_count": 654
+    },
+    {
+      "page_number": 4,
+      "char_count": 9799,
+      "word_count": 4683
+    },
+    {
+      "page_number": 5,
+      "char_count": 327,
+      "word_count": 140
+    },
+    {
+      "page_number": 6,
+      "char_count": 7506,
+      "word_count": 3399
+    },
+    {
+      "page_number": 7,
+      "char_count": 2411,
+      "word_count": 1062
+    },
+    {
+      "page_number": 8,
+      "char_count": 3892,
+      "word_count": 1678
+    },
+    {
+      "page_number": 9,
+      "char_count": 4419,
+      "word_count": 1971
+    },
+    {
+      "page_number": 10,
+      "char_count": 4253,
+      "word_count": 1868
+    },
+    {
+      "page_number": 11,
+      "char_count": 5681,
+      "word_count": 2536
+    },
+    {
+      "page_number": 12,
+      "char_count": 5404,
+      "word_count": 2416
+    },
+    {
+      "page_number": 13,
+      "char_count": 5074,
+      "word_count": 2249
+    },
+    {
+      "page_number": 14,
+      "char_count": 5566,
+      "word_count": 2481
+    },
+    {
+      "page_number": 15,
+      "char_count": 1847,
+      "word_count": 783
+    },
+    {
+      "page_number": 16,
+      "char_count": 591,
+      "word_count": 256
+    },
+    {
+      "page_number": 17,
+      "char_count": 558,
+      "word_count": 238
+    },
+    {
+      "page_number": 18,
+      "char_count": 441,
+      "word_count": 190
+    },
+    {
+      "page_number": 19,
+      "char_count": 482,
+      "word_count": 192
+    },
+    {
+      "page_number": 20,
+      "char_count": 1922,
+      "word_count": 788
+    }
+  ]
+}

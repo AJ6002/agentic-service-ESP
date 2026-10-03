@@ -1,0 +1,120 @@
+https://www.cced.com.om/mog-media-briefing/
+
+https://www.slb.com/resource-library/oilfield-review/defining-series/defining-artificial-lift
+
+
+# ESP Performance Prediction Platform — Phase‑1 Knowledge Base Source Links
+
+Verified, working links collected for each Phase‑1 knowledge area. Items behind a paywall/standards-store are marked so you know to procure a licensed copy rather than an uncontrolled repost. Tier‑6 (Scribd/unverified reposts) are listed only as a last resort to *locate* the original — do not ingest them as authoritative.
+
+## P0 — ESP Fundamentals
+
+- **SLB – The Defining Series: Electrical Submersible Pumps** (PDF, Oilfield Review 2015) — [slb.com PDF](https://www.slb.com/-/media/files/oilfield-review/defining-esp.ashx) [web:3]
+- **SLB – Defining ESPs** (resource library article, HTML version) — [slb.com/resource-library](https://www.slb.com/resource-library/oilfield-review/defining-series/defining-esp) [web:4]
+- Related SLB piece worth grabbing alongside it: **The Defining Series: Artificial Lift** — [slb.com/resource-library](https://www.slb.com/resource-library/oilfield-review/defining-series/defining-artificial-lift) [web:5]
+
+## P0 — Components
+
+No single authoritative public OEM "components" master document exists — this is by design (Tier‑1/Tier‑3 material must come from your actual OEM). Use the SLB Defining Series above for general architecture and supplement with:
+- **API RP 11S1** (below) — has an equipment-schematic/teardown-report appendix identifying component nomenclature (pump, intake, gas separator, protector, motor, gauge, cable) [web:6][web:9]
+- Get OEM-specific component manuals directly from Baker Hughes, SLB, ChampionX, or Weatherford portals once the target OEM is confirmed — do not substitute a generic repost.
+
+## P0 — ESP Design / Selection: API RP 11S4
+
+Licensed/standards-store copies (choose per your organization's subscription):
+- [Standards.ie / NSAI store listing](https://shop.standards.ie/en-ie/standards/api-11s1-2022-96758_saig_api_api_3134171/) *(11S1 page — see 11S1 section below for direct link)*
+- [GlobalSpec — API RP 11S4](https://standards.globalspec.com/std/1669810/api-rp-11s4) [web:24]
+- [Nimonik API standards store](https://standards.nimonik.com/products/api/) [web:15]
+- Historical/withdrawn 1993 edition text (for reference only, verify current status before use): [Saigao Group PDF catalog reference](https://www.saigaogroup.com/uploads/file/api-11s3-standard.pdf) cross-references 11S4 scope [web:19]
+
+## P0 — Installation: API RP 11S3
+
+- Full text PDF (verify edition validity with API before treating as current): [Saigao Group — API 11S3 PDF](https://www.saigaogroup.com/uploads/file/api-11s3-standard.pdf) [web:19]
+- [GlobalSpec listing](https://standards.globalspec.com/std/14327557/api-rp-11s1) *(cross-reference page listing the 11S-family)*
+
+## P0 — Failure / RCA: API RP 11S1 (2022, 4th Edition)
+
+- **Official current edition purchase page (NSAI/API distributor):** [shop.standards.ie](https://shop.standards.ie/en-ie/standards/api-11s1-2022-96758_saig_api_api_3134171/) [web:1]
+- **Full PDF text (verify licensing terms before bulk ingestion):** [img.antpedia.com — API RP 11S1‑2022 PDF](https://img.antpedia.com/standard/files/pdfs_ora/20221211/api/API%20RP%2011S1-2022.pdf) [web:6]
+- Alternate full-text mirror: [Saigao Group — API 11S1 PDF](https://www.saigaogroup.com/uploads/file/api-11s1-standard.pdf) [web:28]
+- Summary/scope page: [BSB Edge](https://www.bsbedge.com/standard/electrical-submersible-pump-dismantle-inspection-and-failure-analysis/APIRP11S1) [web:9]
+- API's own 2024 publication catalog entry (confirms scope, page count, price): [api.org 2024 catalog PDF](https://www.api.org/-/media/files/publications/2024-catalog/2024-publication-catalog.pdf) [web:7]
+
+## P0 — Operations / Troubleshooting: API RP 11S
+
+- [Nimonik store — RP 11S 3rd edition](https://www.standards.nimonik.com/products/api/rp-11s/) [web:25]
+- Note: this is the ESP-specific "operation, maintenance and troubleshooting" RP, distinct from the 11S1/S3/S4/S5/S6/S8 sub-family — confirm current edition with API directly before licensing.
+
+## P0 — Cable / Electrical: API RP 11S5 & Cable Testing: API RP 11S6
+
+- Scope summary for both: [production-technology.org API/ISO ESP standards list](https://production-technology.org/updated-list-api-iso-standards-esp/) [web:21]
+- [GlobalSpec — RP 11S6 listing](https://standards.globalspec.com/std/14508649/rp-11s1) *(cross-reference; use GlobalSpec search for 11S5/11S6 direct product pages)*
+- Purchase via [Nimonik API store](https://standards.nimonik.com/products/api/) [web:15]
+
+## P0 — Vibration: API RP 11S8
+
+- Standards-store listing with status flag (confirm "withdrawn" vs. superseded status before relying on it): [Intertek Inform — API 11S8:2012](https://www.intertekinform.com/en-gb/standards/api-11s8-2012-96765_saig_api_api_202617/) [web:16]
+- Scope description: [production-technology.org](https://production-technology.org/updated-list-api-iso-standards-esp/) [web:21]
+- Cross-reference showing 11S8 vibration definitions used alongside ISO 2372 severity tables: [SPE 29506 Compendium PDF](http://superb.org/pubs-paper/other/spe95-comp.pdf) [web:20]
+- Note: an IEEE working-group slide deck flags that ISO 15551‑1 was intended to eventually supersede/consolidate 11S3/11S4/11S8 — worth checking ISO 15551‑1 status before finalizing your standards set: [IEEE mentor PPTX](https://mentor.ieee.org/subsea-wg/dcn/15/wg-15-0003-00-REFS-iso-15551-1-api-presentation.pptx) [web:17]
+
+## P0 — Fault Diagnosis: SPE‑199091‑MS
+
+- Full text (verify against official OnePetro record before treating as final — Scribd copy has no confirmed provenance, Tier‑6): [Scribd copy](https://www.scribd.com/document/725133886/SPE-199091-MS-Electric-Submersible-Pump-Troubleshooting-Guide-an-Effective-Way-to-Improve-System-Performance-and-Reduce-Avoidable-System-Failues) [web:14]
+- **Recommended primary route:** search OnePetro directly (`onepetro.org`) with the DOI prefix `10.2118/199091-MS` and download via your SPE/OnePetro institutional or paid access — this gives Tier‑4 provenance instead of a Tier‑6 repost.
+
+## P0 — Fault Diagnosis: ChampionX / UNBRIDLED ESP Troubleshooting Guide
+
+- **ChampionX case-history / troubleshooting reference page:** [championx.com — UNBRIDLED ESP case history](https://www.championx.com/middle-east-tradeshow-interactive/artificial-lift-tradeshow-interactive/electrical-submersible-pumping-systems-interactive/esp-chemical-technologies-case-history/) [web:27]
+- Related UNBRIDLED product sheet (VSD/SMARTEN — Tier‑6 repost, use only to locate original): [Scribd — UNBRIDLED SMARTEN VSD Solution Sheet](https://www.scribd.com/document/745208777/UNBRIDLED-SMARTEN-Variable-Speed-Drive-Solution-Sheet-0321) [web:29]
+- **Recommended:** contact ChampionX directly for the original "Unbridled ESP Troubleshooting Guide" PDF cited in your project deck — the public web presence only surfaces case histories, not the full guide.
+
+## P1 — AI / Predictive Maintenance: OTC‑29384‑MS
+
+- **Official OnePetro PDF (primary, citable source):** [onepetro.org — OTC‑29384‑MS full PDF](https://onepetro.org/OTCONF/proceedings-pdf/19OTC/19OTC/D021S016R002/1986135/otc-29384-ms.pdf) [web:46]
+- Conference proceedings index page confirming DOI `10.4043/29384-MS`: [onepetro.org OTC 2019 proceedings](https://onepetro.org/OTCONF/19OTC/conference/2-19OTC) [web:51]
+- JPT highlights summary (good for quick methodology context): [Scribd — JPT highlights of OTC‑29384](https://www.scribd.com/document/481041861/Artificial-Intelligence-Optimizes-Oil-and-Gas-Production) [web:23]
+
+## P1 — Vibration Analytics / ESP Dataset: ESPset v3
+
+- **Official dataset + documentation (Mendeley Data, DOI 10.17632/m268jsw339.3):** [data.mendeley.com/datasets/m268jsw339](https://data.mendeley.com/datasets/m268jsw339) [web:38]
+- Companion peer-reviewed paper describing the experimental framework and feature semantics: [ScienceDirect — open-source experimental framework for ESP fault diagnosis](https://www.sciencedirect.com/science/article/abs/pii/S095070512400087X) [web:34]
+
+## P2 — Public Dataset Documentation: 3W Dataset 2.0.0
+
+- **Official repository (Petrobras):** [github.com/petrobras/3W](https://github.com/petrobras/3W) [web:35]
+- Original author repo (historical, still referenced): [github.com/ricardovvargas/3w_dataset](https://github.com/ricardovvargas/3w_dataset) [web:37]
+- Companion arXiv paper on dataset structure/limitations: [arxiv.org/html/2507.01048v1](https://arxiv.org/html/2507.01048v1) [web:32]
+- Data-articles collaborative repo (supplementary documentation): [github.com/ricardoevvargas/data-articles-3w-dataset](https://github.com/ricardoevvargas/data-articles-3w-dataset) [web:40]
+
+## P1 — Motor Electrical Knowledge: IEC 60034 series (Part 14 — vibration)
+
+- **Official IEC webstore — current edition (2018, Ed. 4.0):** [webstore.iec.ch/publication/59889](https://webstore.iec.ch/en/publication/59889) [web:31]
+- Superseded 1996 edition (for historical cross-check only): [webstore.iec.ch/publication/12299](https://webstore.iec.ch/en/publication/12299) [web:30]
+- Preview/sample PDF showing scope and measurement quantities: [cdn.standards.iteh.ai sample PDF](https://cdn.standards.iteh.ai/samples/100311/bf839e25774743c9a10b20c63a910f11/IEC-60034-14-2018.pdf) [web:36]
+- Upcoming revision to track: [FprEN IEC 60034‑14:2026 draft](https://standards.iteh.ai/catalog/standards/clc/f1d71c8b-b916-4d74-979f-cd256522ac06/fpren-iec-60034-14-2026) [web:41]
+
+## P2 — General ESP Reference Book: Takács, *Electrical Submersible Pumps Manual*
+
+- **2nd Edition (2017) — ScienceDirect (licensed access):** [sciencedirect.com/book/monograph/9780128145708](https://www.sciencedirect.com/book/monograph/9780128145708/electrical-submersible-pumps-manual) [web:45]
+- **1st Edition (2009) — ScienceDirect:** [sciencedirect.com/book/9781856175579](https://www.sciencedirect.com/book/9781856175579/electrical-submersible-pumps-manual) [web:47]
+- Elsevier Shop (2nd ed. purchase page, table of contents): [shop.elsevier.com — 2nd Edition](https://shop.elsevier.com/books/electrical-submersible-pumps-manual/takacs/978-0-12-814570-8) [web:48]
+- Full table of contents (Intro → Fundamentals → Components → Special Conditions → Design → Analysis/Optimization → Operation/Monitoring → Failures/Troubleshooting → Special Installations): [Barnes & Noble listing](https://www.barnesandnoble.com/w/electrical-submersible-pumps-manual-gabor-takacs/1133480525) [web:53]
+
+## Items You Must Obtain Directly (No Public Link Exists)
+
+These are correctly marked in your table as needing direct procurement — no legitimate public link exists, and searching will only surface reposts (Tier‑6) or nothing at all:
+
+- OEM-specific pump performance curves for your actual deployed pump models (get from OEM portal/rep)
+- ESP TDH / pressure-gradient design notes from your ESP‑PMM deck
+- ESP Run Life Factors and ESP Basic Design and Operational Factors documents (internal project reference materials)
+- Model cards/API docs from the other ESP AI team
+- Advait/Client Asset + Telemetry API spec (OpenAPI)
+- ESP AI Model Output API/Event spec
+- Client/Advait SOPs and escalation matrix
+- OPC UA specs (only if actually used in your runtime — via OPC Foundation member portal)
+
+## Quick Authority Reminders
+
+- Treat all **API RP** documents as needing edition verification — several (11S3, 11S4, 11S8) have historical/withdrawn versions still circulating publicly; the IEEE slide deck [web:17] even flags that ISO 15551‑1 may eventually replace 11S3/11S4/11S8 as a single document, so check ISO's current status before locking your standards list.
+- Scribd links included above are flagged Tier‑6 and should only be used to *locate* the real document, then replaced with a licensed/official copy before ingestion into the authoritative KB tiers.

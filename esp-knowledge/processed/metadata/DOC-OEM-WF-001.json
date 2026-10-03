@@ -1,0 +1,570 @@
+{
+  "manifest": {
+    "document_id": "DOC-OEM-WF-001",
+    "title": "Weatherford Electric Submersible Pumping System Application Guide",
+    "canonical_category": "oem",
+    "doc_type": "OEM_MANUAL",
+    "author_publisher": "Weatherford International",
+    "publication_year": "2007",
+    "source_filename": "esp-application-guide-weatherford_compress.pdf",
+    "standardized_filename": "Weatherford_ESP_Application_Guide.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\oem\\Weatherford_ESP_Application_Guide.pdf",
+    "file_size_bytes": 4019809,
+    "sha256_checksum": "9af867354628f039e0f550080eb3b717d3bca499793debca1ae5c6ec10e2cf7b",
+    "total_pages": 110,
+    "extracted_char_count": 139241,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 94,
+      "word_count": 13
+    },
+    {
+      "page_number": 2,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 3,
+      "char_count": 817,
+      "word_count": 133
+    },
+    {
+      "page_number": 4,
+      "char_count": 1261,
+      "word_count": 205
+    },
+    {
+      "page_number": 5,
+      "char_count": 1239,
+      "word_count": 180
+    },
+    {
+      "page_number": 6,
+      "char_count": 1457,
+      "word_count": 221
+    },
+    {
+      "page_number": 7,
+      "char_count": 691,
+      "word_count": 113
+    },
+    {
+      "page_number": 8,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 9,
+      "char_count": 2280,
+      "word_count": 364
+    },
+    {
+      "page_number": 10,
+      "char_count": 1259,
+      "word_count": 182
+    },
+    {
+      "page_number": 11,
+      "char_count": 1366,
+      "word_count": 204
+    },
+    {
+      "page_number": 12,
+      "char_count": 1437,
+      "word_count": 242
+    },
+    {
+      "page_number": 13,
+      "char_count": 1872,
+      "word_count": 309
+    },
+    {
+      "page_number": 14,
+      "char_count": 2079,
+      "word_count": 345
+    },
+    {
+      "page_number": 15,
+      "char_count": 1632,
+      "word_count": 258
+    },
+    {
+      "page_number": 16,
+      "char_count": 1578,
+      "word_count": 275
+    },
+    {
+      "page_number": 17,
+      "char_count": 2435,
+      "word_count": 389
+    },
+    {
+      "page_number": 18,
+      "char_count": 4050,
+      "word_count": 637
+    },
+    {
+      "page_number": 19,
+      "char_count": 1197,
+      "word_count": 162
+    },
+    {
+      "page_number": 20,
+      "char_count": 666,
+      "word_count": 110
+    },
+    {
+      "page_number": 21,
+      "char_count": 1272,
+      "word_count": 190
+    },
+    {
+      "page_number": 22,
+      "char_count": 1687,
+      "word_count": 279
+    },
+    {
+      "page_number": 23,
+      "char_count": 3044,
+      "word_count": 500
+    },
+    {
+      "page_number": 24,
+      "char_count": 2477,
+      "word_count": 416
+    },
+    {
+      "page_number": 25,
+      "char_count": 3128,
+      "word_count": 506
+    },
+    {
+      "page_number": 26,
+      "char_count": 2139,
+      "word_count": 342
+    },
+    {
+      "page_number": 27,
+      "char_count": 1018,
+      "word_count": 163
+    },
+    {
+      "page_number": 28,
+      "char_count": 1825,
+      "word_count": 296
+    },
+    {
+      "page_number": 29,
+      "char_count": 2117,
+      "word_count": 357
+    },
+    {
+      "page_number": 30,
+      "char_count": 4325,
+      "word_count": 712
+    },
+    {
+      "page_number": 31,
+      "char_count": 3775,
+      "word_count": 612
+    },
+    {
+      "page_number": 32,
+      "char_count": 1229,
+      "word_count": 182
+    },
+    {
+      "page_number": 33,
+      "char_count": 1788,
+      "word_count": 298
+    },
+    {
+      "page_number": 34,
+      "char_count": 1111,
+      "word_count": 180
+    },
+    {
+      "page_number": 35,
+      "char_count": 1005,
+      "word_count": 157
+    },
+    {
+      "page_number": 36,
+      "char_count": 1106,
+      "word_count": 176
+    },
+    {
+      "page_number": 37,
+      "char_count": 2629,
+      "word_count": 470
+    },
+    {
+      "page_number": 38,
+      "char_count": 2664,
+      "word_count": 450
+    },
+    {
+      "page_number": 39,
+      "char_count": 1483,
+      "word_count": 233
+    },
+    {
+      "page_number": 40,
+      "char_count": 550,
+      "word_count": 81
+    },
+    {
+      "page_number": 41,
+      "char_count": 1351,
+      "word_count": 232
+    },
+    {
+      "page_number": 42,
+      "char_count": 3015,
+      "word_count": 509
+    },
+    {
+      "page_number": 43,
+      "char_count": 2464,
+      "word_count": 399
+    },
+    {
+      "page_number": 44,
+      "char_count": 2825,
+      "word_count": 445
+    },
+    {
+      "page_number": 45,
+      "char_count": 2784,
+      "word_count": 436
+    },
+    {
+      "page_number": 46,
+      "char_count": 2265,
+      "word_count": 362
+    },
+    {
+      "page_number": 47,
+      "char_count": 1682,
+      "word_count": 287
+    },
+    {
+      "page_number": 48,
+      "char_count": 2864,
+      "word_count": 474
+    },
+    {
+      "page_number": 49,
+      "char_count": 2333,
+      "word_count": 361
+    },
+    {
+      "page_number": 50,
+      "char_count": 3108,
+      "word_count": 513
+    },
+    {
+      "page_number": 51,
+      "char_count": 2269,
+      "word_count": 355
+    },
+    {
+      "page_number": 52,
+      "char_count": 2978,
+      "word_count": 459
+    },
+    {
+      "page_number": 53,
+      "char_count": 3287,
+      "word_count": 532
+    },
+    {
+      "page_number": 54,
+      "char_count": 1224,
+      "word_count": 188
+    },
+    {
+      "page_number": 55,
+      "char_count": 1331,
+      "word_count": 216
+    },
+    {
+      "page_number": 56,
+      "char_count": 1424,
+      "word_count": 228
+    },
+    {
+      "page_number": 57,
+      "char_count": 1870,
+      "word_count": 301
+    },
+    {
+      "page_number": 58,
+      "char_count": 137,
+      "word_count": 20
+    },
+    {
+      "page_number": 59,
+      "char_count": 133,
+      "word_count": 19
+    },
+    {
+      "page_number": 60,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 61,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 62,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 63,
+      "char_count": 1370,
+      "word_count": 222
+    },
+    {
+      "page_number": 64,
+      "char_count": 1354,
+      "word_count": 238
+    },
+    {
+      "page_number": 65,
+      "char_count": 2007,
+      "word_count": 566
+    },
+    {
+      "page_number": 66,
+      "char_count": 1866,
+      "word_count": 529
+    },
+    {
+      "page_number": 67,
+      "char_count": 1089,
+      "word_count": 288
+    },
+    {
+      "page_number": 68,
+      "char_count": 1621,
+      "word_count": 412
+    },
+    {
+      "page_number": 69,
+      "char_count": 1839,
+      "word_count": 331
+    },
+    {
+      "page_number": 70,
+      "char_count": 1765,
+      "word_count": 331
+    },
+    {
+      "page_number": 71,
+      "char_count": 246,
+      "word_count": 35
+    },
+    {
+      "page_number": 72,
+      "char_count": 123,
+      "word_count": 18
+    },
+    {
+      "page_number": 73,
+      "char_count": 160,
+      "word_count": 22
+    },
+    {
+      "page_number": 74,
+      "char_count": 118,
+      "word_count": 17
+    },
+    {
+      "page_number": 75,
+      "char_count": 124,
+      "word_count": 17
+    },
+    {
+      "page_number": 76,
+      "char_count": 118,
+      "word_count": 17
+    },
+    {
+      "page_number": 77,
+      "char_count": 123,
+      "word_count": 17
+    },
+    {
+      "page_number": 78,
+      "char_count": 119,
+      "word_count": 17
+    },
+    {
+      "page_number": 79,
+      "char_count": 128,
+      "word_count": 17
+    },
+    {
+      "page_number": 80,
+      "char_count": 190,
+      "word_count": 27
+    },
+    {
+      "page_number": 81,
+      "char_count": 1600,
+      "word_count": 254
+    },
+    {
+      "page_number": 82,
+      "char_count": 2063,
+      "word_count": 363
+    },
+    {
+      "page_number": 83,
+      "char_count": 1943,
+      "word_count": 336
+    },
+    {
+      "page_number": 84,
+      "char_count": 3294,
+      "word_count": 559
+    },
+    {
+      "page_number": 85,
+      "char_count": 2100,
+      "word_count": 339
+    },
+    {
+      "page_number": 86,
+      "char_count": 1903,
+      "word_count": 368
+    },
+    {
+      "page_number": 87,
+      "char_count": 175,
+      "word_count": 26
+    },
+    {
+      "page_number": 88,
+      "char_count": 169,
+      "word_count": 26
+    },
+    {
+      "page_number": 89,
+      "char_count": 154,
+      "word_count": 23
+    },
+    {
+      "page_number": 90,
+      "char_count": 164,
+      "word_count": 26
+    },
+    {
+      "page_number": 91,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 92,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 93,
+      "char_count": 158,
+      "word_count": 24
+    },
+    {
+      "page_number": 94,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 95,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 96,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 97,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 98,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 99,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 100,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 101,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 102,
+      "char_count": 158,
+      "word_count": 24
+    },
+    {
+      "page_number": 103,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 104,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 105,
+      "char_count": 91,
+      "word_count": 13
+    },
+    {
+      "page_number": 106,
+      "char_count": 89,
+      "word_count": 13
+    },
+    {
+      "page_number": 107,
+      "char_count": 90,
+      "word_count": 13
+    },
+    {
+      "page_number": 108,
+      "char_count": 90,
+      "word_count": 13
+    },
+    {
+      "page_number": 109,
+      "char_count": 92,
+      "word_count": 13
+    },
+    {
+      "page_number": 110,
+      "char_count": 92,
+      "word_count": 13
+    }
+  ]
+}

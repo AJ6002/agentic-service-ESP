@@ -1,0 +1,102 @@
+# ESP-PMM Fault Taxonomy (Seed Data)
+# Converted and expanded from esp_graph.json failure modes
+# Version: 1.0.0
+
+faults:
+  - fault_id: MOTOR_OVERHEATING
+    category: THERMAL
+    preferred_name: Motor Overheating
+    synonyms: ["thermal overload", "stator overheating", "motor thermal stress"]
+    canonical_metric: primary_thermal_metric
+    symptoms:
+      - High Motor Temperature (>130°C)
+      - Current Imbalance
+    contributing_factors:
+      - Low Intake Pressure (reduced fluid flow over motor housing)
+      - Scale Deposition (insulating layer on motor housing)
+      - High Wellbore Temperature (BHT)
+    evidence_required:
+      - primary_thermal_metric
+      - primary_intake_pressure
+    severity_range: "WARNING to CRITICAL"
+    escalation: "engineering_review_required"
+    source: "esp_graph.json + SPE-199091-MS"
+
+  - fault_id: BEARING_WEAR
+    category: MECHANICAL
+    preferred_name: Bearing Wear
+    synonyms: ["journal bearing degradation", "thrust bearing wear", "rotor eccentricity"]
+    canonical_metric: vibration_metric
+    symptoms:
+      - Excessive Radial Vibration (>3.0g)
+      - Axial Vibration Spike (>1.5g)
+    contributing_factors:
+      - Abrasive solids in fluid stream
+      - Operation outside Recommended Operating Range (ROR)
+      - Shaft misalignment
+    evidence_required:
+      - vibration_metric
+      - axial_vibration_metric
+    severity_range: "WARNING to CRITICAL"
+    escalation: "reliability_engineer_notify"
+    source: "esp_graph.json"
+
+  - fault_id: GAS_LOCK
+    category: HYDRAULIC
+    preferred_name: Gas Lock / Gas Interference
+    synonyms: ["free gas locking", "intake gas interference", "gas slugging"]
+    canonical_metric: primary_intake_pressure
+    symptoms:
+      - Low Intake Pressure (<150 psi)
+      - Erratic Motor Current / Underload Trips
+      - Flow Rate Drop
+    contributing_factors:
+      - High Gas-Oil Ratio (GOR)
+      - Ineffective gas separator
+      - Excessive fluid drawdown
+    evidence_required:
+      - primary_intake_pressure
+      - flow_metric
+      - primary_electrical_load
+    severity_range: "WARNING to CRITICAL"
+    escalation: "production_engineer_notify"
+    source: "esp_graph.json + ChampionX Guide"
+
+  - fault_id: PUMP_WEAR
+    category: HYDRAULIC
+    preferred_name: Stage / Impeller Wear
+    synonyms: ["hydraulic degradation", "impeller erosion", "diffuser wear"]
+    canonical_metric: flow_metric
+    symptoms:
+      - Flow Rate Decrease
+      - Pump Efficiency Decrease (<60%)
+      - Head loss at constant frequency
+    contributing_factors:
+      - Sand production / abrasive fluid
+      - Operation outside BEP
+    evidence_required:
+      - flow_metric
+      - efficiency_metric
+      - primary_discharge_pressure
+    severity_range: "WARNING"
+    escalation: "plan_intervention"
+    source: "esp_graph.json"
+
+  - fault_id: SCALE_DEPOSITION
+    category: WELL_PROCESS
+    preferred_name: Scale Deposition
+    synonyms: ["mineral scaling", "calcite buildup", "intake scaling"]
+    canonical_metric: flow_metric
+    symptoms:
+      - Gradual Flow Rate Decrease
+      - Motor Temperature Increase
+      - Discharge Pressure Increase
+    contributing_factors:
+      - Water cut increase
+      - Pressure drop across intake causing mineral precipitation
+    evidence_required:
+      - flow_metric
+      - primary_thermal_metric
+    severity_range: "WARNING"
+    escalation: "chemical_treatment_review"
+    source: "esp_graph.json"

@@ -1,0 +1,638 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "",
+      "Solution Node dP Friction dP Gravity",
+      "",
+      "",
+      "Oil Flowrate (bbl/d)"
+    ],
+    "rows": [
+      {
+        "": "2176",
+        "Solution Node dP Friction dP Gravity": "2507",
+        "Oil Flowrate (bbl/d)": "3523"
+      },
+      {
+        "": "2510",
+        "Solution Node dP Friction dP Gravity": "2767.35",
+        "Oil Flowrate (bbl/d)": "2255"
+      },
+      {
+        "": "3236.5",
+        "Solution Node dP Friction dP Gravity": "3386",
+        "Oil Flowrate (bbl/d)": "728"
+      }
+    ],
+    "csv": ",Solution Node dP Friction dP Gravity,,,Oil Flowrate (bbl/d)\r\nWater Cut 45%,2507,225,2176,3523\r\nWater Cut 60%,2767.35,156,2510,2255\r\nWater Cut 80%,3386,52,3236.5,728\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "",
+      "Solution Node",
+      "dP Friction dP Gravity",
+      "",
+      "Oil Flowrate (bbl/d)"
+    ],
+    "rows": [
+      {
+        "": "2173",
+        "Solution Node": "2509",
+        "dP Friction dP Gravity": "230",
+        "Oil Flowrate (bbl/d)": "3520"
+      },
+      {
+        "": "2049",
+        "Solution Node": "2307",
+        "dP Friction dP Gravity": "156",
+        "Oil Flowrate (bbl/d)": "3836"
+      },
+      {
+        "": "1697",
+        "Solution Node": "1833",
+        "dP Friction dP Gravity": "31",
+        "Oil Flowrate (bbl/d)": "4508"
+      }
+    ],
+    "csv": ",Solution Node,dP Friction dP Gravity,,Oil Flowrate (bbl/d)\r\n\"Tubing 3.96\"\"\",2509,230,2173,3520\r\n\"Tubing 4.5\"\"\",2307,156,2049,3836\r\n\"Tubing 7\"\"\",1833,31,1697,4508\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "",
+      "Solution Node",
+      "",
+      "",
+      "dP Friction dP Gravity Oil Flowrate (bbl/d)"
+    ],
+    "rows": [
+      {
+        "": "2176.7",
+        "Solution Node": "2507.6",
+        "dP Friction dP Gravity Oil Flowrate (bbl/d)": "3523"
+      },
+      {
+        "": "1908",
+        "Solution Node": "2295",
+        "dP Friction dP Gravity Oil Flowrate (bbl/d)": "3626"
+      },
+      {
+        "": "1546",
+        "Solution Node": "2028",
+        "dP Friction dP Gravity Oil Flowrate (bbl/d)": "3664"
+      }
+    ],
+    "csv": ",Solution Node,,,dP Friction dP Gravity Oil Flowrate (bbl/d)\r\nTotal GOR 780,2507.6,225.6,2176.7,3523\r\nTotal GOR 1000,2295,275,1908,3626\r\nTotal GOR 1500,2028,359,1546,3664\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Operating Parameters.",
+      "Positive displacement pumps.Rod pump",
+      "Positive displacement pumps.PCP",
+      "Positive displacement pumps.Hydraulic Piston",
+      "Dynamic displacement pumps.ESP",
+      "Dynamic displacement pumps.Hydraulic Jet",
+      "Gas lift.",
+      "Plunger.lift"
+    ],
+    "rows": [
+      {
+        "Operating Parameters.": "Typical Operating Depth (TVD)",
+        "Positive displacement pumps.Rod pump": "100 to 11000 ft",
+        "Positive displacement pumps.PCP": "2000 to 4500 ft",
+        "Positive displacement pumps.Hydraulic Piston": "7500 to 10000 ft",
+        "Dynamic displacement pumps.ESP": "",
+        "Dynamic displacement pumps.Hydraulic Jet": "5000 to 10000 ft",
+        "Gas lift.": "5000 to 10000 ft",
+        "Plunger.lift": "To 8000 ft"
+      },
+      {
+        "Operating Parameters.": "Maximum Operating Depth (TVD)",
+        "Positive displacement pumps.Rod pump": "16000 ft",
+        "Positive displacement pumps.PCP": "6000 ft",
+        "Positive displacement pumps.Hydraulic Piston": "17000 ft",
+        "Dynamic displacement pumps.ESP": "15000 ft",
+        "Dynamic displacement pumps.Hydraulic Jet": "15000 ft",
+        "Gas lift.": "15000 ft",
+        "Plunger.lift": "20000 ft"
+      },
+      {
+        "Operating Parameters.": "Typical Operating Volume",
+        "Positive displacement pumps.Rod pump": "5 to 1500 BFPD",
+        "Positive displacement pumps.PCP": "0 5 to 2200 BFPD",
+        "Positive displacement pumps.Hydraulic Piston": "50 - 500 BFPD",
+        "Dynamic displacement pumps.ESP": "100 to 30000 BFPD",
+        "Dynamic displacement pumps.Hydraulic Jet": "BFPD",
+        "Gas lift.": "300 - 4000 100 - 10000 BFPD",
+        "Plunger.lift": "1 BFPD"
+      },
+      {
+        "Operating Parameters.": "Maximum",
+        "Positive displacement pumps.Rod pump": "6000 BFPD",
+        "Positive displacement pumps.PCP": "4500",
+        "Positive displacement pumps.Hydraulic Piston": "4000 BFPD",
+        "Dynamic displacement pumps.ESP": "40000",
+        "Dynamic displacement pumps.Hydraulic Jet": ">15000",
+        "Gas lift.": "30000",
+        "Plunger.lift": "200 BFPD"
+      }
+    ],
+    "csv": "Operating Parameters.,Positive displacement pumps.Rod pump,Positive displacement pumps.PCP,Positive displacement pumps.Hydraulic Piston,Dynamic displacement pumps.ESP,Dynamic displacement pumps.Hydraulic Jet,Gas lift.,Plunger.lift\r\nTypical Operating Depth (TVD),100 to 11000 ft,2000 to 4500 ft,7500 to 10000 ft,,5000 to 10000 ft,5000 to 10000 ft,To 8000 ft\r\nMaximum Operating Depth (TVD),16000 ft,6000 ft,17000 ft,15000 ft,15000 ft,15000 ft,20000 ft\r\nTypical Operating Volume,5 to 1500 BFPD,0 5 to 2200 BFPD,50 - 500 BFPD,100 to 30000 BFPD,BFPD,300 - 4000 100 - 10000 BFPD,1 BFPD\r\nMaximum,6000 BFPD,4500,4000 BFPD,40000,>15000,30000,200 BFPD\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Operating P\u00e2rameters.Operating P\u00e2rameters",
+      "Positive displacement pumps.Rod pump",
+      "Positive displacement pumps.PCP",
+      "Positive displacement pumps.Hydraulic Piston",
+      "Dynamic displacement pumps.ESP",
+      "Dynamic displacement pumps.Hydraulic Jet",
+      "Gas lift.Gas lift",
+      "Plunger lift.Plunger lift"
+    ],
+    "rows": [
+      {
+        "Operating P\u00e2rameters.Operating P\u00e2rameters": "Operating Volume",
+        "Positive displacement pumps.Rod pump": "",
+        "Positive displacement pumps.PCP": "BFPD",
+        "Positive displacement pumps.Hydraulic Piston": "",
+        "Dynamic displacement pumps.ESP": "BFPD",
+        "Dynamic displacement pumps.Hydraulic Jet": "BFPD",
+        "Gas lift.Gas lift": "BFPD",
+        "Plunger lift.Plunger lift": ""
+      },
+      {
+        "Operating P\u00e2rameters.Operating P\u00e2rameters": "Typical Operating Temperature",
+        "Positive displacement pumps.Rod pump": "100 - 350 F [40-177 C]",
+        "Positive displacement pumps.PCP": "\u00b075 - 150 \u00b0 F 100 - 250 [24-65 C]",
+        "Positive displacement pumps.Hydraulic Piston": "0 F [40-120 C]",
+        "Dynamic displacement pumps.ESP": "",
+        "Dynamic displacement pumps.Hydraulic Jet": "100 - 250 0 F [40-120 c]",
+        "Gas lift.Gas lift": "100 - 250 F [40-120 C]",
+        "Plunger lift.Plunger lift": "120 \u00e0 F [50 \u00b0 C]"
+      },
+      {
+        "Operating P\u00e2rameters.Operating P\u00e2rameters": "Maximum Operating temperature",
+        "Positive displacement pumps.Rod pump": "550 F [288 \u00b0 C]",
+        "Positive displacement pumps.PCP": "250 F [120 C]",
+        "Positive displacement pumps.Hydraulic Piston": "500 F [260 C]",
+        "Dynamic displacement pumps.ESP": "400 0 F [205 C]",
+        "Dynamic displacement pumps.Hydraulic Jet": "500 F [260 [5",
+        "Gas lift.Gas lift": "400 F [205 C]",
+        "Plunger lift.Plunger lift": "500 F [260 C]"
+      },
+      {
+        "Operating P\u00e2rameters.Operating P\u00e2rameters": "Typical Wellbore Deviation",
+        "Positive displacement pumps.Rod pump": "0 - 20 deg 1anded pump",
+        "Positive displacement pumps.PCP": "N/A",
+        "Positive displacement pumps.Hydraulic Piston": "0  - 20 deg 1anded pump",
+        "Dynamic displacement pumps.ESP": "",
+        "Dynamic displacement pumps.Hydraulic Jet": "0 - 20 deg hole angle",
+        "Gas lift.Gas lift": "0 - 50 deg",
+        "Plunger lift.Plunger lift": "N/A"
+      },
+      {
+        "Operating P\u00e2rameters.Operating P\u00e2rameters": "Maximum Wellbore Deviation",
+        "Positive displacement pumps.Rod pump": "0 - 90 deg 1anded pump",
+        "Positive displacement pumps.PCP": "0 90 deg < 15 deg/100 ft",
+        "Positive displacement pumps.Hydraulic Piston": "0 - 90 deg < 15 deg/100 ft",
+        "Dynamic displacement pumps.ESP": "0 - 90 deg",
+        "Dynamic displacement pumps.Hydraulic Jet": "0 - 90 deg < 24 deg/100 ft",
+        "Gas lift.Gas lift": "70 deg. short to medium radius",
+        "Plunger lift.Plunger lift": "80 deg"
+      }
+    ],
+    "csv": "Operating P\u00e2rameters.Operating P\u00e2rameters,Positive displacement pumps.Rod pump,Positive displacement pumps.PCP,Positive displacement pumps.Hydraulic Piston,Dynamic displacement pumps.ESP,Dynamic displacement pumps.Hydraulic Jet,Gas lift.Gas lift,Plunger lift.Plunger lift\r\nOperating Volume,,BFPD,,BFPD,BFPD,BFPD,\r\nTypical Operating Temperature,100 - 350 F [40-177 C],\u00b075 - 150 \u00b0 F 100 - 250 [24-65 C],0 F [40-120 C],,100 - 250 0 F [40-120 c],100 - 250 F [40-120 C],120 \u00e0 F [50 \u00b0 C]\r\nMaximum Operating temperature,550 F [288 \u00b0 C],250 F [120 C],500 F [260 C],400 0 F [205 C],500 F [260 [5,400 F [205 C],500 F [260 C]\r\nTypical Wellbore Deviation,0 - 20 deg 1anded pump,N/A,0  - 20 deg 1anded pump,,0 - 20 deg hole angle,0 - 50 deg,N/A\r\nMaximum Wellbore Deviation,0 - 90 deg 1anded pump,0 90 deg < 15 deg/100 ft,0 - 90 deg < 15 deg/100 ft,0 - 90 deg,0 - 90 deg < 24 deg/100 ft,70 deg. short to medium radius,80 deg\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "Operating Parameters.Operating Parameters",
+      "Positive displacement pumps.Rod pump",
+      "Positive displacement pumps.PCP",
+      "Positive displacement pumps.Hydraulic Piston",
+      "Dynamic displacement pumps.ESP",
+      "Dynamic displacement pumps.Hydraulic Jet",
+      "Gas lift.Gas lift",
+      "Plunger lift.Plunger lift"
+    ],
+    "rows": [
+      {
+        "Operating Parameters.Operating Parameters": "Operating Volume",
+        "Positive displacement pumps.Rod pump": "",
+        "Positive displacement pumps.PCP": "BFPD",
+        "Positive displacement pumps.Hydraulic Piston": "",
+        "Dynamic displacement pumps.ESP": "BFPD",
+        "Dynamic displacement pumps.Hydraulic Jet": "BFPD",
+        "Gas lift.Gas lift": "BFPD",
+        "Plunger lift.Plunger lift": ""
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Corrosion handling",
+        "Positive displacement pumps.Rod pump": "Good to Excellent",
+        "Positive displacement pumps.PCP": "Fair",
+        "Positive displacement pumps.Hydraulic Piston": "Good",
+        "Dynamic displacement pumps.ESP": "Good",
+        "Dynamic displacement pumps.Hydraulic Jet": "Excellent",
+        "Gas lift.Gas lift": "Good to excellent",
+        "Plunger lift.Plunger lift": "Excellent"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Gas handling",
+        "Positive displacement pumps.Rod pump": "Fair to good",
+        "Positive displacement pumps.PCP": "Good",
+        "Positive displacement pumps.Hydraulic Piston": "Fair",
+        "Dynamic displacement pumps.ESP": "Fair",
+        "Dynamic displacement pumps.Hydraulic Jet": "Good",
+        "Gas lift.Gas lift": "Excellent",
+        "Plunger lift.Plunger lift": "Excellent"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Solids handling",
+        "Positive displacement pumps.Rod pump": "Fair to good",
+        "Positive displacement pumps.PCP": "Excellent",
+        "Positive displacement pumps.Hydraulic Piston": "Poor",
+        "Dynamic displacement pumps.ESP": "Fair",
+        "Dynamic displacement pumps.Hydraulic Jet": "Good",
+        "Gas lift.Gas lift": "Good",
+        "Plunger lift.Plunger lift": "Poor to Fair"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Fluid gravity",
+        "Positive displacement pumps.Rod pump": "8 \u00b0API",
+        "Positive displacement pumps.PCP": "< 35\u00b0API",
+        "Positive displacement pumps.Hydraulic Piston": "8 API",
+        "Dynamic displacement pumps.ESP": "V 10 \u00b0API",
+        "Dynamic displacement pumps.Hydraulic Jet": "> 8 API",
+        "Gas lift.Gas lift": "15\u00b0API",
+        "Plunger lift.Plunger lift": "GLR = 300 SCF/Bb1 per 1000 ft of depth"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Servicing",
+        "Positive displacement pumps.Rod pump": "Workover or pulling rig",
+        "Positive displacement pumps.PCP": "Workover or pulling rig",
+        "Positive displacement pumps.Hydraulic Piston": "Hydraulic or wireline",
+        "Dynamic displacement pumps.ESP": "Workover or pulling rig",
+        "Dynamic displacement pumps.Hydraulic Jet": "Hydraulic or Wireline or wireline",
+        "Gas lift.Gas lift": "workover rig",
+        "Plunger lift.Plunger lift": "Wellhead catcher or wireline"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Prime mover",
+        "Positive displacement pumps.Rod pump": "Gas or electric",
+        "Positive displacement pumps.PCP": "Gas or electric",
+        "Positive displacement pumps.Hydraulic Piston": "Multi- cylinder or electric",
+        "Dynamic displacement pumps.ESP": "Electric motor",
+        "Dynamic displacement pumps.Hydraulic Jet": "Multi- cylinder or electric",
+        "Gas lift.Gas lift": "",
+        "Plunger lift.Plunger lift": "CompressorWell's natural energy"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "Offshore applications",
+        "Positive displacement pumps.Rod pump": "Limited",
+        "Positive displacement pumps.PCP": "Good",
+        "Positive displacement pumps.Hydraulic Piston": "Good",
+        "Dynamic displacement pumps.ESP": "Excellent",
+        "Dynamic displacement pumps.Hydraulic Jet": "Excellent",
+        "Gas lift.Gas lift": "Excellent",
+        "Plunger lift.Plunger lift": "N/A"
+      },
+      {
+        "Operating Parameters.Operating Parameters": "System efficiency",
+        "Positive displacement pumps.Rod pump": "",
+        "Positive displacement pumps.PCP": "",
+        "Positive displacement pumps.Hydraulic Piston": "45% - 60% 40% - 70% 45% - 55% |35% - 60%",
+        "Dynamic displacement pumps.ESP": "",
+        "Dynamic displacement pumps.Hydraulic Jet": "10% - 30% 10% - 30%",
+        "Gas lift.Gas lift": "",
+        "Plunger lift.Plunger lift": "N/A"
+      }
+    ],
+    "csv": "Operating Parameters.Operating Parameters,Positive displacement pumps.Rod pump,Positive displacement pumps.PCP,Positive displacement pumps.Hydraulic Piston,Dynamic displacement pumps.ESP,Dynamic displacement pumps.Hydraulic Jet,Gas lift.Gas lift,Plunger lift.Plunger lift\r\nOperating Volume,,BFPD,,BFPD,BFPD,BFPD,\r\nCorrosion handling,Good to Excellent,Fair,Good,Good,Excellent,Good to excellent,Excellent\r\nGas handling,Fair to good,Good,Fair,Fair,Good,Excellent,Excellent\r\nSolids handling,Fair to good,Excellent,Poor,Fair,Good,Good,Poor to Fair\r\nFluid gravity,8 \u00b0API,< 35\u00b0API,8 API,V 10 \u00b0API,> 8 API,15\u00b0API,GLR = 300 SCF/Bb1 per 1000 ft of depth\r\nServicing,Workover or pulling rig,Workover or pulling rig,Hydraulic or wireline,Workover or pulling rig,Hydraulic or Wireline or wireline,workover rig,Wellhead catcher or wireline\r\nPrime mover,Gas or electric,Gas or electric,Multi- cylinder or electric,Electric motor,Multi- cylinder or electric,,CompressorWell's natural energy\r\nOffshore applications,Limited,Good,Good,Excellent,Excellent,Excellent,N/A\r\nSystem efficiency,,,45% - 60% 40% - 70% 45% - 55% |35% - 60%,,10% - 30% 10% - 30%,,N/A\r\n"
+  },
+  {
+    "table_index": 7,
+    "columns": [
+      "Categories",
+      "Considerations"
+    ],
+    "rows": [
+      {
+        "Categories": "Capital Costs",
+        "Considerations": "- Relatively low capital cost if electric power available. - Costs increase as horsepower increases."
+      },
+      {
+        "Categories": "Downhole equipment",
+        "Considerations": "- Requires proper cable in addition to motor, pumps, seals, etc. - Good design plus good operating practices are essential."
+      },
+      {
+        "Categories": "Miscellaneous problems",
+        "Considerations": "- Requires a highly reliable electric power system. - System very sensitive to changes downhole or in fluid properties requires a highly reliable electric power system. - System very sensitive to changes downhole or in fluid properties"
+      },
+      {
+        "Categories": "Casing Size Limit",
+        "Considerations": "- Casing size will limit use of large motors and pumps. - Avoid 4.5' casing and smaller. - Reduced performance inside 5.5' casing depending on depth and rate"
+      },
+      {
+        "Categories": "Operating Costs",
+        "Considerations": "- Varies. If high HP, high energy costs."
+      },
+      {
+        "Categories": "Solid Handling Capacities",
+        "Considerations": "- Poor. Requires <100 - 200 PPM solids for standard construction."
+      },
+      {
+        "Categories": "Gas Handling Capacities",
+        "Considerations": "- Poor for free gas (i.e. >5% through pump)."
+      },
+      {
+        "Categories": "Temperature limitation",
+        "Considerations": "- Limited to <250 0 F for standard & <400 0 F for special motors & cable. - 100 - 275\u00b0F typical."
+      }
+    ],
+    "csv": "Categories,Considerations\r\nCapital Costs,- Relatively low capital cost if electric power available. - Costs increase as horsepower increases.\r\nDownhole equipment,\"- Requires proper cable in addition to motor, pumps, seals, etc. - Good design plus good operating practices are essential.\"\r\nMiscellaneous problems,- Requires a highly reliable electric power system. - System very sensitive to changes downhole or in fluid properties requires a highly reliable electric power system. - System very sensitive to changes downhole or in fluid properties\r\nCasing Size Limit,- Casing size will limit use of large motors and pumps. - Avoid 4.5' casing and smaller. - Reduced performance inside 5.5' casing depending on depth and rate\r\nOperating Costs,\"- Varies. If high HP, high energy costs.\"\r\nSolid Handling Capacities,- Poor. Requires <100 - 200 PPM solids for standard construction.\r\nGas Handling Capacities,- Poor for free gas (i.e. >5% through pump).\r\nTemperature limitation,- Limited to <250 0 F for standard & <400 0 F for special motors & cable. - 100 - 275\u00b0F typical.\r\n"
+  },
+  {
+    "table_index": 8,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "High Volume Lift Capacities",
+        "1": "- Excellent. - Limited by needed HP and can be restricted by casing size."
+      },
+      {
+        "0": "Low Volume Lift Capacities",
+        "1": "- Generally poor. - Lower efficiencies and high operating costs <400 BFPD."
+      },
+      {
+        "0": "High viscosity fluid handling Capacities",
+        "1": "- Fair. Limited to as high as 1000 cp. - Depends on economics. (~>7-9\u00b0API) - Increases HP and reduces head."
+      },
+      {
+        "0": "Depth limits",
+        "1": "- Usually limited to motor HP or temperature. - Practical depth about 10,000 feet. - 1000' - 10000' TVD is typical, Max is 15,000 ' TVD"
+      }
+    ],
+    "csv": "0,1\r\nHigh Volume Lift Capacities,- Excellent. - Limited by needed HP and can be restricted by casing size.\r\nLow Volume Lift Capacities,- Generally poor. - Lower efficiencies and high operating costs <400 BFPD.\r\nHigh viscosity fluid handling Capacities,- Fair. Limited to as high as 1000 cp. - Depends on economics. (~>7-9\u00b0API) - Increases HP and reduces head.\r\nDepth limits,\"- Usually limited to motor HP or temperature. - Practical depth about 10,000 feet. - 1000' - 10000' TVD is typical, Max is 15,000 ' TVD\"\r\n"
+  },
+  {
+    "table_index": 9,
+    "columns": [
+      "Tubing OD",
+      "3.5",
+      "inches"
+    ],
+    "rows": [
+      {
+        "Tubing OD": "Tubing ID",
+        "3.5": "2.992",
+        "inches": "inches"
+      },
+      {
+        "Tubing OD": "Top Perforation",
+        "3.5": "6571.52",
+        "inches": "ft"
+      },
+      {
+        "Tubing OD": "Pump Intake Depth",
+        "3.5": "5620",
+        "inches": "ft"
+      },
+      {
+        "Tubing OD": "z factor",
+        "3.5": "0.85",
+        "inches": ""
+      },
+      {
+        "Tubing OD": "Oil Gravity",
+        "3.5": "35",
+        "inches": "API"
+      },
+      {
+        "Tubing OD": "Water Cut",
+        "3.5": "90",
+        "inches": "%"
+      },
+      {
+        "Tubing OD": "Water Gravity",
+        "3.5": "1.01",
+        "inches": "rel-H2O"
+      },
+      {
+        "Tubing OD": "Gas Gravity",
+        "3.5": "0.8",
+        "inches": "rel-air"
+      },
+      {
+        "Tubing OD": "Producing GOR",
+        "3.5": "200",
+        "inches": "scf/stb"
+      },
+      {
+        "Tubing OD": "Bubble Pressure",
+        "3.5": "964",
+        "inches": "psi"
+      },
+      {
+        "Tubing OD": "Bottomhole Temperature",
+        "3.5": "90",
+        "inches": "\u00b0C"
+      },
+      {
+        "Tubing OD": "Wellhead Temperature",
+        "3.5": "50",
+        "inches": "\u00b0C"
+      },
+      {
+        "Tubing OD": "Wellhead Pressure",
+        "3.5": "87",
+        "inches": "ps\u00ed"
+      },
+      {
+        "Tubing OD": "Casing-Head Pressure",
+        "3.5": "15",
+        "inches": "psi"
+      },
+      {
+        "Tubing OD": "Reservoir Pressure",
+        "3.5": "2320.6",
+        "inches": "psi"
+      },
+      {
+        "Tubing OD": "Desired production rate",
+        "3.5": "3500",
+        "inches": "bfpd"
+      },
+      {
+        "Tubing OD": "Pump Intake Pressure",
+        "3.5": "1160",
+        "inches": "psi"
+      },
+      {
+        "Tubing OD": "Present Production Rate",
+        "3.5": "2500",
+        "inches": "bfpd"
+      },
+      {
+        "Tubing OD": "",
+        "3.5": "158",
+        "inches": ""
+      },
+      {
+        "Tubing OD": "Correction factor",
+        "3.5": "120",
+        "inches": ""
+      }
+    ],
+    "csv": "Tubing OD,3.5,inches\r\nTubing ID,2.992,inches\r\nTop Perforation,6571.52,ft\r\nPump Intake Depth,5620,ft\r\nz factor,0.85,\r\nOil Gravity,35,API\r\nWater Cut,90,%\r\nWater Gravity,1.01,rel-H2O\r\nGas Gravity,0.8,rel-air\r\nProducing GOR,200,scf/stb\r\nBubble Pressure,964,psi\r\nBottomhole Temperature,90,\u00b0C\r\nWellhead Temperature,50,\u00b0C\r\nWellhead Pressure,87,ps\u00ed\r\nCasing-Head Pressure,15,psi\r\nReservoir Pressure,2320.6,psi\r\nDesired production rate,3500,bfpd\r\nPump Intake Pressure,1160,psi\r\nPresent Production Rate,2500,bfpd\r\n,158,\r\nCorrection factor,120,\r\n"
+  },
+  {
+    "table_index": 10,
+    "columns": [
+      "Step 1",
+      "Production Capacity",
+      "",
+      ""
+    ],
+    "rows": [
+      {
+        "Step 1": "",
+        "Production Capacity": "S.G (Oil)",
+        "": ""
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "SG (W/ater)",
+        "": ""
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Flow ing pressure (Pw f)",
+        "": "psi"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Productivity Index (PI)",
+        "": "bpd/psi"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Pwf @ Desired Flow rate",
+        "": "psi"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Pump Intake pressure",
+        "": "psi"
+      },
+      {
+        "Step 1": "Step 2",
+        "Production Capacity": "Gas Calculation",
+        "": ""
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Solution GOR (Rs)",
+        "": "sof/stb"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Oil Formation Volume Factor (Bo)",
+        "": "bbl/stb"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Gas Formation Volume Factor (Bg)",
+        "": "bbl/Mscf"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Total Gas Volume",
+        "": "Msof"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Solution gas volume",
+        "": "Msof"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Free Gas Volume",
+        "": "Msof"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Volume of oil at the pump intake (Vo)",
+        "": "bopd"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Volume of gas (Vg) at the pump intake",
+        "": "pdq"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Volume of w ater (Vw) at the pump intake",
+        "": "bwpd"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Total Fluid Volume",
+        "": "bfpd"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Free Gas X",
+        "": "X"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Total Mass of Produoed Fluid (TMPF)",
+        "": ""
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "SGoomp",
+        "": ""
+      },
+      {
+        "Step 1": "Step 3",
+        "Production Capacity": "Total Dynamic Head (TDH)",
+        "": ""
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "PIP",
+        "": "ft"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Net W'ell Lift",
+        "": "ft"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "well-tubing friction loss",
+        "": "ft"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Wellhead Pressure Head (Hwh)",
+        "": "ft"
+      },
+      {
+        "Step 1": "",
+        "Production Capacity": "Total Dyamic Head",
+        "": "Ft"
+      }
+    ],
+    "csv": "Step 1,Production Capacity,,\r\n,S.G (Oil),0.85,\r\n,SG (W/ater),0.94,\r\n,Flow ing pressure (Pw f),1570,psi\r\n,Productivity Index (PI),3.229,bpd/psi\r\n,Pwf @ Desired Flow rate,1269,psi\r\n,Pump Intake pressure,859.6,psi\r\nStep 2,Gas Calculation,,\r\n,Solution GOR (Rs),190.5,sof/stb\r\n,Oil Formation Volume Factor (Bo),1.131,bbl/stb\r\n,Gas Formation Volume Factor (Bg),3.6,bbl/Mscf\r\n,Total Gas Volume,70,Msof\r\n,Solution gas volume,66.67,Msof\r\n,Free Gas Volume,3.28,Msof\r\n,Volume of oil at the pump intake (Vo),3995.,bopd\r\n,Volume of gas (Vg) at the pump intake,10.27,pdq\r\n,Volume of w ater (Vw) at the pump intake,3150,bwpd\r\n,Total Fluid Volume,3556,bfpd\r\n,Free Gas X,0.289,X\r\n,Total Mass of Produoed Fluid (TMPF),1E+06,\r\n,SGoomp,0.997,\r\nStep 3,Total Dynamic Head (TDH),,\r\n,PIP,1690,ft\r\n,Net W'ell Lift,36330,ft\r\n,well-tubing friction loss,218.3,ft\r\n,Wellhead Pressure Head (Hwh),201.4,ft\r\n,Total Dyamic Head,4049,Ft\r\n"
+  }
+]

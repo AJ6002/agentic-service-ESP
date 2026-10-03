@@ -17,8 +17,8 @@ domains:
     timestamp_key: "timestamp"
     age_key: "age_sec"
     nominal_interval_sec: 1.0
-    warning_staleness_sec: 5.0
-    critical_staleness_sec: 30.0
+    warning_staleness_sec: 60.0
+    critical_staleness_sec: 86400.0
     invalidation_action: "FLAG_STALE"
 
   live_vfm:
@@ -26,8 +26,8 @@ domains:
     timestamp_key: "timestamp"
     age_key: "age_sec"
     nominal_interval_sec: 1.0
-    warning_staleness_sec: 5.0
-    critical_staleness_sec: 30.0
+    warning_staleness_sec: 60.0
+    critical_staleness_sec: 86400.0
     invalidation_action: "FLAG_ESTIMATE_DRIFTED"
 
   live_status:

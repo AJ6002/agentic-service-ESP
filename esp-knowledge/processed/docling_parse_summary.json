@@ -1,0 +1,162 @@
+[
+  {
+    "filename": "ADVAIT_ESP_PMM_Working_Draft.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 390.88,
+    "char_count": 28865,
+    "tables_count": 4,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\ADVAIT_ESP_PMM_Working_Draft.md"
+  },
+  {
+    "filename": "ESP_Components_Equipment_Description.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 29.11,
+    "char_count": 25645,
+    "tables_count": 1,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\ESP_Components_Equipment_Description.md"
+  },
+  {
+    "filename": "Takacs_ESP_Manual_2nd_Ed.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 331.5,
+    "char_count": 182165,
+    "tables_count": 7,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\Takacs_ESP_Manual_2nd_Ed.md"
+  },
+  {
+    "filename": "Takacs_TDH_Calculation_Models_2020.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 10.67,
+    "char_count": 18458,
+    "tables_count": 0,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\Takacs_TDH_Calculation_Models_2020.md"
+  },
+  {
+    "filename": "SLB_Defining_ESP.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 2.84,
+    "char_count": 12248,
+    "tables_count": 0,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\SLB_Defining_ESP.md"
+  },
+  {
+    "filename": "Baker_Hughes_FusionPro_Manual.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 239.67,
+    "char_count": 170594,
+    "tables_count": 33,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\Baker_Hughes_FusionPro_Manual.md"
+  },
+  {
+    "filename": "Weatherford_ESP_Application_Guide.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 840.96,
+    "char_count": 297900,
+    "tables_count": 90,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\Weatherford_ESP_Application_Guide.md"
+  },
+  {
+    "filename": "API_RP_11S_Operation_Maintenance_1994.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 17.0,
+    "char_count": 3944,
+    "tables_count": 0,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S_Operation_Maintenance_1994.md"
+  },
+  {
+    "filename": "API_RP_11S1_Dismantle_Failure_Analysis_2022.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 76.58,
+    "char_count": 160567,
+    "tables_count": 14,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S1_Dismantle_Failure_Analysis_2022.md"
+  },
+  {
+    "filename": "API_RP_11S1_Teardown_Report_1997.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 192.94,
+    "char_count": 156982,
+    "tables_count": 13,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S1_Teardown_Report_1997.md"
+  },
+  {
+    "filename": "API_RP_11S3_Installations_1999.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 13.43,
+    "char_count": 3772,
+    "tables_count": 0,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S3_Installations_1999.md"
+  },
+  {
+    "filename": "API_RP_11S4_Sizing_Selection_1993.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 281.01,
+    "char_count": 172952,
+    "tables_count": 18,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S4_Sizing_Selection_1993.md"
+  },
+  {
+    "filename": "API_RP_11S6_Cable_Testing_1995.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 227.23,
+    "char_count": 124391,
+    "tables_count": 16,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S6_Cable_Testing_1995.md"
+  },
+  {
+    "filename": "API_RP_11S8_Vibrations_2012.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 16.47,
+    "char_count": 14988,
+    "tables_count": 1,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\API_RP_11S8_Vibrations_2012.md"
+  },
+  {
+    "filename": "Caledonian_ESP_Cables_API_11S5.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 218.34,
+    "char_count": 72331,
+    "tables_count": 30,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\Caledonian_ESP_Cables_API_11S5.md"
+  },
+  {
+    "filename": "IEC_60034_14_Vibration_1998.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 31.03,
+    "char_count": 37504,
+    "tables_count": 4,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\IEC_60034_14_Vibration_1998.md"
+  },
+  {
+    "filename": "IEC_60034_14_Vibration_2018_EN.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 48.6,
+    "char_count": 76653,
+    "tables_count": 4,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\IEC_60034_14_Vibration_2018_EN.md"
+  },
+  {
+    "filename": "IEC_TS_60034_25_Converter_Supply_2022.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 121.89,
+    "char_count": 375996,
+    "tables_count": 8,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\IEC_TS_60034_25_Converter_Supply_2022.md"
+  },
+  {
+    "filename": "UNBRIDLED_ESP_Troubleshooting_Matrix.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 3.8,
+    "char_count": 60,
+    "tables_count": 0,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\UNBRIDLED_ESP_Troubleshooting_Matrix.md"
+  },
+  {
+    "filename": "BP_ESP_Troubleshooting_Guidelines.pdf",
+    "status": "SUCCESS",
+    "elapsed_sec": 45.2,
+    "char_count": 107301,
+    "tables_count": 10,
+    "markdown_file": "x:\\TAS\\Agentic_project\\esp-knowledge\\processed\\docling_md\\BP_ESP_Troubleshooting_Guidelines.md"
+  }
+]

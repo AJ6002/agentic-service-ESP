@@ -2,7 +2,7 @@ import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Any, Optional, Tuple, Union
 
 import yaml
 
@@ -239,6 +239,7 @@ def resolve_asset(
     resolved_from_pending: Optional[str],
     session_snapshot: Optional[SessionSnapshot],
     ui_context: Optional[UIContext],
+    fallback_asset: Optional[str] = None,
 ) -> AssetBinding:
     """
     Asset priority:
@@ -290,10 +291,11 @@ def resolve_asset(
                 match_method="PRONOUN",
             )
 
-    # UI — currently selected on screen (ranked below EXPLICIT/SESSION on purpose,
-    # see the old-repo bug this order prevents).
-    if ui_context and ui_context.selected_asset:
-        norm_ui = normalize_well_id(ui_context.selected_asset) or ui_context.selected_asset
+    # UI — currently selected on screen or passed via payload well_id/asset_id
+    # (ranked below EXPLICIT/SESSION on purpose).
+    ui_asset = (ui_context.selected_asset if ui_context else None) or fallback_asset
+    if ui_asset:
+        norm_ui = normalize_well_id(ui_asset) or ui_asset
         return AssetBinding(
             id=norm_ui,
             source="UI",
@@ -410,17 +412,68 @@ def parse_anomaly_filter(message: str) -> Optional[bool]:
         return True
     return None
 
+def map_dashboard_time_range(time_range_str: Optional[str]) -> Optional[TimeBinding]:
+    if not time_range_str:
+        return None
+    tr = time_range_str.strip().lower()
+    now = datetime.now(timezone.utc)
+    seconds_map = {
+        "1h": 3600,
+        "4h": 4 * 3600,
+        "8h": 8 * 3600,
+        "24h": 24 * 3600,
+        "7d": 7 * 86400,
+        "30d": 30 * 86400,
+    }
+    if tr in seconds_map:
+        sec = seconds_map[tr]
+        return TimeBinding(
+            window_start=now - timedelta(seconds=sec),
+            window_end=now,
+            source="UI",
+            label=f"last_{tr}",
+            confidence=1.0,
+        )
+    return None
+
+
 def resolve_context(
     session_id: str,
     message: str,
-    ui_context: Optional[UIContext] = None,
+    ui_context: Optional[dict[str, Any] | UIContext] = None,
+    well_id: Optional[str] = None,
+    asset_id: Optional[str] = None,
+    page_route: Optional[str] = None,
+    time_range: Optional[str] = None,
 ) -> ContextFrame:
     session = get_session(session_id) or SessionSnapshot()
     pending = get_pending(session_id)
 
+    # Normalize ui_context into UIContext model and raw dict
+    ui_ctx_dict: dict[str, Any] = {}
+    ui_ctx_obj: Optional[UIContext] = None
+    if isinstance(ui_context, dict):
+        ui_ctx_dict = ui_context
+        try:
+            ui_ctx_obj = UIContext.model_validate(ui_context)
+        except Exception:
+            ui_ctx_obj = UIContext(
+                selected_asset=ui_context.get("selected_asset") or ui_context.get("well_id"),
+                selected_time_range=ui_context.get("selected_time_range") or ui_context.get("time_range"),
+                active_tab=ui_context.get("active_tab"),
+                active_anomaly=ui_context.get("active_anomaly"),
+                fleet_filter=ui_context.get("fleet_filter"),
+                station_id=ui_context.get("station_id"),
+            )
+    elif isinstance(ui_context, UIContext):
+        ui_ctx_obj = ui_context
+        ui_ctx_dict = ui_context.model_dump(exclude_none=True)
+
     resolution, bound_val = classify_resolution(message, pending)
     mentions = extract_mentions(message)
     has_pronoun = len(mentions.pronouns) > 0
+
+    fallback_asset = well_id or asset_id or (ui_ctx_dict.get("well_id") if ui_ctx_dict else None)
 
     asset = resolve_asset(
         message_mentions=mentions.assets,
@@ -428,20 +481,30 @@ def resolve_context(
         has_pronoun=has_pronoun,
         resolved_from_pending=bound_val if resolution == "BIND" and pending and pending.slot == "asset_id" else None,
         session_snapshot=session,
-        ui_context=ui_context,
+        ui_context=ui_ctx_obj,
+        fallback_asset=fallback_asset,
     )
 
     # Time priority: an explicit phrase in the message ("last 30 mins")
-    # wins over a UI dropdown selection, which wins over the default.
+    # wins over payload time_range, which wins over UI dropdown, which wins over default.
     parsed_time = parse_time_window(message)
     if parsed_time is not None:
         time_b = parsed_time
     else:
-        time_b = TimeBinding(
-            source="UI" if (ui_context and ui_context.selected_time_range) else "DEFAULT",
-            label=ui_context.selected_time_range if ui_context else None,
-            confidence=1.0,
-        )
+        # Check payload time_range first
+        time_from_payload = map_dashboard_time_range(time_range)
+        if time_from_payload is not None:
+            time_b = time_from_payload
+        else:
+            time_from_ui = map_dashboard_time_range(ui_ctx_obj.selected_time_range if ui_ctx_obj else None)
+            if time_from_ui is not None:
+                time_b = time_from_ui
+            else:
+                time_b = TimeBinding(
+                    source="UI" if (ui_ctx_obj and ui_ctx_obj.selected_time_range) else "DEFAULT",
+                    label=ui_ctx_obj.selected_time_range if ui_ctx_obj else None,
+                    confidence=1.0,
+                )
 
     is_empty = not message.strip()
 
@@ -464,9 +527,8 @@ def resolve_context(
         pending_ref=f"esp:session:{session_id}:pending" if pending else None,
         prior_analysis_ref=session.last_analysis_id,
         needs_clarify=is_empty,
-        # CLARIFY is the interrupt TYPE (matches InterruptType); the specific
-        # cause ("message was empty") lives in the clarification question text,
-        # not in this field — this field is not a free-text reason code.
         clarify_reason="CLARIFY" if is_empty else None,
         session_snapshot=session,
+        ui_context=ui_ctx_dict,
+        page_route=page_route,
     )

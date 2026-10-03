@@ -1,0 +1,331 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "",
+      "",
+      "case (a)",
+      "case (b)",
+      "difference",
+      "difference"
+    ],
+    "rows": [
+      {
+        "": "in",
+        "case (a)": "2.992",
+        "case (b)": "4.000",
+        "difference": "%"
+      },
+      {
+        "": "psi",
+        "case (a)": "638",
+        "case (b)": "162",
+        "difference": "-75"
+      },
+      {
+        "": "psi",
+        "case (a)": "4.409",
+        "case (b)": "3.933",
+        "difference": "-11"
+      },
+      {
+        "": "psi",
+        "case (a)": "1.661",
+        "case (b)": "1.185",
+        "difference": "-29"
+      },
+      {
+        "": "ft",
+        "case (a)": "4.436",
+        "case (b)": "3.151",
+        "difference": "-29"
+      },
+      {
+        "": "nr",
+        "case (a)": "74",
+        "case (b)": "53",
+        "difference": "-28"
+      },
+      {
+        "": "Watt",
+        "case (a)": "384",
+        "case (b)": "275",
+        "difference": "-28"
+      }
+    ],
+    "csv": ",,case (a),case (b),difference,difference\r\nTBG ID,in,2.992,4.000,(b) - (a),%\r\nP fr,psi,638,162,-476,-75\r\nP out,psi,4.409,3.933,-476,-11\r\nP dis - P suc,psi,1.661,1.185,-476,-29\r\nHead,ft,4.436,3.151,-1285,-29\r\nN r stages,nr,74,53,-21,-28\r\nPower,Watt,384,275,-109,-28\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Aluminum.NEMA frame",
+      "Aluminum.Output (hp)",
+      "Aluminum.Speed (Full load RPM)",
+      "Aluminum.Slip (%)",
+      "Cast Iron.NEMA frame",
+      "Cast Iron.Output (hp)",
+      "Cast Iron.Speed (Full load RPM)",
+      "Cast Iron.Slip (%)"
+    ],
+    "rows": [
+      {
+        "Aluminum.NEMA frame": "48",
+        "Aluminum.Output (hp)": "0.5",
+        "Aluminum.Speed (Full load RPM)": "3,435",
+        "Aluminum.Slip (%)": "4.6",
+        "Cast Iron.NEMA frame": "284T",
+        "Cast Iron.Output (hp)": "15",
+        "Cast Iron.Speed (Full load RPM)": "1,170",
+        "Cast Iron.Slip (%)": "2.5"
+      },
+      {
+        "Aluminum.NEMA frame": "48",
+        "Aluminum.Output (hp)": "0.5",
+        "Aluminum.Speed (Full load RPM)": "1,685",
+        "Aluminum.Slip (%)": "6.4",
+        "Cast Iron.NEMA frame": "284T",
+        "Cast Iron.Output (hp)": "15",
+        "Cast Iron.Speed (Full load RPM)": "870",
+        "Cast Iron.Slip (%)": "3.3"
+      },
+      {
+        "Aluminum.NEMA frame": "143T",
+        "Aluminum.Output (hp)": "0.5",
+        "Aluminum.Speed (Full load RPM)": "1,150",
+        "Aluminum.Slip (%)": "4.2",
+        "Cast Iron.NEMA frame": "",
+        "Cast Iron.Output (hp)": "",
+        "Cast Iron.Speed (Full load RPM)": "",
+        "Cast Iron.Slip (%)": ""
+      },
+      {
+        "Aluminum.NEMA frame": "143T",
+        "Aluminum.Output (hp)": "0.5",
+        "Aluminum.Speed (Full load RPM)": "845",
+        "Aluminum.Slip (%)": "6.1",
+        "Cast Iron.NEMA frame": "326TS",
+        "Cast Iron.Output (hp)": "50",
+        "Cast Iron.Speed (Full load RPM)": "3,535",
+        "Cast Iron.Slip (%)": "1.8"
+      },
+      {
+        "Aluminum.NEMA frame": "",
+        "Aluminum.Output (hp)": "",
+        "Aluminum.Speed (Full load RPM)": "",
+        "Aluminum.Slip (%)": "",
+        "Cast Iron.NEMA frame": "326TS",
+        "Cast Iron.Output (hp)": "50",
+        "Cast Iron.Speed (Full load RPM)": "1,770",
+        "Cast Iron.Slip (%)": "1.7"
+      },
+      {
+        "Aluminum.NEMA frame": "184T",
+        "Aluminum.Output (hp)": "5",
+        "Aluminum.Speed (Full load RPM)": "3,505",
+        "Aluminum.Slip (%)": "2.6",
+        "Cast Iron.NEMA frame": "365T",
+        "Cast Iron.Output (hp)": "50",
+        "Cast Iron.Speed (Full load RPM)": "1,180",
+        "Cast Iron.Slip (%)": "1.7"
+      },
+      {
+        "Aluminum.NEMA frame": "184T",
+        "Aluminum.Output (hp)": "5",
+        "Aluminum.Speed (Full load RPM)": "1,740",
+        "Aluminum.Slip (%)": "3.3",
+        "Cast Iron.NEMA frame": "404T",
+        "Cast Iron.Output (hp)": "50",
+        "Cast Iron.Speed (Full load RPM)": "885",
+        "Cast Iron.Slip (%)": "1.7"
+      },
+      {
+        "Aluminum.NEMA frame": "215T",
+        "Aluminum.Output (hp)": "5",
+        "Aluminum.Speed (Full load RPM)": "1,160",
+        "Aluminum.Slip (%)": "3.3",
+        "Cast Iron.NEMA frame": "",
+        "Cast Iron.Output (hp)": "",
+        "Cast Iron.Speed (Full load RPM)": "",
+        "Cast Iron.Slip (%)": ""
+      },
+      {
+        "Aluminum.NEMA frame": "254T",
+        "Aluminum.Output (hp)": "5",
+        "Aluminum.Speed (Full load RPM)": "875",
+        "Aluminum.Slip (%)": "2.8",
+        "Cast Iron.NEMA frame": "505TS",
+        "Cast Iron.Output (hp)": "250",
+        "Cast Iron.Speed (Full load RPM)": "3,580",
+        "Cast Iron.Slip (%)": "0.6"
+      },
+      {
+        "Aluminum.NEMA frame": "",
+        "Aluminum.Output (hp)": "",
+        "Aluminum.Speed (Full load RPM)": "",
+        "Aluminum.Slip (%)": "",
+        "Cast Iron.NEMA frame": "505TS",
+        "Cast Iron.Output (hp)": "250",
+        "Cast Iron.Speed (Full load RPM)": "1,787",
+        "Cast Iron.Slip (%)": "0.7"
+      },
+      {
+        "Aluminum.NEMA frame": "254T",
+        "Aluminum.Output (hp)": "15",
+        "Aluminum.Speed (Full load RPM)": "3,515",
+        "Aluminum.Slip (%)": "2.4",
+        "Cast Iron.NEMA frame": "585",
+        "Cast Iron.Output (hp)": "250",
+        "Cast Iron.Speed (Full load RPM)": "1,192",
+        "Cast Iron.Slip (%)": "0.7"
+      },
+      {
+        "Aluminum.NEMA frame": "254T",
+        "Aluminum.Output (hp)": "15",
+        "Aluminum.Speed (Full load RPM)": "1,760",
+        "Aluminum.Slip (%)": "2.2",
+        "Cast Iron.NEMA frame": "586",
+        "Cast Iron.Output (hp)": "250",
+        "Cast Iron.Speed (Full load RPM)": "892",
+        "Cast Iron.Slip (%)": "60"
+      }
+    ],
+    "csv": "Aluminum.NEMA frame,Aluminum.Output (hp),Aluminum.Speed (Full load RPM),Aluminum.Slip (%),Cast Iron.NEMA frame,Cast Iron.Output (hp),Cast Iron.Speed (Full load RPM),Cast Iron.Slip (%)\r\n48,0.5,\"3,435\",4.6,284T,15,\"1,170\",2.5\r\n48,0.5,\"1,685\",6.4,284T,15,870,3.3\r\n143T,0.5,\"1,150\",4.2,,,,\r\n143T,0.5,845,6.1,326TS,50,\"3,535\",1.8\r\n,,,,326TS,50,\"1,770\",1.7\r\n184T,5,\"3,505\",2.6,365T,50,\"1,180\",1.7\r\n184T,5,\"1,740\",3.3,404T,50,885,1.7\r\n215T,5,\"1,160\",3.3,,,,\r\n254T,5,875,2.8,505TS,250,\"3,580\",0.6\r\n,,,,505TS,250,\"1,787\",0.7\r\n254T,15,\"3,515\",2.4,585,250,\"1,192\",0.7\r\n254T,15,\"1,760\",2.2,586,250,892,60\r\n"
+  },
+  {
+    "page": 30,
+    "table_index": 1,
+    "columns": [
+      "hh",
+      "p =",
+      "1.7",
+      "x 10",
+      "-5 \u0394P",
+      "Q",
+      "col_6",
+      "col_7",
+      "col_8",
+      "col_9",
+      "col_10"
+    ],
+    "rows": [
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      },
+      {
+        "hh": "",
+        "p =": "",
+        "1.7": "",
+        "x 10": "",
+        "-5 \u0394P": "",
+        "Q": "",
+        "col_6": "",
+        "col_7": "",
+        "col_8": "",
+        "col_9": "",
+        "col_10": ""
+      }
+    ]
+  },
+  {
+    "page": 94,
+    "table_index": 1,
+    "columns": [
+      "Force + N",
+      "S Force"
+    ],
+    "rows": []
+  },
+  {
+    "page": 94,
+    "table_index": 2,
+    "columns": [
+      "S + Force N",
+      "F"
+    ],
+    "rows": []
+  },
+  {
+    "page": 94,
+    "table_index": 3,
+    "columns": [
+      "+",
+      "col_1"
+    ],
+    "rows": []
+  }
+]

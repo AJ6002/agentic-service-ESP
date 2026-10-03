@@ -1,0 +1,68 @@
+{
+  "filename": "824778707-Design-and-Simulation-of-an-Electrical-Submersible-Pump-IJERTV11IS030061.pdf",
+  "total_pages": 5,
+  "total_words": 2521,
+  "total_chars": 16996,
+  "pages": [
+    {
+      "page_number": 1,
+      "word_count": 700,
+      "char_count": 4701,
+      "page_hash": "55442af3c880fac949e3f57ece22be4a83949611dd50407b8d118cc60281f6bd",
+      "rect": [
+        0.0,
+        0.0,
+        595.4400024414062,
+        841.6799926757812
+      ]
+    },
+    {
+      "page_number": 2,
+      "word_count": 720,
+      "char_count": 4658,
+      "page_hash": "687ea35497bfbc46c45f41b92041ee7b7c09e2173da842e845ed9f002d8b8e5a",
+      "rect": [
+        0.0,
+        0.0,
+        595.4400024414062,
+        841.6799926757812
+      ]
+    },
+    {
+      "page_number": 3,
+      "word_count": 426,
+      "char_count": 2876,
+      "page_hash": "a6b8a4710c5e063b06df22da990441dda85051c4abd9b4c60a4a60085e3ea7ce",
+      "rect": [
+        0.0,
+        0.0,
+        595.4400024414062,
+        841.6799926757812
+      ]
+    },
+    {
+      "page_number": 4,
+      "word_count": 479,
+      "char_count": 3355,
+      "page_hash": "f71cca65046bf9494aede87c285971f9ebbe9dc9b06f44f7a26b50782e1c1eb5",
+      "rect": [
+        0.0,
+        0.0,
+        595.4400024414062,
+        841.6799926757812
+      ]
+    },
+    {
+      "page_number": 5,
+      "word_count": 196,
+      "char_count": 1406,
+      "page_hash": "4a312f6f1cd839b07b60e761260cbb878974ae9a25ee2c4bd0524eeeb458802f",
+      "rect": [
+        0.0,
+        0.0,
+        595.4400024414062,
+        841.6799926757812
+      ]
+    }
+  ]
+}

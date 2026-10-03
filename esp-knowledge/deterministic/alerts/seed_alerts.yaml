@@ -1,0 +1,280 @@
+# ESP-PMM Alert Playbooks (Seed Data)
+# Converted from diagnostic_rules.json threshold rules
+# Version: 1.0.0
+
+alerts:
+  - alert_id: MOTOR_TEMP_MARGIN_LOW
+    rule_mapping: RULE_TEMP_WARN
+    name: Motor Temperature Margin Low
+    severity: WARNING
+    trigger:
+      canonical_metric: primary_thermal_metric
+      operator: ">"
+      threshold: 130.0
+      unit: "°C"
+    evidence_required:
+      - primary_thermal_metric
+      - primary_intake_pressure
+      - flow_metric
+    interpretation:
+      - "Elevated motor temperature indicates thermal risk or reduced cooling flow."
+    allowed_next_steps:
+      - "inspect_temperature_trend"
+      - "review_cooling_flow_conditions"
+      - "review_pip_trend"
+      - "notify_production_engineer"
+    forbidden_actions:
+      - "automatic_speed_increase"
+      - "alarm_suppression"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "primary_thermal_metric < 120.0 °C sustained for 30 minutes"
+    source: "diagnostic_rules.json v1.0"
+    policy:
+      explain: true
+      recommend: "investigation"
+      autonomous_control: false
+
+  - alert_id: MOTOR_TEMP_CRITICAL
+    rule_mapping: RULE_TEMP_CRIT
+    name: Motor Temperature Critical
+    severity: CRITICAL
+    trigger:
+      canonical_metric: primary_thermal_metric
+      operator: ">"
+      threshold: 150.0
+      unit: "°C"
+    evidence_required:
+      - primary_thermal_metric
+      - primary_intake_pressure
+      - primary_electrical_load
+    interpretation:
+      - "Severe thermal stress risking motor stator insulation burnout."
+    allowed_next_steps:
+      - "immediate_engineering_review"
+      - "evaluate_controlled_shutdown"
+      - "inspect_scale_or_cooling_restriction"
+    forbidden_actions:
+      - "ignore_alarm"
+      - "increase_load"
+    approval_required: true
+    escalation_role: "lead_operations_engineer"
+    resolution_condition: "primary_thermal_metric < 130.0 °C sustained for 60 minutes"
+    source: "diagnostic_rules.json v1.0"
+    policy:
+      explain: true
+      recommend: "immediate_action"
+      autonomous_control: false
+
+  - alert_id: PIP_LOW_WARNING
+    rule_mapping: RULE_PIP_WARN
+    name: Intake Pressure Low (Gas Lock Risk)
+    severity: WARNING
+    trigger:
+      canonical_metric: primary_intake_pressure
+      operator: "<"
+      threshold: 150.0
+      unit: "psi"
+    evidence_required:
+      - primary_intake_pressure
+      - flow_metric
+      - primary_electrical_load
+    interpretation:
+      - "Drawdown approaching bubble point pressure; risk of free gas locking the intake."
+    allowed_next_steps:
+      - "reduce_vsd_frequency"
+      - "activate_gas_agitation_cycle"
+      - "check_gas_separator_efficiency"
+    forbidden_actions:
+      - "increase_vsd_frequency"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "primary_intake_pressure > 180.0 psi sustained for 30 minutes"
+    source: "diagnostic_rules.json v1.0"
+    policy:
+      explain: true
+      recommend: "flow_adjustment"
+      autonomous_control: false
+
+  - alert_id: RADIAL_VIBRATION_WARNING
+    rule_mapping: RULE_VIB_WARN
+    name: Radial Vibration Warning
+    severity: WARNING
+    trigger:
+      canonical_metric: vibration_metric
+      operator: ">"
+      threshold: 3.0
+      unit: "g"
+    evidence_required:
+      - vibration_metric
+      - axial_vibration_metric
+      - primary_electrical_load
+    interpretation:
+      - "Elevated mechanical vibration indicating initial bearing or shaft wear."
+    allowed_next_steps:
+      - "inspect_vibration_spectrum"
+      - "check_rotor_alignment"
+      - "schedule_bearing_inspection"
+    forbidden_actions:
+      - "operate_at_critical_speed"
+    approval_required: true
+    escalation_role: "reliability_engineer"
+    resolution_condition: "vibration_metric < 2.5 g sustained for 30 minutes"
+    source: "diagnostic_rules.json v1.0"
+    policy:
+      explain: true
+      recommend: "inspection"
+      autonomous_control: false
+
+  - alert_id: ALERT_BACKSPIN_TORSION_LOCKOUT
+    rule_mapping: RULE_BACKSPIN_LOCKOUT
+    name: Post-Trip Backspin Restart Lockout
+    severity: CRITICAL
+    trigger:
+      canonical_metric: time_since_trip_seconds
+      operator: "<"
+      threshold: 1800.0
+      unit: "s"
+    evidence_required:
+      - time_since_trip_seconds
+      - primary_intake_pressure
+      - discharge_pressure
+    interpretation:
+      - "Fluid column is backflowing through stationary pump, spinning rotor in reverse. Starting causes immediate splined shaft torsion snap."
+    allowed_next_steps:
+      - "wait_for_column_pressure_equalization"
+      - "monitor_tubing_head_pressure"
+      - "verify_zero_reverse_rotation"
+    forbidden_actions:
+      - "immediate_restart"
+      - "remote_restart_attempt"
+      - "alarm_override"
+    approval_required: true
+    escalation_role: "lead_operations_engineer"
+    resolution_condition: "time_since_trip_seconds > 1800 and differential_head_decay < 50 psi"
+    source: "BP0757 Guidelines Section 1.5.1 p.13"
+    policy:
+      explain: true
+      recommend: "lockout"
+      autonomous_control: false
+
+  - alert_id: ALERT_FLOATING_PUMP_CHOKE_START
+    rule_mapping: RULE_CHOKE_START_FLOATERS
+    name: Floating Impeller Pump Startup Protocol
+    severity: WARNING
+    trigger:
+      canonical_metric: pump_operating_state
+      operator: "=="
+      threshold: "STARTUP_INITIATED"
+      unit: "status"
+    evidence_required:
+      - wellhead_choke_position
+      - primary_electrical_load
+    interpretation:
+      - "Floating impeller pumps must start against partially closed choke to seat impellers on downthrust washers and protect upthrust bearings."
+    allowed_next_steps:
+      - "pinch_surface_choke_to_30_percent"
+      - "verify_motor_starts_in_current_limit"
+      - "gradually_open_choke_post_cleanup"
+    forbidden_actions:
+      - "startup_with_wide_open_choke"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "steady_state_flow_established and choke_opened"
+    source: "BP0757 Guidelines Section 1.5.1 p.13"
+    policy:
+      explain: true
+      recommend: "choke_start"
+      autonomous_control: false
+
+  - alert_id: ALERT_UNDERLOAD_DEADHEAD_SAFEGUARD
+    rule_mapping: RULE_UNDERLOAD_DEADHEAD
+    name: Underload & Deadheading Motor Protection
+    severity: CRITICAL
+    trigger:
+      canonical_metric: primary_electrical_load
+      operator: "<"
+      threshold: 80.0
+      unit: "percent_normal_load"
+    evidence_required:
+      - primary_electrical_load
+      - primary_intake_pressure
+      - flow_metric
+    interpretation:
+      - "Underload trip below 80% normal current signals gas lock or deadheading. Fluid flow is zero, risking motor stator burnout in < 1 hour."
+    allowed_next_steps:
+      - "initiate_automatic_underload_trip"
+      - "inspect_surface_wing_valves"
+      - "check_gas_separator_clearance"
+    forbidden_actions:
+      - "set_underload_below_idle_amperage"
+      - "disable_underload_protection"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "flow_restored and electrical_load > 85% normal"
+    source: "BP0757 Guidelines Section 2.3.5 p.48"
+    policy:
+      explain: true
+      recommend: "trip_and_inspect"
+      autonomous_control: false
+
+  - alert_id: ALERT_UPTHRUST_OVERLOAD_CHOKE_REMEDY
+    rule_mapping: RULE_UPTHRUST_OVERLOAD
+    name: Undersized Pump Upthrust Overload Choke Remedy
+    severity: WARNING
+    trigger:
+      canonical_metric: primary_electrical_load
+      operator: ">"
+      threshold: 110.0
+      unit: "percent_nameplate_amps"
+    evidence_required:
+      - primary_electrical_load
+      - flow_metric
+      - wellhead_pressure
+    interpretation:
+      - "Well inflow exceeds pump design capacity, pushing pump right of ROR into severe upthrust and overloading motor (> 110% nameplate)."
+    allowed_next_steps:
+      - "choke_back_wellhead_valve"
+      - "increase_backpressure_to_shift_to_bep"
+      - "plan_higher_capacity_pump_workover"
+    forbidden_actions:
+      - "raise_overload_trip_threshold_above_110"
+      - "ignore_repeated_overload_trips"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "primary_electrical_load <= 95% nameplate"
+    source: "BP0757 Guidelines Section 2.2.3 p.41"
+    policy:
+      explain: true
+      recommend: "choke_back"
+      autonomous_control: false
+
+  - alert_id: ALERT_WATER_CUT_VSD_DERATING
+    rule_mapping: RULE_WATER_CUT_DERATE
+    name: High Water Cut Fluid Density Overload Derating
+    severity: WARNING
+    trigger:
+      canonical_metric: motor_power_loading
+      operator: ">"
+      threshold: 100.0
+      unit: "percent_motor_power"
+    evidence_required:
+      - water_cut_percentage
+      - fluid_specific_gravity
+      - vsd_frequency
+    interpretation:
+      - "Water cut rise increased fluid SG (e.g. 1.05), pushing motor to 128% overload. Derating VSD frequency reduces required power cubically (P proportional to f^3)."
+    allowed_next_steps:
+      - "calculate_frequency_derate_target"
+      - "reduce_vsd_operating_frequency"
+      - "verify_motor_load_below_100_percent"
+    forbidden_actions:
+      - "run_60hz_at_extreme_water_cut"
+    approval_required: true
+    escalation_role: "production_engineer"
+    resolution_condition: "motor_power_loading <= 95% rated"
+    source: "BP0757 Guidelines Section 2.4.6 p.54"
+    policy:
+      explain: true
+      recommend: "derate_frequency"
+      autonomous_control: false

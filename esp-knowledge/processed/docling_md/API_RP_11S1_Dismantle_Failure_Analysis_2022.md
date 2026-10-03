@@ -1,0 +1,1737 @@
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Electrical Submersible Pump Dismantle, Inspection and Failure Analysis
+
+## API RECOMMENDED PRACTICE 11S1 FOURTH EDITION, XXXXXXXXXXXXXXX, 202X
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 1  Scope
+
+This  recommended  practice  (RP)  covers  the  processes  and  procedures  of collecting  required  information  to  complete  a  root  cause  failure  analysis  of  an electrical submersible pump (ESP) system.  These include:
+
+- -Procedures  for  disassembly,  inspection,  final  report,  failure  classification and  corrective  actions.  Items  covered  by  this  recommended  practice include pumps, intakes, gas separators, gas handling devices, seals/protectors, motors (induction and permanent magnet motors), gauges,  sensors,  motor  lead  extensions,  potheads,  and  power  cables. Tooling  and  test  equipment  may  differ  between  suppliers;  however,  the typical  assembly and inspection procedures and principles are generally applicable for most ESP systems.
+- -Information  that  should  be  collected  prior  to  equipment  dismantle  and inspection as well as specific observations that should be recorded during equipment inspections/teardown/disassembly.
+- -General  equipment  drawings  which  may  aid  in  identifying  equipment components.  It  should  be  noted  that  these  drawings  are  for  generic equipment components, and there may be differences between manufacturers on the exact description or configuration of the assemblies. The user should refer to the manufacturer's specific drawings as needed.
+
+This RP does not include gauge surface electronics, system grounding, alternative deployed systems, chemical injection systems, motor oil injection from surface, remote gauges, generators, power supply, wellhead, trees &amp; valves, tubing, tailpipe systems, operation maintenance and troubleshooting, pump  testing, installation, sizing and selection, application of ESP cable systems, testing of ESP cable systems, application and testing of seals/protectors, sand handling devices, ESP system vibrations or items covered by other API recommended practices.
+
+## 2 Normative References
+
+The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any addenda) applies.
+
+ASTM D877/D877M, Standard Test Method for Dielectric Breakdown Voltage of Insulating Liquids Using Disk Electrodes This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+ASTM D1533, Standard Test Method for Water in Insulating Liquids by Coulometric Karl Fischer Titration
+
+## 3 Terms, Definitions and Abbreviations
+
+## 3.1 Terms and Definitions
+
+For the purposes of this document, the following terms and definitions apply.
+
+## 3.1.1 Bag Chamber
+
+A seal / protector chamber that relies on an elastomer barrier (bag) to isolate seal fluid from the well fluid.
+
+NOTE  The seal / protector may include multiple chambers connected in parallel or series.
+
+## 3.1.2
+
+## Balance Ring
+
+On a mixed flow stage, this ring projects upward from the upper shroud and seals off the top of the impeller from its discharge.  It can also function as a radial bearing surface and/or a place to drill holes when physically balancing the impeller.  Balance rings and balance holes are only used on the higher flow rate stages within a series.
+
+## 3.1.3 Bands
+
+The material used to secure the cable to the tubing.
+
+## 3.1.4
+
+## Cable Splice
+
+The joining of two sections of power cable as required for the full length to electrical submersible pump (ESP) set depth.
+
+## 3.1.5 Center Tandem Motor
+
+## CT Motor
+
+A motor with a head designed to connect to the bottom of an upper tandem, or center tandem motor and a base designed to connect to another center tandem motor, a lower tandem, or a universal base.  All flange connections have provision for connecting the corresponding windings to those of the adjacent motors.
+
+## 3.1.6 Center Tandem Pump
+
+## CT Pump
+
+A pump with flange connections which allow any number of sections to be connected in tandem. Also, a discharge head, intake or gas separator may be attached to the pump.
+
+## 3.1.7
+
+## Compression
+
+All impellers are locked hub to hub and to the shaft.  All stage and shaft thrust are transferred to the seal / protector thrust bearing.  Typically applied when abrasives are present, when low lubricity fluids (Propane, NGL etc.) are being pumped and in pump series larger than 538 series.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.8
+
+## Compression Nut
+
+The nut used on a bottom floater or compression pump to lock / compress the impellers hub to hub.
+
+## 3.1.9
+
+## Compression Tube
+
+A tube, generally stainless steel, closely fit to the inside of the pump housing located between the head and the upper diffuser.  The compression tube is "cut-to-fit" such that the length is longer than the space between the pump head and top diffuser.  The length will compress the diffusers and lock them in place to prevent rotation.  The length is unique for each stage type and manufacturer.
+
+NOTE  A typical value may be 0.0015" to 0.002" of additional length per pump stage in the pump.
+
+- 3.1.10
+
+## Coupling
+
+A device which connects one shaft to another shaft, usually to transfer torque from one to the other.
+
+## 3.1.11
+
+## Diffusers
+
+The stationary part of the stage that converts the velocity head generated by the impeller into static head (pressure) and guides the fluid into the next impeller.
+
+## 3.1.12
+
+## Discharge Head
+
+The component connected the upper pump that allows the ESP to be connected to the tubing.
+
+## 3.1.13
+
+## Down Tube
+
+A component (communication tube) in a seal/protector.
+
+## 3.1.14
+
+## Down-Thrust Washer
+
+A washer used as the bearing surface on the bottom of the impeller.
+
+NOTE  This is generally fabric-filled phenolic material, however other materials are sometimes used.
+
+## 3.1.15 Encapsulated Stator
+
+A method of stabilizing, protecting, insulating the motor windings.
+
+NOTE  The encapsulating material will vary between manufacturers.
+
+- 3.1.16
+
+## Head
+
+Pressure, generally expressed in feet of lift, of produced fluid.
+
+- 3.1.17
+
+## Head and Base
+
+The machined part that finishes the top and bottom of each equipment (DMS, motor, seal / protector, gas separator, pump).
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.18
+
+## Impeller
+
+The rotating part of the stage that adds velocity and head to the pumped fluid using centrifugal force.
+
+## 3.1.19
+
+## Junction Box
+
+The connection point for the cable from the switchgear to the surface cable.
+
+## 3.1.20
+
+## Labyrinth Chamber
+
+A seal / protector chamber designed for wells where the well fluid is denser than the motor oil and relies on the difference between their densities and their relative immiscibility.
+
+NOTE  The seal / protector may include multiple chambers connected in series.
+
+## 3.1.21
+
+## Loss of Lubricity
+
+The oil-film between the runner and associated thrust bearing.
+
+## 3.1.22
+
+## Lower Pigtail Splice
+
+The splice from the pigtail (typically connected to the wellhead penetrator at the lower end of the tubing hanger to the main power cable.
+
+## 3.1.23 Lower Tandem Motor
+
+## LT Motor
+
+A motor with a head designed to connect to the bottom of an upper tandem or center tandem motor and an integral "Y" connection at the bottom connecting the windings together.
+
+## 3.1.24
+
+## Lower Tandem (LT) Pump
+
+## LT Pump
+
+A pump with a built-in intake.
+
+## 3.1.25
+
+## Magnet Wire
+
+## mag wire
+
+Copper wire used to wind and form the motor stator coils.
+
+## 3.1.26
+
+## Manufacturing Quality
+
+The manufacturer's specific quality and quality program.
+
+## 3.1.27
+
+## Mixed Flow
+
+Fluid flowing through mixed flow stages moves both radially and axially at the same time.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.28
+
+## Motor Lead Extension MLE
+
+A special clearance parallel conductor cable used to go alongside the pump and protector to the motor and is spliced to the main power cable above the pump discharge head.  The MLE will have the pothead incorporated on the lower end.
+
+NOTE  Also see flat cable extension (FCE) in Annex A.
+
+## 3.1.29 O-Ring
+
+A doughnut-shaped rubber ring seal between two pieces of equipment.
+
+## 3.1.30
+
+## O-ring Boss
+
+The area where the O-ring engages and provides a seal.
+
+## 3.1.31
+
+## O-Ring Groove
+
+The groove that holds the O-ring in place.
+
+## 3.1.32
+
+## O-Ring Surface
+
+The mating (sealing) surface used to compress and seal against the O-ring.
+
+## 3.1.33
+
+## Phase to Ground
+
+The electrical reading used to measure electrical insulation resistance for an ESP motor, cable, or overall ESP system.  Expressed in a value of Ohms, Meg Ohms or Gig Ohms.
+
+## 3.1.34
+
+## Phase to Phase
+
+The electrical reading used to measure resistance between motor, or motor with cable connected phases (A-B, A-C, and B-C).
+
+## 3.1.35 Proportional Integral Derivative PID
+
+A  control  method  utilized  in  variable  speed  drives  (VSDs)  to  automatically  control  the  ESP  to maintain a target operating parameter.
+
+## 3.1.36
+
+## Pigtail
+
+The clip-on extension leads used in performing electrical tests.
+
+## 3.1.37
+
+## Pitting
+
+Voids in the material, usually caused by rust and corrosion.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.38
+
+## Porosity
+
+Voids or bubbles in a casting, typically the impeller or diffuser.
+
+## 3.1.39
+
+## Pothead
+
+The connector on the lower end of the MLE (Motor Lead Extension) that makes the mechanical and electrical connection to the motor.
+
+## 3.1.40
+
+## Pull Report
+
+The document filled out by a field service technician that documents the removal of an ESP system.
+
+NOTE  Also see Pull and Run Report in Annex A.
+
+## 3.1.41
+
+## Pump Stage
+
+A combination of the impeller and diffuser.
+
+## 3.1.42
+
+## Rotor
+
+The part of the rotating assembly in the motor that provides a magnetic field generated either by an  electromagnetic  circuit  (ex.:  squirrel-cage  or  wound  rotor)  or  by  permanents  magnets.  The torque produced at the shaft is a result of the interaction between that magnetic field and the one produced by the stator.
+
+## 3.1.43
+
+## Rotor Bearings
+
+Bearing race for shaft sleeve used at each end of each rotor to center the rotor in the bore of the stator.
+
+## 3.1.44
+
+## Rotor End Ring
+
+An electric conductive ring at both ends of the induction motor's rotor, which connects the rotor bars end together.
+
+## 3.1.45
+
+## Seal/Protector
+
+The component used in an ESP to protect the motor, prevent well fluid entry, and equalize pressure from the motor to the wellbore.
+
+## 3.1.46
+
+## Shaft Play
+
+The movement of a shaft (typically axial but may also be radial movement.
+
+## 3.1.47
+
+## Shaft Setting
+
+The amount of movement and shaft end location of the shaft as per manufacturing guidelines.
+
+NOTE  May also be described as axial play.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.48
+
+## Shaft Tube
+
+The tube that covers the shaft in a seal/protector.
+
+## 3.1.49
+
+## Stage
+
+A single impeller and a diffuser set.
+
+## 3.1.50
+
+## Standard Intake
+
+Provides intake holes and screens for center or upper tandem pump sections (which end with a simple male flange).
+
+## 3.1.51
+
+## Stator
+
+The stationary part of the motor comprising the stator lamination and the stationary three-phase magnet wire windings and winding leads (brush wire).
+
+## 3.1.52
+
+## Stator Lamination
+
+## Lams
+
+Thin steel plates stacked together to form along with the three-phase stator winding, the stator's magnetic circuit.
+
+## 3.1.53 Time domain reflectometer
+
+## TDR
+
+A method used to determine electrical fault location(s).
+
+## 3.1.54
+
+## Thrust Bearing
+
+The bearing that carries the axial load.
+
+## 3.1.55
+
+## Trend Analysis
+
+The  method  for  analyzing  ESP  performance  using  operating  parameter  trends  over  a  period. Generally, consists of multiple parameters.
+
+## 3.1.56
+
+## Two-Piece Coupling
+
+A coupling that is comprised of two pieces so that different shaft diameters are coupled together.
+
+## 3.1.57
+
+## Two-Piece Ring
+
+A split ring used in various forms in many different pieces of equipment where high thrust loads are be transmitted to or from the shaft.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3.1.58 Universal Base
+
+A base which bolts onto the bottom of an upper tandem or center tandem motor to make the "Y" connection at the bottom connecting the windings together and to isolate the motor from the well bore fluid.
+
+## 3.1.59
+
+## Upper Shroud
+
+The portion of the impeller which forms the top of the flow passages.
+
+## 3.1.60
+
+## Upper Tandem Motor UT Motor
+
+A motor with a head made to accept the power cable connection on top and either a center tandem motor, lower tandem motor, a DMS or universal base on the bottom.
+
+## 3.1.61
+
+## Upper Tandem Pump
+
+## UT Pump
+
+A pump with a built-in discharge head.
+
+## 3.1.62 Variable Speed Drive
+
+## VSD
+
+Allows the user to vary motor and pump rotating speed by varying the Hz/frequency of the motor electric frequency provided to the motor, even if the energy comes from a constant frequency power supply.
+
+NOTE  Or Variable Frequency Drive(VFD).
+
+## 3.2 Abbreviations
+
+BHT Bottom Hole Temperature DIFA Dismantle, Inspection and Failure Analysis ESP Electrical Submersible Pump FTP Flowing Tubing Pressure, at surface FTT Flowing Tubing Temperature, at surface MLE Motor Lead Extension PI Productivity Index, barrels per day (BPD)/psi PID Proportional Integral Derivative PIP Pump Intake Pressure POOH  Pull Out of Hole Pr Reservoir Pressure (static and flowing) PSI Pounds Per Square Inch RIH Run in Hole SC Silicon Carbide SCADA Supervisory Control and Data Acquisition SS Stainless Steel SSHB  Stainless Steel Head and Base T Temperature Tr Reservoir Temperature TDR Time domain reflectometer VSD Variable Speed Drive This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 4 Health Safety and Environmental (HSE)
+
+## 4.1  General
+
+Health,  safety,  and  environmental  hazards  and  procedures  are  not  part  of  the scope of this RP and will not be addressed except in certain special cases.  It is the  responsibility  of  the  entity  performing  the  inspection  and  failure  analysis  to ensure  that  appropriate  HSE,  regulatory,  and  governmental  guidelines  are adhered to.  Be sure to perform a tailgate safety meeting prior to dismantle.
+
+## CAUTION:
+
+Common hazards that may be identified include but are not limited to:
+
+- -Inhalation injury from Hydrogen Sulfide (H2S)
+- -Naturally Occurring Radioactive Material
+- -Poison from inorganic hazards such as arsenic or others
+- -Physical injury from trapped pressure
+- -Burns or eye injury from flying sparks during cutting
+- -Electric shock during electrical tests
+- -Laceration from sharp ESP parts and cutting equipment
+- -Impact from highly torqued components having stored energy
+
+At all times, the user should adhere to safe practices regarding these hazards and  closely  follow  the  supplier/manufacturer's  guidelines  and  policies.    All appropriate safety precautions should be undertaken.
+
+## 4.2  Lifting and Handling
+
+To avoid injury, use appropriate lift aids and techniques. Suppliers/manufacturers established practices should be reviewed and followed in all cases.
+
+## 4.3  Clear and Clean Work Areas
+
+A properly organized work area ensures safety of the workers present and an accurate assessment of the failed equipment.
+
+## 4.4  Personal Protective Equipment (PPE)
+
+PPE should always be worn in designated areas and as directed by worksite facility personnel.  Different facilities may have different requirements for PPE so coordinate with local HSE representative(s) for specific requirements.  At a This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+minimum,  hand  protection,  eye  protection  and  H2S  and  radiation  monitors should be used.
+
+## 4.5  Dedicated Work Areas
+
+It is recommended that a dedicated workspace be provided for dismantle and inspection along with the appropriate tooling and personnel.  Additionally, it is recommended that a dedicated office space be provided to the users.
+
+## 5 ESP Pulling - Activities and Observations
+
+## 5.1  General
+
+Observations, evidence, and data collected during the ESP pulling activity can be very important as part of the overall failure analysis.  When pulling the ESP from the well the following processes/procedures are recommended.
+
+## 5.2  Pre-pulling Procedural Guidelines
+
+The following should be completed prior to pulling the ESP from the wellbore:
+
+- -Ensure  that  all  required  safety  processes  and  procedures  are  being followed.
+- -Ensure that all ESP manufacturer recommended practices are observed during operations.
+- -Take care in ESP cable spooler and sheave placement to ensure that ESP cable is not damaged during pulling operations.
+- -Cable  clamps  and/or  bands  should  be  properly  removed  and  stored  for possible additional inspection.  Cable clamps and banks shall be counted, and counts compared to installation report.  Any missing clamps shall be noted, including location (measure depth or joint count) where clamp should have been.  Any damage to cable clamps/bands shall be noted including the measure depth or joint count where damage was observed.
+- -ESP power cable(s) shall be visually inspected, and any damage noted including the measure depth or joint count where damage was observed.
+- -ESP equipment should be pulled out of hole at a safe speed.  Speeds in excess of 1000 ft/hour should be closely monitored.  If cable decompression is observed during pulling operations (noted by 'popping' sounds from the cable) then pulling speed should be slowed.
+- -Take photographs of any unusual findings during pulling operations.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- -During  ESP  equipment  dismantle  ensure  that  all  accessories  including couplings are kept for evaluation.  Couplings, where possible, should be left installed on the base of the equipment and secured with a shipping cap.
+
+## 5.3  Recommended Observations During Pulling Operations
+
+To support the failure analysis process, it is important to ensure good observations of the pulled ESP equipment taken as the equipment comes of the well and is laid down on the rig floor.  Observations to be taken include the following:
+
+- -Record unique identifiers (i.e., serial numbers) and system location of each ESP component.
+- -Wellhead  Penetrator/  Lower  Connector:    Obtain  and  record  electrical conductivity readings phase-to-phase and insulation resistance phase-toground for all three phases.  Ensure that penetrator and lower connector are tagged and shipped back with ESP components for further inspection.
+- -Packer  Electrical  Penetrator  Mandrel  Connectors:    Obtain  and  record electrical  conductivity  readings  phase-to-phase  and  insulation  resistance phase-to-ground for all three phases.  Ensure that mandrel and connectors are tagged and shipped back with ESP components for further inspection.
+- -Any  significant  mechanical  damage  (i.e.,  drag  marks,  impacts,  vibration marks, bent housings or necks). Include photographs.
+- -Indications  of  leaks  at  joints  and/or  plugs  including  flange  connections noting any observed improper make-up of connections.
+- -Scale or substance build-up on or in equipment.  If possible, collect samples and store in properly identified container to be forwarded with equipment.
+- -Debris or foreign material buildup in or on equipment openings or housings.
+- -Any signs of external corrosion
+- -Any signs of damage / breaches in production tubing and/or capillary lines.
+- -Any signs of excessive heat on ESP equipment housings.
+- -Examine O-rings and other seals at flange connection points and record any signs of leakage, deformation, or damage.
+- -Intake Screens:  If the ESP component has an intake screen, observe its condition noting any signs of foreign material, deformation, or damage.
+- -Rotate equipment shafts to determine if rotation is free, shafts are intact and noting any significant side play.  Shaft rotation should be checked from top of ESP system while still assembled (hanging in rig) and then again when components are disassembled after laying down.
+- -Pumps:  When shaft shims are used, ensure that all shims are collected, bagged, or otherwise secured, component location identified and placed in the base of the component along with the component coupling.  If shim bolts are used, they should remain in place and not removed.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- -Motor Protectors / Seal Chamber Sections:  Where/when possible and if safe to do, collect fluid samples from each chamber.  Identify the location of the collection point and label sample bottle with identifying information (i.e., well location, equipment serial number, chamber, date).  Fluid samples shall be  returned  with  equipment  for  further  inspection.  If/when  plugs  are removed to collect samples observe presence of and condition of seals for damage (i.e., over-compression).
+- -Motor(s):  Cut off motor lead extension (MLE) approximately 12 - 18 in. above the pothead and DO NOT disconnect from motor.  Ensure the MLE 'stub' is laid flat onto the motor housing and secured to avoid damage.
+- -Motor(s):    Obtain  and  record  electrical  conductivity  readings  phase-tophase and insulation resistance phase-to-ground for all three phases from the cut-off MLE location or the head of the center / lower tandem motor terminals.
+- -Motor(s):  Where/when possible and if safe to do, collect fluid samples from each chamber.  Identify the location of the collection point and label sample bottle  with  identifying  information  (i.e.,  well  location,  equipment  serial number, chamber, date).  Fluid samples shall be returned with equipment for  further  inspection.    If/when  plugs  are  removed  to  collect  samples observe  presence  of  and  condition  of  seals  for  damage  (i.e.,  overcompression).
+- -Cable(s):    Obtain  and  record  electrical  conductivity  readings  phase-tophase and insulation resistance phase-to-ground for all three phases.
+- -Cable(s):  Visually inspect and note any damage (mechanical or electrical) along cable and  including splice locations. Note and  record any observations including the measure depth or joint count where damage was observed.
+- -Ancillary  Equipment  (i.e.,  shrouds,  de-sanders):    Note  and  record  any observations  relating  to  damage,  scale  and/or  substance  build-up  or deposits.
+
+An ESP pulling checklist can be found in Annex B for further reference and to assist in developing applicable ESP pulling procedures
+
+## 6 General Pre-inspection Information Gathering and Guidelines
+
+## 6.1  General
+
+The  list  below  is  intended  to  assist  the  user  in  a  comprehensive  review  to determine root cause.   While the ultimate root cause may not be fully identified, a thorough review of the data will allow the user to list the most likely causes for failure.  These causes can then be used to improve overall ESP performance.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+NOTE: Most often, all the ESP equipment is prepared for dismantling although there is frequently not time to do the entire string as the focus is on failed component(s) and then to scrap the rest.  By looking intensively at components after short run, specific of failure modes for that component and in that well can be identified.  A broader look at all ESPs in a particular field might gain a better perspective of failure issues, however.  The majority of ESP's do not go through any inspection process other than to separate components by scrap bin.  We are living in data intensive times which helps us to learn the life cycle of ESP's to better understand potential lessons learned.  Collecting data on this very last step of ESP life cycle is worth the effort to tie back to collected data on ESP's operation.  Each ESP vendor does DIFA's and scrap differently so it is important to see what each can offer in a "DIFA-lite" option(s) for pumps sent directly to scrap.
+
+## 6.2  Preparation
+
+## 6.2.1 General
+
+Electrical  submersible pumping systems may stop operating, or not operate as expected, for a variety of reasons. Improper identification of the root cause(s) in many cases can result in frequent and repeat failures. This may be due to many factors that are not investigated, misinterpreted, or are not properly documented. Unfortunately,  the  initial  problem,  or  a  failed  component  discovered  during  the failure  investigation  of  an  ESP  system,  may  be  prematurely  assigned  full 'responsibility'  for  the  failure  although  it  is  not  the  'root  cause'  or  basis  of  the problem but the result of the root cause(s). It is imperative to not only identify the root cause(s) of failure but also to identify the lagging failures.  Lagging failures are issues that would have led to a subsequent failure had the primary root cause not been present.
+
+Schedule the dismantle and inspection as soon as possible after the ESP is pulled to minimize loss of information.  The root cause investigation process can take days or weeks.  Many factors impact the timeliness of determining the root cause. Factors that should be considered are (but not limited to):
+
+- a)  Application and design.
+- b)  Materials selection.
+- c)  Manufacturing practices and quality
+- d)  Shipping and handling.
+- e)  Installation practices.
+- f) Startup practices and procedure.
+- g)  Production operations.
+- h)  Operating practice.
+- i) Optimization.
+- j) Pulling practices.
+- k)  Transportation to DIFA facility.
+- l) Pre-DIFA data capture.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+Proper  preparation  is  required  for  effective  failure  analysis.    The  following information should be collected and  available during the process. This recommended practice recognizes that all items may not be available for each failure analysis.
+
+## 6.2.2  ESP Design &amp; Application
+
+Well and ESP system compatibility and design parameters:
+
+- a)  Operator design request and information provided that the design was based on.
+- b)  Supplier detailed design report and recommendations.
+- c)  Well and ESP system model alternatives for time intervals with expected well condition changes as appropriate.
+- d)  ESP's components technical specification.
+- e)  Wellbore survey (dogleg/deviation survey).
+
+## 6.2.3  ESP Manufacturing
+
+Manufacturing factory acceptance testing reports:
+
+- a)  Pump performance test.
+- b)  Motor performance test.
+- c)  Protector/seal performance test.
+- d)  Other relevant test and assembly check list compliance reports.
+- e)  Manufacturing quality records, as may be applicable including confirmation of component shaft settings.
+
+## 6.2.4 Shipping and Handling Information
+
+Shipping and handling information as listed below:
+
+- a)  Information regarding package and transport methods.
+- b)  Information describing how the equipment was secured for transport such as in shipping box, strapped to truck/trailer bed, loaded in containers, properly loaded in shipping baskets, etc.).
+- c)  Handling  methods  including  procedures  used  for  loading  and  unloading equipment such as lifting points, cranes, forklift, spreader bars, etc.
+- d)  Information related to the shock sensors, if used.
+
+## 6.2.5 Rig Operations
+
+The following information should be observed during rig operations.  However, prior to the start of rig operations, check for dangerous voltages prior to testing for This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+resistance values, even if the VSD is isolated.  Some ESP systems such as those with permanent magnet motors have electric shock potentially injurious to service
+
+personnel. Historical data from previous installations and pulls should be available.
+
+Items that should be included:
+
+- a)  Data  collection  and  observations,  if  any,  before  and  during  the installation of the equipment.
+- b)  Pulling observations (see Annex B) shall include at a minimum:
+- 1) Review and inspect wellsite for any physical damage.
+- 2) Download data from the variable speed drive (VSD) or switchboard motor controller.
+- 3) Review of installation report data and confirm equipment being pulled.
+- 4) Obtain and record ESP system electrical conductivity readings phase-to-phase and insulation resistance phase-toground for all three phases.
+- i. At the VSD / switchboard.
+- ii. At the transformer.
+- iii. At the junction box.
+- iv. At the wellhead.
+- v. Below the tubing hanger.
+- vi. At any power cable interval deemed necessary during the pulling operation.
+- 5) Inspection of cable.
+- i. Mechanical damage.
+- ii. Other damage from corrosion or other wellbore issues.
+- iii. Inspection of splice(s).
+- iv. Observe any damage from clamps or bands.
+- 6) Observations for debris at or near any component of the ESP assembly.
+- 7) Observations of shaft rotation.
+- 8) Observations  of  flange  areas  for  debris,  damage, erosion and/or corrosion.
+- 9) Observations of couplings.
+- 10) Observations of motor lead extension (MLE) area.
+- 11) Observations  for any  indicators  of  heat  such  as discolored, charred, or melted materials.
+- 12) Observations  for  materials  shifted  due  to  pressure transient during burn event.
+- 13) Observation of the MLE to motor pothead interface and connection.
+- i. It  is  recommended  that  the  pothead  remain  plugged into the motor during the pulling operation.  The MLE
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+should  be  cut  approximately  2  Ft  (0.5m)  above  the pothead with that  short  length  shipped  carefully  with motor without bending stress.
+
+- 14) Collect and observe condition of motor and protector/seal oil samples. In some cases, it may be advisable to not collect oil samples at the time of pulling.  This decision should  be  made  by  prior  agreement  of  operator,  service company and rig operator as part of standard pull procedures or case-by-case.
+- 15) Observation of ESP gauge.
+- 16) Observation of other completion components such as solids separation devices, packers, safety valves, control lines, Y-tools, flow assurance devices, etc.
+- 17) Observations relating to workover activities such as cable spooling, workover rig, other service support, etc.
+- 18) Observations relating to rig procedures such as kill fluids to determine how pump became plugged, how fast pull out of hole (POOH) to understand cable, seal elastomer decompression damage.
+- c)  Photographs during the installation and pull should be included in the installation and pull reports.
+- d)  Photographs of equipment as it arrives at teardown location.
+
+## 6.2.6  Production Operations
+
+The following items should be collected from production operations.
+
+- a)  Any well work data:
+- 1) Completion details.
+- 2) Previous installations.
+- 3) Any wellbore activity prior to the ESP installation.
+- b)  Well treatment program including chemical treatment, flow, and frequency.
+- c)  Production and operating data for the life of the ESP.  Also, higher resolution data, such as from VSD data downloads, for periods immediately prior to the ESP failure.
+- d)  Records  for  all  surface  systems  to  include  service  calls,  repairs,  or modifications.
+- e)  Operating procedures, practices, deviations, exceptions, or modifications.
+- f) VSD,  switchboard,  and  motor  control  device  setup  data  and  operation history.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+Note :    VSD  data  may  need  to  be  downloaded  prior  to  lock-out/tag-out procedures for well intervention.
+
+- g)  Startup data.
+- h)  Previous failure reports, if any.
+- i) Cable repair data such as splice locations, damage, cable electrical test results, etc.
+- j) All supervisory control and data acquisition (SCADA), digital control system (DCS), monitoring program information should be included, if available:
+- 1)  Number of starts/stops.
+- 2)  Total days of operation.
+- 3)  System set point or operating mode changes such as:
+8. -Control  changes  (e.g.,  constant  hertz,  gas  lock  mode,  PID  control, etc.).
+- 4)  Trend analysis of the following (as available):
+- i.  Motor amps.
+- ii. Motor temperature.
+- iii. Pump intake pressure.
+- iv. Pump intake temperature.
+- v.  Pump discharge pressure.
+- vi. Tubing pressure.
+- vii. Casing pressure.
+- viii. Vibration.
+- ix. Choke, back pressure valve, settings.
+- x. ESP protection settings such as overload, underload, motor temp trip, etc.
+- 5)  Calculations (history match) comparing well test data with sizing data to evaluate:
+- i.  Pump operating range throughout the production cycle and start/restart  conditions.    Sizing  should  estimate  total  fluid production for estimated pump conditions.
+- ii. Cable  estimated  fluid  level,  geologic  gradient  temperature, rate of pressure drop on restarts and POOH.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 6.3  Sample Collections, Analysis and Preservation
+
+During  an  ESP  pull  samples  may  be  collected  such  as  oil  from  ESP components, solids  or  debris  from  pump,  scale  on  ESP  housing,  etc.    It  is recommended that samples be collected, and a chain of custody be followed for the samples.  Analysis of the samples can be critical to the determination of root cause.
+
+- a)  Third party analysis may be required.  Responsibility for the analysis should be clearly  identified  within  the  chain  of  custody.  The  chain  of  custody  is typically:
+- 1)  Identification and collection.
+- 2)  Analysis.
+- 3)  Storage.
+- 4)  Preservation.
+- 5)  Transportation.
+- 6)  Presentation of findings.
+- 7)  Return to owner.
+- b)  The chain of custody should include:
+- 1)  Who obtained the evidence.
+- 2)  Where and when the evidence was obtained.
+- 3)  Who secured the evidence.
+- 4)  Who had control or possession of the evidence during each of the sequential responsibilities.
+- c)  Label the sample with the following information:
+- 1)  Company.
+- 2)  Collection Date.
+- 3)  Well name/number.
+- 4)  Component from which sample was collected to include:
+- i. Serial number of the component.
+- ii. Description of the component.
+- d)  Fluid  samples  (all  types)  should  be  collected  in  clear,  clean  containers protected from direct sunlight exposure after sample collection.
+- 1)  Collect  sufficient  samples  for  testing  as  may  be  defined  by  the supplier, operator, or laboratory.
+- 2)  Identify the location where the fluid sample was taken.
+- e)  Solids samples should be collected in clear, clean plastic bags protected from direct sunlight exposure after sample collection.
+- 1)  Collect  sufficient  samples  for  testing  as  may  be  defined  by  the supplier, operator, or laboratory.
+- 2)  Identify the location where the solids sample was taken.
+- f) Larger samples may require to be tagged/labeled independently.
+- g)  Metallurgical evaluations:
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 1)  Avoid disturbing the area to be evaluated.
+- 2)  If the area to be evaluated includes a break, avoid allowing the two ends to be in contact.
+- 3)  If the area of interest is believed to be some type of corrosion issue, avoid extensive cleaning.
+- 4)  Inhibit (e.g., rust inhibitor) items to avoid further corrosion from rust. Seal the components  as  may  be  required; consult with the appropriate specialist as needed.
+- h)  Pump stages:
+- 1)  It  is  generally  best  to  provide  the  impeller  and  diffuser  combined, which are considered a 'pump-stage'.
+- 2)  Inhibit the stage to prevent rust.
+- 3)  Place smaller broken pieces in a separate bags or plastic containers from  the  larger  pieces  to  prevent  further  damage  to  the  smaller pieces.  Maintain  the  associated  small  and  large  piece  collections together.
+- i) Place ceramic components in separate containers to avoid further damage or breakage.
+- j) Place  the  mechanical  shaft  seals  in  a  clear  plastic  bag  identifying  the location.  Protect the ceramic components by sealing separately, as may be required.
+- k)  Place  the  elastomer  (O-rings,  seal/protector  bags,  etc.)  in  a  sealed container to avoid exposure to atmospheric conditions.
+
+## 6.4  Recommended Tooling
+
+The  following  outlines  a  list  of  tooling  considered  necessary  for  effective teardown of ESP components for failure analysis:
+
+- a)  Tooling to dismantle each component.  The detailed tooling list is supplier specific.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- b)  Reference drawings with dimensions.
+- c)  Assembly procedure.
+- d)  Magnifying glasses.
+- e)  Calipers to measure components from pumps, protectors/seals, motors.
+- f) Depth gauges, such as drop gauge.
+- g)  Pick set.
+- h)  Magnet.
+- i) Flashlight.
+- j) Permanent markers.
+- k)  Paint markers.
+- l) Rulers, measuring tapes.
+- m) Sealable sample bags.
+- n)  Tags with wire attachment and felt tip markers.
+- o)  Sample containers (plastic, wood crate, or ship with ESP component box).
+- p)  Camera.
+- q)  Microscope.
+- r) Pressure tester for motor housing.
+- s)  Access to x-ray gun, material identification device.
+- t) Electrical meters to measure phase to phase and phase to ground.
+- u)  Megger (1000 volt minimum, 2500 volt preferred).
+- v)   Saws sufficient to cut housings, stators.
+- w)  Labeling device.
+
+## 7 Equipment Dismantle and Inspection
+
+## 7.1  General
+
+This section has the recommended practices for dismantling /teardown of each component  in  an  ESP.    The  condition  of  each  used  component  should  be thoroughly documented.  When possible, the condition should be compared to its  original  state.    Evaluation  and  observation  of  the  appearance  of  the component includes:
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- a)  Mechanical damage.
+- b)  Corrosion.
+- c)  Erosion.
+- d)  Indication of excessive temperature.
+
+A  thorough  description  should  be  provided  with  a  complete  photo  gallery showing  the  state  of  the  used  equipment.    Areas  of  interest  should  be highlighted for ease of evaluation and discussion.  If certain components will not be dismantled, note that it was not evaluated along with the reason for not evaluating.
+
+If at any point during the dismantle, a condition reveals the need to adapt and/or stop  the  dismantle,  then  document  the  condition  and  adjust  the  process accordingly.
+
+All components inspected should include the following:
+
+- e) Record  and  confirm  serial  numbers  as  per  the  installation  and  pull reports.
+- f) Inspect  the  exterior  condition  of  the  housing.    Typical  observations include:
+- 1)  Physical damage.
+- i. Erosion.
+- ii. Corrosion.
+- iii. Scraping.
+- iv.  Gouges.
+- v. Indications of vibration during operation.
+- 2)  Inspect the housing for straightness. A visual inspection on a dolly is considered acceptable with photo documentation.  Rotate the pump on flat floor and observe for straightness (commonly referred to as a Flop Test).
+- 3)  Inspect the housing for indications of excessive heat.
+- g)  Inspect  any  coatings  for  damage  such as  flaking,  scraping  or  corrosion damage.
+
+## 7.2  Pump, Gas Separator, Intake
+
+## 7.2.1 Pumps and Gas Handlers
+
+The information below provides general guidance on failure analysis for pumps and gas handlers.  (Reference Figure 1)
+
+- a)  Remove the head and base shipping caps. Specific instructions should be given  to  return  the  discharge  head  with  the  pump.  Do  not  permit  the discharge head to remain at the wellsite with the handling joint.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 1)  Inspect the head and base inner diameter condition.
+- 2)  Check the base O-ring boss and discharge thread connection for damage as applicable. Take material samples as necessary.
+- 3)  Observe the condition of the O-ring(s).  Do not permit O-rings to be discarded at the wellsite.  Instruct the technicians to keep the original O-rings intact and undisturbed.
+- 4)  Note any damage to the flanges and associated mating joints.
+- b)  Inspect the coupling (if applicable) and spline conditions.
+- 1)  Give particular attention to the flange splines to note any installation damage.
+- 2)  If the coupling is a two-piece coupling, inspect the retaining pins for proper setting and remaining intact.
+- c)  Inspect the shaft for the following:
+- 1)  Shaft settings.
+- i. Note shaft settings as compared to manufacturer's allowable tolerances.
+- ii. Confirm if shaft settings are within tolerance.
+- iii. If  possible,  compare the shaft setting measurements to the readings documented from assembly.
+- 2)  Shaft rotation.
+- 3)  Axial play.
+- 4)  Side play.
+- 5)  Shaft wear, relative to stage position.
+- 6)  Damage that indicates the shaft is twisted.
+- d)  Use a shaft rotation tool on the opposite end, or another visual confirmation device, to determine if the shaft is intact or broken within the pump. If the shaft is confirmed broken, check shaft rotation from either end.
+- e)  Remove the head, top bearing (if applicable) and base and inspect the Oring conditions.
+- f) Remove  and  inspect  the  compression  tube  which  is  defined  as  the component  that  compresses  the  diffusers  to  prevent  spinning  within housing.
+- g)  Inspect  the  head  and  base  bearing  bushing  inner  diameter  condition parameters below. If wear is observed, measure the diameter, and compare to manufacturing specifications.
+- 1)  Radial wear.
+- 2)  Sharp edges that may indicate abrasive wear.
+- 3)  One-sided wear.
+- h)  Inspect the shaft at the locations of the head and base bushings as given below.    If  wear  is  observed,  measure  the  diameter,  and  compare  to manufacturing specifications.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 1)  Radial wear.
+- 2)  One-side wear.
+- i) Give attention to all bearing systems (if in the assembly) for displacement or damage.
+- j) Inspect all items used to assemble the pump, including: (Note:  this will vary between pump types).
+- 1)  Two-piece ring(s).
+- 2)  Snap/retaining rings.
+- 3)  Locking rings.
+- k)  Remove the pump stack from the pump housing and inspect the external diffuser and diffuser O-ring conditions. Typical observations include:
+- 1)  Discoloration.
+- 2)  Conditions of O-rings.
+- i.  Hardened from excessive temperature.
+- ii. Swollen.
+- iii. Other.
+- 3)  Confirm location of O-rings is per manufacturing procedure
+- 4)  Condition of the diffusers:
+- i. Evidence that the diffuser has spun (rotated) in against the housing.
+- ii. Evidence of scoring on the diffuser OD.
+- iii. Dimple or collapsed.
+- iv.  Other damage.
+
+Note :  in some cases, it may not be possible to remove the stack from housing so other measures may be needed to be able to examine stages.
+
+- l) Number the stages (diffusers) from bottom to top.
+- m) Remove the stages from the shaft.  Inspect the  shaft  and  key  condition, including:
+- 1)  Wear or twist to the shaft keyway and key-stock.
+- 2)  Wear to the shaft, in particular the bearing locations.
+- n)  Inspect the pump stages.  At a minimum inspect stages at the head, base, and midpoint.  Typically, 2-3 stages should be inspected at each location. The number and location of stages being inspected may be adjusted, as necessary.
+- 1)  As applicable, inspect the bearing conditions:
+- i. Note the type of bearing material at each stage/location.
+- ii. Inspect the wear surfaces condition.
+- iii. Unusual wear, cracks, chips, etc.
+- iv. Heat checking.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 2)  Inspect the impeller thrust washers' condition (Note:  types of thrust washers will vary between pump types).
+- i. Upthrust.
+- ii. Downthrust.
+- 3)  Inspect flow passages/impeller vane condition.
+- i. Plugging from debris and solids.
+- ii. Erosion wear.
+- iii.  Mechanical damage.
+- 4)  Inspect the diffuser inner diameter and vanes.
+- 5)  Inspect impeller and diffuser wear surfaces (hub, skirt, and balance rings).
+- 6)  Inspect the diffuser nesting surfaces for wear to include indications of spinning diffuser.
+- 7)  Inspect the keyed components along the shaft.
+- 8)  For  detailed  analysis,  wear  surfaces  should  be  measured  and compared to  manufacturing  specifications.    These  measurements will allow the wear patterns to be further analyzed.
+- o)  Take samples as applicable.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+<!-- image -->
+
+Mixed Flow Centrifugal Pump (typical)
+
+Figure 1- Centrifugal Pump (typical)
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 7.2.2 Intakes and Gas Separators
+
+The information below provides general guidance on failure analysis for intakes and gas separators.  (Reference Figure 2)
+
+- a)  Remove the head and base shipping caps.  Inspect the head and base inner diameter condition. Note any plugging or presence of material or debris.
+- b)  Inspect the shaft for the following:
+- 1)  Shaft settings:
+- i. Note shaft settings as compared to manufacturer's allowable tolerances.
+- ii. Confirm if shaft settings are within tolerance.
+- iii. If  possible,  compare  shaft  setting  measurements  to  the readings documented during assembly.
+- 2)  Shaft rotation.
+- 3)  Axial play.
+- 4)  Side play.
+- 5)  Damage that indicates the shaft is twisted.
+- c)  Use a shaft rotation tool on the opposite end, or another visual confirmation device, to determine if the shaft is intact or broken within the pump. If the shaft is confirmed broken, check shaft rotation from either end.
+- d)  Inspect  the  screen  and/or  intake  ports  for  evidence  of  wear  /  plugging. Inspect the discharge ports for same.
+- e)  Remove the head and base. Inspect the O-rings as applicable.
+- f) Inspect the inducer / auger / paddles condition, including:
+
+Note : components and locations vary based upon type.
+
+- 1)  Erosional wear.
+- 2)  Mechanical damage.
+- g)  Remove the components from the shaft and observe:
+- 1)  Condition of snap/retainer rings.
+- 2)  Condition of any spacers.
+- 3)  Conditions of any two-piece rings or retaining devices.
+- 4)   Inspection of the hardened liner.
+- h)  Inspect the shaft and key condition, noting:
+- 1)  Wear or twist to the shaft keyway or key-stock.
+- 2)  Wear to the shaft.
+- 3) Damage from a broken or damaged bearing systems.
+- i) As applicable, inspect the bearing condition:
+- 1)  Note the bearing material(s).
+- 2)  Wear surfaces condition.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 3)  Unusual wear, cracks, chips, etc.
+- 4)  Heat checking.
+- j) Take samples as applicable, placing in documented sample container for later evaluation.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+Figure 2 - Gas Separator (typical)
+
+<!-- image -->
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 7.3  Seal/Protector
+
+The purpose of the seal / protector teardown is to determine if this ESP component performed per design and application.  Therefore, it is important to determine mechanical condition and the path of well fluid entry for each section and the amount of well fluid contamination within each section.  Be sure to perform pressure check on the completed tandem seal(s)/protector(s) assembly prior to separation of the configuration.
+
+There is significant debate regarding taking fluid samples from the seals/protectors at the wellsite versus leaving all plugs intact for inspection at the teardown facility. This decision to take fluid samples should be made by prior agreement of operator, service company and rig operator as part of standard pull procedures or case-bycase.  Considerations are briefly outlined below:
+
+- -Collecting samples at the time of the pulling of the ESP is the most representative  of  conditions  during  the  operation  of  the  system. However, samples can be misplaced or improperly identified.
+- -Removing plugs at the wellsite may contaminate evidence that would otherwise be useful.
+- -Failure to take fluid samples at the wellsite will allow the internal fluids to mix as the system is laid in the horizontal position for transportation.
+- -There should be agreement between the operator and supplier on whether to retrieve fluid samples at the wellsite.
+
+General comments:
+
+- a)  Seals/protectors will vary from manufacturer to manufacturer.  It is recommended that the operation and design be reviewed prior to the teardown.
+- b)  Typical chambers are termed as 'series' or 'parallel'.  The function of these chambers will impact overall performance.
+- c)  Determine  the  path  of  well  fluid  entry  for  each  chamber  and  the amount of contamination within each chamber.
+- d)  Lay  out  the  components  of  the  seal/protector  in  the  order  of disassembly from head to base.  To avoid confusion do not intermix the parts.
+- e)  Pressure check the tandem seal(s)/protector(s) assembly and then component sections at approximately 10-15 psi (70-105 kPa) and check for leaks at all joints, vent plugs and drain and fill valves using a leak detection solution.
+- f) Take a sample of the fluid from each chamber as the seal / protector is dismantled arranging the samples in order from the head to the
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- base.  If samples have been collected from the wellsite, arrange the samples in the same order for comparison.
+- g)  Allow sufficient time for the samples to settle, typically 10-30 min. Inspect for debris and well fluid.  If available, a sample of new oil can be used for comparison.  Photograph samples after they have settled.
+- h)  If appropriate, conduct a dielectric breakdown voltage test of the oil to  compare  this  value  to  measurements  obtained  during  final assembly  and  test.  The  dielectric  test  is  considered  optional  and should be done if there is prior agreement of operator and service company for the test.
+- i) Remove the head shipping cap and visually inspect the shaft seal and  shaft  splines  and  note  any  solids,  abrasives,  asphaltenes  or other material present. Collect samples as necessary throughout the teardown process.
+
+Note :  It is normal for debris/contamination to be present at the head of the seal/protector that connects to the intake and is exposed to well fluid.
+
+- j) Check shaft rotation, axial movement, and side play of the shaft.
+- 1) Check axial movement and shaft setting in the full up and full down positions and compare to the manufacturer's specifications, noting any deviations.
+- 2) Side  play  is  subjective  but  should  be  adequately described in the report.
+- k)  Pressure test the mechanical shaft seal to approximately 10 psi (70 kPa).  The test fixture will likely vary between manufacturers.  The inspector should be knowledgeable with operation of the test fixture. Inspect the mechanical shaft seal for leaks.  If possible, rotate the shaft during the test.  It is acceptable for a few bubbles to form initially. The inspection should evaluate for a continuous leak path.
+- l) Manufacturer's capabilities to pressure test mechanical shaft seals will  vary.    And  it  may  not  be  necessary  to  pressure  test  each mechanical shaft seal during the teardown. However,  it is considered  necessary  to  pressure  test  mechanical  seals  for  an effective teardown.
+- m) Remove the mechanical shaft seal at the head and visually inspect the shaft seal and all associated components for damage.
+- 1) It is recommended to have a new mechanical shaft seal available for comparison.
+- 2) Remove the head of the seal/protector and inspect the O-ring(s) at the head to the housing joint.
+- n)  Radial Support Bearings.
+- 1) Note the bearing material(s).
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 2) Inspect the wear surfaces condition
+- 3) Unusual wear, cracks, ships, etc.
+- 4) Heat checking.
+- o)  Continue to tear down the seal/protector inspecting each chamber and its associated components and documenting damage, including:
+- 1) Bag Chamber:
+- i. Confirm elastomer type and compare  to original specification.
+- ii. Inspect the bag for:
+8. -Heat damage (hardened, set).
+9. -Chemical attack.
+10. -Blistering (gas bubbles that may be impregnated to the bag).
+11. -Tears along the seam.
+12. -Tears at the bag clamp area.
+13. -Condition of the clamp.
+14. -Swelling.
+15. -Contamination inside the bag.
+- iii. If the bag is intact, pressure test the bag and bag frame assembly to 5 psi / 35 kPa / and document any leaks.
+- 2) Labyrinth Chamber:
+- i. Identify any fluid interface marking (oil/water contact)
+- ii. Confirm integrity of up/down tubes or shaft tubes.
+- 3) Metal  Bellows  Chambers:  General  inspection  and pressure test.
+- 4) Check Valves (if used).
+- i. Pressure test the check valves for opening and closing pressures and compare to manufacturer's specification, noting any differences.
+- ii. Inspect the valve for debris contamination.
+- 5) Thrust Bearing Chamber:
+- i. Confirm  that  the  thrust  runner  was  still  keyed  to  the shaft.
+- ii. Inspect the thrust bearing and runner.
+27. -Indications of direct contact (loss of lubricity or overloaded).
+
+Note : Loss of lubricity will typically lead to significant damage to the thrust bearing and runner.
+
+- iii. Indications of superficial or significant scratches, scoring, smearing, debris imbedded into the pads.
+- iv. Indications of the system running with gas present.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- p)  If  equipped,  inspect  the  filter  screen  for  damage  and  collected contaminates.
+- q)  Other observations.
+- i. Inspect  the  shaft  and  running  areas  for  damage  from  onesided wear or abrasive damage.
+
+## 7.4  Motor
+
+## 7.4.1 General
+
+This section provides recommendations for inspection of induction and permanent magnet motors.  Special considerations shall be taken for assessing permanent magnet motors especially with regards to electrical testing and the handling of the rotors.    For  example,  special  tooling  will  be  required  to  teardown  permanent magnet motors which varies between manufacturers.  The inspector should be familiar with the specific manufacturer's process prior to commencing the teardown. Follow the manufacturer's guidelines for completing the electrical tests. (Reference Figure 3).
+
+## 7.4.2 Pre-Teardown Inspections
+
+## 7.4.2.1  Leak Test
+
+The steps below detail pressure testing a motor.
+
+- a)  It is recommended that the MLE/pothead remain connected to the motor at the wellsite (do not remove).
+- 1)  The MLE should be cut approximately 60 cm / 24 in from the back of the pothead.  If the MLE/pothead was detached at the wellsite, the pressure test is considered compromised at this location. However, the MLE/pothead should remain with the motor for inspection during the teardown.
+- b)  Pressure test the motor with the MLE/Pothead attached to approximately 70 kPa / 10 psi or to the manufacturer's recommended pressure. Apply a leak  detection  solution  and  inspect  the  motor  for  leaks  at  the  following locations:
+- 1)  Pothead.
+- 2)  Joints and connection points.
+- 3)  Drain and fill valve locations.
+
+## 7.4.2.2  Electrical Testing
+
+The steps below detail electrical testing of a motor.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- a)  Prepare the ends of the MLE/Pothead for electrical testing to test the motor with MLE/Pothead.
+- b)  Complete and record standard electrical tests.  The order of the tests may vary depending upon observations and conditions.  Compare the measured values to the manufacturer's tolerances and to the factory acceptance testing record:
+- 1)  Phase to phase conductive resistance readings should be balanced within ±3%.
+- 2)  Phase to ground insulation resistance testing:
+- i.  Using a minimum of a 1000-V megger; conduct the insulation resistance test for approximately 1 minute.  The duration of the test should be consistent. Pay attention to the polarity to avoid damaging the downhole sensor.
+- ii. If a low reading is observed, conduct the tests on the remaining two phases.
+- c)  If motor tests good electrically, then connect the gauge/sensor surface readout, or run-in-hole (RIH) panel to verify gauge integrity.
+- d)  Remove the pothead and repeat the electrical testing at the motor pothead testing the motor only.
+- e)  Inspect the pothead as follows:
+- 1)  Damage to the pothead O-ring, boot, or other.
+- 2)  Indications of water ingress or leak paths.
+- 3)  Damage to the connectors, including any signs of electrical burn.
+- 4)  Retain the pothead/MLE for further evaluation, if required.
+
+## Note : Insulation Resistance Testing
+
+- -Low insulation resistance readings may indicate that the stator has been contaminated with well fluids.
+- -A zero (0) or unbalanced reading indicates that the stator may have an electrical burn or is extremely contaminated with well fluid.
+- -A reading that increases after the pothead is removed indicates a potential problem in the pothead.
+
+## 7.4.2.3  I-Block, Shaft and Oil Samples
+
+The steps below detail inspections of the motor I-block and shaft, including oil samples.  If oil samples are collected, the samples should be tested per ASTM D877 or ASTM D1533.
+
+- a)  Check the shaft extension and record the reading.
+- b) Inspect the head bore O-ring surface for leak tracks, burrs, corrosion, or any other abnormal condition.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- c) Inspect the coupling for damage to the splines.
+- d) Inspect the shaft spline for damage, twisting, breaks, etc.
+- e) Use a shaft spline tool, rotate the shaft, and record how it rotates.
+- f) Confirm the shaft rotates at both ends.
+- g)  Remove the drain-fill valves at the top and bottom of the motor and inspect for leakage or damage.
+- 1)  Inspect the lead gaskets for proper compression.
+- 2)  Inspect O-rings for damage.
+- 3)  Collect oil samples at the time of removal of the drain and fill valves.
+- h)  Remove the vent plug from the drain-fill valve and inspect for leakage and proper compression on the lead gasket.
+- i) Visually inspect the pothead for any damage prior to removal.  After the pothead has been removed make note of:
+- 1)  any physical damage.
+- 2)  external electrical damage.
+- 3)  evidence of extreme heat, etc.
+- j) Retain the pothead for further analysis if there are any signs of failure or damage.
+
+Note:  Analysis of the MLE/Pothead may be conducted separately.
+
+- k) Inspect the I-block and its surrounding components prior to and after removal.  Observe closely for any indications of:
+- 1)  Well fluid entry from a leaking pothead or seal.
+- 2)  Indications of heat.
+- 3)  Indications of electrical failure.
+- 4)  Indications of mechanical failure.
+- 5)  Indications of corrosion.
+- l) As the base shipping cap is removed:
+- 1)  Collect a sample of the oil that drains from the motor.
+- 2)  Observe closely for water droplets or other contamination such as brass or metal debris.
+- 3)  Retain the sample for further evaluation as required.
+- 7.4.3 Removing the Head and the Base
+
+The steps below details observations when removing the head and base from the motor.
+
+- a)  At the motor head:
+- 1)  Examination of the thrust bearing pads for scratches, scoring, embedded particles, smearing, pitting or any other damage.
+- 2)  inspect the motor thrust bearing, thrust runner and key for any signs of damage.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- b)  Inspect the bottom of the thrust bearing cavity to see if the anti-rotation pins are intact.
+- c)  Inspect the bushing(s) in the motor head for damage by checking for:
+- 1)  Radial wear.
+- 2)  One-side wear.
+- 3)  Confirmation the bushing is intact
+- 4)  As necessary, measure the ID of the bushing and compare to the manufacturer's specification.
+- 5)  Inspect the shaft in the bushing area.  As necessary, measure the OD of the shaft and compare to the manufacturer's specification.
+- d)  Remove the motor head and inspect the threads for galling or other damage. Inspect the O-ring.
+- e)  Inspect the leads from the stator checking for:
+- 1)  Electrical burn.
+- 2)  Length of leads.
+- 3)  Physical damage to the leads that may have occurred during operation.
+- 4)  Damage from excessive temperature.
+- 5)  Any other physical or incidental damage.
+- f) Observe any fluids that may be draining from the stator such as water droplets or other debris.  Collect an additional sample if necessary.
+- g)  Remove the motor base and inspect the O-ring.
+- h)  Inspect the motor base O-ring groove, base bushing and any/all adapter connection points.
+
+## 7.4.4 Rotor Stack Inspection
+
+The steps below details observations for the rotors (rotor stack).
+
+- a)  Pull the rotor stack from the stator and note any difficulties removing the rotor stack. Typical observations include:
+- 1)  Check the spacing between the rotors and rotor bearings.
+- 2)  Confirm the rotation of the rotor bearings.
+- 3)  Check the anti-rotation device for heat or physical damage:
+- i. Locking keys which may be stationary, or spring loaded.
+- ii. T-rings.
+- iii. Others.
+- 4)  Spinning rotor bearings.
+- 5)  Damage to the rotor from rubbing against the stator (rotor strike), including any indication of an electrical burn/arc.
+- 6)  Damage between the rotor and rotor bearing.
+- b)  Number the rotors from bottom to top.
+- c)  Remove the rotors and rotor bearings from the shaft, then inspect the rotor bearing assemblies:
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 1)  For hollow shaft motor systems, check rotor bearing sleeve. alignment to the holes on the motor shaft.
+- 2)  Wear between the rotor bearing sleeve and the shaft.
+- 3)  Indications of heat/temperature effects.
+- 4)  Inspect the rotor bearing thrust washers for mechanical damage and heat/temperature.
+- 5)  Other physical damage.
+- 6)  Measure the ID of the rotor bearing sleeves, as may be required.
+
+## 7.4.5 Motor Shaft
+
+Complete a general visual inspection of the motor shaft checking for:
+
+- a)  Spline area damage.
+- b)  Obvious signs of wear at the rotor bearing locations.
+- c)  Head/base bushing area wear.
+- 1) Observe for shaft wear.
+- 2) Observe for transfer of material from the head and base bushings.
+- i. Brass.
+- ii. Other.
+- d)  Plugging of holes in the shaft (if a hollow shaft).
+- e)  Indications of heat.
+- f) Inspection of the snap ring groove areas for damage.
+- g)  Inspection of the two-piece ring groove area for damage.
+- h)  Inspection of the keyway for damage.
+- i) If the shaft has parted, protect the fracture areas to avoid further damage or contamination.
+
+## 7.4.6 Stator Inspection
+
+The steps below details observations of the motor stator.
+
+- a)  After the rotor stack has been removed, visually inspect the head and base end coils.
+
+Note :  End coil inspection is generally not possible for encapsulated stators.
+
+- b)  Inspect the stator bore for any indications of damage, using a borescope, if available.
+- c) Inspect the laminations snap ring for movement or displacement.
+- d)  Repeat the electrical tests, as necessary and described above in Electrical Testing section.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 7.4.7 Stator Dissection
+
+Stator dissection is normally not required.  However, there are instances where an electrical fault in the stator cannot be identified clearly unless the stator is dissected. It is acceptable to transport the stator to another facility for dissecting if there is not availability of a saw capable to cut the stator.  Carefully follow the manufacturer's  procedures  and  guidelines  when  cutting  the  stator  as  the lamination stack is under significant compression.  Procedures and guidelines will vary between manufacturers.
+
+- a) Complete electrical tests to identify the phase of the burn.  Typically, a burn inside the stator will only occur on one phase, although it is possible for multiple phases to have electrical faults.
+- b) Inspect the stator bore for any visible signs of an electrical burn with a borescope, if available.  It may be possible to identify areas from associated rotor locations.
+- c) If an area of possible failure is identified, measure and mark the exterior of the stator to avoid cutting through the failed/burned area.
+- d)  Always mark the stator head and base prior to each dissecting cut.
+- e) Complete electrical tests to help isolate fault locations after each dissection step.
+- f) After the fault area has been successfully isolated, carefully remove the laminations and motor windings to avoid further damage to the electrical burn area.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+Figure 3 - Center Tandem Motor (typical)
+
+<!-- image -->
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 7.5  Downhole Gauge / Sensor
+
+This section gives general recommendations for inspection of downhole gauges/sensors.  Gauges/sensors can vary significantly between manufacturers and are often provided by third party suppliers.  The inspector should be familiar with the specific manufacturer's process prior to commencing the inspection of the gauge/sensor. Removing the gauge at the wellsite will void the sensor to motor connection pressure test.
+
+- a)  The gauge/sensor should remain connected to the motor prior to inspection.
+
+Note:  If the gauge is removed at the wellsite, detailed pictures and data should be collected as per the recommendations below.
+
+- b)  The gauge/sensor connection to the motor should be pressure tested at the time of motor inspection.
+- c)  Visually inspect the gauge and all ports.
+- d)  Disconnect the gauge from the motor.
+- e)  Closely inspect the connections wires, connectors, and cavity area and:
+- 1)  Inspect the integrity of the wires.
+- 2)  Inspect the connectors from the gauge into the motor.
+- 3)  Inspect the connections for any indications of heat.
+- 4)  Inspect the connections for any mechanical damage.
+- 5)  Inspect the area for indications of well fluid being present.
+- 6)  Inspect the O-ring.
+- f) Follow the manufacturer's guidelines for testing the gauge/sensor:
+- 1)  Complete electrical integrity testing of the gauge/sensor.
+- 2)  Connect the surface readout or run-in-hole (RIH) panel to verify gauge integrity.  Tests should include, but may not be limited to:
+- i.  Temperature.
+- ii. Pressure.
+- iii. Vibration.
+- g)  In some cases, it may be necessary to return the gauge/sensor to manufacturer facility to perform a proper inspection.
+
+## 7.6  Cable and Splices
+
+This section provides guidance on teardown for the main power cable (referred to as cable), cable splice(s), motor lead extension (MLE) and pothead.  These items will  vary  significantly  between manufacturers.  The inspector should be familiar with  the  specific  manufacturer's  process  and  design  prior  to  commencing  the inspection of these items and have ready access to the specific procedures during the inspection and failure analysis process.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+The following recommended observations and data shall be recorded when dismantling the cable string such as power cable, MLE cable, cable splices and pothead  though  often  is  only  a  partial  section  of  the  cable  string  sent  for inspection.
+
+Note :  The cable string is normally inspected in cable shop separately from the pump section so that the cable can quickly be re-run if possible.
+
+- a)  Confirm the cable construction along with serial number from pull report.
+- b)  Confirm the original dimensions of the cable.
+- c)  Confirm the electrical condition of the cable before and during pulling.
+- 1)  It is recommended that photographs be collected of any unusual or damaged  areas  during  the  pull.    These  areas  should  be  clearly identified.
+- 2)  The electrical test using a minimum of a 5000-V megger; conduct the insulation  resistance  test  for  approximately  1  minute  and  should include the following:
+- i. Electrical test prior to disconnecting the lower pigtail (if used).
+- ii. Electrical test after removal of the lower pigtail (if used).
+- d)  At the manufacturer's facility, record the electrical condition of the power cable with the MLE cable.
+- e)  If the cable is faulted, inspection may include the following:
+- 1)  Spool the cable on to an empty reel and inspect the cable for visual damage. Observations should include:
+- i. Mechanical  damage  from  impact  in  the  wellbore  including orientation of damage to determine if occurred on install or on pull.
+- ii. Mechanical damage from the application of clamps or bands.
+- iii. Electrical faulting.
+- 2)  Use a time domain reflectivity meter (TDR) to identify the general area of the fault.
+
+Note :  Many facilities will not have access to a TDR.
+
+- 3)  Conduct a thump test (high voltage DC test) per the manufacturer's guidelines.
+
+Note :  Repeated use of this option may cause cable damage.
+
+- f) As areas of concern are observed, visually inspect the cable.  Identify the location of the damage relative to the wellbore depth.  Retain samples as
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+required  for  future  evaluation  (if  needed).    General  observations  should include:
+
+- 1)  Gas blowout.
+- 2)  Damage to the insulating system.
+- 3)  Damage  to  the  barrier  system  to  identify  obvious  or  potential locations containing electrical failures, mechanical damage (such as gas migration), etc.
+- 4)  Compare the used cable to new cable if new cable is available.
+- g)  Evaluate the following:
+- 1)  Armor:  drag  marks,  compression  marks,  dents,  corrosion,  other damage.
+- 2)  Barrier tapes, braid, lead sheath: embrittlement, pitting, breach, split, evidence of excessive temperature, other damage.
+- 3)  Electrical insulation: swelling, embrittlement, splits, discolored, contamination, nicks, evidence of excessive temperature, etc.
+- 4)  Conductor:  burn,  discolored,  exposure  to  well  fluids,  evidence  of excessive temperature, etc.
+- h)  If a cable splice failure is identified or suspected, cut the cable approximately  six  feet  (two  meters)  on  either  side  of  the  splice.    Avoid cutting into the splice.
+- i) Deconstruct the splice in the reverse order of construction. Key observations of a splice include:
+- 1)  Overall size of the splice.
+- 2)  Mechanical damage of the splice.
+- 3)  Identify primary burn and secondary burn, if possible.
+- 4)  Confirm layers of splice are as specified.
+- i. High modulus tape.
+- ii. High temp tape.
+- iii. Lead.
+- iv. Other layers as prescribed by the manufacturer's procedure.
+- v. Confirm  that  the  layers  have  proper  overlap  as  per  the manufacturer's specification.
+- 5)  Review and observe the insulation at the connection points.  General observations include:
+- i. Heat related damage.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- ii.  Mechanical damage.
+- iii. Confirmation of the assembly process to include.
+3. -Proper preparation of the insulation and conductor.
+4. -Confirmation  that  the  nicopress  sleeve  was  properly prepared and applied.
+5. -Other.
+- 6)  Collect and label samples as necessary.
+
+## 7.7  Pothead
+
+Potheads  will  vary  significantly  between  manufacturers.    In  addition,  each manufacturer may have varying types of potheads.  The inspector should be familiar with the specific manufacturer's process and design prior to commencing  the  inspection  of  the  pothead  and  have  ready  access  to  the specific  procedures and drawings  during the  inspection and  failure  analysis process.
+
+- a)  Perform  a  visual  inspection  of  the  pothead  noting  any  damage  or  fluid leaking from or around the pothead.
+- b)  Observation of the physical condition of the pothead should include:
+- 1) Any indications of mechanical damage.
+- 2) Any indications of excessive temperatures.
+- 3) Extrusion of elastomer on the face of the pothead.
+- 4) Loss of epoxy (if any) at the back of the pothead.
+- c)  Complete both a positive and negative pressure test of the pothead.
+- d)  Complete  insulation  resistance  tests  and  record  the  readings  using  a minimum of a 1000-V megger; conduct the test for approximately 1 minute.
+- e)  If feasible, use an X-Ray or Gamma-Ray unit to detect internal damages before dissecting the pothead.
+- f) If  required,  dissect  the  pothead  to  assess  the  condition  of  the  internal components including:
+- 1)  Swelling.
+- 2)  Shear.
+- 3)  Burn.
+- 4)  Embrittlement.
+- 5)  Voids.
+- 6)  Displaced components.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- 7)  Others.
+
+## 8 Report
+
+The  failure  analysis  report  contains  the  information  detailing  the  results  of  the failure analysis.  There are multiple methods available to determine root cause. The 'why' analysis is an effective method to determine root cause for ESP's.  The 'why' process starts with a list of possible reasons the system could have failed. Thereafter, continually ask the question 'why?' during the teardown process to identify symptoms as well as the root cause.  The failure analysis determines what event,  component or process that caused the system not to function as it was intended.  Statements should be as specific as possible. Generic statements such as 'well-bore conditions' should be avoided in root cause statements.
+
+The following outlines the necessary information to be included in the report.  It is recommended that as much information as possible be included, although in some cases, some information may not be available.  It is strongly recommended that the root cause be clearly stated at the beginning of the report.  The remainder of the report provides details and supporting evidence.
+
+Note :  In some cases, root cause may be undetermined.
+
+- a)  Root cause statement for the system failure.
+- b)  Equipment descriptions &amp; details.
+- c) Installation information with photographs.
+- d)  Pull information with photographs.
+- e)  Production information.
+- f) Factory acceptance testing (FAT) documentation.
+- g)  Post failure analysis from any third parties, when applicable.
+- 1)  Metallurgical.
+- 2)  Chemical.
+- 3)  Other.
+- h)  Equipment sizing data (design data) as it relates to the choice of equipment. Also, relating to production information at different points in the life of the ESP.
+- i) VSD data download.
+- j) SCADA or monitoring information.
+- k) Photographs from the equipment teardown with captions and detail.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- l) Recommendations &amp; corrective actions.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Annex A (Informative) Commonly Used Terms, Definitions and Abbreviations
+
+| Adaptors                  | A general description of devices that adapt/fit different components for connection.                                                                                                                                   |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AGH                       | An enhanced method (stage type) to handle gas in a centrifugal pump.                                                                                                                                                   |
+| Anti-Rotation Clip        | The item that prevents the rotor bearing from spinning in the stator bore.                                                                                                                                             |
+| Anti-Swirl Ribs           | The process of creating a method whereby erosion is limited in the diffuser. Stage specific. Also referred to as break water, sand dams.                                                                               |
+| Auto-Diverter Valve (ADV) | A valve that is pressure operated and designed to open when the ESP is not operating. A method to minimize sand falling back from the tubing into the pump.                                                            |
+| Axial Flow                | Impeller and diffuser flow passages are in the axial direction. This stage type is seldom used in the ESP industry.                                                                                                    |
+| Babbitt                   | A lead-type metal material (tin, lead, antimony, copper) used for the running surface on the pads of thrust bearings.                                                                                                  |
+| Babbitt Bearing           | A thrust bearing that where the thrust bearing pads are a lead-type material.                                                                                                                                          |
+| Balance Hole              | Holes drilled between the impeller inlet region and the top of the upper shroud which reduces the thrust load on the stage. Requires that the impeller have a balance ring and is typically used on mixed flow stages. |
+| Bearing Housing           | The support structure for the abrasion resistant shaft bearings. Used when the shaft bearings cannot be incorporated into the diffuser.                                                                                |
+| Bearing Support           | This cast structure consists of an inner and outer ring connected by radial spokes. In the heads and bases of pumps this supports the shaft bearings. Sometimes called a wagon wheel.                                  |
+| BHP                       | Brake Horsepower.                                                                                                                                                                                                      |
+| BHT                       | Bottom Hole Temperature.                                                                                                                                                                                               |
+| BOM                       | Bill of Materials.                                                                                                                                                                                                     |
+| Bottom Floater (BFL)      | The bottom 60 percent of the stages are "floater type" and the upper 40 percent are "compression type." The compression stages support the shaft axial load. This type of construction is no longer common.            |
+| BPD                       | Barrels Per Day-unit of measure; one barrel=42 U.S. gallons.                                                                                                                                                           |
+| Break Water               | A smooth radius in the bottom of the diffuser which directs the flow of fluids to the next stage.                                                                                                                      |
+| Break Water               | The process of creating a method whereby erosion is limited in the diffuser. Stage specific. Also referred to as sand dams, anti-swirl ribs.                                                                           |
+| Brine                     | Salt water.                                                                                                                                                                                                            |
+| Brush Cable               | A cable made of many fine strands for flexibility. Generally used as the leads that transition from the solid magnet wire used in the motor winding to the electrical connectors. Sometimes called Brush Wire.         |
+| Brush Cable               | The cable that connects to the motor windings. Also referred to as motor leads.                                                                                                                                        |
+| Bushing Surface           | The area of the shaft that rides inside a bushing.                                                                                                                                                                     |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| By-Pass Tubing             | The tubing that is adjacent to the ESP when a Y-tool assembly in installed.                                                                                                                                                                                                                |
+|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CCP                        | Cross-Coupling Protectoliser.                                                                                                                                                                                                                                                              |
+| Centrifugal Gas Separator  | A gas separator which uses centrifugal force to separate gas from well fluid. Many have features such as rotary, vortex and natural separation with combinations of these to accomplish diverting high density fluid to the pump, low-density fluid and vapor are returned to the annulus. |
+| Coil Forming Block         | A mechanical support for the end-coils of a wound stator.                                                                                                                                                                                                                                  |
+| Cookie Cutter              | Slang for Motor Lead Guard Adapter, typically found in CT and LT motors.                                                                                                                                                                                                                   |
+| D&F                        | Drain and Fill Valve.                                                                                                                                                                                                                                                                      |
+| DCS                        | Digital Control System (often interchanged with SCADA).                                                                                                                                                                                                                                    |
+| Discharge Pressure Sub     | The same as a discharge head but also has a method to port discharge pressure of the pump to the DMS.                                                                                                                                                                                      |
+| Draw Bench                 | A work bench fitted with a trough and draw works to facilitate assembly or dismantle of an ESP pumps and motors.                                                                                                                                                                           |
+| EFT                        | Electrical feed-through, (may also be referred to as the upper pigtail). The EFT is a system that allows the power cable to transition from the annulus to surface while maintaining a pressure and gas tight barrier at the wellhead. Multiple configurations may comprise an EFT.        |
+| End Flop                   | Stator inside diameter to housing thread concentricity.                                                                                                                                                                                                                                    |
+| Enhanced Quality Plan      | Refers to enhancements of a standard quality plan. An enhanced quality plan (sometimes referred to as a "QCP") is typically manufacturer and project specific.                                                                                                                             |
+| EPDM                       | An insulating material often used on ESP cable. EPDM=ethylene propylene diene monomer.                                                                                                                                                                                                     |
+| ESP System Efficiency      | The efficiency for the entire ESP system (pump, seal/protector/intake/motor). Typically, does not include power cable loss, tubing friction loss or surface electrical equipment losses.                                                                                                   |
+| Extruded Barrier           | Refers to a method of cable manufacturing whereby an extruded barrier material is applied over the cable conductor insulation. Generally found in the cable description.                                                                                                                   |
+| Eye Opening                | The open area where fluid enters the impeller.                                                                                                                                                                                                                                             |
+| FCE                        | Flat cable extension, sometimes called the MLE - Motor Lead Extension.                                                                                                                                                                                                                     |
+| Field Attachable Connector | The field installed electrical connector that mates to the wellhead penetrator just below the tubing hanger. The connector is typically installed on the power cable just prior to landing the tubing hanger in the wellhead.                                                              |
+| Flat Cable                 | Three flat, parallel conductors in an armored cable which give the smallest profile available.                                                                                                                                                                                             |
+| Flat Cable Extension (FCE) | A special clearance parallel conductor cable used to go alongside the pump and protector/seal. The FCE is spliced to the main power cable. May also be referred to as the motor flat; motor lead; flat cable. The FCE will have the pothead incorporated on the lower end. Also see MLE.   |
+| Floater                    | The pump impellers are free to slide or 'float, 'on the shaft. All impeller thrust is carried on the impeller thrust washers. All shaft thrust is carried by the seal / protector thrust bearing.                                                                                          |
+| Flop                       | The longitudinal curvature of the stator over its overall length; the amount of bow in a shaft.                                                                                                                                                                                            |
+| FLOP                       | A method used to inspect an ESP component for straightness (post-failure).                                                                                                                                                                                                                 |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Go No Go                 | A gauge used to inspect part tolerances.                                                                                                                                                                                                          |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Go-No Go Gauge           | An inspection tool used to check a workpiece against its allowed tolerances via a go/no-go test. Its name is derived from two tests: the check involves the workpiece having to pass one test (go) and fail the other (no-go).                    |
+| GOR                      | Gas Oil Ratio.                                                                                                                                                                                                                                    |
+| GRB                      | Gauge ready base, the lower end of the motor is configured to mate with a DMS.                                                                                                                                                                    |
+| Ground Bed               | The area in which the overall ESP system is grounded at surface.                                                                                                                                                                                  |
+| H2S                      | Hydrogen Sulfide--poisonous and corrosive gas.                                                                                                                                                                                                    |
+| Handling Error           | Incorrect handling of the ESP system that could lead to damage. Generally, includes shipping damage as well as damage that may be incurred at the wellsite.                                                                                       |
+| High Load Thrust Bearing | Any type of thrust bearing with a higher capacity than the standard post and pad type bearing.                                                                                                                                                    |
+| High Strength Shaft      | The base shaft material of the seal / protector, gas separator, intake and pump are typically K500 Monel or Nitronic 90 (manufacturer specific). In some applications Inconel materials are substituted when higher strength shafts are required. |
+| HI Pot Tester            | An instrument used to test the integrity of the windings by introducing high voltage electrical potential to motor windings and cable and measure current leakage.                                                                                |
+| HSS                      | High strength shaft                                                                                                                                                                                                                               |
+| ID                       | Internal Diameter.                                                                                                                                                                                                                                |
+| Inconel                  | Material generally used for high strength shafts (specific between manufacturers).                                                                                                                                                                |
+| Infant Failure           | An ESP failure that occurs within a short period of time after the initial start- up. The period can vary significantly between manufacturers and operators.                                                                                      |
+| Installation Error       | Describes damage that may be incurred to the ESP system while being installed.                                                                                                                                                                    |
+| Installation Report      | The document filled out by a field service technician that documents the installation of an ESP system. Also see Pull and Run Report.                                                                                                             |
+| Insulator                | A Teflon, PEEK or other insulating sleeve that isolates an electrical terminal from the base or head in a motor.                                                                                                                                  |
+| Integral Intake          | Some high rate and large series pump integrate the intake and pump base into a single component.                                                                                                                                                  |
+| Kapton                   | An insulating material (Polyimide film) often used as the primary insulation on magnet wire. Kapton is a trade name unique to Dupont manufactured polyimide film.                                                                                 |
+| Key Stock                | The material used to attach the pump impeller to the shaft                                                                                                                                                                                        |
+| Key-Stop                 | Located at the top of a floater pump, the key-stop keeps the key, which transmits the torque from the shaft and has a thrust washer between it and the bearing support of pump head.                                                              |
+| Lapping                  | A process used in the manufacture of thrust bearings and runners which uses a very fine abrasive to create a smooth and flat surface.                                                                                                             |
+| Lapping                  | A method used to provide a specific flatness. Generally used with thrust bearings and thrust bearing runners.                                                                                                                                     |
+| Lasalle Clamp            | A cast-metal type protectoliser.                                                                                                                                                                                                                  |
+| Leads                    | Wires connected of each of the three phases windings that then jumper across to the connection terminal.                                                                                                                                          |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Lock Weld                      | A weld at a joint that is intended to prevent decoupling or loosening of joint.                                                                                                                                               |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Locking Rotor Bearing          | A rotor bearing that cannot rotate or spin in the stator bore.                                                                                                                                                                |
+| Lock-Plate                     | A metal plate welded across a housing joint to prevent it from loosening in service.                                                                                                                                          |
+| Lower Shroud                   | The portion of the impeller which forms the bottom of the flow passages.                                                                                                                                                      |
+| Micro                          | Micro-inch.                                                                                                                                                                                                                   |
+| Micro-Finish                   | The surface finish (sometimes referred to as "smoothness").                                                                                                                                                                   |
+| Middle Tandem                  | A pump section without an integral discharge head or intake. The pump may be connected to an additional pump section, discharge head, an intake, or a gas separator.                                                          |
+| Minor ID                       | The smallest inside diameter on the part.                                                                                                                                                                                     |
+| Minor OD                       | The smallest outside diameter on the part.                                                                                                                                                                                    |
+| Modular Pump                   | A pump where pump stage thrust is carried in bearing systems within the pump staging. Bearing spacing can vary.                                                                                                               |
+| Motor Lead Guard Adapter       | The component used to protect the motor leads. Also referred to as a Cookie Cutter.                                                                                                                                           |
+| Motor Leads                    | The cable that connects to the motor windings and transitions to the motor terminals. Also referred to as brush cable.                                                                                                        |
+| Motor Series                   | Motors are typically classified by "series" which is dependent on the housing Outside Diameter (OD) in inches. 375 series = 3.75" OD, and so on with 450, 456, 562, 725 and 738 being the most common series.                 |
+| Mushroom Bearing or T- Bearing | A component of bearing system for modular pumps, typically manufactured from a hardened abrasion resistant material.                                                                                                          |
+| Ni-Resist                      | Nickel based alloy used in the manufacturing of pump parts and other related equipment. Type 1 is the most common alloy used. Type 4 is sometimes used for high profile abrasive installations.                               |
+| OD                             | Outside Diameter.                                                                                                                                                                                                             |
+| Operating Error                | Operation of the ESP was incorrect. The term is used to describe a wide variety of operating conditions.                                                                                                                      |
+| psi                            | The groove that holds the O-ring in place.                                                                                                                                                                                    |
+| O-ring Groove                  | The area where an O-ring is placed.                                                                                                                                                                                           |
+| Pancake Stage                  | The same as a radial flow stage. Slang for radial flow stage.                                                                                                                                                                 |
+| Phase Barrier                  | An electrical insulating paper placed between the end-coils where they overlap to increase the phase x phase insulation value.                                                                                                |
+| Plug In Pothead                | A pothead that plugs directly into the motor with the need to manually insulate the pothead x motor lead terminals.                                                                                                           |
+| POD                            | Placing an ESP in a contained tube and referred to as a POD.                                                                                                                                                                  |
+| Polyimide                      | Polyimide is a polymer of imide monomers belonging to the high class of high- performance plastics. Often interchanged with Kapton. Most often used for insulating material for the motor windings and motor lead extensions. |
+| pothole                        | Voids or bubbles in a casting, typically the impeller or diffuser.                                                                                                                                                            |
+| Pothole                        | The port in the motor head the pothead plugs into.                                                                                                                                                                            |
+| Protectoliser                  | A device used to protect the ESP cable or motor lead extension from mechanical damage during RIH or POOH.                                                                                                                     |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Pull and Run Report            | The document filled out by a field service technician that documents the installation or removal of an ESP system. Also see Installation Report and Pull Report.                                                                                                       |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pump Efficiency                | A measurement comparing power to produce to the power consumed by the pump. Hydraulic HP delivered by the pump / Brake HP input into the pump.                                                                                                                         |
+| Pump Efficiency                | The efficiency at which the pump is operating or the efficiency for which the pump tested at the factory. Sometimes confused with ESP systems efficiency.                                                                                                              |
+| Pump Series                    | Pumps are typically classified by "series" which is dependent on the housing Outside Diameter (OD) in inches. 338 series = 3.38" OD, 380series = 3.80" OD, and so on with 338, 380, 400, 513, 538 562, 650, 675, 862, 950, 1000 and 1125 being the most common series. |
+| Pump Series                    | Pumps are typically classified by "series" which is dependent on the housing Outside Diameter (OD) in inches. 375 series = 3.75" OD, 406 series = 4.06" OD, 450 series = 4.50"OD, and so on with 456, 540, 562, 725, 738 and 880 being the most common series.         |
+| Pump Stage Name or Description | The method in which a supplier identifies a pump. Descriptions vary between manufacturers.                                                                                                                                                                             |
+| RAD                            | Radius.                                                                                                                                                                                                                                                                |
+| Radial Flow                    | Flow passages in the impellers and diffusers are primarily in a direction radially outward from the shaft. Fluid exiting radially from the impeller is quickly turned 180 degrees and flows radially back toward the shaft and inlet of the next impeller.             |
+| Radial Play                    | Describes the radial wear in a pump.                                                                                                                                                                                                                                   |
+| rotor                          | The electrical reading used to measure electrical insulation resistance for an ESP motor, cable, or overall ESP system. Expressed in a value of Ohms, Meg Ohms or Gig Ohms.                                                                                            |
+| Rotary Gas Separator           | A gas separator that uses paddles to assist with gas separation. Generally compared to a vortex gas separator. Generally used in higher viscosity fluid applications.                                                                                                  |
+| Sand Dam                       | The process of creating a method whereby erosion is reduced in the diffuser. Stage specific. Also referred to as break water, anti-swirl ribs.                                                                                                                         |
+| SandGuard                      | A device installed in the tubing above the ESP to minimize sand falling back from the tubing into the pump.                                                                                                                                                            |
+| Seal Surface                   | The area of a protector shaft where the seal is located.                                                                                                                                                                                                               |
+| Shedder                        | A device used on a shaft which is designed to swing any heavy objects in the well fluid outward, e.g., water, sand.                                                                                                                                                    |
+| Shimming                       | The process of spacing out shafts end settings such that thrust forces can be transferred to the next lower section of equipment. Typically, used with compression construction pump to transfer the pump thrust onto the protector / seal thrust bearing.             |
+| Single (S) Motor               | A motor with a head made to accept the power cable connection on top and an integral "Y" connection at the bottom connecting the windings together.                                                                                                                    |
+| SIT                            | String Integration Test.                                                                                                                                                                                                                                               |
+| Skirt                          | The portion of the lower shroud which projects down into the eye opening of the diffuser. The skirt can function as a seal and/or a radial bearing, depending on the stage design.                                                                                     |
+| Sleeve                         | The rotating part that keys to the shaft and rotates in a mating stationary bushing.                                                                                                                                                                                   |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Slinger                    | A ring mounted on a shaft which throws the heavier particles and fluids outwards; shredded; sand slinger.                                                                                                              |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Slinger                    | Describes a component that 'slings' fluid.                                                                                                                                                                             |
+| Slot Liner                 | Insulating tube or sheet used to insulate the slots in the unwound stator; located between the magnet wire and the laminations.                                                                                        |
+| Smearing                   | Used to describe damage to a thrust bearing or runner.                                                                                                                                                                 |
+| Spline                     | The section at the end of the shaft which is toothed to accept a matching coupling which then transmits torque from one shaft to the next equipment section shaft.                                                     |
+| Stage Balancing            | The process of dynamically balancing the impeller of a pump stage. Only applicable to higher rate mixed flow pump stages. Not all pump stages are dynamically balanced. Stage specific, supplier specific.             |
+| Stamped Clamp              | A clamp used to protect and attach the ESP cable to the tubing. Also referred to as a Cannon Clamp.                                                                                                                    |
+| Standard Intake            | The standard bolt-on intake provides intake holes and screens for center or upper tandem pump sections (which end with a simple male flange).                                                                          |
+| Surface Switchgear         | All components required to operate an ESP at the surface. Generally, includes transformers, VSD/Switchboard, Junction Box.                                                                                             |
+| SWBD                       | Switchboard.                                                                                                                                                                                                           |
+| Tape & Braid               | Refers to a method of cable manufacturing whereby a tape like material and a braiding material are applied over the conductor insulation. Generally found in the cable description.                                    |
+| Tape In Pothead            | A pothead that requires the taping (wrapping of electrical insulating tape) over the individual lead connectors when assembled at the wellsite.                                                                        |
+| TDH                        | Total Dynamic Head.                                                                                                                                                                                                    |
+| THD                        | Thread.                                                                                                                                                                                                                |
+| Thrust Chamber             | The area in a seal/protector of the thrust bearing system.                                                                                                                                                             |
+| Tilting Pad Thrust Bearing | A type of high load thrust bearing in which pads are mounted to freely pivot on a post.                                                                                                                                |
+| TIR                        | Total Indicator Reading.                                                                                                                                                                                               |
+| Tool Mark Chatter          | Damage to a finish when a manufacturing tool is moved or removed.                                                                                                                                                      |
+| Transformer                | A device for converting one AC voltage to another with different root-mean- square values, but same frequency.                                                                                                         |
+| T-Rings                    | Another method for preventing rotor bearings from spinning in the stator bore.                                                                                                                                         |
+| Type 4 Ni- Resist          | Describes a higher nickel content of ni-resist that is intended to enhance performance in abrasive environments. Manufacturer specific.                                                                                |
+| Up Tube                    | Generally used to describe a component in a seal/protector.                                                                                                                                                            |
+| Up-Thrust Washer           | A washer used as the bearing surface on the top of the impeller. This is generally phenolic filled fabric material; however other materials are sometimes used.                                                        |
+| Varnished Stator           | Generally used to describe a method of stabilizing, protecting, insulating the motor windings. The varnish material will vary between manufacturers.                                                                   |
+| Voltage Optimization       | The method to optimize the voltage of an ESP system based on actual motor load rather than rated motor load capacity. Voltage optimization generally improves motor efficiency and lowers motor operating temperature. |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Vortex Gas Separator   | A gas separator that creates a vortex to assist with gas separation. Generally compared to a rotary gas separator.                                                                        |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wagon Wheel            | This cast structure consists of an inner and outer ring connected by radial spokes. In the heads and bases of pumps this supports the shaft bearings. Sometimes called a bearing support. |
+| WC                     | Tungsten Carbide (sometimes confused with TC).                                                                                                                                            |
+| Wellbore Conditions    | Conditions that impact the run life of an ESP system. The term is often used within a failure report or in describing operational issues of an ESP.                                       |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Annex B (Informative) Failure Analysis Nomenclature
+
+| 1. Reason for Pull                                                  | 1. Reason for Pull                     | 1. Reason for Pull                                                              | 1. Reason for Pull     | 1. Reason for Pull                                                                              | 1. Reason for Pull                                  |
+|---------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| Electrical                                                          | Flow                                   | Maintenance or Repair                                                           | Other                  | Recompletion                                                                                    | Suspend                                             |
+| High current Low current Open circuit Phase Unbalance Short circuit | Low flow to surface No flow to surface | Casing repair Clean-out Other downhole repair Sand control repair Tubing repair | Economics Logging well | Change lift method Change well type Change production zone Other Resize Lift system Stimulation | Permanent abandonment Shut In Temporary abandonment |
+
+| 2. Component Description (Component & Sub-component) - (1)                                                                     | 2. Component Description (Component & Sub-component) - (1)                                                                     | 2. Component Description (Component & Sub-component) - (1)                                                                                                          | 2. Component Description (Component & Sub-component) - (1)                                                                                                                                  | 2. Component Description (Component & Sub-component) - (1)                                                                                                                                           |
+|--------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Pump                                                                                                                           | Gas Handler                                                                                                                    | Intake /Gas separator                                                                                                                                               | Seal/ Protector                                                                                                                                                                             | Motor                                                                                                                                                                                                |
+| Base Intake Coupling Diffusers Head Housing Impellers Key O-rings Screen Shaft Shaft support bearing Snap rings Thrust washers | Base Intake Coupling Diffusers Head Housing Impellers Key O-rings Screen Shaft Shaft support bearing Snap rings Thrust washers | Base Coupling Diffusers Discharge ports Head Housing Impeller Inducer section Intake ports Key O-rings Screen Shaft Shaft support bearing Snap rings Thrust washers | Bag chamber Base Coupling Drain valve Fill valve Head Housing Labyrinth chamber Mechanical seals O-rings Radial bearings Relief valve Shaft Shaft support bearing Snap rings Thrust bearing | Base Coupling Drain port Fill valve Filter Head Housing Motor-end connectors O-rings Oil Pothead connector Rotor bearing Rotors Shaft Shaft support bearing Snap rings Stator Thrust bearing Varnish |
+
+| Component Description (Component & Sub-component) - (2)                                                       | Component Description (Component & Sub-component) - (2)                                        | Component Description (Component & Sub-component) - (2)   | Component Description (Component & Sub-component) - (2)   |
+|---------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| Cable                                                                                                         | Non-ESP component                                                                              | Other ESP component                                       | Non-equipment failure                                     |
+| Main power cable Motor lead extension Packer penetrator Pigtail Pothead connector Splices Wellhead penetrator | Diverter valve Casing Check valve Desander Drain valve Filter Packer Sand screen Tubing Y-tool | Downhole sensor Shroud                                    | Non-equipment failure                                     |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## 3. Mode of Failure
+
+| Electrical                                                                                      | External                                                                                       | Material                                                                                         | Mechanical                                                                                                                                                                                                                                                                                                               | Other                                                           |
+|-------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| High impedance /Resistance Low impedance /Resistance Open circuit Phase Unbalance Short circuit | Coated-External Coated-Internal Contaminated /Foreign material Plugged Stuck Closed Stuck Open | Brittle Burn Corroded Discolored Eroded /pressure washed Hardened Melted Overheated Swollen Worn | Bent Broken / Fractured Buckled Burst / Ruptured Collapsed Cracked Damaged Dented Disconnected Failed pressure test Failed vibration test Faulty clearance or alignment Leaking Loose / Spinning Low efficiency Punctured Scratched Squashed / Flattened Stuck Torn Twisted Vibration / Rub marks Vibration / Unbalanced | Non-equipment Failure Pending teardown Pending failure analysis |
+
+| 4. Root Cause Classification - (1)                                                                                                | 4. Root Cause Classification - (1)                            | 4. Root Cause Classification - (1)                                              | 4. Root Cause Classification - (1)                                                                   |
+|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Completion                                                                                                                        | Force Majeure                                                 | Installation                                                                    | Manufacturing                                                                                        |
+| Casing failure Failure of perforations /Liner Failure or improper sand control system Frac sand flowback Non-ESP downhole failure | Natural disaster Sabotage / Vandalism Weather / Oceanographic | Field service Reran damaged equipment Service rig System assembly Well cleanout | Equipment testing Fabrication problem Materials selection Assembly Mechanical design Quality control |
+
+| Root Cause Classification - (2)                                         | Root Cause Classification - (2)   | Root Cause Classification - (2)                                                                                                                                    | Root Cause Classification - (2)                                           |
+|-------------------------------------------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| Pending Teardown or Failure Analysis                                    | Other                             | Operation                                                                                                                                                          | Power System                                                              |
+| Awaiting failure analysis Awaiting pull No teardown or Failure analysis | Non-equipment failure             | Controller settings Enhanced recovery method or production strategy Inadequate monitoring Operating procedure Operation of other wells in the field Well treatment | Poor power quality Power disruption / Lightning Surface equipment failure |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+| Root Cause Classification - (3)                                                                                                                      | Root Cause Classification - (3)                | Root Cause Classification - (3)                                                                                                                                                                     | Root Cause Classification - (3)                                 | Root Cause Classification - (3)            |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------|
+| Reservoir or Fluids                                                                                                                                  | Storage and Transportation                     | System design and Selection                                                                                                                                                                         | Technology Limitation                                           | Well Construction                          |
+| Asphaltene Bottomhole Temperature Corrosive fluid Free gas High inflow Iron sulfide Low or No inflow Paraffin Reservoir failure Sand Scale Water Cut | Packaging or restraints Storage Transportation | Equipment selection Equipment selection - Volumetric capacity Equipment selection - Materials Equipment selection - Pressure capacity Improper data used in design / selection System configuration | Exceeded gas capability Exceeded temperature capability Fatigue | Deviated Well Dogleg severity Liner hanger |
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Annex C (Informative)
+
+## ESP Pulling Checklist
+
+- [ ] Safety/planning meeting held at beginning of job describing all work to be done and safety procedures to be followed.
+
+- [ ] Ensure ESP electrical system has been locked-out and zero energy proven. If not already completed, isolate down-hole electrical system by disconnecting down-hole cable from surface electrical system.
+
+- [ ] Prepare for proper record keeping during pulling operations.  This includes noting all equipment descriptions, serial numbers, equipment installation order and observations made during the pull.
+
+- [ ] Using an ohmmeter, confirm and record down-hole electrical readings
+
+- [ ] Using a megger, confirm and record down-hole electrical resistance of each phase-to-ground. This activity is to be completed using proper safety considerations (i.e., Hot Work Permit).
+
+- [ ] Verify that all the proper equipment for pulling equipment (i.e., lifting clamps) is ready and available.
+
+- [ ] Ensure tubing slips fastened so they cannot turn and the backups on the tubing tongs working properly.
+
+- [ ] Confirm placement of the power cable spooler and that cable sheave is secure and aligned so cable will have a minimum angle against the tubing and the minimum weight of cable.
+
+- [ ] Lift the tubing and cable from the well to dislodge the tubing slips or hanger from the well head.
+
+- [ ] Using an ohmmeter, re-confirm and record down-hole electrical readings from below the tubing hanger.
+
+- [ ] Using a megger, re-confirm and record down-hole electrical resistance of each phase-to- ground from below the tubing hanger.  This activity is to be completed using proper safety considerations (i.e., Hot Work Permit).
+
+As pulling out of well, remove any clamps or bands carefully to allow the cable to become free of the tubing.
+
+- [ ] Proceed with the pulling activities and carefully remove the cable and tubing from the well.
+
+- [ ] Observe the condition of the cable being pulled. Look for corrosion, pitting, dings, swelling, scale, mechanical damage, condition of splices and damage from bands or clamps and note any abnormality on the pulling report.
+
+- [ ] During pulling operation note number of cable bands and/or clamps retrieved.  Note any bands or clamps that are loose or missing through observation and by comparing to installation report.    Record observations on pull report.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- [ ] During pulling operation note presence, approximate thickness (i.e., light, moderate, heavy) and measured depths of scale / scale-like material on production tubing/cable and on the ESP assembly.   Record observations on pull report.
+
+- [ ] During pulling operation note if the system is hard to pull from the well (i.e., dragging, hanging up, heavy resistance).  Record observations on pull report.
+
+- [ ] It is not recommended to re-use motor lead cables (MLC).  It is advisable to cut the MLC approximately one foot (0.3 m) above the motor terminal connection and leave the cable pothead attached to the motor to preserve any evidence in the terminal area.
+
+- [ ] Note any and, if possible, photograph any damage or debris observed on tubing, cable, or other ESP equipment on the well-pulling report.  Capture and preserve debris samples, if possible.
+
+- [ ] After each piece of ESP equipment is separated from the ESP assembly, check the shaft rotation of the assembly, and note if rotation is free, hard, etc. on pull report.
+
+- [ ] Check the condition of any assembly bolts, O-rings, coupling and shaft.  Examine all equipment for solids, metal, mechanical damage, excessive heat, and vibration.  Record information on the pull report.
+
+- [ ] Check the inside surface of the equipment for debris or wear. If the shaft can be reached, rotate shafts, and check for side play and smooth rotation. Record results on the pull report.
+
+- [ ] After the proper checks have been completed, place a shipping cap on each component head and base (where possible).  Following necessary safety precautions, carefully lay the component to the side of the well.
+
+- [ ] Continue this process for any additional component with each component treated as a separate unit.
+
+- [ ] Check the contents of each section of the seal assembly for contamination. This is done by removing the plug from the drain ports. Drain some, if not all, of the contents from the seal section and catch samples of the contents. Inspect for water, debris, discoloration and contaminates. Record the findings on the pull report.
+
+- [ ] Check the shaft rotation of the seal and motor coupled together using the proper coupling wrench prior to removing the seal section(s) from the motor section.  Record observation on the pull report.
+
+At the ESP motor, perform the following electrical tests at the top of each motor section. Use an ohmmeter and measure the motor phase-to-phase resistance (A to B, A to C and B to C) and the motor phase-to-ground resistance (A to ground, B to ground, and C to ground). Record on the pull report.
+
+- [ ] Test the isolated power cable segment, using a megger measure the cable resistance in megohms: from phase-to-phase (A to B, A to C, and B to C) and from each phase-to-ground (A to ground, B to ground and C to ground). Record the readings in the pull report.
+
+- [ ] If the MLC pothead has been disconnected from the ESP motor (rather than cut-off), place shipping cap on the motor lead.
+
+- [ ] Ensure any unexpected, atypical, or unusual pull observations are reported to appropriate well owner representative prior to proceeding with further well recompletion activities.
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Annex D
+
+## (Informative)
+
+## Dismantle Inspection and Failure Analysis Checklist
+
+- [ ] Installation ticket/report(s)
+
+- [ ] Pull ticket/report(s)
+
+- [ ] Field service, troubleshooting ticket/report(s)
+
+- [ ] Production Data to include any applicable well treatments, chemical reports, chemical treatment history, etc.
+
+- [ ] SCADA/DCS data
+
+- [ ] ESP Controller/VSD/VFD data (download)
+
+- [ ] Operational information (monitoring system, any additional notes)
+
+- [ ] Sizing and application data
+
+- [ ] Wellbore diagram
+
+- [ ] Deviation survey (should include dogleg information)
+
+- [ ] Factory acceptance testing (FAT) results
+
+- [ ] Post operation test results (if available).  Often referred to as PIT test
+
+- [ ] Cable test results
+
+- [ ] Weather data (if applicable/available)
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- [ ] Previous failure reports (if applicable)
+
+- [ ] Manufacturing quality reports (as applicable)
+
+- [ ] VSD set up sheet
+
+- [ ] Electrical feed-through (penetrator) data (if applicable)
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+## Dismantle Inspection and Failure Analysis Tooling
+
+## Annex E (Informative) Checklist
+
+- [ ] 1000v Megger
+
+- [ ] 2500v or 5000v Megger (optional)
+
+- [ ] Torque wrenches
+
+- [ ] Gauging for measuring shaft play
+
+- [ ] High intensity flashlights
+
+- [ ] Borescope (preferred)
+
+- [ ] Magnifying glass
+
+- [ ] Magnet
+
+- [ ] Sample bottles
+
+Sample bags
+
+Permanent markers
+
+- [ ] Paint sticks
+
+- [ ] Horizontal pump test system (HPTS)
+
+- [ ] Motor Idle Slant Test (MIST)
+
+This document is not an API Standard; it is under consideration within an API technical committee but has not received all approvals required to become an API Standard. It shall not be reproduced or circulated or quoted, in whole or in part, outside of API committee activities except with the approval of the Chairman of the committee having jurisdiction and staff of the API Standards Dept. Copyright API. All rights reserved.
+
+- [ ] Tooling to pressure test mechanical seals
+
+- [ ] Tooling to pressure test relief valves (seal/protector)
+
+- [ ] Go/No-go gauges as required
+
+- [ ] Tools to disassemble ESP components to include sub-components
+
+- [ ] Cable test capabilities
+
+- [ ] MLE pothead disassembly tooling
+
+- [ ] Cable splice disassembly tooling
+
+- [ ] Facility set up to review trends, take notes, set up computer, etc.

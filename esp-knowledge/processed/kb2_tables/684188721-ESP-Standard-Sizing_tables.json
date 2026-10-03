@@ -1,0 +1,556 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Housing",
+      "Length, ft",
+      "Weight, Ib",
+      "Stages"
+    ],
+    "rows": [
+      {
+        "Housing": "10",
+        "Length, ft": "2.1",
+        "Weight, Ib": "117",
+        "Stages": "4"
+      },
+      {
+        "Housing": "20",
+        "Length, ft": "3.5",
+        "Weight, Ib": "178",
+        "Stages": "11"
+      },
+      {
+        "Housing": "30",
+        "Length, ft": "4.9",
+        "Weight, Ib": "245",
+        "Stages": "18"
+      },
+      {
+        "Housing": "40",
+        "Length, ft": "6.3",
+        "Weight, Ib": "312",
+        "Stages": "26"
+      },
+      {
+        "Housing": "50",
+        "Length, ft": "7.7",
+        "Weight, Ib": "373",
+        "Stages": "33"
+      },
+      {
+        "Housing": "60",
+        "Length, ft": "9.1",
+        "Weight, Ib": "440",
+        "Stages": "40"
+      },
+      {
+        "Housing": "70",
+        "Length, ft": "10.5",
+        "Weight, Ib": "502",
+        "Stages": "47"
+      },
+      {
+        "Housing": "80",
+        "Length, ft": "11.9",
+        "Weight, Ib": "569",
+        "Stages": "54"
+      },
+      {
+        "Housing": "90",
+        "Length, ft": "13.3",
+        "Weight, Ib": "635",
+        "Stages": "61"
+      },
+      {
+        "Housing": "100",
+        "Length, ft": "14.7",
+        "Weight, Ib": "697",
+        "Stages": "68"
+      },
+      {
+        "Housing": "110",
+        "Length, ft": "16.1",
+        "Weight, Ib": "764",
+        "Stages": "76"
+      },
+      {
+        "Housing": "120",
+        "Length, ft": "17.5",
+        "Weight, Ib": "825",
+        "Stages": "83"
+      },
+      {
+        "Housing": "130",
+        "Length, ft": "18.9",
+        "Weight, Ib": "892",
+        "Stages": "90"
+      },
+      {
+        "Housing": "140",
+        "Length, ft": "20.3",
+        "Weight, Ib": "959",
+        "Stages": "97"
+      },
+      {
+        "Housing": "150",
+        "Length, ft": "21.8",
+        "Weight, Ib": "1021",
+        "Stages": "104"
+      }
+    ],
+    "csv": "Housing,\"Length, ft\",\"Weight, Ib\",Stages\r\n10,2.1,117,4\r\n20,3.5,178,11\r\n30,4.9,245,18\r\n40,6.3,312,26\r\n50,7.7,373,33\r\n60,9.1,440,40\r\n70,10.5,502,47\r\n80,11.9,569,54\r\n90,13.3,635,61\r\n100,14.7,697,68\r\n110,16.1,764,76\r\n120,17.5,825,83\r\n130,18.9,892,90\r\n140,20.3,959,97\r\n150,21.8,1021,104\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Min ROR CMP, bblpd",
+      "900"
+    ],
+    "rows": [
+      {
+        "Min ROR CMP, bblpd": "Min ROR FLT, bblpd",
+        "900": "1500"
+      },
+      {
+        "Min ROR CMP, bblpd": "BEP Rate, bblpd",
+        "900": "2550"
+      },
+      {
+        "Min ROR CMP, bblpd": "Max ROR, bblpd",
+        "900": "3200"
+      },
+      {
+        "Min ROR CMP, bblpd": "Max Efficiency, %",
+        "900": "67.475"
+      },
+      {
+        "Min ROR CMP, bblpd": "Mah Head, ft",
+        "900": "63.2"
+      },
+      {
+        "Min ROR CMP, bblpd": "Max Graph Rate, bblpd",
+        "900": "3750"
+      }
+    ],
+    "csv": "\"Min ROR CMP, bblpd\",900\r\n\"Min ROR FLT, bblpd\",1500\r\n\"BEP Rate, bblpd\",2550\r\n\"Max ROR, bblpd\",3200\r\n\"Max Efficiency, %\",67.475\r\n\"Mah Head, ft\",63.2\r\n\"Max Graph Rate, bblpd\",3750\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Pump Design.Housing",
+      "AR COMPRESSION.Length, ft",
+      "AR COMPRESSION.Weight, Ib",
+      "AR COMPRESSION.Stages"
+    ],
+    "rows": [
+      {
+        "Pump Design.Housing": "10",
+        "AR COMPRESSION.Length, ft": "2.1",
+        "AR COMPRESSION.Weight, Ib": "77",
+        "AR COMPRESSION.Stages": "7"
+      },
+      {
+        "Pump Design.Housing": "20",
+        "AR COMPRESSION.Length, ft": "3.5",
+        "AR COMPRESSION.Weight, Ib": "145",
+        "AR COMPRESSION.Stages": "19"
+      },
+      {
+        "Pump Design.Housing": "30",
+        "AR COMPRESSION.Length, ft": "4.9",
+        "AR COMPRESSION.Weight, Ib": "213",
+        "AR COMPRESSION.Stages": "31"
+      },
+      {
+        "Pump Design.Housing": "40",
+        "AR COMPRESSION.Length, ft": "6.3",
+        "AR COMPRESSION.Weight, Ib": "272",
+        "AR COMPRESSION.Stages": "42"
+      },
+      {
+        "Pump Design.Housing": "50",
+        "AR COMPRESSION.Length, ft": "7.7",
+        "AR COMPRESSION.Weight, Ib": "340",
+        "AR COMPRESSION.Stages": "53"
+      },
+      {
+        "Pump Design.Housing": "60",
+        "AR COMPRESSION.Length, ft": "9.1",
+        "AR COMPRESSION.Weight, Ib": "407",
+        "AR COMPRESSION.Stages": "65"
+      },
+      {
+        "Pump Design.Housing": "70",
+        "AR COMPRESSION.Length, ft": "10.5",
+        "AR COMPRESSION.Weight, Ib": "467",
+        "AR COMPRESSION.Stages": "76"
+      },
+      {
+        "Pump Design.Housing": "80",
+        "AR COMPRESSION.Length, ft": "11.9",
+        "AR COMPRESSION.Weight, Ib": "535",
+        "AR COMPRESSION.Stages": "88"
+      }
+    ],
+    "csv": "Pump Design.Housing,\"AR COMPRESSION.Length, ft\",\"AR COMPRESSION.Weight, Ib\",AR COMPRESSION.Stages\r\n10,2.1,77,7\r\n20,3.5,145,19\r\n30,4.9,213,31\r\n40,6.3,272,42\r\n50,7.7,340,53\r\n60,9.1,407,65\r\n70,10.5,467,76\r\n80,11.9,535,88\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "Housing Diameter, inch Housing Diameter, inch",
+        "1": "5.125 5.125"
+      },
+      {
+        "0": "Shaft Diameter, inch Shaft Diameter, inch",
+        "1": "1.188 1.188"
+      },
+      {
+        "0": "Min Casing Size, inch Min Casing Size, inch",
+        "1": "7"
+      },
+      {
+        "0": "Max Thrust STD @60Hz/250F Max Thrust STD @60Hz/250F",
+        "1": "2459 2459"
+      },
+      {
+        "0": "Max Thrust HL @60Hz/250F Max Thrust HL @60Hz/250F",
+        "1": "14063 14063"
+      }
+    ],
+    "csv": "0,1\r\n\"Housing Diameter, inch Housing Diameter, inch\",5.125 5.125\r\n\"Shaft Diameter, inch Shaft Diameter, inch\",1.188 1.188\r\n\"Min Casing Size, inch Min Casing Size, inch\",7\r\nMax Thrust STD @60Hz/250F Max Thrust STD @60Hz/250F,2459 2459\r\nMax Thrust HL @60Hz/250F Max Thrust HL @60Hz/250F,14063 14063\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Description",
+      "Description",
+      "Description"
+    ],
+    "rows": [
+      {
+        "Description": "Single Bag Type - HL AR"
+      },
+      {
+        "Description": "Bag - Labyrinth Type - HL AR"
+      },
+      {
+        "Description": "Double Bag Type - HL AR"
+      },
+      {
+        "Description": "Double Bag Type - HL AR"
+      },
+      {
+        "Description": "Double Bag - Labyrinth Type - HL AR"
+      },
+      {
+        "Description": "Double Bag - Labyrinth Type - HL AR"
+      },
+      {
+        "Description": "Labyrinth - Double Bag Type - HL AR"
+      },
+      {
+        "Description": "Labyrinth - Double Bag Type - HL AR"
+      },
+      {
+        "Description": "Double Bag-Double Labyrinth Type-HL AR"
+      },
+      {
+        "Description": "Double Bag-Double Labyrinth Type-HL AR"
+      },
+      {
+        "Description": "PS-BsBsLsL-HL AR Double Bag-Double Labyrinth Type-HL AR"
+      }
+    ],
+    "csv": "Description,Description,Description\r\n540,PS-B-HL AR,Single Bag Type - HL AR\r\n540,PS-BsL-HL AR,Bag - Labyrinth Type - HL AR\r\n540,PS-BsB-HL AR,Double Bag Type - HL AR\r\n540,PS-BpB-HL AR,Double Bag Type - HL AR\r\n540,PS-BsBsL-HL AR,Double Bag - Labyrinth Type - HL AR\r\n540,PS-BpBsL-HL AR,Double Bag - Labyrinth Type - HL AR\r\n540,PS-LsBpB-HL AR,Labyrinth - Double Bag Type - HL AR\r\n540,PS-LsBsB-HL AR,Labyrinth - Double Bag Type - HL AR\r\n540,PS-BpBsLsL-HL AR,Double Bag-Double Labyrinth Type-HL AR\r\n540,PS-BsLsBsL-HL AR,Double Bag-Double Labyrinth Type-HL AR\r\n540,,PS-BsBsLsL-HL AR Double Bag-Double Labyrinth Type-HL AR\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C",
+      "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot"
+    ],
+    "rows": [
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "50",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "10",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "0.94",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "410",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "105",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.31",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "210",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.71"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "59",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "15",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "0.96",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "419",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "110",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.33",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "215",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.73"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "68",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "20",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "0.98",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "428",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "115",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.35",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "220",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.75"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "77",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "25",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.00",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "437",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "120",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.37",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "225",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.77"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "86",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "30",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.02",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "446",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "125",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.39",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "230",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.79"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "95",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "35",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.04",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "455",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "130",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.40",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "235",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.81"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "104",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "40",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.06",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "464",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "135",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.42",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "240",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.83"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "113",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "45",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.08",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "473",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "140",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.44",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "245",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.85"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "122",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "50",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.10",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "482",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "145",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.46",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "250",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.87"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "131",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "55",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.12",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "491",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "160",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.52",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "255",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.89"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "140",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "60",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.13",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "500",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "165",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.54",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "260",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.91"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "149",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "65",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.15",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "509",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "170",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.56",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "265",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.92"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "158",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "70",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.17",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "518",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "175",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.58",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "270",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.94"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "167",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "75",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.19",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "527",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "180",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.60",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "275",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.96"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "536",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "185",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.62",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "280",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "1.98"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "185",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "85",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.23",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "545",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "190",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.64",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "285",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "2.00"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "90",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "554",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "195",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.65",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "290",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "2.02"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "203",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "95",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.27",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "563",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "200",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.67",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "295",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "2.04"
+      },
+      {
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F": "212",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103": "100",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor": "1.29",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F": "572",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C": "205",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto": "1.69",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C": "300",
+        "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot": "2.06"
+      }
+    ],
+    "csv": "CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp F,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u2103,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factor,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp C,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Facto,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Temp \u00b0F,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Te mp C,CONDUCTOR VOLTAGE LOSS TABLE (Te m pe rature Co rrec tion Fac to r @ 77F).Mult. Factot\r\n50,10,0.94,221,105,1.31,410,210,1.71\r\n59,15,0.96,230,110,1.33,419,215,1.73\r\n68,20,0.98,239,115,1.35,428,220,1.75\r\n77,25,1.00,248,120,1.37,437,225,1.77\r\n86,30,1.02,257,125,1.39,446,230,1.79\r\n95,35,1.04,266,130,1.40,455,235,1.81\r\n104,40,1.06,275,135,1.42,464,240,1.83\r\n113,45,1.08,284,140,1.44,473,245,1.85\r\n122,50,1.10,293,145,1.46,482,250,1.87\r\n131,55,1.12,320,160,1.52,491,255,1.89\r\n140,60,1.13,329,165,1.54,500,260,1.91\r\n149,65,1.15,338,170,1.56,509,265,1.92\r\n158,70,1.17,347,175,1.58,518,270,1.94\r\n167,75,1.19,356,180,1.60,527,275,1.96\r\n,,,365,185,1.62,536,280,1.98\r\n185,85,1.23,374,190,1.64,545,285,2.00\r\n,90,,383,195,1.65,554,290,2.02\r\n203,95,1.27,392,200,1.67,563,295,2.04\r\n212,100,1.29,401,205,1.69,572,300,2.06\r\n"
+  },
+  {
+    "table_index": 7,
+    "columns": [
+      0,
+      1,
+      2
+    ],
+    "rows": [
+      {
+        "0": "\u2022 Polypropylene* / Nitrile",
+        "1": "205 o F",
+        "2": "(96 o C)"
+      },
+      {
+        "0": "\u2022 Polypropylene* / Lead",
+        "1": "257 o F",
+        "2": "(125 o C)"
+      },
+      {
+        "0": "\u2022 EPDM / Nitrile* (with or w/o Barrier)",
+        "1": "280 o F",
+        "2": "(140 o C)"
+      },
+      {
+        "0": "\u2022 EPDM / Low Temp Barrier* / EPDM",
+        "1": "300 o F",
+        "2": "(150 o C)"
+      },
+      {
+        "0": "\u2022 EPDM / EPDM (with or w/o hi temp Barrier)",
+        "1": "400 o F",
+        "2": "(205 o C)"
+      },
+      {
+        "0": "\u2022 EPDM* / Lead Sheath",
+        "1": "450 o F",
+        "2": "(230 o C)"
+      },
+      {
+        "0": "\u2022 Motor Lead Extension - Low Temp",
+        "1": "250 o F",
+        "2": "(120 o C)"
+      },
+      {
+        "0": "\u2022 Motor Lead Extension - High Temp",
+        "1": "400 o F",
+        "2": "(205 o C)"
+      },
+      {
+        "0": "\u2022 Motor Lead Extension - Lead Sheath",
+        "1": "450 o F",
+        "2": "(230 o C)"
+      }
+    ],
+    "csv": "0,1,2\r\n\u2022 Polypropylene* / Nitrile,205 o F,(96 o C)\r\n\u2022 Polypropylene* / Lead,257 o F,(125 o C)\r\n\u2022 EPDM / Nitrile* (with or w/o Barrier),280 o F,(140 o C)\r\n\u2022 EPDM / Low Temp Barrier* / EPDM,300 o F,(150 o C)\r\n\u2022 EPDM / EPDM (with or w/o hi temp Barrier),400 o F,(205 o C)\r\n\u2022 EPDM* / Lead Sheath,450 o F,(230 o C)\r\n\u2022 Motor Lead Extension - Low Temp,250 o F,(120 o C)\r\n\u2022 Motor Lead Extension - High Temp,400 o F,(205 o C)\r\n\u2022 Motor Lead Extension - Lead Sheath,450 o F,(230 o C)\r\n"
+  },
+  {
+    "table_index": 8,
+    "columns": [
+      "Configuration",
+      "Advantage",
+      "Disadvantage"
+    ],
+    "rows": [
+      {
+        "Configuration": "\uf0b7 Smallest diameter \uf0b7 Lowest cable cost \uf0b7 Low electrical stress",
+        "Advantage": "\uf0b7 Decreased flexibility , especially with larger conductors",
+        "Disadvantage": "Solid"
+      },
+      {
+        "Configuration": "\uf0b7 Larger diameter than solid but smaller than strand \uf0b7 Good flexibility",
+        "Advantage": "\uf0b7 Increased cable cost due to more material usage and additional processing steps",
+        "Disadvantage": "Compact-strand"
+      }
+    ],
+    "csv": "Configuration,Advantage,Disadvantage\r\n\uf0b7 Smallest diameter \uf0b7 Lowest cable cost \uf0b7 Low electrical stress,\"\uf0b7 Decreased flexibility , especially with larger conductors\",Solid\r\n\uf0b7 Larger diameter than solid but smaller than strand \uf0b7 Good flexibility,\uf0b7 Increased cable cost due to more material usage and additional processing steps,Compact-strand\r\n"
+  }
+]

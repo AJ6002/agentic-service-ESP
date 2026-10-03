@@ -1,0 +1,65 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S8",
+    "title": "API RP 11S8: Recommended Practice on Electric Submersible System Vibrations (2nd Ed)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "2012",
+    "source_filename": "previews_API_11S8_e2_pre.pdf",
+    "standardized_filename": "API_RP_11S8_Vibrations_2012.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S8_Vibrations_2012.pdf",
+    "file_size_bytes": 167024,
+    "sha256_checksum": "61c5de99290f3ebba62e80aeeec1e97a21665bb6d75022243581d2beed1e242b",
+    "total_pages": 9,
+    "extracted_char_count": 10812,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 124,
+      "word_count": 15
+    },
+    {
+      "page_number": 2,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 3,
+      "char_count": 141,
+      "word_count": 17
+    },
+    {
+      "page_number": 4,
+      "char_count": 2649,
+      "word_count": 406
+    },
+    {
+      "page_number": 5,
+      "char_count": 1828,
+      "word_count": 288
+    },
+    {
+      "page_number": 6,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 7,
+      "char_count": 3850,
+      "word_count": 1505
+    },
+    {
+      "page_number": 8,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 9,
+      "char_count": 2068,
+      "word_count": 308
+    }
+  ]
+}

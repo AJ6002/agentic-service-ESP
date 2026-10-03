@@ -1,0 +1,509 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "rows": [
+      {
+        "0": "",
+        "1": "Typical Range",
+        "2": "Typical Range",
+        "3": "Maximum*"
+      },
+      {
+        "0": "Operating Depth",
+        "1": "1,000' - 10,000' TVD",
+        "2": "1,000' - 10,000' TVD",
+        "3": "15,000' TVD"
+      },
+      {
+        "0": "Operating Volume",
+        "1": "200 - 20,000 BPD",
+        "2": "200 - 20,000 BPD",
+        "3": "30,000 BPD"
+      },
+      {
+        "0": "Operating Temperature",
+        "1": "100\u00b0 - 275\u00b0 F",
+        "2": "100\u00b0 - 275\u00b0 F",
+        "3": "400\u00b0 F"
+      },
+      {
+        "0": "Wellbore Deviation",
+        "1": "10\u00b0",
+        "2": "10\u00b0",
+        "3": "0 - 90\u00b0 Pump Placement - <10\u00b0 Build Angle"
+      },
+      {
+        "0": "Corrosion Handling",
+        "1": "Corrosion Handling",
+        "2": "Good",
+        "3": "Good"
+      },
+      {
+        "0": "Gas Handling",
+        "1": "Gas Handling",
+        "2": "Poor to Fair",
+        "3": "Poor to Fair"
+      },
+      {
+        "0": "Solids Handling",
+        "1": "Solids Handling",
+        "2": "Poor to Fair",
+        "3": "Poor to Fair"
+      },
+      {
+        "0": "Fluid Gravity",
+        "1": "Fluid Gravity",
+        "2": ">10\u00b0 API",
+        "3": ">10\u00b0 API"
+      },
+      {
+        "0": "Servicing",
+        "1": "Servicing",
+        "2": "Workover or Pulling Rig",
+        "3": "Workover or Pulling Rig"
+      },
+      {
+        "0": "Prime Mover Type",
+        "1": "Prime Mover Type",
+        "2": "Electric Motor",
+        "3": "Electric Motor"
+      },
+      {
+        "0": "Offshore Application",
+        "1": "Offshore Application",
+        "2": "Excellent",
+        "3": "Excellent"
+      },
+      {
+        "0": "System Efficiency",
+        "1": "System Efficiency",
+        "2": "35%-60%",
+        "3": "35%-60%"
+      }
+    ],
+    "csv": "0,1,2,3\r\n,Typical Range,Typical Range,Maximum*\r\nOperating Depth,\"1,000' - 10,000' TVD\",\"1,000' - 10,000' TVD\",\"15,000' TVD\"\r\nOperating Volume,\"200 - 20,000 BPD\",\"200 - 20,000 BPD\",\"30,000 BPD\"\r\nOperating Temperature,100\u00b0 - 275\u00b0 F,100\u00b0 - 275\u00b0 F,400\u00b0 F\r\nWellbore Deviation,10\u00b0,10\u00b0,0 - 90\u00b0 Pump Placement - <10\u00b0 Build Angle\r\nCorrosion Handling,Corrosion Handling,Good,Good\r\nGas Handling,Gas Handling,Poor to Fair,Poor to Fair\r\nSolids Handling,Solids Handling,Poor to Fair,Poor to Fair\r\nFluid Gravity,Fluid Gravity,>10\u00b0 API,>10\u00b0 API\r\nServicing,Servicing,Workover or Pulling Rig,Workover or Pulling Rig\r\nPrime Mover Type,Prime Mover Type,Electric Motor,Electric Motor\r\nOffshore Application,Offshore Application,Excellent,Excellent\r\nSystem Efficiency,System Efficiency,35%-60%,35%-60%\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "",
+      "Rod Lift",
+      "Progressing Cavity",
+      "Gas Lift",
+      "Plunger Lift",
+      "Hydraulic Piston",
+      "Hydraulic Jet",
+      "Electric Submersible"
+    ],
+    "rows": [
+      {
+        "": "Operating Depth",
+        "Rod Lift": "100' 16,000' TVD",
+        "Progressing Cavity": "2,000' 6,000' TVD",
+        "Gas Lift": "5,000' 15,000' TVD",
+        "Plunger Lift": "8,000'",
+        "Hydraulic Piston": "7,500' 17,000' TVD",
+        "Hydraulic Jet": "5,000' 15,000' TVD",
+        "Electric Submersible": "1,000'- 15,000' TVD"
+      },
+      {
+        "": "Operating Volume (Typical)",
+        "Rod Lift": "5 - 5000 BPD",
+        "Progressing Cavity": "5 - 4,500 BPD",
+        "Gas Lift": "200 - 30,000 BPD",
+        "Plunger Lift": "1-5 BPD",
+        "Hydraulic Piston": "50 - 4,000 BPD",
+        "Hydraulic Jet": "300 - >15,000 BPD",
+        "Electric Submersible": "200 - 30,000 BPD"
+      },
+      {
+        "": "Operating Temperature",
+        "Rod Lift": "100\u00b0 550\u00b0 F",
+        "Progressing Cavity": "75\u00b0-250\u00b0F",
+        "Gas Lift": "100\u00b0 400\u00b0F",
+        "Plunger Lift": "500\u00b0 F",
+        "Hydraulic Piston": "100\u00b0 500\u00b0 F",
+        "Hydraulic Jet": "100\u00b0 500\u00b0 F",
+        "Electric Submersible": "100\u00b0 400\u00b0 F"
+      },
+      {
+        "": "Corrosion Handling",
+        "Rod Lift": "Good to Excellent",
+        "Progressing Cavity": "Fair",
+        "Gas Lift": "Good to Excellent",
+        "Plunger Lift": "Excellent",
+        "Hydraulic Piston": "Good",
+        "Hydraulic Jet": "Excellent",
+        "Electric Submersible": "Good"
+      },
+      {
+        "": "Gas Handling",
+        "Rod Lift": "Fair to Good",
+        "Progressing Cavity": "Good",
+        "Gas Lift": "Excellent",
+        "Plunger Lift": "Excellent",
+        "Hydraulic Piston": "Fair",
+        "Hydraulic Jet": "Good",
+        "Electric Submersible": "Poor to Fair"
+      },
+      {
+        "": "Solids Handling",
+        "Rod Lift": "Fair to Good",
+        "Progressing Cavity": "Excellent",
+        "Gas Lift": "Good",
+        "Plunger Lift": "Fair",
+        "Hydraulic Piston": "Poor",
+        "Hydraulic Jet": "Good",
+        "Electric Submersible": "Poor to Fair"
+      },
+      {
+        "": "Fluid Gravity",
+        "Rod Lift": ">8\u00b0 API",
+        "Progressing Cavity": "<35\u00b0API",
+        "Gas Lift": ">15\u00b0 API",
+        "Plunger Lift": "GLR Required 300 SCF/BBL/",
+        "Hydraulic Piston": ">8\u00b0API",
+        "Hydraulic Jet": ">8\u00b0API",
+        "Electric Submersible": ">10\u00b0 API"
+      },
+      {
+        "": "Servicing",
+        "Rod Lift": "Workover or Pulling Rig",
+        "Progressing Cavity": "Workover or Pulling Rig",
+        "Gas Lift": "Wireline or Workover Rig",
+        "Plunger Lift": "Wellhead Catcher or Wireline",
+        "Hydraulic Piston": "Hydraulic or Wireline",
+        "Hydraulic Jet": "Hydraulic or Wireline",
+        "Electric Submersible": "Workover or Pulling Rig"
+      },
+      {
+        "": "Prime Mover",
+        "Rod Lift": "Gas or Electric",
+        "Progressing Cavity": "Gas or Electric",
+        "Gas Lift": "Compressor",
+        "Plunger Lift": "Wells' Natural Energy",
+        "Hydraulic Piston": "Multicylinder or Electric",
+        "Hydraulic Jet": "Multicylinder or Electric",
+        "Electric Submersible": "Electric Motor"
+      },
+      {
+        "": "Offshore Application",
+        "Rod Lift": "Limited",
+        "Progressing Cavity": "Good",
+        "Gas Lift": "Excellent",
+        "Plunger Lift": "N/A",
+        "Hydraulic Piston": "Good",
+        "Hydraulic Jet": "Excellent",
+        "Electric Submersible": "Excellent"
+      },
+      {
+        "": "Overall System Efficiency",
+        "Rod Lift": "45% - 60%",
+        "Progressing Cavity": "40% - 70%",
+        "Gas Lift": "10% - 30%",
+        "Plunger Lift": "N/A",
+        "Hydraulic Piston": "45% - 55%",
+        "Hydraulic Jet": "10% - 30%",
+        "Electric Submersible": "35% - 60%"
+      }
+    ],
+    "csv": ",Rod Lift,Progressing Cavity,Gas Lift,Plunger Lift,Hydraulic Piston,Hydraulic Jet,Electric Submersible\r\nOperating Depth,\"100' 16,000' TVD\",\"2,000' 6,000' TVD\",\"5,000' 15,000' TVD\",\"8,000'\",\"7,500' 17,000' TVD\",\"5,000' 15,000' TVD\",\"1,000'- 15,000' TVD\"\r\nOperating Volume (Typical),5 - 5000 BPD,\"5 - 4,500 BPD\",\"200 - 30,000 BPD\",1-5 BPD,\"50 - 4,000 BPD\",\"300 - >15,000 BPD\",\"200 - 30,000 BPD\"\r\nOperating Temperature,100\u00b0 550\u00b0 F,75\u00b0-250\u00b0F,100\u00b0 400\u00b0F,500\u00b0 F,100\u00b0 500\u00b0 F,100\u00b0 500\u00b0 F,100\u00b0 400\u00b0 F\r\nCorrosion Handling,Good to Excellent,Fair,Good to Excellent,Excellent,Good,Excellent,Good\r\nGas Handling,Fair to Good,Good,Excellent,Excellent,Fair,Good,Poor to Fair\r\nSolids Handling,Fair to Good,Excellent,Good,Fair,Poor,Good,Poor to Fair\r\nFluid Gravity,>8\u00b0 API,<35\u00b0API,>15\u00b0 API,GLR Required 300 SCF/BBL/,>8\u00b0API,>8\u00b0API,>10\u00b0 API\r\nServicing,Workover or Pulling Rig,Workover or Pulling Rig,Wireline or Workover Rig,Wellhead Catcher or Wireline,Hydraulic or Wireline,Hydraulic or Wireline,Workover or Pulling Rig\r\nPrime Mover,Gas or Electric,Gas or Electric,Compressor,Wells' Natural Energy,Multicylinder or Electric,Multicylinder or Electric,Electric Motor\r\nOffshore Application,Limited,Good,Excellent,N/A,Good,Excellent,Excellent\r\nOverall System Efficiency,45% - 60%,40% - 70%,10% - 30%,N/A,45% - 55%,10% - 30%,35% - 60%\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "",
+      "Rod Lift",
+      "Progressing Cavity",
+      "Gas Lift",
+      "Plunger Lift",
+      "Hydraulic Piston",
+      "Hydraulic Jet",
+      "Electric Submersible"
+    ],
+    "rows": [
+      {
+        "": "Operating Depth",
+        "Rod Lift": "100' - 16,000' TVD",
+        "Progressing Cavity": "2,000' - 6,000' TVD",
+        "Gas Lift": "5,000' - 15,000' TVD",
+        "Plunger Lift": "8,000' - 19,000' TVD",
+        "Hydraulic Piston": "7,500' - 17,000' TVD",
+        "Hydraulic Jet": "5,000' - 15,000' TVD",
+        "Electric Submersible": "1,000'- 15,000' TVD"
+      },
+      {
+        "": "Operating Volume (Typical)",
+        "Rod Lift": "5 - 5000 BPD",
+        "Progressing Cavity": "5 - 4,500 BPD",
+        "Gas Lift": "200 - 30,000 BPD",
+        "Plunger Lift": "1 - 5 BPD",
+        "Hydraulic Piston": "50 - 4,000 BPD",
+        "Hydraulic Jet": "300 - >15,000 BPD",
+        "Electric Submersible": "200 - 30,000 BPD"
+      },
+      {
+        "": "Operating Temperature",
+        "Rod Lift": "100\u00b0 - 550\u00b0 F",
+        "Progressing Cavity": "75\u00b0-250\u00b0 F",
+        "Gas Lift": "100\u00b0 - 400\u00b0 F",
+        "Plunger Lift": "120\u00b0 - 500\u00ba F",
+        "Hydraulic Piston": "100\u00b0 - 500\u00b0 F",
+        "Hydraulic Jet": "100\u00b0 - 500\u00b0 F",
+        "Electric Submersible": "100\u00b0 - 400\u00b0 F"
+      },
+      {
+        "": "Corrosion Handling",
+        "Rod Lift": "Good to Excellent",
+        "Progressing Cavity": "Fair",
+        "Gas Lift": "Good to Excellent",
+        "Plunger Lift": "Excellent",
+        "Hydraulic Piston": "Good",
+        "Hydraulic Jet": "Excellent",
+        "Electric Submersible": "Good"
+      },
+      {
+        "": "Gas Handling",
+        "Rod Lift": "Fair to Good",
+        "Progressing Cavity": "Good",
+        "Gas Lift": "Excellent",
+        "Plunger Lift": "Excellent",
+        "Hydraulic Piston": "Fair",
+        "Hydraulic Jet": "Good",
+        "Electric Submersible": "Poor to Fair"
+      },
+      {
+        "": "Solids Handling",
+        "Rod Lift": "Fair to Good",
+        "Progressing Cavity": "Excellent",
+        "Gas Lift": "Good",
+        "Plunger Lift": "Poor to Fair",
+        "Hydraulic Piston": "Poor",
+        "Hydraulic Jet": "Good",
+        "Electric Submersible": "Poor to Fair"
+      },
+      {
+        "": "Fluid Gravity",
+        "Rod Lift": ">8\u00b0 API",
+        "Progressing Cavity": "<35\u00b0 API",
+        "Gas Lift": ">15\u00b0 API",
+        "Plunger Lift": "GLR Required - 300 SCF/BBL/ 1000' Depth",
+        "Hydraulic Piston": ">8\u00b0 API",
+        "Hydraulic Jet": ">8\u00b0 API",
+        "Electric Submersible": ">10\u00b0 API"
+      },
+      {
+        "": "Servicing",
+        "Rod Lift": "Workover or Pulling Rig",
+        "Progressing Cavity": "Workover or Pulling Rig",
+        "Gas Lift": "Wireline or Workover Rig",
+        "Plunger Lift": "Wellhead Catcher or Wireline",
+        "Hydraulic Piston": "Hydraulic or Wireline",
+        "Hydraulic Jet": "Hydraulic or Wireline",
+        "Electric Submersible": "Workover or Pulling Rig"
+      },
+      {
+        "": "Prime Mover",
+        "Rod Lift": "Gas or Electric",
+        "Progressing Cavity": "Gas or Electric",
+        "Gas Lift": "Compressor",
+        "Plunger Lift": "Wells' Natural Energy",
+        "Hydraulic Piston": "Multicylinder or Electric",
+        "Hydraulic Jet": "Multicylinder or Electric",
+        "Electric Submersible": "Electric Motor"
+      },
+      {
+        "": "Offshore",
+        "Rod Lift": "Limited",
+        "Progressing Cavity": "Good",
+        "Gas Lift": "Excellent",
+        "Plunger Lift": "N/A",
+        "Hydraulic Piston": "Good",
+        "Hydraulic Jet": "Excellent",
+        "Electric Submersible": "Excellent"
+      },
+      {
+        "": "Application Overall System",
+        "Rod Lift": "45% - 60%",
+        "Progressing Cavity": "40% - 70%",
+        "Gas Lift": "10% - 30%",
+        "Plunger Lift": "N/A",
+        "Hydraulic Piston": "45% - 55%",
+        "Hydraulic Jet": "10% - 30%",
+        "Electric Submersible": "35% - 60%"
+      }
+    ],
+    "csv": ",Rod Lift,Progressing Cavity,Gas Lift,Plunger Lift,Hydraulic Piston,Hydraulic Jet,Electric Submersible\r\nOperating Depth,\"100' - 16,000' TVD\",\"2,000' - 6,000' TVD\",\"5,000' - 15,000' TVD\",\"8,000' - 19,000' TVD\",\"7,500' - 17,000' TVD\",\"5,000' - 15,000' TVD\",\"1,000'- 15,000' TVD\"\r\nOperating Volume (Typical),5 - 5000 BPD,\"5 - 4,500 BPD\",\"200 - 30,000 BPD\",1 - 5 BPD,\"50 - 4,000 BPD\",\"300 - >15,000 BPD\",\"200 - 30,000 BPD\"\r\nOperating Temperature,100\u00b0 - 550\u00b0 F,75\u00b0-250\u00b0 F,100\u00b0 - 400\u00b0 F,120\u00b0 - 500\u00ba F,100\u00b0 - 500\u00b0 F,100\u00b0 - 500\u00b0 F,100\u00b0 - 400\u00b0 F\r\nCorrosion Handling,Good to Excellent,Fair,Good to Excellent,Excellent,Good,Excellent,Good\r\nGas Handling,Fair to Good,Good,Excellent,Excellent,Fair,Good,Poor to Fair\r\nSolids Handling,Fair to Good,Excellent,Good,Poor to Fair,Poor,Good,Poor to Fair\r\nFluid Gravity,>8\u00b0 API,<35\u00b0 API,>15\u00b0 API,GLR Required - 300 SCF/BBL/ 1000' Depth,>8\u00b0 API,>8\u00b0 API,>10\u00b0 API\r\nServicing,Workover or Pulling Rig,Workover or Pulling Rig,Wireline or Workover Rig,Wellhead Catcher or Wireline,Hydraulic or Wireline,Hydraulic or Wireline,Workover or Pulling Rig\r\nPrime Mover,Gas or Electric,Gas or Electric,Compressor,Wells' Natural Energy,Multicylinder or Electric,Multicylinder or Electric,Electric Motor\r\nOffshore,Limited,Good,Excellent,N/A,Good,Excellent,Excellent\r\nApplication Overall System,45% - 60%,40% - 70%,10% - 30%,N/A,45% - 55%,10% - 30%,35% - 60%\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Temp. \u00b0F (\u00b0C)",
+      "Multiplying Factor",
+      "Temp. \u00b0F(\u00b0C)",
+      "Multiplying Factor",
+      "Temp. \u00b0F(\u00b0C)",
+      "Multiplying Factor"
+    ],
+    "rows": [
+      {
+        "Temp. \u00b0F (\u00b0C)": "100 (38)",
+        "Multiplying Factor": "1.376",
+        "Temp. \u00b0F(\u00b0C)": "240 (116)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "110 (43)",
+        "Multiplying Factor": "1.398",
+        "Temp. \u00b0F(\u00b0C)": "250 (121)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "120 (49)",
+        "Multiplying Factor": "1.420",
+        "Temp. \u00b0F(\u00b0C)": "260 (127)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "130 (54)",
+        "Multiplying Factor": "1.441",
+        "Temp. \u00b0F(\u00b0C)": "270 (132)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "140 (60)",
+        "Multiplying Factor": "1.463",
+        "Temp. \u00b0F(\u00b0C)": "280 (138)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "150 (66)",
+        "Multiplying Factor": "1.485",
+        "Temp. \u00b0F(\u00b0C)": "290 (143)"
+      },
+      {
+        "Temp. \u00b0F (\u00b0C)": "160 (71)",
+        "Multiplying Factor": "1.507",
+        "Temp. \u00b0F(\u00b0C)": "300 (159)"
+      }
+    ],
+    "csv": "Temp. \u00b0F (\u00b0C),Multiplying Factor,Temp. \u00b0F(\u00b0C),Multiplying Factor,Temp. \u00b0F(\u00b0C),Multiplying Factor\r\n100 (38),1.070,170 (77),1.223,240 (116),1.376\r\n110 (43),1.092,180 (82),1.245,250 (121),1.398\r\n120 (49),1.114,190 (88),1.267,260 (127),1.420\r\n130 (54),1.136,200 (93),1.288,270 (132),1.441\r\n140 (60),1.157,210 (99),1.310,280 (138),1.463\r\n150 (66),1.179,220 (104),1.332,290 (143),1.485\r\n160 (71),1.201,230 (110),1.354,300 (159),1.507\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Cable No.",
+      "Maximum Amperage"
+    ],
+    "rows": [
+      {
+        "Cable No.": "1",
+        "Maximum Amperage": "115"
+      },
+      {
+        "Cable No.": "",
+        "Maximum Amperage": "95"
+      },
+      {
+        "Cable No.": "4",
+        "Maximum Amperage": "70"
+      },
+      {
+        "Cable No.": "",
+        "Maximum Amperage": "55"
+      }
+    ],
+    "csv": "Cable No.,Maximum Amperage\r\n1,115\r\n,95\r\n4,70\r\n,55\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "O.D. of casing",
+      "Casing weight",
+      "Motor O.D.",
+      "Pump O.D."
+    ],
+    "rows": [
+      {
+        "O.D. of casing": "4.50 inch",
+        "Casing weight": "11.5 1b/ft",
+        "Motor O.D.": "3.75 inch",
+        "Pump O.D.": "3.375 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "9.5 1b/ft",
+        "Motor O.D.": "",
+        "Pump O.D.": ""
+      },
+      {
+        "O.D. of casing": "5 inch",
+        "Casing weight": "All weights",
+        "Motor O.D.": "3.75 inch",
+        "Pump O.D.": "3.375 inch"
+      },
+      {
+        "O.D. of casing": "5.5 inch",
+        "Casing weight": "20 1b/ft",
+        "Motor O.D.": "4.5 inch",
+        "Pump O.D.": "4.0 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "17 1b/ft",
+        "Motor O.D.": "",
+        "Pump O.D.": ""
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "15.5 1b/ft",
+        "Motor O.D.": "",
+        "Pump O.D.": ""
+      },
+      {
+        "O.D. of casing": "7 inch",
+        "Casing weight": "28 1b/ft",
+        "Motor O.D.": "4.5 inch",
+        "Pump O.D.": "4.0 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "26 1b/ft",
+        "Motor O.D.": "5.5 inch",
+        "Pump O.D.": "5.375 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "24 1b/ft",
+        "Motor O.D.": "",
+        "Pump O.D.": ""
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "20 1b/ft",
+        "Motor O.D.": "",
+        "Pump O.D.": ""
+      },
+      {
+        "O.D. of casing": "8.625 inch or greater",
+        "Casing weight": "All weights",
+        "Motor O.D.": "4.5 inch",
+        "Pump O.D.": "4.0 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "",
+        "Motor O.D.": "5.5 inch",
+        "Pump O.D.": "5.125 inch"
+      },
+      {
+        "O.D. of casing": "",
+        "Casing weight": "",
+        "Motor O.D.": "7.375 inch",
+        "Pump O.D.": "6.75 inch"
+      }
+    ],
+    "csv": "O.D. of casing,Casing weight,Motor O.D.,Pump O.D.\r\n4.50 inch,11.5 1b/ft,3.75 inch,3.375 inch\r\n,9.5 1b/ft,,\r\n5 inch,All weights,3.75 inch,3.375 inch\r\n5.5 inch,20 1b/ft,4.5 inch,4.0 inch\r\n,17 1b/ft,,\r\n,15.5 1b/ft,,\r\n7 inch,28 1b/ft,4.5 inch,4.0 inch\r\n,26 1b/ft,5.5 inch,5.375 inch\r\n,24 1b/ft,,\r\n,20 1b/ft,,\r\n8.625 inch or greater,All weights,4.5 inch,4.0 inch\r\n,,5.5 inch,5.125 inch\r\n,,7.375 inch,6.75 inch\r\n"
+  }
+]

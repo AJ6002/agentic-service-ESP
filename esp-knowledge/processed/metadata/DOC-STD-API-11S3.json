@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S3",
+    "title": "API RP 11S3: Recommended Practice for ESP Installations (2nd Ed)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "1999",
+    "source_filename": "API-RP-11S3-1999-(R2013)-en.pdf",
+    "standardized_filename": "API_RP_11S3_Installations_1999.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S3_Installations_1999.pdf",
+    "file_size_bytes": 329187,
+    "sha256_checksum": "42bb1099110bf3fdc20ada251a78817ac45fe9cd70907b98d2cd54150e4ada37",
+    "total_pages": 4,
+    "extracted_char_count": 3845,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 149,
+      "word_count": 18
+    },
+    {
+      "page_number": 2,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 3,
+      "char_count": 166,
+      "word_count": 20
+    },
+    {
+      "page_number": 4,
+      "char_count": 3463,
+      "word_count": 521
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "manifest": {
+    "document_id": "DOC-AI-ADVAIT-001",
+    "title": "ADVAIT ESP-PMM Intern Onboarding Confidential Working Draft",
+    "canonical_category": "ai_context",
+    "doc_type": "PROJECT_DECK",
+    "author_publisher": "ADVAIT / EPR Team",
+    "publication_year": "2026",
+    "source_filename": "ESP_Pumps_AI_Interns_Introduction (2).pdf",
+    "standardized_filename": "ADVAIT_ESP_PMM_Working_Draft.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\ai_context\\ADVAIT_ESP_PMM_Working_Draft.pdf",
+    "file_size_bytes": 1930829,
+    "sha256_checksum": "4e02634ee80295f540451be2d5031fd8a515e79349ac5c49a03b9466a80327d7",
+    "total_pages": 24,
+    "extracted_char_count": 16224,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 422,
+      "word_count": 59
+    },
+    {
+      "page_number": 2,
+      "char_count": 626,
+      "word_count": 87
+    },
+    {
+      "page_number": 3,
+      "char_count": 750,
+      "word_count": 112
+    },
+    {
+      "page_number": 4,
+      "char_count": 511,
+      "word_count": 71
+    },
+    {
+      "page_number": 5,
+      "char_count": 511,
+      "word_count": 72
+    },
+    {
+      "page_number": 6,
+      "char_count": 635,
+      "word_count": 97
+    },
+    {
+      "page_number": 7,
+      "char_count": 705,
+      "word_count": 98
+    },
+    {
+      "page_number": 8,
+      "char_count": 830,
+      "word_count": 118
+    },
+    {
+      "page_number": 9,
+      "char_count": 546,
+      "word_count": 74
+    },
+    {
+      "page_number": 10,
+      "char_count": 553,
+      "word_count": 85
+    },
+    {
+      "page_number": 11,
+      "char_count": 760,
+      "word_count": 100
+    },
+    {
+      "page_number": 12,
+      "char_count": 648,
+      "word_count": 90
+    },
+    {
+      "page_number": 13,
+      "char_count": 759,
+      "word_count": 102
+    },
+    {
+      "page_number": 14,
+      "char_count": 573,
+      "word_count": 78
+    },
+    {
+      "page_number": 15,
+      "char_count": 692,
+      "word_count": 94
+    },
+    {
+      "page_number": 16,
+      "char_count": 985,
+      "word_count": 135
+    },
+    {
+      "page_number": 17,
+      "char_count": 853,
+      "word_count": 122
+    },
+    {
+      "page_number": 18,
+      "char_count": 688,
+      "word_count": 92
+    },
+    {
+      "page_number": 19,
+      "char_count": 644,
+      "word_count": 86
+    },
+    {
+      "page_number": 20,
+      "char_count": 925,
+      "word_count": 137
+    },
+    {
+      "page_number": 21,
+      "char_count": 548,
+      "word_count": 84
+    },
+    {
+      "page_number": 22,
+      "char_count": 502,
+      "word_count": 62
+    },
+    {
+      "page_number": 23,
+      "char_count": 848,
+      "word_count": 117
+    },
+    {
+      "page_number": 24,
+      "char_count": 288,
+      "word_count": 39
+    }
+  ]
+}

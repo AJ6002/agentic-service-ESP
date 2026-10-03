@@ -12,12 +12,40 @@ import httpx
 # sharing one client. A tight ceiling caused working-but-slow calls to be
 # wrongly reported DEGRADED/TIMEOUT. Generous ceiling, not "no timeout" —
 # a genuinely hung upstream must still fail rather than block forever.
-DEFAULT_TIMEOUT_SEC = float(os.getenv("GATEWAY_TIMEOUT_SEC", "30.0"))
+DEFAULT_TIMEOUT_SEC = float(os.getenv("GATEWAY_TIMEOUT_SEC", "2.0"))
 
 
-def get_gateway_base_url() -> str:
-    url = os.getenv("SERVER184_BASE_URL") or os.getenv("SERVER3_BASE_URL", "http://192.168.1.184:8090")
-    return url.rstrip("/")
+def get_well_id_variants(well_id: str) -> list[str]:
+    """
+    Returns normalized variants of a well identifier to handle differences
+    like FS-17 vs FS-017, ASSET-FS-017, FNW-1 vs FNW-001, etc.
+    """
+    if not well_id:
+        return []
+    clean = well_id.strip().upper()
+    variants = {clean}
+    bare = clean
+    if bare.startswith("ASSET-"):
+        bare = bare[6:]
+        variants.add(bare)
+    elif bare.startswith("WELL-"):
+        bare = bare[5:]
+        variants.add(bare)
+    variants.add(f"ASSET-{bare}")
+
+    if "-" in bare:
+        parts = bare.split("-", 1)
+        prefix, num_part = parts[0], parts[1]
+        if num_part.isdigit():
+            num = int(num_part)
+            variants.add(f"{prefix}-{num}")
+            variants.add(f"{prefix}-{num:02d}")
+            variants.add(f"{prefix}-{num:03d}")
+            variants.add(f"ASSET-{prefix}-{num}")
+            variants.add(f"ASSET-{prefix}-{num:02d}")
+            variants.add(f"ASSET-{prefix}-{num:03d}")
+
+    return list(variants)
 
 
 class AdapterError(Exception):
@@ -25,33 +53,6 @@ class AdapterError(Exception):
         super().__init__(message)
         self.status_code = status_code
         self.code = code
-
-
-def handle_adapter_response(resp: httpx.Response, domain: str, endpoint: str) -> dict[str, Any]:
-    """
-    Standard envelope handler per spec §6:
-    - 200: returns parsed JSON
-    - 404: WELL_NOT_FOUND or NO_DATA
-    - 503: MQTT_DISCONNECTED or SERVICE_UNAVAILABLE
-    - 400: WINDOW_TOO_LARGE / LIMIT_EXCEEDED
-    """
-    if resp.status_code == 200:
-        try:
-            return resp.json()
-        except Exception:
-            return {"raw": resp.text}
-
-    error_code = None
-    detail = None
-    try:
-        err_json = resp.json()
-        error_code = err_json.get("error", {}).get("code") if isinstance(err_json.get("error"), dict) else err_json.get("error")
-        detail = err_json.get("error", {}).get("message") if isinstance(err_json.get("error"), dict) else err_json.get("detail", str(err_json))
-    except Exception:
-        detail = resp.text
-
-    msg = f"{domain} {endpoint} returned HTTP {resp.status_code} [{error_code}]: {detail}"
-    raise AdapterError(msg, status_code=resp.status_code, code=error_code)
 
 
 def build_temporal_meta(

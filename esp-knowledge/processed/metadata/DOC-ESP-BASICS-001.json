@@ -1,0 +1,30 @@
+{
+  "manifest": {
+    "document_id": "DOC-ESP-BASICS-001",
+    "title": "SLB Defining Series: Electrical Submersible Pumps",
+    "canonical_category": "esp_basics",
+    "doc_type": "OEM_ARTICLE",
+    "author_publisher": "Schlumberger / SLB",
+    "publication_year": "2015",
+    "source_filename": "defining-esp.pdf",
+    "standardized_filename": "SLB_Defining_ESP.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\esp_basics\\SLB_Defining_ESP.pdf",
+    "file_size_bytes": 155244,
+    "sha256_checksum": "3a3b13240f068676ab05b6113194df1da2cd524a50a49e61e0d30c5fb018f688",
+    "total_pages": 2,
+    "extracted_char_count": 12755,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 4958,
+      "word_count": 778
+    },
+    {
+      "page_number": 2,
+      "char_count": 7764,
+      "word_count": 1219
+    }
+  ]
+}

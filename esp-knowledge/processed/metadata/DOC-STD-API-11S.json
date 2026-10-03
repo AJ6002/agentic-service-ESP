@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S",
+    "title": "API RP 11S: Operation, Maintenance and Troubleshooting of ESP Installations",
+    "canonical_category": "operations",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "1994",
+    "source_filename": "API-RP-11S-1994-(R2013)-en.pdf",
+    "standardized_filename": "API_RP_11S_Operation_Maintenance_1994.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\operations\\API_RP_11S_Operation_Maintenance_1994.pdf",
+    "file_size_bytes": 411551,
+    "sha256_checksum": "b4c6da814de8202b6ec05183cb4ca5044c4216a2d1965da91174d3c1362e6f6e",
+    "total_pages": 4,
+    "extracted_char_count": 67,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 2,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 3,
+      "char_count": 0,
+      "word_count": 0
+    },
+    {
+      "page_number": 4,
+      "char_count": 0,
+      "word_count": 0
+    }
+  ]
+}

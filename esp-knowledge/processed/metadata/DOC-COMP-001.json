@@ -1,0 +1,115 @@
+{
+  "manifest": {
+    "document_id": "DOC-COMP-001",
+    "title": "Electrical Submersible Pump Components Equipment Description (PTP-6.1)",
+    "canonical_category": "components",
+    "doc_type": "TECHNICAL_GUIDE",
+    "author_publisher": "CTIC / PTP",
+    "publication_year": "2010",
+    "source_filename": "ilide.info-esp-pr_4dc838fc2e9cae7a764cad254be6ffbd.pdf",
+    "standardized_filename": "ESP_Components_Equipment_Description.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\components\\ESP_Components_Equipment_Description.pdf",
+    "file_size_bytes": 302866,
+    "sha256_checksum": "646768b2b7ffb5570c0123bdf32670ccd7763259a5b34f46a273180f171bfb22",
+    "total_pages": 19,
+    "extracted_char_count": 26072,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 97,
+      "word_count": 13
+    },
+    {
+      "page_number": 2,
+      "char_count": 405,
+      "word_count": 72
+    },
+    {
+      "page_number": 3,
+      "char_count": 2280,
+      "word_count": 334
+    },
+    {
+      "page_number": 4,
+      "char_count": 258,
+      "word_count": 27
+    },
+    {
+      "page_number": 5,
+      "char_count": 57,
+      "word_count": 10
+    },
+    {
+      "page_number": 6,
+      "char_count": 89,
+      "word_count": 15
+    },
+    {
+      "page_number": 7,
+      "char_count": 1369,
+      "word_count": 231
+    },
+    {
+      "page_number": 8,
+      "char_count": 2257,
+      "word_count": 370
+    },
+    {
+      "page_number": 9,
+      "char_count": 1533,
+      "word_count": 243
+    },
+    {
+      "page_number": 10,
+      "char_count": 1560,
+      "word_count": 249
+    },
+    {
+      "page_number": 11,
+      "char_count": 1283,
+      "word_count": 207
+    },
+    {
+      "page_number": 12,
+      "char_count": 1856,
+      "word_count": 318
+    },
+    {
+      "page_number": 13,
+      "char_count": 2543,
+      "word_count": 413
+    },
+    {
+      "page_number": 14,
+      "char_count": 3027,
+      "word_count": 441
+    },
+    {
+      "page_number": 15,
+      "char_count": 1585,
+      "word_count": 318
+    },
+    {
+      "page_number": 16,
+      "char_count": 1591,
+      "word_count": 263
+    },
+    {
+      "page_number": 17,
+      "char_count": 2478,
+      "word_count": 421
+    },
+    {
+      "page_number": 18,
+      "char_count": 1316,
+      "word_count": 202
+    },
+    {
+      "page_number": 19,
+      "char_count": 156,
+      "word_count": 24
+    }
+  ]
+}

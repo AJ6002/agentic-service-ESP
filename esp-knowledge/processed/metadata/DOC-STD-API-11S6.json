@@ -1,0 +1,155 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S6",
+    "title": "API RP 11S6: Recommended Practice for Testing of ESP Cable Systems (1st Ed)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "1995",
+    "source_filename": "pdfcoffee.com_api-11s6-testing-of-electric-submersible-pump-cable-systemspdf-pdf-free.pdf",
+    "standardized_filename": "API_RP_11S6_Cable_Testing_1995.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S6_Cable_Testing_1995.pdf",
+    "file_size_bytes": 1623979,
+    "sha256_checksum": "de5681b5cfb65fca2c5dbfc8dd5eed9ff1ca39a2758f6342e7f75621f85cc69f",
+    "total_pages": 27,
+    "extracted_char_count": 89270,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 426,
+      "word_count": 51
+    },
+    {
+      "page_number": 2,
+      "char_count": 264,
+      "word_count": 29
+    },
+    {
+      "page_number": 3,
+      "char_count": 464,
+      "word_count": 55
+    },
+    {
+      "page_number": 4,
+      "char_count": 4210,
+      "word_count": 620
+    },
+    {
+      "page_number": 5,
+      "char_count": 3616,
+      "word_count": 259
+    },
+    {
+      "page_number": 6,
+      "char_count": 3681,
+      "word_count": 269
+    },
+    {
+      "page_number": 7,
+      "char_count": 1973,
+      "word_count": 229
+    },
+    {
+      "page_number": 8,
+      "char_count": 1284,
+      "word_count": 185
+    },
+    {
+      "page_number": 9,
+      "char_count": 4676,
+      "word_count": 696
+    },
+    {
+      "page_number": 10,
+      "char_count": 4043,
+      "word_count": 602
+    },
+    {
+      "page_number": 11,
+      "char_count": 4561,
+      "word_count": 712
+    },
+    {
+      "page_number": 12,
+      "char_count": 2425,
+      "word_count": 419
+    },
+    {
+      "page_number": 13,
+      "char_count": 3179,
+      "word_count": 507
+    },
+    {
+      "page_number": 14,
+      "char_count": 3848,
+      "word_count": 600
+    },
+    {
+      "page_number": 15,
+      "char_count": 5273,
+      "word_count": 807
+    },
+    {
+      "page_number": 16,
+      "char_count": 4320,
+      "word_count": 665
+    },
+    {
+      "page_number": 17,
+      "char_count": 3603,
+      "word_count": 570
+    },
+    {
+      "page_number": 18,
+      "char_count": 1335,
+      "word_count": 200
+    },
+    {
+      "page_number": 19,
+      "char_count": 4620,
+      "word_count": 694
+    },
+    {
+      "page_number": 20,
+      "char_count": 5307,
+      "word_count": 793
+    },
+    {
+      "page_number": 21,
+      "char_count": 5191,
+      "word_count": 815
+    },
+    {
+      "page_number": 22,
+      "char_count": 5692,
+      "word_count": 884
+    },
+    {
+      "page_number": 23,
+      "char_count": 4987,
+      "word_count": 832
+    },
+    {
+      "page_number": 24,
+      "char_count": 4902,
+      "word_count": 767
+    },
+    {
+      "page_number": 25,
+      "char_count": 2274,
+      "word_count": 338
+    },
+    {
+      "page_number": 26,
+      "char_count": 2137,
+      "word_count": 331
+    },
+    {
+      "page_number": 27,
+      "char_count": 503,
+      "word_count": 62
+    }
+  ]
+}

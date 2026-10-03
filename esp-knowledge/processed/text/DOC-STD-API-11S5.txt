@@ -1,0 +1,842 @@
+=== PAGE 1 ===
+Caledonian Submersible 
+Pump Cables for Oil Industry
+>>   IEEE 1018
+>>   IEEE 1019>>   API RP 11S
+5
+
+=== PAGE 2 ===
+Table of ContentCaledonian Windmill Cables
+COMPANY PROFILE
+Caledonian, established in 1978, offers one of the most 
+complete lines of fiber and copper cabling system solutions 
+with over hundreds of different cabling system products. Our superior products provide leading edge within every cable series and for every application.
+Among the national and international standards with which 
+our cables could comply are: BS - British Standard; LPCB Fire Performance Standard, ISO Standard etc. Caledonian Cables offers a comprehensive stock of cables and cabling products through its nationwide network of resellers and distributors. Caledonian Cables has continually expanded its global presence in Europe and Asia.
+Caledonian & Addison, produces a wide range of cables 
+for communication, power and electronics in its primary plants in UK, Italy and Spain. To stay in front, we continually keep expanding our manufacturing capabilities in more low cost region such as Romania, Taiwan, Malaysia etc. This low-cost manufacturing facilities enable us provide a flexible, scalable global system that delivers superior operational performance and optimal results for our customers. 
+Our extensive global network of manufacturing facilities gives us significant scale and the flexibility 
+to fulfill our customer requirements. This global presence provides design and consultancy solutions that are combined with core cable manufacturing, logistic services, and vertically integrated with our E commerce technologies, to optimize customer operations by lowering costs and reducing time to market.
+Caledonian & Addison has been respected for its high standards of quality, excellent service 
+level, competitive pricing and a unique and innovative spirit. With our latest technologies, we are both inspired and well-positioned to meet the changing needs of our customers. We have the resources to diversify and to enhance our product lines and services. We understand the need for change and with our accurate planning, we are ready for the future and the promise of new marketing opportunities. Our tradition of growth through excellence is assured.
+Our Design Centers work closely with customers to constantly improve its standard range of 
+products and technologies and to develop customized, country and industry-specific solutions. Caledonian & Addison has established an extensive network of design, manufacturing, and logistics facilities in the world’s major markets to serve the growing outsourcing needs of both multinational and regional customers.
+
+
+=== PAGE 3 ===
+176℉/80℃ PP/PE Unarmored Round Electrical Submersible Pump Cable  �� ���������������������� 4
+176℉/80℃ PP/HDPE Round Electrical Submersible Pump Cable  ���
+�������������������������������������� 6
+205℉/96℃ PP/NBR Round Electrical Submersible Pump Cable  ���
+��������������������������������������� 8
+284℉/140℃ EPDM/NBR Round Electrical Submersible Pump Cable  ���
+����������������������������� 10
+400℉/204℃ EPDM/EPDM Round Electrical Submersible Pump Cable  ���
+�������������������������� 12TABLE OF CONTENT
+ »Round Cable
+ »Flat Cable
+ »T echnical Information
+176℉/80℃ PP/HDPE Flat Electrical Submersible Pump Cable  �� ����������������������������������������� 14
+205℉/96℃ PP/NBR Flat Electrical Submersible Pump Cable  ��
+������������������������������������������ 16
+250℉/121℃ PP/LEAD Flat Electrical Submersible Pump Cable  ���
+�������������������������������������� 18
+250℉/121℃ EPDM/NBR Flat Electrical Submersible Pump Cable   ��
+��������������������������������� 20
+284℉/140℃ EPDM/NBR Flat Electrical Submersible Pump Cable  ��
+���������������������������������� 21
+400℉/204℃ EPDM/EPDM Flat Electrical Submersible Pump Cable  ���
+������������������������������� 23
+400℉/204℃ EPDM/LEAD Flat Electrical Submersible Pump Cable  ���
+�������������������������������� 25
+450℉/232℃ EPDM/LEAD Flat Electrical Submersible Pump Cable  ���
+��������������������������������� 27
+Material Options  ��
+�������������������������������������������������������������������������������������������������������������������� 28
+Conductor Characteristics  ���
+���������������������������������������������������������������������������������������������������� 29
+Material properties
+ ��
+���������������������������������������������������������������������������������������������������������������� 30
+
+=== PAGE 4 ===
+4 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+176℉/80℃ PP/HDPE Unarmored Round  
+Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+Polypropylene insulation.
+Jacket: 
+Excellent abrasion resistance PE.Solid/Stranded Copper Conductor
+PE JacketPolypropylene Insulation
+
+=== PAGE 5 ===
+5 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+ » Dimensions and W eight 
+3kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPHY(U)-80-3kV-3G10S - 10 0.14 3.556 0.075 1.9 0.98 24.9 518 771 
+QYPHY(U)-80-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.04 26.5 613 913 
+QYPHY(U)-80-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.09 27.7 689 1025 
+QYPHY(U)-80-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.17 29.7 823 1225 
+QYPHY(U)-80-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.22 31.1 924 1375 
+QYPHY(U)-80-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 1.33 33.8 1146 1705 
+QYPHY(U)-80-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 1.42 36.1 1358 2021 
+QYPHY(U)-80-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 1.66 42.1 1987 2958 
+QYPHY(U)-80-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 1.80 45.6 2413 3591 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPHY(U)-80-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.07 27.2 582 866 
+QYPHY(U)-80-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.14 28.9 681 1013 
+QYPHY(U)-80-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.19 30.1 759 1129 
+QYPHY(U)-80-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.26 32.1 897 1335 
+QYPHY(U)-80-5kV-3G25S - 25 0.222 5.639 0.09 2.3 1.32 33.4 1001 1489 
+QYPHY(U)-80-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 1.42 36.2 1228 1827 
+QYPHY(U)-80-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 1.52 38.5 1445 2150 
+QYPHY(U)-80-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 1.75 44.5 2087 3105 
+QYPHY(U)-80-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 1.89 47.9 2520 3749 
+
+=== PAGE 6 ===
+6 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+176℉/80℃ PP/HDPE Round Electrical Submersible Pump Cable
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.  
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid bare copper conductor with poly adhesive layer.
+Insulation: 
+Polypropylene insulation
+Jacket: 
+Integral HDPE jacket.
+Armor: 
+Galvanized steel armor.Solid Copper Conductor
+HDPE JacketPolypropylene Insulation
+Galvanized Steel Armor
+
+=== PAGE 7 ===
+7 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+ » Dimensions and W eight 
+3kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPHY-80-3kV-3G6 6 13.3 0.16 4.1 0.075 1.9 1.1 26.8 860 1280 
+QYPHY-80-3kV-3G4 4 21.1 0.20 5.1 0.075 1.9 1.1 29.1 1080 1607 
+QYPHY-80-3kV-3G2 2 33.5 0.26 6.6 0.075 1.9 1.3 32.6 1420 2113 
+QYPHY-80-3kV-3G1 1 42.4 0.29 7.4 0.075 1.9 1.3 33.8 1640 2440 
+4kV 
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPHY-80-4kV-3G6 6 13.3 0.16 4.1 0.08 2.1 1.1 27.7 900 1339 
+QYPHY-80-4kV-3G4 4 21.1 0.20 5.1 0.08 2.1 1.2 30.0 1120 1666 
+QYPHY-80-4kV-3G2 2 33.5 0.26 6.6 0.08 2.1 1.3 33.5 1460 2172 
+QYPHY-80-4kV-3G1 1 42.4 0.29 7.4 0.08 2.1 1.4 34.6 1680 2500 
+5kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/ft kg/m
+QYPHY-80-5kV-3G6 6 13.3 0.16 4.1 0.09 2.3 1.1 28.5 930 1384 
+QYPHY-80-5kV-3G4 4 21.1 0.20 5.1 0.09 2.3 1.2 30.9 1160 1726 
+QYPHY-80-5kV-3G2 2 33.5 0.26 6.6 0.09 2.3 1.4 34.3 1500 2232 
+QYPHY-80-5kV-3G1 1 42.4 0.29 7.4 0.09 2.3 1.4 35.5 1720 2559 
+Other conductor size can be offered upon request.
+
+=== PAGE 8 ===
+8 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+205℉/96℃ PP/NBR Round Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+Polypropylene insulation.
+Jacket: 
+Oil-resistant nitrile rubber.
+Armor: 
+Galvanized steel.Solid Copper Conductor
+NBR JacketPolypropylene Insulation
+Galvanized Steel Armor
+
+=== PAGE 9 ===
+9 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+ » Dimensions and Weight 
+3kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPNY-96-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.03 26.1 724 1077 
+QYPNY-96-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.09 27.8 832 1238 
+QYPNY-96-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.14 29.0 917 1364 
+QYPNY-96-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.22 31.0 1066 1587 
+QYPNY-96-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.27 32.3 1178 1752 
+QYPNY-96-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 1.38 35.1 1420 2114 
+QYPNY-96-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 1.47 37.4 1651 2456 
+QYPNY-96-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 1.71 43.4 2326 3462 
+QYPNY-96-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 1.84 46.8 2779 4135 
+5kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPNY-96-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.12 28.5 806 1199 
+QYPNY-96-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.19 30.2 917 1365 
+QYPNY-96-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.24 31.4 1005 1495 
+QYPNY-96-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.31 33.4 1158 1724 
+QYPNY-96-5kV-3G25S - 25 0.222 5.639 0.09 2.3 1.37 34.7 1272 1894 
+QYPNY-96-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 1.47 37.4 1521 2263 
+QYPNY-96-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 1.57 39.8 1756 2613 
+QYPNY-96-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 1.80 45.7 2444 3637 
+QYPNY-96-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 1.94 49.2 2903 4321 
+
+=== PAGE 10 ===
+10 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+284℉/140℃ EPDM/NBR Round  
+Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+EPDM insulation.
+Optional Barrier: 
+Tape, braid, tape and braid, or extruded barrier, used for fluid protection and hoop strength.
+Jacket: 
+Oil-resistant nitrile rubber.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conductor
+NBR JacketEPDM Insulation
+Galvanized Steel ArmorOptional Barrier Layer
+
+=== PAGE 11 ===
+11 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+ » Dimensions and W eight 
+3kV
+Cable Type Conductor SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYENY-140-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.03 26.1 661 983 
+QYENY-140-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.09 27.8 763 1135 
+QYENY-140-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.14 29.0 843 1254 
+QYENY-140-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.22 31.0 985 1465 
+QYENY-140-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.27 32.3 1091 1623 
+QYENY-140-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 1.38 35.1 1323 1969 
+QYENY-140-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 1.47 37.4 1544 2298 
+QYENY-140-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 1.71 43.4 2197 3269 
+QYENY-140-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 1.84 46.8 2635 3922 
+5kV
+Cable Type Conductor SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYENY-140-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.12 28.5 724 1077 
+QYENY-140-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.19 30.2 828 1232 
+QYENY-140-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.24 31.4 910 1354 
+QYENY-140-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.31 33.4 1054 1568 
+QYENY-140-5kV-3G25S - 25 0.222 5.639 0.09 2.3 1.37 34.7 1162 1729 
+QYENY-140-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 1.47 37.4 1397 2079 
+QYENY-140-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 1.57 39.8 1622 2413 
+QYENY-140-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 1.80 45.7 2281 3395 
+QYENY-140-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 1.94 49.2 2725 4055 
+
+=== PAGE 12 ===
+12 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+400℉/204℃ EPDM/EPDM Round  
+Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+EPDM insulation.
+Optional Barrier: 
+Tape, braid, tape and braid, or extruded barrier, used for fluid protection and hoop strength.
+Jacket: 
+EPDM rubber.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conductor
+EPDM JacketEPDM Insulation
+Galvanized Steel ArmorOptional Barrier Layer
+
+=== PAGE 13 ===
+13 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Round Cables
+ » Dimensions and W eight 
+3kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYEEY-204-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.03 26.1 694 1032 
+QYEEY-204-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.09 27.8 798 1187 
+QYEEY-204-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.14 29.0 880 1309 
+QYEEY-204-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.22 31.0 1024 1524 
+QYEEY-204-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.27 32.3 1132 1685 
+QYEEY-204-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 1.38 35.1 1368 2036 
+QYEEY-204-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 1.47 37.4 1593 2370 
+QYEEY-204-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 1.71 43.4 2254 3354 
+QYEEY-204-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 1.84 46.8 2697 4014 
+5kV
+Cable Type Conductor Size Conductor O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYEEY-204-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.12 28.5 760 1131 
+QYEEY-204-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.19 30.2 867 1290 
+QYEEY-204-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.24 31.4 950 1414 
+QYEEY-204-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.31 33.4 1097 1632 
+QYEEY-204-5kV-3G25S - 25 0.222 5.639 0.09 2.3 1.37 34.7 1207 1796 
+QYEEY-204-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 1.47 37.4 1446 2152 
+QYEEY-204-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 1.57 39.8 1674 2491 
+QYEEY-204-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 1.80 45.7 2342 3485 
+QYEEY-204-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 1.94 49.2 2790 4152 
+
+=== PAGE 14 ===
+14 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+176℉/80℃ PP/HDPE Flat Electrical Submersible Pump Cable
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.  
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid bare copper conductor with poly adhesive layer.
+Insulation: 
+Polypropylene insulation
+Jacket: 
+HDPE jacket.
+Tape: 
+Helicoidally applied bedding tape.
+Armor: 
+Galvanized steel armor.Solid Copper Conductor
+HDPE JacketPolypropylene Insulation
+Bedding Tape
+Galvanized Steel Armor
+
+=== PAGE 15 ===
+15 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ » Dimensions and W eight 
+3kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPH-80-3kV-3G6 6 13.3 0.16 4.1 0.075 1.9 1.5 x 0.6 39.2 x 14.4 850 1265 
+QYPH-80-3kV-3G4 4 21.1 0.20 5.1 0.075 1.9 1.7 x 0.6 42.4 x 15.5 1060 1577 QYPH-80-3kV-3G2 2 33.5 0.26 6.6 0.075 1.9 1.8 x 0.7 46.5 x 16.9 1360 2023 QYPH-80-3kV-3G1 1 42.4 0.29 7.4 0.075 1.9 1.9 x 0.7 48.9 x 17.7 1560 2321 
+4kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPH-80-4kV-3G6 6 13.3 0.16 4.1 0.08 2.1 1.6 x 0.6 40.4 x 14.8 880 1309 
+QYPH-80-4kV-3G4 4 21.1 0.20 5.1 0.08 2.1 1.7 x 0.6 43.6 x 15.9 1090 1622 
+QYPH-80-4kV-3G2 2 33.5 0.26 6.6 0.08 2.1 1.9 x 0.7 47.7 x 17.3 1390 2068 
+QYPH-80-4kV-3G1 1 42.4 0.29 7.4 0.08 2.1 2.0 x 0.7 50.1 x 18.1 1590 2366 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPH-80-5kV-3G6 6 13.3 0.16 4.1 0.09 2.3 1.6 x 0.6 41.6 x 15.2 910 1354 
+QYPH-80-5kV-3G4 4 21.1 0.20 5.1 0.09 2.3 1.8 x 0.6 44.8 x 16.3 1120 1666 
+QYPH-80-5kV-3G2 2 33.5 0.26 6.6 0.09 2.3 1.9 x 0.7 48.9 x 17.7 1420 2113 
+QYPH-80-5kV-3G1 1 42.4 0.29 7.4 0.09 2.3 2.0 x 0.7 51.3 x 18.5 1620 2410 
+Other conductor size can be offered upon request.
+
+=== PAGE 16 ===
+16 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+205℉/96℃ PP/NBR Flat Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+Polypropylene insulation.
+Jacket: 
+Oil-resistant nitrile rubber. Each insulated conductor should be individually jacketed or three 
+conductors laid parallel within a common encapsulated jacket.
+Optional Barrier: Tape, braid, tape and braid, or extruded barrier, used for fluid protection and hoop strength.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conductor
+NBR JacketPolypropylene Insulation
+Optional Barrier Layer
+Galvanized Steel Armor
+
+=== PAGE 17 ===
+17 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ » Dimensions and W eight 
+3kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPN-96-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.59×0.56 40.5×14.2 840 1249 
+QYPN-96-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.68×0.59 42.8×14.9 952 1416 
+QYPN-96-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.75×0.61 44.5×15.5 1040 1547 
+QYPN-96-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.86×0.65 47.2×16.4 1194 1776 
+QYPN-96-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.93×0.67 49.1×17.0 1308 1947 
+QYPN-96-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 2.08×0.72 52.9×18.3 1557 2318 QYPN-96-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 2.21×0.76 56.1×19.4 1793 2669 QYPN-96-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 2.54×0.87 64.4×22.2 2483 3695 QYPN-96-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 2.73×0.94 69.3×23.8 2944 4381 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mmlbs/
+kftkg/
+km
+QYPN-96-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.72×0.60 43.8×15.3 927 1380 
+QYPN-96-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.81×0.63 46.1×16.0 1043 1552 
+QYPN-96-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.88×0.65 47.8×16.6 1133 1686 QYPN-96-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.99×0.69 50.5×17.5 1291 1922 
+QYPN-96-5kV-3G25S - 25 0.222 5.639 0.09 2.3 2.06×0.71 52.4×18.1 1409 2096 
+QYPN-96-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 2.21×0.76 56.2×19.4 1663 2475 
+QYPN-96-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 2.34×0.81 59.5×20.5 1904 2834 
+QYPN-96-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 2.67×0.92 67.8×23.3 2606 3878 
+QYPN-96-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 2.86×0.98 72.6×24.9 3074 4575 
+
+=== PAGE 18 ===
+18 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+250℉/121℃ PP/LEAD Flat Electrical Submersible Pump Cable 
+ » Application
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.
+ » Standard
+IEEE Std. 1019
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid bare copper conductor.
+Insulation: 
+Polypropylene insulation with a metal deactivator and a poly adhesive layer to the conductor. 
+Jacket: 
+Lead jacket.
+Tape: 
+Longitudinally applied, rubber backed, fabric bedding tap.
+Armor: 
+Galvanized steel tape.Solid Copper Conductor
+Lead JacketPolypropylene Insulation
+Bedding Tape
+Galvanized Steel Armor
+
+=== PAGE 19 ===
+19 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ » Dimensions and W eight 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYPQ-121-5kV-3G4 4 21.1 0.20 5.2 0.09 2.3 1.60 x 0.62 40.6 x 15.7 1700 2529 
+QYPQ-121-5kV-3G2 2 33.6 0.26 6.6 0.09 2.3 1.76 x 0.67 44.7 x 17.0 2100 3124 
+QYPQ-121-5kV-3G1 1 42.4 0.29 7.4 0.09 2.3 1.85 x 0.70 47.0 x 17.8 2400 3571 
+Other conductor size can be offered upon request.
+
+=== PAGE 20 ===
+20 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+250℉/121℃ EPDM/NBR Flat Electrical Submersible Pump Cable  
+ » Application
+These cables are designed for installed down well in the oil industry.
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: Stranded bare copper (7/3.503) with water & gas blocking compound adhesive in the 
+outer layer.
+Insulation:  EPDM insulation.
+Jacket:  NBR jacket.
+Tape: Fluoropolymer tape.Braid: Nylon braid.Ground Conductor: Stranded bare copper (7/1.4mm), 2x7AWG (4AWG).
+Armor: Interlocked galvanized steel.
+ » Dimensions and Weight 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYEN-121-5kV-3G2/0 2/0 67.4 0.41 10.47 0.09 2.3 2.40x0.85 61.0 x 21.7 2734 4070
+Other conductor size can be offered upon request.Stranded Copper Conductor
+NBR
+ JacketEPDM Insulation
+Fluoropolymer  Tape + Nylon Braid
+Galvanized Steel ArmorGround Conductor
+
+=== PAGE 21 ===
+21 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+284℉/140℃ EPDM/NBR Flat Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+EPDM insulation.
+Jacket: 
+Oil-resistant nitrile rubber. Each insulated conductor should be individually jacketed or three 
+conductors laid parallel within a common encapsulated jacket.
+Barrier: Barrier tape and braid, used for fluid protection and hoop strength.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conducto r
+NBR JacketEPDM Insulation
+Barrier Layer
+Galvanized Steel Armor
+
+=== PAGE 22 ===
+22 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ » Dimensions and W eight 
+3kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mmlbs/
+kftkg/
+km
+QYEN-140-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.55×0.54 39.3×13.8 751 1118 
+QYEN-140-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.64×0.57 41.6×14.5 856 1274 
+QYEN-140-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.70×0.59 43.3×15.1 939 1397 
+QYEN-140-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.81×0.63 46.0×16.0 1084 1613 
+QYEN-140-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.89×0.66 47.9×16.6 1193 1775 
+QYEN-140-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 2.03×0.71 51.7×17.9 1430 2128 
+QYEN-140-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 2.16×0.75 54.9×19.0 1656 2464 
+QYEN-140-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 2.49×0.86 63.2×21.8 2319 3451 
+QYEN-140-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 2.68×0.92 68.1×23.4 2764 4114 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mmlbs/
+kftkg/km
+QYEN-140-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.68×0.59 42.6×14.9 819 1219 
+QYEN-140-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.77×0.62 44.9×15.6 926 1378 
+QYEN-140-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.83×0.64 46.6×16.2 1010 1503 
+QYEN-140-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.94×0.67 49.3×17.1 1158 1723 
+QYEN-140-5kV-3G25S - 25 0.222 5.639 0.09 2.3 2.02×0.70 51.2×17.7 1268 1887 
+QYEN-140-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 2.17×0.75 55.0×19.0 1509 2245 
+QYEN-140-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 2.29×0.79 58.3×20.1 1737 2585 
+QYEN-140-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 2.62×0.90 66.6×22.9 2408 3584 
+QYEN-140-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 2.81×0.96 71.4×24.5 2858 4253 
+
+=== PAGE 23 ===
+23 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+400℉/204℃ EPDM/EPDM Flat Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry. 
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+EPDM insulation.
+Jacket: 
+EPDM rubber. Each insulated conductor should be individually jacketed or three conductors laid 
+parallel within a common encapsulated jacket.
+Barrier: Barrier tape and braid, used for fluid protection and hoop strength.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conductor
+EPDM JacketEPDM Insulation
+Barrier Layer
+Galvanized Steel Armor
+
+=== PAGE 24 ===
+24 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ » Dimensions and W eight 
+3kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mmlbs/
+kftkg/
+km
+QYEE-204-3kV-3G10S - 10 0.14 3.556 0.075 1.9 1.55×0.54 39.3×13.8 793 1180 
+QYEE-204-3kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.64×0.57 41.6×14.5 901 1341 
+QYEE-204-3kV-3G16S - 16 0.178 4.521 0.075 1.9 1.70×0.59 43.3×15.1 985 1466 
+QYEE-204-3kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.81×0.63 46.0×16.0 1134 1688 
+QYEE-204-3kV-3G25S - 25 0.222 5.639 0.075 1.9 1.89×0.66 47.9×16.6 1245 1853 
+QYEE-204-3kV-3G2 2 33.6 0.258 6.553 0.075 1.9 2.03×0.71 51.7×17.9 1487 2213 
+QYEE-204-3kV-3G1 1 42.4 0.289 7.341 0.075 1.9 2.16×0.75 54.9×19.0 1717 2555 
+QYEE-204-3kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 2.49×0.86 63.2×21.8 2390 3557 
+QYEE-204-3kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 2.68×0.92 68.1×23.4 2841 4229 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mmlbs/
+kftkg/km
+QYEE-204-5kV-3G10S - 10 0.14 3.556 0.09 2.3 1.68×0.59 42.6×14.9 865 1287 
+QYEE-204-5kV-3G6 6 13.3 0.162 4.115 0.09 2.3 1.77×0.62 44.9×15.6 975 1451 
+QYEE-204-5kV-3G16S - 16 0.178 4.521 0.09 2.3 1.83×0.64 46.6×16.2 1061 1579 
+QYEE-204-5kV-3G4 4 21.1 0.204 5.182 0.09 2.3 1.94×0.67 49.3×17.1 1212 1804 
+QYEE-204-5kV-3G25S - 25 0.222 5.639 0.09 2.3 2.02×0.70 51.2×17.7 1325 1971 
+QYEE-204-5kV-3G2 2 33.6 0.258 6.553 0.09 2.3 2.17×0.75 55.0×19.0 1570 2336 
+QYEE-204-5kV-3G1 1 42.4 0.289 7.341 0.09 2.3 2.29×0.79 58.3×20.1 1802 2682 
+QYEE-204-5kV-3G1/0 1/0 53.5 0.368 9.347 0.09 2.3 2.62×0.90 66.6×22.9 2483 3696 
+QYEE-204-5kV-3G2/0 2/0 67.4 0.414 10.516 0.09 2.3 2.81×0.96 71.4×24.5 2939 4374 
+
+=== PAGE 25 ===
+25 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+400℉/204℃ EPDM/LEAD Flat Electrical Submersible Pump Cable 
+ » Applications
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: 
+Solid/stranded copper conductor.
+Insulation: 
+EPDM insulation.
+Jacket: 
+Lead jacket. Each insulated conductor should have a lead sheath extruded over the insulation. 
+Bedding Layer: 
+Bedding tape or braid.
+Armor: 
+Galvanized steel.Solid/Stranded Copper Conducto r
+Lead JacketEPDM Insulation
+Bedding Layer
+Galvanized Steel Armor
+
+=== PAGE 26 ===
+26 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+ »Dimensions and Weight 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYEQ-204-5kV-3G10S - 10 0.14 3.556 0.075 1.9 1.48×0.52 37.5×13.2 1461 2175 
+QYEQ-204-5kV-3G6 6 13.3 0.162 4.115 0.075 1.9 1.57×0.55 39.8×13.9 1617 2406 
+QYEQ-204-5kV-3G16S - 16 0.178 4.521 0.075 1.9 1.63×0.57 41.5×14.5 1736 2583 
+QYEQ-204-5kV-3G4 4 21.1 0.204 5.182 0.075 1.9 1.74×0.61 44.2×15.4 1941 2888 
+QYEQ-204-5kV-3G25S - 25 0.222 5.639 0.075 1.9 1.81×0.63 46.1×16.0 2091 3111 
+QYEQ-204-5kV-3G2 2 33.6 0.258 6.553 0.075 1.9 1.96×0.68 49.9×17.3 2410 3587 
+QYEQ-204-5kV-3G1 1 42.4 0.289 7.341 0.075 1.9 2.09×0.72 53.1×18.4 2707 4029 
+QYEQ-204-5kV-3G1/0 1/0 53.5 0.368 9.347 0.075 1.9 2.42×0.83 61.4×21.2 3552 5285 
+QYEQ-204-5kV-3G2/0 2/0 67.4 0.414 10.516 0.075 1.9 2.61×0.90 66.3×22.8 4103 6105 
+
+=== PAGE 27 ===
+27 www.caledonian-cables.co.uk   www.addison-cables.com
+Caledonian Electric Submersible Pump Cables
+Flat Cables
+450℉/232℃ EPDM/LEAD Flat Electrical Submersible Pump Cable
+ » Application
+These cables are designed for transmitting power to the submersible motor in the oil industry, 
+suitable for installed down well in the oil industry.
+ » Standard
+IEEE Std. 1018
+API RP 11S5API RP 11S6
+ » Construction
+Conductor: Solid bare copper conductor.Insulation: EPDM insulation with a poly adhesive layer to the conductor. 
+Jacket:  Lead jacket.
+Tape: Longitudinally applied, rubber backed, fabric bedding tap.Armor: Galvanized steel tape.
+ » Dimensions and W eight 
+5kV
+Cable TypeConductor 
+SizeConductor 
+O.D.Insulation 
+ThicknessOverall O.D. Weight
+AWG mm² inches mm Inches mm Inches mm lbs/kft kg/km
+QYEQ-232-5kV-3G4 4 21.1 0.20 5.2 0.08 2.0 1.47 x 0.59 37.3 x 15.1 1478 2200
+QYEQ-232-5kV-3G2 2 33.6 0.26 6.6 0.08 2.0 1.63 x 0.64 41.4 x 16.3 1882 2800
+QYEQ-232-5kV-3G1 1 42.4 0.29 7.4 0.08 2.0 1.73 x 0.67 43.9 x 17.0 2083 3100
+Other conductor size can be offered upon request.Solid Copper Conductor
+Lead JacketEPDM Insulation
+Bedding Tape
+Galvanized Steel Armor
+
+=== PAGE 28 ===
+Caledonian Electric Submersible Pump Cables
+Technical Information
+28 www.caledonian-cables.co.uk   www.addison-cables.com
+Material Options
+ » Conductor (tinned or untinned)
+- AWG / Solid conductor
+- AWG / Stranded conductor- Compacted strand conductor
+ » Insulation
+- Polypropylene- Ethylene propylene diene (EPDM)
+ » Barrier (optional)
+- Extruded fluoropolymers- Wrapped tapes- Tape and woven braid
+ » Jacket
+- High density polyethylene (HDPE)- Ethylene propylene diene (EPDM)- Nitrile- Polypropylene
+ » Armor
+- Galvanized steel (one or two layers)- Heavy galvanized steel- Stainless steel- Double galvanized steel (two layers)
+
+=== PAGE 29 ===
+29
+Caledonian Electric Submersible Pump Cables
+Technical Information
+29 www.caledonian-cables.co.uk   www.addison-cables.com
+Conductor Characteristics
+Conductor 
+SizeConductor 
+AreaNominal Diameter of Conductor (mm)Conductor Resistance
+(ohms/km @ 25 °C)
+mm² Solid Stranded 7 
+wireCompact 7 
+wirePlain CopperTinned 
+Copper
+10mm² 10.0 3.57 — — 1.87 1.88
+6 AWG 13.3 4.11 — — 1.32 1.36
+16mm² 16.0 4.48 — — 1.17 1.18
+4 AWG 21.1 5.19 — — 0.830 0.856
+4 AWG 21.1 — 5.89 5.41 0.846 0.882
+25mm² 25.0 5.64 — — 0.742 0.749
+2 AWG 33.6 6.54 — — 0.522 0.538
+2 AWG 33.6 — 7.42 6.81 0.531 0.554
+1 AWG 42.4 7.35 — — 0.413 0.426
+1 AWG 42.4 — 8.33 7.57 0.423 0.440
+1/0 AWG 53.5 — 9.35 8.56 0.335 0.348
+2/0 AWG 67.4 — 10.80 — 0.266 0.276
+
+=== PAGE 30 ===
+Caledonian Electric Submersible Pump Cables
+Technical Information
+30 www.caledonian-cables.co.uk   www.addison-cables.com
+Material properties
+Polypropylene properties
+Physical requirements—unaged
+Tensile strength, minimum, MPa 20.7 (3000 psi)
+Elongation at rupture, minimum, percent 250
+Physical requirements—aged in air
+Oven at 121 °C (250 °F) for 1 week
+Tensile strength, minimum, percent of unaged value 75
+Elongation at rupture, minimum, percent retention 75
+Ethylene-propylene properties
+Physical requirements—unaged
+Tensile strength, minimum, MPa 6.2 (900 psi)
+Elongation at rupture, minimum, percent 100
+Physical requirements—aged in airOven at 121 °C (250 °F) for 1 week
+Tensile strength, minimum, percent of unaged value 70
+Elongation at rupture, minimum, percent retention 70
+Nitrile properties
+Physical requirements—unaged
+Tensile strength, minimum, MPa 12.4 (1800 psi)
+Elongation at rupture, minimum, percent 300
+Physical requirements—aged in airOven at 100 °C (212 °F) for 1 week
+Tensile strength, minimum, percent of unaged value 50
+Elongation at rupture, minimum, percent retention 50
+Physical requirements—aged in ASTMIRM 9002 oil at 121 °C (250 °F) for 18 hours
+Tensile strength, minimum, percent of unaged value 60
+Elongation at rupture, minimum, percent retention 60
+
+=== PAGE 31 ===
+31
+Caledonian Electric Submersible Pump Cables
+Technical Information
+31 www.caledonian-cables.co.uk   www.addison-cables.com
+EPDM properties
+Physical requirements—unaged
+Tensile strength, minimum, MPa 6.9 (1000 psi)
+Elongation at rupture, minimum, percent 125
+Physical requirements—aged in air
+Oven at 121 °C (250 °F) for 1 week
+Tensile strength, minimum, percent of unaged value 75
+Elongation at rupture, minimum, percent retention 75
+Physical requirements—aged in ASTMIRM 9002 oil at 121 °C (250 °F) for 18 hours
+Tensile strength, minimum, percent of unaged value 60
+Elongation at rupture, minimum, percent retention 60
+
+=== PAGE 32 ===
+UNITED KINGDOM
+Marchants Industrial Centre, 
+Mill Lane, Laughton, Lewes, East Sussex, BN8 6AJ, UKTel:  44 (0) 207 419 5087Fax: 44 (0) 207 831 9489Email: sales@caledonian-cables.co.ukwww.caledonian-cables.co.uk

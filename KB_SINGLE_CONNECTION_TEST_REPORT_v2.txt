@@ -1,0 +1,142 @@
+================================================================================
+ESP APM — SINGLE-CONNECTION KB TEST & POSTGRESQL VERIFICATION REPORT
+================================================================================
+Execution Timestamp: 2026-09-30 03:30:41
+Mode: 100% READ-ONLY (SELECT only, zero DB writes)
+Target Database: PostgreSQL 16 (esp_apm_db) on Port 5433 (192.168.1.184)
+FastAPI Agent URL: http://127.0.0.1:8091
+================================================================================
+
+--------------------------------------------------------------------------------
+1. SERVICE HEALTH & CAPABILITY PROBING
+--------------------------------------------------------------------------------
+• GET /health:
+  Command : curl.exe -s http://127.0.0.1:8091/health
+  Response: {"status":"HEALTHY","service":"agent_service","slice":2}
+• GET /capabilities:
+  Command : curl.exe -s http://127.0.0.1:8091/capabilities
+  Response: {"live":"AVAILABLE","historian":"AVAILABLE","events":"AVAILABLE","ml":"AVAILABLE","kpi":"AVAILABLE","cards":"AVAILABLE","kb":"AVAILABLE"}
+
+--------------------------------------------------------------------------------
+2. PATH 1 — DIRECT KB ADAPTER TEST (POST /kb/search)
+--------------------------------------------------------------------------------
+• Request Endpoint: POST http://127.0.0.1:8091/kb/search
+• Payload: {"query": "gas lock", "top_k": 3}
+• Roundtrip Latency: 215.84ms
+• Source: POSTGRESQL_PGVECTOR
+• Total Matches: 12
+• Top Hits Count: 3
+  [1] Doc Title : 804612320-Electric-Submersible-Pumps
+      Doc ID    : DOC-804612320-Electric-Submersible-Pumps
+      Section   : Gas Separator:
+      Page      : 1
+      Score     : 0.7806
+      Snippet   : Installing a gas separator to manage free gas and prevent gas lock. Ensuring the pump is capable of handling gas-laden fluids....
+  [2] Doc Title : 882594008-ESP-Design-Shiropa
+      Doc ID    : DOC-882594008-ESP-Design-Shiropa
+      Section   : 5. Gas Handling Consideration
+      Page      : 1
+      Score     : 0.7541
+      Snippet   : If free gas at the pump intake exceeds 10-15%, include gas separators or gas handlers . This helps prevent gas locking , which reduces pump ...
+  [3] Doc Title : 882594008-ESP-Design-Shiropa
+      Doc ID    : DOC-882594008-ESP-Design-Shiropa
+      Section   : Intake and Gas Separator
+      Page      : 1
+      Score     : 0.7329
+      Snippet   : - Intake allows fluid entry from the wellbore to the pump.
+- A gas separator may be used to remove free gas before fluid enters the pump. Ga...
+• Path 1 Verdict: PASSED (pgvector HNSW index & BGE embedding functioning end-to-end)
+
+--------------------------------------------------------------------------------
+3. PATH 2 — AGENT END-TO-END DEFINITIONAL 5-QUERY SUITE (POST /query)
+--------------------------------------------------------------------------------
+Validating OP06_KNOWLEDGE_LOOKUP clean routing without telemetry dependencies...
+
+• [Query 1] Query: "What is gas lock in ESP?"
+  Latency    : 7931.86ms
+  Frames     : 3 received (Errors: 0, Visuals: 0)
+  Status     : OK
+  Response   : Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
+
+Assessment: Gas lock is a condition where fre...
+  Verdict    : PASSED (Clean OP06 Routing)
+
+• [Query 2] Query: "What is underload protection?"
+  Latency    : 9922.12ms
+  Frames     : 3 received (Errors: 0, Visuals: 0)
+  Status     : OK
+  Response   : Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
+
+Assessment: Underload protection is an automa...
+  Verdict    : PASSED (Clean OP06 Routing)
+
+• [Query 3] Query: "Explain gas lock."
+  Latency    : 8263.10ms
+  Frames     : 3 received (Errors: 0, Visuals: 0)
+  Status     : OK
+  Response   : Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
+
+Assessment: Gas lock is a condition where fre...
+  Verdict    : PASSED (Clean OP06 Routing)
+
+• [Query 4] Query: "What does PIP mean?"
+  Latency    : 5707.22ms
+  Frames     : 3 received (Errors: 0, Visuals: 0)
+  Status     : OK
+  Response   : Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
+
+Assessment: PIP stands for Pump Intake Pressu...
+  Verdict    : PASSED (Clean OP06 Routing)
+
+• [Query 5] Query: "Define TDH."
+  Latency    : 5911.39ms
+  Frames     : 3 received (Errors: 0, Visuals: 0)
+  Status     : OK
+  Response   : Diagnostic run for the selected asset (objective: OP06_KNOWLEDGE_LOOKUP):
+
+Assessment: Total Dynamic Head (TDH) is the s...
+  Verdict    : PASSED (Clean OP06 Routing)
+
+--------------------------------------------------------------------------------
+4. STANDALONE DOMAIN ADAPTERS & TOOL GATEWAY VERIFICATION
+--------------------------------------------------------------------------------
+Command: python agent_service/scripts/test_all_domain_adapters_postgres.py
+Exit Code: 0
+  [1] Probing All 7 Domain Capabilities against PostgreSQL...
+    - Domain live        : AVAILABLE
+    - Domain historian   : AVAILABLE
+    - Domain events      : AVAILABLE
+    - Domain ml          : AVAILABLE
+    - Domain kpi         : AVAILABLE
+    - Domain cards       : AVAILABLE
+    - Domain kb          : AVAILABLE
+    - search_kb:        hits=3 (latency: 2261.90ms)
+    [01] execute_tool_call(get_live_telemetry    ) -> Status: OK     | Latency: 280.77ms
+    [02] execute_tool_call(get_asset_context     ) -> Status: OK     | Latency: 163.46ms
+    [03] execute_tool_call(get_historian_window  ) -> Status: OK     | Latency:  84.85ms
+    [04] execute_tool_call(get_events            ) -> Status: OK     | Latency:  40.27ms
+    [05] execute_tool_call(diagnose_fault        ) -> Status: OK     | Latency:  39.83ms
+    [06] execute_tool_call(get_health_index      ) -> Status: OK     | Latency:  46.80ms
+    [07] execute_tool_call(get_current_status    ) -> Status: OK     | Latency:  39.25ms
+    [08] execute_tool_call(get_card              ) -> Status: OK     | Latency:  39.31ms
+    [09] execute_tool_call(search_knowledge      ) -> Status: OK     | Latency: 147.56ms
+    [10] execute_tool_call(get_fault_taxonomy    ) -> Status: OK     | Latency:  61.72ms
+    [11] execute_tool_call(trace_causal_graph    ) -> Status: OK     | Latency:  39.23ms
+
+--------------------------------------------------------------------------------
+5. COMPLIANCE & INVARIANT VERIFICATION MATRIX
+--------------------------------------------------------------------------------
+Signal / Invariant                 | Expected State                  | Observed Result | Verdict
+-----------------------------------|---------------------------------|-----------------|--------
+PostgreSQL Write Operations        | ZERO (0 DB Writes)              | 0 writes (READ) | PASS   
+pgvector HNSW Cosine Similarity    | score > 0.5                     | 0.7806 (> 0.5)  | PASS   
+Document Metadata Join             | doc_id, section, page present   | Present in hits | PASS   
+Content Snippet Verification       | Real KB text extracted          | Verified        | PASS   
+Legacy Server 184 HTTP Calls       | ZERO calls to :8090 / :8085     | 0 calls         | PASS   
+Telemetry Table Separation (OP06)  | No visual frames / 0 errors     | 0 visual frames | PASS   
+Pytest Phase 0 Units               | 42 / 42 passed                  | 42 passed       | PASS   
+--------------------------------------------------------------------------------
+
+================================================================================
+OVERALL VERIFICATION STATUS: 100% PASSED
+================================================================================

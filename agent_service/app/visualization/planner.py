@@ -25,9 +25,9 @@ _CARDS_REGISTRY_PATH = _CONFIG_DIR / "cards_registry.yaml"
 _CARDS_REGISTRY: dict = {}
 
 
-def _load_cards_registry() -> dict:
+def _load_cards_registry(force_reload: bool = False) -> dict:
     global _CARDS_REGISTRY
-    if not _CARDS_REGISTRY and _CARDS_REGISTRY_PATH.exists():
+    if (force_reload or not _CARDS_REGISTRY) and _CARDS_REGISTRY_PATH.exists():
         with open(_CARDS_REGISTRY_PATH, "r", encoding="utf-8") as f:
             _CARDS_REGISTRY = yaml.safe_load(f).get("cards", {})
     return _CARDS_REGISTRY
@@ -37,10 +37,18 @@ def plan_visualization(
     objective_id: str,
     pack: EvidencePack,
     formatted_evidence: Optional[FormattedEvidence] = None,
+    advisory: Optional[Any] = None,
 ) -> VisualizationSpec:
     """
-    Selects qualifying cards from the objective's allowed_visuals.
-    A card qualifies iff the pack is sealed and all its required signals are present in the pack.
+    Selects qualifying cards using intent-driven visual planning.
+    
+    1. Safety Whitelist: allowed_visuals is the outer bounding whitelist.
+    2. Intent Driver:
+       - Uses manifest.default_visuals as the prescribed cards for the objective.
+       - If advisory has recommended_cards (e.g. from diagnostic synthesis), candidates are filtered to
+         those recommended cards that are also in default_visuals (or allowed_visuals).
+       - If default_visuals is not specified (None) in the manifest, falls back to allowed_visuals.
+    3. Availability Check: A card only qualifies if all its required signals are present in the sealed pack.
     """
     if not pack.sealed:
         return VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
@@ -49,17 +57,35 @@ def plan_visualization(
     if not manifest or not manifest.allowed_visuals:
         return VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
 
+    allowed_set = set(manifest.allowed_visuals)
+
+    # 1. Determine candidate cards based on intent
+    if manifest.default_visuals is not None:
+        candidate_cards = [c for c in manifest.default_visuals if c in allowed_set]
+    else:
+        candidate_cards = [c for c in manifest.allowed_visuals]
+
+    # 2. Refine with XAI advisory recommended cards if provided
+    if advisory is not None:
+        rec_cards = getattr(advisory, "recommended_cards", None)
+        if rec_cards and isinstance(rec_cards, list) and len(rec_cards) > 0:
+            rec_filtered = [c for c in rec_cards if c in candidate_cards]
+            if rec_filtered:
+                candidate_cards = rec_filtered
+
+    if not candidate_cards:
+        return VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
+
     if formatted_evidence is None:
         formatted_evidence = format_pack(pack)
 
     available_signals: Set[str] = {fv.signal for fv in formatted_evidence.values}
-
     registry = _load_cards_registry()
 
     selected_cards: list[str] = []
     cited_evidence_ids: Set[str] = set()
 
-    for card_id in manifest.allowed_visuals:
+    for card_id in candidate_cards:
         card_cfg = registry.get(card_id)
         if not card_cfg:
             continue

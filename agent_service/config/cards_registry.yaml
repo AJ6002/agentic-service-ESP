@@ -1,6 +1,10 @@
 # Master Card Registry for ESP APM
-# Source: ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md §5.2 + OP04/OP05 Extensions
+# Source: ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md §5.2 + OP04/OP05 Extensions + Dashboard Catalog (DOC.txt §4)
+
 cards:
+  # =========================================================================
+  # Authoritative Visual Cards
+  # =========================================================================
   gross-liquid-rate:
     component_id: section-production-kpi-liquid-rate
     unit: BPD
@@ -158,3 +162,61 @@ cards:
     unit: hits
     widget_type: evidence_card
     required_signals: []
+
+  # =========================================================================
+  # 8 Dashboard Catalog Cards (DOC.txt §4)
+  # =========================================================================
+  working_status_smart_fault_card:
+    component_id: SmartFaultCard
+    unit: "0-100"
+    widget_type: smart_fault_card
+    required_signals:
+      - freq_hz
+
+  subsystem_equalizer:
+    component_id: SubsystemEqualizer
+    unit: "%"
+    widget_type: equalizer_card
+    required_signals:
+      - freq_hz
+
+  pump_curve_operating_point:
+    component_id: LivePumpPerformanceCurve
+    unit: "BPD / Head"
+    widget_type: pump_curve_card
+    required_signals:
+      - freq_hz
+
+  esp_well_schematic:
+    component_id: EspWellVisual
+    unit: "Downhole"
+    widget_type: schematic_card
+    required_signals:
+      - freq_hz
+
+  multi_tag_live_trends:
+    component_id: SynchronizedMultiTagTrends
+    unit: "Timeseries"
+    widget_type: trend_card
+    required_signals:
+      - freq_hz
+
+  vfm_production_ribbon:
+    component_id: VfmProductionRibbon
+    unit: "BPD"
+    widget_type: ribbon_card
+    required_signals:
+      - liquid_rate_bpd
+
+  system_operational_summary:
+    component_id: SystemOperationalSummary
+    unit: "Fleet"
+    widget_type: system_summary_card
+    required_signals: []
+
+  advisor_panel_item:
+    component_id: AdvisorPanel
+    unit: "Advisory"
+    widget_type: advisor_panel_card
+    required_signals:
+      - freq_hz

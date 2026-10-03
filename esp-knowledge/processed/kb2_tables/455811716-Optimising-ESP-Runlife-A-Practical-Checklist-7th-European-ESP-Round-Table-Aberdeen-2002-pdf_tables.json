@@ -1,0 +1,238 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "Mechanical",
+        "1": "Packer, tubing size and material, bypass, corrosion, scale, dual ESPs, casing ID, dogleg severity, deviation, seal"
+      },
+      {
+        "0": "Hydraulic",
+        "1": "Reservoir performance (P R and PI), sand, scale, fluid properties, gas, solids deposition (wax, asphaltenes), watercut development, flow correlations, pump, monitoring"
+      },
+      {
+        "0": "Electrical",
+        "1": "Power supply quality, transformer tappings, variable speed drives, harmonics, filters, cable, wellhead and packer penetrators, splices, pothead, motor, monitoring"
+      }
+    ],
+    "csv": "0,1\r\nMechanical,\"Packer, tubing size and material, bypass, corrosion, scale, dual ESPs, casing ID, dogleg severity, deviation, seal\"\r\nHydraulic,\"Reservoir performance (P R and PI), sand, scale, fluid properties, gas, solids deposition (wax, asphaltenes), watercut development, flow correlations, pump, monitoring\"\r\nElectrical,\"Power supply quality, transformer tappings, variable speed drives, harmonics, filters, cable, wellhead and packer penetrators, splices, pothead, motor, monitoring\"\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "Design",
+        "1": "Reservoir, drilling, completion, electrical, surface facilities, fluid properties, previous experience (own company, other operators, pump manufacturers), innovation, economics"
+      },
+      {
+        "0": "Installation",
+        "1": "Rig crew training, working environment, procedures and practices, patience, start-up, training, training, training!"
+      },
+      {
+        "0": "Operations",
+        "1": "Field personnel training, monitoring, intelligent control systems, well/ESP performance analysis and interpretation"
+      }
+    ],
+    "csv": "0,1\r\nDesign,\"Reservoir, drilling, completion, electrical, surface facilities, fluid properties, previous experience (own company, other operators, pump manufacturers), innovation, economics\"\r\nInstallation,\"Rig crew training, working environment, procedures and practices, patience, start-up, training, training, training!\"\r\nOperations,\"Field personnel training, monitoring, intelligent control systems, well/ESP performance analysis and interpretation\"\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Parameters",
+      "Control/Optimisation Function"
+    ],
+    "rows": [
+      {
+        "Parameters": "Pump discharge pressure",
+        "Control/Optimisation Function": "Well shut-in protection"
+      },
+      {
+        "Parameters": "Wellhead & pump discharge pressure",
+        "Control/Optimisation Function": "Watercut or tubing GOR estimation"
+      },
+      {
+        "Parameters": "Pump intake pressure",
+        "Control/Optimisation Function": "Gas locking (bubble point, free gas volumes) Reservoir drawdown (sand control)"
+      },
+      {
+        "Parameters": "Pump dP",
+        "Control/Optimisation Function": "Upthrust and downthrust protection; flow estimation Pump performance (wear, viscosity, manufacture)"
+      },
+      {
+        "Parameters": "Motor temperature",
+        "Control/Optimisation Function": "Overheating (overload, lack of cooling)"
+      },
+      {
+        "Parameters": "Motor amps",
+        "Control/Optimisation Function": "Overload/underload protection"
+      },
+      {
+        "Parameters": "Current leakage",
+        "Control/Optimisation Function": "Overheating (insulation breakdown)"
+      }
+    ],
+    "csv": "Parameters,Control/Optimisation Function\r\nPump discharge pressure,Well shut-in protection\r\nWellhead & pump discharge pressure,Watercut or tubing GOR estimation\r\nPump intake pressure,\"Gas locking (bubble point, free gas volumes) Reservoir drawdown (sand control)\"\r\nPump dP,\"Upthrust and downthrust protection; flow estimation Pump performance (wear, viscosity, manufacture)\"\r\nMotor temperature,\"Overheating (overload, lack of cooling)\"\r\nMotor amps,Overload/underload protection\r\nCurrent leakage,Overheating (insulation breakdown)\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "Mechanical",
+        "1": "Packer, tubing size and material, bypass, corrosion, scale, dual ESPs, casing ID, dogleg severity, deviation, seal"
+      },
+      {
+        "0": "Hydraulic",
+        "1": "Reservoir performance (P R and PI), sand, scale, fluid properties, gas, solids deposition (wax, asphaltenes), watercut development, flow correlations, pump, monitoring"
+      },
+      {
+        "0": "Electrical",
+        "1": "Power supply quality, transformer tappings, variable speed drives, harmonics, filters, cable, wellhead and packer penetrators, splices, pothead, motor, monitoring"
+      }
+    ],
+    "csv": "0,1\r\nMechanical,\"Packer, tubing size and material, bypass, corrosion, scale, dual ESPs, casing ID, dogleg severity, deviation, seal\"\r\nHydraulic,\"Reservoir performance (P R and PI), sand, scale, fluid properties, gas, solids deposition (wax, asphaltenes), watercut development, flow correlations, pump, monitoring\"\r\nElectrical,\"Power supply quality, transformer tappings, variable speed drives, harmonics, filters, cable, wellhead and packer penetrators, splices, pothead, motor, monitoring\"\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "",
+      "PROBLEM.",
+      "SOLUTION.DESIGN",
+      "SOLUTION.INSTALLATION",
+      "SOLUTION.OPERATION"
+    ],
+    "rows": [
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "Gassy well (high free gas at intake)",
+        "SOLUTION.DESIGN": "\u00b7 Gas separator or handler \u00b7 Use large mixed flow impellers \u00b7 Lower drawdown (higher PIP) \u00b7 Deeper pump setting depth (higher PIP) \u00b7 Avoid tight clearances around motor \u00b7 Use axial flow impellers (HSP)",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "Scale/Corrosion (H 2 S, CO 2 )",
+        "SOLUTION.DESIGN": "\u00b7 Inject inhibitors \u00b7 Formation scale squeeze \u00b7 Upgrade metallurgy, monel coating",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Backflush through pump \u00b7 Acid soak pump (for CaCO 3 ) \u00b7 Monitor to determine effects"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "High viscosity, emulsions",
+        "SOLUTION.DESIGN": "\u00b7 Use large mixed flow impellers \u00b7 Design for lower rpm, more stages \u00b7 Inject demulsifier at pump intake \u00b7 Use displacement pump (PCP)",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "Wax/Asphaltene",
+        "SOLUTION.DESIGN": "\u00b7 Inject inhibitors \u00b7 Use large mixed flow impellers",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Xylene backflush or soak pump \u00b7 Monitor to determine effects"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "Pumping off (PIP to zero)",
+        "SOLUTION.DESIGN": "\u00b7 Reduce number of stages \u00b7 Stimulate reservoir",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "High temperature (>250 deg F)",
+        "SOLUTION.DESIGN": "\u00b7 Upgrade equipment (high temp. ratings) \u00b7 De-rate motor design",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Vigilant monitoring & control \u00b7 Avoid up/downthrust operation"
+      },
+      {
+        "": "H Y D R A U L I C",
+        "PROBLEM.": "Unknown reservoir performance (PI)",
+        "SOLUTION.DESIGN": "\u00b7 Estimate PI from DSTs, Darcy inflow \u00b7 Use compression pump or inserts \u00b7 Use variable frequency drive",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Increase or decrease choke \u00b7 Increase or decrease frequency \u00b7 Monitor to determine PI for next ESP"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "Sand production/erosion/wear",
+        "SOLUTION.DESIGN": "\u00b7 Install gravel pack or screens \u00b7 Use large mixed flow impellers \u00b7 Upgrade pump metallurgy & design \u00b7 Design for lower rpm, more stages \u00b7 Lower drawdown (higher PIP) Use compression pump or inserts",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "Subsea or remote location",
+        "SOLUTION.DESIGN": "\u00b7 Install dual ESPs for back-up",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Vigilant monitoring & control"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "Damaged/weak casing",
+        "SOLUTION.DESIGN": "\u00b7 Run liner or patch",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Limit drawdown"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "Debris/junk in well",
+        "SOLUTION.DESIGN": "\u00b7 Improve workover procedures",
+        "SOLUTION.INSTALLATION": "\u00b7 Clean up well bore",
+        "SOLUTION.OPERATION": "\u00b7 Minimise drawdown on start-up"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "High deviation",
+        "SOLUTION.DESIGN": "\u00b7 Use bag type seal/protector section \u00b7 Use centralisers",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "-"
+      },
+      {
+        "": "M E C H A N I C A L",
+        "PROBLEM.": "Doglegs",
+        "SOLUTION.DESIGN": "\u00b7 Minimise doglegs during drilling \u00b7 Design for higher rpm, less stages \u00b7 Use large OD (shorter) pump",
+        "SOLUTION.INSTALLATION": "\u00b7 Drift wellbore \u00b7 Slow RIH",
+        "SOLUTION.OPERATION": "-"
+      },
+      {
+        "": "E L E C T R I C A L",
+        "PROBLEM.": "Poor power supply quality",
+        "SOLUTION.DESIGN": "\u00b7 Install harmonic filters \u00b7 Upgrade generators \u00b7 Upgrade variable frequency drive \u00b7 Use surge protectors \u00b7 Install larger cable \u00b7 Power system audit",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Monitor amps & voltage \u00b7 Perform waveform analysis"
+      },
+      {
+        "": "E L E C T R I C A L",
+        "PROBLEM.": "Cable/splice/connector problems",
+        "SOLUTION.DESIGN": "\u00b7 Address power supply quality issues \u00b7 Improve workover procedures \u00b7 Upgrade components",
+        "SOLUTION.INSTALLATION": "\u00b7 Handling procedures \u00b7 Use clamps",
+        "SOLUTION.OPERATION": "-"
+      },
+      {
+        "": "E L E C T R I C A L",
+        "PROBLEM.": "Very high power (>1000 hP)",
+        "SOLUTION.DESIGN": "\u00b7 Install dual (boost) ESPs \u00b7 Clean power supply essential",
+        "SOLUTION.INSTALLATION": "-",
+        "SOLUTION.OPERATION": "\u00b7 Vigilant monitoring & control"
+      },
+      {
+        "": "PEOPLE",
+        "PROBLEM.": "Operator error",
+        "SOLUTION.DESIGN": "\u00b7 Training (reservoir/drilling engs, PTs)",
+        "SOLUTION.INSTALLATION": "\u00b7 Training (rig crew)",
+        "SOLUTION.OPERATION": "\u00b7 Training (field operations staff)"
+      }
+    ],
+    "csv": ",PROBLEM.,SOLUTION.DESIGN,SOLUTION.INSTALLATION,SOLUTION.OPERATION\r\nH Y D R A U L I C,Gassy well (high free gas at intake),\u00b7 Gas separator or handler \u00b7 Use large mixed flow impellers \u00b7 Lower drawdown (higher PIP) \u00b7 Deeper pump setting depth (higher PIP) \u00b7 Avoid tight clearances around motor \u00b7 Use axial flow impellers (HSP),-,\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects\r\nH Y D R A U L I C,\"Scale/Corrosion (H 2 S, CO 2 )\",\"\u00b7 Inject inhibitors \u00b7 Formation scale squeeze \u00b7 Upgrade metallurgy, monel coating\",-,\u00b7 Backflush through pump \u00b7 Acid soak pump (for CaCO 3 ) \u00b7 Monitor to determine effects\r\nH Y D R A U L I C,\"High viscosity, emulsions\",\"\u00b7 Use large mixed flow impellers \u00b7 Design for lower rpm, more stages \u00b7 Inject demulsifier at pump intake \u00b7 Use displacement pump (PCP)\",-,\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects\r\nH Y D R A U L I C,Wax/Asphaltene,\u00b7 Inject inhibitors \u00b7 Use large mixed flow impellers,-,\u00b7 Xylene backflush or soak pump \u00b7 Monitor to determine effects\r\nH Y D R A U L I C,Pumping off (PIP to zero),\u00b7 Reduce number of stages \u00b7 Stimulate reservoir,-,\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency\r\nH Y D R A U L I C,High temperature (>250 deg F),\u00b7 Upgrade equipment (high temp. ratings) \u00b7 De-rate motor design,-,\u00b7 Vigilant monitoring & control \u00b7 Avoid up/downthrust operation\r\nH Y D R A U L I C,Unknown reservoir performance (PI),\"\u00b7 Estimate PI from DSTs, Darcy inflow \u00b7 Use compression pump or inserts \u00b7 Use variable frequency drive\",-,\u00b7 Increase or decrease choke \u00b7 Increase or decrease frequency \u00b7 Monitor to determine PI for next ESP\r\nM E C H A N I C A L,Sand production/erosion/wear,\"\u00b7 Install gravel pack or screens \u00b7 Use large mixed flow impellers \u00b7 Upgrade pump metallurgy & design \u00b7 Design for lower rpm, more stages \u00b7 Lower drawdown (higher PIP) Use compression pump or inserts\",-,\u00b7 Increase wellhead pressure (choke) \u00b7 Decrease frequency \u00b7 Monitor to determine effects\r\nM E C H A N I C A L,Subsea or remote location,\u00b7 Install dual ESPs for back-up,-,\u00b7 Vigilant monitoring & control\r\nM E C H A N I C A L,Damaged/weak casing,\u00b7 Run liner or patch,-,\u00b7 Limit drawdown\r\nM E C H A N I C A L,Debris/junk in well,\u00b7 Improve workover procedures,\u00b7 Clean up well bore,\u00b7 Minimise drawdown on start-up\r\nM E C H A N I C A L,High deviation,\u00b7 Use bag type seal/protector section \u00b7 Use centralisers,-,-\r\nM E C H A N I C A L,Doglegs,\"\u00b7 Minimise doglegs during drilling \u00b7 Design for higher rpm, less stages \u00b7 Use large OD (shorter) pump\",\u00b7 Drift wellbore \u00b7 Slow RIH,-\r\nE L E C T R I C A L,Poor power supply quality,\u00b7 Install harmonic filters \u00b7 Upgrade generators \u00b7 Upgrade variable frequency drive \u00b7 Use surge protectors \u00b7 Install larger cable \u00b7 Power system audit,-,\u00b7 Monitor amps & voltage \u00b7 Perform waveform analysis\r\nE L E C T R I C A L,Cable/splice/connector problems,\u00b7 Address power supply quality issues \u00b7 Improve workover procedures \u00b7 Upgrade components,\u00b7 Handling procedures \u00b7 Use clamps,-\r\nE L E C T R I C A L,Very high power (>1000 hP),\u00b7 Install dual (boost) ESPs \u00b7 Clean power supply essential,-,\u00b7 Vigilant monitoring & control\r\nPEOPLE,Operator error,\"\u00b7 Training (reservoir/drilling engs, PTs)\",\u00b7 Training (rig crew),\u00b7 Training (field operations staff)\r\n"
+  }
+]

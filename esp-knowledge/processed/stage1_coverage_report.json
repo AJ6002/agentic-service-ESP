@@ -1,0 +1,134 @@
+[
+  {
+    "filename": "369390037-ESP-Pump-Selection-Evaluation-Improve-Well-Inflow-Volumes-Oil-Gas-Journal.pdf",
+    "ground_truth_words": 2341,
+    "extracted_words": 2557,
+    "coverage_ratio": 1.0923,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 31.31,
+    "tables_extracted": 1
+  },
+  {
+    "filename": "399364313-Paper-ESP-New-Design.pdf",
+    "ground_truth_words": 2036,
+    "extracted_words": 2124,
+    "coverage_ratio": 1.0432,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 30.89,
+    "tables_extracted": 3
+  },
+  {
+    "filename": "455811716-Optimising-ESP-Runlife-A-Practical-Checklist-7th-European-ESP-Round-Table-Aberdeen-2002-pdf.pdf",
+    "ground_truth_words": 2906,
+    "extracted_words": 3109,
+    "coverage_ratio": 1.0699,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 18.1,
+    "tables_extracted": 5
+  },
+  {
+    "filename": "594793794-ESP.pdf",
+    "ground_truth_words": 4300,
+    "extracted_words": 4793,
+    "coverage_ratio": 1.1147,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 151.95,
+    "tables_extracted": 0
+  },
+  {
+    "filename": "653665726-Day-02-ESP-Basic-Design-and-Operational-Factors.pdf",
+    "ground_truth_words": 8867,
+    "extracted_words": 18219,
+    "coverage_ratio": 2.0547,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": true,
+    "elapsed_sec": 163.11,
+    "tables_extracted": 2
+  },
+  {
+    "filename": "683164190-Presentation-1.pdf",
+    "ground_truth_words": 594,
+    "extracted_words": 878,
+    "coverage_ratio": 1.4781,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 44.1,
+    "tables_extracted": 0
+  },
+  {
+    "filename": "804612320-Electric-Submersible-Pumps.pdf",
+    "ground_truth_words": 23627,
+    "extracted_words": 24611,
+    "coverage_ratio": 1.0416,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 157.97,
+    "tables_extracted": 1
+  },
+  {
+    "filename": "824778707-Design-and-Simulation-of-an-Electrical-Submersible-Pump-IJERTV11IS030061.pdf",
+    "ground_truth_words": 2521,
+    "extracted_words": 2723,
+    "coverage_ratio": 1.0801,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 31.82,
+    "tables_extracted": 9
+  },
+  {
+    "filename": "882594008-ESP-Design-Shiropa.pdf",
+    "ground_truth_words": 2211,
+    "extracted_words": 2264,
+    "coverage_ratio": 1.024,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 18.53,
+    "tables_extracted": 2
+  },
+  {
+    "filename": "901824737-Artificial-Lift-Introduction-and-ESP-PDF.pdf",
+    "ground_truth_words": 2198,
+    "extracted_words": 3697,
+    "coverage_ratio": 1.682,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 170.12,
+    "tables_extracted": 10
+  },
+  {
+    "filename": "921228682-spe-194392-ms.pdf",
+    "ground_truth_words": 9520,
+    "extracted_words": 10076,
+    "coverage_ratio": 1.0584,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 68.83,
+    "tables_extracted": 5
+  },
+  {
+    "filename": "931996231-10-2118-225248-ms-7pdr.pdf",
+    "ground_truth_words": 4005,
+    "extracted_words": 4534,
+    "coverage_ratio": 1.1321,
+    "threshold": 0.98,
+    "gate_passed": true,
+    "rescued_via_fallback": false,
+    "elapsed_sec": 67.17,
+    "tables_extracted": 14
+  }
+]

@@ -1,0 +1,239 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "%",
+      "20-25 %",
+      "%"
+    ],
+    "rows": [
+      {
+        "%": "75",
+        "20-25 %": "Flow"
+      },
+      {
+        "%": "Axial Flow",
+        "20-25 %": "Mixed"
+      }
+    ],
+    "csv": "%,20-25 %,%\r\n10,Flow,75\r\nRadial Flow,Mixed,Axial Flow\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Operating Flowrate",
+      "[bpd]",
+      "500 - 2,100",
+      "2,000 - 6,100",
+      "2,000 - 4,000",
+      "4,000 - 8,000",
+      "7,000 - 10,000",
+      "10,000 - 25,000"
+    ],
+    "rows": [
+      {
+        "Operating Flowrate": "HP",
+        "[bpd]": "@ 60Hz. 13",
+        "500 - 2,100": "24",
+        "2,000 - 6,100": "37.5",
+        "2,000 - 4,000": "45",
+        "4,000 - 8,000": "53",
+        "7,000 - 10,000": "102",
+        "10,000 - 25,000": ""
+      },
+      {
+        "Operating Flowrate": "Shaft HP",
+        "[bpd]": "limit @ 60Hz. 200",
+        "500 - 2,100": "410",
+        "2,000 - 6,100": "600",
+        "2,000 - 4,000": "",
+        "4,000 - 8,000": "600",
+        "7,000 - 10,000": "600",
+        "10,000 - 25,000": "637"
+      },
+      {
+        "Operating Flowrate": "Shaft Area",
+        "[bpd]": "[sq.-inch]",
+        "500 - 2,100": "0.371",
+        "2,000 - 6,100": "0.601",
+        "2,000 - 4,000": "0.785",
+        "4,000 - 8,000": "0.785",
+        "7,000 - 10,000": "0.785",
+        "10,000 - 25,000": "1.108"
+      },
+      {
+        "Operating Flowrate": "Shaft OD",
+        "[bpd]": "[inches]",
+        "500 - 2,100": "0.6875",
+        "2,000 - 6,100": "0.875",
+        "2,000 - 4,000": "1",
+        "4,000 - 8,000": "1",
+        "7,000 - 10,000": "1",
+        "10,000 - 25,000": "1.19"
+      },
+      {
+        "Operating Flowrate": "OD",
+        "[bpd]": "[inches]",
+        "500 - 2,100": "4.00",
+        "2,000 - 6,100": "4.00",
+        "2,000 - 4,000": "5.13",
+        "4,000 - 8,000": "5.13",
+        "7,000 - 10,000": "5.38",
+        "10,000 - 25,000": "5.62"
+      },
+      {
+        "Operating Flowrate": "Model",
+        "[bpd]": "",
+        "500 - 2,100": "DN 5-21",
+        "2,000 - 6,100": "DN 20-60",
+        "2,000 - 4,000": "GN 20-40",
+        "4,000 - 8,000": "GN 40-80",
+        "7,000 - 10,000": "SN 70-100",
+        "10,000 - 25,000": "HN 100-250"
+      }
+    ],
+    "csv": "Operating Flowrate,[bpd],\"500 - 2,100\",\"2,000 - 6,100\",\"2,000 - 4,000\",\"4,000 - 8,000\",\"7,000 - 10,000\",\"10,000 - 25,000\"\r\nHP,@ 60Hz. 13,24,37.5,45,53,102,\r\nShaft HP,limit @ 60Hz. 200,410,600,,600,600,637\r\nShaft Area,[sq.-inch],0.371,0.601,0.785,0.785,0.785,1.108\r\nShaft OD,[inches],0.6875,0.875,1,1,1,1.19\r\nOD,[inches],4.00,4.00,5.13,5.13,5.38,5.62\r\nModel,,DN 5-21,DN 20-60,GN 20-40,GN 40-80,SN 70-100,HN 100-250\r\n"
+  },
+  {
+    "page": 7,
+    "table_index": 1,
+    "columns": [
+      "col_0",
+      "Bottom Hole Well Pressure Pwf / Ps (Fraction of Ps) 00.0 02.0 04.0 06.0 08.0 00.1 00.0 02.0 wolfnI 04.0 gnicudorP noitcarF( fo q etaR ecnamrofreP q 06.0 / xam ) q xam 08.0 pihsnoitaleR 00.1",
+      "col_2"
+    ],
+    "rows": [
+      {
+        "col_0": "Bottom Hole Well Pressure Pwf / Ps (Fraction of Ps) 00.0 02.0 04.0 06.0 08.0 00.1 00.0 02.0 wolfnI 04.0 gnicudorP noitcarF( fo q etaR ecnamrofreP q 06.0 / xam ) q xam 08.0 pihsnoitaleR 00.1",
+        "Bottom Hole Well Pressure Pwf / Ps (Fraction of Ps) 00.0 02.0 04.0 06.0 08.0 00.1 00.0 02.0 wolfnI 04.0 gnicudorP noitcarF( fo q etaR ecnamrofreP q 06.0 / xam ) q xam 08.0 pihsnoitaleR 00.1": "Bottom Hole Well Pressure Pwf / Ps (Fraction of Ps) 00.0 02.0 04.0 06.0 08.0 00.1 00.0 02.0 wolfnI 04.0 gnicudorP noitcarF( fo q etaR ecnamrofreP q 06.0 / xam ) q xam 08.0 pihsnoitaleR 00.1",
+        "col_2": ""
+      },
+      {
+        "col_0": "",
+        "Bottom Hole Well Pressure Pwf / Ps (Fraction of Ps) 00.0 02.0 04.0 06.0 08.0 00.1 00.0 02.0 wolfnI 04.0 gnicudorP noitcarF( fo q etaR ecnamrofreP q 06.0 / xam ) q xam 08.0 pihsnoitaleR 00.1": "",
+        "col_2": ""
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "table_index": 1,
+    "columns": [
+      "10 %",
+      "20-25 %",
+      "75 %"
+    ],
+    "rows": [
+      {
+        "10 %": "Radial Flow",
+        "20-25 %": "Mixed Flow",
+        "75 %": "Axial Flow"
+      }
+    ]
+  },
+  {
+    "page": 24,
+    "table_index": 1,
+    "columns": [
+      "400 300 200 100 Average 1 U/L Shutdown per day",
+      "col_1"
+    ],
+    "rows": []
+  },
+  {
+    "page": 29,
+    "table_index": 1,
+    "columns": [
+      "Operating Flowrate",
+      "[bpd]",
+      "500 - 2,100",
+      "2,000 - 6,100",
+      "2,000 - 4,000",
+      "4,000 - 8,000",
+      "7,000 - 10,000",
+      "10,000 - 25,000"
+    ],
+    "rows": [
+      {
+        "Operating Flowrate": "HP",
+        "[bpd]": "@ 60Hz.",
+        "500 - 2,100": "13",
+        "2,000 - 6,100": "24",
+        "2,000 - 4,000": "37.5",
+        "4,000 - 8,000": "45",
+        "7,000 - 10,000": "53",
+        "10,000 - 25,000": "102"
+      },
+      {
+        "Operating Flowrate": "Shaft HP",
+        "[bpd]": "limit @ 60Hz.",
+        "500 - 2,100": "200",
+        "2,000 - 6,100": "410",
+        "2,000 - 4,000": "600",
+        "4,000 - 8,000": "600",
+        "7,000 - 10,000": "600",
+        "10,000 - 25,000": "637"
+      },
+      {
+        "Operating Flowrate": "Shaft Area",
+        "[bpd]": "[sq.-inch]",
+        "500 - 2,100": "0.371",
+        "2,000 - 6,100": "0.601",
+        "2,000 - 4,000": "0.785",
+        "4,000 - 8,000": "0.785",
+        "7,000 - 10,000": "0.785",
+        "10,000 - 25,000": "1.108"
+      },
+      {
+        "Operating Flowrate": "Shaft OD",
+        "[bpd]": "[inches]",
+        "500 - 2,100": "0.6875",
+        "2,000 - 6,100": "0.875",
+        "2,000 - 4,000": "1",
+        "4,000 - 8,000": "1",
+        "7,000 - 10,000": "1",
+        "10,000 - 25,000": "1.19"
+      },
+      {
+        "Operating Flowrate": "OD",
+        "[bpd]": "[inches]",
+        "500 - 2,100": "4.00",
+        "2,000 - 6,100": "4.00",
+        "2,000 - 4,000": "5.13",
+        "4,000 - 8,000": "5.13",
+        "7,000 - 10,000": "5.38",
+        "10,000 - 25,000": "5.62"
+      },
+      {
+        "Operating Flowrate": "Model",
+        "[bpd]": "",
+        "500 - 2,100": "DN 5-21",
+        "2,000 - 6,100": "DN 20-60",
+        "2,000 - 4,000": "GN 20-40",
+        "4,000 - 8,000": "GN 40-80",
+        "7,000 - 10,000": "SN 70-100",
+        "10,000 - 25,000": "HN 100-250"
+      }
+    ]
+  },
+  {
+    "page": 41,
+    "table_index": 1,
+    "columns": [
+      "Gas Gas Oil Oil Water Water",
+      "col_1",
+      "col_2",
+      "col_3",
+      "col_4"
+    ],
+    "rows": [
+      {
+        "Gas Gas Oil Oil Water Water": "",
+        "col_1": "",
+        "col_2": "",
+        "col_3": "",
+        "col_4": "Gas Gas Oil Oil Water Water"
+      }
+    ]
+  }
+]

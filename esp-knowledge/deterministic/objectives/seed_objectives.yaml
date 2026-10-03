@@ -1,0 +1,165 @@
+# ESP-PMM Agent Objectives (Full 18 Category Catalogue per Architecture §5.2)
+# Version: 2.0.0
+
+objectives:
+  - objective_id: OBJ_CURRENT_STATUS
+    name: Current Status & Monitoring
+    trigger_keywords: ["status of", "how is", "current status", "running", "stopped", "asset status"]
+    description: "Retrieve active operational state, current telemetry readings, and overall health status."
+    required_tools: ["get_asset_context", "get_live_snapshot"]
+    optional_tools: ["get_health_index"]
+    success_criteria: "Summary of operational state, key metric values, and active warnings"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_EXPLAIN_ALERT
+    name: Alarm / Trip / Event Analysis
+    trigger_keywords: ["why warning", "why alert", "explain warning", "alert explanation", "trip reason", "active alarm"]
+    description: "Explain why an active rule or model alert triggered, linking telemetry metrics to troubleshooting guidance."
+    required_tools: ["get_rule_status", "get_live_snapshot", "search_knowledge_base"]
+    optional_tools: ["get_anomaly_result", "get_fault_diagnosis"]
+    success_criteria: "Explanation linking metric values, threshold rule, and approved playbook allowed steps"
+    safety_policy: { autonomous_control: false, approval_required: true }
+
+  - objective_id: OBJ_DIAGNOSE_FAULT
+    name: Root Cause / Fault Diagnosis
+    trigger_keywords: ["diagnose", "what's wrong", "fault", "issue", "problem", "overheating", "vibration", "low pressure", "abnormal"]
+    description: "Investigate asset telemetry, rule violations, component topology, and troubleshooting manuals to identify root cause faults."
+    required_tools: ["get_live_snapshot", "get_rule_status", "get_fault_diagnosis", "search_knowledge_base"]
+    optional_tools: ["calculate_tdh", "query_topology"]
+    success_criteria: "Diagnostic result with identified fault, confidence score, evidence list, and recommended action"
+    safety_policy: { autonomous_control: false, max_severity_recommendation: "ESCALATE" }
+
+  - objective_id: OBJ_TELEMETRY_ANALYSIS
+    name: Parameter / Telemetry Analysis
+    trigger_keywords: ["telemetry analysis", "parameter check", "temperature reading", "pressure value", "current reading"]
+    description: "Analyze specific sensor values, parameter relationships, and unit norms."
+    required_tools: ["get_live_snapshot"]
+    optional_tools: ["get_history_window", "calculate_operating_point"]
+    success_criteria: "Parameter evaluation against canonical unit ranges and BEP limits"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_HEALTH_ASSESSMENT
+    name: Operating Condition & Health
+    trigger_keywords: ["health score", "operating envelope", "well health", "degradation", "health index"]
+    description: "Assess overall ESP health index, envelope compliance, and component degradation."
+    required_tools: ["get_health_index", "get_rule_status"]
+    optional_tools: ["get_anomaly_result"]
+    success_criteria: "Health score 0-100 with contributing degradation factors"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_COMPARE_ASSETS
+    name: Well / Pump / Field Comparison
+    trigger_keywords: ["compare well", "compare pump", "field summary", "asset list", "best performing"]
+    description: "Compare multiple ESP assets across well pads for flow, current, and health status."
+    required_tools: ["get_asset_list"]
+    optional_tools: ["get_live_snapshot"]
+    success_criteria: "Side-by-side comparison table of asset operational states"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_TREND_ANALYSIS
+    name: Trend & Historical Analysis
+    trigger_keywords: ["trend", "history", "past 24h", "rising over time", "temperature trend", "flow decline"]
+    description: "Analyze 1h/24h/7d/30d historical time-series trends, slopes, and deviation counts."
+    required_tools: ["get_history_window"]
+    optional_tools: ["get_rule_status"]
+    success_criteria: "Time-series trend analysis with rate of change (ROC) and duration outside ROR"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_EARLY_WARNING
+    name: Anomaly & Early Warning
+    trigger_keywords: ["anomaly", "early warning", "unusual behavior", "anomaly score", "deviation"]
+    description: "Explain multivariate anomaly score, start time, and contributing anomalous feature tags."
+    required_tools: ["get_anomaly_result", "get_live_snapshot"]
+    optional_tools: ["search_knowledge_base"]
+    success_criteria: "Anomaly score breakdown with top contributing signals"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_FAILURE_RISK
+    name: Failure Prediction / Risk
+    trigger_keywords: ["failure risk", "RUL", "remaining life", "will it trip", "risk of failure", "24h risk"]
+    description: "Assess failure risk horizons (24h, 72h, 7d) and Remaining Useful Life (RUL) predictions."
+    required_tools: ["get_failure_prediction", "get_rule_status"]
+    optional_tools: ["get_fault_diagnosis"]
+    success_criteria: "Risk probabilities across time horizons with RUL hours and dominant failure mode"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_TROUBLESHOOTING
+    name: Troubleshooting / Action
+    trigger_keywords: ["how to fix", "troubleshooting", "action plan", "what to check", "next step"]
+    description: "Provide step-by-step troubleshooting procedures from approved OEM manuals and SOPs."
+    required_tools: ["search_knowledge_base", "get_fault_diagnosis"]
+    optional_tools: ["get_live_snapshot"]
+    success_criteria: "Source-cited troubleshooting steps with safety constraints and forbidden actions"
+    safety_policy: { autonomous_control: false, approval_required: true }
+
+  - objective_id: OBJ_PRODUCTION_PERF
+    name: Production Performance
+    trigger_keywords: ["production rate", "bpd", "flow rate", "pump efficiency", "BEP deviation", "TDH"]
+    description: "Evaluate production flow rate against Best Efficiency Point (BEP) and Total Dynamic Head (TDH)."
+    required_tools: ["calculate_operating_point", "calculate_tdh"]
+    optional_tools: ["get_live_snapshot"]
+    success_criteria: "TDH calculation, BEP margin %, and hydraulic efficiency evaluation"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_SCENARIO_WHATIF
+    name: What-if / Scenario Simulation
+    trigger_keywords: ["what if", "frequency change", "increase hz", "decrease hz", "simulation"]
+    description: "Estimate operational and reliability impact of changing VSD operating frequency."
+    required_tools: ["calculate_operating_point"]
+    optional_tools: ["get_health_index"]
+    success_criteria: "Estimated flow gain vs thermal/motor load margin change"
+    safety_policy: { autonomous_control: false, approval_required: true }
+
+  - objective_id: OBJ_MAINTENANCE_HIST
+    name: Maintenance / Asset History
+    trigger_keywords: ["maintenance history", "workover", "repair history", "last replaced", "teardown"]
+    description: "Retrieve past intervention records, workovers, pump replacements, and teardown outcomes."
+    required_tools: ["get_maintenance_history"]
+    optional_tools: ["search_knowledge_base"]
+    success_criteria: "Chronological summary of past asset interventions and confirmed root causes"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_DATA_QUALITY
+    name: Data Quality Assessment
+    trigger_keywords: ["data quality", "sensor status", "stale data", "missing readings", "sensor calibration"]
+    description: "Assess sensor health, data freshness, dropout rates, and stale telemetry flags."
+    required_tools: ["get_live_snapshot"]
+    optional_tools: ["get_history_window"]
+    success_criteria: "Data quality indicator breakdown with stale/missing tag disclosures"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_ASSET_CONTEXT
+    name: Asset / Well Context
+    trigger_keywords: ["asset info", "well details", "pump specs", "motor rating", "nameplate"]
+    description: "Retrieve installed equipment specs, pump model, motor HP, depth, and well pad context."
+    required_tools: ["get_asset_context"]
+    optional_tools: ["search_knowledge_base"]
+    success_criteria: "Complete asset configuration breakdown with OEM models and nameplate ratings"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_PROCEDURES
+    name: Procedures / Manuals Lookup
+    trigger_keywords: ["procedure for", "manual", "SOP", "standard", "API RP", "operating guide"]
+    description: "Retrieve approved operating procedures, startup/shutdown guides, and industry standards."
+    required_tools: ["search_knowledge_base"]
+    optional_tools: ["get_term_definition"]
+    success_criteria: "Passages from approved manuals and SOPs with document version and page citations"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_SHIFT_REPORT
+    name: Reporting / Shift Handover
+    trigger_keywords: ["shift report", "handover note", "daily summary", "exception report", "generate report"]
+    description: "Generate structured shift handover or exception report summarizing well pad operations."
+    required_tools: ["get_asset_list", "get_health_index"]
+    optional_tools: ["get_rule_status"]
+    success_criteria: "Formatted shift handover summary covering active warnings, risk, and key metrics"
+    safety_policy: { autonomous_control: false }
+
+  - objective_id: OBJ_OPERATIONAL_CONTROL
+    name: Operational Control
+    trigger_keywords: ["set speed", "change frequency", "trip pump", "start pump", "stop pump"]
+    description: "Execute approved control action (Disabled by default in advisory release)."
+    required_tools: []
+    optional_tools: []
+    success_criteria: "Refusal advisory stating autonomous control is disabled; requires engineering review"
+    safety_policy: { autonomous_control: false, approval_required: true, forbidden: true }

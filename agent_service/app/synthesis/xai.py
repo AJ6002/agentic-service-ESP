@@ -392,17 +392,13 @@ async def synthesize_advisory(
         if not evidence.kb_hits and "OP03" in objective_id:
             advisory.troubleshooting_steps = []
         elif evidence.kb_hits:
-            if not advisory.troubleshooting_steps:
-                # Synthesize grounded steps from available KB hits
-                kb_steps = []
-                for hit in evidence.kb_hits[:3]:
-                    sec_str = f" §{hit.section}" if hit.section and not str(hit.section).startswith("§") else (f" {hit.section}" if hit.section else "")
-                    snip = hit.snippet.strip()
-                    first_sent = snip.split(". ")[0].strip() if ". " in snip else snip[:120]
-                    if first_sent:
-                        kb_steps.append(f"[{hit.doc_id}{sec_str}] {first_sent}")
-                advisory.troubleshooting_steps = kb_steps
-
+            # NOTE: The auto-populate fallback (synthesizing steps from KB hit snippets
+            # when the LLM returned none) is intentionally REMOVED. KB hit snippets are
+            # abstract/summary text, not actionable procedure steps, and this fallback
+            # produced garbage like "The main objective was to develop a troubleshooting
+            # manual..." as step text. The LLM's own steps are used directly.
+            #
+            # If the LLM returned steps without citations, ground them to evidence docs.
             grounded_steps = []
             for step in advisory.troubleshooting_steps:
                 if "[" in step and "]" in step:
@@ -429,4 +425,58 @@ async def synthesize_advisory(
     if advisory is not None and "Pump Inlet Pressure" in advisory.assessment:
         advisory.assessment = advisory.assessment.replace("Pump Inlet Pressure", "Pump Intake Pressure")
 
+    # -------------------------------------------------------------------------
+    # P0/P1 POST-SYNTHESIS FILTER FOR OP06 (code-level safety net)
+    # Even if the LLM ignores the prompt, we enforce:
+    #   1. No raw KB dump garbage in troubleshooting_steps / verification_steps
+    #   2. For DEFINITIONAL queries both lists must be []
+    #   3. For PROCEDURAL queries verification_steps must be non-empty
+    # -------------------------------------------------------------------------
+    if advisory is not None and "OP06" in objective_id:
+        import re as _re
+
+        _RAW_DUMP_PATTERNS = [
+            r"<!--",                          # HTML/markdown artifacts
+            r"-->",
+            r"\|.*\|",                        # pipe-table rows
+            r"formula-not-decoded",           # math blocks not parsed
+            r"-\s+[A-Z][a-z]{1,4}\s*$",       # mid-word truncations e.g. "- Chang"
+            r"\s+-\s*$",                      # trailing dash
+        ]
+
+        def _is_garbage_step(s: str) -> bool:
+            for pat in _RAW_DUMP_PATTERNS:
+                if _re.search(pat, s):
+                    return True
+            # also reject very short or purely whitespace entries
+            return len(s.strip()) < 10
+
+        advisory.troubleshooting_steps = [
+            s for s in advisory.troubleshooting_steps if not _is_garbage_step(s)
+        ]
+        advisory.verification_steps = [
+            s for s in advisory.verification_steps if not _is_garbage_step(s)
+        ]
+
+        # Detect if query is definitional (no procedural verb)
+        _query_lower = (user_query or "").lower()
+        _procedural_verbs = (
+            "how do i", "how to", "steps for", "what are the steps",
+            "procedure for", "troubleshoot", "restart", "fix it", "repair",
+        )
+        _is_procedural = any(v in _query_lower for v in _procedural_verbs)
+
+        if not _is_procedural:
+            # Pure definitional — both lists must be empty
+            advisory.troubleshooting_steps = []
+            advisory.verification_steps = []
+        else:
+            # Procedural — ensure at least one verification step
+            if not advisory.verification_steps:
+                advisory.verification_steps = [
+                    "Confirm the system is back online and nominal operating parameters "
+                    "are re-established before resuming production."
+                ]
+
     return advisory, alarm_result
+

@@ -1,0 +1,3007 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "name": "SLB_Defining_ESP",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 16200305889697658504,
+    "filename": "SLB_Defining_ESP.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/pictures/1"
+      },
+      {
+        "$ref": "#/texts/75"
+      },
+      {
+        "$ref": "#/texts/76"
+      },
+      {
+        "$ref": "#/texts/77"
+      },
+      {
+        "$ref": "#/texts/78"
+      },
+      {
+        "$ref": "#/texts/79"
+      },
+      {
+        "$ref": "#/texts/80"
+      },
+      {
+        "$ref": "#/texts/81"
+      },
+      {
+        "$ref": "#/texts/82"
+      },
+      {
+        "$ref": "#/texts/83"
+      },
+      {
+        "$ref": "#/texts/84"
+      },
+      {
+        "$ref": "#/texts/85"
+      },
+      {
+        "$ref": "#/texts/86"
+      },
+      {
+        "$ref": "#/texts/87"
+      },
+      {
+        "$ref": "#/texts/88"
+      },
+      {
+        "$ref": "#/texts/89"
+      },
+      {
+        "$ref": "#/texts/90"
+      },
+      {
+        "$ref": "#/texts/91"
+      },
+      {
+        "$ref": "#/texts/92"
+      },
+      {
+        "$ref": "#/texts/93"
+      },
+      {
+        "$ref": "#/texts/94"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 47.4,
+            "t": 778.5251,
+            "r": 156.084,
+            "b": 767.6258058823529,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "THE DEFINING SERIES",
+      "text": "THE DEFINING SERIES"
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 719.8877,
+            "r": 267.99600000000004,
+            "b": 703.5387588235294,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "Electrical Submersible Pumps",
+      "text": "Electrical Submersible Pumps",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 686.3438000000001,
+            "r": 106.99499999999999,
+            "b": 678.1693294117648,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "Rick von Flatern",
+      "text": "Rick von Flatern",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 675.3438000000001,
+            "r": 94.494,
+            "b": 667.2032317492417,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "Senior Editor",
+      "text": "Senior Editor"
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 654.192,
+            "r": 308.01000000000005,
+            "b": 598.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            367
+          ]
+        }
+      ],
+      "orig": "More than 90% of all producing oil wells require some form of artificial lift to increase the flow of fluids from wells when a reservoir no longer has sufficient energy to naturally produce at economic rates or to boost early production to improve financial performance. One of the most versatile and adaptable artificial lift methods is electric submersible pumping.",
+      "text": "More than 90% of all producing oil wells require some form of artificial lift to increase the flow of fluids from wells when a reservoir no longer has sufficient energy to naturally produce at economic rates or to boost early production to improve financial performance. One of the most versatile and adaptable artificial lift methods is electric submersible pumping."
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 594.192,
+            "r": 308.028,
+            "b": 490.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            612
+          ]
+        }
+      ],
+      "orig": "Deployed in an estimated 150,000 to 200,000 wells worldwide, electric submersible  pumps  (ESPs)  consist  of  multiple  centrifugal  pump  stages mounted in series within a housing mated to a submersible electric motor. These  pumps  are  connected  to  surface  controls  and  electric  power  by armor-protected cables. Surface electric drives power and control ESP systems, which are able to lift from 16 to 4,770 m 3 /d [100 to 30,000 bbl/d], a pump rate operation range that surpasses the performance of other pumptype artificial lift systems such as rod pumps, progressing cavity pumps and hydraulic lift.",
+      "text": "Deployed in an estimated 150,000 to 200,000 wells worldwide, electric submersible  pumps  (ESPs)  consist  of  multiple  centrifugal  pump  stages mounted in series within a housing mated to a submersible electric motor. These  pumps  are  connected  to  surface  controls  and  electric  power  by armor-protected cables. Surface electric drives power and control ESP systems, which are able to lift from 16 to 4,770 m 3 /d [100 to 30,000 bbl/d], a pump rate operation range that surpasses the performance of other pumptype artificial lift systems such as rod pumps, progressing cavity pumps and hydraulic lift."
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 474.192,
+            "r": 91.41599999999998,
+            "b": 466.5213134328358,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "ESP Origins",
+      "text": "ESP Origins",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 462.192,
+            "r": 308.0360999999999,
+            "b": 394.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            424
+          ]
+        }
+      ],
+      "orig": "In 1911, 18-year-old Russian engineer Armais Arutunoff invented the first electric motor that operated in water. He added a drill and a centrifugal pump to the motor, inventing what is now known as the electric submersible pump. Arutunoff immigrated to the US, where he founded Russian Electrical Dynamo of Arutunoff, or REDA. Electric submersible pumps are now operating in onshore and offshore fields throughout the world.",
+      "text": "In 1911, 18-year-old Russian engineer Armais Arutunoff invented the first electric motor that operated in water. He added a drill and a centrifugal pump to the motor, inventing what is now known as the electric submersible pump. Arutunoff immigrated to the US, where he founded Russian Electrical Dynamo of Arutunoff, or REDA. Electric submersible pumps are now operating in onshore and offshore fields throughout the world."
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 378.192,
+            "r": 147.73800000000003,
+            "b": 370.5213134328358,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            24
+          ]
+        }
+      ],
+      "orig": "Anatomy of an ESP System",
+      "text": "Anatomy of an ESP System",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 366.192,
+            "r": 308.01,
+            "b": 322.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            230
+          ]
+        }
+      ],
+      "orig": "Electric submersible pump systems comprise both downhole and surface components (Figure 1). The overall length and diameter of ESP downhole equipment are designed based on the horsepower necessary to deliver the desired flow rate.",
+      "text": "Electric submersible pump systems comprise both downhole and surface components (Figure 1). The overall length and diameter of ESP downhole equipment are designed based on the horsepower necessary to deliver the desired flow rate."
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 318.192,
+            "r": 308.02649999999994,
+            "b": 214.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            615
+          ]
+        }
+      ],
+      "orig": "An ESP is a multistage centrifugal pump whose stages are stacked; the operating requirements of the well and completion design dictate the number of stages. Each stage contains a rotating impeller and stationary diffusers typically cast from high-nickel iron to minimize abrasion or corrosion damage. As well fluid flows into the first stage of the ESP, it passes through an impeller, and the fluid is centrifuged radially outward, gaining energy in the form of velocity. The centrifugal pump is driven by an induction motor that can attain operating speeds of more than 5,000 rpm when using a variable speed drive.",
+      "text": "An ESP is a multistage centrifugal pump whose stages are stacked; the operating requirements of the well and completion design dictate the number of stages. Each stage contains a rotating impeller and stationary diffusers typically cast from high-nickel iron to minimize abrasion or corrosion damage. As well fluid flows into the first stage of the ESP, it passes through an impeller, and the fluid is centrifuged radially outward, gaining energy in the form of velocity. The centrifugal pump is driven by an induction motor that can attain operating speeds of more than 5,000 rpm when using a variable speed drive."
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 210.192,
+            "r": 308.03249999999997,
+            "b": 118.49689366272821,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            598
+          ]
+        }
+      ],
+      "orig": "After it exits the impeller, the fluid is forced to make a sharp turn to enter the diffuser. As it travels through this section, the fluid is diffused, and its  velocity  is  converted  to  pressure.  The  fluid,  which  now  has  a  slightly higher pressure than when it entered the first stage, enters the next impeller  and diffuser stage to repeat the process. The fluid passes through all stages of the pump, incrementally gaining pressure in each stage until it achieves a total developed head, or designated discharge pressure, and has sufficient energy to travel to the surface of the well.",
+      "text": "After it exits the impeller, the fluid is forced to make a sharp turn to enter the diffuser. As it travels through this section, the fluid is diffused, and its  velocity  is  converted  to  pressure.  The  fluid,  which  now  has  a  slightly higher pressure than when it entered the first stage, enters the next impeller  and diffuser stage to repeat the process. The fluid passes through all stages of the pump, incrementally gaining pressure in each stage until it achieves a total developed head, or designated discharge pressure, and has sufficient energy to travel to the surface of the well."
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 114.19200000000001,
+            "r": 307.9999,
+            "b": 94.49689366272821,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            145
+          ]
+        },
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 318.0,
+            "t": 330.1921,
+            "r": 578.0099999999996,
+            "b": 298.49699366272824,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            146,
+            366
+          ]
+        },
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 726.192,
+            "r": 296.0059999999999,
+            "b": 682.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            367,
+            646
+          ]
+        }
+      ],
+      "orig": "A  pump's  operational  performance  is  illustrated  in  its  pump  performance curve (Figure 2). A performance curve is generated for each pump manufactured and quantifies the relationship between pump horsepower, efficiency, flow rate and head relative to the operating flow rate. The pump recommended operating range is defined for each pump stage in the catalog performance curve. By tracking these parameters over the course of the well's life, the operator can determine at what point the ESP falls out of its recommended range and plan for resizing the ESP or replacing it with a different lift system to accommodate the actual flow rate.",
+      "text": "A  pump's  operational  performance  is  illustrated  in  its  pump  performance curve (Figure 2). A performance curve is generated for each pump manufactured and quantifies the relationship between pump horsepower, efficiency, flow rate and head relative to the operating flow rate. The pump recommended operating range is defined for each pump stage in the catalog performance curve. By tracking these parameters over the course of the well's life, the operator can determine at what point the ESP falls out of its recommended range and plan for resizing the ESP or replacing it with a different lift system to accommodate the actual flow rate."
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 84.4665,
+            "r": 104.74820000000004,
+            "b": 78.13494691607684,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "Oilfield Review 2015.",
+      "text": "Oilfield Review 2015."
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 73.4665,
+            "r": 138.251,
+            "b": 67.13494691607684,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            30
+          ]
+        }
+      ],
+      "orig": "Copyright © 2015 Schlumberger.",
+      "text": "Copyright © 2015 Schlumberger."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 48.0,
+            "t": 63.466499999999996,
+            "r": 299.45959999999985,
+            "b": 48.13494691607684,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            123
+          ]
+        }
+      ],
+      "orig": "For help in preparation of this article, thanks to George Waters, Oklahoma City, Oklahoma, USA, and Diego Narvaez, Houston.",
+      "text": "For help in preparation of this article, thanks to George Waters, Oklahoma City, Oklahoma, USA, and Diego Narvaez, Houston."
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 318.0,
+            "t": 398.1521,
+            "r": 561.9414999999998,
+            "b": 352.4637855409505,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            296
+          ]
+        }
+      ],
+      "orig": "Figure 1. Typical ESP configuration. Downhole ESP components include motor, protectors, pump sections, pump intakes, power cables, gashandling equipment and downhole sensors (not shown). Surface components include pump-control equipment such as variable-speed drives and an electric power supply.",
+      "text": "Figure 1. Typical ESP configuration. Downhole ESP components include motor, protectors, pump sections, pump intakes, power cables, gashandling equipment and downhole sensors (not shown). Surface components include pump-control equipment such as variable-speed drives and an electric power supply."
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 434.598,
+            "t": 425.5852,
+            "r": 459.91359999999986,
+            "b": 418.65854564533055,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Produced",
+      "text": "Produced"
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 439.6596,
+            "t": 418.0688,
+            "r": 454.852,
+            "b": 411.1421456453306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "fluids",
+      "text": "fluids"
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 458.745,
+            "t": 703.7625,
+            "r": 478.2086000000001,
+            "b": 696.8358456453306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Electric",
+      "text": "Electric"
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 450.7498,
+            "t": 696.2461000000001,
+            "r": 486.21140000000014,
+            "b": 689.3194456453306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "power supply",
+      "text": "power supply"
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 358.9114,
+            "t": 703.7625,
+            "r": 407.0802000000003,
+            "b": 696.8358456453306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "Electric drives and",
+      "text": "Electric drives and"
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 350.6426,
+            "t": 696.2461000000001,
+            "r": 415.34900000000033,
+            "b": 689.3194456453306,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "pump-control equipment",
+      "text": "pump-control equipment"
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 363.327,
+            "t": 625.4293,
+            "r": 395.94620000000015,
+            "b": 618.5026456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "Power cable",
+      "text": "Power cable"
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 500.02819999999997,
+            "t": 602.0517,
+            "r": 538.3245999999999,
+            "b": 595.1250456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "Separated gas",
+      "text": "Separated gas"
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 493.598,
+            "t": 525.7632,
+            "r": 538.324,
+            "b": 518.8365456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "Motor protectors",
+      "text": "Motor protectors"
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 363.32640000000004,
+            "t": 572.7615999999999,
+            "r": 400.36880000000014,
+            "b": 565.8349456453304,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "Gas separator",
+      "text": "Gas separator"
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 363.3232,
+            "t": 556.7632,
+            "r": 395.94240000000013,
+            "b": 549.8365456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "Pump intake",
+      "text": "Pump intake"
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 363.3232,
+            "t": 497.09619999999995,
+            "r": 379.75440000000003,
+            "b": 490.1695456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Motor",
+      "text": "Motor"
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 363.3232,
+            "t": 442.76219999999995,
+            "r": 395.4104000000001,
+            "b": 435.8355456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "Perforations",
+      "text": "Perforations"
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 317.88,
+            "t": 142.95219999999995,
+            "r": 577.7929999999996,
+            "b": 49.76388554095047,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            704
+          ]
+        }
+      ],
+      "orig": "Figure 2. Pump performance curve. Such curves are generated to chart a pump's ability to displace fluids and to determine the number of pump stages required to achieve a desired production rate. The head capacity curve (blue) shows the amount of lift at a given flow rate. The horsepower requirements of the pump (red) across a range of flow capacities are derived from performance testing. The pump efficiency (green) is calculated from the head, flow capacity, fluid specific gravity and horsepower. The purple shaded area indicates the most efficient operating range for this specific pump. The operating point (red dot) shows that, at 60 Hz, this 185-stage pump is operating within the optimum range.",
+      "text": "Figure 2. Pump performance curve. Such curves are generated to chart a pump's ability to displace fluids and to determine the number of pump stages required to achieve a desired production rate. The head capacity curve (blue) shows the amount of lift at a given flow rate. The horsepower requirements of the pump (red) across a range of flow capacities are derived from performance testing. The pump efficiency (green) is calculated from the head, flow capacity, fluid specific gravity and horsepower. The purple shaded area indicates the most efficient operating range for this specific pump. The operating point (red dot) shows that, at 60 Hz, this 185-stage pump is operating within the optimum range."
+    },
+    {
+      "self_ref": "#/texts/31",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 317.9748,
+            "t": 235.16809999999998,
+            "r": 324.90145435466945,
+            "b": 213.21929999999998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Head, ft",
+      "text": "Head, ft"
+    },
+    {
+      "self_ref": "#/texts/32",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 414.1049,
+            "t": 158.0557,
+            "r": 457.56929999999994,
+            "b": 151.1290456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "Flow rate, bbl/d",
+      "text": "Flow rate, bbl/d"
+    },
+    {
+      "self_ref": "#/texts/33",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 540.8568,
+            "t": 240.7912,
+            "r": 547.7834543546695,
+            "b": 207.44240000000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Horsepower",
+      "text": "Horsepower"
+    },
+    {
+      "self_ref": "#/texts/34",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 568.7336,
+            "t": 250.30639999999994,
+            "r": 575.6602543546695,
+            "b": 197.92719999999997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "Pump efficiency, %",
+      "text": "Pump efficiency, %"
+    },
+    {
+      "self_ref": "#/texts/35",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 281.0021,
+            "r": 341.14080000000007,
+            "b": 274.9868475341028,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "5,400",
+      "text": "5,400"
+    },
+    {
+      "self_ref": "#/texts/36",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 268.87789999999995,
+            "r": 341.14080000000007,
+            "b": 262.86264753410285,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "4,800",
+      "text": "4,800"
+    },
+    {
+      "self_ref": "#/texts/37",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 256.6283000000001,
+            "r": 341.14080000000007,
+            "b": 250.61304753410286,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "4,200",
+      "text": "4,200"
+    },
+    {
+      "self_ref": "#/texts/38",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 244.5041,
+            "r": 341.14080000000007,
+            "b": 238.4888475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "3,600",
+      "text": "3,600"
+    },
+    {
+      "self_ref": "#/texts/39",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 232.37990000000002,
+            "r": 341.14080000000007,
+            "b": 226.36464753410291,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "3,000",
+      "text": "3,000"
+    },
+    {
+      "self_ref": "#/texts/40",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 220.13030000000003,
+            "r": 341.14080000000007,
+            "b": 214.1150475341028,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "2,400",
+      "text": "2,400"
+    },
+    {
+      "self_ref": "#/texts/41",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 208.2569000000001,
+            "r": 341.14080000000007,
+            "b": 202.24164753410287,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,800",
+      "text": "1,800"
+    },
+    {
+      "self_ref": "#/texts/42",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 327.954,
+            "t": 196.1327,
+            "r": 341.14080000000007,
+            "b": 190.1174475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,200",
+      "text": "1,200"
+    },
+    {
+      "self_ref": "#/texts/43",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 332.3496,
+            "t": 184.00850000000003,
+            "r": 341.14080000000007,
+            "b": 177.99324753410292,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "600",
+      "text": "600"
+    },
+    {
+      "self_ref": "#/texts/44",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 338.2104,
+            "t": 171.75890000000004,
+            "r": 341.1408,
+            "b": 165.74364753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "0",
+      "text": "0"
+    },
+    {
+      "self_ref": "#/texts/45",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 343.0482,
+            "t": 166.13570000000004,
+            "r": 345.97860000000003,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "0",
+      "text": "0"
+    },
+    {
+      "self_ref": "#/texts/46",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 358.8684,
+            "t": 166.13570000000004,
+            "r": 367.65960000000007,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "200",
+      "text": "200"
+    },
+    {
+      "self_ref": "#/texts/47",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 377.4936,
+            "t": 166.13570000000004,
+            "r": 386.2848000000001,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "400",
+      "text": "400"
+    },
+    {
+      "self_ref": "#/texts/48",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 396.24420000000003,
+            "t": 166.13570000000004,
+            "r": 405.0354000000001,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "600",
+      "text": "600"
+    },
+    {
+      "self_ref": "#/texts/49",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 414.99480000000005,
+            "t": 166.13570000000004,
+            "r": 423.7860000000001,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "800",
+      "text": "800"
+    },
+    {
+      "self_ref": "#/texts/50",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 431.54760000000005,
+            "t": 166.13570000000004,
+            "r": 444.7344000000001,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,000",
+      "text": "1,000"
+    },
+    {
+      "self_ref": "#/texts/51",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 450.17280000000005,
+            "t": 166.13570000000004,
+            "r": 463.3596000000001,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,200",
+      "text": "1,200"
+    },
+    {
+      "self_ref": "#/texts/52",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 468.9234000000001,
+            "t": 166.13570000000004,
+            "r": 482.11020000000013,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,400",
+      "text": "1,400"
+    },
+    {
+      "self_ref": "#/texts/53",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 487.5486000000001,
+            "t": 166.13570000000004,
+            "r": 500.73540000000014,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,600",
+      "text": "1,600"
+    },
+    {
+      "self_ref": "#/texts/54",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 506.2992000000001,
+            "t": 166.13570000000004,
+            "r": 519.486,
+            "b": 160.12044753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,800",
+      "text": "1,800"
+    },
+    {
+      "self_ref": "#/texts/55",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 274.1051,
+            "r": 537.0618000000001,
+            "b": 268.0898475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "90",
+      "text": "90"
+    },
+    {
+      "self_ref": "#/texts/56",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 258.6083000000001,
+            "r": 537.0618000000001,
+            "b": 252.59304753410288,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "80",
+      "text": "80"
+    },
+    {
+      "self_ref": "#/texts/57",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 242.98610000000008,
+            "r": 537.0618000000001,
+            "b": 236.97084753410286,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "70",
+      "text": "70"
+    },
+    {
+      "self_ref": "#/texts/58",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 227.48930000000007,
+            "r": 537.0618000000001,
+            "b": 221.47404753410285,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "60",
+      "text": "60"
+    },
+    {
+      "self_ref": "#/texts/59",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 212.11130000000003,
+            "r": 537.0618000000001,
+            "b": 206.0960475341028,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "50",
+      "text": "50"
+    },
+    {
+      "self_ref": "#/texts/60",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 196.4891,
+            "r": 537.0618000000001,
+            "b": 190.4738475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "40",
+      "text": "40"
+    },
+    {
+      "self_ref": "#/texts/61",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.2010000000001,
+            "t": 180.98570000000007,
+            "r": 537.0618000000001,
+            "b": 174.97044753410285,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "30",
+      "text": "30"
+    },
+    {
+      "self_ref": "#/texts/62",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 171.85789999999997,
+            "r": 561.7590000000001,
+            "b": 165.84264753410287,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "0",
+      "text": "0"
+    },
+    {
+      "self_ref": "#/texts/63",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 185.48030000000006,
+            "r": 561.7590000000001,
+            "b": 179.46504753410284,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "8",
+      "text": "8"
+    },
+    {
+      "self_ref": "#/texts/64",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 199.22810000000004,
+            "r": 564.6894000000001,
+            "b": 193.21284753410282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "16",
+      "text": "16"
+    },
+    {
+      "self_ref": "#/texts/65",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 212.8505,
+            "r": 564.6894000000001,
+            "b": 206.8352475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "24",
+      "text": "24"
+    },
+    {
+      "self_ref": "#/texts/66",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 226.5983000000001,
+            "r": 564.6894000000001,
+            "b": 220.5830475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "32",
+      "text": "32"
+    },
+    {
+      "self_ref": "#/texts/67",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 240.22070000000008,
+            "r": 564.6894000000001,
+            "b": 234.20544753410286,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "40",
+      "text": "40"
+    },
+    {
+      "self_ref": "#/texts/68",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 253.96850000000006,
+            "r": 564.6894000000001,
+            "b": 247.95324753410296,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "48",
+      "text": "48"
+    },
+    {
+      "self_ref": "#/texts/69",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 267.59090000000015,
+            "r": 564.6894000000001,
+            "b": 261.5756475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "56",
+      "text": "56"
+    },
+    {
+      "self_ref": "#/texts/70",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 558.8286000000002,
+            "t": 280.9691000000001,
+            "r": 564.6894000000001,
+            "b": 274.9538475341029,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "64",
+      "text": "64"
+    },
+    {
+      "self_ref": "#/texts/71",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 380.274,
+            "t": 275.10929999999996,
+            "r": 394.6227999999999,
+            "b": 268.18264564533047,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "Head",
+      "text": "Head"
+    },
+    {
+      "self_ref": "#/texts/72",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 383.504,
+            "t": 191.55489999999998,
+            "r": 416.8527999999999,
+            "b": 184.62824564533048,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Horsepower",
+      "text": "Horsepower"
+    },
+    {
+      "self_ref": "#/texts/73",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 380.274,
+            "t": 226.94050000000004,
+            "r": 423.74599999999987,
+            "b": 220.01384564533055,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "Pump efficiency",
+      "text": "Pump efficiency"
+    },
+    {
+      "self_ref": "#/texts/74",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 452.9399,
+            "t": 258.7758,
+            "r": 495.5606999999999,
+            "b": 251.8491456453305,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "Operating point",
+      "text": "Operating point"
+    },
+    {
+      "self_ref": "#/texts/75",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 36.0,
+            "t": 778.5251,
+            "r": 146.8932,
+            "b": 767.6258058823529,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            20
+          ]
+        }
+      ],
+      "orig": "www.slb.com/defining",
+      "text": "www.slb.com/defining"
+    },
+    {
+      "self_ref": "#/texts/76",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 678.192,
+            "r": 295.9996999999999,
+            "b": 598.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            469
+          ]
+        }
+      ],
+      "orig": "A downhole submersible motor provides power to the pump. The motor is typically a two-pole, three-phase, squirrel-cage induction electric motor available in a variety of operating voltages, currents and horsepower ratings ranging from 7.5 kW to more than 750 kW. Motor size is dictated by the amount of power required to drive the pump to lift the estimated volume of produced fluid out of the well. Wellbore fluids passing over the motor housing act as cooling agents.",
+      "text": "A downhole submersible motor provides power to the pump. The motor is typically a two-pole, three-phase, squirrel-cage induction electric motor available in a variety of operating voltages, currents and horsepower ratings ranging from 7.5 kW to more than 750 kW. Motor size is dictated by the amount of power required to drive the pump to lift the estimated volume of produced fluid out of the well. Wellbore fluids passing over the motor housing act as cooling agents."
+    },
+    {
+      "self_ref": "#/texts/77",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 594.192,
+            "r": 296.02399999999994,
+            "b": 550.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            273
+          ]
+        }
+      ],
+      "orig": "A seal section between the pump intake and the motor houses the thrust bearing that carries the axial thrust developed by the pump. The seal also isolates and protects the motor from well fluids and equalizes the pressure in the wellbore with the pressure inside the motor.",
+      "text": "A seal section between the pump intake and the motor houses the thrust bearing that carries the axial thrust developed by the pump. The seal also isolates and protects the motor from well fluids and equalizes the pressure in the wellbore with the pressure inside the motor."
+    },
+    {
+      "self_ref": "#/texts/78",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 546.192,
+            "r": 296.027,
+            "b": 454.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            604
+          ]
+        }
+      ],
+      "orig": "In wells characterized by relatively high gas-to-oil ratios (GORs) and low bottomhole pressures, produced fluids may contain quantities of free gas. Submersible pumps are susceptible to operational problems, including cavitation  or  gas  locking  in  high-volume  free  gas  environments,  which  may shorten pump run life. In these applications, a gas separator is installed at the intake section of the pump to separate the gas from the well fluid before it enters the pump. If the amount of free gas exceeds a designated limit, a gas handling device may also be installed downstream of the separator.",
+      "text": "In wells characterized by relatively high gas-to-oil ratios (GORs) and low bottomhole pressures, produced fluids may contain quantities of free gas. Submersible pumps are susceptible to operational problems, including cavitation  or  gas  locking  in  high-volume  free  gas  environments,  which  may shorten pump run life. In these applications, a gas separator is installed at the intake section of the pump to separate the gas from the well fluid before it enters the pump. If the amount of free gas exceeds a designated limit, a gas handling device may also be installed downstream of the separator."
+    },
+    {
+      "self_ref": "#/texts/79",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 450.192,
+            "r": 296.0240000000001,
+            "b": 346.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            640
+          ]
+        }
+      ],
+      "orig": "To  ensure  optimal  ESP  performance,  operators  may  install  downhole sensors that continuously acquire real-time system measurements such as pump intake and discharge pressures and temperatures, vibration and current leakage rate. Typically, users monitor pumps through supervisory control and data acquisition (SCADA) systems, which act as central repositories of data from all downhole sensors and can initiate actions through linked controls or alerts. When it detects a pump reading that is outside preset levels, a sensor alerts the operator in real time and can be enabled to make settings changes to the pump via remote control.",
+      "text": "To  ensure  optimal  ESP  performance,  operators  may  install  downhole sensors that continuously acquire real-time system measurements such as pump intake and discharge pressures and temperatures, vibration and current leakage rate. Typically, users monitor pumps through supervisory control and data acquisition (SCADA) systems, which act as central repositories of data from all downhole sensors and can initiate actions through linked controls or alerts. When it detects a pump reading that is outside preset levels, a sensor alerts the operator in real time and can be enabled to make settings changes to the pump via remote control."
+    },
+    {
+      "self_ref": "#/texts/80",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 342.192,
+            "r": 295.9987999999998,
+            "b": 298.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            272
+          ]
+        }
+      ],
+      "orig": "Power  is  provided  from  the  surface  to  the  motor  via  a  specially  constructed three-phase electric cable designed for downhole environments. To limit  cable  movement in the well and to support its weight, the cable is banded or clamped to the production tubing.",
+      "text": "Power  is  provided  from  the  surface  to  the  motor  via  a  specially  constructed three-phase electric cable designed for downhole environments. To limit  cable  movement in the well and to support its weight, the cable is banded or clamped to the production tubing."
+    },
+    {
+      "self_ref": "#/texts/81",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 294.192,
+            "r": 295.9790000000001,
+            "b": 226.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            408
+          ]
+        }
+      ],
+      "orig": "Electric submersible pump surface components include an electric supply system. Onshore, electricity is typically provided by a commercial power distribution system. A transformer may be required to convert the electricity provided via commercial power lines to match the voltage and amperage requirements of the ESP motor. Offshore, ESP operations require a portable power source such as a diesel generator.",
+      "text": "Electric submersible pump surface components include an electric supply system. Onshore, electricity is typically provided by a commercial power distribution system. A transformer may be required to convert the electricity provided via commercial power lines to match the voltage and amperage requirements of the ESP motor. Offshore, ESP operations require a portable power source such as a diesel generator."
+    },
+    {
+      "self_ref": "#/texts/82",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 222.192,
+            "r": 296.018,
+            "b": 166.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            352
+          ]
+        }
+      ],
+      "orig": "Intelligent, remote terminal, unit-programmable controllers and drives at the surface maintain the proper flow of electricity to the pump motor. Major controller types include fixed-frequency switchboards, soft-start controllers and variable speed controllers; application, economics and the preferred level of control dictate the choice of controller.",
+      "text": "Intelligent, remote terminal, unit-programmable controllers and drives at the surface maintain the proper flow of electricity to the pump motor. Major controller types include fixed-frequency switchboards, soft-start controllers and variable speed controllers; application, economics and the preferred level of control dictate the choice of controller."
+    },
+    {
+      "self_ref": "#/texts/83",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 35.6,
+            "t": 162.192,
+            "r": 296.0419999999999,
+            "b": 82.49689366272821,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            475
+          ]
+        }
+      ],
+      "orig": "A variable speed drive (VSD) reads the downhole data recorded by the SCADA system and scales back or ramps up the motor speed to optimize a balance of pump efficiency and production rate. The drive allows the pump to be operated continuously or intermittently or be shut off in the event of a significant operational problem. The direct speed control afforded by the VSD increases system efficiency and the run life of the ESP system while reducing the incidence of downtime.",
+      "text": "A variable speed drive (VSD) reads the downhole data recorded by the SCADA system and scales back or ramps up the motor speed to optimize a balance of pump efficiency and production rate. The drive allows the pump to be operated continuously or intermittently or be shut off in the event of a significant operational problem. The direct speed control afforded by the VSD increases system efficiency and the run life of the ESP system while reducing the incidence of downtime."
+    },
+    {
+      "self_ref": "#/texts/84",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 726.192,
+            "r": 417.81599999999986,
+            "b": 718.5213134328358,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "Advantages and Disadvantages",
+      "text": "Advantages and Disadvantages",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/85",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 714.192,
+            "r": 566.01,
+            "b": 646.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            468
+          ]
+        }
+      ],
+      "orig": "In many field applications, ESP systems provide several operational advantages over other forms of artificial lift. An ESP is especially appropriate for moderateto-high production rate wells, including highly deviated wells and remote, subsea  deepwater  wells.  The  pumps  can  be  manufactured  from  high-grade, corrosion-resistant metallurgies for application in well environments with highGOR fluids, high temperatures and fluids containing corrosive acid gases.",
+      "text": "In many field applications, ESP systems provide several operational advantages over other forms of artificial lift. An ESP is especially appropriate for moderateto-high production rate wells, including highly deviated wells and remote, subsea  deepwater  wells.  The  pumps  can  be  manufactured  from  high-grade, corrosion-resistant metallurgies for application in well environments with highGOR fluids, high temperatures and fluids containing corrosive acid gases."
+    },
+    {
+      "self_ref": "#/texts/86",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 642.192,
+            "r": 566.0234999999998,
+            "b": 550.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            571
+          ]
+        }
+      ],
+      "orig": "Electric  submersible  pumps  provide  increased  production  while  handling high water cuts brought on by pressure maintenance and secondary recovery operations. The systems are quiet and safe and require a smaller surface footprint than that of some other lift systems, making them a preferred option in offshore and environmentally sensitive areas. ESP systems can be configured with flexibility to accommodate the dynamic evolution of fluid properties and flow rates during the life of the well and can operate with pump intake pressure of less than 1 MPa [100 psi].",
+      "text": "Electric  submersible  pumps  provide  increased  production  while  handling high water cuts brought on by pressure maintenance and secondary recovery operations. The systems are quiet and safe and require a smaller surface footprint than that of some other lift systems, making them a preferred option in offshore and environmentally sensitive areas. ESP systems can be configured with flexibility to accommodate the dynamic evolution of fluid properties and flow rates during the life of the well and can operate with pump intake pressure of less than 1 MPa [100 psi]."
+    },
+    {
+      "self_ref": "#/texts/87",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 546.192,
+            "r": 566.0100000000002,
+            "b": 442.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            618
+          ]
+        }
+      ],
+      "orig": "However, a number of operational challenges must be considered when running ESPs. Even though ESP systems can be built with special abrasionresistant metallurgies and upgraded radial bearing materials and configuration, ESP run times can be severely compromised in high sand and solids content environments. Performance also degrades when pumping viscous fluids  or  high  gas-to-liquid  ratio  mixtures.  The  development  of  more  efficient downhole gas separation and gas handling devices has improved ESP applications in flow streams containing high volumes of free gas, but those devices add to completion costs.",
+      "text": "However, a number of operational challenges must be considered when running ESPs. Even though ESP systems can be built with special abrasionresistant metallurgies and upgraded radial bearing materials and configuration, ESP run times can be severely compromised in high sand and solids content environments. Performance also degrades when pumping viscous fluids  or  high  gas-to-liquid  ratio  mixtures.  The  development  of  more  efficient downhole gas separation and gas handling devices has improved ESP applications in flow streams containing high volumes of free gas, but those devices add to completion costs."
+    },
+    {
+      "self_ref": "#/texts/88",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 438.192,
+            "r": 566.019,
+            "b": 382.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            344
+          ]
+        }
+      ],
+      "orig": "Although ESP systems can operate at 0° to 90° inclinations, their application is restricted by the well curvature through which they must pass during deployment and landing. ESP manufacturers must use dogleg severity to determine  the  stress  and  deflection  of  the  ESP  components  to  ensure proper installation and operation is possible.",
+      "text": "Although ESP systems can operate at 0° to 90° inclinations, their application is restricted by the well curvature through which they must pass during deployment and landing. ESP manufacturers must use dogleg severity to determine  the  stress  and  deflection  of  the  ESP  components  to  ensure proper installation and operation is possible."
+    },
+    {
+      "self_ref": "#/texts/89",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 378.192,
+            "r": 566.0325,
+            "b": 322.49689366272827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            363
+          ]
+        }
+      ],
+      "orig": "Although  ESP  motors  are  built  on  voltages  that  typically  range  from 460 to 4,200 V at 60Hz for oilfield applications, most ESPs use higher voltage motors. As a result, a higher voltage power supply is needed at the surface to compensate for the voltage drop in the power cable, which can be significant in deep installations requiring long power cables.",
+      "text": "Although  ESP  motors  are  built  on  voltages  that  typically  range  from 460 to 4,200 V at 60Hz for oilfield applications, most ESPs use higher voltage motors. As a result, a higher voltage power supply is needed at the surface to compensate for the voltage drop in the power cable, which can be significant in deep installations requiring long power cables."
+    },
+    {
+      "self_ref": "#/texts/90",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 318.192,
+            "r": 566.0109000000001,
+            "b": 238.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            524
+          ]
+        }
+      ],
+      "orig": "Pump efficiency peaks when a pump is operating at the flow rate corresponding to the best efficiency point (BEP) on the pump performance curve; efficiency decreases at flow rates above or below the BEP . As the production rate continues to drop, the ESP may need to be pulled and replaced with a lift system better suited to lower production rates; for onshore applications, a suitable replacement might be a rod pump or PCP. Below a rate of approximately 25 m 3 /d [150 bbl/d], ESPs are usually not an economic lift option.",
+      "text": "Pump efficiency peaks when a pump is operating at the flow rate corresponding to the best efficiency point (BEP) on the pump performance curve; efficiency decreases at flow rates above or below the BEP . As the production rate continues to drop, the ESP may need to be pulled and replaced with a lift system better suited to lower production rates; for onshore applications, a suitable replacement might be a rod pump or PCP. Below a rate of approximately 25 m 3 /d [150 bbl/d], ESPs are usually not an economic lift option."
+    },
+    {
+      "self_ref": "#/texts/91",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 222.192,
+            "r": 382.8959999999999,
+            "b": 214.52131343283577,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "Future Developments",
+      "text": "Future Developments",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/92",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 210.192,
+            "r": 566.0009999999997,
+            "b": 154.4968936627282,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            378
+          ]
+        }
+      ],
+      "orig": "The industry is developing robust pump designs that will extend the applicability  of  ESP  systems  in  environments  with  high-solids  flow  streams. Other research initiatives are focused on improved reliability designs at the component level and integrated systems and on advanced operating surveillance and control algorithms to significantly increase ESP system run life.",
+      "text": "The industry is developing robust pump designs that will extend the applicability  of  ESP  systems  in  environments  with  high-solids  flow  streams. Other research initiatives are focused on improved reliability designs at the component level and integrated systems and on advanced operating surveillance and control algorithms to significantly increase ESP system run life."
+    },
+    {
+      "self_ref": "#/texts/93",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.0,
+            "t": 150.192,
+            "r": 566.0099999999998,
+            "b": 58.49689366272821,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            566
+          ]
+        }
+      ],
+      "orig": "To improve the economics of ESPs in remote offshore wells, the industry is investigating more cost-effective means of deploying and pulling equipment. A rigless intervention using low-cost standard slickline, coil tubing or downhole tractor conveyance would avoid the high expense and long wait times  for  a  dedicated  rig.  Using  this  option,  an  operator  can  deploy  or retrieve the ESP assembly in a matter of hours and minimize production losses. Ultimately, developments such as this will enable a greater number of operators to maximize well production.",
+      "text": "To improve the economics of ESPs in remote offshore wells, the industry is investigating more cost-effective means of deploying and pulling equipment. A rigless intervention using low-cost standard slickline, coil tubing or downhole tractor conveyance would avoid the high expense and long wait times  for  a  dedicated  rig.  Using  this  option,  an  operator  can  deploy  or retrieve the ESP assembly in a matter of hours and minimize production losses. Ultimately, developments such as this will enable a greater number of operators to maximize well production."
+    },
+    {
+      "self_ref": "#/texts/94",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 512.1885,
+            "t": 35.226,
+            "r": 564.0015000000001,
+            "b": 27.530893662728204,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "Oilfield Review",
+      "text": "Oilfield Review"
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/16"
+        },
+        {
+          "$ref": "#/texts/17"
+        },
+        {
+          "$ref": "#/texts/18"
+        },
+        {
+          "$ref": "#/texts/19"
+        },
+        {
+          "$ref": "#/texts/20"
+        },
+        {
+          "$ref": "#/texts/21"
+        },
+        {
+          "$ref": "#/texts/22"
+        },
+        {
+          "$ref": "#/texts/23"
+        },
+        {
+          "$ref": "#/texts/24"
+        },
+        {
+          "$ref": "#/texts/25"
+        },
+        {
+          "$ref": "#/texts/26"
+        },
+        {
+          "$ref": "#/texts/27"
+        },
+        {
+          "$ref": "#/texts/28"
+        },
+        {
+          "$ref": "#/texts/29"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 317.3575439453125,
+            "t": 721.0379943847656,
+            "r": 576.9288940429688,
+            "b": 406.22882080078125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/16"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/30"
+        },
+        {
+          "$ref": "#/texts/31"
+        },
+        {
+          "$ref": "#/texts/32"
+        },
+        {
+          "$ref": "#/texts/33"
+        },
+        {
+          "$ref": "#/texts/34"
+        },
+        {
+          "$ref": "#/texts/35"
+        },
+        {
+          "$ref": "#/texts/36"
+        },
+        {
+          "$ref": "#/texts/37"
+        },
+        {
+          "$ref": "#/texts/38"
+        },
+        {
+          "$ref": "#/texts/39"
+        },
+        {
+          "$ref": "#/texts/40"
+        },
+        {
+          "$ref": "#/texts/41"
+        },
+        {
+          "$ref": "#/texts/42"
+        },
+        {
+          "$ref": "#/texts/43"
+        },
+        {
+          "$ref": "#/texts/44"
+        },
+        {
+          "$ref": "#/texts/45"
+        },
+        {
+          "$ref": "#/texts/46"
+        },
+        {
+          "$ref": "#/texts/47"
+        },
+        {
+          "$ref": "#/texts/48"
+        },
+        {
+          "$ref": "#/texts/49"
+        },
+        {
+          "$ref": "#/texts/50"
+        },
+        {
+          "$ref": "#/texts/51"
+        },
+        {
+          "$ref": "#/texts/52"
+        },
+        {
+          "$ref": "#/texts/53"
+        },
+        {
+          "$ref": "#/texts/54"
+        },
+        {
+          "$ref": "#/texts/55"
+        },
+        {
+          "$ref": "#/texts/56"
+        },
+        {
+          "$ref": "#/texts/57"
+        },
+        {
+          "$ref": "#/texts/58"
+        },
+        {
+          "$ref": "#/texts/59"
+        },
+        {
+          "$ref": "#/texts/60"
+        },
+        {
+          "$ref": "#/texts/61"
+        },
+        {
+          "$ref": "#/texts/62"
+        },
+        {
+          "$ref": "#/texts/63"
+        },
+        {
+          "$ref": "#/texts/64"
+        },
+        {
+          "$ref": "#/texts/65"
+        },
+        {
+          "$ref": "#/texts/66"
+        },
+        {
+          "$ref": "#/texts/67"
+        },
+        {
+          "$ref": "#/texts/68"
+        },
+        {
+          "$ref": "#/texts/69"
+        },
+        {
+          "$ref": "#/texts/70"
+        },
+        {
+          "$ref": "#/texts/71"
+        },
+        {
+          "$ref": "#/texts/72"
+        },
+        {
+          "$ref": "#/texts/73"
+        },
+        {
+          "$ref": "#/texts/74"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 316.29693603515625,
+            "t": 281.9537048339844,
+            "r": 575.855224609375,
+            "b": 151.3221435546875,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/30"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    }
+  ],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 2
+    }
+  }
+}

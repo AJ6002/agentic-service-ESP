@@ -1,0 +1,480 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S4",
+    "title": "API RP 11S4: Recommended Practice for Sizing and Selection of ESP Installations (1st Ed)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "1993",
+    "source_filename": "ilide.info-11s4-pr_6a114745f440873c0920f5950bcc99ba.pdf",
+    "standardized_filename": "API_RP_11S4_Sizing_Selection_1993.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S4_Sizing_Selection_1993.pdf",
+    "file_size_bytes": 1671932,
+    "sha256_checksum": "6f7f24c43b8346dfd1dc455fc4de0d115c1dc9f8720dac50d66446ff3c8c1a16",
+    "total_pages": 92,
+    "extracted_char_count": 48280,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 1144,
+      "word_count": 159
+    },
+    {
+      "page_number": 2,
+      "char_count": 2142,
+      "word_count": 319
+    },
+    {
+      "page_number": 3,
+      "char_count": 2087,
+      "word_count": 309
+    },
+    {
+      "page_number": 4,
+      "char_count": 1142,
+      "word_count": 195
+    },
+    {
+      "page_number": 5,
+      "char_count": 808,
+      "word_count": 147
+    },
+    {
+      "page_number": 6,
+      "char_count": 602,
+      "word_count": 100
+    },
+    {
+      "page_number": 7,
+      "char_count": 782,
+      "word_count": 149
+    },
+    {
+      "page_number": 8,
+      "char_count": 1764,
+      "word_count": 309
+    },
+    {
+      "page_number": 9,
+      "char_count": 1607,
+      "word_count": 271
+    },
+    {
+      "page_number": 10,
+      "char_count": 2134,
+      "word_count": 363
+    },
+    {
+      "page_number": 11,
+      "char_count": 2193,
+      "word_count": 371
+    },
+    {
+      "page_number": 12,
+      "char_count": 1708,
+      "word_count": 280
+    },
+    {
+      "page_number": 13,
+      "char_count": 1411,
+      "word_count": 236
+    },
+    {
+      "page_number": 14,
+      "char_count": 774,
+      "word_count": 123
+    },
+    {
+      "page_number": 15,
+      "char_count": 843,
+      "word_count": 149
+    },
+    {
+      "page_number": 16,
+      "char_count": 1289,
+      "word_count": 217
+    },
+    {
+      "page_number": 17,
+      "char_count": 1227,
+      "word_count": 215
+    },
+    {
+      "page_number": 18,
+      "char_count": 769,
+      "word_count": 127
+    },
+    {
+      "page_number": 19,
+      "char_count": 1236,
+      "word_count": 203
+    },
+    {
+      "page_number": 20,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 21,
+      "char_count": 1117,
+      "word_count": 175
+    },
+    {
+      "page_number": 22,
+      "char_count": 1695,
+      "word_count": 251
+    },
+    {
+      "page_number": 23,
+      "char_count": 1365,
+      "word_count": 228
+    },
+    {
+      "page_number": 24,
+      "char_count": 1206,
+      "word_count": 208
+    },
+    {
+      "page_number": 25,
+      "char_count": 885,
+      "word_count": 171
+    },
+    {
+      "page_number": 26,
+      "char_count": 1217,
+      "word_count": 225
+    },
+    {
+      "page_number": 27,
+      "char_count": 476,
+      "word_count": 84
+    },
+    {
+      "page_number": 28,
+      "char_count": 340,
+      "word_count": 67
+    },
+    {
+      "page_number": 29,
+      "char_count": 960,
+      "word_count": 158
+    },
+    {
+      "page_number": 30,
+      "char_count": 1727,
+      "word_count": 260
+    },
+    {
+      "page_number": 31,
+      "char_count": 1826,
+      "word_count": 284
+    },
+    {
+      "page_number": 32,
+      "char_count": 1351,
+      "word_count": 221
+    },
+    {
+      "page_number": 33,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 34,
+      "char_count": 113,
+      "word_count": 17
+    },
+    {
+      "page_number": 35,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 36,
+      "char_count": 130,
+      "word_count": 22
+    },
+    {
+      "page_number": 37,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 38,
+      "char_count": 148,
+      "word_count": 23
+    },
+    {
+      "page_number": 39,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 40,
+      "char_count": 162,
+      "word_count": 24
+    },
+    {
+      "page_number": 41,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 42,
+      "char_count": 163,
+      "word_count": 25
+    },
+    {
+      "page_number": 43,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 44,
+      "char_count": 135,
+      "word_count": 18
+    },
+    {
+      "page_number": 45,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 46,
+      "char_count": 126,
+      "word_count": 20
+    },
+    {
+      "page_number": 47,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 48,
+      "char_count": 110,
+      "word_count": 17
+    },
+    {
+      "page_number": 49,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 50,
+      "char_count": 110,
+      "word_count": 17
+    },
+    {
+      "page_number": 51,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 52,
+      "char_count": 207,
+      "word_count": 30
+    },
+    {
+      "page_number": 53,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 54,
+      "char_count": 153,
+      "word_count": 24
+    },
+    {
+      "page_number": 55,
+      "char_count": 138,
+      "word_count": 22
+    },
+    {
+      "page_number": 56,
+      "char_count": 138,
+      "word_count": 22
+    },
+    {
+      "page_number": 57,
+      "char_count": 138,
+      "word_count": 22
+    },
+    {
+      "page_number": 58,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 59,
+      "char_count": 149,
+      "word_count": 21
+    },
+    {
+      "page_number": 60,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 61,
+      "char_count": 154,
+      "word_count": 22
+    },
+    {
+      "page_number": 62,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 63,
+      "char_count": 157,
+      "word_count": 24
+    },
+    {
+      "page_number": 64,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 65,
+      "char_count": 109,
+      "word_count": 16
+    },
+    {
+      "page_number": 66,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 67,
+      "char_count": 133,
+      "word_count": 20
+    },
+    {
+      "page_number": 68,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 69,
+      "char_count": 159,
+      "word_count": 24
+    },
+    {
+      "page_number": 70,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 71,
+      "char_count": 139,
+      "word_count": 24
+    },
+    {
+      "page_number": 72,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 73,
+      "char_count": 107,
+      "word_count": 17
+    },
+    {
+      "page_number": 74,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 75,
+      "char_count": 268,
+      "word_count": 41
+    },
+    {
+      "page_number": 76,
+      "char_count": 92,
+      "word_count": 13
+    },
+    {
+      "page_number": 77,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 78,
+      "char_count": 108,
+      "word_count": 15
+    },
+    {
+      "page_number": 79,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 80,
+      "char_count": 131,
+      "word_count": 18
+    },
+    {
+      "page_number": 81,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 82,
+      "char_count": 116,
+      "word_count": 16
+    },
+    {
+      "page_number": 83,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 84,
+      "char_count": 143,
+      "word_count": 20
+    },
+    {
+      "page_number": 85,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 86,
+      "char_count": 140,
+      "word_count": 20
+    },
+    {
+      "page_number": 87,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 88,
+      "char_count": 139,
+      "word_count": 20
+    },
+    {
+      "page_number": 89,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 90,
+      "char_count": 137,
+      "word_count": 20
+    },
+    {
+      "page_number": 91,
+      "char_count": 80,
+      "word_count": 12
+    },
+    {
+      "page_number": 92,
+      "char_count": 135,
+      "word_count": 20
+    }
+  ]
+}

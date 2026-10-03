@@ -1,0 +1,349 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "Reflects at splices and at tight conductor radii",
+        "1": "Stator, Splice and Cable failures due to summing of the reflected commutating transients"
+      },
+      {
+        "0": "Travels over conductor, not in it",
+        "1": "Skin effect heating, degraded insulation performance"
+      },
+      {
+        "0": "Adds to total system current, but does no work",
+        "1": "Increased motor temperature and higher electrical costs"
+      },
+      {
+        "0": "Capacitive coupling increases with frequency",
+        "1": "Increased electrical noise in the system impacting sensors and nearby instruments"
+      },
+      {
+        "0": "Insulation strength decreases with frequency",
+        "1": "Motor shorts, bearing \u201cfluting\" and \u201cfrosting\""
+      }
+    ],
+    "csv": "0,1\r\nReflects at splices and at tight conductor radii,\"Stator, Splice and Cable failures due to summing of the reflected commutating transients\"\r\n\"Travels over conductor, not in it\",\"Skin effect heating, degraded insulation performance\"\r\n\"Adds to total system current, but does no work\",Increased motor temperature and higher electrical costs\r\nCapacitive coupling increases with frequency,Increased electrical noise in the system impacting sensors and nearby instruments\r\nInsulation strength decreases with frequency,\"Motor shorts, bearing \u201cfluting\"\" and \u201cfrosting\"\"\"\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Equipment Make-Model",
+      "Function",
+      "Sampling Rate",
+      "FFT Range"
+    ],
+    "rows": [
+      {
+        "Equipment Make-Model": "Yokogawa PX8000",
+        "Function": "\u201cPowerscope\"Oscilloscope",
+        "Sampling Rate": "100MHz",
+        "FFT Range": "1-500th Harmonic"
+      },
+      {
+        "Equipment Make-Model": "Tektronix THS3024",
+        "Function": "Handheld Oscilloscope",
+        "Sampling Rate": "200MHz",
+        "FFT Range": "1-50th Harmonic"
+      },
+      {
+        "Equipment Make-Model": "Fluke 1750/V3",
+        "Function": "Power Quality Recorder",
+        "Sampling Rate": "5MHz",
+        "FFT Range": "1-50th Harmonic"
+      },
+      {
+        "Equipment Make-Model": "Textronix P6015A",
+        "Function": "High Voltage 40kV-p Probe",
+        "Sampling Rate": "75Mhz",
+        "FFT Range": "n/a"
+      },
+      {
+        "Equipment Make-Model": "RPM-3014",
+        "Function": "0.01A-40A Current Transformer",
+        "Sampling Rate": "5kHz",
+        "FFT Range": "n/a"
+      },
+      {
+        "Equipment Make-Model": "RPM-3110",
+        "Function": "2A-100A Current Transformer",
+        "Sampling Rate": "7kHz",
+        "FFT Range": "n/a"
+      },
+      {
+        "Equipment Make-Model": "FLU-I2000FLEX",
+        "Function": "20A-2000A Current Probe",
+        "Sampling Rate": "20kHz",
+        "FFT Range": "n/a"
+      },
+      {
+        "Equipment Make-Model": "AEMC-SR661",
+        "Function": "100mA-2000A Current Probe",
+        "Sampling Rate": "100kHz",
+        "FFT Range": "n/a"
+      }
+    ],
+    "csv": "Equipment Make-Model,Function,Sampling Rate,FFT Range\r\nYokogawa PX8000,\"\u201cPowerscope\"\"Oscilloscope\",100MHz,1-500th Harmonic\r\nTektronix THS3024,Handheld Oscilloscope,200MHz,1-50th Harmonic\r\nFluke 1750/V3,Power Quality Recorder,5MHz,1-50th Harmonic\r\nTextronix P6015A,High Voltage 40kV-p Probe,75Mhz,n/a\r\nRPM-3014,0.01A-40A Current Transformer,5kHz,n/a\r\nRPM-3110,2A-100A Current Transformer,7kHz,n/a\r\nFLU-I2000FLEX,20A-2000A Current Probe,20kHz,n/a\r\nAEMC-SR661,100mA-2000A Current Probe,100kHz,n/a\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Bus voltage V at PCC",
+      "Individual harmonic (%)",
+      "Total harmonic distortion THD (%)"
+    ],
+    "rows": [
+      {
+        "Bus voltage V at PCC": "V\u2264 1.0 kV",
+        "Individual harmonic (%)": "5.0",
+        "Total harmonic distortion THD (%)": "8.0"
+      },
+      {
+        "Bus voltage V at PCC": "1 kV < V \u226469 kV",
+        "Individual harmonic (%)": "3.0",
+        "Total harmonic distortion THD (%)": "5.0"
+      },
+      {
+        "Bus voltage V at PCC": "69kV<V\u2264161kV",
+        "Individual harmonic (%)": "1.5",
+        "Total harmonic distortion THD (%)": "2.5"
+      },
+      {
+        "Bus voltage V at PCC": "161 kV < V",
+        "Individual harmonic (%)": "1.0",
+        "Total harmonic distortion THD (%)": "1.5\u00aa"
+      }
+    ],
+    "csv": "Bus voltage V at PCC,Individual harmonic (%),Total harmonic distortion THD (%)\r\nV\u2264 1.0 kV,5.0,8.0\r\n1 kV < V \u226469 kV,3.0,5.0\r\n69kV<V\u2264161kV,1.5,2.5\r\n161 kV < V,1.0,1.5\u00aa\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450",
+      "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD"
+    ],
+    "rows": [
+      {
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL": "<20c",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11": "4.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17": "2.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23": "1.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35": "0.6",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450": "0.3",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD": "5.0"
+      },
+      {
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL": "20<50",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11": "7.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17": "3.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23": "2.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35": "1.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450": "0.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD": "8.0"
+      },
+      {
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL": "50<100",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11": "10.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17": "4.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23": "4.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35": "1.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450": "0.7",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD": "12.0"
+      },
+      {
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL": "100<1000",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11": "12.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17": "5.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23": "5.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35": "2.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450": "1.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD": "15.0"
+      },
+      {
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL": ">1000",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11": "15.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17": "7.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23": "6.0",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35": "2.5",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450": "1.4",
+        "Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD": "20.0"
+      }
+    ],
+    "csv": "\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.Isc/IL\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.3\u2264h<11\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.11\u2264 h< 17\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.17\u2264h<23\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.23\u2264h<35\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.35\u2264h\u226450\",\"Maximum harmonic current distortion in percent of IL.Individual harmonic order (odd harmonics)a, b.TDD\"\r\n<20c,4.0,2.0,1.5,0.6,0.3,5.0\r\n20<50,7.0,3.5,2.5,1.0,0.5,8.0\r\n50<100,10.0,4.5,4.0,1.5,0.7,12.0\r\n100<1000,12.0,5.5,5.0,2.0,1.0,15.0\r\n>1000,15.0,7.0,6.0,2.5,1.4,20.0\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Voltage",
+      "AN",
+      "BN",
+      "CN",
+      "NG",
+      ""
+    ],
+    "rows": [
+      {
+        "Voltage": "V RMS",
+        "AN": "2,390.8",
+        "BN": "2,405.3",
+        "CN": "2,703.6",
+        "NG": "6.9",
+        "": ""
+      },
+      {
+        "Voltage": "VPK",
+        "AN": "4,045.5",
+        "BN": "3,771.6",
+        "CN": "4,498.6",
+        "NG": "18.0",
+        "": ""
+      },
+      {
+        "Voltage": "VCF",
+        "AN": "1.7",
+        "BN": "1.6",
+        "CN": "1.7",
+        "NG": "2.6",
+        "": ""
+      },
+      {
+        "Voltage": "% THD",
+        "AN": "3.0",
+        "BN": "2.3",
+        "CN": "2.4",
+        "NG": "26.2",
+        "": ""
+      },
+      {
+        "Voltage": "Freq",
+        "AN": "56.1",
+        "BN": "",
+        "CN": "",
+        "NG": "",
+        "": ""
+      },
+      {
+        "Voltage": "Current",
+        "AN": "A",
+        "BN": "B",
+        "CN": "C",
+        "NG": "N",
+        "": "G"
+      },
+      {
+        "Voltage": "A RMS",
+        "AN": "168.6",
+        "BN": "171.7",
+        "CN": "163.7",
+        "NG": "0.0",
+        "": "0.0"
+      },
+      {
+        "Voltage": "APK",
+        "AN": "249.8",
+        "BN": "252.6",
+        "CN": "243.5",
+        "NG": "0.0",
+        "": "0.0"
+      },
+      {
+        "Voltage": "A CF",
+        "AN": "1.5",
+        "BN": "1.5",
+        "CN": "1.5",
+        "NG": "1.4",
+        "": "1.4"
+      },
+      {
+        "Voltage": "% THD",
+        "AN": "5.7",
+        "BN": "6.0",
+        "CN": "5.5",
+        "NG": "-",
+        "": ""
+      },
+      {
+        "Voltage": "% TDD",
+        "AN": "-",
+        "BN": "--",
+        "CN": "1",
+        "NG": "--",
+        "": ""
+      },
+      {
+        "Voltage": "K Factor",
+        "AN": "1.2",
+        "BN": "1.2",
+        "CN": "1.2",
+        "NG": "",
+        "": ""
+      },
+      {
+        "Voltage": "Power",
+        "AN": "A",
+        "BN": "B",
+        "CN": "C",
+        "NG": "Total",
+        "": ""
+      },
+      {
+        "Voltage": "kW",
+        "AN": "289.193",
+        "BN": "339.606",
+        "CN": "336.818",
+        "NG": "965.617",
+        "": ""
+      },
+      {
+        "Voltage": "kVA",
+        "AN": "403.023",
+        "BN": "412.924",
+        "CN": "442.689",
+        "NG": "1,259.546",
+        "": ""
+      },
+      {
+        "Voltage": "kvar",
+        "AN": "280.705",
+        "BN": "234.890",
+        "CN": "287.275",
+        "NG": "808.727",
+        "": ""
+      },
+      {
+        "Voltage": "PF",
+        "AN": "0.718",
+        "BN": "0.822",
+        "CN": "0.761",
+        "NG": "0.767",
+        "": ""
+      },
+      {
+        "Voltage": "DPF",
+        "AN": "0.727",
+        "BN": "0.827",
+        "CN": "0.768",
+        "NG": "0.776",
+        "": ""
+      },
+      {
+        "Voltage": "",
+        "AN": "Lag",
+        "BN": "Lag",
+        "CN": "Lag",
+        "NG": "",
+        "": ""
+      }
+    ],
+    "csv": "Voltage,AN,BN,CN,NG,\r\nV RMS,\"2,390.8\",\"2,405.3\",\"2,703.6\",6.9,\r\nVPK,\"4,045.5\",\"3,771.6\",\"4,498.6\",18.0,\r\nVCF,1.7,1.6,1.7,2.6,\r\n% THD,3.0,2.3,2.4,26.2,\r\nFreq,56.1,,,,\r\nCurrent,A,B,C,N,G\r\nA RMS,168.6,171.7,163.7,0.0,0.0\r\nAPK,249.8,252.6,243.5,0.0,0.0\r\nA CF,1.5,1.5,1.5,1.4,1.4\r\n% THD,5.7,6.0,5.5,-,\r\n% TDD,-,--,1,--,\r\nK Factor,1.2,1.2,1.2,,\r\nPower,A,B,C,Total,\r\nkW,289.193,339.606,336.818,965.617,\r\nkVA,403.023,412.924,442.689,\"1,259.546\",\r\nkvar,280.705,234.890,287.275,808.727,\r\nPF,0.718,0.822,0.761,0.767,\r\nDPF,0.727,0.827,0.768,0.776,\r\n,Lag,Lag,Lag,,\r\n"
+  }
+]

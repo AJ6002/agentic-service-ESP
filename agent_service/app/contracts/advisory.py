@@ -1,6 +1,6 @@
 """
 Advisory Contracts — Phase 2 Data Models.
-Reference: SLICE_2_PLAN.md SS2.1 and SS2.2.
+Reference: SLICE_2_PLAN.md SS2.1 and SS2.2, DOC.txt §3.3.
 """
 
 from __future__ import annotations
@@ -8,7 +8,6 @@ from __future__ import annotations
 from pydantic import BaseModel, Field
 
 # Re-export canonical FormattedValue & FormattedEvidence from app.evidence.formatter
-# to prevent duplicate type definitions while preserving contracts/__init__.py exports.
 from app.evidence.formatter import FormattedValue, FormattedEvidence
 
 
@@ -25,6 +24,9 @@ class Advisory(BaseModel):
     troubleshooting_steps: list[str] = Field(default_factory=list)
     confidence: float = 1.0
     cited_evidence_ids: list[str] = Field(default_factory=list)
+    provenance_warnings: list[str] = Field(default_factory=list)
+    degraded_sources: list[str] = Field(default_factory=list)
+    recommended_cards: list[str] = Field(default_factory=list)
 
 
 class ProvenanceResult(BaseModel):

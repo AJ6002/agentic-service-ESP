@@ -1,0 +1,16 @@
+{
+  "document_id": "DOC-COMP-001",
+  "title": "Electrical Submersible Pump Components Equipment Description (PTP-6.1)",
+  "canonical_category": "components",
+  "doc_type": "TECHNICAL_GUIDE",
+  "author_publisher": "CTIC / PTP",
+  "publication_year": "2010",
+  "source_filename": "ilide.info-esp-pr_4dc838fc2e9cae7a764cad254be6ffbd.pdf",
+  "standardized_filename": "ESP_Components_Equipment_Description.pdf",
+  "file_path": "esp-knowledge\\sources\\raw\\components\\ESP_Components_Equipment_Description.pdf",
+  "file_size_bytes": 302866,
+  "sha256_checksum": "646768b2b7ffb5570c0123bdf32670ccd7763259a5b34f46a273180f171bfb22",
+  "total_pages": 19,
+  "extracted_char_count": 26072,
+  "status": "PARSED_AND_NORMALIZED"
+}

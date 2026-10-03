@@ -1,0 +1,6280 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "name": "Takacs_TDH_Calculation_Models_2020",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 4478807566380646208,
+    "filename": "Takacs_TDH_Calculation_Models_2020.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/groups/0"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/texts/16"
+      },
+      {
+        "$ref": "#/texts/17"
+      },
+      {
+        "$ref": "#/groups/1"
+      },
+      {
+        "$ref": "#/texts/18"
+      },
+      {
+        "$ref": "#/texts/19"
+      },
+      {
+        "$ref": "#/groups/2"
+      },
+      {
+        "$ref": "#/texts/21"
+      },
+      {
+        "$ref": "#/texts/22"
+      },
+      {
+        "$ref": "#/texts/23"
+      },
+      {
+        "$ref": "#/texts/24"
+      },
+      {
+        "$ref": "#/texts/25"
+      },
+      {
+        "$ref": "#/texts/26"
+      },
+      {
+        "$ref": "#/texts/27"
+      },
+      {
+        "$ref": "#/groups/3"
+      },
+      {
+        "$ref": "#/pictures/1"
+      },
+      {
+        "$ref": "#/texts/35"
+      },
+      {
+        "$ref": "#/texts/36"
+      },
+      {
+        "$ref": "#/texts/37"
+      },
+      {
+        "$ref": "#/texts/38"
+      },
+      {
+        "$ref": "#/groups/4"
+      },
+      {
+        "$ref": "#/texts/41"
+      },
+      {
+        "$ref": "#/texts/42"
+      },
+      {
+        "$ref": "#/texts/43"
+      },
+      {
+        "$ref": "#/texts/44"
+      },
+      {
+        "$ref": "#/texts/45"
+      },
+      {
+        "$ref": "#/texts/46"
+      },
+      {
+        "$ref": "#/texts/47"
+      },
+      {
+        "$ref": "#/texts/48"
+      },
+      {
+        "$ref": "#/pictures/2"
+      },
+      {
+        "$ref": "#/texts/68"
+      },
+      {
+        "$ref": "#/texts/69"
+      },
+      {
+        "$ref": "#/texts/70"
+      },
+      {
+        "$ref": "#/texts/71"
+      },
+      {
+        "$ref": "#/texts/72"
+      },
+      {
+        "$ref": "#/texts/73"
+      },
+      {
+        "$ref": "#/texts/74"
+      },
+      {
+        "$ref": "#/texts/75"
+      },
+      {
+        "$ref": "#/texts/76"
+      },
+      {
+        "$ref": "#/texts/77"
+      },
+      {
+        "$ref": "#/texts/78"
+      },
+      {
+        "$ref": "#/texts/79"
+      },
+      {
+        "$ref": "#/texts/80"
+      },
+      {
+        "$ref": "#/texts/81"
+      },
+      {
+        "$ref": "#/texts/82"
+      },
+      {
+        "$ref": "#/groups/5"
+      },
+      {
+        "$ref": "#/texts/85"
+      },
+      {
+        "$ref": "#/texts/86"
+      },
+      {
+        "$ref": "#/texts/87"
+      },
+      {
+        "$ref": "#/texts/88"
+      },
+      {
+        "$ref": "#/texts/89"
+      },
+      {
+        "$ref": "#/pictures/3"
+      },
+      {
+        "$ref": "#/texts/111"
+      },
+      {
+        "$ref": "#/texts/112"
+      },
+      {
+        "$ref": "#/texts/113"
+      },
+      {
+        "$ref": "#/texts/114"
+      },
+      {
+        "$ref": "#/texts/115"
+      },
+      {
+        "$ref": "#/texts/116"
+      },
+      {
+        "$ref": "#/texts/117"
+      },
+      {
+        "$ref": "#/texts/118"
+      },
+      {
+        "$ref": "#/texts/119"
+      },
+      {
+        "$ref": "#/texts/120"
+      },
+      {
+        "$ref": "#/texts/121"
+      },
+      {
+        "$ref": "#/texts/122"
+      },
+      {
+        "$ref": "#/texts/123"
+      },
+      {
+        "$ref": "#/texts/124"
+      },
+      {
+        "$ref": "#/texts/125"
+      },
+      {
+        "$ref": "#/texts/126"
+      },
+      {
+        "$ref": "#/groups/6"
+      },
+      {
+        "$ref": "#/texts/131"
+      },
+      {
+        "$ref": "#/texts/132"
+      },
+      {
+        "$ref": "#/texts/133"
+      },
+      {
+        "$ref": "#/texts/134"
+      },
+      {
+        "$ref": "#/texts/135"
+      },
+      {
+        "$ref": "#/texts/136"
+      },
+      {
+        "$ref": "#/texts/137"
+      },
+      {
+        "$ref": "#/texts/138"
+      },
+      {
+        "$ref": "#/texts/139"
+      },
+      {
+        "$ref": "#/pictures/4"
+      },
+      {
+        "$ref": "#/texts/177"
+      },
+      {
+        "$ref": "#/texts/178"
+      },
+      {
+        "$ref": "#/texts/179"
+      },
+      {
+        "$ref": "#/texts/180"
+      },
+      {
+        "$ref": "#/texts/181"
+      },
+      {
+        "$ref": "#/texts/182"
+      },
+      {
+        "$ref": "#/texts/183"
+      },
+      {
+        "$ref": "#/texts/184"
+      },
+      {
+        "$ref": "#/texts/185"
+      },
+      {
+        "$ref": "#/texts/186"
+      },
+      {
+        "$ref": "#/texts/187"
+      },
+      {
+        "$ref": "#/texts/188"
+      },
+      {
+        "$ref": "#/texts/189"
+      },
+      {
+        "$ref": "#/texts/190"
+      },
+      {
+        "$ref": "#/texts/191"
+      },
+      {
+        "$ref": "#/texts/192"
+      },
+      {
+        "$ref": "#/texts/193"
+      },
+      {
+        "$ref": "#/texts/194"
+      },
+      {
+        "$ref": "#/texts/195"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [
+    {
+      "self_ref": "#/groups/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/4"
+        }
+      ],
+      "content_layer": "body",
+      "name": "group",
+      "label": "key_value_area"
+    },
+    {
+      "self_ref": "#/groups/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "name": "group",
+      "label": "key_value_area"
+    },
+    {
+      "self_ref": "#/groups/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/20"
+        }
+      ],
+      "content_layer": "body",
+      "name": "group",
+      "label": "key_value_area"
+    },
+    {
+      "self_ref": "#/groups/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/28"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/39"
+        },
+        {
+          "$ref": "#/texts/40"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/83"
+        },
+        {
+          "$ref": "#/texts/84"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/127"
+        },
+        {
+          "$ref": "#/texts/128"
+        },
+        {
+          "$ref": "#/texts/129"
+        },
+        {
+          "$ref": "#/texts/130"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    }
+  ],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 36.333333333333336,
+            "t": 677.0343221028646,
+            "r": 97.33333333333333,
+            "b": 665.367655436198,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "ELSEVIER",
+      "text": "ELSEVIER"
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 644.9494437695313,
+            "r": 91.327516,
+            "b": 636.1764329501333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "Technobites",
+      "text": "Technobites"
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 625.6166142695312,
+            "r": 426.88317750000004,
+            "b": 596.045263842859,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            79
+          ]
+        }
+      ],
+      "orig": "A critical comparison of TDH calculation models in manual ESP design procedures",
+      "text": "A critical comparison of TDH calculation models in manual ESP design procedures",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 582.1115313695312,
+            "r": 104.5033746,
+            "b": 571.8120244621733,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "G ´ abor Tak ´ acs",
+      "text": "G ´ abor Tak ´ acs"
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 562.2502286695312,
+            "r": 127.00812231999998,
+            "b": 556.4016465194476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            30
+          ]
+        }
+      ],
+      "orig": "University of Miskolc, Hungary",
+      "text": "University of Miskolc, Hungary"
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 529.6553524695312,
+            "r": 126.12200835,
+            "b": 523.2584112784776,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "A R T I C L E  I N F O",
+      "text": "A R T I C L E  I N F O",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 510.7162286695312,
+            "r": 96.10987333,
+            "b": 462.00884671944755,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            77
+          ]
+        }
+      ],
+      "orig": "Keywords: ESP pump Total dynamic head Pump design Hand calculation Comparison",
+      "text": "Keywords: ESP pump Total dynamic head Pump design Hand calculation Comparison"
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 365.91493686953123,
+            "r": 100.17181324,
+            "b": 358.6040027905178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "1. Introduction",
+      "text": "1. Introduction",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.587399999999974,
+            "t": 344.9958153995312,
+            "r": 291.01904578,
+            "b": 243.51894683051785,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            684
+          ]
+        }
+      ],
+      "orig": "The heart of an ESP installation is the submersible centrifugal pump that lifts well fluids to the surface. The proper selection of the pump, therefore, has a great technical and economic importance in achieving a profitable production of an ESP installation. The pump chosen must be capable to produce the required liquid rate against the hydraulic re­ sistances in the well represented by the tubing string, and the surface backpressure. At the same time, it should guarantee a minimum of en­ ergy (horsepower) requirement and thus provide the least power cost. In summary, proper selection of the ESP pump greatly affects the produc­ tion economy of wells placed on ESP operations.",
+      "text": "The heart of an ESP installation is the submersible centrifugal pump that lifts well fluids to the surface. The proper selection of the pump, therefore, has a great technical and economic importance in achieving a profitable production of an ESP installation. The pump chosen must be capable to produce the required liquid rate against the hydraulic re­ sistances in the well represented by the tubing string, and the surface backpressure. At the same time, it should guarantee a minimum of en­ ergy (horsepower) requirement and thus provide the least power cost. In summary, proper selection of the ESP pump greatly affects the produc­ tion economy of wells placed on ESP operations."
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.58739999999992,
+            "t": 240.39861402953125,
+            "r": 291.03339196,
+            "b": 138.92174546051774,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            735
+          ]
+        }
+      ],
+      "orig": "Based on the above, the design of an ESP system is started with the selection  of  the  correct  centrifugal  pump.  Usually,  system  design  is based  on  a  desired  liquid  rate  that  limits  the  types  of  pumps  to  be considered. For a proper design, the pressure conditions of the candidate pumps must be consistent with the flow conditions of the given well at the  design  liquid  rate.  During  normal  operation,  the  pump  should discharge  the  liquid  with  enough  pressure  to  overcome  the  pressure losses occurring along the flow path from the pump setting depth to the surface separator. This sets the required discharge pressure of the ESP pump, while its suction pressure is controlled by the pressure of the",
+      "text": "Based on the above, the design of an ESP system is started with the selection  of  the  correct  centrifugal  pump.  Usually,  system  design  is based  on  a  desired  liquid  rate  that  limits  the  types  of  pumps  to  be considered. For a proper design, the pressure conditions of the candidate pumps must be consistent with the flow conditions of the given well at the  design  liquid  rate.  During  normal  operation,  the  pump  should discharge  the  liquid  with  enough  pressure  to  overcome  the  pressure losses occurring along the flow path from the pump setting depth to the surface separator. This sets the required discharge pressure of the ESP pump, while its suction pressure is controlled by the pressure of the"
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 49.5496,
+            "t": 111.28208276953114,
+            "r": 97.8726664,
+            "b": 104.7023246549827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "E-mail address:",
+      "text": "E-mail address:"
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 98.1344809,
+            "t": 111.28208276953114,
+            "r": 195.8666059,
+            "b": 104.7023246549827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "gtakacs@kfgi.uni-miskolc.hu.",
+      "text": "gtakacs@kfgi.uni-miskolc.hu."
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 94.27448276953123,
+            "r": 187.76132799999996,
+            "b": 87.69472465498268,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "https://doi.org/10.1016/j.petrol.2020.108210",
+      "text": "https://doi.org/10.1016/j.petrol.2020.108210"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.5874,
+            "t": 84.75017336953124,
+            "r": 226.72147749999996,
+            "b": 78.17041525498269,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            51
+          ]
+        }
+      ],
+      "orig": "Received 20 October 2020; Accepted 30 November 2020",
+      "text": "Received 20 October 2020; Accepted 30 November 2020"
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.59798584,
+            "t": 70.85939605053125,
+            "r": 557.65347384,
+            "b": 59.131541050531155,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            160
+          ]
+        }
+      ],
+      "orig": "0920-4105/© 2020 The Author(s). Published by Elsevier B.V. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+      "text": "0920-4105/© 2020 The Author(s). Published by Elsevier B.V. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/)."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 37.59798584,
+            "t": 78.95939605053115,
+            "r": 151.70606984,
+            "b": 67.23154105053118,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            33
+          ]
+        }
+      ],
+      "orig": "Available online 15 December 2020",
+      "text": "Available online 15 December 2020"
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 213.33333333333334,
+            "t": 786.7009887695312,
+            "r": 372.0,
+            "b": 763.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "ARTICLE IN PRESS",
+      "text": "ARTICLE IN PRESS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 199.59798583999998,
+            "t": 760.2493960505312,
+            "r": 394.93312184000007,
+            "b": 748.5215410505313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            59
+          ]
+        }
+      ],
+      "orig": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx",
+      "text": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx"
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 228.416,
+            "t": 730.2229368695312,
+            "r": 371.40278204000003,
+            "b": 722.9120027905178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            41
+          ]
+        }
+      ],
+      "orig": "Contents lists available at ScienceDirect",
+      "text": "Contents lists available at ScienceDirect"
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 154.375,
+            "t": 706.3417722695311,
+            "r": 447.23065749999995,
+            "b": 693.547798157909,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "Journal of Petroleum Science and Engineering",
+      "text": "Journal of Petroleum Science and Engineering",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 191.282,
+            "t": 674.4859667695312,
+            "r": 408.49591736,
+            "b": 667.8110080195312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            55
+          ]
+        }
+      ],
+      "orig": "journal homepage: http://www.elsevier.com/locate/petrol",
+      "text": "journal homepage: http://www.elsevier.com/locate/petrol"
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 201.997,
+            "t": 529.6553524695312,
+            "r": 269.1467573,
+            "b": 523.2584112784776,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "A B S T R A C T",
+      "text": "A B S T R A C T",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 201.99699999999996,
+            "t": 510.2870827695312,
+            "r": 559.7905438,
+            "b": 398.4865876549827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1248
+          ]
+        }
+      ],
+      "orig": "The design of an ESP installation is started with the selection of the centrifugal pump, the heart of the system. To choose the ESP pump, one must calculate the installation ' s Total Dynamic Head (TDH) that is a measure of the required pressure increment to be generated by the pump under the operating conditions. Although this is a basic task in the installation design process, some controversies still exist in the industry about the way TDH should be calculated and many of the standard literature sources recommend an incorrect formula. The paper discusses the available  TDH  calculation  models  for  single-phase  and  multiphase  flow  conditions.  The  traditional  formula widely used in hand calculations is derived and its validity in other than gasless oil production is shown to be highly questionable. The correct formula for single-phase liquid flow is developed, and the calculation error committed by the traditional model is compared to the results of the proper formula. The incorrect model is shown to produce predominantly higher TDH values than the correct one; this fact seemingly increases the safety of pump selection. For increased reliability and in multiphase flow conditions the use of computer programs is advised.",
+      "text": "The design of an ESP installation is started with the selection of the centrifugal pump, the heart of the system. To choose the ESP pump, one must calculate the installation ' s Total Dynamic Head (TDH) that is a measure of the required pressure increment to be generated by the pump under the operating conditions. Although this is a basic task in the installation design process, some controversies still exist in the industry about the way TDH should be calculated and many of the standard literature sources recommend an incorrect formula. The paper discusses the available  TDH  calculation  models  for  single-phase  and  multiphase  flow  conditions.  The  traditional  formula widely used in hand calculations is derived and its validity in other than gasless oil production is shown to be highly questionable. The correct formula for single-phase liquid flow is developed, and the calculation error committed by the traditional model is compared to the results of the proper formula. The incorrect model is shown to produce predominantly higher TDH values than the correct one; this fact seemingly increases the safety of pump selection. For increased reliability and in multiphase flow conditions the use of computer programs is advised."
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 306.59262118000004,
+            "t": 365.91493686953123,
+            "r": 462.7364443000001,
+            "b": 358.6040027905178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "static liquid column present in the annulus.",
+      "text": "static liquid column present in the annulus."
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 306.59262118000004,
+            "t": 355.4836699895312,
+            "r": 560.0131088200001,
+            "b": 264.4380683005179,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            605
+          ]
+        }
+      ],
+      "orig": "Pumps, in general, increase the pressure of the produced fluid from pump suction pressure to pump discharge pressure. The difference be­ tween these two pressures is called the pump ' s ' pressure increment ' or ' differential pressure ' . In the ESP industry this is normally converted to hydraulic ' head ' and is designated as TDH, i.e. Total Dynamic Head. This is a very basic parameter in the selection of the ESP pump because it facilitates finding of the number of pump stages to be used; it must be calculated from the pressure conditions in the well while the desired amount of fluid is produced.",
+      "text": "Pumps, in general, increase the pressure of the produced fluid from pump suction pressure to pump discharge pressure. The difference be­ tween these two pressures is called the pump ' s ' pressure increment ' or ' differential pressure ' . In the ESP industry this is normally converted to hydraulic ' head ' and is designated as TDH, i.e. Total Dynamic Head. This is a very basic parameter in the selection of the ESP pump because it facilitates finding of the number of pump stages to be used; it must be calculated from the pressure conditions in the well while the desired amount of fluid is produced."
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 306.59262118000004,
+            "t": 250.8298809095312,
+            "r": 422.39658016,
+            "b": 243.51894683051785,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "2. Basics of TDH calculations",
+      "text": "2. Basics of TDH calculations",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 306.59262118000004,
+            "t": 229.90996242953122,
+            "r": 559.97883739,
+            "b": 201.67990688051782,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            186
+          ]
+        }
+      ],
+      "orig": "Total Dynamic Head, TDH, in general, is found from the difference of the pump ' s required discharge pressure and the available suction pres­ sure, a.k.a. the pump differential pressure.",
+      "text": "Total Dynamic Head, TDH, in general, is found from the difference of the pump ' s required discharge pressure and the available suction pres­ sure, a.k.a. the pump differential pressure."
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 318.55414726000004,
+            "t": 198.55957407953122,
+            "r": 510.35380675000005,
+            "b": 191.24864000051775,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            50
+          ]
+        }
+      ],
+      "orig": "The components of the pump discharge pressure are:",
+      "text": "The components of the pump discharge pressure are:"
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 308.17946809,
+            "t": 177.63965559953124,
+            "r": 559.99238656,
+            "b": 149.40960005051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            152
+          ]
+        }
+      ],
+      "orig": "1.  The wellhead pressure valid at the given liquid production rate. It is found from the separator pressure and the pressure losses along the flowline.",
+      "text": " The wellhead pressure valid at the given liquid production rate. It is found from the separator pressure and the pressure losses along the flowline.",
+      "enumerated": true,
+      "marker": "1."
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 528.3333333333334,
+            "t": 720.7009887695312,
+            "r": 554.0,
+            "b": 716.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "PETROLEUM",
+      "text": "PETROLEUM"
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 543.3333333333334,
+            "t": 721.7009887695312,
+            "r": 553.6666666666666,
+            "b": 719.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "JOURNAL OF",
+      "text": "JOURNAL OF"
+    },
+    {
+      "self_ref": "#/texts/31",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 531.3333333333334,
+            "t": 717.0343221028646,
+            "r": 553.6666666666666,
+            "b": 713.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "SCIENCE &",
+      "text": "SCIENCE &"
+    },
+    {
+      "self_ref": "#/texts/32",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 525.0,
+            "t": 713.7009887695312,
+            "r": 554.0,
+            "b": 709.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "ENGINEERING",
+      "text": "ENGINEERING"
+    },
+    {
+      "self_ref": "#/texts/33",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 505.0,
+            "t": 702.3676554361979,
+            "r": 511.6666666666667,
+            "b": 699.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "A-E",
+      "text": "A-E"
+    },
+    {
+      "self_ref": "#/texts/34",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 505.0,
+            "t": 699.7009887695312,
+            "r": 512.6666666666666,
+            "b": 698.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "an",
+      "text": "an"
+    },
+    {
+      "self_ref": "#/texts/35",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 40.377985839999994,
+            "t": 37.9926080505312,
+            "r": 505.9095058399997,
+            "b": 24.96165805053124,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            134
+          ]
+        }
+      ],
+      "orig": "Please cite this article as: Gábor Takács, Journal of Petroleum Science and Engineering , https://doi.org/10.1016/j.petrol.2020.108210",
+      "text": "Please cite this article as: Gábor Takács, Journal of Petroleum Science and Engineering , https://doi.org/10.1016/j.petrol.2020.108210"
+    },
+    {
+      "self_ref": "#/texts/36",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.5874,
+            "t": 757.0964337495312,
+            "r": 59.483515780000005,
+            "b": 750.8576465194476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "G. Tak ´",
+      "text": "G. Tak ´"
+    },
+    {
+      "self_ref": "#/texts/37",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 213.33333333333334,
+            "t": 786.7009887695312,
+            "r": 372.0,
+            "b": 763.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "ARTICLE IN PRESS",
+      "text": "ARTICLE IN PRESS"
+    },
+    {
+      "self_ref": "#/texts/38",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 56.18207476,
+            "t": 760.0461840505312,
+            "r": 558.3097058399999,
+            "b": 749.6214240505312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs",
+      "text": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs"
+    },
+    {
+      "self_ref": "#/texts/39",
+      "parent": {
+        "$ref": "#/groups/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 39.2314,
+            "t": 738.2169368695312,
+            "r": 291.02758126000003,
+            "b": 699.4990267305178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            222
+          ]
+        }
+      ],
+      "orig": "2.  The hydrostatic pressure of the liquid column occupying the tubing string above the pump; this is calculated from the true vertical depth (TVD) of the pump setting depth and the pressure gradient of the produced fluid.",
+      "text": " The hydrostatic pressure of the liquid column occupying the tubing string above the pump; this is calculated from the true vertical depth (TVD) of the pump setting depth and the pressure gradient of the produced fluid.",
+      "enumerated": true,
+      "marker": "2."
+    },
+    {
+      "self_ref": "#/texts/40",
+      "parent": {
+        "$ref": "#/groups/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 39.23140000000004,
+            "t": 696.3786939295312,
+            "r": 291.02678425,
+            "b": 647.2287199005178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            294
+          ]
+        }
+      ],
+      "orig": "3.  The frictional pressure drop occurring in the tubing string valid at the given flow rate. When calculating the frictional losses, in rigorous calculations the measured depth (MD) of the pump is used in the Darcy-Weisbach equation along with the friction factor found from the Moody diagram.",
+      "text": " The frictional pressure drop occurring in the tubing string valid at the given flow rate. When calculating the frictional losses, in rigorous calculations the measured depth (MD) of the pump is used in the Darcy-Weisbach equation along with the friction factor found from the Moody diagram.",
+      "enumerated": true,
+      "marker": "3."
+    },
+    {
+      "self_ref": "#/texts/41",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 633.6197354995312,
+            "r": 291.02758126000003,
+            "b": 573.9819068805178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            372
+          ]
+        }
+      ],
+      "orig": "Pump suction pressure, on the other hand, equals the pressure in the well ' s annulus at the depth of pump intake because ESP wells normally have  their  casing-tubing  annular  space  open  to  the  wellhead.  Called pump intake pressure, PIP, it can be calculated either from the casing­ head or from the sandface by summation of the appropriate flowing pressure losses.",
+      "text": "Pump suction pressure, on the other hand, equals the pressure in the well ' s annulus at the depth of pump intake because ESP wells normally have  their  casing-tubing  annular  space  open  to  the  wellhead.  Called pump intake pressure, PIP, it can be calculated either from the casing­ head or from the sandface by summation of the appropriate flowing pressure losses."
+    },
+    {
+      "self_ref": "#/texts/42",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 570.8615740795312,
+            "r": 291.02359620999994,
+            "b": 532.1428669305178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            225
+          ]
+        }
+      ],
+      "orig": "Finally,  TDH  is  easily  found  from  the  pump  differential  pressure (discharge  minus  suction  pressures)  after  converting  pressure  to  hy­ draulic head by using the flowing pressure gradient of the produced fluid.",
+      "text": "Finally,  TDH  is  easily  found  from  the  pump  differential  pressure (discharge  minus  suction  pressures)  after  converting  pressure  to  hy­ draulic head by using the flowing pressure gradient of the produced fluid."
+    },
+    {
+      "self_ref": "#/texts/43",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 518.5346795395312,
+            "r": 143.71622296,
+            "b": 511.2237454605178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "3. TDH calculation models",
+      "text": "3. TDH calculation models",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/44",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 497.61476105953125,
+            "r": 131.92924207000002,
+            "b": 490.30382698051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            26
+          ]
+        }
+      ],
+      "orig": "3.1. The original approach",
+      "text": "3.1. The original approach",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/45",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 476.6956395895312,
+            "r": 291.02997229,
+            "b": 406.62574708051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            504
+          ]
+        }
+      ],
+      "orig": "Application of ESP systems has a history of nearly a hundred years. In the early times they were mainly utilized to produce single-phase liquid (oil) without much gas production. The flowing pressures in such a well are shown in Fig. 1 where typical pressure traverses in the tubing string and in the casing-tubing annulus are depicted. The basic assumptions in the following discussion are: (a) water production is zero, (b) negligible gas rate is produced, (c) the casinghead is open to the atmosphere.",
+      "text": "Application of ESP systems has a history of nearly a hundred years. In the early times they were mainly utilized to produce single-phase liquid (oil) without much gas production. The flowing pressures in such a well are shown in Fig. 1 where typical pressure traverses in the tubing string and in the casing-tubing annulus are depicted. The basic assumptions in the following discussion are: (a) water production is zero, (b) negligible gas rate is produced, (c) the casinghead is open to the atmosphere."
+    },
+    {
+      "self_ref": "#/texts/46",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 403.4488265695312,
+            "r": 291.01562611,
+            "b": 375.2179740105178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            204
+          ]
+        }
+      ],
+      "orig": "The required pump discharge pressure is easily found from summing up the wellhead pressure, the hydrostatic pressure of the oil column in the tubing, and the frictional pressure loss in the tubing string:",
+      "text": "The required pump discharge pressure is easily found from summing up the wellhead pressure, the hydrostatic pressure of the oil column in the tubing, and the frictional pressure loss in the tubing string:"
+    },
+    {
+      "self_ref": "#/texts/47",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58796538,
+            "t": 366.7089368695312,
+            "r": 293.3596449,
+            "b": 358.3347482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            31
+          ]
+        }
+      ],
+      "orig": "pd = WHP + Lset grado + Δ pfr 1",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/48",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 37.58827821,
+            "t": 346.24331408953117,
+            "r": 291.02527066,
+            "b": 317.19867198934725,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            220
+          ]
+        },
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.594064,
+            "t": 738.2131703595313,
+            "r": 434.33404474,
+            "b": 730.902236280518,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            221,
+            258
+          ]
+        }
+      ],
+      "orig": "where: pd = pump discharge pressure, psi, WHP = producing wellhead pressure, psi, Lset = TVD of the pump setting depth, ft, Δ pfr = frictional pressure  loss  in  the  tubing  string,  psi,  grado = hydrostatic  pressure gradient of the produced oil, psi/ft.",
+      "text": "where: pd = pump discharge pressure, psi, WHP = producing wellhead pressure, psi, Lset = TVD of the pump setting depth, ft, Δ pfr = frictional pressure  loss  in  the  tubing  string,  psi,  grado = hydrostatic  pressure gradient of the produced oil, psi/ft."
+    },
+    {
+      "self_ref": "#/texts/49",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 44.844,
+            "t": 57.14058276953119,
+            "r": 285.6337197,
+            "b": 50.56082465498275,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            76
+          ]
+        }
+      ],
+      "orig": "Fig. 1. Pressure distributions in an ESP installation producing gasless oil.",
+      "text": "Fig. 1. Pressure distributions in an ESP installation producing gasless oil."
+    },
+    {
+      "self_ref": "#/texts/50",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 153.33333333333331,
+            "t": 295.03432210286456,
+            "r": 166.0,
+            "b": 270.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "WHP",
+      "text": "WHP"
+    },
+    {
+      "self_ref": "#/texts/51",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 213.0,
+            "t": 282.70098876953125,
+            "r": 257.33333333333337,
+            "b": 272.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Pressure",
+      "text": "Pressure"
+    },
+    {
+      "self_ref": "#/texts/52",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 129.0,
+            "t": 258.3676554361979,
+            "r": 141.33333333333331,
+            "b": 205.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Well Depth",
+      "text": "Well Depth"
+    },
+    {
+      "self_ref": "#/texts/53",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 232.33333333333334,
+            "t": 242.70098876953125,
+            "r": 271.0,
+            "b": 228.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "Flowing",
+      "text": "Flowing"
+    },
+    {
+      "self_ref": "#/texts/54",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 234.33333333333334,
+            "t": 231.70098876953125,
+            "r": 269.66666666666663,
+            "b": 217.36765543619788,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "Tubing",
+      "text": "Tubing"
+    },
+    {
+      "self_ref": "#/texts/55",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 231.0,
+            "t": 219.03432210286462,
+            "r": 274.0,
+            "b": 208.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Gradient",
+      "text": "Gradient"
+    },
+    {
+      "self_ref": "#/texts/56",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 88.33333333333334,
+            "t": 196.03432210286462,
+            "r": 131.33333333333331,
+            "b": 183.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "Dynamic",
+      "text": "Dynamic"
+    },
+    {
+      "self_ref": "#/texts/57",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 88.33333333333334,
+            "t": 184.03432210286462,
+            "r": 115.33333333333333,
+            "b": 173.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Level",
+      "text": "Level"
+    },
+    {
+      "self_ref": "#/texts/58",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 175.66666666666666,
+            "t": 174.03432210286462,
+            "r": 204.66666666666666,
+            "b": 162.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "grad",
+      "text": "grad"
+    },
+    {
+      "self_ref": "#/texts/59",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 263.66666666666663,
+            "t": 160.03432210286462,
+            "r": 281.33333333333337,
+            "b": 144.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "APfr",
+      "text": "APfr"
+    },
+    {
+      "self_ref": "#/texts/60",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 89.0,
+            "t": 131.36765543619788,
+            "r": 119.0,
+            "b": 117.36765543619788,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "Pump",
+      "text": "Pump"
+    },
+    {
+      "self_ref": "#/texts/61",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 89.33333333333334,
+            "t": 119.36765543619788,
+            "r": 137.0,
+            "b": 106.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Setting D.",
+      "text": "Setting D."
+    },
+    {
+      "self_ref": "#/texts/62",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 166.33333333333334,
+            "t": 119.36765543619788,
+            "r": 191.33333333333334,
+            "b": 109.36765543619788,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "PIP",
+      "text": "PIP"
+    },
+    {
+      "self_ref": "#/texts/63",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 224.0,
+            "t": 118.36765543619788,
+            "r": 256.33333333333337,
+            "b": 100.70098876953125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "∆ppump",
+      "text": "∆ppump"
+    },
+    {
+      "self_ref": "#/texts/64",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 273.66666666666663,
+            "t": 115.70098876953125,
+            "r": 287.0,
+            "b": 104.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "Pd",
+      "text": "Pd"
+    },
+    {
+      "self_ref": "#/texts/65",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 100.0,
+            "t": 94.70098876953125,
+            "r": 126.0,
+            "b": 83.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Perf.",
+      "text": "Perf."
+    },
+    {
+      "self_ref": "#/texts/66",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 96.0,
+            "t": 83.70098876953125,
+            "r": 131.66666666666669,
+            "b": 71.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Depth",
+      "text": "Depth"
+    },
+    {
+      "self_ref": "#/texts/67",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 204.0,
+            "t": 78.70098876953125,
+            "r": 232.33333333333334,
+            "b": 68.03432210286462,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "FBHP",
+      "text": "FBHP"
+    },
+    {
+      "self_ref": "#/texts/68",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.594064,
+            "t": 727.7253157695312,
+            "r": 560.0010024700001,
+            "b": 699.4944632105179,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            157
+          ]
+        }
+      ],
+      "orig": "The pump ' s  suction pressure, PIP, can be calculated from the hy­ drostatic pressure exerted by the static oil column in the casing annulus above the pump.",
+      "text": "The pump ' s  suction pressure, PIP, can be calculated from the hy­ drostatic pressure exerted by the static oil column in the casing annulus above the pump."
+    },
+    {
+      "self_ref": "#/texts/69",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.594064,
+            "t": 696.7099667695312,
+            "r": 562.3106449,
+            "b": 682.5607482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "PIP = Lset Ldyn ) grado 2",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/70",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 670.0730496495312,
+            "r": 505.48310619999995,
+            "b": 661.8916719893473,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            57
+          ]
+        }
+      ],
+      "orig": "where: Ldyn = TVD of the liquid level in the annulus, ft.",
+      "text": "where: Ldyn = TVD of the liquid level in the annulus, ft."
+    },
+    {
+      "self_ref": "#/texts/71",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.595,
+            "t": 659.5840822795312,
+            "r": 559.4096318,
+            "b": 641.8420027905178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            75
+          ]
+        }
+      ],
+      "orig": "The required pump differential pressure is calculated as Δ ppump = pd -PIP:",
+      "text": "The required pump differential pressure is calculated as Δ ppump = pd -PIP:"
+    },
+    {
+      "self_ref": "#/texts/72",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.595,
+            "t": 633.3349368695311,
+            "r": 559.9754056,
+            "b": 624.9047482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            36
+          ]
+        }
+      ],
+      "orig": "Δ ppump = WHP + Ldyn grado + Δ pfr 3",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/73",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 616.5546883295311,
+            "r": 557.64335434,
+            "b": 598.7551026505178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            97
+          ]
+        }
+      ],
+      "orig": "TDH  is  found  after  converting  pump  differential  pressure  to  hy­ draulic head as follows:",
+      "text": "TDH  is  found  after  converting  pump  differential  pressure  to  hy­ draulic head as follows:"
+    },
+    {
+      "self_ref": "#/texts/74",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 590.8559966695312,
+            "r": 559.9754056,
+            "b": 571.6137482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            38
+          ]
+        }
+      ],
+      "orig": "TDH = WHP grado + Ldyn + Δ pfr grado 4",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/75",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5974993,
+            "t": 563.8868153995312,
+            "r": 560.02595704,
+            "b": 535.6561482005178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            222
+          ]
+        }
+      ],
+      "orig": "This is the formula that had been in use since the early days of ESP applications. Sometimes the term Ldyn is called ' Net Lift ' that is said to represent the vertical distance from where the oil is lifted to the surface.",
+      "text": "This is the formula that had been in use since the early days of ESP applications. Sometimes the term Ldyn is called ' Net Lift ' that is said to represent the vertical distance from where the oil is lifted to the surface."
+    },
+    {
+      "self_ref": "#/texts/76",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.59694476,
+            "t": 532.5358153995312,
+            "r": 560.02460549,
+            "b": 431.05875985051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            712
+          ]
+        }
+      ],
+      "orig": "A closer look at the derivation of Eq. (4), and at Fig. 1 proves that the formula is only valid if the liquids in the tubing string and in the annulus are identical, in this case oil. Also, the casinghead pressure is assumed to be equal to atmospheric pressure. The combination of these conditions results in a ' net ' hydrostatic pressure acting on the pump that may be calculated from the dynamic liquid level, Ldyn. It is easy to see that this situation  will  completely  change  if  tubing  and  annulus  fluids  have different  hydraulic  gradients,  i.e.  contain  liquids  of  different  specific gravities.  As a result, strictly  speaking, this formula must be used in wells producing gasless oil only.",
+      "text": "A closer look at the derivation of Eq. (4), and at Fig. 1 proves that the formula is only valid if the liquids in the tubing string and in the annulus are identical, in this case oil. Also, the casinghead pressure is assumed to be equal to atmospheric pressure. The combination of these conditions results in a ' net ' hydrostatic pressure acting on the pump that may be calculated from the dynamic liquid level, Ldyn. It is easy to see that this situation  will  completely  change  if  tubing  and  annulus  fluids  have different  hydraulic  gradients,  i.e.  contain  liquids  of  different  specific gravities.  As a result, strictly  speaking, this formula must be used in wells producing gasless oil only."
+    },
+    {
+      "self_ref": "#/texts/77",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.59694476,
+            "t": 413.6512257895312,
+            "r": 459.14306474,
+            "b": 406.3402917105178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "3.2. The case of water-cut liquid production",
+      "text": "3.2. The case of water-cut liquid production",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/78",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.59694476,
+            "t": 392.6755166095312,
+            "r": 560.00866529,
+            "b": 343.5255425805178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            306
+          ]
+        }
+      ],
+      "orig": "In most cases with low gas production rates, the well produces wet oil and the tubing string contains an oil-water mixture. The traditional practice of TDH calculations is simple: change the oil gradient to liquid gradient in the formula (Eq. (4)) derived for clean oil to receive the following expression:",
+      "text": "In most cases with low gas production rates, the well produces wet oil and the tubing string contains an oil-water mixture. The traditional practice of TDH calculations is simple: change the oil gradient to liquid gradient in the formula (Eq. (4)) derived for clean oil to receive the following expression:"
+    },
+    {
+      "self_ref": "#/texts/79",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.59694476,
+            "t": 335.6249966695312,
+            "r": 559.9754056,
+            "b": 316.4387482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            38
+          ]
+        }
+      ],
+      "orig": "TDH = WHP gradl + Ldyn + Δ pfr gradl 5",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/80",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 308.65581539953115,
+            "r": 560.02083517,
+            "b": 228.15465601051778,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            540
+          ]
+        }
+      ],
+      "orig": "The probable first occurrence of Eq. (5) was published by Centrilift in their famous ' 9-Step ' leaflet (1975) that was reprinted many times. It was also included in K. Brown ' s legendary series on artificial lift tech­ nology (Brown, 1980). The same formula was presented in materials of various  training  courses  held  by  major  companies  like  Shell  and Schlumberger (Electrical Submersible Pump Training, 1998; TDH.pdf, 2000; https://production-technology.org/esp-design-step-4-total-dyna mic-head/; Electrical Submersible Pumps).",
+      "text": "The probable first occurrence of Eq. (5) was published by Centrilift in their famous ' 9-Step ' leaflet (1975) that was reprinted many times. It was also included in K. Brown ' s legendary series on artificial lift tech­ nology (Brown, 1980). The same formula was presented in materials of various  training  courses  held  by  major  companies  like  Shell  and Schlumberger (Electrical Submersible Pump Training, 1998; TDH.pdf, 2000; https://production-technology.org/esp-design-step-4-total-dyna mic-head/; Electrical Submersible Pumps)."
+    },
+    {
+      "self_ref": "#/texts/81",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 224.97773549953115,
+            "r": 560.02083517,
+            "b": 165.39649459051782,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            353
+          ]
+        }
+      ],
+      "orig": "Although the above list may not be complete, the age-old approach of calculating TDHs is still used and ESP designs made by hand may incorporate this inherent error even today. The author confesses having made the same mistake in his book on ESPs (Takacs, 2017) and can only hope that this paper may clarify the problem to people involved in ESP design.",
+      "text": "Although the above list may not be complete, the age-old approach of calculating TDHs is still used and ESP designs made by hand may incorporate this inherent error even today. The author confesses having made the same mistake in his book on ESPs (Takacs, 2017) and can only hope that this paper may clarify the problem to people involved in ESP design."
+    },
+    {
+      "self_ref": "#/texts/82",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 162.21957407953118,
+            "r": 559.99692487,
+            "b": 133.98872152051786,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            198
+          ]
+        }
+      ],
+      "orig": "To show the inherent error of this solution Fig. 2 is presented where typical pressure traverses in an ESP well producing a water-cut oil are shown, incorporating the following general observations:",
+      "text": "To show the inherent error of this solution Fig. 2 is presented where typical pressure traverses in an ESP well producing a water-cut oil are shown, incorporating the following general observations:"
+    },
+    {
+      "self_ref": "#/texts/83",
+      "parent": {
+        "$ref": "#/groups/5"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 310.96318027,
+            "t": 120.38053412953116,
+            "r": 560.0144590900001,
+            "b": 102.63833317051774,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            119
+          ]
+        }
+      ],
+      "orig": "· The static liquid column in the annulus above the pump contains oil only because of the natural separation of phases,",
+      "text": "The static liquid column in the annulus above the pump contains oil only because of the natural separation of phases,",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/84",
+      "parent": {
+        "$ref": "#/groups/5"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 310.96318027,
+            "t": 99.46061564953118,
+            "r": 559.9833757,
+            "b": 81.71841469051776,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            86
+          ]
+        }
+      ],
+      "orig": "· The casinghead is under a positive pressure because it is connected to the flowline.",
+      "text": "The casinghead is under a positive pressure because it is connected to the flowline.",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/85",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 306.5979565,
+            "t": 68.11022729953106,
+            "r": 559.9993159,
+            "b": 50.3106416205178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            128
+          ]
+        }
+      ],
+      "orig": "Similarly to previous derivations, the required pump discharge and differential pressures are found from the following formulas:",
+      "text": "Similarly to previous derivations, the required pump discharge and differential pressures are found from the following formulas:"
+    },
+    {
+      "self_ref": "#/texts/86",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 296.20798584,
+            "t": 39.246184050531156,
+            "r": 299.79767384,
+            "b": 28.821424050531164,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "2",
+      "text": "2"
+    },
+    {
+      "self_ref": "#/texts/87",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 213.33333333333334,
+            "t": 786.7009887695312,
+            "r": 372.0,
+            "b": 763.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "ARTICLE IN PRESS",
+      "text": "ARTICLE IN PRESS"
+    },
+    {
+      "self_ref": "#/texts/88",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.5874,
+            "t": 757.0964337495312,
+            "r": 59.483515780000005,
+            "b": 750.8576465194476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "G. Tak ´",
+      "text": "G. Tak ´"
+    },
+    {
+      "self_ref": "#/texts/89",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 56.18207476,
+            "t": 760.0461840505312,
+            "r": 558.3097058399999,
+            "b": 749.6214240505312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs",
+      "text": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs"
+    },
+    {
+      "self_ref": "#/texts/90",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 40.5921,
+            "t": 505.2980827695312,
+            "r": 289.8861284999999,
+            "b": 498.7183246549827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            78
+          ]
+        }
+      ],
+      "orig": "Fig. 2. Pressure distributions in an ESP installation producing water-cut oil.",
+      "text": "Fig. 2. Pressure distributions in an ESP installation producing water-cut oil."
+    },
+    {
+      "self_ref": "#/texts/91",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 155.0,
+            "t": 738.0343221028646,
+            "r": 167.66666666666666,
+            "b": 716.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "WHP",
+      "text": "WHP"
+    },
+    {
+      "self_ref": "#/texts/92",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 209.0,
+            "t": 728.7009887695312,
+            "r": 249.33333333333334,
+            "b": 717.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Pressure",
+      "text": "Pressure"
+    },
+    {
+      "self_ref": "#/texts/93",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 224.0,
+            "t": 690.7009887695312,
+            "r": 260.0,
+            "b": 677.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "Flowing",
+      "text": "Flowing"
+    },
+    {
+      "self_ref": "#/texts/94",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 134.0,
+            "t": 681.3676554361979,
+            "r": 144.66666666666669,
+            "b": 633.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Well Depth",
+      "text": "Well Depth"
+    },
+    {
+      "self_ref": "#/texts/95",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 226.0,
+            "t": 679.3676554361979,
+            "r": 257.33333333333337,
+            "b": 666.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "Tubing",
+      "text": "Tubing"
+    },
+    {
+      "self_ref": "#/texts/96",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 155.33333333333331,
+            "t": 674.0343221028646,
+            "r": 183.0,
+            "b": 656.0343221028645,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "gradg",
+      "text": "gradg"
+    },
+    {
+      "self_ref": "#/texts/97",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 223.0,
+            "t": 669.0343221028646,
+            "r": 261.66666666666663,
+            "b": 658.367655436198,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Gradient",
+      "text": "Gradient"
+    },
+    {
+      "self_ref": "#/texts/98",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 187.33333333333334,
+            "t": 642.7009887695312,
+            "r": 212.33333333333334,
+            "b": 631.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "grad",
+      "text": "grad"
+    },
+    {
+      "self_ref": "#/texts/99",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 97.33333333333333,
+            "t": 636.367655436198,
+            "r": 135.66666666666669,
+            "b": 626.0343221028645,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "Dynamic",
+      "text": "Dynamic"
+    },
+    {
+      "self_ref": "#/texts/100",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 96.66666666666667,
+            "t": 625.7009887695312,
+            "r": 121.66666666666667,
+            "b": 616.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Level",
+      "text": "Level"
+    },
+    {
+      "self_ref": "#/texts/101",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 255.66666666666666,
+            "t": 618.0343221028646,
+            "r": 271.0,
+            "b": 602.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "APfr",
+      "text": "APfr"
+    },
+    {
+      "self_ref": "#/texts/102",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 171.0,
+            "t": 610.0343221028646,
+            "r": 198.0,
+            "b": 596.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "grad",
+      "text": "grad"
+    },
+    {
+      "self_ref": "#/texts/103",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 97.0,
+            "t": 591.0343221028646,
+            "r": 125.0,
+            "b": 578.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "Pump",
+      "text": "Pump"
+    },
+    {
+      "self_ref": "#/texts/104",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 97.66666666666667,
+            "t": 580.3676554361979,
+            "r": 141.0,
+            "b": 568.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Setting D.",
+      "text": "Setting D."
+    },
+    {
+      "self_ref": "#/texts/105",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 165.0,
+            "t": 579.3676554361979,
+            "r": 182.0,
+            "b": 568.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "PIP",
+      "text": "PIP"
+    },
+    {
+      "self_ref": "#/texts/106",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 219.66666666666666,
+            "t": 579.7009887695312,
+            "r": 249.0,
+            "b": 563.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "∆ppump",
+      "text": "∆ppump"
+    },
+    {
+      "self_ref": "#/texts/107",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 264.66666666666663,
+            "t": 577.7009887695312,
+            "r": 277.0,
+            "b": 566.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "Pd",
+      "text": "Pd"
+    },
+    {
+      "self_ref": "#/texts/108",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 107.66666666666667,
+            "t": 558.3676554361979,
+            "r": 131.0,
+            "b": 547.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Perf.",
+      "text": "Perf."
+    },
+    {
+      "self_ref": "#/texts/109",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 96.33333333333333,
+            "t": 548.7009887695312,
+            "r": 136.33333333333331,
+            "b": 535.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Depth",
+      "text": "Depth"
+    },
+    {
+      "self_ref": "#/texts/110",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 204.0,
+            "t": 547.3676554361979,
+            "r": 231.33333333333334,
+            "b": 536.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "FBHP",
+      "text": "FBHP"
+    },
+    {
+      "self_ref": "#/texts/111",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.5874,
+            "t": 482.92893686953124,
+            "r": 293.3596449,
+            "b": 474.55474826953116,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            31
+          ]
+        }
+      ],
+      "orig": "pd = WHP + Lset gradl + Δ pfr 6",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/112",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.590368789999985,
+            "t": 462.2929368695312,
+            "r": 291.02278203000003,
+            "b": 453.9187482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            40
+          ]
+        }
+      ],
+      "orig": "Δ ppump = WHP + Lset gradl + Δ pfr PIP 7",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/113",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.58954222999999,
+            "t": 445.5126883295312,
+            "r": 290.97894648,
+            "b": 427.71200279051783,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            143
+          ]
+        }
+      ],
+      "orig": "TDH  is  calculated  using  the  hydrostatic  pressure  gradient  of  the liquid flowing in the tubing string, gradl; the resultant formula is:",
+      "text": "TDH  is  calculated  using  the  hydrostatic  pressure  gradient  of  the liquid flowing in the tubing string, gradl; the resultant formula is:"
+    },
+    {
+      "self_ref": "#/texts/114",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.588483759999974,
+            "t": 419.8139966695312,
+            "r": 291.0244056,
+            "b": 400.6277482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            48
+          ]
+        }
+      ],
+      "orig": "TDH = WHP gradl + Lset + Δ pfr gradl PIP gradl 8",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/115",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.590368789999985,
+            "t": 392.84481539953117,
+            "r": 291.03396972,
+            "b": 333.26357449051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            372
+          ]
+        }
+      ],
+      "orig": "As seen, this formula greatly differs from Eq. (5) that was developed from Eq. (4) valid for pure oil production. It includes the pump ' s intake pressure, PIP, that is calculated by summing the following pressures in the casing annulus: (a) casinghead pressure, CHP, (b) gas column pres­ sure, and (c) the pressure of the static oil column above the pump, as given below:",
+      "text": "As seen, this formula greatly differs from Eq. (5) that was developed from Eq. (4) valid for pure oil production. It includes the pump ' s intake pressure, PIP, that is calculated by summing the following pressures in the casing annulus: (a) casinghead pressure, CHP, (b) gas column pres­ sure, and (c) the pressure of the static oil column above the pump, as given below:"
+    },
+    {
+      "self_ref": "#/texts/116",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.590368789999985,
+            "t": 330.4739667695312,
+            "r": 293.3596449,
+            "b": 316.3247482695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "PIP = CHP + Ldyn gradg + Lset Ldyn ) grado 9",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/117",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.58833799,
+            "t": 303.78046193953116,
+            "r": 291.02476583000004,
+            "b": 264.2476719893473,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            267
+          ]
+        }
+      ],
+      "orig": "where:PIP = pump intake pressure, psi, CHP = producing casinghead pressure, psi, Lset = TVD of the pump setting depth, ft, Ldyn = TVD of the dynamic liquid level, ft, grado = pressure gradient of the produced oil, psi/ft, gradg = pressure gradient of the gas, psi/ft.",
+      "text": "where:PIP = pump intake pressure, psi, CHP = producing casinghead pressure, psi, Lset = TVD of the pump setting depth, ft, Ldyn = TVD of the dynamic liquid level, ft, grado = pressure gradient of the produced oil, psi/ft, gradg = pressure gradient of the gas, psi/ft."
+    },
+    {
+      "self_ref": "#/texts/118",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.588530670000004,
+            "t": 261.9400822795312,
+            "r": 291.01459738000005,
+            "b": 160.46321371051783,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            610
+          ]
+        }
+      ],
+      "orig": "The accurate formula, Eq. (8), appeared in the later editions of the famous ' 9-Step ' design procedure (Nine Step Book, 2007; ESP Hand­ book, 2007), as well as in the most recent edition from Baker Hughes (Submersible  Pump  Handbook,  2011).  Other  key  sources  worth mentioning are the API Recommended Practice API RP 11S4 (2002), Weatherford ' s design book ' ESP Application Guide ' (ESP Application Guide, 2007), SPE ' s Petroleum Engineering Handbook (Lake, 2006), as well as PetroWiki, the online service maintained by SPE. (https://petrowiki.org/ESP_design#Step_four:_total_dynamic_head_ .28TDH.29).",
+      "text": "The accurate formula, Eq. (8), appeared in the later editions of the famous ' 9-Step ' design procedure (Nine Step Book, 2007; ESP Hand­ book, 2007), as well as in the most recent edition from Baker Hughes (Submersible  Pump  Handbook,  2011).  Other  key  sources  worth mentioning are the API Recommended Practice API RP 11S4 (2002), Weatherford ' s design book ' ESP Application Guide ' (ESP Application Guide, 2007), SPE ' s Petroleum Engineering Handbook (Lake, 2006), as well as PetroWiki, the online service maintained by SPE. (https://petrowiki.org/ESP_design#Step_four:_total_dynamic_head_ .28TDH.29)."
+    },
+    {
+      "self_ref": "#/texts/119",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.588530670000004,
+            "t": 146.85502631953113,
+            "r": 160.08020056,
+            "b": 139.54409224051778,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            33
+          ]
+        }
+      ],
+      "orig": "3.3. Comparison of the two models",
+      "text": "3.3. Comparison of the two models",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/120",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 37.588530670000004,
+            "t": 125.93510783953116,
+            "r": 291.03053758000004,
+            "b": 76.78513381051778,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            343
+          ]
+        }
+      ],
+      "orig": "As  already  mentioned,  the  traditional  model  of  hand  calculating TDHs in wells producing wet oil utilizes Eq. (5) that is a modification of Eq. (4) with the substitution of liquid gradient instead of the oil gradient. The calculation error, compared to the use of the properly derived for­ mula (Eq. (8)), is discussed in the following.",
+      "text": "As  already  mentioned,  the  traditional  model  of  hand  calculating TDHs in wells producing wet oil utilizes Eq. (5) that is a modification of Eq. (4) with the substitution of liquid gradient instead of the oil gradient. The calculation error, compared to the use of the properly derived for­ mula (Eq. (8)), is discussed in the following."
+    },
+    {
+      "self_ref": "#/texts/121",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 49.55005675,
+            "t": 73.66480100953117,
+            "r": 277.05974929,
+            "b": 66.35386693051782,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "The difference between Eq. (8) and Eq. (5) can be expressed as:",
+      "text": "The difference between Eq. (8) and Eq. (5) can be expressed as:"
+    },
+    {
+      "self_ref": "#/texts/122",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "formula",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59295484,
+            "t": 733.9009667695312,
+            "r": 562.3188112,
+            "b": 714.3097482695313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            48
+          ]
+        }
+      ],
+      "orig": "Δ TDH = Lset Ldyn ) PIP gradl = FOP PIP gradl 10",
+      "text": ""
+    },
+    {
+      "self_ref": "#/texts/123",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 702.8414411595312,
+            "r": 559.98516592,
+            "b": 674.6101482005179,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            169
+          ]
+        }
+      ],
+      "orig": "where: Δ TDH = deviation of TDH values, ft, FOP = fl uid level above pump, ft, PIP = pump intake pressure, psi, gradl = pressure gradient of the produced liquid, psi/ft.",
+      "text": "where: Δ TDH = deviation of TDH values, ft, FOP = fl uid level above pump, ft, PIP = pump intake pressure, psi, gradl = pressure gradient of the produced liquid, psi/ft."
+    },
+    {
+      "self_ref": "#/texts/124",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 671.4898153995313,
+            "r": 559.98315853,
+            "b": 622.3398413705179,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            358
+          ]
+        }
+      ],
+      "orig": "Errors in TDH calculations defined by this equation are plotted in Fig.  3  for  selected  fluid  properties,  water  cuts,  and  fluid  levels  (FOP values)  in  function  of  the  pump  intake  pressure,  PIP.  Positive  errors indicate  that  the  traditional  method  underpredicts,  negative  errors indicate that it overpredicts the correct TDH values.",
+      "text": "Errors in TDH calculations defined by this equation are plotted in Fig.  3  for  selected  fluid  properties,  water  cuts,  and  fluid  levels  (FOP values)  in  function  of  the  pump  intake  pressure,  PIP.  Positive  errors indicate  that  the  traditional  method  underpredicts,  negative  errors indicate that it overpredicts the correct TDH values."
+    },
+    {
+      "self_ref": "#/texts/125",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 619.1629208595313,
+            "r": 559.9967077,
+            "b": 559.5816799505178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            385
+          ]
+        }
+      ],
+      "orig": "Each line representing the calculation error for 0% water cut starts at the minimum possible PIP that is found from the FOP and the pressure gradient of the oil produced. These points are indicated by small circles. Points on any of the lines indicate the increase of PIP due to the com­ bined effects of the casinghead pressure, CHP, and the pressure of the gas column in the annulus.",
+      "text": "Each line representing the calculation error for 0% water cut starts at the minimum possible PIP that is found from the FOP and the pressure gradient of the oil produced. These points are indicated by small circles. Points on any of the lines indicate the increase of PIP due to the com­ bined effects of the casinghead pressure, CHP, and the pressure of the gas column in the annulus."
+    },
+    {
+      "self_ref": "#/texts/126",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 318.55926540999997,
+            "t": 556.4039624295312,
+            "r": 496.29887149,
+            "b": 549.0930283505178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            47
+          ]
+        }
+      ],
+      "orig": "The main conclusions drawn from the figure are:",
+      "text": "The main conclusions drawn from the figure are:"
+    },
+    {
+      "self_ref": "#/texts/127",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 310.96216609,
+            "t": 535.4848409595312,
+            "r": 562.3478872,
+            "b": 528.1739068805178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            70
+          ]
+        }
+      ],
+      "orig": "· In most cases, the traditional method results in overpredicted TDHs.",
+      "text": "In most cases, the traditional method results in overpredicted TDHs.",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/128",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 310.96216609,
+            "t": 525.0535740795312,
+            "r": 513.74382637,
+            "b": 517.7426400005178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            56
+          ]
+        }
+      ],
+      "orig": "· Overprediction linearly increases with increased PIPs.",
+      "text": "Overprediction linearly increases with increased PIPs.",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/129",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 310.96216609,
+            "t": 514.5649224795312,
+            "r": 498.67236727,
+            "b": 507.25398840051787,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            52
+          ]
+        }
+      ],
+      "orig": "· Increased water cuts reduce the calculation error.",
+      "text": "Increased water cuts reduce the calculation error.",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/130",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 310.96216609,
+            "t": 504.13365559953127,
+            "r": 505.91400013,
+            "b": 496.82272152051786,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            54
+          ]
+        }
+      ],
+      "orig": "· Calculation error decreases with an increase of FOP.",
+      "text": "Calculation error decreases with an increase of FOP.",
+      "enumerated": false,
+      "marker": "·"
+    },
+    {
+      "self_ref": "#/texts/131",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 483.2145341295312,
+            "r": 560.0126478999999,
+            "b": 392.16893244051784,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            565
+          ]
+        }
+      ],
+      "orig": "These results should sound comforting to people still employing the old, and biased model based on the age-long original approach of TDH hand calculations. As shown in Fig. 3, the traditional model almost al­ ways results in overdesign and predicts higher than necessary TDHs. Because the selection of the number of pump stages is based on the calculated TDH value, the chance of selecting pumps that develop less than needed TDH is eliminated. On the other hand, an overdesigned pump  might  not  provide  optimum  operating  conditions  of  the  ESP installation.",
+      "text": "These results should sound comforting to people still employing the old, and biased model based on the age-long original approach of TDH hand calculations. As shown in Fig. 3, the traditional model almost al­ ways results in overdesign and predicts higher than necessary TDHs. Because the selection of the number of pump stages is based on the calculated TDH value, the chance of selecting pumps that develop less than needed TDH is eliminated. On the other hand, an overdesigned pump  might  not  provide  optimum  operating  conditions  of  the  ESP installation."
+    },
+    {
+      "self_ref": "#/texts/132",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 372.83422819953125,
+            "r": 433.79415925,
+            "b": 365.52329412051785,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            36
+          ]
+        }
+      ],
+      "orig": "3.4. The universal calculation model",
+      "text": "3.4. The universal calculation model",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/133",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 351.9151067295312,
+            "r": 560.00388079,
+            "b": 250.43744115051777,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            699
+          ]
+        }
+      ],
+      "orig": "Description of a universal calculation model is simple: use the defi­ nition of TDH as the head corresponding to the required pump differ­ ential pressure, i.e. the difference between the required pump discharge pressure and the available pump intake pressure. In this process the only problem is the calculation of discharge pressure. For single-phase liquid flow, use of Eq. (8) is recommended, but in wells producing a significant amount of free gas the determination of the required pump discharge pressure  involves  multiphase  flow  calculations  in  the  tubing  string. Because these are cumbersome or even impossible to do manually, uti­ lization of special computer programs is necessary.",
+      "text": "Description of a universal calculation model is simple: use the defi­ nition of TDH as the head corresponding to the required pump differ­ ential pressure, i.e. the difference between the required pump discharge pressure and the available pump intake pressure. In this process the only problem is the calculation of discharge pressure. For single-phase liquid flow, use of Eq. (8) is recommended, but in wells producing a significant amount of free gas the determination of the required pump discharge pressure  involves  multiphase  flow  calculations  in  the  tubing  string. Because these are cumbersome or even impossible to do manually, uti­ lization of special computer programs is necessary."
+    },
+    {
+      "self_ref": "#/texts/134",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 247.26052063953125,
+            "r": 560.01982099,
+            "b": 177.19142514051782,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            459
+          ]
+        }
+      ],
+      "orig": "One excellent discussion of the universal TDH calculation model was provided  by  Wood  Group  ESP  (2007).  Available  computer  programs from major manufacturers, of course, all use the above principle and can be used to design reliable ESP installations (IHS Energy Group, 2001; Baker Hughes, 2020). Their accuracy, however, is greatly affected by the correctness  of  the  input  data,  especially  those  related  to  the  inflow performance of the well.",
+      "text": "One excellent discussion of the universal TDH calculation model was provided  by  Wood  Group  ESP  (2007).  Available  computer  programs from major manufacturers, of course, all use the above principle and can be used to design reliable ESP installations (IHS Energy Group, 2001; Baker Hughes, 2020). Their accuracy, however, is greatly affected by the correctness  of  the  input  data,  especially  those  related  to  the  inflow performance of the well."
+    },
+    {
+      "self_ref": "#/texts/135",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 162.22194466953124,
+            "r": 366.80626576,
+            "b": 154.9110105905179,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            14
+          ]
+        }
+      ],
+      "orig": "4. Conclusions",
+      "text": "4. Conclusions",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/136",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 306.59694232,
+            "t": 141.3028231995313,
+            "r": 560.02540006,
+            "b": 50.31380922051778,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            650
+          ]
+        },
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.5874,
+            "t": 757.0964337495312,
+            "r": 59.483515780000005,
+            "b": 750.8576465194476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            651,
+            659
+          ]
+        }
+      ],
+      "orig": "Most of the discussions in this paper relate to ESP installation designs performed by hand only; in such cases problems in the calculation of the TDH values may occur because of different assumptions of the available solutions. The error committed by using an outdated formula is inves­ tigated and a way to calculate its extent is proposed. After an investi­ gation  of  the  impacts  of  the  parameters  affecting  TDH  errors  it  is demonstrated that most often the use of  the  incorrect  formula  gives over-predicted TDH values. These, in turn, increase the safety of ESP pump selection because the required number of pump stages is increased G. Tak ´",
+      "text": "Most of the discussions in this paper relate to ESP installation designs performed by hand only; in such cases problems in the calculation of the TDH values may occur because of different assumptions of the available solutions. The error committed by using an outdated formula is inves­ tigated and a way to calculate its extent is proposed. After an investi­ gation  of  the  impacts  of  the  parameters  affecting  TDH  errors  it  is demonstrated that most often the use of  the  incorrect  formula  gives over-predicted TDH values. These, in turn, increase the safety of ESP pump selection because the required number of pump stages is increased G. Tak ´"
+    },
+    {
+      "self_ref": "#/texts/137",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 296.20798584,
+            "t": 39.246184050531156,
+            "r": 299.79767384,
+            "b": 28.821424050531164,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "3",
+      "text": "3"
+    },
+    {
+      "self_ref": "#/texts/138",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 213.33333333333334,
+            "t": 786.7009887695312,
+            "r": 372.0,
+            "b": 763.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "ARTICLE IN PRESS",
+      "text": "ARTICLE IN PRESS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/139",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 56.18207476,
+            "t": 760.0461840505312,
+            "r": 558.3097058399999,
+            "b": 749.6214240505312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs",
+      "text": "Journal of Petroleum Science and Engineering xxx (xxxx) xxx acs"
+    },
+    {
+      "self_ref": "#/texts/140",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 211.011,
+            "t": 499.8560827695312,
+            "r": 388.4989947,
+            "b": 493.2763246549827,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            55
+          ]
+        }
+      ],
+      "orig": "Fig. 3. Typical errors of traditional TDH calculations.",
+      "text": "Fig. 3. Typical errors of traditional TDH calculations."
+    },
+    {
+      "self_ref": "#/texts/141",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 150.33333333333334,
+            "t": 735.7009887695312,
+            "r": 165.66666666666666,
+            "b": 725.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "400",
+      "text": "400"
+    },
+    {
+      "self_ref": "#/texts/142",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 178.33333333333331,
+            "t": 727.7009887695312,
+            "r": 205.0,
+            "b": 717.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "FOP, ft",
+      "text": "FOP, ft"
+    },
+    {
+      "self_ref": "#/texts/143",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 269.66666666666663,
+            "t": 726.0343221028646,
+            "r": 290.0,
+            "b": 715.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,500",
+      "text": "1,500"
+    },
+    {
+      "self_ref": "#/texts/144",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 150.0,
+            "t": 722.0343221028646,
+            "r": 165.33333333333334,
+            "b": 712.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "200",
+      "text": "200"
+    },
+    {
+      "self_ref": "#/texts/145",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 220.0,
+            "t": 720.3676554361979,
+            "r": 240.0,
+            "b": 710.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,000",
+      "text": "1,000"
+    },
+    {
+      "self_ref": "#/texts/146",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 377.6666666666667,
+            "t": 722.0343221028646,
+            "r": 417.6666666666667,
+            "b": 711.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "API 40®oil",
+      "text": "API 40®oil"
+    },
+    {
+      "self_ref": "#/texts/147",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 178.66666666666669,
+            "t": 715.7009887695312,
+            "r": 195.66666666666669,
+            "b": 706.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "500",
+      "text": "500"
+    },
+    {
+      "self_ref": "#/texts/148",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 372.3333333333333,
+            "t": 713.0343221028646,
+            "r": 422.0,
+            "b": 701.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "SpGrw = 1.05",
+      "text": "SpGrw = 1.05"
+    },
+    {
+      "self_ref": "#/texts/149",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 158.0,
+            "t": 707.3676554361979,
+            "r": 164.66666666666666,
+            "b": 699.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "0",
+      "text": "0"
+    },
+    {
+      "self_ref": "#/texts/150",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 294.66666666666663,
+            "t": 707.0343221028646,
+            "r": 301.0,
+            "b": 700.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "Q",
+      "text": "Q"
+    },
+    {
+      "self_ref": "#/texts/151",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 148.33333333333334,
+            "t": 695.0343221028646,
+            "r": 165.33333333333334,
+            "b": 685.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "-200",
+      "text": "-200"
+    },
+    {
+      "self_ref": "#/texts/152",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 148.33333333333334,
+            "t": 681.3676554361979,
+            "r": 165.33333333333334,
+            "b": 671.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "-400",
+      "text": "-400"
+    },
+    {
+      "self_ref": "#/texts/153",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 131.33333333333334,
+            "t": 677.0343221028646,
+            "r": 143.0,
+            "b": 640.0343221028645,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "Error, ft",
+      "text": "Error, ft"
+    },
+    {
+      "self_ref": "#/texts/154",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 148.0,
+            "t": 667.3676554361979,
+            "r": 165.33333333333334,
+            "b": 657.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "-600",
+      "text": "-600"
+    },
+    {
+      "self_ref": "#/texts/155",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 148.0,
+            "t": 653.7009887695312,
+            "r": 165.33333333333334,
+            "b": 644.0343221028645,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "-800",
+      "text": "-800"
+    },
+    {
+      "self_ref": "#/texts/156",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 131.66666666666666,
+            "t": 645.367655436198,
+            "r": 141.33333333333334,
+            "b": 622.367655436198,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "TDH",
+      "text": "TDH"
+    },
+    {
+      "self_ref": "#/texts/157",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 141.66666666666666,
+            "t": 640.7009887695312,
+            "r": 165.33333333333334,
+            "b": 630.0343221028645,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-1,000",
+      "text": "-1,000"
+    },
+    {
+      "self_ref": "#/texts/158",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 142.66666666666666,
+            "t": 627.367655436198,
+            "r": 165.0,
+            "b": 616.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-1,200",
+      "text": "-1,200"
+    },
+    {
+      "self_ref": "#/texts/159",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 142.66666666666666,
+            "t": 613.3676554361979,
+            "r": 165.66666666666666,
+            "b": 602.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-1,400",
+      "text": "-1,400"
+    },
+    {
+      "self_ref": "#/texts/160",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 218.33333333333331,
+            "t": 616.0343221028646,
+            "r": 246.0,
+            "b": 606.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-0% WC",
+      "text": "-0% WC"
+    },
+    {
+      "self_ref": "#/texts/161",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 214.0,
+            "t": 605.0343221028646,
+            "r": 249.33333333333334,
+            "b": 597.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-50%WC",
+      "text": "-50%WC"
+    },
+    {
+      "self_ref": "#/texts/162",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 142.66666666666666,
+            "t": 600.0343221028646,
+            "r": 165.66666666666666,
+            "b": 589.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-1,600",
+      "text": "-1,600"
+    },
+    {
+      "self_ref": "#/texts/163",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 218.0,
+            "t": 595.0343221028646,
+            "r": 253.66666666666666,
+            "b": 586.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "-100%WC",
+      "text": "-100%WC"
+    },
+    {
+      "self_ref": "#/texts/164",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 142.66666666666666,
+            "t": 586.3676554361979,
+            "r": 165.66666666666666,
+            "b": 575.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-1,800",
+      "text": "-1,800"
+    },
+    {
+      "self_ref": "#/texts/165",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 143.0,
+            "t": 572.0343221028646,
+            "r": 165.0,
+            "b": 562.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "-2,000",
+      "text": "-2,000"
+    },
+    {
+      "self_ref": "#/texts/166",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 162.0,
+            "t": 564.0343221028646,
+            "r": 176.33333333333331,
+            "b": 554.7009887695312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "100",
+      "text": "100"
+    },
+    {
+      "self_ref": "#/texts/167",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 191.0,
+            "t": 564.3676554361979,
+            "r": 206.66666666666669,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "200",
+      "text": "200"
+    },
+    {
+      "self_ref": "#/texts/168",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 221.0,
+            "t": 564.3676554361979,
+            "r": 236.33333333333334,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "300",
+      "text": "300"
+    },
+    {
+      "self_ref": "#/texts/169",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 250.66666666666666,
+            "t": 564.3676554361979,
+            "r": 266.0,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "400",
+      "text": "400"
+    },
+    {
+      "self_ref": "#/texts/170",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 280.66666666666663,
+            "t": 564.0343221028646,
+            "r": 295.33333333333337,
+            "b": 555.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "500",
+      "text": "500"
+    },
+    {
+      "self_ref": "#/texts/171",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 310.33333333333337,
+            "t": 564.3676554361979,
+            "r": 325.66666666666663,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "600",
+      "text": "600"
+    },
+    {
+      "self_ref": "#/texts/172",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 340.0,
+            "t": 564.0343221028646,
+            "r": 355.0,
+            "b": 555.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "700",
+      "text": "700"
+    },
+    {
+      "self_ref": "#/texts/173",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 369.3333333333333,
+            "t": 564.3676554361979,
+            "r": 385.0,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "800",
+      "text": "800"
+    },
+    {
+      "self_ref": "#/texts/174",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 399.0,
+            "t": 564.3676554361979,
+            "r": 414.6666666666667,
+            "b": 554.3676554361979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "006",
+      "text": "006"
+    },
+    {
+      "self_ref": "#/texts/175",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 426.3333333333333,
+            "t": 564.0343221028646,
+            "r": 446.6666666666667,
+            "b": 554.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "1,000",
+      "text": "1,000"
+    },
+    {
+      "self_ref": "#/texts/176",
+      "parent": {
+        "$ref": "#/pictures/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 239.0,
+            "t": 553.7009887695312,
+            "r": 367.0,
+            "b": 542.0343221028646,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            30
+          ]
+        }
+      ],
+      "orig": "PIP, Pump Intake Pressure, psi",
+      "text": "PIP, Pump Intake Pressure, psi"
+    },
+    {
+      "self_ref": "#/texts/177",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.5874,
+            "t": 477.9399368695312,
+            "r": 291.02781289,
+            "b": 449.7098813205178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            157
+          ]
+        }
+      ],
+      "orig": "by this practice. This kind of behavior, however, might not result in an optimum ESP system installation that could be provided by a comput­ erized solution.",
+      "text": "by this practice. This kind of behavior, however, might not result in an optimum ESP system installation that could be provided by a comput­ erized solution."
+    },
+    {
+      "self_ref": "#/texts/178",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.587399999999974,
+            "t": 446.5329608095312,
+            "r": 291.02621887,
+            "b": 397.3829867805178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            332
+          ]
+        }
+      ],
+      "orig": "Computerized design procedures provided by major manufacturers do not rely on simplified formulas to calculate the TDH and, therefore, provide an accurate selection of the ESP pump. Their accuracy, however, highly  depends  on  the  reliability  of  the  input  parameters,  especially those describing the well ' s inflow behavior.",
+      "text": "Computerized design procedures provided by major manufacturers do not rely on simplified formulas to calculate the TDH and, therefore, provide an accurate selection of the ESP pump. Their accuracy, however, highly  depends  on  the  reliability  of  the  input  parameters,  especially those describing the well ' s inflow behavior."
+    },
+    {
+      "self_ref": "#/texts/179",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.587399999999974,
+            "t": 383.77400237953117,
+            "r": 168.50904466,
+            "b": 376.4630683005178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            33
+          ]
+        }
+      ],
+      "orig": "Declaration of competing interest",
+      "text": "Declaration of competing interest",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/180",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.587399999999974,
+            "t": 362.8548809095312,
+            "r": 291.00629362,
+            "b": 334.6240283505178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            170
+          ]
+        }
+      ],
+      "orig": "The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.",
+      "text": "The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper."
+    },
+    {
+      "self_ref": "#/texts/181",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.58739999999999,
+            "t": 321.01584095953115,
+            "r": 81.13602639999999,
+            "b": 313.7049068805178,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "References",
+      "text": "References",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/182",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 37.5874,
+            "t": 301.5762286695312,
+            "r": 214.93114573,
+            "b": 295.7276465194476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            65
+          ]
+        }
+      ],
+      "orig": "9-Step. Centrilift, first published in 1975, reprinted regularly.",
+      "text": "9-Step. Centrilift, first published in 1975, reprinted regularly."
+    },
+    {
+      "self_ref": "#/texts/183",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 477.9457368795312,
+            "r": 551.09027179,
+            "b": 464.10368889944755,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            100
+          ]
+        }
+      ],
+      "orig": "Brown, K.: The Technology of Artificial Lift Methods. vol. 2b. PennWell Books. Tulsa Oklahoma. 1980.",
+      "text": "Brown, K.: The Technology of Artificial Lift Methods. vol. 2b. PennWell Books. Tulsa Oklahoma. 1980."
+    },
+    {
+      "self_ref": "#/texts/184",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 462.0149131395312,
+            "r": 551.6264849799998,
+            "b": 440.23614483944755,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            211
+          ]
+        }
+      ],
+      "orig": "Electrical Submersible Pump Training. Shell E & P Technical Training, May 1998. TDH.pdf. AE School Slideshow. Schlumberger May 2000. 19p. https://production-tec hnology.org/esp-design-step-4-total-dynamic-head/.",
+      "text": "Electrical Submersible Pump Training. Shell E & P Technical Training, May 1998. TDH.pdf. AE School Slideshow. Schlumberger May 2000. 19p. https://production-tec hnology.org/esp-design-step-4-total-dynamic-head/."
+    },
+    {
+      "self_ref": "#/texts/185",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 438.0912611595312,
+            "r": 547.90997287,
+            "b": 424.24857558944757,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            112
+          ]
+        }
+      ],
+      "orig": "Electrical Submersible Pumps - Application Engineering. Training program at www. nexttraining.net. Schlumberger.",
+      "text": "Electrical Submersible Pumps - Application Engineering. Training program at www. nexttraining.net. Schlumberger."
+    },
+    {
+      "self_ref": "#/texts/186",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 422.1604374195312,
+            "r": 538.5310239699998,
+            "b": 408.31838943944757,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            149
+          ]
+        }
+      ],
+      "orig": "Takacs, G.: Electrical Submersible Pumps Manual. 2nd Edition. Gulf Professional Publishing, An Imprint of Elsevier. Cambridge, MA, U.S.A. 2017, 578p.",
+      "text": "Takacs, G.: Electrical Submersible Pumps Manual. 2nd Edition. Gulf Professional Publishing, An Imprint of Elsevier. Cambridge, MA, U.S.A. 2017, 578p."
+    },
+    {
+      "self_ref": "#/texts/187",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 406.2296136795312,
+            "r": 443.14755997000003,
+            "b": 400.38103152944757,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            46
+          ]
+        }
+      ],
+      "orig": "Nine Step Book. Baker Hughes Centrilift, 2007.",
+      "text": "Nine Step Book. Baker Hughes Centrilift, 2007."
+    },
+    {
+      "self_ref": "#/texts/188",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 398.2361478495312,
+            "r": 557.5528840300001,
+            "b": 376.4573795494476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            170
+          ]
+        }
+      ],
+      "orig": "ESP Handbook. 8th Edition. Baker Hughes Centrilift. Claremore, Oklahoma 2007. 232p. Submersible Pump Handbook. 10th Edition. Baker Hughes. Claremore, Oklahoma 2011. 278p.",
+      "text": "ESP Handbook. 8th Edition. Baker Hughes Centrilift. Claremore, Oklahoma 2007. 232p. Submersible Pump Handbook. 10th Edition. Baker Hughes. Claremore, Oklahoma 2011. 278p."
+    },
+    {
+      "self_ref": "#/texts/189",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 374.3118582795312,
+            "r": 541.7355513100001,
+            "b": 352.5330899794476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            175
+          ]
+        }
+      ],
+      "orig": "Recommended Practice for Sizing and Selection of Electric Submersible Pump Installations. ' API RP 11S4, 3rd Edition, American Petroleum Institute, 2002. Reaffirmed Oct. 2013.",
+      "text": "Recommended Practice for Sizing and Selection of Electric Submersible Pump Installations. ' API RP 11S4, 3rd Edition, American Petroleum Institute, 2002. Reaffirmed Oct. 2013."
+    },
+    {
+      "self_ref": "#/texts/190",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 350.4449518095312,
+            "r": 493.35139657,
+            "b": 344.5963696594476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "ESP Application Guide. Ver. 1.2. Weatherford. April 2007. 102p.",
+      "text": "ESP Application Guide. Ver. 1.2. Weatherford. April 2007. 102p."
+    },
+    {
+      "self_ref": "#/texts/191",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 342.4508483895312,
+            "r": 557.5375818699999,
+            "b": 328.6088004094476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            143
+          ]
+        }
+      ],
+      "orig": "Lake, L.W. (Ed.): Petroleum Engineering Handbook. vol. IV. SPE 2006. https://petrowiki. org/ESP_design#Step_four:_total_dynamic_head_.28TDH.29.",
+      "text": "Lake, L.W. (Ed.): Petroleum Engineering Handbook. vol. IV. SPE 2006. https://petrowiki. org/ESP_design#Step_four:_total_dynamic_head_.28TDH.29."
+    },
+    {
+      "self_ref": "#/texts/192",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 326.5206622395312,
+            "r": 557.52483007,
+            "b": 312.6786142594476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            152
+          ]
+        }
+      ],
+      "orig": "Basic ESP Sizing. Wood Group ESP, Inc. Oklahoma City. Apr. 2007. 135p. SUBPUMP 6.10 Submersible Pump Analysis and Design Technical Reference Manual. IHS",
+      "text": "Basic ESP Sizing. Wood Group ESP, Inc. Oklahoma City. Apr. 2007. 135p. SUBPUMP 6.10 Submersible Pump Analysis and Design Technical Reference Manual. IHS"
+    },
+    {
+      "self_ref": "#/texts/193",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 318.5541853,
+            "t": 310.5898384995312,
+            "r": 379.87886668000004,
+            "b": 304.7412563494476,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "Energy Group. 2001.",
+      "text": "Energy Group. 2001."
+    },
+    {
+      "self_ref": "#/texts/194",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 306.59235931,
+            "t": 302.5963726695312,
+            "r": 528.52596169,
+            "b": 296.74779051944756,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            72
+          ]
+        }
+      ],
+      "orig": "AutographPC Sizing Program for ESPs. Ver. 11.4.8886.3 Baker Hughes 2020.",
+      "text": "AutographPC Sizing Program for ESPs. Ver. 11.4.8886.3 Baker Hughes 2020."
+    },
+    {
+      "self_ref": "#/texts/195",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 296.20798584,
+            "t": 39.246184050531156,
+            "r": 299.79767384,
+            "b": 28.821424050531164,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "4",
+      "text": "4"
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/0"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 36.132174054067576,
+            "t": 733.0492508686315,
+            "r": 96.63463334329425,
+            "b": 665.2768206095044,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/29"
+        },
+        {
+          "$ref": "#/texts/30"
+        },
+        {
+          "$ref": "#/texts/31"
+        },
+        {
+          "$ref": "#/texts/32"
+        },
+        {
+          "$ref": "#/texts/33"
+        },
+        {
+          "$ref": "#/texts/34"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 499.78275071978567,
+            "t": 738.9679500702431,
+            "r": 558.2687912359834,
+            "b": 666.0693229531602,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/49"
+        },
+        {
+          "$ref": "#/texts/50"
+        },
+        {
+          "$ref": "#/texts/51"
+        },
+        {
+          "$ref": "#/texts/52"
+        },
+        {
+          "$ref": "#/texts/53"
+        },
+        {
+          "$ref": "#/texts/54"
+        },
+        {
+          "$ref": "#/texts/55"
+        },
+        {
+          "$ref": "#/texts/56"
+        },
+        {
+          "$ref": "#/texts/57"
+        },
+        {
+          "$ref": "#/texts/58"
+        },
+        {
+          "$ref": "#/texts/59"
+        },
+        {
+          "$ref": "#/texts/60"
+        },
+        {
+          "$ref": "#/texts/61"
+        },
+        {
+          "$ref": "#/texts/62"
+        },
+        {
+          "$ref": "#/texts/63"
+        },
+        {
+          "$ref": "#/texts/64"
+        },
+        {
+          "$ref": "#/texts/65"
+        },
+        {
+          "$ref": "#/texts/66"
+        },
+        {
+          "$ref": "#/texts/67"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 39.76493138773367,
+            "t": 293.92195501289933,
+            "r": 286.7164327740669,
+            "b": 68.24760448755296,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/49"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/90"
+        },
+        {
+          "$ref": "#/texts/91"
+        },
+        {
+          "$ref": "#/texts/92"
+        },
+        {
+          "$ref": "#/texts/93"
+        },
+        {
+          "$ref": "#/texts/94"
+        },
+        {
+          "$ref": "#/texts/95"
+        },
+        {
+          "$ref": "#/texts/96"
+        },
+        {
+          "$ref": "#/texts/97"
+        },
+        {
+          "$ref": "#/texts/98"
+        },
+        {
+          "$ref": "#/texts/99"
+        },
+        {
+          "$ref": "#/texts/100"
+        },
+        {
+          "$ref": "#/texts/101"
+        },
+        {
+          "$ref": "#/texts/102"
+        },
+        {
+          "$ref": "#/texts/103"
+        },
+        {
+          "$ref": "#/texts/104"
+        },
+        {
+          "$ref": "#/texts/105"
+        },
+        {
+          "$ref": "#/texts/106"
+        },
+        {
+          "$ref": "#/texts/107"
+        },
+        {
+          "$ref": "#/texts/108"
+        },
+        {
+          "$ref": "#/texts/109"
+        },
+        {
+          "$ref": "#/texts/110"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 39.02685342803597,
+            "t": 738.9282959722791,
+            "r": 287.55871172621846,
+            "b": 515.9946655590693,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/90"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/140"
+        },
+        {
+          "$ref": "#/texts/141"
+        },
+        {
+          "$ref": "#/texts/142"
+        },
+        {
+          "$ref": "#/texts/143"
+        },
+        {
+          "$ref": "#/texts/144"
+        },
+        {
+          "$ref": "#/texts/145"
+        },
+        {
+          "$ref": "#/texts/146"
+        },
+        {
+          "$ref": "#/texts/147"
+        },
+        {
+          "$ref": "#/texts/148"
+        },
+        {
+          "$ref": "#/texts/149"
+        },
+        {
+          "$ref": "#/texts/150"
+        },
+        {
+          "$ref": "#/texts/151"
+        },
+        {
+          "$ref": "#/texts/152"
+        },
+        {
+          "$ref": "#/texts/153"
+        },
+        {
+          "$ref": "#/texts/154"
+        },
+        {
+          "$ref": "#/texts/155"
+        },
+        {
+          "$ref": "#/texts/156"
+        },
+        {
+          "$ref": "#/texts/157"
+        },
+        {
+          "$ref": "#/texts/158"
+        },
+        {
+          "$ref": "#/texts/159"
+        },
+        {
+          "$ref": "#/texts/160"
+        },
+        {
+          "$ref": "#/texts/161"
+        },
+        {
+          "$ref": "#/texts/162"
+        },
+        {
+          "$ref": "#/texts/163"
+        },
+        {
+          "$ref": "#/texts/164"
+        },
+        {
+          "$ref": "#/texts/165"
+        },
+        {
+          "$ref": "#/texts/166"
+        },
+        {
+          "$ref": "#/texts/167"
+        },
+        {
+          "$ref": "#/texts/168"
+        },
+        {
+          "$ref": "#/texts/169"
+        },
+        {
+          "$ref": "#/texts/170"
+        },
+        {
+          "$ref": "#/texts/171"
+        },
+        {
+          "$ref": "#/texts/172"
+        },
+        {
+          "$ref": "#/texts/173"
+        },
+        {
+          "$ref": "#/texts/174"
+        },
+        {
+          "$ref": "#/texts/175"
+        },
+        {
+          "$ref": "#/texts/176"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 112.23847148939966,
+            "t": 738.427420366771,
+            "r": 482.07187179699537,
+            "b": 510.58056751866434,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/140"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    }
+  ],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 595.2760009765625,
+        "height": 793.7009887695312
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 595.2760009765625,
+        "height": 793.7009887695312
+      },
+      "page_no": 2
+    },
+    "3": {
+      "size": {
+        "width": 595.2760009765625,
+        "height": 793.7009887695312
+      },
+      "page_no": 3
+    },
+    "4": {
+      "size": {
+        "width": 595.2760009765625,
+        "height": 793.7009887695312
+      },
+      "page_no": 4
+    }
+  }
+}

@@ -35,6 +35,11 @@ DEFINITIONAL_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+GREETING_PATTERNS = re.compile(
+    r"^\s*(hi|hii|hello|hey|greetings|good\s+(morning|afternoon|evening)|howdy)\b",
+    re.IGNORECASE,
+)
+
 
 @dataclass
 class RouteResult:
@@ -54,6 +59,18 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     the user and to audit rather than silently trusted as normal routing.
     """
     raw_lower = router_input.raw_message.lower()
+
+    # Greeting guard: conversational greetings -> SIMPLE direct answer
+    if GREETING_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="SIMPLE",
+            intent="greeting",
+            objective_id=None,
+            args={},
+            confidence=0.95,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
 
     # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective
     if any(w in raw_lower for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
@@ -272,6 +289,22 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
     # Fast deterministic rules before LLM invocation:
     from app.context.resolver import WELL_ID_REGEX
     is_telemetry_ask = any(w in router_input.raw_message.lower() for w in ['telemetry', 'status', 'reading', 'sensor', 'live'])
+
+    # 0. Deterministic greeting guard: conversational greetings -> SIMPLE direct answer
+    if GREETING_PATTERNS.search(router_input.raw_message):
+        return RouteResult(
+            decision=RouteDecision(
+                route="SIMPLE",
+                intent="greeting",
+                objective_id=None,
+                args={},
+                confidence=0.95,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
 
     # 1. Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
     if FOLLOWUP_PATTERNS.search(router_input.raw_message):

@@ -1,0 +1,1425 @@
+=== PAGE 1 ===
+ 
+Recommended Practice for 
+Electrical Submersible Pump Teardown Report 
+API RECOMMENDED PRACTICE 11S1
+THIRD EDITION, SEPTEMBER 1997
+EFFECTIVE DATE: DECEMBER 15, 1997
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 2 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 3 ===
+ 
+Recommended Practice for
+Electrical Submersible Pump Teardown Report 
+Exploration and Production Department 
+API RECOMMENDED PRACTICE 11S1
+THIRD EDITION, SEPTEMBER 1997
+EFFECTIVE DATE: DECEMBER 15, 1997
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 4 ===
+ 
+SPECIAL NOTES 
+API publications necessarily address problems of a general nature. With respect to partic-
+ular circumstances, local, state, and federal laws and regulations should be reviewed.
+API is not undertaking to meet the duties of employers, manufacturers, or suppliers to
+warn and properly train and equip their employees, and others exposed, concerning health
+and safety risks and precautions, nor undertaking their obligations under local, state, or fed-eral laws.
+Information concerning safety and health risks and proper precautions with respect to par-
+ticular materials and conditions should be obtained from the employer, the manufacturer orsupplier of that material, or the material safety data sheet.
+Nothing contained in any API publication is to be construed as granting any right, by
+implication or otherwise, for the manufacture, sale, or use of any method, apparatus, or prod-uct covered by letters patent. Neither should anything contained in the publication be con-strued as insuring anyone against liability for infringement of letters patent.
+Generally, API standards are reviewed and revised, reafﬁrmed, or withdrawn at least every
+ﬁve years. Sometimes a one-time extension of up to two years will be added to this reviewcycle. This publication will no longer be in effect ﬁve years after its publication date as anoperative API standard or, where an extension has been granted, upon republication. Statusof the publication can be ascertained from the API Authoring Department [telephone (202)682-8000]. A catalog of API publications and materials is published annually and updatedquarterly by API, 1220 L Street, N.W., Washington, D.C. 20005.
+This document was produced under API standardization procedures that ensure appropri-
+ate notiﬁcation and participation in the developmental process and is designated as an APIstandard. Questions concerning the interpretation of the content of this standard or com-ments and questions concerning the procedures under which this standard was developedshould be directed in writing to the director of the Authoring Department (shown on the titlepage of this document), American Petroleum Institute, 1220 L Street, N.W., Washington,D.C. 20005. Requests for permission to reproduce or translate all or any part of the materialpublished herein should also be addressed to the director.
+API standards are published to facilitate the broad availability of proven, sound engineer-
+ing and operating practices. These standards are not intended to obviate the need for apply-ing sound engineering judgment regarding when and where these standards should beutilized. The formulation and publication of API standards is not intended in any way toinhibit anyone from using any other practices.
+Any manufacturer marking equipment or materials in conformance with the marking
+requirements of an API standard is solely responsible for complying with all the applicablerequirements of that standard. API does not represent, warrant, or guarantee that such prod-ucts do in fact conform to the applicable API standard. 
+All rights reserved. No part of this work may be reproduced, stored in a retrieval system, or 
+transmitted by any means, electronic, mechanical, photocopying, recording, or otherwise, 
+without prior written permission from the publisher. Contact the Publisher, 
+API Publishing Services, 1220 L Street, N.W., Washington, D.C. 20005. 
+Copyright © 1997 American Petroleum Institute
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 5 ===
+ 
+FOREWORD 
+This recommended practice is under the jurisdiction of the American Petroleum Institute
+(API) Subcommittee on Field Operating Equipment. 
+This recommended practice shall become effective on the date printed on the cover but
+may be used voluntarily from the date of distribution. 
+API publications may be used by anyone desiring to do so. Every effort has been made by
+the Institute to assure the accuracy and reliability of the data contained in them; however, the
+Institute makes no representation, warranty, or guarantee in connection with this publicationand hereby expressly disclaims any liability or responsibility for loss or damage resultingfrom its use or for the violation of any federal, state, or municipal regulation with which thispublication may conﬂict.
+Suggested revisions are invited and should be submitted to the director of the Exploration
+and Production Department, American Petroleum Institute, 1220 L Street, N.W., Washing-ton, D.C. 20005. 
+iii
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 6 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 7 ===
+ 
+CONTENTS 
+Page 
+1 SCOPE. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  . . 1
+2 ADDITIONAL INFORMATION. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+APPENDIX A—RECOMMENDED PRACTICE FOR API RP 11S1 TEARDOWN 
+REPORTING DATABASES. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+APPENDIX B—TEARDOWN REPORT QUERIES. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23Figures
+1 Typical Motor Section................................................................................................3
+2 Typical Seal Chamber Section Types.........................................................................53 Typical Pump Section.................................................................................................74 Typical Gas Separator Section Types.........................................................................9A-1 Relationship Diagram for Teardown Reporting......................................................15A-2 Recommended Observation Codes for ESP Teardown...........................................16A-3 Pertinent Data...........................................................................................................18A-4 Teardown Observation Data.....................................................................................19A-5 Pertinent Data (Equipment Identiﬁcation)...............................................................20A-6 Common Terms for Remarks Teardown Observation Code Breakdown Table......21A-7 Common Terms for Remarks Observation Code Breakdown.................................22A-8 Reason for Pump Pull...............................................................................................22A-9 Failure Codes............................................................................................................22B-1 Example 1: Teardown Report Queries.....................................................................25B-2 Example 2: Teardown Report Queries.....................................................................27 
+v
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 8 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 9 ===
+ 
+1 
+Recommended Practice for Electrical Submersible Pump Teardown Report 
+1 Scope 
+This recommended practice covers a recommended electri-
+cal submersible pump teardown report form. It also includes
+equipment schematic drawings which may provide assistancein identifying equipment components. It should be noted thatthese schematics are for generic equipment components, andthere may be differences between manufacturers on the exactdescription or conﬁguration of the assemblies. 
+2 Additional Information 
+In order to properly interpret the information gathered
+using this API recommended practice, the following data alsoshould be provided:
+a. Equipment amp charts.
+b. Production data prior to failure.c. Information on any unusual conditions such as sand orscale production, power interruptions, bad weather or storms,changes in chemical treatments, etc. d. Equipment pull and run reports, service reports, andequipment test records. 
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 10 ===
+ 
+2 API R 
+ECOMMENDED 
+ P 
+RACTICE 
+ 11S1 
+Form 1—Motor Inspection Report 
+Operator: __________________________________________________________ E.S.P. Manufacturer: ______________________________________ ____
+Lease: _________________________________ Well: _________________________________________________________________________________ _
+S/N: ________________________________ HP: _______________ Voltage: _______________ AMPS: _______________ Model: _______________
+Date Installed: ______________________________ Date Pulled: _____________________________ Run Time: _____________________________ ____ 
+1. HEAD: 
+Terminal cavity: OK _____ Burned _____
+Cavity corroded: Yes _____ No _____Evidence of water track: Yes _____ No _____Head corroded: Yes _____ No _____ 
+2. BASE: 
+Corroded: Yes _____ No _____Base blushing:  OK _____ Worn _____Filter (if applicable):  OK _____ Plugged _____ Dirty _____  
+3. HOUSING CONDITION: 
+OK: _____ Corroded: Yes _____ No _____Pressure test: Passed: _____ Failed _____Scaled on OD: Yes _____ No _____Thickness:________________________________________________Acid soluble: Yes _____ No _____Coating: OK _____ Bad _____ (REM) 
+4. SHAFT CONDITION: 
+Turns OK: Yes _____ No _____Broken: Yes _____ No _____Shaft high strength: Yes _____ No _____Spline Condition:
+Twisted: Yes _____ No _____Corroded: Yes _____ No _____Extension:  OK _____ Out of Spec. _____Burned: Yes _____ No _____ 
+5. COUPLING: 
+OK _____ Worn _____  Broken _____ Missing _____ 
+6. THRUST BEARING ASSEMBLY: 
+Thrust bearing: OK _____Down thrust: Negligible _____
+Moderate _____ Severe _____
+Hi-load bearing: Yes _____ No _____Bearing collapsed: Yes _____ No _____Thrust Runner:
+Thrust runner: OK _____Down thrust: Negligible _____
+Moderate _____ Severe _____ 
+7. ROTOR BEARING ASSEMBLY: 
+OK _____ Heat noted: Yes _____ No _____Spun: Yes _____ No _____Thrust 
+Washers: OK _____
+Brittle _____ Cut _____ Impressioned _____Rotor bearing sleeve: OK _____ Worn _____Discolored: Yes _____ No _____ 
+8. STATOR: 
+Electrical:
+(A - B) (A - C) (B - C)
+Phase to phase _____ _____ _____Phase to ground _____ _____ _____Megohm reading:__________________________________________Hypot test: OK _____ Failed _____Burned top end turn: _______________________________________Burned bottom end turn: ____________________________________Burned leads: _____________________________________________Laminations:
+Burned: Yes _____ No _____ Location: ___________________
+________________________________________________________
+ID: OK _____ Worn _____ 
+9. POTHEAD CONNECTOR ASSEMBLY: 
+Plug IN: _____  Tape IN: _____OK _____ Burned _____ Damaged _____Pothead:
+OK _____ Damaged _____ Heat noted _____“O” Ring: OK _____ Hard _____ Seized _____
+Cut _____ Melted _____
+Terminal block: OK _____ Stained _____
+Burned _____ Damaged _____ 
+10.  ROTORS: 
+Corroded: Yes _____ No _____Worn on OD: Yes _____ No _____Location of wear:__________________________________________Burned on OD: Yes _____ No _____Location of burn: __________________________________________________________________________________________________________________________________________________________ 
+11.  OIL CONDITION: 
+Clear: _____ Free water: _____ Dark: _____Emulsion _____ Solids: _____
+Notes: 1. For any item not covered, use comment section or back of this page, if necessary, to document condition.
+2. REM means remanufacture.
+Comments & Summary: ___________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Inspected by: __________________________________________________ Date: _________________ Location:_______________________________ __
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 11 ===
+ 
+R 
+ECOMMENDED 
+ P 
+RACTICE 
+  
+FOR 
+ E 
+LECTRICAL 
+ S 
+UBMERSIBLE 
+ P 
+UMP 
+ T 
+EARDOWN 
+ R 
+EPORT 
+3 
+Figure 1—Typical Motor Section
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 12 ===
+ 
+4 API R 
+ECOMMENDED 
+ P 
+RACTICE 
+ 11S1 
+Form 2—Seal Chamber Inspection Report 
+Operator: __________________________________________________________ E.S.P. Manufacturer: ______________________________________ ____
+Lease: _________________________________ Well: _________________________________________________________________________________ _
+S/N: ________________________________ Model: ___________________________________________________________________________________
+Date Installed: ______________________________ Date Pulled: _____________________________ Run Time: _____________________________ ____ 
+1. HEAD: 
+Check valves:  OK _____  Stuck open _____
+Communication ports
+open: Yes _____ No _____
+Plugged: Yes _____ No _____Plugged with:_____________________________________________Acid soluble: Yes _____ No _____Corrosion: Yes _____ No _____ 
+2. BASE: 
+OK: _____ Corroded: Yes _____ No _____Anti-rotation pins:  OK _____Bushing:  OK _____ Worn _____Filter:  OK _____ Plugged _____  
+3. HOUSING CONDITION: 
+OK: _____ Corroded: Yes _____ No _____Scaled on OD: Yes _____ No _____Thickness:________________________________________________Acid soluble: Yes _____ No _____Vibration marks: Yes _____ No _____Pressure test: Pass _____ Fail _____ 
+4. SHAFT CONDITION: 
+Turns OK: Yes _____ No _____Broken: Yes _____ (REM) No _____Shaft high strength: Yes _____ No _____Spline Condition:
+Twisted: Yes _____ No _____Corroded: Yes _____ No _____Extension:  OK _____ Out of Spec. _____ 
+5. COUPLING: 
+OK _____ Worn _____  Broken _____ Missing _____ 
+6. THRUST BEARING ASSEMBLY: 
+Thrust bearing: OK _____Up thrust: Negligible wear _____ Moderate _____ Severe _____Down thrust: Negligible wear _____ Moderate _____ Severe _____Hi-Load bearing: Yes _____ No _____Bearing collapsed: Yes _____ No _____Thrust Runner:
+Thrust runner: OK _____Up thrust: Negligible wear _____ Moderate _____ Severe _____Down thrust: Negligible wear _____ Moderate _____ Severe _____ 
+7. BAG CHAMBER ASSEMBLY: 
+Pressure test: OK _____ Failed _____Bag collapsed: Yes _____ No _____Punctured: Yes _____ No _____Blown/ruptured: Yes _____ No _____Deposition on OD:  None _____ Type _______________Fasteners: OK _____ No _____ 
+8. MECHANICAL SEALS: 
+Condition:
+Specify Type—Circle One:Rotating element: Carbon Silicone TungstenStationary element: Ceramic Silicone Tungsten
+Top  Middle  Bottom
+OK _____ _____ _____Displaced _____ _____ _____Ran displaced _____ _____ _____Shaft grooved _____ _____ _____Spring broken _____ _____ _____Seal bellows OK _____ _____ _____Rotating element OK _____ _____ _____Rotating element worn _____ _____ _____Rotating element broken _____ _____ _____Stationary element OK _____ _____ _____Pressure test: pass/fail _____ _____ _____ 
+9. RELIEF VALVES: 
+OK _____ Failed _____ 
+10.  LABYRINTH CHAMBER ASSEMBLY: 
+Breather tube: OK _____ Broken _____ Corroded _____Communicator ports: OK _____ Plugged _____ 
+11.  CONDITION OF ALL “O” RINGS: 
+Top  Middle  Bottom
+Set/pliable _____ _____ _____Hard _____ _____ _____Seized _____ _____ _____Melted _____ _____ _____Cut/damaged _____ _____ _____ 
+12.  OIL CONDITION: 
+Clear Water Dark Emulsion Solids
+Top bag  _____ _____ _____ _____ _____Bottom bag  _____ _____ _____ _____ _____Chamber  _____ _____ _____ _____ _____Base  _____ _____ _____ _____ _____
+Notes: 1. For any item not covered, use comment section or back of this page, if necessary, to document condition.
+2. For piggy-back equalizers use a second form. When seal types are mixed, use comments to identify.3. REM means remanufacture.
+Comments & Summary: ___________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Inspected by: __________________________________________________ Date: __________________________________________________________ _
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 13 ===
+ 
+R 
+ECOMMENDED 
+ P 
+RACTICE 
+  
+FOR 
+ E 
+LECTRICAL 
+ S 
+UBMERSIBLE 
+ P 
+UMP 
+ T 
+EARDOWN 
+ R 
+EPORT 
+5 
+Figure 2—Typical Seal Chamber Section Types
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 14 ===
+ 
+6 API R 
+ECOMMENDED 
+ P 
+RACTICE 
+ 11S1 
+Form 3—Pump Inspection Report 
+Operator: __________________________________________________________ E.S.P. Manufacturer: ______________________________________ ____
+Lease: _________________________________ Well: _________________________________________________________________________________ _
+S/N: ________________________________ Stage Type: ______________ No. Stages: ______________ Model: ______________________________
+Date Installed: ______________________________ Date Pulled: _____________________________ Run Time: _____________________________ ____ 
+1. HEAD: 
+OK: _____ Yes _____ No _____
+Bolt on: _____ Screw in: _____Bolts: OK _____ Corroded _____Head corroded: Yes _____ No _____Plugged: Yes _____ No _____ % ______Plugged with: _____________________________________________ 
+2. BASE: 
+OK: _____ Yes _____ No _____Bolt on: _____ Screw in: _____Bolts: OK _____ Corroded _____Base corroded: Yes _____ No _____Plugged: Yes _____ No _____ % ______Plugged with: _____________________________________________ 
+3. HOUSING CONDITION: 
+Scaled on OD: Yes _____ No _____Thickness:  _______________________________________________Acid soluble: Yes _____ No _____Scarred axially: Yes _____ No _____Depth:  __________________________________________________Vibration marks: Yes _____ No _____Coating: OK _____ Bad _____ (REM) 
+4. SHAFT CONDITION: 
+(If broken, describe below in detail) Turns OK: Yes _____ No _____Broken: Yes _____ No _____Shaft high strength: Yes _____ No _____Spline Condition:
+Twisted: Yes _____ No _____Corroded: Yes _____ No _____Extension: OK _____ Out of Spec. _____Radial wear: Yes _____ No _____ 
+5. COUPLING: 
+OK _____ Broken _____ Scale: Yes _____ No _____Acid soluble: Yes _____ No _____ 
+6. SCREEN CONDITION: 
+Plugged: Yes _____ No _____Plugged with: _____________________________________________Collapsed: Yes _____ No _____Corroded: Yes _____ No _____Scale: Yes _____ No _____Acid soluble: Yes _____ No _____ 
+7. SHAFT SUPPORT BEARING: 
+Upper: OK _____ Worn _____ Worn out of spec. _____
+Bushing: OK _____ Worn _____
+Lower: OK _____ Worn _____ Worn out of spec. _____
+Bushing: OK _____ Worn _____ 
+8. “O” RING CONDITION: 
+Diffuser Housing
+Top  Middle  Bottom
+OK _____ _____ _____ _____Hard _____ _____ _____ _____Seized _____ _____ _____ _____Swollen _____ _____ _____ _____Melted _____ _____ _____ _____ 
+9. CONDITION OF ALL THRUST WASHERS: 
+Down Thrust Washers Up Thrust Washers
+OK _____ _____Slight wear _____ _____Moderate wear _____ _____Severe wear _____ _____Brittle _____ _____Missing _____ _____ 
+10. DIFFUSERS: 
+OK _____ Percentage Plugged _____ %Plugged with: _____________________________________________Thrust wear: Slight _____ Moderate _____ Severe _____Radial wear: Slight _____ Moderate _____ Severe _____Spinning diffuser: Yes _____ No _____Location: ________________________________________________Eccentric wear: Yes _____ No _____ 
+11. IMPELLERS: 
+OK _____ Percentage Plugged _____ %Plugged with: _____________________________________________Thrust wear: Slight _____ Moderate _____ Severe _____Radial wear: Slight _____ Moderate _____ Severe _____ 
+12. SNAP RINGS: 
+OK _____ Corroded _____ Missing _____
+Notes: 1. For any item not covered, use comment section or back of this page, if necessary, to document condition.
+2. REM means remanufacture.
+Comments & Summary: ___________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Inspected by: __________________________________________________ Date: __________________________________________________________ _
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 15 ===
+ 
+R 
+ECOMMENDED 
+ P 
+RACTICE 
+  
+FOR 
+ E 
+LECTRICAL 
+ S 
+UBMERSIBLE 
+ P 
+UMP 
+ T 
+EARDOWN 
+ R 
+EPORT 
+7 
+Figure 3—Typical Pump Section
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 16 ===
+ 
+8 API R 
+ECOMMENDED 
+ P 
+RACTICE 
+ 11S1 
+Form 4—Gas Separator Inspection Report 
+Operator: __________________________________________________________ E.S.P. Manufacturer: ______________________________________ ____
+Lease: _________________________________ Well: _________________________________________________________________________________ _
+S/N: ________________________________ Model: ___________________________________________________________________________________
+Date Installed: ______________________________ Date Pulled: ______________________________ Run Time: ____________________________ ____ 
+1. HEAD: 
+OK: _____
+Ports plugged: Yes _____ No _____Plugged with:_____________________________________________Corroded: Yes _____ No _____  
+2. BASE/INLET: 
+Intake clear: Yes _____ No _____Plugged: Yes _____ No _____ % ______Plugged with:_____________________________________________Intake screen: Yes _____ No _____Screen OK: Yes _____ No _____Screen plugged: Yes _____ No _____Plugged with:_____________________________________________Base corroded: Yes _____ No _____Scaled on OD: Yes _____ No _____Scale acid soluble: Yes _____ No _____Erosion: Yes _____ No _____ 
+3. HOUSING: 
+OK: _____ Scaled: Yes _____ No _____Thickness: _______________________________________________Acid soluble: Yes _____ No _____Corroded: Yes _____ No _____Scarred axially: Yes _____ No _____Coating: Yes _____ No _____Coating damaged: Yes _____ No _____ 
+4. SHAFT: 
+(If broken, describe in detail below)Turns OK: Yes _____ No _____Broken: Yes _____ No _____Shaft high strength: Yes _____ No _____Spline Condition:
+Twisted: Yes _____ No _____Corroded: Yes _____ No _____Extension: OK _____ Out of Spec. _____Radial wear: Yes _____ No _____ 
+5. COUPLING: 
+OK _____ Worn _____ Broken _____ Missing _____Scale: Yes _____ No _____Acid soluble: Yes _____ No _____ 
+6. RADIAL BEARINGS: 
+Top  Middle  Bottom
+OK: _____ _____ _____Worn out of Spec: _____ _____ _____ 
+7. INDUCER SECTION: 
+OK: _____Plugged: Yes _____ No _____Plugged with:_____________________________________________Percentage plugged: ______ %Erosion: Yes _____ No _____Down thrust washer:OK _____ Worn _____ Brittle _____ Missing _____ 
+8. SEPARATION SECTION/ROTOR: 
+OK: _____Plugged: Yes _____ No _____Plugged with:_____________________________________________Acid soluble: Yes _____ No _____Percentage plugged: ______ %Erosion: Yes _____ No _____ 
+9. SNAP RINGS: 
+OK _____ Worn _____ Broken _____ Missing _____
+Notes: For any item not covered, use comment section or back of this page, if necessary, to document condition.
+Comments & Summary: ___________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+Inspected by: __________________________________________________ Date: __________________________________________________________ _
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 17 ===
+ 
+R 
+ECOMMENDED 
+ P 
+RACTICE 
+  
+FOR 
+ E 
+LECTRICAL 
+ S 
+UBMERSIBLE 
+ P 
+UMP 
+ T 
+EARDOWN 
+ R 
+EPORT 
+9 
+Figure 4—Typical Gas Separator Section Types
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 18 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 19 ===
+ 
+11 
+APPENDIX A—RECOMMENDED PRACTICE FOR API RP 11S1
+TEARDOWN REPORTING DATABASES
+A.1 Scope 
+This appendix provides recommended teardown observa-
+tion codes to facilitate the transfer and storage of electrical
+submersible pump teardown reporting in relational databases.The main purpose of this section is to provide a commonfoundation for electronic teardown reporting.
+Alternative methods may exist for storage that could be
+superior to those shown in this recommended practice. Provi-sions to read and write to ﬁles in a common format, as shownin this appendix, are recommended to permit ease in transfer-ring teardown data between software systems. Recommendedtable structures and data relationships are also provided, butthese are not as critical to data transfer as the observationcodes.
+Appendix B shows examples of the many potential reports
+that could be generated using a teardown report database bymanufacturers and producers to: 1) improve ESP run lives, 2)identify operational problems, and 3) compare equipmentperformance. 
+A.2 Database Tables 
+Database tables refers to all tables where data is stored
+within a database. A table contains a set of related data. Theheadings in the table are deﬁned as the ﬁelds. The informa-tion under each heading is called a record. One of the ﬁeldsshould always contain a unique record. This ﬁeld is deﬁned asthe PRIMARY KEY. In some cases a pair of ﬁelds form thisunique record in a table. One of the ﬁelds is then deﬁned asthe SECONDARY KEY. The tables are related to each otherthrough these keys. Descriptions of the recommended tear-down reporting for databases are split into three sections:
+A.3 Pertinent Data—General information related to the
+well and ESP.
+A.4 Teardown Observations—Observations by each com-
+ponent.
+A.5 Cause of the Failure—Conclusion of the primary and
+contributing factors resulting in the ESP failure.
+In Section A.3, the data not speciﬁc to the teardown obser-
+vations themselves have been called  
+Pertinent Data. 
+A.3 Pertinent Data 
+The pertinent data have two purposes. The ﬁrst is to uniquely
+link the equipment teardown report to a well. This same unique(primary) key can relate the teardown data to data in other data-bases. A unique well identiﬁer (UWI) and a pull date canuniquely deﬁne a teardown as an event. This pair uniquely iden-tiﬁes two teardowns from the same well or two ESP teardownspulled on the same date at different locations. When used with aserial number, the ESP equipment is also uniquely identiﬁed.Secondly, pertinent data should provide information that is
+useful in the teardown analysis, but not normally contained oreasily accessible from other databases. Much of this pertinentdata regarding the well completion, production rate, and theESP equipment are valuable to both the oil company and ESPmanufacturers in determining the cause of a failure. Unfortu-nately, these external databases are not usually shared.
+Following a recognized standard database format allows
+compatibility between different database systems. Thisallows downloading data into a teardown database or upload-ing teardown data into larger database platforms.
+This standard can be either PPDM or POSC. It is left up to
+the program developer to decide which standard to use, sincea teardown database will probably be coupled with an exist-ing database. The suggested data for proper teardown report-ing are summarized in Figures A-3 through A-5, while therelationships between the tables are shown in Figure A-1. 
+A.3.1 WELL NAME TABLE (WELLTAB) 
+The  
+unique well identiﬁer 
+ (UWI) is the primary key that
+ties all of the important parameters to a well. The WELLTABTable (see Figure A-3) uses the UWI to uniquely identify thewell. Items in this table should be those that do not changeoften, such as the physical well location. The UWI is used inother external tables such as ownership, production workoverhistory, and/or completion databases. 
+A.3.2 EVENT TABLE (EVENTTAB) 
+The pull date and the UWI pair should uniquely identify a
+teardown as an event in the EVENTTAB Table (see ﬁgure A-3). The primary key, however, is the EVENTID ﬁeld. TheEVENTID could be a random alphanumeric, a work order, orthe service contract alphanumeric. The values kept in theEVENTTAB table relate to the information that is unique tothe event. This can include the reason for the pump pull (seeFigure A-8 for recommended code listing), pump landingdepth, failure dates, and production rate data prior to failureand after initial startup. 
+Note: Production data could be kept on a separate table, but linked by the
+EVENTID.  
+Field service reports can be linked to the EVENTTAB
+table using the alphanumeric serial number from the ﬁeld ser-
+vice report. 
+A.3.3 EQUIPMENT TABLE (EQUIPTAB) 
+The ESP can be broken up into its main components of:
+pump, gas separator, seal, and motor, and each componentcan also have multiple housing units. Combining the EVEN-
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 20 ===
+ 
+12 API R 
+ECOMMENDED 
+ P 
+RACTICE 
+ 11S1 
+TID with the serial number identiﬁes the ESP component
+being torn down with the well and pull date. This combina-tion of EVENTID and the serial number is given a unique IDdeﬁned as the EQUIPID and is stored in the EQUIPTABTable (see Figure A-3).
+The EQUIPID could be a random alphanumeric or the
+teardown report alphanumeric serial number. This EQUIPIDcode should be linked to a table that describes the equipmentin a minimum amount of detail (see A.3.4 and Figure A-5 forthe recommended format for the equipment detail reporting). 
+Multiple manufacturers use different serial number con-
+ventions, which makes deﬁning the type of equipment beingdescribed from a serial number difﬁcult. A ﬁeld deﬁned asSECTID that universally deﬁnes the ESP components aspump, gas separator, seal, or motor eliminates this problem.The letters P, G, S, and M are used, followed by a single-digitnumber. The purpose of the SECTID single-digit sufﬁx is dis-cussed in A.4.5. 
+A.3.4 EQUIPMENT DETAIL TABLES 
+Details of the equipment are maintained in equipment
+detail tables (see Figure A-5). The four tables in Figure A-5show the recommended minimum data to deﬁne each ESPcomponent. Existing manufacturers’ databases will dictatethe structure of this information. Manufacturers’ databasescan use serial numbers to link the ESP details within theirown databases, but these data are lost unless standard tablesare created for transferring data to non-manufacturers’ data-bases. To facilitate data exchange, the ﬁeld sizes shown inFigure A-5 should be followed. 
+A.3.4.1 ESP Construction 
+With the large number of materials available, the details of
+reporting the materials used within an ESP are left up to themanufacturer; however, the suggested ﬁeld sizes should bemaintained. 
+A.3.5 OBSERVATIONS 
+The forms in the main body show the observations recom-
+mended by this recommended practice in a form format. Fig-ure A-2 shows these same observations listed with acorresponding unique code for use in a database. The struc-ture and relationship of ﬁelds in the Observation Table(OBSTAB) are discussed below. 
+A.4 Teardown Observations 
+All of the observations from a teardown are reported on the
+same table (OBSTAB—see Figure A-4). Failure observationcodes can be stored in separate lookup tables based on com-ponents of the ESP. Only the observations made are kept onthe database. It is assumed that if no observations were madethe sub-component was in good condition. Observations canbe made on a large number of sub-components that existwithin an ESP. 
+The ﬁelds in the OBSTAB table consist of three main com-
+ponents:
+a. EQUIPID (Equipment Identiﬁcation).
+b. SUBID (Sub-component Identiﬁcation).c. OBS# (Observation Number). 
+A.4.1 EQUIPID 
+To uniquely identify any observation, a unique observation
+code must be linked to the EQUIPID as deﬁned above in
+A.3.3. The EQUIPID is the primary key in the OBSTAB table. 
+A.4.2 SUBID 
+The SUBID is a two character TEXT ﬁeld that identiﬁes
+the subcomponents being described by the observation. Whenused in combination with the OBS#, the observationsrecorded become unique. Figure A-2 shows how the SUBIDis broken into two groups, where each item is either:
+a. common to more than one piece of ESP equipment
+(SUBID deﬁned as “XY”), or 
+b. unique to an individual device (SUBID deﬁned as “WZ”).
+The variable pairs “XY” and “WZ” are all deﬁned using
+letters from the words that describe the sub-component. The
+Y component of the XY pair is deﬁned for common sub-com-ponents like  
+B 
+ for  
+Base, H 
+ for  
+H 
+ead or  
+G 
+ for Housin 
+G 
+, while
+“X” is deﬁned by the section of the ESP that is beingdescribed (pump, motor, etc.). For example: “X” =  
+P 
+ for 
+P 
+ump;  
+G 
+ for Gas separator; S for Seal, and M for Motor.
+Hence, the Pump Head and the Motor Housin G are described
+as PH and MG, respectively.
+For sub-components that are unique to a device, the char-
+acter pair, WZ, is deﬁned uniquely by letters in the sub-com-ponent name. There is no direct reference between thecomponent and the sub-component. For example, SEdescribes the Stator Electrical condition, while BC describesthe Bag Chamber assembly condition. 
+A.4.3 OBS#
+OBS# describes the observation code, where “#” can be a
+single-digit number 1 through 9. Figure A-2 shows the rec-
+ommended four-digit integer codes that correspond with theteardown reporting forms presented in the main text of thisrecommended practice. Note that in each sub-componenttable there is no duplication of observation codes; however,the same code can exist once in each of many sub-componenttables.
+To facilitate unique needs of individual users, the codes
+chosen are set in a recognizable pattern which is summarizedin Figures A-6 and A-7. For example, all corrosion observa-
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 21 ===
+RECOMMENDED  PRACTICE FOR ELECTRICAL  SUBMERSIBLE  PUMP TEARDOWN  REPORT 13
+tions have the code 3700, but corrosion of one sub-compo-
+nent is distinguished from corrosion in another by theSUBID.
+Additional component observations can be handled using
+this nomenclature, allowing ﬂexibility in the system yet mini-mizing the effort to make queries and transfer data betweensoftware.
+Concatenating the SUBID and the OBS# is an alternative
+method of reporting observation codes uniquely, but it is notrecommended.
+A.4.3.1 Physical Measurements
+Physical measurements taken are stored in the physical
+measurement table, PHYTAB (see Figure A-5). The
+EQUIPID is the primary key linking physical measurementssuch as the phase-to-phase and phase-to-ground readingsfrom a motor to the equipment and the event.
+A.4.3.2 Added Flexibility in Observation Codes
+To add ﬂexibility to the observations, follow a recognizable
+pattern as noted above. Figure A-6 describes the standard
+observations that are shown in Figure A-2 in increments of100 in the “y” vertical axis and incrementally by 10 in the hor-izontal axis. Signiﬁcant space is provided to allow additionalcategories to be added. The units digit can be also be used toprovide more details on several existing parameters withoutadding remarks. Common terms that can be used are shown inFigure A-7. These are referenced back to the relative catego-ries where they apply using footnotes in Figure A-6.
+It should be noted that for the seal condition, only the top,
+middle, and bottom seal are described in Figure A-6 by the4900, 5400, and 5900 series. For additional seals, incrementsof 100 can be used between 4900 and 5900, where the middleseal remains the 5400 series. Note that some of this data canbe lost if provisions are not made for this increase in detail.
+A.4.4 REMARKS
+Remarks are important in any teardown report to allow fur-
+ther description of the observations, but remarks are often
+ignored in databases. The use of Figure A-7 to ﬁne tune theobservations can help but may not be adequate for all obser-vations. Ideally, remarks can be made about each observation;however, in practice this is unlikely. Comments regardingeach sub-component are more practical. Remarks should bekept in a separate table (TDREM) and linked to the Observa-tion Table (TDOBS) using the EQUIPID and SUBID pair.
+A.4.5 STRUCTURE OF OBSERVATION TABLE
+The recommended table structure of the Observation Table
+(TDOBS) is shown in Figure A-4. The EQUIPID and SUBID
+form a unique pair. This pair is followed by a list of the obser-vation codes that pertain to the sub-components. To minimizethe number of ﬁelds, the number of observations with eachEQUIPID and SUBID pair is limited to 9. Thus, if the equip-ment is in good shape, only the observations made will berecorded. In cases where there is no damage, the EQUIPIDand SUBID combination does not exist and no record ismade.
+In a few cases, the number of observations may exceed 9.
+Exceeding 9 observations can be handled by ignoring theleast signiﬁcant observations. Alternatively, incrementing thesection ID in the EQUIPID table allows a second EQUIPIDfor the same EVENTID and serial number pair to be used andallows the reporting of all observations.
+A.5 Cause of ESP Failure
+The causes of ESP failures are important parameters to
+maintain in a database, because the database takes all of theobservations made and puts them together to create a singleconclusion or a set of conclusions. At this point, it is moreuseful to identify the cause of the systems failure rather thanthe cause of failure in the individual components. The reasonfor an ESP failure can be very complex, but it is valuable todraw some conclusion based on ﬁeld and teardown data andreport it in a database.
+The failure may be related to ﬁndings within the teardown
+report or could be external to it. For example, if a splice fail-ure occurs, but a teardown was still performed, there wouldbe no cause for the failure reported. The recommended struc-ture for the Teardown Conclusions Table (CONCLTAB) isshown in Figure A-4.
+A.5.1 EVENTID
+To uniquely identify the cause of an ESP failure, the
+unique failure observation code must be linked to the
+EVENTID. It is not critical that the piece of equipment beidentiﬁed since the teardown observations should alreadycontain this information.
+A.5.2 SUBIDX# 
+The sub-component  ﬁeld (SUBIDx#) is a two-character
+text ﬁeld that identiﬁes the failing sub-component where the
+downhole ESP fails (see the description in A.4.2). 
+The “x” in the SUBIDx# name is P, C, or S, which repre-
+sent the primary, contributing, and secondary failures, respec-tively. The “#” value is set at 1. See A.5.6.1 for more detail.
+When the cause of the failure is not related to the downhole
+ESP (such as is the case with a cable or tubing failure), theSUBIDx# is given the value “XF”. The “X” denotes the loca-tion of the failure as upper, middle, or lower, using the num-bers X = 1, 2, or 3 respectively. The number 4 is used for “X”where the location is unknown or not relative to the answer.This recommended practice contains no further guidelines fordetailing ESP failures external to the teardown results. 
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 22 ===
+14 API R ECOMMENDED  PRACTICE 11S1
+A.5.3 PFAIL
+The primary cause of failure ﬁeld (PFAIL) uses the four-
+digit observation codes shown in Figure A-2 and discussed in
+A.4.3. Figure A-9 shows some additional failure/observationcodes to account for failures not related to the downholeequipment involved in the teardown. These codes are alsoshown in Breakdown of Observation Codes, Figure A-6.
+A.5.4 CFAIL#
+The contributing factors ﬁeld (CFAIL# for # = 1) uses the
+four-digit observation codes shown in Figure A-2 (see A.4.3
+for discussion). The ﬁeld provides an important observationthat contributed to the ESP’s primary mode of failure. Know-ing the contributing factors aids in determining the cause ofthe problem. Additional contributing factors could beincluded by adding ﬁelds to the table as discussed in A.5.6.1.
+A.5.5 SFAIL1
+The secondary failure ﬁeld (SFAIL#, where # = 1) is
+another signiﬁcant failure mechanism or observation that
+appears unrelated to the primary and contributing causes offailure reported in the ﬁelds PFAIL1 and CFAIL#. If the pri-mary failure mechanism was corrected, SFAIL# failure maybecome the most signiﬁcant. For example, signiﬁcant corro-sion in the pump body can be a secondary causes of failure ifthe primary failure is a motor shorted out due to the contribut-ing factor of a failed seal.
+A.5.6 CONCLUSION REMARKS 
+Remarks can be made to provide more insight into the fail-
+ure conclusions made. The primary, contributing, and second-
+ary failure analyses (PREM1; CREM# and SREM#,respectively) each have 240 character spaces for a brief expla-nation to support the conclusions made.
+A.5.6.1 Additional Failure Conclusions
+Although not recommended in this recommended practice,
+provisions for additional contributing factors or secondary
+failures can be included. Note that there cannot be two pri-mary causes of failure. Additional contributing or secondaryfailure ﬁelds can be included as denoted by the ﬁeld namepairs of SUBID2# and CFAIL#, or SUBID3# and SFAIL#(where # is 2 for the second, 3 for the third, etc.), respectively.This recommended practice recommends only keeping trackof the ﬁrst set of conclusions since comments provide betterinsight for more detailed failure conclusions.
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 23 ===
+RECOMMENDED  PRACTICE FOR ELECTRICAL  SUBMERSIBLE  PUMP TEARDOWN  REPORT 15
+Figure A-1—Relationship Diagram for Teardown ReportingEQUIPTAB
+EQUIPDAT
+S/N
+Model
+Pertinent Equipment
+  Data
+*Link to manf. catalogEVENTID
+S/N (Equipment pulled)
+EQUIPIDSECTIDTDDateTDLoc.TDRep
+CONCLTAB
+EVENTIDSUBID1PRIF1PREM1SUBID2CONF1CONFR1SUBID3SECF1SECFR1ObservationsPump HeadEQUIPID
+SUBID
+OBS1 (code)OBS2 (code)OBS3 (code)OBS4 (code)OBS5 (code)         "OBS9 (code)ObservationsPump BaseObservationsObservationsObservationsObservations
+Remarks
+EQUIPID
+SUBID
+REMARKSEVENTTAB
+EVENTID
+UWI
+Pulldate
+Production data
+  beforeProduction data  afterBHPFieldSupCoSupervisorFLDRPIDReason for pullRun dateReported to ..........WELLTAB
+UWIWellnameOperatorFieldLease ..........
+FLDRPID
+Field
+Report
+Database
+LEGEND:
+  Relationships:
+    One to many    One to oneEquipment Sub-Component OBSI OBS2 OBS8 OBS9
+XXXXXX YY XXXX XXXX • XXXX XXXX
+XXXXXX YY XXXX XXXX • XXXX XXXXXXXXXX YY XXXX XXXX • XXXX XXXXXXXXXX YY XXXX XXXX • XXXX XXXXXXXXXX YY XXXX XXXX • XXXX XXXXXXXXXX YY XXXX XXXX • XXXX XXXX
+• • •••••• • •••••
+XXXXXX YY XXXX XXXX • XXXX XXXXTitle of Table
+PRIMARY KEY
+SECONDARY KEY
+OTHER FIELDS
+OTHER FIELDS . . .
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 24 ===
+EQUIPMENT  COMPONENT EQUIPMENT  COMPONENT
+Sub-Com ponent Indices PGSM Sub-Com ponent Indices PGSMCommon 
+SpecialtyDescription
+PUMP
+Gas 
+Separator
+Seal 
+Section
+Motor
+Observation 
+Code
+Common 
+SpecialtyDescription
+PUMP
+Gas 
+Separator
+Seal 
+Section
+Motor
+Observation 
+Code
+XH H ead X-B BeaRings
+Bolt on Head used X    2810 Thrust Runner - Upthrust - negligible   X  4132
+Terminal Cavity Burnt    X 3060 Thrust Runner - Upthrust - moderate   X  4135
+Check Valve open   X  3420 Thrust Runner - Upthrust - severe   X  4138Evidence of Water Track    X 3460 Thrust Bearing Damaged   X X 4320Plugged X X X  3610 Thrust Runner - Damaged   X X 4330
+Communication Ports open   X  3620 X-O O -Rin
+gs
+Percent Plugged X X   3630 Top - - Set/Pliable   X  1310
+Plugged w/ X X X  3660 Middle - - Set/Pliable   X  1330
+Corroded X X X X 3700 Bottom - - Set/Pliable   X  1350Cavity Corroded   X 3710 Pothead O Ring  - - Seized    X 1400Bolts Corroded X   X 3720 Top - - Seized X  X  1410Acid Soluble   X  3820 Middle - - Seized X  X  1430
+XB B ase Housin
+g - Seized X    1440
+Erosion Evident  X   1000 Bottom - - Seized X  X  1450
+Anti Rotation Pins Damaged   X  2000 Pothead O Ring  - - Cut    X 1500
+Bolt on Base used X    2810 Top - -Cut/Damaged   X  1510Filter Dirty    X 3600 Middle - -Cut/Damaged   X  1530Plugged X X   3610 Bottom - -Cut/Damaged   X  1550Filter Plugged   X X 3610 Pothead O Ring  - - Melted    X 1600Percent Plugged X X   3650 Top - - Melted X  X  1610Plugged w/ X X   3660 Middle - - Melted X  X  1630Corroded X X X X 3700 Housing - Melted X    1640Corroded Bolts X    3720 Bottom - - Melted X  X  1650Scaled on OD  X   3810 Pothead O Ring  - - Swollen    X 1700Scale is Acid Soluble  X   3820 Top - - Swollen X   1710Bushing Worn   X X 3900 Middle - - Swollen X   1730
+XG Housin G Housin
+g - Swollen X   1740
+Coating Present X X X X 2820 Bottom - - Swollen X   1750
+Coating Damaged X X X X 2830 Pothead O Ring  - - Hard    X 1800
+Leaked at     3400 Top - - Hard X  X  1810Pressure test Failed   X X 3410 Middle - - Hard X  X  1830Corroded X X X X 3700 Housing - Hard X    1840Scaled on OD X X X X 3810 Bottom - - Hard X  X  1850
+Acid Soluble Scale X X X X 3820  RB R otor Bearin
+gs
+Thickness of scale X X X X 3830 Heating Noted    X 2900
+Vibration Marks observed X  X  4420 Bearing Spun    X 4410
+Scarred Axially X X   4440 Thrust Washer Cut    X 4070Depth/Thickness: X X  4450 Thrust Washer Brittle    X 4080
+XS S haft Thrust Washer Im
+pressioned    X 4090
+Shaft Broken X X X X 2000 Rotor Bearing Sleeve Worn    X 4240
+High Strength Shaft Used X X X X 2840 Rotor Bearing Discolored    X 2910
+Shaft Burnt    X 3030 SE S tator: Electrical
+Spline Corroded X X X X 3720 Hypot Test Failed    X 3480
+Radial Wear Evident X X   3900 Burned Top End Turn    X 3010
+Shaft extension out of Spec. X X X X 4220 Burned Bottom End Turm    X 3020Shaft Twisted X X X X 4300 Burned Leads    X 3030Shaft  Doesn't Rotate OK X X X X 4400 Burned Laminations    X 3040
+Spline Twisted X X X X 4430 Laminations Worn (Worn ID)    X 4210
+XP CouPlin
+g Location of Lamination Wear    X 4200
+Coupling Broken X X X X 2000 PC P othead Condition
+Coupling Missing  X X X 2700 Pothead is plugin type (default Tap)    X 2870
+Coupling Scaled X X   3810 Burnt pothead connector    X 3050
+Scale is Acid Soluble X X   3820 Damaged Pothead Connector    X 3220Coupling Worn X X X X 4210 Pothead Damaged    X 3200
+X-B BeaRin
+gs Pothead Heat noted    X 2900
+Highload bearing Used   X X 2850 Terminal Block damage    X 3240
+Bearing Collapsed   X X 3550 Terminal Block Burnt    X 3060
+Lower Bearing Worn X    3910 Terminal Block Stained    X 3570
+Lower\Bottom Bearing Worn out of Spec X X   3920 RO RO tors
+Middle Bearing Worn out of Spec  X   3940 Corroded    X 3700
+Upper Bearing Worn X    3950 Worn on OD    X 3900Upper\Top Bearing Worn out of Spec X X   3960 Location of Wear on Rotor    X 4200Upper Bushing Worn X    3970 Burned on OD    X 3070
+Lower Bushing Worn X    3980 Location of Burn    X 3000
+Thrust Bearing Wear - Down Thrust - negligible   X X 4022 BC B a
+g Chamber Assembl y
+Thrust Bearing Wear - Down Thrust - moderate   X X 4025 Failed Pressure Test   X  3410
+Thrust Bearing Wear - Down Thrust - severe   X X 4028 Bag Collapsed   X  3550
+Thrust Runner - Down Thrust - negligible   X X 4032 Bag Punctured   X  2010Thrust Runner - Down Thrust - moderate   X X 4035 Bag Blown/Ruptured   X  2020Thrust Runner - Down Thrust - severe   X X 4038 Bag in Bad Condition   X  3500Thrust Bearing Wear - Upthrust negligible   X  4122 Fastner unsatisfactory   X  3430Thrust Bearing Wear - Upthrust moderate   X  4125 Deposit on OD of bag   X  3850
+Thrust Bearing Wear - Upthrust severe   X  4128 Type of Deposit   X  3840
+Figure A-2—Recommended Observation Codes for ESP Teardown
+16
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 25 ===
+EQUIPMENT  COMPONENT EQUIPMENT  COMPONENT
+Sub-Com ponent Indices PGSM Sub-Com ponent Indices PGSMCommon 
+SpecialtyDescription
+PUMP
+Gas 
+Separator
+Seal 
+Section
+Motor
+Observation 
+Code
+Common 
+SpecialtyDescription
+PUMP
+Gas 
+Separator
+Seal 
+Section
+Motor
+Observation 
+Code
+ME MEchanical Seals DU D iffUsers
+Top Displaced   X  4900 Percent Plugged X    3630
+Top Ran Displaced   X  4910 Plugged w/ X    3640
+Top Shaft Grooved   X  4920 Radial Wear  - Slight X    3902  
+Top Spring Broken   X  4930 Radial Wear  - Moderate X    3905Top Seal Bellows Damaged   X  4940 Radial Wear  - Severe X    3908Top Rotating Element damaged   X  4950 Thrust Wear - Slight X    4072Top Rotating Element Worn   X  4960 Thrust Wear - Moderate X    4075Top Rotating Element  Broken   X  4970 Thrust Wear - Severe X    4078Top Stationary Element Damaged   X  4980 Eccentric Wear (diffuser) X    4260Top Seal Failed Pressure Test   X  4990 Diffuser Spinning X    4410
+Middle Displaced   X  5400 Location of Spinning Diffuser X    4460
+Middle Ran Displaced   X  5410 IM IM
+pellers
+Middle Shaft Grooved   X  5420 Percent Plugged X    3630
+Middle Spring Broken   X  5430 Plugged w/ X    3640
+Middle Seal Bellows Damaged   X  5440 Radial Wear  - Slight X    3902Middle Rotating Element damaged   X  5450 Radial Wear  - Moderate X    3905Middle Rotating Element Worn   X  5460 Radial Wear  - Severe X    3908Middle Rotating Element  Broken   X  5470 Thrust Wear - Slight X    4072Middle Stationary Element Damaged   X  5480 Thrust Wear - Moderate X    4075
+Middle Seal Failed Pressure Test   X  5490 Thrust Wear - Severe X    4078
+Bottom Displaced   X  5900 X-N SNa
+p Rings
+Bottom Ran Displaced   X  5910 Broken  X   2050
+Bottom Shaft Grooved   X  5920 Missing X X   2700
+Bottom Spring Broken   X  5930 Corroded X X   3700
+Bottom Seal Bellows Damaged   X  5940 Worn  X   4210
+Bottom Rotating Element damaged   X  5950 X-L OiL Condition
+Bottom Rotating Element Worn   X  5960 Top Bag - Oil -Color   X  2200
+Bottom Rotating Element  Broken   X  5970 Top Bag - Water -Color   X  2210Bottom Stationary Element Damaged   X  5980 Top Bag - Emulsion - Color   X  2220Bottom Seal Failed Pressure Test   X  5990 Top Bag - Solids Present   X  2280Rotating Element Carbon   X  6000 Bottom Bag - Oil -Color   X  2300Rotating Element Silicone   X  6010 Bottom Bag - Water -Color   X  2310Rotating Element Tungston   X  6020 Bottom Bag - Emulsion - Color   X  2320Stationary Element Ceramic   X  6050 Bottom Bag - Solids Present   X  2380Stationary Element Silicone   X  6060 Chamber - Oil -Color   X  2400
+Stationary Element Tungston   X  6070 Chamber - Water -Color   X  2410
+RV R elief Valves Chamber - Emulsion - Color   X  2420
+Relief Valve Failed   X  3440 Chamber - Solids Present   X  2480
+CA C hamber  Assembl y Base - Oil -Color   X X 2500
+Breathing Tube Broken   X  2050 Base - Water -Color   X  2510
+Communication Ports Plugged   X  3620 Base - Emulsion - Color   X X 2520
+Breathing Tube Corroded   X  3700 Base - Solids Present   X X 2580
+IN IN ducer Section Free Water    X 2600
+Eroded  X   1000
+Down Thrust Washers Missing  X   2770
+Plugged  X   3610Percent Plugged  X   3630Plugged w/  X   3650Down Thrust Washers Worn  X   4012
+Down Thrust Washers Brittle  X   4080
+SS S e
+parator  Section
+Eroded  X   1000
+Plugged  X   3610
+Percent Plugged  X   3630Plugged w/  X   3660
+Scale is Acid Soluble  X   3820
+TW T hrust  Washers Condition
+Up Thrust Washers Missing X    2760
+Down Thrust Washers Missing X    2770
+Down Thrust Washers Slight Wear X    4012Down Thrust Washers Moderate Wear X    4015Down Thrust Washers Severe Wear X    4018Down Thrust Washers Brittle X    4080Up Thrust Washers Slight Wear X    4112Up Thrust Washers Moderate Wear X    4115Up Thrust Washers Severe Wear X    4118
+Up Thrust Washers Brittle X    4180
+Figure A-2—Recommended Observation Codes for ESP Teardown (Continued )     Nomenclature for X
+        X       DESCRIPTION
+        P    PUMP
+        G     GAS SEPARATOR OR INTAKE
+        S     SEAL SECTION 
+        M    MOTOR
+17
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 26 ===
+Table Attribute Name Format SizeDec 
+Point 
+Pos. Optional Description
+WELLTAB   (WELL _INDENTIFICATION TABLE )
+ UWI TEXT 20 N Uni que Well Identifier 
+LeaseName TEXT 20 Y Lease name
+Altname TEXT 20 Y Alternate Well ID (for internal identification onl y)
+Field TEXT 12 Y Desi gnated Field Name
+County TEXT 12 Y Count y parish or small desi gnation
+District TEXT 12 Y District Identification
+State TEXT 12 Y State or Province
+Country TEXT 12 Y Country
+EVENTTAB (EVENT_IDENTIFICATION TABLE)
+EVENTID
+TEXT 12 NCounter to uniquely Identify the time and well the 
+equipment was pulled from.
+UWI TEXT 20 N Uni que Well Identifier 
+PullDate DATE YY/MM/DD N Date e quipment was run in the hole
+FailDate DATE YY/MM/DD Y Date E quipment was re ported to fail
+InDate DATE YY/MM/DD N Date E quipment was pulled
+Operator TEXT 20 N O perator of the well
+PullRepID TEXT 20 Y Pull Re port  ID (Could be used as EVENTID )
+SerOID TEXT 20 Y Service Order ID (Could be used as EVENTID )
+Reason4Pull TEXT 4 Y Code Describin g Reason for Pull (See Fi gure 8 )
+Deviation_Indicator
+INTEGER 1 YIndicates if well is deviated 
+(0= (default) straight hole;1=deviated hole depths in MD;2= 
+deviated hole de pths in TVD )
+UnitsID INTEGER 1 N 0=Im perial;1=Metric
+MotorBOT NUMBER 10 5 Y De pth of the bottom of the motor
+OilRate NUMBER 12 2 Y Oil rate from last test prorated to a 24hr da y
+WaterRate NUMBER 12 2 Y Water rate from last test prorated to a  24hr da y
+GasRate NUMBER 12 2 Y Gas rate from last test prorated to a 24hr da y
+Testdate DATE YY/MM/DD Y Date of Production test
+BHT NUMBER 5 2 Y Estimated Bottom hole tem perature
+APIOil NUMBER 5 2 Y API Gravit y of the oil 
+ViscOil NUMBER 12 2 Y Viscosit y (cp) of oil at in situ conditions (BHT,PIP )
+WaterGr NUMBER 12 2 Y Gravity of the Water
+EQUIPTAB (EQUIPMENT _IDENTIFICATION TABLE )
+EQUIPID
+TEXT 12 N Counter to Uni quely Identif y Equipment bein g Reported
+SerialNumber TEXT 20 N Serial Number of component  torn down
+EVENTID TEXT 12 N Counter to uniquely event (Link to EVENTTAB)
+SectionID TEXT 2 Y X# where X= Pump,GS,Seal,Motor and # =0,1,2...
+MfgESP TEXT 20 Y Manufacturer of  ESP Com ponent
+TDCo TEXT 20 Y Com pany tearin g down ESP
+TDLoc TEXT 20 N Location of teardown
+TDRepID TEXT 20 Y Teardown Re port ID (Could be used as EQUIPID )
+TDDate DATE YY/MM/DD Y Date of teardown 
+MfgRep 
+TEXT 20 NName of Teardown Company representative reviewing 
+teardown
+OpRep TEXT 20 N Name of operator reviewing teardown
+Notes: 1. Li quid Rates: Metric/Im perial m3PD/BPD. 
+            2. Gas Rates: 103m3PD/MMSCFPD.
+          3. Temperature °C/°F.
+Figure A-3ÑPertinent Data
+18
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 27 ===
+Table Attribute Name Format SizeDec 
+Point 
+Pos. Optional Description
+OBSTAB (TEARDOWN OBSERVATIONS )
+EQUIPID TEXT 12 YCounter to Uniquely Identify Equipment Component (i.e. 
+Pump, Seal ) bein g Reported
+(SUBID) TEXT 2 Y Identifies sub-component for observations
+Obs1 NUMBER 4 Y Observations # 1 for  Component
+Obs2 NUMBER 4 Y Observations # 2 for  ComponentObs3 NUMBER 4 Y Observations # 3 for  ComponentObs4 NUMBER 4 Y Observations # 4 for  ComponentObs5 NUMBER 4 Y Observations # 5 for  ComponentObs6 NUMBER 4 Y Observations # 6 for  ComponentObs7 NUMBER 4 Y Observations #7 for  ComponentObs8 NUMBER 4 Y Observations #8 for  ComponentObs9 NUMBER 4 Y Observations # 9 for  Component
+MEASTAB 
+(TEARDOWN MEASURMENT OBSERVATION TABLE )
+EQUIPID TEXT 12 YCounter to Uniquely Identify Equipment Component (i.e. 
+Pump, Seal ) bein g Reported
+P2PA-B NUMBER 5 0 N Phase to Phase (A-B)
+P2PA-C NUMBER 5 0 N Phase to Phase (A-C)P2PB-C NUMBER 5 0 N Phase to Phase (B-C)P2GA NUMBER 5 0 N Phase to Ground (A)P2GB NUMBER 5 0 N Phase to Ground (B)P2GC NUMBER 5 0 N Phase to Ground (C)
+TREMTAB
+ (TEARDOWN REMARKS TABLE )
+EQUIPID TEXT 12 YCounter to Uniquely Identify Equipment Component (i.e. 
+Pump, Seal ) bein g Reported
+(SUBID) TEXT 2 Y Identifies sub-component for observation remark
+Remark1 TEXT 80 Y Comments explaining Observation #7
+CONCLTAB (TEARDOWN CONCLUSION TABLE )
+EVENTID TEXT 12 Y Counter to Uni quely Identif y Event bein g Reported
+SUBID1 TEXT 2 Y Identifies Sub-Com ponent for Primar y Cause of Failure
+PRIM1 NUMBER 4 0 Y Primar y Cause of Failure
+PREM1 TEXT 120 Y Ex plainin g Reasonin g for Primar y Failure
+SUBID2# TEXT 2 Y  Sub-Com ponent ID for Contributin g Factor
+CONF# NUMBER 4 0 Y Ex planation of Contributin g to Primar y Failure
+CONFR# TEXT 120 Y Ex planation for Contributin g Factor
+SUBID3# TEXT 2 Y Sub-Com ponent ID for Notable Problems
+SECF# NUMBER 4 0 YNotable Problem 
+(Item near Failure not related to Primar y Failure )
+SECFR# TEXT 120 Y Comments explaining Notable Problem
+Note: BOLD  text = primar y key:  (BRACKETED BOLD ) text = secondar y key. 
+Figure A-4ÑTeardown Observation Data
+19
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 28 ===
+Table Attribute Name Format SizeDec 
+Point 
+Pos. Optional Description
+EQUIPID
+PUMDT  (Pump_Details)
+Serial# TEXT 20 N Serial Number for Pump
+Order# TEXT 20 Y Order Number for Pump
+Model# TEXT 20 N Pump ModelType TEXT 20 N Description of PumpHsg NUMBER 5 0 N Housing SizeStages NUMBER 5 0 N Number of StagesMatMfgCode1 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode2 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode3 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode4 NUMBER 4 0 Y Material Descriptors (user defined)
+IGSDT 
+(Intake/Gas_Separator Details)
+Serial# TEXT 20 N Serial Number for Gas Separator
+GOrder# TEXT 20 Y Order Number for Gas SeparatorGModel# TEXT 20 N Gas Separator ModelGType TEXT 20 N Description of Gas SeparatorMatMfgCode1 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode2 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode3 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode4 NUMBER 4 0 Y Material Descriptors (user defined)
+SEALDT 
+ (Seal_Chamber Details)
+Serial# TEXT 20 N Serial Number for Seal Chamber
+SOrder# TEXT 20 Y Order Number for Seal ChamberSModel# TEXT 20 N Seal Chamber ModelSType TEXT 20 N Description of Seal ChamberMatMfgCode1 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode2 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode3 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode4 NUMBER 4 0 Y Material Descriptors (user defined)
+MOTDT 
+(Motor Details)
+Serial# TEXT 20 N Serial Number for Motor
+MOrder# TEXT 20 Y Order Number for MotorMModel# TEXT 20 N Motor ModelMType TEXT 20 N Description of MotorHP NUMBER 5 0 N Horsepower Rating at 60 HzVLTS NUMBER 5 0 N Name plate Voltage @ 60 Hz (Volts)Amps NUMBER 5 0 N Name plate Current @ 60 Hz (Amps)MatMfgCode1 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode2 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode3 NUMBER 4 0 Y Material Descriptors (user defined)MatMfgCode4 NUMBER 4 0 Y Material Descriptors (user defined)
+Note: BOLD  text = 
+primar y key:  (BRACKETED BOLD ) text = secondar y key. 
+Figure A-5ÑPertinent Data (Equipment Identification)
+20
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 29 ===
+0 1 02 03 04 05 06 07 08 09 0
+Eroded 1000 Evident (1)---------
+Set/Pliable 1300 - To p - Middle - Bottom ----
+Seized 1400 Pothead To p - Middle Hs g Bottom Bottom ----
+Cut/Dama ged 1500 Pothead To p - Middle Hs g Bottom Bottom ----
+Melted 1600 Pothead To p - Middle Hs g Bottom Bottom ----
+Swollen 1700 Pothead To p - Middle Hs g Bottom Bottom ----
+Hard 1800 Pothead To p - Middle Hs g Bottom Bottom ----
+Broken/
+Dama ged 2000 Dama ged Punctured Ru pturedDamaged 
+Runner Broken -----
+Fluid To p Bag 2200Oil
+ColorWater
+Color Emulsion
+Color ----- Solids -
+Fluid Btm Ba g 2300Oil
+ColorWater
+Color Emulsion
+Color ----- Solids -
+Fluid Chamber 2400Oil
+ColorWater
+Color Emulsion
+Color ----- Solids -
+Fluid Base 2500Oil
+ColorWater
+Color Emulsion
+Color ----- Solids -
+Free Water 2600 Present ----- -
+Missin g 2700 Missin g N / A ----Upthrust 
+WasherDown Thrust 
+Washer -
+Equipment Used 2800 - Bolt on Coatin gCoating 
+Dama ged(2)High Strength 
+ShaftHigh Load 
+Bearin g - - Plu g-in Pothead -
+Heatin g 2900 Heat NotedRotor Bearing 
+Discolored --------
+Burnt 3000Location of 
+Rotor Burn (7)Top End Burn Btm End Burn Leads LaminationsBurnt Pothead 
+ConnectorTerminal Cavity
+Block on OD - -
+Damaged/
+Failed 3200 Dama ged -Pothead 
+Connector - Terminal Block -----
+Failed Tests 3400 Leaked at  Pressure Test Valve o pen Fastener Relief Valve -Evidence of 
+Water TrackStained 
+Terminal Block H ypot Test -
+MISC 3500Bag 
+Cond. (poor) ---- Colla psed ----
+Plugging 3600 Filter Dirt y (4)PluggedScreen/
+Com'n Ports % Plu gged (3)Plugged w/ (4)-----
+Corrosion 3700 Corroded(6)Corroded 
+Cavit yCorroded (6)
+(Spline/Screen ) -------
+Scalin g 3800Scale/ Depos its 
+(4,5)Scale Present Acid SolubleScale 
+Thickness(1)Deposit Present De posit T ype (5)----
+Eccentric Wear 3900 Evident(9)Lower Bearing 
+WornLower Bearing 
+Worn Out of 
+SpecLocation of 
+Wear(7)Middle Bearing 
+Worn Out of 
+SpecUpper Bearing 
+Worn Upper \Top 
+Bearing Worn 
+Out of S pecUpper Bushing 
+WornLower Bushing 
+Worn -
+Down Thrust 4000 - Thrust Washer Thrust Bearin gThrust Runner - - Washer Cut Thrust Wear Washers BrittleWasher 
+Impression
+Up Thrust 4100 - Thrust Washer Thrust Bearin gThrust Runner ------
+Wear 4200 Location(7)EvidentExtension out o f
+Spec. - RB Sleeve - Eccentric - - -
+Twisted 4300 Shaft Twisted S pline Twisted --------
+Rotatin g 4400Shaft Not 
+Rotatin g Spinnin gVibration 
+Marks(1)Scarred axial Depth of 
+Scarrin g(1)---
+Btm Seal 4900(9)Displaced Ran Dis placed Shaft Grooved S pring BrokenSeal Bellows 
+Dama gedRotating Element 
+Dama
+gedRotating 
+Element WornRotating 
+Element  
+BrokenStationary 
+Element 
+Dama gedSeal Failed 
+Pressure Test
+Middle Seal 5400(9)Displaced Ran Dis placed Shaft Grooved S pring BrokenSeal Bellows 
+Dama gedRotating Element 
+Dama
+gedRotating 
+Element WornRotating 
+Element  
+BrokenStationary 
+Element 
+Dama gedSeal Failed 
+Pressure Test
+Top Seal 5900(9)Displaced Ran Dis placed Shaft Grooved S pring BrokenSeal Bellows 
+Dama gedRotating Element 
+Dama
+gedRotating 
+Element WornRotating 
+Element  
+BrokenStationary 
+Element 
+Dama gedSeal Failed 
+Pressure Test
+Materials
+Mechn. Seals 6000Rotating 
+Element 
+CarbonRotating 
+Element 
+SiliconeRotating 
+Element 
+Tungsten - -Stationary 
+Element CeramicStationary 
+Element 
+SiliconeStationary 
+Element 
+Tun
+gsten - -
+Other 
+(For Failure Table onl y) 7000 S plice Failure Cable FailureMotor Flat 
+Failure Pi gtail Failure Tubin g Failure - -Equipment 
+Changed out 
+(No failure 
+evident ) Unknown Other
+0 1 02 03 04 05 06 07 08 09 0
+Note: For explanation of footnote, ref. 4.3.2 and Figure A-7.
+Figure A-6—Common Terms for Remarks Teardown Observation Code Breakdown Table
+21
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 30 ===
+Final Digit ThicknessCoating 
+Descri ptionPlugged With Deposits of ColorsCorrosion 
+Descri ptorsLocation 
+Descri ptorsRotating 
+Descri ptionWear 
+Descri ptors
+For Codes #1000,3640
+,28303600,
+364036502300, 2310, 
+23203700,
+372042003000, 3900,
+44004900 to 5900
+Footnote # 1245 6789
+0 .05 mm Minor Asphaltine Asphaltine Clear Minor - Locked Other (1)
+1 1.0 mm Blistering Iron Sulfide Iron Sulfide White General Inner Radius Other (1)Negligible 
+Evenly
+2 2.0 mm Flaking Mud Other (1) Yellow Other (1) Outer Radius Overly loose Negligible 3 3.0 mm Worn Paraffin Paraffin Green Pitting Top Other (2)Negligible One 
+Sided
+4 4.0 mm Dented/Chipped Rubber Other (2) Light Brown Other (2) Middle Other (3)Moderate 
+Evenly
+5 5.0 mm Cracked Sand Other (3) Other (1) Cracking Bottom Other (4) Moderate 6 7.0 mm Other (1) Scale Scale Dark Brown Other (3) Other (1) Tight SpotsModerate One 
+Sided
+7 10.0 mm Other (2) Formation Other (4) Other (2) Other (4) Other (2) Other (6) Severe Evenly
+8 15.0 mm Other (3) Other (1) Other (5) Other (3) Other (5) Other (3) Hard to Rotate Severe 
+9 >25 mm Severe Other (2) Other (6) Black Severe Other (4) Other (7)Severe One 
+Sided
+Note: Other ( _ )  available for user to define.
+Figure A-7—Common Terms for Remarks Teardown Observation Code Breakdown
+Code Description Code Description
+LPRO Low Production STIM Stimulation Required
+POFF Production Off LOGG Logging Well Required
+RSIH Resize (Increase Production) COVT Converting Well
+RSDH Resize (Decrease Production) TEST Testing Well
+DHSH Downhole Short TSPN Temporary Suspending Well
+LPUM Locked Pump ABAN Abandoning Well
+LOAM Drawing Low Amps OTH1 Other (1)
+HIAM Drawing High Amps OTH2 Other (2)
+HITB Hole in Tubing OTH3 Other (3)
+CSRP Casing Repair Required OTH4 Other (4)
+WKOV Workover OTH5 Other (5)
+Note: OTH# can be user-defined.
+Figure A-8—Reason for Pump Pull
+PFAIL1/CFAIL1/SFAIL1  Indices 1234 Common Description
+ Upper
+ Middle Lower Other
+ Observation 
+ CodeX-F Cause of Failure 
+Splice Failure X X X 7000
+Cable Failure XXXX 7010
+Motor Flat Failure X X X 7020
+Pigtail Failure X X X 7030Tubing Failure XXXX 7040
+No Failure, Equipment Changed Out X 7070
+Unknown X 7080
+Other Failures X 7090
+Figure A-9—Failure Codes
+22
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 31 ===
+23APPENDIX B—TEARDOWN REPORT QUERIES
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 32 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 33 ===
+RECOMMENDED  PRACTICE FOR ELECTRICAL  SUBMERSIBLE  PUMP TEARDOWN  REPORT 25
+Figure B-1— Example 1: Teardown Report Queries0 25 50 75 100 125 150 200 175
+Number of FailuresGas Separator
+Failure
+Seal Failure
+Motor Failure
+Pump FailurePLOT 1: ESP FAILURES
+Failing Equipment
+0 5 10 15 20 25 30 35Condition ofThrust Washers
+Diffusers
+Impellers
+Screen Condition
+Other
+Number of FailuresPLOT 2: PRIMARY CAUSE OF PUMP FAILURES
+260 Days145 Days
+Average Run Life215 Days300 Days95 DaysDescription: Plot 1  shows the distribution of failures within Field X along with the average run lives by failure. From Plot 1 we see that PUMP
+failures represent a significant portion of the failures (27%) and also the shortest run lives. Attention to this problem will have the largest imme-
+diate impact on improving this fields run lives and potentially its operating cost. Plot 2 shows the primary causes of PUMP failure further broken
+down into 4 major categories, mainly: thrust washers, diffusers, impellers, and screen type failures. It shows that the screen condition and the
+condition of the thrust washer represent most of the failures.
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 34 ===
+26 API R ECOMMENDED  PRACTICE 11S1
+Figure B-1— Example 1: Teardown Report Queries (Continued)/,/,/,/,/,/,
+/,/,/,/,
+/,/,/,/, /, /,/,/,/,
+/, /,/,/,
+/,/,/,/,
+/,/,/,
+/,/,/,/,/,/,/,/,
+/, /,/,/,/,/,/,/,/,
+/,/,/,/,/,
+/,/,/,/,/,/,/,Primary Cause
+Severe
+ModerateFrequency of
+Observations
+ObservationsDown Thrust
+Washers
+Severe WearPLOT 3: BREAKDOWN OF FAILURES
+Severity of
+ConditionUp Thrust
+Washers
+Severe WearDiffusers
+Thrust Wear-
+SevereDiffuser
+SpinningImpellars
+Thrust
+Wear-SevereImpellars
+Radial
+Wear-SevereDiffusers
+Eccentric
+WearScreens
+Plugged25
+20
+15
+10
+5
+0
+PLOT 4: DESCRIPTION OF POTHEAD BY MANUFACTURES
+25
+20
+15
+10
+5
+0No. of Failures
+Manufacture C
+Manufacture B
+Manufacture A
+Failure ModeBurnt Pothead Connector
+Damaged Pothead Connector
+Pothead Damaged
+Terminal Block Burnt
+Motor O-Rings (Damaged any manner)ESP Motor ManufactureDescription: Plot 3  breaks the PUMP failures down even further, showing that plugging and down thrust are the major components of the fail-
+ures in this field PUMP failures. In addition to being one of the primary causes of failures, the trend is observed in all tear downs within the field,
+as Plot 3 shows. Attention can then be put on operating and design practices within the field. 
+In a similar fashion to Plots 2 and 3, we can progress into increasing levels of detail to determine that pothead failures are one of the main
+concerns in MOTOR failures. Plot 4 shows the distribution of the MOTOR failures by manufactures as related to the pothead failures only. It
+shows that Manufacture B has fewer pothead failures than the other two manufactures; and, if queries also showed the pothead fa ilure problem
+is limited to certain wells of operating conditions, Manufacture B pumps should be the first choice in those wells. Alternative ly, Manufactures A
+and C would have the data available to determine if design changes are warranted to address this problem.
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 35 ===
+27
+Coating A Average Run Time 150 days Coating B Avg Run Time 200 days
+Coating ConditionsPump 
+Housin gGas Sep. 
+Housin gMotor 
+Housin gSeal 
+Housin gPump 
+Housin gGas Sep. 
+Housin gMotor 
+Housin gSeal 
+Housin g
+Excessive Blistered 399 1 2 0636
+Cracked 06 1 5 1 8 0399
+Moderate Blistered 66693399
+Cracked 09630630
+Negligible Blistered 03000000
+Cracked 36630330
+Figure B-2—Example 2: Teardown Report QueriesCoating Condition of Failed Pumps
+39912
+06
+36
+061518
+0399
+6669
+3399
+03
+000000366
+3
+033
+0
+02468101214161820
+Pump housing Gas Sep. Housing Motor Housing Seal Housing Pump housing Gas Sep. Housing Motor Housing Seal HousingNumber of UnitsExcessive Blistered 
+Excessive Cracked 
+Moderate Blistered 
+Moderate Cracked 
+Negligible Blistered
+Negligible CrackedCOATING A (150 Days) COATING B (200 Days)
+Based on tracking the condition of coatings on the pump 
+torn down, it can be concluded that Coating B is superior to Coating A.  A comparison of the run time and the bottom hole conditions would have to be made to confirm this Pump 
+HiPump Housing
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 36 ===
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 37 ===
+To better serve you, please refer to this code when ordering: GS41 059 798Date:
+(Month, Day, Year)o API Member (Check if Yes) API Related Publications Order Form
+Invoice To – o Check here if same as “Ship To”
+Company
+Name/Dept.
+Address
+City State/Province
+Zip Country
+Customer Daytime Telephone No.
+Fax No.
+(Essential for Foreign Orders) (Essential for Foreign Orders)
+oPayment Enclosed $
+oPayment By Charge Account :
+o MasterCard o Visa o American Express
+Account No.
+Name (As it appears on Card)
+Expiration Date
+SignatureoPlease Bill Me
+P .O. No.
+Customer Account No.
+State Sales Tax – The American Petroleum Institute is required to collect sales tax on publications
+mailed to the following states: AL,  AR, CT, DC, FL, GA, IL, IN, IA, KS, KY, ME, MD, MA, MI, MN, MO, NE, NJ, NY,
+NC, ND, OH, PA, RI, SC, TN, TX, VT, VA, WV, and WI. Prepayment of orders shipped to these states should includeapplicable sales tax unless a purchaser is exempt. If exempt, please print your state exemption number andenclose a copy of the current exemption certificate.
+Exemption Number State
+Shipping and Handling – All orders are shipped via UPS or First Class Mail in the U.S. and Canada.
+Orders to all other countries will be sent by Airmail.
+Rush Shipping Charge – Federal Express, $10 in addition to customer providing Federal Express
+account number: ________________________. UPS Next Day, $10 plus the actual shipping costs (1-9
+items). UPS Second Day, add $10 plus the actual shipping costs (1-9 items).
+Rush Bulk Orders – 1-9 items, $10. Over 9 items, add $1 each for every additional item.  NOTE: Shipping
+on foreign orders cannot be rushed without Federal Express account number.Bill and Ship Orders – U.S. and Canada, $4 per order handling fee, plus actual shipping costs. All other
+countries, for Airmail (standard service) add 25% of order value. All other countries, for UPS Next Day, add an
+additional 10% of order value.
+Mail Orders: American Petroleum Institute, Order Desk, 1220 L Street, N.W., Washington, DC 20005-4070
+Fax Orders: (202) 962-4776           Phone Orders: (202) 682-8375Quantity Order No. Title Unit Price Total
+Subtotal
+State Sales Tax (see above)
+Rush Shipping Charge (see left)
+Shipping and Handling (see left)
+Total (in U.S. Dollars)Ship To – (UPS will not deliver to a P .O. Box)
+Company
+Name/Dept.
+Address
+City State/Province
+Zip Country
+Customer Daytime Telephone No.
+Fax No.
+Pricing and availability 
+subject to change 
+without notice.G11S03RP 11S, The Operation, Maintenance and Troubleshooting of Electric Submersible
+Pump InstallationsPREPAID AND CREDIT CARD ORDERS ARE NOT CHARGED FOR SHIPPING AND HANDLING TO U.S. AND CANADIAN DESTINATIONS
+$ 40.00
+RP 11S3, Electric Submersible Pump Installations
+RP 11S4, Sizing and Selection of Electric Submersible Pump Installations
+RP 11S5, Application of Electric Submersible Cable Systems
+RP 11S6, Testing of Electric Submersible Pump Cable Systems
+RP 11S7, Application and Testing of Electric Submersible Pump Seal Chamber Section
+RP 11S8, Electric Submersible Pump System VibrationsRP 11S2, Electric Submersible Pump Testing, Second Edition
+RP 11S2, Electric Submersible Pump Testing—Russian translation, First Edition
+G05941
+G05943G05944
+G11S61
+G05947G05948G11S22
+G11S2R$ 45.00$ 50.00$ 45.00$ 60.00$ 50.00$ 40.00$ 40.00$ 40.00
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 38 ===
+The American Petroleum Institute provides additional resources
+and programs to industry which are based on API Standards. For more information, contact:
+• Training/Workshops Ph: 202-682-8490
+Fax: 202-682-8222
+• Inspector Certification Programs Ph: 202-682-8161
+Fax: 202-962-4739
+• American Petroleum Institute Ph: 202-682-8130
+Quality Registrar Fax: 202-682-8070
+• Monogram Program Ph: 202-962-4791
+Fax: 202-682-8070
+• Engine Oil Licensing and Ph: 202-682-8233
+Certification System Fax: 202-962-4739
+• Petroleum Test Laboratory Ph: 202-682-8129
+Accreditation Program Fax: 202-682-8070
+In addition, petroleum industry technical, patent, and business
+information is available online through API EnCompass
+™. Call
+1-888-604-1880 (toll-free) or 212-366-4040, or fax 212-366-4298to discover more.
+To obtain a free copy of the API
+Publications, Programs, and ServicesCatalog, call 202-682-8375 or fax yourrequest to 202-962-4776. Or see the onlineinteractive version of the catalog on ourweb site at www.api.org/cat.
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 39 ===
+PC-01200—9/97—1M ( )
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000
+
+=== PAGE 40 ===
+Additional copies available from API Publications and
+Distribution: (202) 682-8375
+Information about API Publications, Programs and Services
+is available on the World Wide Web at: http://www.api.org
+Order No. G11S13
+COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000COPYRIGHT 2000 American Petroleum Institute
+Information Handling Services, 2000

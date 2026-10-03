@@ -1,0 +1,50 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "P1:",
+        "1": "Annulus pressure"
+      },
+      {
+        "0": "P2:",
+        "1": "Production oil pressure"
+      },
+      {
+        "0": "E:",
+        "1": "Electrical motor current (measured at VFD)"
+      },
+      {
+        "0": "S:",
+        "1": "Motor speed (measured at VFD)"
+      }
+    ],
+    "csv": "0,1\r\nP1:,Annulus pressure\r\nP2:,Production oil pressure\r\nE:,Electrical motor current (measured at VFD)\r\nS:,Motor speed (measured at VFD)\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      0,
+      1
+    ],
+    "rows": [
+      {
+        "0": "P3:",
+        "1": "Inlet oil pressure at pump"
+      },
+      {
+        "0": "T1:",
+        "1": "Inlet oil temperature at pump"
+      },
+      {
+        "0": "T2:",
+        "1": "Pump motor temperature"
+      }
+    ],
+    "csv": "0,1\r\nP3:,Inlet oil pressure at pump\r\nT1:,Inlet oil temperature at pump\r\nT2:,Pump motor temperature\r\n"
+  }
+]

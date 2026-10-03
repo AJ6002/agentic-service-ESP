@@ -1,0 +1,220 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S1-V3",
+    "title": "API RP 11S1: Recommended Practice for ESP Teardown Report (3rd Ed)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "1997",
+    "source_filename": "api-11s1-standard.pdf",
+    "standardized_filename": "API_RP_11S1_Teardown_Report_1997.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S1_Teardown_Report_1997.pdf",
+    "file_size_bytes": 480124,
+    "sha256_checksum": "9d7780e6afb0ac50fb5f341919c07f445cbdc90b8dc8d749527d18569995af8c",
+    "total_pages": 40,
+    "extracted_char_count": 79621,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 325,
+      "word_count": 38
+    },
+    {
+      "page_number": 2,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 3,
+      "char_count": 363,
+      "word_count": 42
+    },
+    {
+      "page_number": 4,
+      "char_count": 3611,
+      "word_count": 521
+    },
+    {
+      "page_number": 5,
+      "char_count": 1139,
+      "word_count": 162
+    },
+    {
+      "page_number": 6,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 7,
+      "char_count": 2350,
+      "word_count": 291
+    },
+    {
+      "page_number": 8,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 9,
+      "char_count": 1097,
+      "word_count": 142
+    },
+    {
+      "page_number": 10,
+      "char_count": 4302,
+      "word_count": 427
+    },
+    {
+      "page_number": 11,
+      "char_count": 294,
+      "word_count": 37
+    },
+    {
+      "page_number": 12,
+      "char_count": 4341,
+      "word_count": 469
+    },
+    {
+      "page_number": 13,
+      "char_count": 307,
+      "word_count": 39
+    },
+    {
+      "page_number": 14,
+      "char_count": 4146,
+      "word_count": 437
+    },
+    {
+      "page_number": 15,
+      "char_count": 293,
+      "word_count": 37
+    },
+    {
+      "page_number": 16,
+      "char_count": 3506,
+      "word_count": 323
+    },
+    {
+      "page_number": 17,
+      "char_count": 308,
+      "word_count": 39
+    },
+    {
+      "page_number": 18,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 19,
+      "char_count": 5080,
+      "word_count": 772
+    },
+    {
+      "page_number": 20,
+      "char_count": 4949,
+      "word_count": 762
+    },
+    {
+      "page_number": 21,
+      "char_count": 5343,
+      "word_count": 842
+    },
+    {
+      "page_number": 22,
+      "char_count": 2388,
+      "word_count": 349
+    },
+    {
+      "page_number": 23,
+      "char_count": 1342,
+      "word_count": 158
+    },
+    {
+      "page_number": 24,
+      "char_count": 4905,
+      "word_count": 903
+    },
+    {
+      "page_number": 25,
+      "char_count": 4184,
+      "word_count": 655
+    },
+    {
+      "page_number": 26,
+      "char_count": 2758,
+      "word_count": 485
+    },
+    {
+      "page_number": 27,
+      "char_count": 2272,
+      "word_count": 380
+    },
+    {
+      "page_number": 28,
+      "char_count": 2300,
+      "word_count": 348
+    },
+    {
+      "page_number": 29,
+      "char_count": 3774,
+      "word_count": 573
+    },
+    {
+      "page_number": 30,
+      "char_count": 2361,
+      "word_count": 368
+    },
+    {
+      "page_number": 31,
+      "char_count": 195,
+      "word_count": 21
+    },
+    {
+      "page_number": 32,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 33,
+      "char_count": 1283,
+      "word_count": 195
+    },
+    {
+      "page_number": 34,
+      "char_count": 2058,
+      "word_count": 302
+    },
+    {
+      "page_number": 35,
+      "char_count": 1207,
+      "word_count": 182
+    },
+    {
+      "page_number": 36,
+      "char_count": 158,
+      "word_count": 17
+    },
+    {
+      "page_number": 37,
+      "char_count": 3460,
+      "word_count": 530
+    },
+    {
+      "page_number": 38,
+      "char_count": 1169,
+      "word_count": 148
+    },
+    {
+      "page_number": 39,
+      "char_count": 179,
+      "word_count": 20
+    },
+    {
+      "page_number": 40,
+      "char_count": 374,
+      "word_count": 46
+    }
+  ]
+}

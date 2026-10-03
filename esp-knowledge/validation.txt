@@ -1,0 +1,903 @@
+Yes. This should be handled as a **Knowledge Quality / Validation layer**, not by simply assuming that uploaded documents are correct.
+
+For your ESP Agent, there are actually **three different correctness problems**:
+
+1. **Is the source document itself authoritative?**
+2. **Was the information extracted and classified correctly?**
+3. **Was the information converted into the right technical/semantic representation for the Agent?**
+
+For the **Algorithm / ML part**, add a fourth:
+
+4. **Does the KB description accurately represent what the actual model does?**
+
+The ESP deck explicitly requires the system to be reproducible, versioned, explainable and testable, and it separates model runtime from the assistant.  
+
+# 1. Think of KB correctness as a pipeline
+
+```text
+SOURCE
+  ↓
+DOCUMENT VALIDATION
+  ↓
+PARSING VALIDATION
+  ↓
+CLASSIFICATION VALIDATION
+  ↓
+STRUCTURED DATA VALIDATION
+  ↓
+SEMANTIC VALIDATION
+  ↓
+CROSS-SOURCE VALIDATION
+  ↓
+RETRIEVAL VALIDATION
+  ↓
+AGENT ANSWER VALIDATION
+```
+
+Do **not** wait until the Agent gives a wrong answer to discover that the KB was wrong.
+
+---
+
+# 2. Level 1 — Source correctness
+
+Before putting anything into the KB, assign each source a trust level.
+
+Example:
+
+| Source                         | Authority   |
+| ------------------------------ | ----------- |
+| OEM ESP manual                 | Very high   |
+| OEM pump datasheet             | Very high   |
+| Approved client SOP            | Very high   |
+| Internal engineering procedure | High        |
+| Published technical paper      | Medium–High |
+| Public website                 | Medium      |
+| Unverified PDF                 | Low         |
+| User-uploaded random document  | Unknown     |
+
+Store:
+
+```text id="h8kq74"
+source_id
+source_type
+publisher
+manufacturer
+document_version
+publication_date
+approved
+authority_level
+```
+
+Then your Agent can prefer higher-authority information.
+
+---
+
+# 3. Level 2 — Extraction correctness
+
+Suppose your source says:
+
+> Pump rated frequency = 60 Hz
+
+Parser extracts:
+
+```json id="qv4u24"
+{
+  "parameter": "frequency",
+  "value": 60,
+  "unit": "Hz"
+}
+```
+
+You should automatically validate:
+
+```text id="rbq10w"
+Is value numeric?         ✓
+Is unit valid?             ✓
+Is parameter recognized?   ✓
+Is range plausible?       ✓
+Is source location known? ✓
+```
+
+If the parser extracted:
+
+```text
+frequency = 600
+```
+
+the system should flag:
+
+```text id="xqbx5s"
+OUTLIER / REVIEW REQUIRED
+```
+
+rather than embedding it.
+
+---
+
+# 4. Level 3 — Schema validation
+
+Every structured KB object should have a schema.
+
+For example, an algorithm definition:
+
+```json id="ds5v3s"
+{
+  "algorithm_id": "xgboost_v1",
+  "algorithm_family": "gradient_boosting",
+  "purpose": "fault_classification",
+  "input_type": "tabular_features",
+  "supports_probability": true,
+  "supports_sequence_data": false,
+  "training_required": true,
+  "version": "1.0"
+}
+```
+
+Validate with:
+
+* JSON Schema
+* Pydantic
+* SQL constraints
+* enum validation
+* type checking
+
+If someone enters:
+
+```text id="x76q4w"
+supports_probability = "yes"
+```
+
+your ingestion pipeline rejects it.
+
+---
+
+# 5. Level 4 — Semantic validation
+
+This is the important one for your **Algorithm / ML Knowledge** category.
+
+A document might say:
+
+> XGBoost is used for fault classification.
+
+That is not enough.
+
+Your KB record should define what that means **in your system**.
+
+Example:
+
+```text id="n0g52y"
+MODEL:
+Fault Classifier v1.4
+
+PURPOSE:
+ESP fault classification
+
+INPUT:
+Engineered ESP telemetry features
+
+OUTPUT:
+fault_class
+confidence
+
+CLASSES:
+GAS_INTERFERENCE
+STAGE_WEAR
+...
+```
+
+Now validate:
+
+```text id="8g84ny"
+Does actual model output contain fault_class?      ✓
+Does actual model output contain confidence?       ✓
+Are listed classes valid?                         ✓
+Does the model actually support those classes?   ✓
+```
+
+This prevents the KB from saying something that the actual model does not do.
+
+---
+
+# 6. This is especially important because another team owns your models
+
+Your Agent should have a **Model Contract**.
+
+For each model:
+
+```text id="5gs8wp"
+model_id
+model_name
+model_version
+purpose
+input_schema
+output_schema
+prediction_horizon
+class_labels
+confidence_definition
+thresholds
+limitations
+training_dataset
+feature_version
+```
+
+For example:
+
+```text id="zo4kmt"
+MODEL
+failure_predictor_v2
+
+INPUT
+ESP feature vector
+
+OUTPUT
+risk_1h
+risk_24h
+risk_7d
+RUL
+
+MODEL VERSION
+2.1.0
+
+STATUS
+approved
+```
+
+Then automatically compare this KB metadata against the actual model API.
+
+---
+
+# 7. Build a "Model Contract Test"
+
+This is probably the most useful thing for your situation.
+
+Suppose your AI team says:
+
+```text
+GET /models/ESP-001/prediction
+```
+
+returns:
+
+```json id="mxb5ri"
+{
+  "asset_id": "ESP-001",
+  "failure_risk_24h": 0.31,
+  "rul_hours": 96
+}
+```
+
+Your test automatically checks:
+
+```text id="d41ibd"
+KB says:
+failure_risk_24h → numeric probability
+RUL → hours
+
+Actual API:
+failure_risk_24h → numeric ✓
+RUL → hours ✓
+```
+
+If tomorrow their team changes:
+
+```text
+rul_hours
+```
+
+to:
+
+```text
+rul_days
+```
+
+the contract test fails.
+
+That is much better than allowing the Agent to silently misinterpret it.
+
+---
+
+# 8. Validate model labels against the actual model
+
+For your fault taxonomy:
+
+```text
+GAS_INTERFERENCE
+STAGE_WEAR
+INTAKE_BLOCKAGE
+...
+```
+
+Create:
+
+```text id="1ji2mj"
+KB label registry
+        ↕
+Model output label registry
+```
+
+Automated test:
+
+```python
+assert set(kb_labels) == set(model_labels)
+```
+
+Or, if only some classes are supported:
+
+```text id="w2ikn7"
+KB taxonomy
+      ↓
+Supported model classes
+      ↓
+Unsupported classes
+```
+
+For example:
+
+```text
+MODEL SUPPORTS:
+
+GAS_INTERFERENCE
+STAGE_WEAR
+OVERLOAD
+UNDERLOAD
+
+KB TAXONOMY ALSO CONTAINS:
+
+MOTOR_OVERHEATING
+VIBRATION
+...
+```
+
+Do **not** imply that the model can classify the unsupported classes.
+
+This is particularly important because the deck provides a broader fault taxonomy and says it should be used consistently across database, labels, model outputs and workflows. 
+
+---
+
+# 9. Validate numerical semantics
+
+This is another common failure.
+
+Suppose KB says:
+
+```text id="2hfpaa"
+failure_risk_24h = 0.72
+```
+
+Is that:
+
+* 72% probability?
+* normalized risk score?
+* anomaly score?
+* severity?
+
+Your KB needs explicit semantics:
+
+```text id="e5i5ck"
+field: failure_risk_24h
+
+type: probability
+
+range: 0–1
+
+display:
+0.72 → 72%
+
+horizon:
+24 hours
+
+meaning:
+predicted probability of configured event within 24h
+```
+
+Without this, an LLM can misinterpret the field.
+
+---
+
+# 10. Add unit validation
+
+For ESP knowledge, this is essential.
+
+The deck explicitly includes units and feature semantics as part of the monitoring architecture, and it warns that incorrect density/water-cut/GOR assumptions can break the model.  
+
+Store:
+
+```text id="6trg0l"
+parameter
+canonical_unit
+accepted_units
+conversion
+range
+domain
+```
+
+Example:
+
+```text
+motor_temperature
+
+canonical:
+°C
+
+accepted:
+°F
+°C
+
+conversion:
+°F → °C
+
+plausible range:
+0–250°C
+```
+
+Then validate every ingestion.
+
+---
+
+# 11. Cross-source validation
+
+This is where your KB becomes much more reliable.
+
+Example:
+
+### Source A
+
+OEM manual:
+
+```text
+Motor max operating temperature = X
+```
+
+### Source B
+
+Client engineering configuration:
+
+```text
+ESP-007 temperature limit = Y
+```
+
+### Source C
+
+Model configuration:
+
+```text
+thermal threshold = Z
+```
+
+Now the system should detect:
+
+```text id="7gkdzi"
+A ≠ B ≠ C
+```
+
+and raise:
+
+```text
+KNOWLEDGE CONFLICT
+```
+
+Do not silently choose one.
+
+The Agent should know:
+
+> There are conflicting values and engineering review is required.
+
+---
+
+# 12. Create a Knowledge Confidence score
+
+Every KB item should have metadata like:
+
+```text id="g3r7j2"
+source_authority
+extraction_confidence
+semantic_confidence
+validation_status
+last_validated
+validated_by
+version
+```
+
+For example:
+
+```json id="do0s2i"
+{
+  "knowledge_id": "ESP-ROR-004",
+  "source_authority": 0.98,
+  "extraction_confidence": 0.99,
+  "semantic_confidence": 0.96,
+  "validation_status": "APPROVED",
+  "last_validated": "2026-08-20",
+  "version": "1.2"
+}
+```
+
+The Agent can then prioritize approved/high-confidence knowledge.
+
+---
+
+# 13. Human approval should exist for critical knowledge
+
+Not everything should automatically enter production KB.
+
+Use:
+
+```text id="b1ctym"
+INGESTED
+   ↓
+PARSED
+   ↓
+VALIDATED
+   ↓
+REVIEW REQUIRED
+   ↓
+APPROVED
+   ↓
+PUBLISHED
+```
+
+For example:
+
+### Automatically publish
+
+Business glossary:
+
+```text
+"failure prediction" = "failure risk"
+```
+
+### Human approval
+
+```text
+Motor thermal limit
+Pump ROR
+Trip threshold
+Safe operating procedure
+```
+
+Because wrong values could lead to unsafe recommendations. The deck explicitly requires human approval and prohibits unsafe autonomous action. 
+
+---
+
+# 14. Retrieval correctness also needs testing
+
+Even if the KB is correct, retrieval might return the wrong document.
+
+Create a **golden retrieval set**.
+
+Example:
+
+```text id="1prxgv"
+Question:
+"What causes erratic amps with reduced flow?"
+
+Expected sources:
+ESP Troubleshooting Guide
+Page X
+```
+
+Run:
+
+```text id="71a8rv"
+query
+ ↓
+retriever
+ ↓
+top-5 documents
+```
+
+Check whether the correct document appears.
+
+Metrics:
+
+* Recall@K
+* Precision@K
+* MRR
+* NDCG
+
+Then test:
+
+```text id="1h9qsi"
+Correct source retrieved?
+Correct page?
+Correct fault?
+Correct tenant?
+Correct equipment?
+```
+
+---
+
+# 15. Agent answer correctness should also be tested
+
+Your final test is:
+
+```text id="tzj4rf"
+SOURCE
+ ↓
+KB
+ ↓
+RETRIEVAL
+ ↓
+EVIDENCE
+ ↓
+LLM
+ ↓
+ANSWER
+```
+
+Create a golden Q&A set.
+
+Example:
+
+**Question**
+
+> What could cause reduced flow with elevated amps and reduced discharge pressure?
+
+Expected:
+
+> Possible stage wear.
+
+That pattern is explicitly given in the ESP deck. 
+
+Then test whether the Agent:
+
+* identifies the right fault
+* cites the right source
+* does not invent values
+* states uncertainty
+* provides escalation
+
+---
+
+# 16. For the ML/Algorithm category, build a dedicated validation matrix
+
+I would create this table in your system:
+
+| Field               | Source              | Validation            |
+| ------------------- | ------------------- | --------------------- |
+| Algorithm name      | Model registry      | Exact match           |
+| Purpose             | AI team contract    | Exact match           |
+| Input schema        | Actual API/model    | Schema test           |
+| Output schema       | Actual API/model    | Schema test           |
+| Classes             | Model output        | Set comparison        |
+| Probability meaning | Model documentation | Semantic review       |
+| Horizon             | Model contract      | Exact match           |
+| Units               | Feature schema      | Unit validation       |
+| Model version       | Registry/API        | Version match         |
+| Feature version     | Registry            | Version match         |
+| Training dataset    | Model card          | Provenance check      |
+| Known limitations   | Model card          | Human review          |
+| Thresholds          | Config/model        | Range + version check |
+
+---
+
+# 17. Do the same for every KB category
+
+Your ingestion pipeline should produce:
+
+```text id="vzhmp4"
+Knowledge Item
+      │
+      ├── Source Check
+      ├── Schema Check
+      ├── Unit Check
+      ├── Semantic Check
+      ├── Cross-source Check
+      ├── Provenance Check
+      └── Human Approval
+```
+
+Then:
+
+```text
+REJECTED
+DRAFT
+VALIDATED
+APPROVED
+PUBLISHED
+DEPRECATED
+```
+
+---
+
+# 18. The architecture should therefore include a Knowledge QA layer
+
+Your earlier architecture was:
+
+```text id="h6df8t"
+Documents
+ ↓
+Parsing
+ ↓
+Classification
+ ↓
+Storage
+ ↓
+Chunking
+ ↓
+Embedding
+ ↓
+Vector DB
+```
+
+I would change it to:
+
+```text id="stxidb"
+SOURCE DOCUMENTS
+      ↓
+PARSING / NORMALIZATION
+      ↓
+KNOWLEDGE CLASSIFICATION
+      ↓
+SCHEMA VALIDATION
+      ↓
+SEMANTIC VALIDATION
+      ↓
+UNIT / RANGE VALIDATION
+      ↓
+PROVENANCE VALIDATION
+      ↓
+CROSS-SOURCE VALIDATION
+      ↓
+HUMAN APPROVAL
+      ↓
+PUBLISH
+      │
+      ├── YAML / JSON
+      ├── PostgreSQL
+      ├── Neo4j
+      ├── Object Storage
+      └── Vector DB
+```
+
+Then retrieval:
+
+```text id="au7jgw"
+QUERY
+ ↓
+RETRIEVAL
+ ↓
+RERANK
+ ↓
+EVIDENCE
+ ↓
+VALIDATE EVIDENCE
+ ↓
+CONTEXT BUILDER
+ ↓
+LLM
+```
+
+---
+
+# 19. For your specific question: "How do I know the Algorithm/ML data is correctly filled?"
+
+Use **three-way verification**:
+
+```text id="ds7v1g"
+                    MODEL CONTRACT
+                         │
+                         ▼
+KB ENTRY ──────────── COMPARE ─────────── ACTUAL MODEL API
+                         │
+                         ▼
+                  PASS / CONFLICT
+```
+
+Example:
+
+### KB
+
+```text
+Model:
+FaultClassifier-v1.4
+
+Output:
+fault_class
+confidence
+
+Classes:
+GAS_INTERFERENCE
+STAGE_WEAR
+OVERLOAD
+```
+
+### API
+
+Returns:
+
+```json
+{
+  "prediction": "GAS_INTERFERENCE",
+  "probability": 0.87
+}
+```
+
+Your validator catches:
+
+```text
+KB says:
+fault_class
+confidence
+
+Actual:
+prediction
+probability
+```
+
+Result:
+
+```text
+SCHEMA MISMATCH
+```
+
+That is exactly the kind of automated check you want.
+
+---
+
+# 20. The strongest solution for your Agent
+
+Build a **Knowledge Validation & Evaluation Service**.
+
+It should have four parts:
+
+```text id="u3g8bk"
+                 KNOWLEDGE QA SERVICE
+                         │
+       ┌─────────────────┼──────────────────┐
+       ▼                 ▼                  ▼
+   Schema QA         Semantic QA       Provenance QA
+       │                 │                  │
+       └─────────────────┼──────────────────┘
+                         ▼
+                  Retrieval QA
+                         │
+                         ▼
+                  Agent Evaluation
+```
+
+And for ML specifically:
+
+```text id="3w2m4m"
+        MODEL CONTRACT VALIDATOR
+                  │
+         ┌────────┼────────┐
+         ▼        ▼        ▼
+      Schema   Labels    Semantics
+         │        │        │
+         └────────┼────────┘
+                  ▼
+             PASS / FAIL
+```
+
+---
+
+## The core principle
+
+**Never treat "data exists in the KB" as "data is correct."**
+
+For your Agent, a KB entry should move through:
+
+```text id="h4g5yq"
+INGESTED
+   ↓
+STRUCTURALLY VALID
+   ↓
+SEMANTICALLY VALID
+   ↓
+SOURCE VERIFIED
+   ↓
+CROSS-CHECKED
+   ↓
+APPROVED
+   ↓
+PUBLISHED
+```
+
+And for **Algorithm/ML knowledge**, the final authority should be:
+
+> **actual model contract/API + model registry + approved model documentation**
+
+not simply whatever someone typed into the KB.
+
+That is particularly important in your case because **the ML models belong to another team**. Your Agent needs to consume their outputs correctly without pretending it understands model internals that were never formally specified. The ESP deck itself defines model runtime separately from the assistant and requires reproducibility/versioning and traceability.  

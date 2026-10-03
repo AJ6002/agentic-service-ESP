@@ -1,0 +1,868 @@
+=== PAGE 1 ===
+ 
+I E C  6 0 0 3 4 - 1 4  
+E d i ti o n  4 . 0  2 0 1 8 - 0 8  
+I N TE RN ATI O N AL  
+S TAN D ARD  
+N O RM E  
+I N TE RN ATI O N AL E  
+Ro ta ti n g  e l e ctri ca l  m a c h i n e s  –   
+P a rt 1 4:  M e ch a n i ca l  vi b ra ti o n  o f  c e rta i n  m a ch i n e s  wi th  s h a f t h e i g h ts  5 6  m m   
+a n d  h i g h e r – M e a s u re m e n t,  e va l u a ti o n  a n d  l i m i ts  o f  vi b ra ti o n  s e ve ri ty 
+ 
+M a c h i n e s  é l e ctri q u e s  to u rn a n te s  –  
+P a rti e  1 4:  Vi b ra ti o n s  m é ca n i q u e s  d e  ce rta i n e s  m a c h i n e s  d e  h a u te u r d ’ a xe  
+s u p é ri e u re  o u  é g a l e  à  5 6  m m  – M e s u ra g e ,  é va l u a ti o n  e t l i m i te s  d e  l ’ i n te n s i té  
+vi b ra to i re   
+ 
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8 - 0 8 ( e n - f r )  
+  
+  
+®  
+ 
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 2 ===
+ 
+ 
+  
+ T H I S  P U B L I C AT I O N  I S  C O P YR I G H T  P R O T E C T E D  
+ C o p yri g h t  © 2 0 1 8  I E C ,  G e n e va ,  S w i t z e rl a n d   
+ 
+Al l  ri g h t s  re s e rv e d .  U n l e s s  o t h e rwi s e  s p e c i fi e d ,  n o  p a rt  o f t h i s  p u b l i c a t i o n  m a y b e  re p ro d u c e d  o r u t i l i z e d  i n  a n y  fo rm  
+o r b y  a n y  m e a n s ,  e l e c t ro n i c  o r m e c h a n i c a l ,  i n c l u d i n g  p h o t o c o p yi n g  a n d  m i c ro fi l m ,  w i t h o u t  p e rm i s s i o n  i n  w ri t i n g  fro m  
+e i t h e r I E C  o r I E C ' s  m e m b e r N a t i o n a l  C o m m i t t e e  i n  t h e  c o u n t ry  o f t h e  re q u e s t e r.  I f yo u  h a v e  a n y  q u e s t i o n s  a b o u t  I E C  
+c o p y ri g h t  o r h a v e  a n  e n q u i ry  a b o u t  o b t a i n i n g  a d d i t i o n a l  ri g h t s  t o  t h i s  p u b l i c a t i o n ,  p l e a s e  c o n t a c t  t h e  a d d re s s  b e l o w o r 
+y o u r l o c a l  I E C  m e m b e r N a t i o n a l  C o m m i t t e e  fo r fu rt h e r i n fo rm a t i o n .  
+ 
+D ro i t s  d e  re p ro d u c t i o n  ré s e rv é s .  S a u f i n d i c a t i o n  c o n t ra i re ,  a u c u n e  p a rt i e  d e  c e t t e  p u b l i c a t i o n  n e  p e u t  ê t re  re p ro d u i t e  
+n i  u t i l i s é e  s o u s  q u e l q u e  fo rm e  q u e  c e  s o i t  e t  p a r a u c u n  p ro c é d é ,  é l e c t ro n i q u e  o u  m é c a n i q u e ,  y  c o m p ri s  l a  p h o t o c o p i e  
+e t  l e s  m i c ro fi l m s ,  s a n s  l ' a c c o rd  é c ri t  d e  l ' I E C  o u  d u  C o m i t é  n a t i o n a l  d e  l ' I E C  d u  p a y s  d u  d e m a n d e u r.  S i  v o u s  a v e z  d e s  
+q u e s t i o n s  s u r l e  c o p y ri g h t  d e  l ' I E C  o u  s i  v o u s  d é s i re z  o b t e n i r d e s  d ro i t s  s u p p l é m e n t a i re s  s u r c e t t e  p u b l i c a t i o n ,  u t i l i s e z  
+l e s  c o o rd o n n é e s  c i - a p rè s  o u  c o n t a c t e z  l e  C o m i t é  n a t i o n a l  d e  l ' I E C  d e  v o t re  p a y s  d e  ré s i d e n c e .  
+ 
+I E C  C e n t ra l  O ffi c e  T e l . :  + 4 1  2 2  9 1 9  0 2  1 1  
+3 ,  ru e  d e  V a re m b é  i n fo @ i e c . c h  
+C H - 1 2 1 1  G e n e v a  2 0  w w w . i e c . c h  
+S wi t z e rl a n d  
+ 
+Ab o u t th e  I E C  
+T h e  I n t e rn a t i o n a l  E l e c t ro t e c h n i c a l  C o m m i s s i o n  ( I E C )  i s  t h e  l e a d i n g  g l o b a l  o rg a n i z a t i o n  t h a t  p re p a re s  a n d  p u b l i s h e s  
+I n t e rn a t i o n a l  S t a n d a rd s  fo r a l l  e l e c t ri c a l ,  e l e c t ro n i c  a n d  re l a t e d  t e c h n o l o g i e s .  
+ 
+Ab o u t  I E C  p u b l i c a t i o n s   
+T h e  t e c h n i c a l  c o n t e n t  o f I E C  p u b l i c a t i o n s  i s  k e p t  u n d e r c o n s t a n t  re v i e w  b y  t h e  I E C .  P l e a s e  m a k e  s u re  t h a t  y o u  h a v e  t h e  
+l a t e s t  e d i t i o n ,  a  c o rri g e n d a  o r a n  a m e n d m e n t  m i g h t  h a v e  b e e n  p u b l i s h e d .  
+ 
+I E C  C a ta l o g u e  - we b s to re . i e c. ch /ca ta l o g u e  
+Th e  s ta n d - a l o n e  a p p l i ca ti o n  f o r co n s u l ti n g  th e  e n ti re  
+b i b l i o g ra p h i ca l  i n f o rm a ti o n  o n  I E C  I n te rn a ti o n a l  S ta n d a rd s ,  
+Te ch n i ca l  S p e ci f i ca ti o n s ,  Te ch n i ca l  Re p o rts  a n d  o th e r 
+d o cu m e n ts .  Ava i l a b l e  f o r P C ,  M a c O S ,  An d ro i d  Ta b l e ts  a n d  
+i P a d .  
+ 
+I E C  p u b l i ca ti o n s  s e a rch  - we b s to re . i e c. c h /a d vs e a rch fo rm  
+Th e  a d va n ce d  s e a rch  e n a b l e s  to  f i n d  I E C  p u b l i ca ti o n s  b y a  
+va ri e ty o f  cri te ri a  ( re f e re n ce  n u m b e r,  te xt,  te ch n i ca l  
+co m m i tte e , … ) .  I t a l s o  g i ve s  i n f o rm a ti o n  o n  p ro j e cts ,  re p l a ce d  
+a n d  wi th d ra wn  p u b l i ca ti o n s .  
+ 
+I E C  J u s t P u b l i s h e d  - we b s to re . i e c. ch /j u s tp u b l i s h e d  
+S ta y u p  to  d a te  o n  a l l  n e w I E C  p u b l i ca ti o n s .  J u s t P u b l i s h e d  
+d e ta i l s  a l l  n e w p u b l i ca ti o n s  re l e a s e d .  Ava i l a b l e  o n l i n e  a n d  
+a l s o  o n ce  a  m o n th  b y e m a i l .  E l e ctro p e d i a  - www. e l e ctro p e d i a . o rg  
+Th e  wo rl d ' s  l e a d i n g  o n l i n e  d i cti o n a ry o f  e l e ctro n i c a n d  
+e l e ctri ca l  te rm s  co n ta i n i n g  2 1  0 0 0  te rm s  a n d  d e f i n i ti o n s  i n  
+E n g l i s h  a n d  F re n ch ,  wi th  e q u i va l e n t te rm s  i n  1 6  a d d i ti o n a l  
+l a n g u a g e s .  Al s o  kn o wn  a s  th e  I n te rn a ti o n a l  E l e ctro te ch n i ca l  
+Vo ca b u l a ry ( I E V)  o n l i n e .  
+ 
+I E C  G l o s s a ry - s td . i e c. c h /g l o s s a ry  
+6 7  0 0 0  e l e ctro te ch n i ca l  te rm i n o l o g y e n tri e s  i n  E n g l i s h  a n d  
+F re n ch  e xtra cte d  f ro m  th e  Te rm s  a n d  D e f i n i ti o n s  cl a u s e  o f  
+I E C  p u b l i ca ti o n s  i s s u e d  s i n ce  2 0 0 2 .  S o m e  e n tri e s  h a ve  b e e n  
+co l l e cte d  f ro m  e a rl i e r p u b l i ca ti o n s  o f  I E C  TC  3 7 ,  7 7 ,  8 6  a n d  
+C I S P R.  
+ 
+I E C  C u s to m e r S e rvi ce  C e n tre  - web s to re . i e c. ch /cs c 
+I f  yo u  wi s h  to  g i ve  u s  yo u r f e e d b a ck o n  th i s  p u b l i ca ti o n  o r 
+n e e d  f u rth e r a s s i s ta n ce ,  p l e a s e  co n ta ct th e  C u s to m e r S e rvi ce  
+C e n tre :  s a l e s @ i e c . c h .  
+ 
+ 
+A p ro p o s  d e  l ' I E C  
+L a  C o m m i s s i o n  E l e c t ro t e c h n i q u e  I n t e rn a t i o n a l e  ( I E C )  e s t  l a  p re m i è re  o rg a n i s a t i o n  m o n d i a l e  q u i  é l a b o re  e t  p u b l i e  d e s  
+N o rm e s  i n t e rn a t i o n a l e s  p o u r t o u t  c e  q u i  a  t ra i t  à  l ' é l e c t ri c i t é ,  à  l ' é l e c t ro n i q u e  e t  a u x  t e c h n o l o g i e s  a p p a re n t é e s .  
+ 
+A p ro p o s  d e s  p u b l i ca ti o n s  I E C   
+L e  c o n t e n u  t e c h n i q u e  d e s  p u b l i c a t i o n s  I E C  e s t  c o n s t a m m e n t  re v u .  V e u i l l e z  v o u s  a s s u re r q u e  v o u s  p o s s é d e z  l ’ é d i t i o n  l a  
+p l u s  ré c e n t e ,  u n  c o rri g e n d u m  o u  a m e n d e m e n t  p e u t  a v o i r é t é  p u b l i é .  
+ 
+C a ta l o g u e  I E C  - we b s to re . i e c. ch /ca ta l o g u e  
+Ap p l i ca ti o n  a u to n o m e  p o u r co n s u l te r to u s  l e s  re n s e i g n e m e n ts  
+b i b l i o g ra p h i q u e s  s u r l e s  N o rm e s  i n te rn a ti o n a l e s ,  
+S p é ci f i ca ti o n s  te ch n i q u e s ,  Ra p p o rts  te ch n i q u e s  e t a u tre s  
+d o cu m e n ts  d e  l ' I E C .  D i s p o n i b l e  p o u r P C ,  M a c O S ,  ta b l e tte s  
+An d ro i d  e t i P a d .  
+ 
+Re ch e rc h e  d e  p u b l i ca ti o n s  I E C  - 
+we b s to re . i e c. ch /a d vs e a rc h fo rm  
+L a  re ch e rch e  a v a n cé e  p e rm e t d e  tro u ve r d e s  p u b l i ca ti o n s  I E C  
+e n  u ti l i s a n t d i f f é re n ts  cri tè re s  ( n u m é ro  d e  ré f é re n ce ,  te xte ,  
+co m i té  d ’ é tu d e s , … ) .  E l l e  d o n n e  a u s s i  d e s  i n f o rm a ti o n s  s u r l e s  
+p ro j e ts  e t l e s  p u b l i ca ti o n s  re m p l a cé e s  o u  re ti ré e s .  
+ 
+I E C  J u s t P u b l i s h e d  - we b s to re . i e c. ch /j u s tp u b l i s h e d  
+Re s te z  i n f o rm é  s u r l e s  n o u ve l l e s  p u b l i ca ti o n s  I E C .  J u s t 
+P u b l i s h e d  d é ta i l l e  l e s  n o u ve l l e s  p u b l i ca ti o n s  p a ru e s .  
+D i s p o n i b l e  e n  l i g n e  e t a u s s i  u n e  f o i s  p a r m o i s  p a r e m a i l .  
+ E l e ctro p e d i a  - www. e l e ctro p e d i a . o rg  
+L e  p re m i e r d i cti o n n a i re  e n  l i g n e  d e  te rm e s  é l e ctro n i q u e s  e t 
+é l e ctri q u e s .  I l  co n ti e n t 2 1  0 0 0  te rm e s  e t d é f i n i ti o n s  e n  a n g l a i s  
+e t e n  f ra n ça i s ,  a i n s i  q u e  l e s  te rm e s  é q u i va l e n ts  d a n s  1 6  
+l a n g u e s  a d d i ti o n n e l l e s .  E g a l e m e n t a p p e l é  Vo ca b u l a i re  
+E l e ctro te ch n i q u e  I n te rn a ti o n a l  ( I E V)  e n  l i g n e .  
+ 
+G l o s s a i re  I E C  - s td . i e c. ch /g l o s s a ry  
+6 7  0 0 0  e n tré e s  te rm i n o l o g i q u e s  é l e ctro te ch n i q u e s ,  e n  a n g l a i s  
+e t e n  f ra n ça i s ,  e xtra i te s  d e s  a rti cl e s  Te rm e s  e t D é f i n i ti o n s  d e s  
+p u b l i ca ti o n s  I E C  p a ru e s  d e p u i s  2 0 0 2 .  P l u s  ce rta i n e s  e n tré e s  
+a n té ri e u re s  e xtra i te s  d e s  p u b l i ca ti o n s  d e s  C E  3 7 ,  7 7 ,  8 6  e t 
+C I S P R d e  l ' I E C .  
+ 
+S e rvi ce  C l i e n ts  - we b s to re . i e c. c h /cs c  
+S i  vo u s  d é s i re z n o u s  d o n n e r d e s  co m m e n ta i re s  s u r ce tte  
+p u b l i ca ti o n  o u  s i  vo u s  a ve z d e s  q u e s ti o n s  co n ta cte z - n o u s :  
+s a l e s @ i e c . c h .  
+ 
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 3 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ I E C  6 0 0 3 4 - 1 4  
+E d i ti o n  4 . 0  2 0 1 8 - 0 8  
+I N TE RN ATI O N AL  
+S TAN D ARD  
+N O RM E  
+I N TE RN ATI O N AL E  
+Ro ta ti n g  e l e ctri c a l  m a ch i n e s  –   
+P a rt 1 4:  M e c h a n i ca l  vi b ra ti o n  o f  ce rta i n  m a c h i n e s  wi th  s h a ft h e i g h ts  5 6  m m   
+a n d  h i g h e r – M e a s u re m e n t,  e va l u a ti o n  a n d  l i m i ts  o f vi b ra ti o n  s e ve ri ty 
+ 
+M a ch i n e s  é l e ctri q u e s  to u rn a n te s  –  
+P a rti e  1 4:  Vi b ra ti o n s  m é ca n i q u e s  d e  ce rta i n e s  m a ch i n e s  d e  h a u te u r d ’ a xe  
+s u p é ri e u re  o u  é g a l e  à  5 6  m m  – M e s u ra g e ,  é va l u a ti o n  e t l i m i te s  d e  l ’ i n te n s i té  
+vi b ra to i re  
+ 
+I N T E RN ATI O N AL  
+E L E C T RO TE C H N I C AL  
+C O M M I S S I O N  
+C O M M I S S I O N  
+E L E C T RO TE C H N I Q U E  
+I N T E RN ATI O N AL E  
+ 
+I C S  2 9 . 1 6 0 . 0 1   
+I S B N  9 7 8 - 2 - 8 3 2 2 - 5 9 0 2 - 3  
+   
+  
+®  Re g i s te re d  tra d e m a rk o f th e  I n te rn a ti o n a l  E l e ctro te ch n i ca l  C o m m i s s i o n  
+ M a rq u e  d é p o s é e  d e  l a  C o m m i s s i o n  E l e ctro te ch n i q u e  I n te rn a ti o n a l e  
+®  
+ 
+ Wa rn i n g !  M a ke  s u re  th a t yo u  o b ta i n e d  th i s  p u b l i c a ti o n  f ro m  a n  a u th o ri ze d  d i s tri b u to r.  
+ Atte n ti o n !  Ve u i l l e z vo u s  a s s u re r q u e  vo u s  a ve z o b te n u  ce tte  p u b l i ca ti o n  vi a  u n  d i s tri b u te u r a g ré é .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 4 ===
+ –  2  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ C O N T E N T S  
+F O R E W O R D  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  4  
+1  S c o p e  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  6  
+2  N o rm a t i v e  re fe re n c e s . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  6  
+3  T e r m s  a n d  d e fi n i t i o n s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  6  
+4  M e a s u re m e n t  q u a n t i t i e s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7  
+4 . 1  G e n e ra l  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7  
+4 . 2  V i b ra t i o n  m a g n i t u d e  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7  
+4 . 3  R e l a t i v e  s h a ft  v i b ra t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7  
+5  M e a s u re m e n t  e q u i p m e n t  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7  
+6  M a c h i n e  m o u n t i n g  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8  
+6 . 1  G e n e ra l  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8  
+6 . 2  F re e  s u s p e n s i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8  
+6 . 3  R i g i d  m o u n t i n g  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8  
+6 . 3 . 1  F o u n d a t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8  
+6 . 3 . 2  H o ri z o n t a l  m a c h i n e s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  9  
+6 . 3 . 3  V e r t i c a l  m a c h i n e s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  9  
+6 . 4  A c t i v e  e n v i ro n m e n t  d e t e r m i n a t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  9  
+7  C o n d i t i o n s  o f m e a s u re m e n t . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 1  K e y  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 2  M e a s u re m e n t  p o s i t i o n s  a n d  d i r e c t i o n s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 2 . 1  M e a s u r e m e n t  p o s i t i o n s  fo r  v i b ra t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 2 . 2  M e a s u r e m e n t  p o s i t i o n s  fo r  re l a t i v e  s h a ft  d i s p l a c e m e n t  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 3  T e s t  c o n d i t i o n s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+7 . 4  V i b ra t i o n  t ra n s d u c e r . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 0  
+8  L i m i t s  o f b e a r i n g  h o u s i n g  v i b ra t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 1  
+8 . 1  L i m i t s  o f v i b r a t i o n  m a g n i t u d e  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 1  
+8 . 2  L i m i t s  o f v i b r a t i o n  v e l o c i t y  w i t h  t w i c e - l i n e  fr e q u e n c y  fo r  a . c .  m a c h i n e s  . . . . . . . . . . . . . . . . . .  1 2  
+8 . 3  A x i a l  v i b r a t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 2  
+9  L i m i t s  o f r e l a t i v e  s h a ft  v i b r a t i o n  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 2  
+B i b l i o g ra p h y  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 8  
+ 
+F i g u re  1  –  M i n i m u m  e l a s t i c  d i s p l a c e m e n t  a s  a  fu n c t i o n  o f r a t e d  s p e e d  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 3  
+F i g u re  2  –  P r e fe rr e d  p o s i t i o n s  o f m e a s u re m e n t  a p p l i c a b l e  t o  o n e  o r  b o t h  e n d s  o f t h e  
+m a c h i n e  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 4  
+F i g u re  3  –  M e a s u r e m e n t  p o s i t i o n s  fo r  t h o s e  e n d s  o f m a c h i n e s  w h e re  m e a s u re m e n t s  
+a c c o r d i n g  t o  F i g u re  2  a re  n o t  p o s s i b l e  w i t h o u t  d i s a s s e m b l y  o f p a r t s  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 4  
+F i g u re  4  –  M e a s u r e m e n t  p o s i t i o n s  fo r  p e d e s t a l  b e a ri n g  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 5  
+F i g u re  5  –  P r e fe rr e d  c i rc u m fe r e n t i a l  p o s i t i o n  o f t r a n s d u c e rs   fo r t h e  m e a s u re m e n t  o f 
+r e l a t i v e  s h a ft  d i s p l a c e m e n t  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 5  
+F i g u re  6  –  M e a s u r e m e n t  p o s i t i o n s  fo r  v e r t i c a l  m a c h i n e s  ( m e a s u r e m e n t s  t o  b e  m a d e  a t  
+t h e  b e a r i n g  h o u s i n g ;  w h e n  n o t  a c c e s s i b l e ,  t h e n  a s  c l o s e  a s  p o s s i b l e )  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 6  
+F i g u re  7  –  V i b r a t i o n  l i m i t  d i a g ra m  fo r  s h a ft  h e i g h t s  H  >  1 3 2  m m  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 7  
+ 
+T a b l e  1  –  L i m i t s  o f m a x i m u m  v i b ra t i o n  m a g n i t u d e  i n   d i s p l a c e m e n t  ( r . m . s . )  a n d  
+v e l o c i t y  ( r . m . s . )  fo r  s h a ft  h e i g h t  H  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1 1  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 5 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  3  –   
+T a b l e  2  –  L i m i t s  fo r  t h e  m a x i m u m  s h a ft  v i b r a t i o n  ( S 
+p - p )  a n d  t h e  m a x i m u m  r u n - o u t  . . . . . . . . . . . . . . . .  1 3  
+ 
+  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 6 ===
+ –  4  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ I N T E R N A T I O N A L  E L E C T R O T E C H N I C A L  C O M M I S S I O N  
+____________ 
+ 
+R O T A T I N G  E L E C T R I C A L  M A C H I N E S  –   
+ 
+P a rt  1 4 :  M e c h a n i c a l  v i b ra t i o n  o f c e rt a i n  m a c h i n e s   
+w i t h  s h a ft  h e i g h t s  5 6  m m  a n d  h i g h e r –  M e a s u re m e n t ,   
+e v a l u a t i o n  a n d  l i m i t s  o f v i b ra t i o n  s e v e ri t y  
+ 
+F O R E W O R D  
+1 )  T h e  I n t e r n a t i o n a l  E l e c t r o t e c h n i c a l  C o m m i s s i o n  ( I E C )  i s  a  w o r l d w i d e  o r g a n i z a t i o n  fo r  s t a n d a r d i z a t i o n  c o m p r i s i n g  
+a l l  n a t i o n a l  e l e c t r o t e c h n i c a l  c o m m i t t e e s  ( I E C  N a t i o n a l  C o m m i t t e e s ) .  T h e  o b j e c t  o f I E C  i s  t o  p r o m o t e  
+i n t e r n a t i o n a l  c o - o p e r a t i o n  o n  a l l  q u e s t i o n s  c o n c e r n i n g  s t a n d a r d i z a t i o n  i n  t h e  e l e c t r i c a l  a n d  e l e c t r o n i c  fi e l d s .  T o  
+t h i s  e n d  a n d  i n  a d d i t i o n  t o  o t h e r  a c t i v i t i e s ,  I E C  p u b l i s h e s  I n t e r n a t i o n a l  S t a n d a r d s ,  T e c h n i c a l  S p e c i fi c a t i o n s ,  
+T e c h n i c a l  R e p o r t s ,  P u b l i c l y  A v a i l a b l e  S p e c i fi c a t i o n s  ( P A S )  a n d  G u i d e s  ( h e r e a ft e r  r e fe r r e d  t o  a s  “ I E C  
+P u b l i c a t i o n ( s ) ” ) .  T h e i r  p r e p a r a t i o n  i s  e n t r u s t e d  t o  t e c h n i c a l  c o m m i t t e e s ;  a n y  I E C  N a t i o n a l  C o m m i t t e e  i n t e r e s t e d  
+i n  t h e  s u b j e c t  d e a l t  w i t h  m a y  p a r t i c i p a t e  i n  t h i s  p r e p a r a t o r y  w o r k .  I n t e r n a t i o n a l ,  g o v e r n m e n t a l  a n d  n o n - 
+g o v e r n m e n t a l  o r g a n i z a t i o n s  l i a i s i n g  w i t h  t h e  I E C  a l s o  p a r t i c i p a t e  i n  t h i s  p r e p a r a t i o n .  I E C  c o l l a b o r a t e s  c l o s e l y  
+w i t h  t h e  I n t e r n a t i o n a l  O r g a n i z a t i o n  fo r  S t a n d a r d i z a t i o n  ( I S O )  i n  a c c o r d a n c e  w i t h  c o n d i t i o n s  d e t e r m i n e d  b y  
+a g r e e m e n t  b e t w e e n  t h e  t w o  o r g a n i z a t i o n s .  
+2 )  T h e  fo r m a l  d e c i s i o n s  o r  a g r e e m e n t s  o f I E C  o n  t e c h n i c a l  m a t t e r s  e x p r e s s ,  a s  n e a r l y  a s  p o s s i b l e ,  a n  i n t e r n a t i o n a l  
+c o n s e n s u s  o f o p i n i o n  o n  t h e  r e l e v a n t  s u b j e c t s  s i n c e  e a c h  t e c h n i c a l  c o m m i t t e e  h a s  r e p r e s e n t a t i o n  fr o m  a l l  
+i n t e r e s t e d  I E C  N a t i o n a l  C o m m i t t e e s .   
+3 )  I E C  P u b l i c a t i o n s  h a v e  t h e  fo r m  o f r e c o m m e n d a t i o n s  fo r i n t e r n a t i o n a l  u s e  a n d  a r e  a c c e p t e d  b y  I E C  N a t i o n a l  
+C o m m i t t e e s  i n  t h a t  s e n s e .  W h i l e  a l l  r e a s o n a b l e  e ffo r t s  a r e  m a d e  t o  e n s u r e  t h a t  t h e  t e c h n i c a l  c o n t e n t  o f I E C  
+P u b l i c a t i o n s  i s  a c c u r a t e ,  I E C  c a n n o t  b e  h e l d  r e s p o n s i b l e  fo r  t h e  w a y  i n  w h i c h  t h e y  a r e  u s e d  o r  fo r  a n y  
+m i s i n t e r p r e t a t i o n  b y  a n y  e n d  u s e r .  
+4 )  I n  o r d e r  t o  p r o m o t e  i n t e r n a t i o n a l  u n i fo r m i t y ,  I E C  N a t i o n a l  C o m m i t t e e s  u n d e r t a k e  t o  a p p l y  I E C  P u b l i c a t i o n s  
+t r a n s p a r e n t l y  t o  t h e  m a x i m u m  e x t e n t  p o s s i b l e  i n  t h e i r  n a t i o n a l  a n d  r e g i o n a l  p u b l i c a t i o n s .  A n y  d i v e r g e n c e  
+b e t w e e n  a n y  I E C  P u b l i c a t i o n  a n d  t h e  c o r r e s p o n d i n g  n a t i o n a l  o r  r e g i o n a l  p u b l i c a t i o n  s h a l l  b e  c l e a rl y  i n d i c a t e d  i n  
+t h e  l a t t e r .  
+5 )  I E C  i t s e l f d o e s  n o t  p r o v i d e  a n y  a t t e s t a t i o n  o f c o n fo rm i t y .  I n d e p e n d e n t  c e r t i fi c a t i o n  b o d i e s  p r o v i d e  c o n fo r m i t y  
+a s s e s s m e n t  s e r v i c e s  a n d ,  i n  s o m e  a r e a s ,  a c c e s s  t o  I E C  m a r k s  o f c o n fo r m i t y .  I E C  i s  n o t  r e s p o n s i b l e  fo r  a n y  
+s e r v i c e s  c a r r i e d  o u t  b y  i n d e p e n d e n t  c e r t i fi c a t i o n  b o d i e s .  
+6 )  A l l  u s e r s  s h o u l d  e n s u r e  t h a t  t h e y  h a v e  t h e  l a t e s t  e d i t i o n  o f t h i s  p u b l i c a t i o n .  
+7 )  N o  l i a b i l i t y  s h a l l  a t t a c h  t o  I E C  o r  i t s  d i r e c t o r s ,  e m p l o y e e s ,  s e r v a n t s  o r  a g e n t s  i n c l u d i n g  i n d i v i d u a l  e x p e r t s  a n d  
+m e m b e rs  o f i t s  t e c h n i c a l  c o m m i t t e e s  a n d  I E C  N a t i o n a l  C o m m i t t e e s  fo r  a n y  p e r s o n a l  i n j u r y ,  p r o p e r t y  d a m a g e  o r 
+o t h e r  d a m a g e  o f a n y  n a t u r e  w h a t s o e v e r ,  w h e t h e r  d i r e c t  o r  i n d i r e c t ,  o r  fo r  c o s t s  ( i n c l u d i n g  l e g a l  fe e s )  a n d  
+e x p e n s e s  a r i s i n g  o u t  o f t h e  p u b l i c a t i o n ,  u s e  o f,  o r  r e l i a n c e  u p o n ,  t h i s  I E C  P u b l i c a t i o n  o r  a n y  o t h e r  I E C  
+P u b l i c a t i o n s .   
+8 )  A t t e n t i o n  i s  d r a w n  t o  t h e  N o r m a t i v e  r e fe r e n c e s  c i t e d  i n  t h i s  p u b l i c a t i o n .  U s e  o f t h e  r e fe r e n c e d  p u b l i c a t i o n s  i s  
+i n d i s p e n s a b l e  fo r  t h e  c o r r e c t  a p p l i c a t i o n  o f t h i s  p u b l i c a t i o n .  
+9 )  A t t e n t i o n  i s  d r a w n  t o  t h e  p o s s i b i l i t y  t h a t  s o m e  o f t h e  e l e m e n t s  o f t h i s  I E C  P u b l i c a t i o n  m a y  b e  t h e  s u b j e c t  o f 
+p a t e n t  r i g h t s .  I E C  s h a l l  n o t  b e  h e l d  r e s p o n s i b l e  fo r  i d e n t i fy i n g  a n y  o r  a l l  s u c h  p a t e n t  r i g h t s .  
+I n t e rn a t i o n a l  S t a n d a rd  I E C  6 0 0 3 4 - 1 4  h a s  b e e n  p r e p a r e d  b y  I E C  t e c h n i c a l  c o m m i t t e e  2 :  
+R o t a t i n g  m a c h i n e r y .  
+T h i s  fo u r t h  e d i t i o n  c a n c e l s  a n d  r e p l a c e s  t h e  t h i r d  e d i t i o n ,  p u b l i s h e d  i n  2 0 0 3 ,  a n d  i t s  
+a m e n d m e n t  1 ,  p u b l i s h e d  i n  2 0 0 7 .  I t  c o n s t i t u t e s  a  t e c h n i c a l  re v i s i o n .  
+T h e  s i g n i fi c a n t  t e c h n i c a l  c h a n g e s  w i t h  r e s p e c t  t o  t h e  p r e v i o u s  e d i t i o n  a r e :  
+a )  6 . 2  i s  s i g n i fi c a n t l y  c h a n g e d  t o  b e t t e r  e x p l a i n  t h e  d e fi n i t i o n  “ fre e  s u s p e n s i o n ” .  
+b )  6 . 3 :  a  s e c o n d  m e t h o d  o f r i g i d  m o u n t  i s  a d d e d  s i n c e  t h e  fi rs t  m e t h o d  i s  n o t  a l w a y s  p o s s i b l e  
+o n  t h e  t e s t  fl o o r .  
+c )  7 . 1 :  a n  i m p r o v e d  o p t i o n  fo r  s h a ft  k e y  i s  d e fi n e d .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 7 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  5  –   
+d )  C l a u s e  8 :  c o n s i d e r a b l e  e ffo r t  t o  h a rm o n i z e  w i t h  N E M A  M G  1  a n d  I E E E  8 4 1  a n d  A P I  5 4 1 ,  
+a n d  a l s o  e s t a b l i s h  l e v e l s  w h i c h  a re  a c h i e v a b l e  a n d  m o r e  i n  l i n e  w i t h  b e s t  p r a c t i c e s .   
+T a b l e  1  i s  r e d u c e d  t o  t w o  s h a ft - h e i g h t  r a n g e  s e c t i o n s .  
+e )  8 . 2 :  d e fi n i t i o n  o f t w i c e  l i n e  fr e q u e n c y  s i m p l i fi e d  a l o n g  w i t h  F i g u re  7  a d d e d .  
+T h e  t e x t  o f t h i s  I n t e rn a t i o n a l  S t a n d a r d  i s  b a s e d  o n  t h e  fo l l o w i n g  d o c u m e n t s :  
+F D I S  R e p o r t  o n  v o t i n g  
+2 / 1 9 0 6 / F D I S  2 / 1 9 1 4 / R V D  
+ 
+F u l l  i n fo rm a t i o n  o n  t h e  v o t i n g  fo r  t h e  a p p r o v a l  o f t h i s  I n t e rn a t i o n a l  S t a n d a rd  c a n  b e  fo u n d  i n  
+t h e  re p o r t  o n  v o t i n g  i n d i c a t e d  i n  t h e  a b o v e  t a b l e .  
+T h i s  d o c u m e n t  h a s  b e e n  d ra ft e d  i n  a c c o rd a n c e  w i t h  t h e  I S O / I E C  D i r e c t i v e s ,  P a r t  2 .  
+A  l i s t  o f a l l  p a r t s  i n  t h e  I E C  6 0 0 3 4  s e r i e s ,  p u b l i s h e d  u n d e r  t h e  g e n e ra l  t i t l e  R o ta tin g  e le c tr ic a l 
+m a c h in e s ,  c a n  b e  fo u n d  o n  t h e  I E C  w e b s i t e .  
+N O T E  F o r  A  t a b l e  o f c r o s s - r e fe r e n c e s  o f a l l  I E C  T C  2  p u b l i c a t i o n s  c a n  b e  fo u n d  i n  t h e  I E C  T C  2  d a s h b o a r d  o n  t h e  
+I E C  w e b s i t e .  
+T h e  c o m m i t t e e  h a s  d e c i d e d  t h a t  t h e  c o n t e n t s  o f t h i s  d o c u m e n t  w i l l  r e m a i n  u n c h a n g e d  u n t i l  t h e  
+s t a b i l i t y  d a t e  i n d i c a t e d  o n  t h e  I E C  w e b s i t e  u n d e r " h t t p : / / w e b s t o r e . i e c . c h "  i n  t h e  d a t a  r e l a t e d  t o  
+t h e  s p e c i fi c  d o c u m e n t .  A t  t h i s  d a t e ,  t h e  d o c u m e n t  w i l l  b e   
+•  r e c o n fi r m e d ,  
+•  w i t h d r a w n ,  
+•  r e p l a c e d  b y  a  r e v i s e d  e d i t i o n ,  o r 
+•  a m e n d e d .  
+ 
+  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 8 ===
+ –  6  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ R O T A T I N G  E L E C T R I C A L  M A C H I N E S  –   
+ 
+P a rt  1 4 :  M e c h a n i c a l  v i b ra t i o n  o f c e rt a i n  m a c h i n e s   
+w i t h  s h a ft  h e i g h t s  5 6  m m  a n d  h i g h e r –  M e a s u re m e n t ,   
+e v a l u a t i o n  a n d  l i m i t s  o f v i b ra t i o n  s e v e ri t y  
+ 
+ 
+ 
+1  S c o p e  
+T h i s  p a r t  o f I E C  6 0 0 3 4  s p e c i fi e s  t h e  fa c t o r y  a c c e p t a n c e  v i b ra t i o n  t e s t  p ro c e d u r e s  a n d  
+v i b r a t i o n  l i m i t s  fo r  c e r t a i n  e l e c t r i c a l  m a c h i n e s  u n d e r  s p e c i fi e d  c o n d i t i o n s ,  w h e n  u n c o u p l e d  
+fro m  a n y  l o a d  o r  p r i m e  m o v e r .  
+I t  i s  a p p l i c a b l e  t o  D C  a n d  t h re e - p h a s e  A C  m a c h i n e s ,  w i t h  s h a ft  h e i g h t s  5 6  m m  a n d  h i g h e r  a n d  
+a  ra t e d  o u t p u t  u p  t o  5 0  M W ,  a t  o p e r a t i o n a l  s p e e d s  fro m  1 2 0  m i n – 1  
+u p  t o  a n d  i n c l u d i n g  
+1 5  0 0 0  m i n – 1 
+.  
+T h i s  d o c u m e n t  i s  n o t  a p p l i c a b l e  t o  m a c h i n e s  m o u n t e d  in  s itu  ( o n  s i t e ) ,  t h re e - p h a s e  
+c o m m u t a t o r  m o t o rs ,  s i n g l e - p h a s e  m a c h i n e s ,  t h r e e - p h a s e  m a c h i n e s  o p e ra t e d  o n  s i n g l e - p h a s e  
+s y s t e m s ,  v e rt i c a l  w a t e r p o w e r  g e n e ra t o rs ,  t u rb i n e  g e n e r a t o r s  g r e a t e r  t h a n  2 0  M W  a n d  
+m a c h i n e s  w i t h  m a g n e t i c  b e a r i n g s  o r  s e r i e s - w o u n d  m a c h i n e s .  
+N O T E  F o r  m a c h i n e s  m e a s u re d  in  s itu ,  r e fe r  t o  a p p l i c a b l e  p a r t s  o f I S O  2 0 8 1 6 ,  I S O  1 0 8 1 6  a n d  I S O  7 9 1 9 .  
+2  N o r m a t i v e  re fe re n c e s  
+T h e  fo l l o w i n g  d o c u m e n t s  a re  r e fe rre d  t o  i n  t h e  t e x t  i n  s u c h  a  w a y  t h a t  s o m e  o r  a l l  o f t h e i r  
+c o n t e n t  c o n s t i t u t e s  re q u i r e m e n t s  o f t h i s  d o c u m e n t .  F o r d a t e d  re fe re n c e s ,  o n l y  t h e  e d i t i o n  
+c i t e d  a p p l i e s .  F o r  u n d a t e d  r e fe r e n c e s ,  t h e  l a t e s t  e d i t i o n  o f t h e  r e fe re n c e d  d o c u m e n t  ( i n c l u d i n g  
+a n y  a m e n d m e n t s )  a p p l i e s .  
+I E C  6 0 0 3 4 - 1 ,  R o ta tin g  e le c tr ic a l m a ch in e s  –  Pa r t 1 :  R a tin g  a n d p e r f o r m a n c e  
+I E C  6 0 0 3 4 - 7 ,  R o ta tin g  e le c tr ic a l m a c h in e s  –  Pa r t 7:  C la s s if ic a tio n  o f  typ e s  o f  c o n s tr u c tio n s  
+a n d m o u n tin g  a r r a n g e m e n ts  ( IM C o de )  
+I S O  2 9 5 4 ,  Me c h a n ic a l vib r a tio n  o f  r o ta tin g  a n d r e c ip r o ca tin g  m a c h in e r y –  R e q u ir e m e n ts  f o r  
+in s tr u m e n ts  f o r  m e a s u r in g  vib r a tio n  s e ve r ity  
+I S O  1 0 8 1 7 - 1 ,  R o ta tin g  s h a f t vib r a tio n  m e a s u r in g  s ys te m s  –  Pa r t 1 :  R e la tive  a n d a b s o lu te  
+s e n s in g  o f  r a dia l vib r a tio n  f r o m  r o ta tin g  s h a f ts  
+I S O  2 0 8 1 6 - 1 ,  Me c h a n ic a l vib r a tio n  –  Me a s u r e m e n t a n d e va lu a tio n  o f  m a c h in e  vib r a tio n  –   
+Pa r t 1 :  G e n e r a l g u ide lin e s  
+I S O  2 1 9 4 0 - 3 2 ,  Me c h a n ic a l vib r a tio n  –  R o to r  b a la n c in g  –  Pa r t 3 2 :  S h a f t a n d f itm e n t ke y 
+co n ve n tio n  
+3  T e rm s  a n d  d e fi n i t i o n s  
+F o r  t h e  p u r p o s e s  o f t h i s  d o c u m e n t ,  t h e  t e r m s  a n d  d e fi n i t i o n s  g i v e n  i n  I E C  6 0 0 3 4 - 1  a p p l y .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 9 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  7  –   
+I S O  a n d  I E C  m a i n t a i n  t e r m i n o l o g i c a l  d a t a b a s e s  fo r  u s e  i n  s t a n d a rd i z a t i o n  a t  t h e  fo l l o w i n g  
+a d d r e s s e s :  
+•  I E C  E l e c t ro p e d i a :  a v a i l a b l e  a t  h t t p : / / w w w . e l e c t ro p e d i a . o r g /  
+•  I S O  O n l i n e  b ro w s i n g  p l a t fo r m :  a v a i l a b l e  a t  h t t p : / / w w w . i s o . o rg / o b p  
+4  M e a s u re m e n t  q u a n t i t i e s  
+4 . 1  G e n e ra l  
+M e a s u re m e n t  q u a n t i t i e s  a r e  t h e  v i b ra t i o n  d i s p l a c e m e n t  a n d  v i b r a t i o n  v e l o c i t y  a t  t h e  m a c h i n e  
+b e a r i n g s  a n d  t h e  re l a t i v e  s h a ft  v i b ra t i o n  d i s p l a c e m e n t  w i t h i n  o r n e a r  t o  t h e  m a c h i n e  b e a r i n g s .  
+4 . 2  V i b ra t i o n  m a g n i t u d e  
+T h e  c ri t e r i o n  fo r  t h e  v i b ra t i o n  m a g n i t u d e  a t  t h e  m a c h i n e  b e a r i n g s  s h a l l  b e  t h e  b r o a d b a n d  
+r . m . s .  v a l u e  o f t h e  v i b r a t i o n  d i s p l a c e m e n t  i n  m i c ro m e t re s  o r  t h e  v i b r a t i o n  v e l o c i t y  i n  
+m i l l i m e t e r s  p e r s e c o n d  i n  t h e  fre q u e n c y  r a n g e  s p e c i fi e d  i n  C l a u s e  5 .  T h e  m a x i m u m  v a l u e ,  
+d e t e r m i n e d  a t  t h e  p r e s c r i b e d  m e a s u re m e n t  p o s i t i o n s  a n d  p re s c r i b e d  m e a s u r i n g  v a r i a b l e ,  
+a c c o r d i n g  t o  t h i s  s t a n d a rd ,  c h a r a c t e r i z e s  t h e  v i b ra t i o n  m a g n i t u d e  o f t h e  m a c h i n e .  
+I n d u c t i o n  m o t o rs  ( e s p e c i a l l y  o f t w o  p o l e  t y p e )  fre q u e n t l y  s h o w  v i b r a t i o n  b e a t i n g  a t  t w i c e  s l i p  
+fre q u e n c y .  I n  t h e s e  c a s e s ,  t h e  d e c i s i v e  v i b ra t i o n  m a g n i t u d e  s h a l l  b e  d e t e r m i n e d  fro m  t h e  
+r e l a t i o n s h i p :  
+2 2 
+min 2 
+max 
+r. m. s . x x 
+x + 
+= 
+ 
+w h e r e  
+x 
+m a x   i s  t h e  m a x i m u m  r . m . s .  v a l u e  o f v i b ra t i o n  d i s p l a c e m e n t  o r  v i b ra t i o n  v e l o c i t y ;  
+x 
+m i n   i s  t h e  m i n i m u m  r . m . s .  v a l u e  o f v i b ra t i o n  d i s p l a c e m e n t  o r  v i b ra t i o n  v e l o c i t y .  
+T h e  s a m p l e  r a t e  s h a l l  b e  c h o s e n  l a r g e  e n o u g h  t o  r e l i a b l y  c a p t u r e  t h e  m a x i m u m  a n d  m i n i m u m  
+v a l u e s  o f t h e  v i b ra t i o n .  
+N O T E  L a r g e  A C  i n d u c t i o n  m a c h i n e s  r u n n i n g  a t  v e r y  l o w  s l i p  v a l u e s  a t  n o  l o a d  m a y  r e q u i r e  s e v e r a l  m i n u t e s  t o  
+m o r e  t h a n  t e n  m i n u t e s  fo r  s u c h  m e a s u r e m e n t s  t o  b e  c o m p l e t e d  a t  e a c h  v i b r a t i o n  m e a s u r i n g  p o s i t i o n .  
+4 . 3  R e l a t i v e  s h a ft  v i b ra t i o n  
+T h e  c r i t e r i o n  a d o p t e d  fo r t h e  re l a t i v e  s h a ft  v i b r a t i o n  s h a l l  b e  t h e  v i b r a t o r y  d i s p l a c e m e n t  S 
+p - p  i n  
+t h e  d i re c t i o n  o f m e a s u re m e n t  fr o m  I S O  2 0 8 1 6 - 1 .  
+5  M e a s u re m e n t  e q u i p m e n t  
+T h e  m e a s u r e m e n t  e q u i p m e n t  s h a l l  b e  c a p a b l e  o f m e a s u r i n g  b r o a d b a n d  r . m . s .  v i b ra t i o n  w i t h  
+fl a t  re s p o n s e  o v e r  a  fr e q u e n c y  ra n g e  o f 1 0  H z  t o  1  0 0 0  H z ,  i n  a c c o rd a n c e  w i t h  t h e  
+r e q u i re m e n t s  o f I S O  2 9 5 4 .  H o w e v e r,  fo r  m a c h i n e s  w i t h  s p e e d s  a p p r o a c h i n g  o r b e l o w  
+6 0 0  m i n – 1 
+,  t h e  l o w e r  l i m i t  o f t h e  fl a t  re s p o n s e  fre q u e n c y  ra n g e  s h a l l  n o t  b e  g re a t e r  t h a n  2  H z .  
+M e a s u re m e n t  e q u i p m e n t  fo r  r e l a t i v e  s h a ft  v i b ra t i o n  m e a s u re m e n t s  s h a l l  c o m p l y  w i t h  t h e  
+r e q u i re m e n t s  i n  I S O  1 0 8 1 7 - 1 .  
+M u l t i - d i re c t i o n a l  v i b ra t i o n  s e n s o rs  s h a l l  n o t  b e  u s e d .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 10 ===
+ –  8  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ N O T E  M u l t i - d i r e c t i o n a l  s e n s o r s  d o  n o t  p r o v i d e  p r o p e r  v i b r a t i o n  m e a s u r e m e n t  i n  a l l  d i r e c t i o n s  w h e n  m o u n t e d  i n  
+o n l y  o n e  l o c a t i o n .  
+6  M a c h i n e  m o u n t i n g  
+6 . 1  G e n e ra l  
+T h e  v i b ra t i o n  o f a n  e l e c t ri c a l  m a c h i n e  i s  c l o s e l y  l i n k e d  w i t h  t h e  m o u n t i n g  o f t h e  m a c h i n e .  T o  
+p e rm i t  e v a l u a t i o n  a s  fa r a s  b a l a n c e  a n d  v i b r a t i o n  o f r o t a t i n g  e l e c t r i c a l  m a c h i n e s  a re  
+c o n c e r n e d ,  i t i s  n e c e s s a ry  to  m e a s u re  t h e  v i b ra t i o n  o n  t h e  m a c h i n e  a l o n e ,  u n d e r  p ro p e rl y  
+d e t e rm i n e d  t e s t  c o n d i t i o n s ,  to  e n a b l e  re p ro d u c i b l e  t e s t s  to  b e  c a rr i e d  o u t  a n d  to  p r o v i d e  
+c o m p a ra b l e  m e a s u re m e n t s .  
+6 . 2  F re e  s u s p e n s i o n  
+T h i s  c o n d i t i o n  i s  a c h i e v e d  b y  s u s p e n d i n g  t h e  m a c h i n e  o n  a  s p r i n g  o r  b y  m o u n t i n g  o n  a n  
+e l a s t i c  s u p p o rt  ( s p r i n g s ,  r u b b e r ,  e t c . ) .  
+T h e  h ig h e s t  n a t u r a l  o s c i l l a t i o n  fr e q u e n c y  ( f 
+n o )  o f t h e  s u s p e n s i o n  s y s t e m  a n d  m a c h i n e ,  s h a l l  
+b e  l e s s  t h a n  1 /3  o f t h e  fre q u e n c y  f 
+1  c o r re s p o n d i n g  t o  t h e  s p e e d  o f t h e  m a c h i n e  u n d e r  t e s t ,  a s  
+d e fi n e d  i n  7 . 3 .  B a s e d  o n  t h e  m a s s  o f t h e  m a c h i n e  b e i n g  t e s t e d ,  t h e  n e c e s s a r y  e l a s t i c i t y  o f t h e  
+s u s p e n s i o n  s y s t e m  a s  a  fu n c t i o n  o f ra t e d  s p e e d  fr o m  6 0 0  m i n – 1  
+t o  3  6 0 0  m i n – 1  
+c a n  b e  
+d e t e r m i n e d  fr o m  F i g u re  1 .  F o r  s p e e d s  l o w e r  t h a n  6 0 0  m i n – 1  
+m e a s u re m e n t s  i n  fre e  s u s p e n s i o n  
+a re  n o t  p r a c t i c a l .  F o r  s p e e d s  g r e a t e r  t h a n  3  6 0 0  m i n – 1 
+,  t h e  s t a t i c  d i s p l a c e m e n t  Z  s h o u l d  b e  
+n o t  l e s s  t h a n  t h e  v a l u e  fo r 3  6 0 0  m i n – 1 
+.  
+T h e  c u r v e  i n  F i g u re  1  p r e s e n t s  t h e  m i n i m u m  e l a s t i c  d i s p l a c e m e n t  t o  a t t a i n  t h e  n e c e s s a r y  
+v e rt i c a l  r i g i d  b o d y  n a t u r a l  o s c i l l a t i o n ,  w h i c h  i s  u s u a l l y  t h e  h i g h e s t  r i g i d  b o d y  n a t u r a l  fre q u e n c y .  
+S t a t i c  d i s p l a c e m e n t  Z  i s  e x p re s s e d  a s :  
+ =  2 
+ 
+( 2   ) 2           ,  =  
+1 
+ 
+  ;   ≥ 3  
+w h e r e  
+Z   i s  t h e  d i s p l a c e m e n t  i n  m ,  
+n   i s  t h e  r a t e d  s p e e d  i n  u n i t s  o f s – 1 
+,  a n d  
+g   i s  t h e  a c c e l e r a t i o n  o f g ra v i t y  ( 9 , 8 1  m / s 2 
+) .  
+W h e n  a  i s  s e t  t o  3 ,  t h e n  t h e  c u r v e  i n  F i g u r e  1  i s  g e n e r a t e d .  
+6 . 3  R i g i d  m o u n t i n g  
+6 . 3 . 1  F o u n d a t i o n  
+6 . 3 . 1 . 1  G e n e ra l  
+D u ri n g  t h e  s h o p  r u n n i n g  t e s t  o f t h e  a s s e m b l e d  m a c h i n e ,  v i b r a t i o n  m e a s u r e m e n t s  s h a l l  b e  
+m a d e  w i t h  t h e  m a c h i n e  p ro p e rl y  s h i m m e d  a n d  s e c u re l y  fa s t e n e d  t o  a  m a s s i v e  fo u n d a t i o n  o r  
+t e s t  fl o o r  s t a n d .  E l a s t i c  m o u n t s  a re  n o t  p e rm i t t e d .  
+T h e  h o r i z o n t a l  a n d  v e r t i c a l  n a t u ra l  fr e q u e n c i e s  o f t h e  c o m p l e t e  t e s t  a r ra n g e m e n t  s h a l l  n o t  
+c o i n c i d e  w i t h i n :  
+a )  ±  1 0  %  o f t h e  r o t a t i o n a l  fr e q u e n c y  o f t h e  m a c h i n e ;  
+b )  ±  5  %  o f t w i c e  t h e  r o t a t i o n a l  fre q u e n c y ,  o r 
+c )  ±  5  %  o f o n c e  a n d  t w i c e  t h e  e l e c t r i c a l  l i n e  fr e q u e n c y .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 11 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  9  –   
+E i t h e r  o n e  o f t h e  fo l l o w i n g  t w o  m o u n t i n g  c o n d i t i o n s  m a y  b e  c h o s e n  b y  t h e  m a n u fa c t u r e r .  
+6 . 3 . 1 . 2  R i g i d  m o u n t i n g  o n  m a s s i v e  fo u n d a t i o n  
+O n e  i n d i c a t i o n  o f m a s s i v e  fo u n d a t i o n  i s  w h e n  t h e  v i b r a t i o n  v e l o c i t y  m e a s u r e d  i n  t h e  h o r i z o n t a l  
+a n d  v e r t i c a l  d i r e c t i o n s  a t  t h e  m a c h i n e  fe e t  ( o r  a t  t h e  b a s e  fr a m e  n e a r  t o  t h e  b e a r i n g  p e d e s t a l s  
+o r  s t a t o r  fe e t )  d o e s  n o t  e x c e e d  3 0  %  o f t h e  m a x i m u m  v e l o c i t y ,  w h i c h  i s  m e a s u re d  a t  t h e  
+a d j a c e n t  b e a ri n g  h o u s i n g  i n  t h e  s a m e  m e a s u r e m e n t  d i re c t i o n .  T h e  r a t i o  o f fo o t  t o  b e a r i n g  
+v i b r a t i o n  v e l o c i t i e s  i s  v a l i d  fo r  t h e  ro t a t i o n a l  fr e q u e n c y  c o m p o n e n t  o r  t w i c e - l i n e  fr e q u e n c y  
+c o m p o n e n t  ( i f t h e  l a t t e r  i s  b e i n g  e v a l u a t e d ) .  
+N O T E  1  T h e  r i g i d i t y  o f a  fo u n d a t i o n  i s  a  r e l a t i v e  q u a n t i t y .  I t  i s  c o m p a r e d  w i t h  t h e  r i g i d i t y  o f t h e  m a c h i n e  b e a r i n g  
+s y s t e m .  T h e  r a t i o  o f b e a r i n g  h o u s i n g  v i b r a t i o n  t o  fo u n d a t i o n  v i b r a t i o n  i s  a  c h a r a c t e ri s t i c  q u a n t i t y  fo r  t h e  e v a l u a t i o n  
+o f fo u n d a t i o n  fl e x i b i l i t y .  
+N O T E  2  I f t h e  m a c h i n e  i s  t o  b e  s u p p o r t e d  i n  t h e  fi e l d  b y  a  s t r u c t u r e  o t h e r  t h a n  a  m a s s i v e  fo u n d a t i o n ,  i t  m a y  b e  
+n e c e s s a r y  t o  p e r fo r m  a  s y s t e m  d y n a m i c  a n a l y s i s  t o  m a k e  t h e  n e c e s s a r y  c h a n g e s  t o  t h e  fo u n d a t i o n  d y n a m i c  
+s t i ffn e s s .  
+6 . 3 . 1 . 3  R i g i d  m o u n t i n g  o n  t e s t  fl o o r  s t a n d  
+T h i s  c o n d i t i o n  i s  a c h i e v e d  b y  m o u n t i n g  t h e  m a c h i n e  o n  a n  a d e q u a t e l y  r i g i d  t e s t  fo u n d a t i o n  
+fre e  o f r e s o n a n c e s  a t  fo r c i n g  fr e q u e n c i e s ,  s e e  6 . 3 . 1 . 1 .  
+N O T E  T h i s  m o u n t i n g  i s  t h e  m o s t  u s e d  i n  m a n u fa c t u r e r s  t e s t  l a b s .  
+6 . 3 . 2  H o r i z o n t a l  m a c h i n e s  
+T h e  m a c h i n e  u n d e r  t e s t  s h a l l  b e  b o l t e d  o r  c l a m p e d  u s i n g  a l l  b o l t - h o l e  p o s i t i o n s  t o  a  
+fo u n d a t i o n  t h a t  m e e t s  t h e  r e q u i r e m e n t s  o f 6 . 3 . 1 . 2  o r  6 . 3 . 1 . 3 .  
+T h e r e  a re  c o n s t ru c t i o n s  a n d  m o u n t i n g s  i n  w h i c h  t h e  a b o v e  fi x i n g  c o n d i t i o n s  c a n n o t  b e  m e t ,  
+s u c h  a s  s i n g l e - b e a ri n g  m a c h i n e s .  I n  t h o s e  c a s e s  t h e re  s h o u l d  b e  a n  a g re e m e n t  b e t w e e n  t h e  
+s u p p l i e r  a n d  c u s t o m e r .  
+6 . 3 . 3  V e rt i c a l  m a c h i n e s  
+V e r t i c a l  m a c h i n e s  s h a l l  b e  m o u n t e d  o n t o  a  s o l i d  re c t a n g u l a r  o r  c i r c u l a r  s t e e l  p l a t e  w i t h  a  b o re  
+h o l e  i n  t h e  c e n t re  o f t h e  s h a ft  e x t e n s i o n ,  a  m a c h i n e d  s u r fa c e  fo r  t h e  fl a n g e  o f e l e c t ri c a l  
+m a c h i n e  b e i n g  m e a s u r e d  a n d  h o l e s  p r o v i d e d  fo r  fa s t e n e rs  o r  c l a m p s .  T h e  s t e e l  p l a t e  
+t h i c k n e s s  s h a l l  b e  a t  l e a s t  t h re e  t i m e s  g re a t e r  t h a n  t h e  m a c h i n e  fl a n g e  t h i c k n e s s ,  fi v e  t i m e s  i s  
+r e c o m m e n d e d .  T h e  e d g e  l e n g t h  re s p e c t i v e  t o  t h e  d i a m e t e r s h a l l  b e  a t  l e a s t  e q u a l  t o  t h e  
+h e i g h t  o f t h e  t o p  b e a r i n g ,  L .  F i g u r e  6  i s  a n  e x a m p l e  fo r  I M  V 1  ( s e e  I E C  6 0 0 3 4 - 7 ) .  
+T h e  s t e e l  b a s e  s h a l l  b e  c l a m p e d  fi rm l y  a n d  t i l t  s a fe  t o  a  s o l i d  fl o o r  a n d  m e e t  t h e  r e q u i re m e n t s  
+t o  6 . 3 . 1 . 2  o r  6 . 3 . 1 . 3 .  T h e  fl a n g e  c o n n e c t i o n  s h a l l  u s e  t h e  c o r r e c t  n u m b e r  o f fa s t e n e rs  o r  
+c l a m p s .  I f t h e  a b o v e  m e t h o d  o f m o u n t i n g  i s  n o t  r e a s o n a b l e ,  o t h e r  a rr a n g e m e n t s  c a n  b e  p e r 
+a g re e m e n t  b e t w e e n  s u p p l i e r  a n d  c u s t o m e r .  
+6 . 4  A c t i v e  e n v i r o n m e n t  d e t e r m i n a t i o n  
+T h e  s u p p o r t  s y s t e m s  d e s c r i b e d  i n  6 . 2  a n d  6 . 3  a re  c o n s i d e r e d  p a s s i v e ,  a d m i t t i n g  i n s i g n i fi c a n t  
+e x t e rn a l  d i s t u r b a n c e s  t o  t h e  m a c h i n e .  W h e n ,  fo r  t h e  s a m e  m e a s u r e m e n t  p o s i t i o n ,  t h e  
+v i b r a t i o n  m a g n i t u d e  w i t h  t h e  m a c h i n e  a t  s t a n d s t i l l  e x c e e d s  2 5  %  o f t h e  v a l u e  w h e n  t h e  
+m a c h i n e  i s  r u n n i n g ,  t h e n  a n  a c t i v e  e n v i ro n m e n t  i s  s a i d  t o  e x i s t  a n d  t h i s  s t a n d a r d  d o e s  n o t  
+a p p l y  ( s e e  I S O  2 0 8 1 6 - 1 ) .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 12 ===
+ –  1 0  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ 7  C o n d i t i o n s  o f m e a s u r e m e n t  
+7 . 1  K e y  
+F o r  t h e  b a l a n c i n g  a n d  m e a s u r e m e n t  o f v i b r a t i o n  o n  m a c h i n e s  p r o v i d e d  w i t h  a  s h a ft  e x t e n s i o n  
+k e y w a y ,  t h e  k e y w a y  s h a l l  b e  c o n s i d e r e d  a c c o rd i n g  t o  I S O  2 1 9 4 0 - 3 2 .  
+7 . 2  M e a s u re m e n t  p o s i t i o n s  a n d  d i re c t i o n s  
+7 . 2 . 1  M e a s u re m e n t  p o s i t i o n s  fo r  v i b r a t i o n  
+T h e  l o c a t i o n  o f t h e  p re fe rre d  m e a s u re m e n t  p o s i t i o n s  a n d  d i r e c t i o n s  t o  w h i c h  t h e  l e v e l s  o f 
+v i b r a t i o n  m a g n i t u d e  a p p l y  a r e  s h o w n  i n  F i g u re  2  fo r  m a c h i n e s  w i t h  e n d - s h i e l d  b e a ri n g s  a n d  i n  
+F i g u re  4  fo r m a c h i n e s  w i t h  p e d e s t a l  b e a r i n g s .  F i g u re  3  a p p l i e s  t o  t h o s e  m a c h i n e s  w h e r e  
+m e a s u r e m e n t  p o s i t i o n s  a c c o rd i n g  t o  F i g u re  2  a re  n o t  p o s s i b l e  w i t h o u t  d i s a s s e m b l y  o f p a r t s .  
+W h e n  m e a s u r e m e n t s  c a n n o t  b e  p e rfo r m e d  p e r  F i g u r e  2  o r  F i g u re  3 ,  t h e r e  s h o u l d  b e  a n  
+a g r e e m e n t  b e t w e e n  s u p p l i e r  a n d  c u s t o m e r .  
+F i g u r e  6  a p p l i e s  t o  m a c h i n e s  m o u n t e d  i n  t h e  v e r t i c a l  p o s i t i o n .  
+N O T E  1  M e a s u r e m e n t  a c c o r d i n g  t o  F i g u r e  3  m i g h t  b e  o n  t h e  fr a m e  a s  c l o s e  t o  t h e  b e a r i n g  h o u s i n g  a s  p o s s i b l e .  
+N O T E  2  A x i a l  v i b r a t i o n  m e a s u r e m e n t  m a y  n o t  b e  p o s s i b l e  w i t h o u t  d i s a s s e m b l y  o n  b o t h  e n d s .  I f a  m a c h i n e  h a s  
+t h r u s t  b e a ri n g s ,  t h i s  m a y  b e  p e r  a g r e e m e n t  b e t w e e n  s u p p l i e r  a n d  c u s t o m e r ,  s e e  8 . 3 .  
+7 . 2 . 2  M e a s u re m e n t  p o s i t i o n s  fo r  re l a t i v e  s h a ft  d i s p l a c e m e n t  
+N o n - c o n t a c t i n g  t ra n s d u c e rs  s h a l l  b e  i n s t a l l e d  i n s i d e  t h e  b e a r i n g ,  m e a s u r i n g  d i r e c t l y  t h e  
+r e l a t i v e  s h a ft  j o u rn a l  d i s p l a c e m e n t ,  o r  ( w h e n  i n s i d e  m o u n t i n g  i s  n o t  p o s s i b l e )  a d j a c e n t  t o  t h e  
+b e a r i n g  s h e l l .  T h e  p r e fe rr e d  ra d i a l  p o s i t i o n s  a re  a s  i n d i c a t e d  i n  F i g u r e  5 .  
+7 . 3  T e s t  c o n d i t i o n s  
+M a c h i n e s  s h a l l  b e  t e s t e d  a t  n o - l o a d  w i t h  a l l  re l e v a n t  q u a n t i t i e s  a t  t h e i r  r a t e d  v a l u e .  
+F i x e d  s p e e d  A C  m a c h i n e s  s h a l l  b e  r u n  w i t h  a  s i n u s o i d a l  s u p p l y  v o l t a g e  a c c o r d i n g  t o  
+I E C  6 0 0 3 4 - 1 .  
+T h e  t e s t  s h a l l  b e  p e r fo r m e d  a t  e a c h  ra t e d  fi x e d  s p e e d  o r  o v e r  t h e  r a t e d  s p e e d  ra n g e  fo r  
+v a ri a b l e  fr e q u e n c y  d r i v e s .  F o r  a l l  t e s t e d  s p e e d s ,  t h e  v a l u e s  s h a l l  n o t  e x c e e d  t h e  
+c o r re s p o n d i n g  l i m i t  i n  T a b l e  1 .  
+I n  o rd e r  t o  d i s c e r n  t h e  m e c h a n i c a l l y  i n d u c e d  v i b ra t i o n  fro m  o t h e r  v i b r a t i o n  e x c i t a t i o n  fo rc e s ,  i t  
+i s  re c o m m e n d e d  t h a t  D C  m a c h i n e s  a re  t e s t e d  w i t h  a  l o w  c u r r e n t  r i p p l e  s u p p l y  o r  p u re  D C .  
+N O T E  T e s t s  w i t h  v a ri a b l e - fr e q u e n c y  p o w e r  s u p p l y  n o r m a l l y  o n l y  c o n fi r m  m e c h a n i c a l l y  i n d u c e d  v i b r a t i o n s .  I t  i s  
+p o s s i b l e  t h a t  e l e c t r i c a l l y  i n d u c e d  v i b r a t i o n s  w i l l  b e  d i ffe r e n t .  I f p o s s i b l e ,  t h e  t e s t s  w i t h  t h e  a c t u a l  c o n v e r t e r  t o  b e  
+i n s t a l l e d  w i t h  t h e  m o t o r  o n  s i t e  w i l l  p r o v i d e  b e t t e r  i n fo r m a t i o n  a b o u t  v i b r a t i o n  b e h a v i o u r .  
+F o r  r o u t i n e  t e s t i n g  o f v a r i a b l e - s p e e d  m a c h i n e s ,  i t  i s  p e r m i t t e d  t o  t e s t  a t  a  s i n g l e  s p e e d  b a s e d  
+u p o n  i n fo rm a t i o n  o b t a i n e d  d u r i n g  t y p e  t e s t .  
+F o r  m a c h i n e s  t h a t  a re  b i - d i r e c t i o n a l ,  t h e  v i b r a t i o n  l i m i t s  a p p l y  fo r  b o t h  d i re c t i o n s  o f ro t a t i o n ,  
+b u t  n e e d  t o  b e  m e a s u r e d  i n  o n l y  o n e  d i re c t i o n .  
+7 . 4  V i b ra t i o n  t ra n s d u c e r 
+T h e  m o u n t i n g  o f t h e  t r a n s d u c e r  u s e d  fo r  v i b ra t i o n  m e a s u r e m e n t  o n  t h e  m a c h i n e  s u rfa c e  s h a l l  
+b e  a s  s p e c i fi e d  b y  t h e  m a n u fa c t u r e r  o f t h e  t r a n s d u c e r a n d  s h a l l  n o t  d i s t u rb  t h e  v i b r a t o r y  
+c o n d i t i o n  o f t h e  m a c h i n e  u n d e r  t e s t .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 13 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  1 1  –   
+F o r  t h i s ,  i t  i s  n e c e s s a r y  t h a t  t h e  t o t a l  c o u p l e d  m a s s  o f t h e  t ra n s d u c e r  a s s e m b l y  i s  l e s s  t h a n  
+1 / 5 0  o f t h e  m a s s  o f t h e  m a c h i n e .  
+8  L i m i t s  o f b e a ri n g  h o u s i n g  v i b ra t i o n  
+8 . 1  L i m i t s  o f v i b ra t i o n  m a g n i t u d e  
+T h e  l i m i t s  a p p l y  t o  t h e  m e a s u re d  b r o a d b a n d  r . m . s .  v i b r a t i o n  v e l o c i t y  a n d  d i s p l a c e m e n t  i n  t h e  
+fre q u e n c y  ra n g e  s p e c i fi e d  i n  C l a u s e  5 .  
+T h e  v i b r a t i o n  m a g n i t u d e  fo r  D C  a n d  t h r e e  p h a s e  A C  m a c h i n e s  w i t h  s h a ft  h e i g h t s  5 6  m m  a n d  
+h i g h e r ,  fo r  o n e  o f e i t h e r  o f t h e  t w o  m o u n t i n g  c o n d i t i o n s  a c c o rd i n g  t o  C l a u s e  6 ,  s h a l l  n o t  
+e x c e e d  t h e  l i m i t s  s p e c i fi e d  i n  T a b l e  1 .  L i m i t s  a r e  g i v e n  fo r  t w o  v i b ra t i o n  g r a d e s .  W h e n  n o  
+g ra d e  i s  s p e c i fi e d ,  m a c h i n e s  c o m p l y i n g  w i t h  t h i s  s t a n d a rd  s h a l l  b e  g ra d e  A .  
+F o r r o u t i n e  t e s t s  o f s t a n d a r d  m a c h i n e s  w i t h  ro t a t i o n a l  s p e e d s  l e s s  t h a n  6 0 0  m i n – 1 
+,  v i b r a t i o n  i s  
+t o  b e  e x p re s s e d  i n  u n i t s  o f d i s p l a c e m e n t .  F o r r o t a t i o n a l  s p e e d s  fro m  6 0 0  m i n – 1 
+ u p  t o  
+1 5  0 0 0  m i n – 1 
+,  v i b ra t i o n  i s  t o  b e  e x p r e s s e d  i n  u n i t s  o f v e l o c i t y .  
+W h e n  t h e  ro u t i n e  t e s t  i s  m a d e  w i t h  a  fr e e - s u s p e n s i o n  m o u n t i n g  c o n d i t i o n ,  t h e  t y p e  t e s t  s h o u l d  
+a l s o  i n c l u d e  t e s t i n g  w i t h  r i g i d  m o u n t i n g .  T h i s  i s  v a l i d  fo r  t h e  w h o l e  s p e e d  r a n g e  o f t h i s  
+s t a n d a rd .  
+T a b l e  1  –  L i m i t s  o f m a x i m u m  v i b r a t i o n  m a g n i t u d e  i n   
+d i s p l a c e m e n t  ( r . m . s . )  a n d  v e l o c i t y  ( r . m . s . )  fo r  s h a ft  h e i g h t  H  
+V i b r a t i o n  
+g r a d e  S h a ft  h e i g h t ,  
+5 6  ≤  H  ≤  1 3 2  H  >  1 3 2  
+m m    
+M o u n t i n g  D i s p l a c e m e n t  V e l o c i t y  D i s p l a c e m e n t  V e l o c i t y  
+ µ m  m m / s  µ m  m m / s  
+A  F re e  s u s p e n s i o n  4 5  2 , 8  4 5  2 , 8  
+R i g i d  m o u n t i n g  –  –  3 7  
+ 2 , 3  
+2 , 8 *  
+B  F re e  s u s p e n s i o n  1 8  1 , 1  2 9  1 , 8  
+R i g i d  m o u n t i n g  –  –  2 4  1 , 5  
+1 , 8 *  
+G r a d e  A  a p p l i e s  t o  m a c h i n e s  w i t h  n o  s p e c i a l  v i b r a t i o n  r e q u i r e m e n t s .  
+G r a d e  B  a p p l i e s  t o  m a c h i n e s  w i t h  s p e c i a l  v i b r a t i o n  r e q u i r e m e n t s .  
+R i g i d  m o u n t i n g  i s  n o t  c o n s i d e r e d  a c c e p t a b l e  fo r  m a c h i n e s  w i t h  s h a ft  h e i g h t s  l e s s  t h a n  o r  e q u a l  t o  1 3 2  m m .  
+V i b r a t i o n  a t  fr e q u e n c i e s  a b o v e  1  0 0 0  H z  s h o u l d  b e  fi l t e r e d  o u t .  
+T h e  s h a ft  h e i g h t  o f a  m a c h i n e  w i t h o u t  fe e t ,  o r  a  m a c h i n e  w i t h  r a i s e d  fe e t ,  o r  a n y  v e r t i c a l  m a c h i n e  i s  t o  b e  t a k e n  
+a s  t h e  s h a ft  h e i g h t  o f a  m a c h i n e  i n  t h e  s a m e  b a s i c  fr a m e ,  b u t  o f t h e  h o r i z o n t a l  s h a ft  fo o t - m o u n t i n g  t y p e .  
+*  T h i s  l e v e l  i s  t h e  l i m i t  w h e n  t h e  t w i c e  l i n e  fr e q u e n c y  v i b ra t i o n  l e v e l  i s  d o m i n a n t  a s  d e fi n e d  i n  8 . 2  a n d  
+e x p l a i n e d  i n  F i g u r e  7 .  
+ 
+N O T E  1  T h e  m a n u fa c t u re r  a n d  t h e  p u r c h a s e r  t a k e  i n t o  a c c o u n t  t h a t  t h e  i n s t r u m e n t a t i o n  c a n  h a v e  a  m e a s u r e m e n t  
+t o l e r a n c e  o f ±  1 0  % .  
+N O T E  2  A  m a c h i n e  w h i c h  i s  w e l l - b a l a n c e d  i n  i t s e l f a n d  o f a  g r a d e  c o n fo r m i n g  w i t h  T a b l e  1  m a y  e x h i b i t  l a r g e  
+v i b r a t i o n s  w h e n  i n s t a l l e d  o n  s i t e  a r i s i n g  fr o m  v a ri o u s  c a u s e s ,  s u c h  a s  u n s u i t a b l e  fo u n d a t i o n s ,  r e a c t i o n  o f t h e  d r i v e n  
+m a c h i n e ,  c u r r e n t  r i p p l e  fr o m  t h e  p o w e r  s u p p l y ,  e t c .  V i b r a t i o n  m a y  a l s o  b e  c a u s e d  b y  d r i v i n g  e l e m e n t s  w i t h  a  
+n a t u r a l  o s c i l l a t i o n  fr e q u e n c y  v e r y  c l o s e  t o  t h e  e x c i t a t i o n  d u e  t o  t h e  s m a l l  r e s i d u a l  u n b a l a n c e  o f t h e  r o t a t i n g  m a s s e s  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 14 ===
+ –  1 2  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ o f t h e  m a c h i n e .  I n  s u c h  c a s e s ,  c h e c k s  c a n  b e  c a r r i e d  o u t  o n  s i t e  n o t  o n l y  o n  t h e  m a c h i n e ,  b u t  a l s o  o n  e a c h  
+e l e m e n t  o f t h e  i n s t a l l a t i o n .  ( S e e  I S O  1 0 8 1 6 - 3 . )  
+N O T E  3  A s  m e n t i o n e d  fo r  o n s i t e  o p e r a t i o n  i n  I S O  2 0 8 1 6 - 1 ,  s p e c i a l  a g r e e m e n t s  c a n  b e  m a d e .  T h e  v a l u e s  g i v e n  i n  
+I S O  2 0 8 1 6 - 1  a r e  t h e  b a s i s  fo r  t h e  e a s e  o f d i s c u s s i o n  a n d  a g r e e m e n t  b e t w e e n  t h e  s u p p l i e r  a n d  t h e  u s e r .  T h e  v a l u e s  
+e n s u r e  i n  m o s t  a p p l i c a t i o n s  t h a t  m a j o r  e r r o r s  o r  u n r e a l i s t i c  re q u i r e m e n t s  a re  a v o i d e d .  S p e c i a l  a g r e e m e n t s  a r e  a l s o  
+m a d e  fo r a c c e l e r a t i o n  a n d  d e c e l e r a t i o n  r a m p s .  S h o r t  t e r m  v i b r a t i o n  l i m i t s  a n d  r e d u c e d  b e a r i n g  l i fe  t i m e  a s  a  
+fu n c t i o n  o f v i b ra t i o n  v e l o c i t y  c a n  b e  g i v e n  b y  t h e  m a n u fa c t u r e r .  
+8 . 2  L i m i t s  o f v i b ra t i o n  v e l o c i t y  w i t h  t w i c e - l i n e  fre q u e n c y  fo r a . c .  m a c h i n e s  
+T w o - p o l e  i n d u c t i o n  m a c h i n e s  m a y  h a v e  e l e c t r o m a g n e t i c  e x c i t e d  v i b ra t i o n  a t  t w i c e  t h e  
+fre q u e n c y  o f t h e  p o w e r s y s t e m .  T h e  c o rr e c t  e v a l u a t i o n  o f t h e s e  v i b r a t i o n  c o m p o n e n t s  re q u i re s  
+a  r i g i d  m o u n t i n g  o f t h e  m a c h i n e ,  w h i c h  c o m p l i e s  w i t h  t h e  re q u i r e m e n t s  g i v e n  i n  6 . 3 .  
+W h e n  t y p e  t e s t s  d e m o n s t ra t e  a  d o m i n a n t  t w i c e  l i n e  fre q u e n c y  c o m p o n e n t  fo r  m a c h i n e s  h a v i n g  
+H  >  1 3 2  m m ,  t h e  v i b ra t i o n  m a g n i t u d e  l i m i t  i n  T a b l e  1  ( fo r  G r a d e  A )  i s  i n c r e a s e d  t o  
+2 , 8  m m / s  ( r . m . s . )  fro m  2 , 3  m m / s  ( r . m . s . )  o r  ( fo r G ra d e  B )  i s  i n c re a s e d  t o  1 , 8  m m / s  ( r . m . s . )  
+fro m  1 , 5  m m / s  ( r . m . s . ) .  G r e a t e r  v a l u e s  a re  s u b j e c t  t o  p r i o r  a g re e m e n t .  A  t w i c e  l i n e  fre q u e n c y  
+c o m p o n e n t  i s  c o n s i d e re d  d o m i n a n t  w h e n  t y p e  t e s t s  d e m o n s t ra t e  i t  t o  b e  g re a t e r  t h a n  7 0  %  o f 
+2 , 3  m m / s  ( r . m . s . ) ( fo r  G r a d e  A )  o r  7 0  %  o f 1 , 5  m m / s  ( r . m . s . )  ( fo r G r a d e  B ) .  G r a p h i c a l  
+i n t e r p re t a t i o n  o f t h e  d e fi n i t i o n  a b o v e  i s  s h o w n  i n  F i g u r e  7 .  
+N O T E  1  W i t h  r e s p e c t  t o  t h e  t w i c e - l i n e  fr e q u e n c y  c o m p o n e n t  a g r e e m e n t s  b e t w e e n  t h e  s u p p l i e r  a n d  t h e  c u s t o m e r 
+c a n  b e  m a d e .  
+N O T E  2  7 0  %  a p p r o x i m a t e s  1 
+√ 2 1 0 0  % ,  w h e r e  t h e  r m s  v a l u e s  o f r o t a t i o n a l  a n d  t w i c e - l i n e  fr e q u e n c y  a r e  e q u a l .  
+8 . 3  A x i a l  v i b ra t i o n  
+T h e  e v a l u a t i o n  o f a x i a l  b e a r i n g  v i b r a t i o n  d e p e n d s  o n  t h e  b e a r i n g  fu n c t i o n  a n d  b e a r i n g  
+c o n s t ru c t i o n .  
+I n  t h e  c a s e  o f t h ru s t  b e a ri n g s ,  a x i a l  v i b r a t i o n  c o rr e l a t e s  w i t h  t h ru s t  p u l s a t i o n s ,  w h i c h  c o u l d  
+c a u s e  d a m a g e  t o  t h e  m e t a l  l i n e r  o f s l e e v e  b e a ri n g s  o r  t o  p a r t s  o f a n t i fr i c t i o n  b e a r i n g s .  A x i a l  
+v i b r a t i o n  o f t h e s e  b e a r i n g s  s h a l l  b e  e v a l u a t e d  i n  t h e  s a m e  m a n n e r  a s  t r a n s v e rs e  v i b ra t i o n  a n d  
+T a b l e  1  l i m i t s  a p p l y .  
+F o r b e a r i n g s  h a v i n g  n o  a x i a l  l i m i t i n g  c o n s t ru c t i o n  s u c h  a s  s l e e v e  b e a r i n g s  w i t h  n o  a x i a l  t h ru s t  
+b e a r i n g ,  t h e  r e q u i re m e n t  m a y  b e  re l a x e d  b y  p ri o r  a g re e m e n t .  
+9  L i m i t s  o f re l a t i v e  s h a ft  v i b ra t i o n  
+R e l a t i v e  s h a ft  v i b ra t i o n  m e a s u re m e n t s  a r e  re c o m m e n d e d  o n l y  fo r  s l e e v e  b e a ri n g  m a c h i n e s  
+w i t h  s p e e d s  > 1  2 0 0  m i n – 1 
+;  ra t e d  p o w e r  > 1  0 0 0  k W ;  a n d  s h a l l  b e  s u b j e c t  t o  p r i o r  a g r e e m e n t  
+w i t h  r e s p e c t  t o  t h e  n e c e s s a r y  p ro v i s i o n s  r e g a rd i n g  t h e  i n s t a l l a t i o n  o f s h a ft  m e a s u re m e n t  
+t r a n s d u c e r s .  
+W h e n  m a c h i n e s  w i t h  s l e e v e  b e a r i n g s  h a v e  s p e c i a l  p ro v i s i o n s  fo r  t h e  i n s t a l l a t i o n  o f s h a ft  
+v i b r a t i o n  m e a s u re m e n t  t ra n s d u c e rs ,  t h e  l i m i t s  fo r  t h e  re l a t i v e  s h a ft  v i b ra t i o n  d i s p l a c e m e n t  a re  
+s p e c i fi e d  i n  T a b l e  2 .  T h e s e  l i m i t s  a r e  i n  a d d i t i o n  t o  t h o s e  r e q u i re d  i n  C l a u s e  8 .  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 15 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  1 3  –   
+T a b l e  2  –  L i m i t s  fo r  t h e  m a x i m u m  s h a ft  v i b r a t i o n  ( S 
+p - p )  a n d  
+t h e  m a x i m u m  r u n - o u t  
+V i b r a t i o n  g r a d e  S p e e d  r a n g e  M a x i m u m  r e l a t i v e  s h a ft  
+d i s p l a c e m e n t  M a x i m u m  c o m b i n e d  
+m e c h a n i c a l  a n d  e l e c t r i c a l  
+r u n - o u t  
+m i n – 1 
+ 
+µ m  µ m  
+A  >  1  8 0 0  6 5  1 6  
+ ≤  1  8 0 0  9 0  2 3  
+B  >  1  8 0 0  5 0  1 2 , 5  
+ ≤  1  8 0 0  6 5  1 6  
+G r a d e  B  a p p l i e s  t o  m a c h i n e s  w i t h  s p e c i a l  v i b r a t i o n  r e q u i r e m e n t s .  
+T h e  m a x i m u m  r e l a t i v e  s h a ft  d i s p l a c e m e n t  l i m i t s  i n c l u d e  t h e  r u n - o u t .  F o r  t h e  d e fi n i t i o n  o f t h e  r u n - o u t  s e e  
+I S O  2 0 8 1 6 - 1 .  
+ 
+ 
+K e y  
+A  m a c h i n e  u n d e r  t e s t  
+Z  d i s p l a c e m e n t  
+F i g u re  1  –  M i n i m u m  e l a s t i c  d i s p l a c e m e n t  a s  a  fu n c t i o n  o f ra t e d  s p e e d  
+T o  r e d u c e  t h e  i n fl u e n c e  o f t h e  m a s s  a n d  t h e  m o m e n t s  o f i n e r t i a  o f t h e  s u s p e n s i o n  s y s t e m  o n  
+t h e  v i b ra t i o n  l e v e l ,  t h e  e ffe c t i v e  m a s s  o f t h e  e l a s t i c  s u p p o r t  s h a l l  b e  n o t  g r e a t e r  t h a n  1 / 1 0  o f 
+t h a t  o f t h e  m a c h i n e .  
+I E C  
+Z  
+A  
+A  
+1 0  
+8  
+6  
+4  
+2  
+R a t e d  s p e e d  m i n – 1 
+ 
+D i s p l a c e m e n t  Z    ( m m )  
+2 4  
+2 2  
+2 0  
+1 8  
+1 6  
+1 4  
+1 2  
+0  
+6 0 0  
+ 9 0 0  
+ 1  2 0 0  
+ 1  5 0 0  
+ 1  8 0 0  
+ 2  1 0 0  
+ 2  4 0 0  
+ 2  7 0 0  
+ 3  0 0 0  
+ 3  3 0 0  
+ 3  6 0 0  
+Z  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 16 ===
+ –  1 4  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+  
+F i g u re  2  –  P r e fe rr e d  p o s i t i o n s  o f m e a s u re m e n t  a p p l i c a b l e  t o  
+o n e  o r  b o t h  e n d s  o f t h e  m a c h i n e  
+ 
+F i g u re  3  –  M e a s u re m e n t  p o s i t i o n s  fo r  t h o s e  e n d s  o f m a c h i n e s  w h e r e  m e a s u re m e n t s  
+a c c o r d i n g  t o  F i g u r e  2  a r e  n o t  p o s s i b l e  w i t h o u t  d i s a s s e m b l y  o f p a rt s  
+I E C  
+I E C  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 17 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  1 5  –   
+ 
+F i g u re  4  –  M e a s u re m e n t  p o s i t i o n s  fo r  p e d e s t a l  b e a r i n g  
+ 
+K e y  
+A  s i g n a l  c o n d i t i o n e r  
+B  t r a n s d u c e r  
+F i g u re  5  –  P r e fe rr e d  c i r c u m fe r e n t i a l  p o s i t i o n  o f t r a n s d u c e r s  
+fo r  t h e  m e a s u r e m e n t  o f re l a t i v e  s h a ft  d i s p l a c e m e n t  
+I E C  
+I E C  
+A  
+B  
+4 5 °  
+ 4 5 °  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 18 ===
+ –  1 6  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+  
+F i g u re  6  –  M e a s u re m e n t  p o s i t i o n s  fo r  v e r t i c a l  m a c h i n e s  ( m e a s u r e m e n t s  t o  b e  m a d e  
+a t  t h e  b e a r i n g  h o u s i n g ;  w h e n  n o t  a c c e s s i b l e ,  t h e n  a s  c l o s e  a s  p o s s i b l e )  
+I E C  
+L  
+>  L  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 19 ===
+I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  –  1 7  –   
+ 
+F i g u re  7  –  V i b ra t i o n  l i m i t  d i a g ra m  fo r  s h a ft  h e i g h t s  H  >  1 3 2  m m  
+ 
+  
+I E C  
+2 f - c o m p o n e n t   ( m m / s )  
+A l l  o t h e r  c o m p o n e n t s  ( u n b a l a n c e ,  e t c  … )    ( m m / s )  
+3  
+0  
+ 0 , 5  
+ 1  
+ 1 , 5  
+ 2  
+ 2 , 5  
+ 3  
+2 , 5  
+2  
+1 , 5  
+1  
+0 , 5  
+0  
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 
+
+=== PAGE 20 ===
+ –  1 8  –  I E C  6 0 0 3 4 - 1 4 : 2 0 1 8  ©  I E C  2 0 1 8  
+ B i b l i o g ra p h y  
+I S O  2 0 4 1 ,  V ib r a tio n  a n d s h o c k vo ca b u la r y 
+I S O  7 9 1 9 - 3 ,  Me c h a n ic a l vib r a tio n  o f  n o n - r e c ip r o c a tin g  m a c h in e s  –  Me a s u r e m e n ts  o n  r o ta tin g 
+s h a f ts  a n d e va lu a tio n  cr ite r ia  –  Pa r t 3 :  C o u p le d in du s tr ia l m a c h in e s  
+I S O  1 0 8 1 6 - 3 ,  Me c h a n ic a l vib r a tio n  –  Eva lu a tio n  o f  m a c h in e  vib r a tio n  b y m e a s u r e m e n ts  o n  
+n o n - r o ta tin g  p a r ts  –  Pa r t 3 :  In du s tr ia l m a ch in e s  with  r a te d p o we r  a b o ve  1 5 kW  a n d r a te d 
+s p e e ds  b e twe e n  1 20  r / m in  a n d 1 5 0 0 0  r / m in  wh e n  m e a s u r e d in  s itu  
+A P I  S t a n d a r d  5 4 1 : 2 0 1 4 ,  Fo r m - wo u n d s q u ir r e l c a g e  in du c tio n  m o to r s  –  2 50  h o r s e p o we r  a n d 
+la r g e r  
+A P I  S t a n d a rd  5 4 6 : 2 0 0 8 ,  B r u s h le s s  s yn c h r o n o u s  m a c h in e s  –  500  h o r s e p o we r  a n d la r g e r  
+A P I  S t a n d a r d  5 4 7 : 2 0 1 7 ,  G e n e r a l Pu r p o s e  Fo r m - wo u n d S q u ir r e l C a g e  In du c tio n  Mo to r s  –  
+1 8 5 kW  ( 2 50 h p )  a n d th r o u g h  22 4 0  kW  ( 3  00 0  h p )  
+I E E E  S t a n d a rd  fo r  P e t r o l e u m  a n d  C h e m i c a l  I n d u s t r y  8 4 1 : 2 0 0 9 ,  Pr e m iu m - Ef f ic ie n c y,  
+S e ve r e - D u ty,  T o ta lly En c lo s e d,  Fa n - C o o le d ( T EFC )  S q u ir r e l C a g e  In du c tio n  Mo to r s - Up  to  a n d 
+In c lu din g  3 70  kW  ( 50 0  h p )  
+N E M A  M G  1 : 2 0 1 6 ,  Mo to r s  a n d G e n e r a to r s  –  Pa r t 7:  Me c h a n ic a l vib r a tio n  m e a s u r e m e n t,  
+e va lu a tio n  a n d lim its  
+ 
+___________ 
+ 
+P ro vi d e d  b y I H S  M a rki t  u n d e r l i ce n s e  wi th  I E C 

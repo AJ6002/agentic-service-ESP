@@ -93,18 +93,19 @@ class ResponseAssembler:
 
         # 5. Visual Frame (WORKFLOW cards selection)
         if visualization and route != "SIMPLE":
-            has_cards = False
+            cards_list = []
             if isinstance(visualization, VisualizationSpec):
-                has_cards = bool(visualization.card_ids)
+                cards_list = visualization.card_ids
                 viz_dict = visualization.model_dump()
             elif isinstance(visualization, dict):
-                has_cards = bool(visualization.get("card_ids") or visualization.get("cards"))
+                cards_list = visualization.get("card_ids") or visualization.get("cards") or []
                 viz_dict = visualization
             else:
                 viz_dict = {}
-            if has_cards:
+            if cards_list:
                 yield VisualFrame(
                     run_id=run_id,
+                    card_ids=cards_list,
                     visualization=viz_dict,
                 ).model_dump_json() + "\n"
 

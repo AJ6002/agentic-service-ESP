@@ -1,0 +1,480 @@
+=== PAGE 1 ===
+Electrical Submersible Pump (ESP)
+COMPONENTS (EQUIPMENT
+DESCRIPTION)
+PTP- 6.1
+Table of Contents
+1
+
+=== PAGE 2 ===
+Page Number
+1. Introduction 03
+2. Centrifugal Pump 04
+3. Rotary Gas Separator 07
+4. Seal Section 08
+5. Electrical Submersible Motor 10
+6. Motor Controllers 11
+7. Variable Speed Controllers 12
+8. Downhole Pressure and Temperature Monitor 13
+9. Transformer 13
+10. Junction Box 13
+11. Wellhead 13
+12. Check Valve 14
+13. Drain Valve 14
+14. Backspin Relay 15
+15. Centralizer 15
+16. Cable 15
+17. Cable Band 16
+2
+
+=== PAGE 3 ===
+Electrical Submersible Pump (ESP)
+COMPONENTS (EQUIPMENT DESCRIPTION)                               
+1. Introduction
+The driving force, which displaces oil from a reservoir, comes from the natural energy
+of the compressed fluids in the reservoir.  The energy that makes the well to flow
+results from a reduction in pressure between the reservoir and the wellbottom.  If the
+pressure reduction between the reservoir and the surface producing facilities is large
+enough, the well will flow naturally to the surface using the natural energy supplied by
+the reservoir.
+When the natural energy associated with oil will not produce a pressure differential
+between reservoir and wellbore sufficient to lift reservoir fluids to the surface and into
+surface facilities, the reservoir energy must be supplemented by some form of artificial
+lift.
+The ESP is considered an effective and economical means of lifting large volumes of
+fluids from great depths under a variety of well conditions.  The submersible pump
+companies, along with the major oil companies, have gained considerable experience in
+producing high viscosity fluids, gassy wells, high temperature wells, etc.  With the
+improved technology, wells that were once considered non-feasible for submersible
+pumps are now being pumped economically.
+The pumping system is made up of several components.  These components are: three-
+phase electric motor, seal section, rotary gas separator, multi-stage centrifugal pump,
+electric  power cable, motor controller  and transformers.  Additional miscellaneous
+components  will  normally  include  wellhead,  cable bands,  check and drain  valves.
+Optional  equipment  may  include  a  downhole  pressure  and  temperature  sensor  to
+monitor  wellbore  conditions.  The  ESP  is  suspended  from  discharge  tubing  and
+submerged in well fluids.  A typical Electric Submersible Pump installation is shown in
+figure 1
+The picture shows a common type of installation and is more-or-less a standard one.  In
+this type of installation, the unit is placed above the perforation zone.  The produced
+fluid is forced to move upward from the perforations past the motor.  In doing so the
+produced fluid, while flowing past the motor, absorbs the heat generated in the motor
+and thereby cools it.
+3
+
+=== PAGE 4 ===
+                                  
+Figure 1- a (Components)
+4
+TRANSFORMERS
+MOTOR CONTROLLER
+JUNCTION BOX
+CASING
+TUBING
+CENTRIFUGAL PUMP
+ROTARY GAS SEPARATOR
+SEAL SECTION
+ELECTRIC MOTORFLAT CABLECABLE BANDSCHECK VALVEDRAIN VALVETYPICAL INSTALLATION
+COMPONANTS
+
+=== PAGE 5 ===
+5
+OIL OUT THROUGH
+TUBING
+GAS OUT THROUGH
+CASINGCABLE BAND
+
+=== PAGE 6 ===
+Figure 1-b (ESP Installation)
+Figure 1-c ( Unit is placed below the perforation)
+6
+SHROUD
+
+=== PAGE 7 ===
+2. Centrifugal Pump
+Submersible  pumps  are  mostly  multi-staged  centrifugal  pumps.   Each  stage  of  a
+submersible pump consists of a rotating part called impeller and stationary part called
+diffuser.  There  are  two  components  to  the  motion  imparted  to  the  liquid  by  the
+impeller.  One motion is in a radial direction outward from the center of the impeller.
+This motion is caused by centrifugal force.  The other motion moves in direction
+tangential to the outside diameter of the impeller.  As a result of these two components
+is the actual direction of flow.  The diffuser's function is to change the  velocity energy
+into pressure energy.
+There are two general types of design for submersible pumps. The smaller flow pumps
+are mostly of radial flow design.  Figure 2-a shows such a stage configuration. In this
+type the impeller discharges the fluid in mostly a radial direction.  As the pumps reach
+design flows of approximately 300 M3/d in the 400 series pumps and 550  M3  /d in
+the larger diameter pumps, the design changes to a mixed flow.  Figure 2-b shows this
+configuration.  The impeller in this stage design imparts a direction to the fluid that
+contains substantial axial direction as well as radial direction.
+      
+Figure 2-a Figure 2-b
+7ELECTR ICA L SUBM ER SIBLE PU M P (ESP)
+C ENTR IFU GAL PUM P STAG ES
+R ADIA L FLO W M IXED FLO W
+
+=== PAGE 8 ===
+In many of the pump designs, the impeller is free to float axially on the shaft and the
+individual impeller stage is absorbed on specially designed pads found on the diffuser.
+A specially designed thrust bearing contained in the seal section carries only the thrust
+of the pump shaft.  This configuration is called a floating stage design.  The benefit of
+this design is that many stages can be stacked together  without having to fix the
+impellers axially on the shaft with precise alignment.   As a result, pumps can be
+manufactured having hundreds of individual stages.
+As pump diameter increases beyond about 6 inches (1 50 mm), the impellers are locked
+to the pump shaft in the axial direction and no thrust is absorbed by the impeller
+rubbing on the diffuser.  As a result, the thrust bearing contained in the seal section
+must carry the impeller thrust in addition to shaft thrust.  This configuration is referred
+to as a fixed impeller  or compression pump design.  The  impellers  are of  a fully
+enclosed curved vane design, whose maximum efficiency is a function of the impeller
+design and type and whose operating efficiency is a function of the percent of design
+capacity at which the pump is operated.  The mathematical relationship between head,
+capacity, efficiency and brake horsepower is expressed as:
+BHP = Q x H x Specific Gravity / Pump Efficiency
+Q = Volume 
+H = Head
+ The  diameter  and  configuration  of  the pump  impeller  determines  the  amount  of
+acceleration energy that is transmitted to the fluid.  The pump size will be determined
+by the well casing size. The internal diameter of the impeller is dependent on the
+outside diameter of the shaft, which must be strong enough to transmit power to all
+stages of the pump.  Submersible centrifugal pumps are manufactured for various sizes
+of well casings.
+Stages are designed to have a downward thrust force on the impeller through the
+operating  range.   This  force  would  vary  from  low  at  maximum  operating  with
+increasing force toward minimum operating.  It is designed in this manner so as to
+provide stable hydraulic operation.  Therefore, the pump should be operated within the
+stages recommended operating range to provide optimum life.  Pumps operated outside
+8
+
+=== PAGE 9 ===
+this range will have a reduced life and may have a detrimental effect on other ESP
+components.
+The discharge rate of a submersible centrifugal pump depends on the speed (rpm),
+stage design, the dynamic head against which the pump is operating, and the physical
+properties of the fluid being pumped.  The total dynamic head of the pump is the
+product of the number of stages and the head generated by each stage.  Figure-3  is a
+typical  6O  hertz,  single  stage,  centrifugal  pump  performance  curve  showing  the
+recommended operating range, along with other pump characteristics.
+Figure -3
+3. Rotary Gas Separator
+ESP's can be used in wells having a high gas-oil ratio. The capability of a centrifugal
+pump in handling gas without gas-locking is limited. With the attachment of a rotary
+gas  separator,  ESP’s  can  work  in  high  gas-oil  ratio  wells.   The  separators  use
+centrifugal force to separate the free gas (gas not in solution) from the well fluid before
+entry into the pump.         
+Figure- 4, represents the common design of a typical rotary gas separator.  The fluid
+enters the separator and is forced into a rotating centrifuge chamber by the action of an
+inducer.  Once in the centrifuge, the fluid with the higher specificgravity is forced to
+the outer wall of the rotating chamber by centrifugal force, leaving the gas in near
+9
+ELECTRICAL SUBM ERSIBLE PUM P (ESP)
+PUMP CHARACTERISTIC CURVE
+250--750--
+500--1500 --
+1250 --
+1000 --
+050100150200250300350400450500 00-50-100-150OperatingRange
+Flowrate m3/day
+
+=== PAGE 10 ===
+the center.  The gas is separated from the fluid  by  the  splitter  and  is  exhausted
+back to the annulus of the well where it travels up the annulus.  The heavier fluid is
+directed into the intake of the pump where it is pumped to the surface.
+Typical gas separator efficiencies range from 80% to 95%.  The system efficiency is
+affected by fluid volumes, composition and properties.  Gas separator assemblies are
+often connected in tandem to improve the overall efficiency in high gas applications.
+Figure – 4
+ 
+4. Seal Section
+The seal section connects the drive shaft of the motor to the pump or gas separator
+shaft and performs the following important functions:
+(1). Seal section is to allow for expansion of the dielectric oil contained in the rotor gap
+of  the  motor.  Temperature  gradients  resulting  from  both  the  ambient  and  motor
+temperature rise will cause the dielectric oil to expand.  This expansion is  taken in the
+seal.
+(2). Seal section is to equalize the casing annulus pressure with the internal dielectric
+motor fluid.  This equalization of pressure across the motor helps keep well fluid from
+leaking past the sealed joints of the motor.  Well fluids which get into the motor will
+cause early dielectric failure.  The rubber bladder shown in figure -5, as well as the
+labyrinth style chambers,  allows this pressure equalization to take place.
+10ELECTRICAL SUBM ERSIBLE PUM P (ESP)
+ROTARY GAS SEPARATORLIQUID DISCHARGE
+GAS DISCHARGE
+GAS PORT
+BALANCED STEEL ROTOR
+STEEL INDUCER
+FLUID INTAKEBEARINGFLOW  DIVIDERLIQUID PORTBEARING
+
+=== PAGE 11 ===
+(3). Seal section is to isolate the well fluid from the clean dielectric motor fluid.  As
+previously stated contamination of the motor insulation with well fluid will lead to
+insulation failure.  The seal section contains multiple mechanical shaft seals which keep
+the well fluid from leaking down the shaft.  The rubber bladder provides a positive
+barrier to the well fluid.  Labyrinth chamber provide fluid separation based on the
+difference in densities between well fluid and motor oil. Any well fluid that gets past
+the upper shaft seals or the top chamber is contained in the lower labyrinth chambers as
+a secondary protection means.
+(4). Seal section is to absorb the downthrust of the pump.  This is achieved by a sliding
+thrust bearing. The bearing  utilizes a hydrodynamic film of oil to provide lubrication
+to the bearing during operation. The downthrust is the result of the pressure developed
+by the pump acting across the cross sectional area of the pump shaft and residual thrust
+transferred from each individual pump stage impeller to shaft.  Figure -5 shows a cross-
+section of the seal section.
+Figure - 5
+Seal Section Thrust Bearing
+11ELECTRICAL SUBMERSIBLE PUMP (ESP)
+SEAL SECTION
+M ECHANICAL SEAL
+ELASTOMER BAG
+LABYRINTH CHAM BER
+LSBYRINTH CHAMBER
+THRUST CHAMBER
+
+=== PAGE 12 ===
+Thrust bearing designs are of the tilting pad type.  The bearing consists of 6 to 9
+individual shoes which are mounted on a pedestal located at the center of the shoe.  The
+pedestal is not so rigid that it cannot deflect and in effect this is what happens.
+The operation of any bearing,  is dependent up on the rotating member building and
+maintaining an oil film across the bearing surface.  In the case of a tilting pad bearing,
+the thrust runner pulls fluid with it across the pad.            In either case, an oil film is
+built and maintained otherwise failure of bearing occurs.  The thrust bearing pad's
+deflect at the entrance edge, thus allowing the oil film to be built.            An oil film
+can  be  maintained  for  only  a  limited  distance  due  to  effects  of  viscosity,  load,
+temperature, etc.
+5. Electrical Submersible Motor
+The ESP motors are  two pole, three-phase, squirrel cage, and induction type.  These
+motors are filled with a highly refined mineral oil with high dielectric strength.  The
+design and operating voltage of these motors can be as low as 230 volt or as high as
+5,000 volt.  Amperage requirement may vary from 12 to 200 amps.  The required
+horsepower is achieved by simply increasing the length of the motor section.
+The motor is made up of rotors, usually about 12 to 18 inches in length, that are
+mounted on a shaft and located in the electrical field (stator) mounted within the steel
+housing.  The larger single motor assemblies will approach 33 feet in length and will be
+rated up to 400 horsepower while tandem motors will approach 90 feet in length and
+will have a rating up to 750 horsepower. Figure -6 displays the stator, rotor and shaft
+assembly of a submersible motor.
+Figure- 6
+12
+ESP MOTOR
+THRUST RUNNERTHRUST BEARING
+MOTOR HEAD
+MOTOR LEADS
+END COIL
+STATOR LAMS
+ROTOR
+ROTOR BEARING
+BRASS LAMS
+SHAFT
+
+=== PAGE 13 ===
+The stator is made up of a group of individual electromagnets arranged such that they
+form a hollow cylinder with one pole of each electromagnet facing toward the center of
+the group. While no physical movement of the stator takes place, electrical movement
+is created by progressively changing the polarity of the stator poles in such a manner
+that their combined magnetic field rotates.  In an AC motor, this is easily achieved
+since reversing the current each half-cycle will automatically change the polarity of
+each stator pole.
+The rotor is also composed of a group of electromagnets arranged in a cylinder with the
+poles facing the stator poles.  The rotor rotates simply by magnetic attraction and
+repulsion as its poles attempt to follow the rotating electrical field being generated by
+the stator.  There is no external connection to the rotor, the current flow through the
+rotor's electrical poles is induced by the magnetic field created in the stator.  The speed
+at which the stator field rotates is the synchronous speed.  This speed can be computed
+with this equation:
+N = 120 x f / p
+Where:
+N = speed in revolutions per minute.
+f = frequency in cycles per second.
+P = number of magnetic poles within the motor.
+Since the number of poles the stator contains is determined by the manufacturer, and
+are not easily changed, the only feasible way of changing the speed of the stator
+magnetic field is by changing the applied frequency.  The rotor will attempt to follow
+the  stator  magnetic  field,  although  due  to  the  resistive  component  in  the  rotor
+conductors it lags behind. This lag is usually specified by the manufacturer and is
+known  as  slip.  Even  though  the  amount  of  slip  varies  from  manufacturer  to
+manufacturer, it is approximately 3% of the motor's synchronous speed.
+ 6. Motor Controllers
+There are two basic types of motor controllers used on ESP operations.  They include
+the Fixed Speed Controllers, and Variable Speed Controller (VSC).  Normally, all
+utilize solid state circuitry to provide protection, as well as a means of control, for the
+ESP system. The controllers vary in physical size, design, and power ratings.
+Some  motor  controllers  are  simple  in  design,  while  others  can  be  extremely
+sophisticated and complex while offering  numerous options  that  were designed to
+enhance the methods of control, protection, and monitoring of the ESP operation.  The
+selection of one type versus the other depends on the application, economics and the
+preferred method of control.
+13
+
+=== PAGE 14 ===
+Switchboards (Fixed Speed)
+The switchboard (across-the-line starter) consist of a motor starter, solid state overload
+and underload protection, a manual disconnect switch or circuit break circuitry and a
+recording  ammeter.   Many  control  systems  have  surface  equipment  for  use  with
+bottom-hole pressure and temperature monitoring equipment installed within the motor
+controller cabinet.  Fuses are provided for short circuit protection.
+External  control  devices should be interfaced  with the controller  as recommended
+and/or  approved  by  the  pump  manufacturer  to  give  dependable  and  trouble-free
+operation. All external control devices are connected to a time-delay which activates or
+deactivates the controller after a short time delay.  Usual external control devices are
+separator high/low level controls or flowline pressure switches.
+Most solid state controllers offer time delayed underload protection on all three phases,
+time delayed overload protection, and automatic protection against voltage or current
+unbalance. Underload, or some type of pump off protection, is necessary since low
+flow past the motor will not give adequate cooling.  Circuits designed for automatic
+restart after shut down are normally included.
+7. Variable Speed Controller (VSC)
+The Electrical Submersible Pump is very often not flexible when run at a fixed speed;
+the unit is limited to a fixed range of production rates and a fixed head output at each
+rate.  The Variable Speed Controller (VSC) is designed to overcome these restrictions.
+By allowing the pump speed to be varied, the rate, the head or both can be adjusted,
+depending on the application, with no modification of the downhole unit. 
+The basic operation of the VSC is to convert the incoming 3 phase AC power, typically
+at 415 volts, to a single DC power supply.  Then using power semiconductors as solid
+state switches, it sequentially inverts this DC supply to regenerate three AC output
+phases  of  pseudo-sinewave  power,  whose  frequency  and  voltage  are  controllable.
+Pumping flexibility was the main purpose of applying the VSC to the ESP, but several
+other benefits have become apparent.  Of particular interest are those that can extend
+downhole  equipment  life;  soft  start,  automatically  controlled  speed,  line-transient
+suppression and the elimination of surface chokes.          
+The VSC isolates the load from incoming switching and lightning transients; balances
+output volts to reduce motor heating; ignores frequency instability from generator
+supplies; compensates for brown outs or takes the unit off line; and minimizes starting
+stresses.  In addition depending on the application, VSC's can improve overall system
+efficiency, reduce required size of generator, obviate the need for a choke, reduce
+downhole unit size and provide intelligent control functions to maximize production.
+All these benefits cannot be simultaneously available; however, the user must pick and
+chose the combination relevant to his application.
+14
+
+=== PAGE 15 ===
+8. Downhole Pressure and Temperature Monitor
+Reservoir  and pump performance  data can be acquired  with the use of  downhole
+pressure and temperature monitoring systems.  By correlating reservoir pressure with
+the  pumping  rate,  an  operator  can  determine  when  to  change  pump  size,  change
+injection rate or consider well workover.
+Many  types  of  downhole  pressure  and  temperature  sensors  are  available  from
+submersible pump suppliers.  These systems vary in design, cost, accuracy, reliability,
+operation and capabilities.  A typical system has the capability of (1) continuously
+monitoring bottom hole pressure and temperature, (2) providing detection of electrical
+failures, and (3) can be interfaced with the Variable Speed Controllers to regulate
+speed.
+9. Transformer
+The distribution of electrical power to the oil fields is usually accomplished at an
+intermediate  voltage,  such  as  33KV.   Since  ESP  equipment  operates  at  voltages
+between 1000 and 3300 volts, transformation of the distribution voltage is required.
+Transformers are commonly provided in either a bank of three single phases or in a
+single three-phase configuration.  These transformers are usually oil-filled, self cooled
+15G E N E R A T O R11/132K VT R A N SF O R M E R132 / 33 kVT R A N SF O R M E R
+33 k V  / 3.3 kVT R A N SF O R M E R
+F IX E D SP E E D33 / 0.415 k V
+T R A N SF O R M E R
+0.415 k V  / 3.3 k VT R A N SF O R M E R
+V A R IA B L E  SP E E DR E C T IFIE R
+IN V E R T E RE SP  P O W E R  SU P P L Y
+G
+E SP
+E S PT R A N S M ISSIO NM A IN
+D IS T R IB U T IO NL O C A L
+G
+
+=== PAGE 16 ===
+units and are unusual from the standpoint that they contain a substantial number of
+secondary voltage taps which allow a wide range of output voltages.  This wide range
+of voltages is required in order to be able to adjust the surface voltage for a variety of
+cable voltage drops that can occur due to varying setting depths.
+10. Junction Box
+The  junction  box  (sometimes  called  a  "Vent  Box”)  performs  three  functions:
+(1) provides a point to connect the power cable from the controller to power cable from
+the well (2) provides a vent to the atmosphere for any gas that might migrate up the
+submersible  power  cable  and  (3)  provides  for  easily  accessible  test  points  for
+electrically checking downhole equipment.
+11. Wellhead
+The wellhead is designed to support the weight of the subsurface equipment and is used
+to maintain surface annular control of the well.  They must be equipped with a tubing
+head bonnet or pack-off which provides for a positive seal around the cable and the
+tubing, or a feed through mandrel. There are several   methods available from wellhead
+manufacturers for providing this pack-off.  Depending on the method used, the pack-
+off can sustain annular pressures up to 5,000 psi.
+Figure – 7
+Figure – 7 shows wellhead equipment of a Variable Speed Controlled ESP well.
+The cable should be properly laid   in a cable rack or buried for safety reason.
+The control panel should be minimum of 15 m away from the x-mass tree.
+16WELLHEAD
+CONDUITVARIBLE
+SPEED DRIVE
+PANELSTEP UP
+TRANSFORMER
+VENTED
+JN BOX
+BURIEDCABLE
+15 m minimumCable
+rackCABLE to
+TUBING
+
+=== PAGE 17 ===
+12. Check Valve
+Check valve which is usually fixed 2 to 3 joints above the pump assembly, can be used
+to maintain a full column of fluid above the pump.  If the check valve fails or if it is
+not installed, leakage of fluid down the tubing through the pump can cause a reverse
+rotation of the subsurface unit when the motor is shut off.  Start-up during the reverse
+rotation can result in a motor burn, cable burn or broken shaft.
+If  a check valve is not provided, sufficient time must be allowed for the tubing to drain
+back through the pump before the motor is restarted.   A minimum of thirty (30)
+minutes is typically recommended.
+13. Drain Valve
+When a check valve is used in the tubing, it is necessary to install a drain valve
+immediately above the check valve to prevent pulling a wet tubing string.  If a check
+valve is not provided, there is no reason to provide a drain valve, as the fluid in the
+tubing will generally drain through the pump while pulling.
+14. Backspin Relay
+In some cases installation of a check valve is impractical.  For example, if you were
+anticipating that the subsurface equipment could plug up with scale, sand, asphaltines,
+etc., it may be desirable to pump produced fluid, acids or other chemicals down the
+tubing to remove the foreign material.  With a permanent check valve installed in the
+tubing, this would not be possible.
+There are electronic devices available  that can detect a pump backspinning and will
+prevent restarting an ESP during this condition.  The backspin relay electronics are
+provided in the controller and the unit is connected electrically to the ESP power cable.
+When the ESP system shuts down, and the produced fluid is allowed to fall back down
+the tubing, power is being generated by the motor and this power can be detected by
+the backspin relay, preventing any attempt to restart until this condition stops.
+15. Centralizer
+Centralizers are used in ESPs to place the equipment in the centre of the wellbore,
+especially useful in deviated wells, to eliminate external damage and insure proper
+cooling of the equipment.  Many types of centralizers available in the industry designed
+to protect the ESP cable and prevent cable damage due to rubbing.
+In  corrosive  conditions  where  coatings  are  used  to  protect  the  O.D.  of  the  ESP
+equipment, centralizers can be very effective in preventing mechanical damage to the
+coating during the installation of the equipment. If the coating is damaged during
+17
+
+=== PAGE 18 ===
+installation,  the  corrosion  accelerates  at  the  point  of  damage  and  the  life  of  the
+equipment will be affected.
+16. Cable
+Electric  supply  is  transmitted  to  the  submersible  motor  by  banding  a  specially
+constructed three phase electric power cable to the production tubing.  This cable must
+be  small  in  diameter,  well  protected  from  mechanical  damage  and  impervious  to
+deterioration  of  its  physical  and  electrical  properties  by  the  hot  corrosive  well
+environments.
+Cables  are  available  in  a  wide  range  of  sizes,  which  permits  matching  to  motor
+requirements.  They are either round or flat configurations using galvanized steel,
+stainless steel, or monel armor capable of withstanding the hostile environments of an
+oil well or water well.  All cables are made to strict specifications using specially
+formulated materials for different operating environments
+Figure - 8
+17. Cable Bands
+Cable bands are used to strap the power cable to the tubing. One band per 5m interval
+is normally used.  Cable bands are also used to strap the motor flat cable to the pump
+and seal.  Use of one band per 50cm, protected with flat cable guards, is recommended
+for maximum support and protection. Cable bands are made of carbon steel, stainless
+18
+CABLE
+ROUND CABLE FLAT CABLE
+
+=== PAGE 19 ===
+steel and monel.  The materials also vary in width and thickness, providing additional
+strength and support.
+Figure- 9
+19CABLE BAND
+DIFFERENT TYPES OF BANDS

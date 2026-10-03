@@ -1,0 +1,80 @@
+{
+  "filename": "442719745-ESP-design-Step-4-Total-Dynamic-Head.pdf",
+  "total_pages": 6,
+  "total_words": 1327,
+  "total_chars": 7446,
+  "pages": [
+    {
+      "page_number": 1,
+      "word_count": 256,
+      "char_count": 1468,
+      "page_hash": "fd3d85c7863aa6512fd311f4394af47e7b1c3e328c52ae21f712ebc3e868a9a8",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    },
+    {
+      "page_number": 2,
+      "word_count": 99,
+      "char_count": 597,
+      "page_hash": "9543af0683fdc61b7169b99a6059d9e12eda953d63c212c1a5a062ed1c4e9b8e",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    },
+    {
+      "page_number": 3,
+      "word_count": 202,
+      "char_count": 1131,
+      "page_hash": "6051f02e65a54b624719f5744ba2a58c3286164f554d93e6ef7d59157546b219",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    },
+    {
+      "page_number": 4,
+      "word_count": 289,
+      "char_count": 1716,
+      "page_hash": "aeac684d6d7f4fce7af5263274c93ec0473a77aeff0d70c0776b5af8f99daeab",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    },
+    {
+      "page_number": 5,
+      "word_count": 365,
+      "char_count": 1883,
+      "page_hash": "2d4f0855ff511bece63fa5639681eb2d81de58f325f250f3f4570f4294adc39d",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    },
+    {
+      "page_number": 6,
+      "word_count": 116,
+      "char_count": 651,
+      "page_hash": "9a502ede42264028e303a7de643858e30e4edd648f194d20b64482e5bf3239e8",
+      "rect": [
+        0.0,
+        0.0,
+        595.3200073242188,
+        841.9199829101562
+      ]
+    }
+  ]
+}

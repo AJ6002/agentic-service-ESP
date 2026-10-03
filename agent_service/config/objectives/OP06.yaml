@@ -8,6 +8,7 @@ required_evidence:
 optional_evidence: []
 allowed_visuals:
   - evidence-cards
+default_visuals: []
 arg_schema:
   type: object
   properties:

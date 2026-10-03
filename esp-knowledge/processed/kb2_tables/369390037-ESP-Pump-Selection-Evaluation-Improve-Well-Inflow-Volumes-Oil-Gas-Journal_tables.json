@@ -1,0 +1,98 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate",
+      "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency",
+      "TD 1750 Rate",
+      "Mixed flow Frequency",
+      "DN1750.DN1750 Rate",
+      "DN1750.Mixed flow Frequency",
+      "DN1750 202 stages.DN1750 Rate",
+      "DN1750 202 stages.Mixed flow Frequency"
+    ],
+    "rows": [
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "100",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "43.5",
+        "TD 1750 Rate": "250",
+        "Mixed flow Frequency": "41.9",
+        "DN1750.DN1750 Rate": "200",
+        "DN1750.Mixed flow Frequency": "47.1",
+        "DN1750 202 stages.DN1750 Rate": "100",
+        "DN1750 202 stages.Mixed flow Frequency": "41.6"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "200",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "43.8",
+        "TD 1750 Rate": "500",
+        "Mixed flow Frequency": "42.6",
+        "DN1750.DN1750 Rate": "500",
+        "DN1750.Mixed flow Frequency": "49.8",
+        "DN1750 202 stages.DN1750 Rate": "200",
+        "DN1750 202 stages.Mixed flow Frequency": "42.3"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "500",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "45.2",
+        "TD 1750 Rate": "750",
+        "Mixed flow Frequency": "43.9",
+        "DN1750.DN1750 Rate": "700",
+        "DN1750.Mixed flow Frequency": "51.3",
+        "DN1750 202 stages.DN1750 Rate": "500",
+        "DN1750 202 stages.Mixed flow Frequency": "44.7"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "1,000",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "48.0",
+        "TD 1750 Rate": "1,000",
+        "Mixed flow Frequency": "45.1",
+        "DN1750.DN1750 Rate": "1,000",
+        "DN1750.Mixed flow Frequency": "53.5",
+        "DN1750 202 stages.DN1750 Rate": "1,000",
+        "DN1750 202 stages.Mixed flow Frequency": "47.9"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "1,500",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "52.5",
+        "TD 1750 Rate": "1,500",
+        "Mixed flow Frequency": "49.8",
+        "DN1750.DN1750 Rate": "1,500",
+        "DN1750.Mixed flow Frequency": "57.4",
+        "DN1750 202 stages.DN1750 Rate": "1,500",
+        "DN1750 202 stages.Mixed flow Frequency": "52.4"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "2,000",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "58.2",
+        "TD 1750 Rate": "2,000",
+        "Mixed flow Frequency": "56.6",
+        "DN1750.DN1750 Rate": "2,000",
+        "DN1750.Mixed flow Frequency": "62.8",
+        "DN1750 202 stages.DN1750 Rate": "2,000",
+        "DN1750 202 stages.Mixed flow Frequency": "58.5"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "2,500",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "65.3",
+        "TD 1750 Rate": "",
+        "Mixed flow Frequency": "",
+        "DN1750.DN1750 Rate": "",
+        "DN1750.Mixed flow Frequency": "",
+        "DN1750 202 stages.DN1750 Rate": "2,500",
+        "DN1750 202 stages.Mixed flow Frequency": "66.0"
+      },
+      {
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate": "110.1 bf/d/hz",
+        "PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency": "110.1 bf/d/hz",
+        "TD 1750 Rate": "118.6 bf/d/hz",
+        "Mixed flow Frequency": "118.6 bf/d/hz",
+        "DN1750.DN1750 Rate": "114.5 bf/d/hz",
+        "DN1750.Mixed flow Frequency": "114.5 bf/d/hz",
+        "DN1750 202 stages.DN1750 Rate": "98.4 bf/d/hz",
+        "DN1750 202 stages.Mixed flow Frequency": "98.4 bf/d/hz"
+      }
+    ],
+    "csv": "PUMP RATE-FREQUENCY RELATIONSHIP*.Flex 17 Rate,PUMP RATE-FREQUENCY RELATIONSHIP*.Mixed flow Frequency,TD 1750 Rate,Mixed flow Frequency,DN1750.DN1750 Rate,DN1750.Mixed flow Frequency,DN1750 202 stages.DN1750 Rate,DN1750 202 stages.Mixed flow Frequency\r\n100,43.5,250,41.9,200,47.1,100,41.6\r\n200,43.8,500,42.6,500,49.8,200,42.3\r\n500,45.2,750,43.9,700,51.3,500,44.7\r\n\"1,000\",48.0,\"1,000\",45.1,\"1,000\",53.5,\"1,000\",47.9\r\n\"1,500\",52.5,\"1,500\",49.8,\"1,500\",57.4,\"1,500\",52.4\r\n\"2,000\",58.2,\"2,000\",56.6,\"2,000\",62.8,\"2,000\",58.5\r\n\"2,500\",65.3,,,,,\"2,500\",66.0\r\n110.1 bf/d/hz,110.1 bf/d/hz,118.6 bf/d/hz,118.6 bf/d/hz,114.5 bf/d/hz,114.5 bf/d/hz,98.4 bf/d/hz,98.4 bf/d/hz\r\n"
+  }
+]

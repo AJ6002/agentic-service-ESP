@@ -178,6 +178,20 @@ async def health_check():
     return {"status": "HEALTHY", "service": "agent_service", "slice": 2}
 
 
+@app.get("/capabilities")
+async def get_capabilities():
+    from app.gateway.capability import probe_all_capabilities
+    return await probe_all_capabilities()
+
+
+@app.post("/kb/search")
+async def kb_search_direct(req: dict):
+    from app.gateway.adapters import kb
+    query = req.get("query", "")
+    top_k = int(req.get("top_k", 5))
+    return await kb.search_kb(query=query, top_k=top_k)
+
+
 @app.post("/query")
 async def handle_query(req: QueryRequest):
     session_id = req.session_id.strip() if req.session_id else f"S-{uuid4().hex[:8]}"
@@ -187,7 +201,15 @@ async def handle_query(req: QueryRequest):
 
     # 1. Context Resolution
     _t0 = time.perf_counter()
-    frame = resolve_context(session_id, raw_msg, req.ui_context)
+    frame = resolve_context(
+        session_id=session_id,
+        message=raw_msg,
+        ui_context=req.ui_context,
+        well_id=req.well_id,
+        asset_id=req.asset_id,
+        page_route=req.page_route,
+        time_range=req.time_range,
+    )
     log_stage(
         "context_resolver",
         (time.perf_counter() - _t0) * 1000,

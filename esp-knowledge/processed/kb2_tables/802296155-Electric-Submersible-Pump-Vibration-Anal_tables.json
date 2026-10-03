@@ -1,0 +1,457 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "",
+      "Temperature sensor",
+      "Pressure sensor",
+      "Fluid-flow sensor",
+      "Accelerometer"
+    ],
+    "rows": [
+      {
+        "": "Range",
+        "Temperature sensor": "- 50 \u2026 + 150 \u25e6 C",
+        "Pressure sensor": "0 \u2026 1500 psi",
+        "Fluid-flow sensor": "0.03 \u2026 3 m/s",
+        "Accelerometer": "\u00b1 490 m/s 2"
+      },
+      {
+        "": "Repeatability",
+        "Temperature sensor": "< 0.1 \u25e6 C",
+        "Pressure sensor": "< 0.2%",
+        "Fluid-flow sensor": "0.03 m/s",
+        "Accelerometer": "9810 \u03bc m/s 2 (1 - 10,000 Hz)"
+      },
+      {
+        "": "Accuracy",
+        "Temperature sensor": "< 0.2 \u25e6 C",
+        "Pressure sensor": "< 0.5%",
+        "Fluid-flow sensor": "\u00b1 10% on this range",
+        "Accelerometer": "\u00b1 1%"
+      }
+    ],
+    "csv": ",Temperature sensor,Pressure sensor,Fluid-flow sensor,Accelerometer\r\nRange,- 50 \u2026 + 150 \u25e6 C,0 \u2026 1500 psi,0.03 \u2026 3 m/s,\u00b1 490 m/s 2\r\nRepeatability,< 0.1 \u25e6 C,< 0.2%,0.03 m/s,\"9810 \u03bc m/s 2 (1 - 10,000 Hz)\"\r\nAccuracy,< 0.2 \u25e6 C,< 0.5%,\u00b1 10% on this range,\u00b1 1%\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Acc. ID #",
+      "Location",
+      "Axis",
+      "Calibrated sensitivity (mV/g)"
+    ],
+    "rows": [
+      {
+        "Acc. ID #": "18",
+        "Location": "Pump Top",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "17",
+        "Location": "Pump Top",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "96"
+      },
+      {
+        "Acc. ID #": "16",
+        "Location": "Pump Middle",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "15",
+        "Location": "Pump Middle",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "98"
+      },
+      {
+        "Acc. ID #": "14",
+        "Location": "Pump Base",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "98"
+      },
+      {
+        "Acc. ID #": "13",
+        "Location": "Pump Base",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "97"
+      },
+      {
+        "Acc. ID #": "12",
+        "Location": "Seal Top",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "97"
+      },
+      {
+        "Acc. ID #": "11",
+        "Location": "Seal Top",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "98"
+      },
+      {
+        "Acc. ID #": "10",
+        "Location": "Seal Middle",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "9",
+        "Location": "Seal Middle",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "8",
+        "Location": "Seal Base",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "96"
+      },
+      {
+        "Acc. ID #": "7",
+        "Location": "Seal Base",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "98"
+      },
+      {
+        "Acc. ID #": "6",
+        "Location": "Motor Top",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "100"
+      },
+      {
+        "Acc. ID #": "5",
+        "Location": "Motor Top",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "4",
+        "Location": "Motor Middle",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "3",
+        "Location": "Motor Middle",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "96"
+      },
+      {
+        "Acc. ID #": "2",
+        "Location": "Motor Base",
+        "Axis": "Y",
+        "Calibrated sensitivity (mV/g)": "99"
+      },
+      {
+        "Acc. ID #": "1",
+        "Location": "Motor Base",
+        "Axis": "Z",
+        "Calibrated sensitivity (mV/g)": "97"
+      }
+    ],
+    "csv": "Acc. ID #,Location,Axis,Calibrated sensitivity (mV/g)\r\n18,Pump Top,Y,99\r\n17,Pump Top,Z,96\r\n16,Pump Middle,Y,99\r\n15,Pump Middle,Z,98\r\n14,Pump Base,Y,98\r\n13,Pump Base,Z,97\r\n12,Seal Top,Y,97\r\n11,Seal Top,Z,98\r\n10,Seal Middle,Y,99\r\n9,Seal Middle,Z,99\r\n8,Seal Base,Y,96\r\n7,Seal Base,Z,98\r\n6,Motor Top,Y,100\r\n5,Motor Top,Z,99\r\n4,Motor Middle,Y,99\r\n3,Motor Middle,Z,96\r\n2,Motor Base,Y,99\r\n1,Motor Base,Z,97\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "",
+      "Motor",
+      "Seal chamber",
+      "Gas separator",
+      "Pump"
+    ],
+    "rows": [
+      {
+        "": "Length",
+        "Motor": "1.37 m",
+        "Seal chamber": "1.71 m",
+        "Gas separator": "0.81 m",
+        "Pump": "2.14 m"
+      },
+      {
+        "": "Diameter",
+        "Motor": "11.43 cm",
+        "Seal chamber": "11.43 cm",
+        "Gas separator": "10.16 cm",
+        "Pump": "10.16 cm"
+      },
+      {
+        "": "Weight",
+        "Motor": "97 kg",
+        "Seal chamber": "72 kg",
+        "Gas separator": "34 kg",
+        "Pump": "109 kg"
+      }
+    ],
+    "csv": ",Motor,Seal chamber,Gas separator,Pump\r\nLength,1.37 m,1.71 m,0.81 m,2.14 m\r\nDiameter,11.43 cm,11.43 cm,10.16 cm,10.16 cm\r\nWeight,97 kg,72 kg,34 kg,109 kg\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Temperature ( \u25e6 C)",
+      "Density (kg/m 3 )",
+      "Visc. (Cstk)"
+    ],
+    "rows": [
+      {
+        "Temperature ( \u25e6 C)": "30",
+        "Density (kg/m 3 )": "845.9",
+        "Visc. (Cstk)": "14.279"
+      },
+      {
+        "Temperature ( \u25e6 C)": "35",
+        "Density (kg/m 3 )": "842.6",
+        "Visc. (Cstk)": "12.014"
+      },
+      {
+        "Temperature ( \u25e6 C)": "40",
+        "Density (kg/m 3 )": "839.3",
+        "Visc. (Cstk)": "10.212"
+      },
+      {
+        "Temperature ( \u25e6 C)": "45",
+        "Density (kg/m 3 )": "836.0",
+        "Visc. (Cstk)": "8.780"
+      },
+      {
+        "Temperature ( \u25e6 C)": "50",
+        "Density (kg/m 3 )": "832.7",
+        "Visc. (Cstk)": "7.628"
+      },
+      {
+        "Temperature ( \u25e6 C)": "55",
+        "Density (kg/m 3 )": "829.4",
+        "Visc. (Cstk)": "6.682"
+      },
+      {
+        "Temperature ( \u25e6 C)": "60",
+        "Density (kg/m 3 )": "826.0",
+        "Visc. (Cstk)": "5.914"
+      }
+    ],
+    "csv": "Temperature ( \u25e6 C),Density (kg/m 3 ),Visc. (Cstk)\r\n30,845.9,14.279\r\n35,842.6,12.014\r\n40,839.3,10.212\r\n45,836.0,8.780\r\n50,832.7,7.628\r\n55,829.4,6.682\r\n60,826.0,5.914\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Temperature ( \u25e6 C)",
+      "Density (kg/m 3 )",
+      "Visc. (Cstk)"
+    ],
+    "rows": [
+      {
+        "Temperature ( \u25e6 C)": "30",
+        "Density (kg/m 3 )": "858.8",
+        "Visc. (Cstk)": "29.545"
+      },
+      {
+        "Temperature ( \u25e6 C)": "35",
+        "Density (kg/m 3 )": "855.6",
+        "Visc. (Cstk)": "24.089"
+      },
+      {
+        "Temperature ( \u25e6 C)": "40",
+        "Density (kg/m 3 )": "852.3",
+        "Visc. (Cstk)": "19.928"
+      },
+      {
+        "Temperature ( \u25e6 C)": "45",
+        "Density (kg/m 3 )": "849.1",
+        "Visc. (Cstk)": "16.701"
+      },
+      {
+        "Temperature ( \u25e6 C)": "50",
+        "Density (kg/m 3 )": "845.8",
+        "Visc. (Cstk)": "14.150"
+      },
+      {
+        "Temperature ( \u25e6 C)": "55",
+        "Density (kg/m 3 )": "842.5",
+        "Visc. (Cstk)": "12.129"
+      },
+      {
+        "Temperature ( \u25e6 C)": "60",
+        "Density (kg/m 3 )": "839.3",
+        "Visc. (Cstk)": "10.489"
+      }
+    ],
+    "csv": "Temperature ( \u25e6 C),Density (kg/m 3 ),Visc. (Cstk)\r\n30,858.8,29.545\r\n35,855.6,24.089\r\n40,852.3,19.928\r\n45,849.1,16.701\r\n50,845.8,14.150\r\n55,842.5,12.129\r\n60,839.3,10.489\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "",
+      "Acc. Id.",
+      "Location",
+      "Axis",
+      "X/3",
+      "0.42X to 0.48X",
+      "X/2",
+      "1X",
+      "2X",
+      "3X",
+      "> 5X"
+    ],
+    "rows": [
+      {
+        "": "Pump #1",
+        "Acc. Id.": "18",
+        "Location": "Top",
+        "Axis": "Y",
+        "X/3": "0.003",
+        "0.42X to 0.48X": "0.003",
+        "X/2": "0.042",
+        "1X": "0.053",
+        "2X": "0.036",
+        "3X": "0.006",
+        "> 5X": "0.003"
+      },
+      {
+        "": "",
+        "Acc. Id.": "17",
+        "Location": "Top",
+        "Axis": "Z",
+        "X/3": "0.003",
+        "0.42X to 0.48X": "0.004",
+        "X/2": "0.073",
+        "1X": "0.081",
+        "2X": "0.053",
+        "3X": "0.008",
+        "> 5X": "0.005"
+      },
+      {
+        "": "",
+        "Acc. Id.": "16",
+        "Location": "Middle",
+        "Axis": "Y",
+        "X/3": "0.002",
+        "0.42X to 0.48X": "0.003",
+        "X/2": "0.015",
+        "1X": "0.060",
+        "2X": "0.029",
+        "3X": "0.007",
+        "> 5X": "0.006"
+      },
+      {
+        "": "",
+        "Acc. Id.": "15",
+        "Location": "Middle",
+        "Axis": "Z",
+        "X/3": "0.002",
+        "0.42X to 0.48X": "0.004",
+        "X/2": "0.027",
+        "1X": "0.103",
+        "2X": "0.041",
+        "3X": "0.008",
+        "> 5X": "0.011"
+      },
+      {
+        "": "",
+        "Acc. Id.": "14",
+        "Location": "Base",
+        "Axis": "Y",
+        "X/3": "0.004",
+        "0.42X to 0.48X": "0.002",
+        "X/2": "0.035",
+        "1X": "0.078",
+        "2X": "0.028",
+        "3X": "0.010",
+        "> 5X": "0.003"
+      },
+      {
+        "": "",
+        "Acc. Id.": "13",
+        "Location": "Base",
+        "Axis": "Z",
+        "X/3": "0.004",
+        "0.42X to 0.48X": "0.005",
+        "X/2": "0.066",
+        "1X": "0.095",
+        "2X": "0.035",
+        "3X": "0.012",
+        "> 5X": "0.002"
+      },
+      {
+        "": "Pump #2",
+        "Acc. Id.": "18",
+        "Location": "Top",
+        "Axis": "Y",
+        "X/3": "0.005",
+        "0.42X to 0.48X": "0.014",
+        "X/2": "0.028",
+        "1X": "0.233",
+        "2X": "0.011",
+        "3X": "0.002",
+        "> 5X": "0.005"
+      },
+      {
+        "": "",
+        "Acc. Id.": "17",
+        "Location": "Top",
+        "Axis": "Z",
+        "X/3": "0.011",
+        "0.42X to 0.48X": "0.015",
+        "X/2": "0.030",
+        "1X": "0.313",
+        "2X": "0.011",
+        "3X": "0.003",
+        "> 5X": "0.005"
+      },
+      {
+        "": "",
+        "Acc. Id.": "16",
+        "Location": "Middle",
+        "Axis": "Y",
+        "X/3": "0.003",
+        "0.42X to 0.48X": "0.004",
+        "X/2": "0.017",
+        "1X": "0.144",
+        "2X": "0.007",
+        "3X": "0.003",
+        "> 5X": "0.007"
+      },
+      {
+        "": "",
+        "Acc. Id.": "15",
+        "Location": "Middle",
+        "Axis": "Z",
+        "X/3": "0.004",
+        "0.42X to 0.48X": "0.010",
+        "X/2": "0.017",
+        "1X": "0.165",
+        "2X": "0.014",
+        "3X": "0.003",
+        "> 5X": "0.004"
+      },
+      {
+        "": "",
+        "Acc. Id.": "14",
+        "Location": "Base",
+        "Axis": "Y",
+        "X/3": "0.005",
+        "0.42X to 0.48X": "0.017",
+        "X/2": "0.036",
+        "1X": "0.155",
+        "2X": "0.033",
+        "3X": "0.004",
+        "> 5X": "0.003"
+      },
+      {
+        "": "",
+        "Acc. Id.": "13",
+        "Location": "Base",
+        "Axis": "Z",
+        "X/3": "0.008",
+        "0.42X to 0.48X": "0.018",
+        "X/2": "0.023",
+        "1X": "0.196",
+        "2X": "0.043",
+        "3X": "0.005",
+        "> 5X": "0.006"
+      }
+    ],
+    "csv": ",Acc. Id.,Location,Axis,X/3,0.42X to 0.48X,X/2,1X,2X,3X,> 5X\r\nPump #1,18,Top,Y,0.003,0.003,0.042,0.053,0.036,0.006,0.003\r\n,17,Top,Z,0.003,0.004,0.073,0.081,0.053,0.008,0.005\r\n,16,Middle,Y,0.002,0.003,0.015,0.060,0.029,0.007,0.006\r\n,15,Middle,Z,0.002,0.004,0.027,0.103,0.041,0.008,0.011\r\n,14,Base,Y,0.004,0.002,0.035,0.078,0.028,0.010,0.003\r\n,13,Base,Z,0.004,0.005,0.066,0.095,0.035,0.012,0.002\r\nPump #2,18,Top,Y,0.005,0.014,0.028,0.233,0.011,0.002,0.005\r\n,17,Top,Z,0.011,0.015,0.030,0.313,0.011,0.003,0.005\r\n,16,Middle,Y,0.003,0.004,0.017,0.144,0.007,0.003,0.007\r\n,15,Middle,Z,0.004,0.010,0.017,0.165,0.014,0.003,0.004\r\n,14,Base,Y,0.005,0.017,0.036,0.155,0.033,0.004,0.003\r\n,13,Base,Z,0.008,0.018,0.023,0.196,0.043,0.005,0.006\r\n"
+  }
+]

@@ -1,0 +1,73 @@
+## Electrical Submersible Pumps
+
+## Rick von Flatern
+
+Senior Editor
+
+More than 90% of all producing oil wells require some form of artificial lift to increase the flow of fluids from wells when a reservoir no longer has sufficient energy to naturally produce at economic rates or to boost early production to improve financial performance. One of the most versatile and adaptable artificial lift methods is electric submersible pumping.
+
+Deployed in an estimated 150,000 to 200,000 wells worldwide, electric submersible  pumps  (ESPs)  consist  of  multiple  centrifugal  pump  stages mounted in series within a housing mated to a submersible electric motor. These  pumps  are  connected  to  surface  controls  and  electric  power  by armor-protected cables. Surface electric drives power and control ESP systems, which are able to lift from 16 to 4,770 m 3 /d [100 to 30,000 bbl/d], a pump rate operation range that surpasses the performance of other pumptype artificial lift systems such as rod pumps, progressing cavity pumps and hydraulic lift.
+
+## ESP Origins
+
+In 1911, 18-year-old Russian engineer Armais Arutunoff invented the first electric motor that operated in water. He added a drill and a centrifugal pump to the motor, inventing what is now known as the electric submersible pump. Arutunoff immigrated to the US, where he founded Russian Electrical Dynamo of Arutunoff, or REDA. Electric submersible pumps are now operating in onshore and offshore fields throughout the world.
+
+## Anatomy of an ESP System
+
+Electric submersible pump systems comprise both downhole and surface components (Figure 1). The overall length and diameter of ESP downhole equipment are designed based on the horsepower necessary to deliver the desired flow rate.
+
+An ESP is a multistage centrifugal pump whose stages are stacked; the operating requirements of the well and completion design dictate the number of stages. Each stage contains a rotating impeller and stationary diffusers typically cast from high-nickel iron to minimize abrasion or corrosion damage. As well fluid flows into the first stage of the ESP, it passes through an impeller, and the fluid is centrifuged radially outward, gaining energy in the form of velocity. The centrifugal pump is driven by an induction motor that can attain operating speeds of more than 5,000 rpm when using a variable speed drive.
+
+After it exits the impeller, the fluid is forced to make a sharp turn to enter the diffuser. As it travels through this section, the fluid is diffused, and its  velocity  is  converted  to  pressure.  The  fluid,  which  now  has  a  slightly higher pressure than when it entered the first stage, enters the next impeller  and diffuser stage to repeat the process. The fluid passes through all stages of the pump, incrementally gaining pressure in each stage until it achieves a total developed head, or designated discharge pressure, and has sufficient energy to travel to the surface of the well.
+
+A  pump's  operational  performance  is  illustrated  in  its  pump  performance curve (Figure 2). A performance curve is generated for each pump manufactured and quantifies the relationship between pump horsepower, efficiency, flow rate and head relative to the operating flow rate. The pump recommended operating range is defined for each pump stage in the catalog performance curve. By tracking these parameters over the course of the well's life, the operator can determine at what point the ESP falls out of its recommended range and plan for resizing the ESP or replacing it with a different lift system to accommodate the actual flow rate.
+
+Oilfield Review 2015.
+
+Copyright © 2015 Schlumberger.
+
+For help in preparation of this article, thanks to George Waters, Oklahoma City, Oklahoma, USA, and Diego Narvaez, Houston.
+
+Figure 1. Typical ESP configuration. Downhole ESP components include motor, protectors, pump sections, pump intakes, power cables, gashandling equipment and downhole sensors (not shown). Surface components include pump-control equipment such as variable-speed drives and an electric power supply.
+
+<!-- image -->
+
+Figure 2. Pump performance curve. Such curves are generated to chart a pump's ability to displace fluids and to determine the number of pump stages required to achieve a desired production rate. The head capacity curve (blue) shows the amount of lift at a given flow rate. The horsepower requirements of the pump (red) across a range of flow capacities are derived from performance testing. The pump efficiency (green) is calculated from the head, flow capacity, fluid specific gravity and horsepower. The purple shaded area indicates the most efficient operating range for this specific pump. The operating point (red dot) shows that, at 60 Hz, this 185-stage pump is operating within the optimum range.
+
+<!-- image -->
+
+A downhole submersible motor provides power to the pump. The motor is typically a two-pole, three-phase, squirrel-cage induction electric motor available in a variety of operating voltages, currents and horsepower ratings ranging from 7.5 kW to more than 750 kW. Motor size is dictated by the amount of power required to drive the pump to lift the estimated volume of produced fluid out of the well. Wellbore fluids passing over the motor housing act as cooling agents.
+
+A seal section between the pump intake and the motor houses the thrust bearing that carries the axial thrust developed by the pump. The seal also isolates and protects the motor from well fluids and equalizes the pressure in the wellbore with the pressure inside the motor.
+
+In wells characterized by relatively high gas-to-oil ratios (GORs) and low bottomhole pressures, produced fluids may contain quantities of free gas. Submersible pumps are susceptible to operational problems, including cavitation  or  gas  locking  in  high-volume  free  gas  environments,  which  may shorten pump run life. In these applications, a gas separator is installed at the intake section of the pump to separate the gas from the well fluid before it enters the pump. If the amount of free gas exceeds a designated limit, a gas handling device may also be installed downstream of the separator.
+
+To  ensure  optimal  ESP  performance,  operators  may  install  downhole sensors that continuously acquire real-time system measurements such as pump intake and discharge pressures and temperatures, vibration and current leakage rate. Typically, users monitor pumps through supervisory control and data acquisition (SCADA) systems, which act as central repositories of data from all downhole sensors and can initiate actions through linked controls or alerts. When it detects a pump reading that is outside preset levels, a sensor alerts the operator in real time and can be enabled to make settings changes to the pump via remote control.
+
+Power  is  provided  from  the  surface  to  the  motor  via  a  specially  constructed three-phase electric cable designed for downhole environments. To limit  cable  movement in the well and to support its weight, the cable is banded or clamped to the production tubing.
+
+Electric submersible pump surface components include an electric supply system. Onshore, electricity is typically provided by a commercial power distribution system. A transformer may be required to convert the electricity provided via commercial power lines to match the voltage and amperage requirements of the ESP motor. Offshore, ESP operations require a portable power source such as a diesel generator.
+
+Intelligent, remote terminal, unit-programmable controllers and drives at the surface maintain the proper flow of electricity to the pump motor. Major controller types include fixed-frequency switchboards, soft-start controllers and variable speed controllers; application, economics and the preferred level of control dictate the choice of controller.
+
+A variable speed drive (VSD) reads the downhole data recorded by the SCADA system and scales back or ramps up the motor speed to optimize a balance of pump efficiency and production rate. The drive allows the pump to be operated continuously or intermittently or be shut off in the event of a significant operational problem. The direct speed control afforded by the VSD increases system efficiency and the run life of the ESP system while reducing the incidence of downtime.
+
+## Advantages and Disadvantages
+
+In many field applications, ESP systems provide several operational advantages over other forms of artificial lift. An ESP is especially appropriate for moderateto-high production rate wells, including highly deviated wells and remote, subsea  deepwater  wells.  The  pumps  can  be  manufactured  from  high-grade, corrosion-resistant metallurgies for application in well environments with highGOR fluids, high temperatures and fluids containing corrosive acid gases.
+
+Electric  submersible  pumps  provide  increased  production  while  handling high water cuts brought on by pressure maintenance and secondary recovery operations. The systems are quiet and safe and require a smaller surface footprint than that of some other lift systems, making them a preferred option in offshore and environmentally sensitive areas. ESP systems can be configured with flexibility to accommodate the dynamic evolution of fluid properties and flow rates during the life of the well and can operate with pump intake pressure of less than 1 MPa [100 psi].
+
+However, a number of operational challenges must be considered when running ESPs. Even though ESP systems can be built with special abrasionresistant metallurgies and upgraded radial bearing materials and configuration, ESP run times can be severely compromised in high sand and solids content environments. Performance also degrades when pumping viscous fluids  or  high  gas-to-liquid  ratio  mixtures.  The  development  of  more  efficient downhole gas separation and gas handling devices has improved ESP applications in flow streams containing high volumes of free gas, but those devices add to completion costs.
+
+Although ESP systems can operate at 0° to 90° inclinations, their application is restricted by the well curvature through which they must pass during deployment and landing. ESP manufacturers must use dogleg severity to determine  the  stress  and  deflection  of  the  ESP  components  to  ensure proper installation and operation is possible.
+
+Although  ESP  motors  are  built  on  voltages  that  typically  range  from 460 to 4,200 V at 60Hz for oilfield applications, most ESPs use higher voltage motors. As a result, a higher voltage power supply is needed at the surface to compensate for the voltage drop in the power cable, which can be significant in deep installations requiring long power cables.
+
+Pump efficiency peaks when a pump is operating at the flow rate corresponding to the best efficiency point (BEP) on the pump performance curve; efficiency decreases at flow rates above or below the BEP . As the production rate continues to drop, the ESP may need to be pulled and replaced with a lift system better suited to lower production rates; for onshore applications, a suitable replacement might be a rod pump or PCP. Below a rate of approximately 25 m 3 /d [150 bbl/d], ESPs are usually not an economic lift option.
+
+## Future Developments
+
+The industry is developing robust pump designs that will extend the applicability  of  ESP  systems  in  environments  with  high-solids  flow  streams. Other research initiatives are focused on improved reliability designs at the component level and integrated systems and on advanced operating surveillance and control algorithms to significantly increase ESP system run life.
+
+To improve the economics of ESPs in remote offshore wells, the industry is investigating more cost-effective means of deploying and pulling equipment. A rigless intervention using low-cost standard slickline, coil tubing or downhole tractor conveyance would avoid the high expense and long wait times  for  a  dedicated  rig.  Using  this  option,  an  operator  can  deploy  or retrieve the ESP assembly in a matter of hours and minimize production losses. Ultimately, developments such as this will enable a greater number of operators to maximize well production.

@@ -1,0 +1,1148 @@
+{
+  "filename": "758949132-ESP-Problem-TS.pdf",
+  "total_pages": 95,
+  "total_words": 4419,
+  "total_chars": 28310,
+  "pages": [
+    {
+      "page_number": 1,
+      "word_count": 30,
+      "char_count": 225,
+      "page_hash": "d2c169d43ae821eb2c03bab86ca3099218156360153efe2c221a50bec4b0f4cb",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 2,
+      "word_count": 42,
+      "char_count": 305,
+      "page_hash": "6e5d17c94b8b056d331f8b5554f686acbdd469e3db9e03c0f024f656c5f642af",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 3,
+      "word_count": 41,
+      "char_count": 245,
+      "page_hash": "6c250f37863963e134b602f958e3635b61315cccdfeaf573c15446b038c051c8",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 4,
+      "word_count": 15,
+      "char_count": 114,
+      "page_hash": "97d5d0e6f0051e4f27d5ff76e88ab1e589d1d40ec5aa856eeff136507c7f1355",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 5,
+      "word_count": 15,
+      "char_count": 107,
+      "page_hash": "2a731f7b38e2b2b381c814511ce955b0a20b03a971cc52855a105c64549e4f85",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 6,
+      "word_count": 34,
+      "char_count": 222,
+      "page_hash": "cca31ba89c24a91c8a20b409eee01733a683cbc9191779165088b04ae701d382",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 7,
+      "word_count": 7,
+      "char_count": 61,
+      "page_hash": "48f6945846735f9cb2cad8edb250744100bddcd8ea234d1a78fef08428ec41d5",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 8,
+      "word_count": 7,
+      "char_count": 61,
+      "page_hash": "48f6945846735f9cb2cad8edb250744100bddcd8ea234d1a78fef08428ec41d5",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 9,
+      "word_count": 7,
+      "char_count": 61,
+      "page_hash": "48f6945846735f9cb2cad8edb250744100bddcd8ea234d1a78fef08428ec41d5",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 10,
+      "word_count": 101,
+      "char_count": 688,
+      "page_hash": "61cd16191e3ce93b8baa0d5e110e5bb2836fa9a71e506fb9f69f7357176007ae",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 11,
+      "word_count": 7,
+      "char_count": 61,
+      "page_hash": "48f6945846735f9cb2cad8edb250744100bddcd8ea234d1a78fef08428ec41d5",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 12,
+      "word_count": 252,
+      "char_count": 1443,
+      "page_hash": "3c7b0029f27b95de98c900d7883bcdb676fc02db4520a522514354cfbc845030",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 13,
+      "word_count": 52,
+      "char_count": 344,
+      "page_hash": "df0502dae03b1905097f93245c87fb9d0f7feb3ae2cf0a1dd2d4a3365e8a81f2",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 14,
+      "word_count": 61,
+      "char_count": 405,
+      "page_hash": "ce3a63e018bcd90f537db526f6aa79c779779e21fe59447164e07f1db34001ba",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 15,
+      "word_count": 78,
+      "char_count": 476,
+      "page_hash": "0f3ca67025764987f20b988e974135ba9fdd4477697c1fe53495ad90b4e505ae",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 16,
+      "word_count": 13,
+      "char_count": 105,
+      "page_hash": "c937fb126f4592b84948b720a7b26de5f66053dd5fdd126eab70f57509d5ca0e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 17,
+      "word_count": 76,
+      "char_count": 474,
+      "page_hash": "927561b4f9b48ec7fbcae552f77a000f0f508fc1d6176b90f0bffdd867b8feb9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 18,
+      "word_count": 49,
+      "char_count": 362,
+      "page_hash": "4cfc95cd7e32c25c19110b99ba8435f18c19203e7fd7053e101eba7e2af7cb53",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 19,
+      "word_count": 76,
+      "char_count": 470,
+      "page_hash": "fd2f1ba70d6f27d1c5ba2792724f401832bd2893ab5ed4f611f8e99ac1cd5261",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 20,
+      "word_count": 56,
+      "char_count": 397,
+      "page_hash": "edfd105f7beb318efb06a1a8da2f0a209e5f064fdffba53ae03a1c7124f6a0b1",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 21,
+      "word_count": 70,
+      "char_count": 459,
+      "page_hash": "7fc0e2ef987e0f6af2fe431f7e33db9d37c8570110282e6f04ff45d4abc9c621",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 22,
+      "word_count": 21,
+      "char_count": 152,
+      "page_hash": "d613b6d8b1d8eb3eae9c280edda720f44db3d0ece784eff4dfad6212061eb33c",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 23,
+      "word_count": 92,
+      "char_count": 586,
+      "page_hash": "4728ea947ddcb6aaea114ac5add01a5a7d045d0cd2544500cef0bfe7374abdb9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 24,
+      "word_count": 91,
+      "char_count": 527,
+      "page_hash": "7cc2401f3dc0b86b441d662f6a850464b39f5b3ba1cc89bdc87758bf8f686c2d",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 25,
+      "word_count": 33,
+      "char_count": 216,
+      "page_hash": "4d6a585331d50c94e89201f2d66803899ce69ac606ccc6dcb5708506a8c2b60b",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 26,
+      "word_count": 41,
+      "char_count": 290,
+      "page_hash": "ce64f9bbe4fb93ebbe6c5af1824c20f2d6b204ea2f85a7063da0a0daaa5b29b9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 27,
+      "word_count": 144,
+      "char_count": 830,
+      "page_hash": "00b0b2519e9eedeef68949a6a15a04a8a0253f06ebbe35c2f79082a4b5a51afc",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 28,
+      "word_count": 74,
+      "char_count": 451,
+      "page_hash": "1ed5cca55f8a5d98892a21fe2fdc9a701d9bde07a6eb430026f0d6b05389e673",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 29,
+      "word_count": 100,
+      "char_count": 615,
+      "page_hash": "a0f520cee6d5c2ef9a675a1e8ca07467dbe0af38131a89d6e17e5368b7963ff4",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 30,
+      "word_count": 14,
+      "char_count": 102,
+      "page_hash": "775a3bd48007e1a8ef21ca3c55e384b122d89911da74d6a8622b98a4b2f881a6",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 31,
+      "word_count": 104,
+      "char_count": 625,
+      "page_hash": "53365c6dd7686ca55a548050af9d3aea7c4da3d12cc97331ac6a6bee605b630b",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 32,
+      "word_count": 14,
+      "char_count": 102,
+      "page_hash": "775a3bd48007e1a8ef21ca3c55e384b122d89911da74d6a8622b98a4b2f881a6",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 33,
+      "word_count": 96,
+      "char_count": 608,
+      "page_hash": "ad84b0f4816f0f9b693a39d122f236d7b4df9b14824775bc6e969a8d4d807ecb",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 34,
+      "word_count": 34,
+      "char_count": 237,
+      "page_hash": "964ce5c398b5d89dd6ff24bdc53541521572ed2a32bd94eaa83859ea1a4a0af7",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 35,
+      "word_count": 32,
+      "char_count": 234,
+      "page_hash": "463b62301e75844f753315fca4139ab4f7a9848e4e01e8e84fc6048d3ac7f33c",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 36,
+      "word_count": 12,
+      "char_count": 101,
+      "page_hash": "da8d8e77b03cfc0250b585ea3708ac14c34cef4bac1d415aaf0252708a7938dd",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 37,
+      "word_count": 31,
+      "char_count": 209,
+      "page_hash": "9df2eae1341d70eb23461b5f5e746ba80be319b00e5d78d2bd025670236e1900",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 38,
+      "word_count": 29,
+      "char_count": 209,
+      "page_hash": "db2912314da5ddfdfb731c9e824e819ee5c65dc0890bc01d6a055dd1895ebd08",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 39,
+      "word_count": 42,
+      "char_count": 271,
+      "page_hash": "2a73ce2568f5de1024e07c6d9ab144fff34844719d8b817643ab19080a5ad505",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 40,
+      "word_count": 52,
+      "char_count": 261,
+      "page_hash": "542e1fe17f3fcdde29d013d858e2a5496e3f5647aa52365da1919b53bf2af39e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 41,
+      "word_count": 30,
+      "char_count": 204,
+      "page_hash": "927ba84e76dce15bd03455e4af65f513cc8bcca56283109890dd08c8e3253f50",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 42,
+      "word_count": 42,
+      "char_count": 191,
+      "page_hash": "104c2bdb16f6e98bed183b43abd51b90ee38ca90884e175ae6f91bb36bcaac95",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 43,
+      "word_count": 12,
+      "char_count": 95,
+      "page_hash": "d0ac8742efb613df0feeac2ba59c1563d06d4bd07025f6ade437a9121ec81865",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 44,
+      "word_count": 62,
+      "char_count": 313,
+      "page_hash": "a64dcde916dfe3fbc5dd70b6bd94bed1cb43e0671c9348dcb4b511195a39ae67",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 45,
+      "word_count": 32,
+      "char_count": 189,
+      "page_hash": "650763cc934a5ae6ffb835dfe71c62866b84376414dac47505bdf568bccf534b",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 46,
+      "word_count": 13,
+      "char_count": 99,
+      "page_hash": "9d64248908c1ffbe71ec6b65576b1c5f9ae841d66d80844e013231df3b88ffe7",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 47,
+      "word_count": 98,
+      "char_count": 595,
+      "page_hash": "26ad12d6fc22b2acd6a6151541a368106faa8f154ca5f9f4a3e3471f93910902",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 48,
+      "word_count": 41,
+      "char_count": 274,
+      "page_hash": "bbca32d284dd3e0c7770918ec7309e4ba062ff01f255f71d77ae35f87d0bca24",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 49,
+      "word_count": 12,
+      "char_count": 93,
+      "page_hash": "b0180520fc9e03b4ec8ed4808d929ccd29b62d006a2d98efb43f4eb0df777b52",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 50,
+      "word_count": 10,
+      "char_count": 80,
+      "page_hash": "455d400a81ff5e7c01fd5a30cff3038e7cdf0ee67bc1b4819645a4c81115f18e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 51,
+      "word_count": 19,
+      "char_count": 138,
+      "page_hash": "562aa78109ffcd93d23775c9a0919643ebd431131cb8f16cdc2bfeb5a2142fc6",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 52,
+      "word_count": 35,
+      "char_count": 222,
+      "page_hash": "b72de6e6e527e72f4015c092b2c5693ccbe32b6a3e21c1c2d67d6be539ebdf1c",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 53,
+      "word_count": 9,
+      "char_count": 76,
+      "page_hash": "5a30549772b7921ee0753d76dbd7d3ebd16f6bb6e6a697475cfecd967bf71a3e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 54,
+      "word_count": 17,
+      "char_count": 118,
+      "page_hash": "bce2f3a1e3c72f56bab3a5533766174ba878be13fc881815af6c2635f5c04cc8",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 55,
+      "word_count": 60,
+      "char_count": 392,
+      "page_hash": "08ecf7327ef588a11c69bf1bfa9596dbc91b42d5a9fbf4b14dd1d3abb64baf8a",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 56,
+      "word_count": 55,
+      "char_count": 392,
+      "page_hash": "b7070281ac0f793bba8f8d15d08c515a04c1a710ce0dfcf3d83f864d26ca2e6e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 57,
+      "word_count": 53,
+      "char_count": 334,
+      "page_hash": "f69dd7d08b4f7a938d6810cb280bcc49928d75c22b58430604cba6cfde50c208",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 58,
+      "word_count": 42,
+      "char_count": 295,
+      "page_hash": "74bb750d94f3e1731216d0de6c6f9453dc296905b3a405a442a7618adc99a2b1",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 59,
+      "word_count": 64,
+      "char_count": 392,
+      "page_hash": "b6ba751b54fd64336a1a8cc831cc9b8845dd1bf68344466f047e0e338ba3dc0a",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 60,
+      "word_count": 63,
+      "char_count": 379,
+      "page_hash": "af199b7ad35a6718714f39f4ab32afa135d1fd6e59a3b6eb3dbacac46f2da3d4",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 61,
+      "word_count": 49,
+      "char_count": 296,
+      "page_hash": "7499e8aa5ac8e101178910f07dccfae3f6a34327aca0965f5b1cce2195ebfe2a",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 62,
+      "word_count": 49,
+      "char_count": 313,
+      "page_hash": "ea0010f5b72a8a0da099c2b1cde4a0832894bc0c2c8e41f008083ca230f49554",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 63,
+      "word_count": 53,
+      "char_count": 340,
+      "page_hash": "ce627958ed30129f0932304a53559c93b5acdd0a96c3fba694473e7fcafe9212",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 64,
+      "word_count": 112,
+      "char_count": 660,
+      "page_hash": "0c6a6bf7a052cbd2f482e27ead705618c9788fa84e78c666c1cd51467146c6a9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 65,
+      "word_count": 59,
+      "char_count": 381,
+      "page_hash": "8c37e7581a16abaf3f6eba08a19263b790de4a4c525d837f54c77435f3f8ccb0",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 66,
+      "word_count": 45,
+      "char_count": 295,
+      "page_hash": "0a2f94f51609dfe5dc5ac6c78ff93285aadf9ea4aa5ceaf25cb58b084069ff6e",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 67,
+      "word_count": 86,
+      "char_count": 562,
+      "page_hash": "a274b2fe5a7e354a628a16cb5f73917223c05c1d4ab03b9a1a70f95965b4299b",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 68,
+      "word_count": 51,
+      "char_count": 340,
+      "page_hash": "137575c5adbf3efaf09d08352018f41e2b4133d2a07313f9f19c054af904dfc9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 69,
+      "word_count": 16,
+      "char_count": 106,
+      "page_hash": "5590c2dce18a226ac9ffb5dde1bc7e6b755422ac30458641b3e0427d29e88b45",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 70,
+      "word_count": 99,
+      "char_count": 670,
+      "page_hash": "db57caa3c0148c5701041e8e5a3ed46158d4ce001f517ddb8621f78cf6d9ae21",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 71,
+      "word_count": 11,
+      "char_count": 90,
+      "page_hash": "eb362f0a2781b33ef12556997705442bcf1359ba477e030f1ee138fbd40c210d",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 72,
+      "word_count": 15,
+      "char_count": 112,
+      "page_hash": "09b2838ac9b2f3846d87fb1c5750b6a62cb102313537c599d678ad47214d3ba8",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 73,
+      "word_count": 31,
+      "char_count": 209,
+      "page_hash": "3f1e3ed54851d6413272cc3390ae1efbb93dd8a1e9f60d98db4c15bd3580cb1f",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 74,
+      "word_count": 15,
+      "char_count": 119,
+      "page_hash": "c65b2019eb8630901735362d5a199a1080d274018b08d32a89debfba1d013080",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 75,
+      "word_count": 37,
+      "char_count": 258,
+      "page_hash": "ba0a1de065c6667300f1243c99d517284241213fe00acd746d43711c21d5e3fa",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 76,
+      "word_count": 102,
+      "char_count": 616,
+      "page_hash": "da61dcf0361748c22769b6edb3dafcfd66b772766a4f12a7cc247589d9878ce2",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 77,
+      "word_count": 39,
+      "char_count": 257,
+      "page_hash": "c577aa30765c2cd2b39c08a31b9592535106ef1a36654ba69f9ed5a7d4b0e086",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 78,
+      "word_count": 31,
+      "char_count": 211,
+      "page_hash": "30ba473a933632e5d9a7fd7d421ea075ded09117fe36a92ac5791a7c04c72d58",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 79,
+      "word_count": 78,
+      "char_count": 486,
+      "page_hash": "f0c53c7fb63f06fabb8f8aee4448c5a91b6873485ee80fb853faa9335f6b3767",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 80,
+      "word_count": 8,
+      "char_count": 65,
+      "page_hash": "199a456c614a5502efcf63d01f45c9ddb0d82344f8a866cd0c6ff5975d7b300d",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 81,
+      "word_count": 25,
+      "char_count": 163,
+      "page_hash": "68ba756272c6d775a7375f48fd907da3f1eec0cf0e2b276374e809c08e146b8a",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 82,
+      "word_count": 56,
+      "char_count": 390,
+      "page_hash": "237eb8889c64504bac8f69b8756417f136aadd0c55e433a4e67b4b005b091926",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 83,
+      "word_count": 7,
+      "char_count": 61,
+      "page_hash": "48f6945846735f9cb2cad8edb250744100bddcd8ea234d1a78fef08428ec41d5",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 84,
+      "word_count": 33,
+      "char_count": 218,
+      "page_hash": "fe8b98024abd2ccb8ec8dc8c426206e9abbac97dac1b1e3f8cfc5995b94597b0",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 85,
+      "word_count": 21,
+      "char_count": 179,
+      "page_hash": "ab8e000754add3bebe2773ca46d0757dfe0890eb998f88269d9ccceec6498036",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 86,
+      "word_count": 25,
+      "char_count": 180,
+      "page_hash": "07cffeda09c0c0b0b88ce74fc779aac623f6a52ca220749bb2853efa83cbf2d9",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 87,
+      "word_count": 45,
+      "char_count": 303,
+      "page_hash": "06eb3d4e7a3dc7bd82ee4f9d40a2f02d62523e7892827a0f019d1801a0b91a14",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 88,
+      "word_count": 35,
+      "char_count": 237,
+      "page_hash": "0353917f9bf95367894e7d77317e64b40825a8241af54f379632b1bd8c4530a2",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 89,
+      "word_count": 49,
+      "char_count": 275,
+      "page_hash": "ca278b2f8b1fbeeb1c767a2eb671900bdf83038fdb3850aea0332d17c478ef59",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 90,
+      "word_count": 32,
+      "char_count": 181,
+      "page_hash": "0b25b639e3892cc87d451999028f392e782311974aec4a3a45cf2be506b5d607",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 91,
+      "word_count": 32,
+      "char_count": 181,
+      "page_hash": "68c3d880b37307c7da19e511e73beb05660136721d7ff1f0d9642c9406fcc2bb",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 92,
+      "word_count": 56,
+      "char_count": 305,
+      "page_hash": "91c02be96ce554ba8d77ca59da44b57496d4c7ba03e22f5b6dde7c2d7aa69f87",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 93,
+      "word_count": 29,
+      "char_count": 231,
+      "page_hash": "7cfff785bef54faa7a30fc79225671a25681c347b8d4ba6b28669854922b179d",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 94,
+      "word_count": 62,
+      "char_count": 358,
+      "page_hash": "8c97efa0915f2d98426c0a96212ce85b41a00a560b211d9e42fc8eef37d91406",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    },
+    {
+      "page_number": 95,
+      "word_count": 12,
+      "char_count": 80,
+      "page_hash": "e128e5b4e6436f3b62d55ef24ced88fb19bc91f365ec9ded4d7f3df6af06e6bc",
+      "rect": [
+        0.0,
+        0.0,
+        720.0,
+        540.0
+      ]
+    }
+  ]
+}

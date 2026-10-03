@@ -1,0 +1,16 @@
+{
+  "document_id": "DOC-OEM-WF-001",
+  "title": "Weatherford Electric Submersible Pumping System Application Guide",
+  "canonical_category": "oem",
+  "doc_type": "OEM_MANUAL",
+  "author_publisher": "Weatherford International",
+  "publication_year": "2007",
+  "source_filename": "esp-application-guide-weatherford_compress.pdf",
+  "standardized_filename": "Weatherford_ESP_Application_Guide.pdf",
+  "file_path": "esp-knowledge\\sources\\raw\\oem\\Weatherford_ESP_Application_Guide.pdf",
+  "file_size_bytes": 4019809,
+  "sha256_checksum": "9af867354628f039e0f550080eb3b717d3bca499793debca1ae5c6ec10e2cf7b",
+  "total_pages": 110,
+  "extracted_char_count": 139241,
+  "status": "PARSED_AND_NORMALIZED"
+}

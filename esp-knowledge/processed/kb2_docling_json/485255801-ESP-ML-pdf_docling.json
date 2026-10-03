@@ -1,0 +1,4863 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "name": "485255801-ESP-ML-pdf",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 10887819738190641580,
+    "filename": "485255801-ESP-ML-pdf.pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/texts/4"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/texts/6"
+      },
+      {
+        "$ref": "#/texts/7"
+      },
+      {
+        "$ref": "#/texts/8"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/texts/16"
+      },
+      {
+        "$ref": "#/texts/17"
+      },
+      {
+        "$ref": "#/texts/18"
+      },
+      {
+        "$ref": "#/texts/19"
+      },
+      {
+        "$ref": "#/texts/20"
+      },
+      {
+        "$ref": "#/texts/21"
+      },
+      {
+        "$ref": "#/texts/22"
+      },
+      {
+        "$ref": "#/texts/23"
+      },
+      {
+        "$ref": "#/texts/24"
+      },
+      {
+        "$ref": "#/texts/25"
+      },
+      {
+        "$ref": "#/texts/26"
+      },
+      {
+        "$ref": "#/texts/27"
+      },
+      {
+        "$ref": "#/texts/28"
+      },
+      {
+        "$ref": "#/texts/29"
+      },
+      {
+        "$ref": "#/texts/30"
+      },
+      {
+        "$ref": "#/texts/31"
+      },
+      {
+        "$ref": "#/texts/32"
+      },
+      {
+        "$ref": "#/texts/33"
+      },
+      {
+        "$ref": "#/texts/34"
+      },
+      {
+        "$ref": "#/texts/35"
+      },
+      {
+        "$ref": "#/texts/36"
+      },
+      {
+        "$ref": "#/texts/37"
+      },
+      {
+        "$ref": "#/texts/38"
+      },
+      {
+        "$ref": "#/texts/39"
+      },
+      {
+        "$ref": "#/texts/40"
+      },
+      {
+        "$ref": "#/texts/41"
+      },
+      {
+        "$ref": "#/texts/42"
+      },
+      {
+        "$ref": "#/texts/43"
+      },
+      {
+        "$ref": "#/texts/44"
+      },
+      {
+        "$ref": "#/texts/45"
+      },
+      {
+        "$ref": "#/texts/46"
+      },
+      {
+        "$ref": "#/pictures/1"
+      },
+      {
+        "$ref": "#/texts/66"
+      },
+      {
+        "$ref": "#/groups/0"
+      },
+      {
+        "$ref": "#/texts/68"
+      },
+      {
+        "$ref": "#/texts/69"
+      },
+      {
+        "$ref": "#/groups/1"
+      },
+      {
+        "$ref": "#/texts/74"
+      },
+      {
+        "$ref": "#/pictures/2"
+      },
+      {
+        "$ref": "#/texts/79"
+      },
+      {
+        "$ref": "#/tables/0"
+      },
+      {
+        "$ref": "#/texts/80"
+      },
+      {
+        "$ref": "#/texts/81"
+      },
+      {
+        "$ref": "#/texts/82"
+      },
+      {
+        "$ref": "#/texts/83"
+      },
+      {
+        "$ref": "#/tables/1"
+      },
+      {
+        "$ref": "#/texts/84"
+      },
+      {
+        "$ref": "#/texts/85"
+      },
+      {
+        "$ref": "#/texts/86"
+      },
+      {
+        "$ref": "#/texts/87"
+      },
+      {
+        "$ref": "#/texts/88"
+      },
+      {
+        "$ref": "#/texts/89"
+      },
+      {
+        "$ref": "#/texts/90"
+      },
+      {
+        "$ref": "#/texts/91"
+      },
+      {
+        "$ref": "#/texts/92"
+      },
+      {
+        "$ref": "#/texts/93"
+      },
+      {
+        "$ref": "#/texts/94"
+      },
+      {
+        "$ref": "#/texts/95"
+      },
+      {
+        "$ref": "#/texts/96"
+      },
+      {
+        "$ref": "#/texts/97"
+      },
+      {
+        "$ref": "#/texts/98"
+      },
+      {
+        "$ref": "#/texts/99"
+      },
+      {
+        "$ref": "#/texts/100"
+      },
+      {
+        "$ref": "#/texts/101"
+      },
+      {
+        "$ref": "#/texts/102"
+      },
+      {
+        "$ref": "#/texts/103"
+      },
+      {
+        "$ref": "#/texts/104"
+      },
+      {
+        "$ref": "#/texts/105"
+      },
+      {
+        "$ref": "#/texts/106"
+      },
+      {
+        "$ref": "#/texts/107"
+      },
+      {
+        "$ref": "#/texts/108"
+      },
+      {
+        "$ref": "#/texts/109"
+      },
+      {
+        "$ref": "#/texts/110"
+      },
+      {
+        "$ref": "#/texts/111"
+      },
+      {
+        "$ref": "#/texts/112"
+      },
+      {
+        "$ref": "#/texts/113"
+      },
+      {
+        "$ref": "#/texts/114"
+      },
+      {
+        "$ref": "#/texts/115"
+      },
+      {
+        "$ref": "#/texts/116"
+      },
+      {
+        "$ref": "#/texts/117"
+      },
+      {
+        "$ref": "#/texts/118"
+      },
+      {
+        "$ref": "#/texts/119"
+      },
+      {
+        "$ref": "#/texts/120"
+      },
+      {
+        "$ref": "#/texts/121"
+      },
+      {
+        "$ref": "#/texts/122"
+      },
+      {
+        "$ref": "#/texts/123"
+      },
+      {
+        "$ref": "#/texts/124"
+      },
+      {
+        "$ref": "#/texts/125"
+      },
+      {
+        "$ref": "#/texts/126"
+      },
+      {
+        "$ref": "#/texts/127"
+      },
+      {
+        "$ref": "#/texts/128"
+      },
+      {
+        "$ref": "#/texts/129"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [
+    {
+      "self_ref": "#/groups/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/67"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/70"
+        },
+        {
+          "$ref": "#/texts/71"
+        },
+        {
+          "$ref": "#/texts/72"
+        },
+        {
+          "$ref": "#/texts/73"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    }
+  ],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 681.984,
+            "r": 150.59600000000006,
+            "b": 668.2731543756146,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 651.0110000000001,
+            "r": 491.5659999999998,
+            "b": 637.3001543756146,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            67
+          ]
+        }
+      ],
+      "orig": "Applying Artificial Intelligence to Optimize Oil and Gas Production",
+      "text": "Applying Artificial Intelligence to Optimize Oil and Gas Production",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 619.1360000000001,
+            "r": 204.03000000000006,
+            "b": 609.6809253731343,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            31
+          ]
+        }
+      ],
+      "orig": "Christoph Kandziora, Siemens AG",
+      "text": "Christoph Kandziora, Siemens AG"
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 592.473,
+            "r": 205.32899999999987,
+            "b": 585.854447761194,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            46
+          ]
+        }
+      ],
+      "orig": "Copyright 2019, Offshore Technology Conference",
+      "text": "Copyright 2019, Offshore Technology Conference"
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 575.5699999999999,
+            "r": 448.3199999999999,
+            "b": 568.951447761194,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            123
+          ]
+        }
+      ],
+      "orig": "This paper was prepared for presentation at the Offshore Technology Conference held in Houston, Texas, USA, 6 - 9 May 2019.",
+      "text": "This paper was prepared for presentation at the Offshore Technology Conference held in Houston, Texas, USA, 6 - 9 May 2019."
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 558.6669999999999,
+            "r": 561.6500000000004,
+            "b": 518.4484477611941,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            755
+          ]
+        }
+      ],
+      "orig": "This paper was selected for presentation by an OTC program committee following review of information contained in an abstract submitted by the author(s). Contents of the paper have not been reviewed by the Offshore Technology Conference and are subject to correction by the author(s). The material does not necessarily reflect any position of the Offshore Technology Conference, its officers, or members. Electronic reproduction, distribution, or storage of any part of this paper without the written consent of the Offshore Technology Conference is prohibited. Permission to reproduce in print is restricted to an abstract of not more than 300 words; illustrations may not be copied. The abstract must contain conspicuous acknowledgment of OTC copyright.",
+      "text": "This paper was selected for presentation by an OTC program committee following review of information contained in an abstract submitted by the author(s). Contents of the paper have not been reviewed by the Offshore Technology Conference and are subject to correction by the author(s). The material does not necessarily reflect any position of the Offshore Technology Conference, its officers, or members. Electronic reproduction, distribution, or storage of any part of this paper without the written consent of the Offshore Technology Conference is prohibited. Permission to reproduce in print is restricted to an abstract of not more than 300 words; illustrations may not be copied. The abstract must contain conspicuous acknowledgment of OTC copyright."
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 475.186,
+            "r": 108.61000000000003,
+            "b": 461.4751543756145,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Abstract",
+      "text": "Abstract",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 449.77500000000003,
+            "r": 561.6719999999999,
+            "b": 237.81463419483134,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1557
+          ]
+        }
+      ],
+      "orig": "The Internet of Things (IoT) - combined with advances in sensor technology, data analytics, and artificial intelligence  (AI)  -  has  paved  the  way  for  significant  efficiency  and  productivity  gains  in  the  oil  and gas industry. One application, in particular, has been proven to benefit from these technologies: electrical submersible  pumps  (ESPs).  It's  well  understood  across  the  E&P  industry  that  nearly  all  wells  must eventually incorporate some form of artificial lift to continue production, and ESPs drive about half of that. Although ESPs are designed to operate in harsh conditions, such as corrosive liquids, extreme temperatures, and under intense pressures, they can fail. Costs for repair or replacement are high but are usually dwarfed by the cost of lost production. In some cases, especially offshore, that cost can run into millions of dollars per day, including idle operational resources and output losses. This paper explores a unique AI-based application that enables operators to preempt costly ESP failures, while optimizing production at the same time. To illustrate, a use case will be shared. As a proof-of-concept and later a pilot project in an onshore oilfield, 30 ESPs driven by pumps ranging in power from as low as 200 kW to as high as 500 kW were deployed and monitored using an AI-supported predictive maintenance model. The positive results are applicable to offshore applications. In one case, the probability of an ESP failure was determined 12 days before an actual failure of the ESP occurred.",
+      "text": "The Internet of Things (IoT) - combined with advances in sensor technology, data analytics, and artificial intelligence  (AI)  -  has  paved  the  way  for  significant  efficiency  and  productivity  gains  in  the  oil  and gas industry. One application, in particular, has been proven to benefit from these technologies: electrical submersible  pumps  (ESPs).  It's  well  understood  across  the  E&P  industry  that  nearly  all  wells  must eventually incorporate some form of artificial lift to continue production, and ESPs drive about half of that. Although ESPs are designed to operate in harsh conditions, such as corrosive liquids, extreme temperatures, and under intense pressures, they can fail. Costs for repair or replacement are high but are usually dwarfed by the cost of lost production. In some cases, especially offshore, that cost can run into millions of dollars per day, including idle operational resources and output losses. This paper explores a unique AI-based application that enables operators to preempt costly ESP failures, while optimizing production at the same time. To illustrate, a use case will be shared. As a proof-of-concept and later a pilot project in an onshore oilfield, 30 ESPs driven by pumps ranging in power from as low as 200 kW to as high as 500 kW were deployed and monitored using an AI-supported predictive maintenance model. The positive results are applicable to offshore applications. In one case, the probability of an ESP failure was determined 12 days before an actual failure of the ESP occurred."
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 219.71000000000026,
+            "r": 521.2180000000001,
+            "b": 205.9991543756148,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            69
+          ]
+        }
+      ],
+      "orig": "The role of ESPs in maximizing well production and reservoir recovery",
+      "text": "The role of ESPs in maximizing well production and reservoir recovery",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84,
+            "t": 199.9680000000003,
+            "r": 561.66,
+            "b": 117.60763419483123,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            646
+          ]
+        }
+      ],
+      "orig": "Artificial lifts play critical roles in maximizing well production, whether offshore or onshore. The E&P industry generally accepts the inevitability that nearly all wells must eventually use artificial lift technology due  to  drop-offs  in  naturally  occurring  reservoir  pressures  during  their  lifecycles.  Among  the  various lift technologies available, electrical submersible pumps (ESPs) account for about half of all the world's artificial  lift  deployments.  That's  because they are proven to be highly effective in drawing oil in high volumes from many diverse types of reservoirs located at a wide variety of underground depths.",
+      "text": "Artificial lifts play critical roles in maximizing well production, whether offshore or onshore. The E&P industry generally accepts the inevitability that nearly all wells must eventually use artificial lift technology due  to  drop-offs  in  naturally  occurring  reservoir  pressures  during  their  lifecycles.  Among  the  various lift technologies available, electrical submersible pumps (ESPs) account for about half of all the world's artificial  lift  deployments.  That's  because they are proven to be highly effective in drawing oil in high volumes from many diverse types of reservoirs located at a wide variety of underground depths."
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 113.56800000000021,
+            "r": 561.6600000000001,
+            "b": 45.607634194831235,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            526
+          ]
+        },
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 725.076,
+            "r": 561.6599999999999,
+            "b": 700.3156341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            527,
+            637
+          ]
+        }
+      ],
+      "orig": "Well conditions in below-ground production formations where ESPs operate can be extreme, which is why ESPs are purposefully designed, engineered, and manufactured to be as reliable as possible using the  highest  quality,  most  durable  materials  available.  In  many  cases,  they  must  withstand  temperatures exceeding 200°C, such as those in the deepest wells. Wells can also contain highly corrosive liquids, such as hydrogen sulfide, that can degrade ESP seals and, consequently, performance. Of course, that's not to mention sand and other particulates that can run through ESP pumping mechanism, possibly fouling its bearings.",
+      "text": "Well conditions in below-ground production formations where ESPs operate can be extreme, which is why ESPs are purposefully designed, engineered, and manufactured to be as reliable as possible using the  highest  quality,  most  durable  materials  available.  In  many  cases,  they  must  withstand  temperatures exceeding 200°C, such as those in the deepest wells. Wells can also contain highly corrosive liquids, such as hydrogen sulfide, that can degrade ESP seals and, consequently, performance. Of course, that's not to mention sand and other particulates that can run through ESP pumping mechanism, possibly fouling its bearings."
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/pictures/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 505.6666666666667,
+            "t": 764.0,
+            "r": 548.3333333333334,
+            "b": 745.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "OFFSHORE",
+      "text": "OFFSHORE"
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 54.848,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "2",
+      "text": "2"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 505.168,
+            "t": 756.8330000000001,
+            "r": 561.5999999999998,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 696.2760000000001,
+            "r": 561.5999999999998,
+            "b": 628.3156341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            430
+          ]
+        }
+      ],
+      "orig": "For all these reasons, ESPs are subject to failure and, in today's deployments, they can do so without warning. When that happens, replacement is complicated. An exchange can extend downtime, and the resulting costs of idle operational resources and output losses can be astronomical. That's why an earlywarning system for ESP operations in the form of an AI-driven probabilistic, predictive maintenance model can be so desirable.",
+      "text": "For all these reasons, ESPs are subject to failure and, in today's deployments, they can do so without warning. When that happens, replacement is complicated. An exchange can extend downtime, and the resulting costs of idle operational resources and output losses can be astronomical. That's why an earlywarning system for ESP operations in the form of an AI-driven probabilistic, predictive maintenance model can be so desirable."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 610.2110000000002,
+            "r": 469.152,
+            "b": 596.5001543756148,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            58
+          ]
+        }
+      ],
+      "orig": "How ESPs are monitored and diagnostics are conducted today",
+      "text": "How ESPs are monitored and diagnostics are conducted today",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 590.4690000000002,
+            "r": 561.5519999999998,
+            "b": 551.3086341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            256
+          ]
+        }
+      ],
+      "orig": "Typically, ESP deployments include sensors and instrumentation to provide operators the means to monitor and assess the conditions of their workings below ground in the well hole and in the reservoir as well as above their ground controls and motor drives.",
+      "text": "Typically, ESP deployments include sensors and instrumentation to provide operators the means to monitor and assess the conditions of their workings below ground in the well hole and in the reservoir as well as above their ground controls and motor drives."
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 547.2690000000002,
+            "r": 561.6479999999998,
+            "b": 508.1086341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            301
+          ]
+        }
+      ],
+      "orig": "Operating data is transmitted via some kind of distributed control system, such as a supervisory control and data acquisition (SCADA) system. In turn, this data is collected in a historian database, from which it can be used later for diagnostic purposes in case of ESP operational issues or failures.",
+      "text": "Operating data is transmitted via some kind of distributed control system, such as a supervisory control and data acquisition (SCADA) system. In turn, this data is collected in a historian database, from which it can be used later for diagnostic purposes in case of ESP operational issues or failures."
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 504.06900000000036,
+            "r": 561.6599999999999,
+            "b": 450.5086341948314,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            334
+          ]
+        }
+      ],
+      "orig": "Many vendors offer sophisticated ESP troubleshooting tools that tap into historical ESP data to help operators  investigate  root  causes  of  problems.  Typically,  these  tools  have  automated  features  to  issue alarms should any operating parameters exceed their limits. This enables the diagnostic process to start immediately.",
+      "text": "Many vendors offer sophisticated ESP troubleshooting tools that tap into historical ESP data to help operators  investigate  root  causes  of  problems.  Typically,  these  tools  have  automated  features  to  issue alarms should any operating parameters exceed their limits. This enables the diagnostic process to start immediately."
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 446.46900000000045,
+            "r": 561.6239999999997,
+            "b": 407.3086341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            308
+          ]
+        }
+      ],
+      "orig": "While this monitoring model can alert operators to issues requiring their urgent attention, most often it is reactive in practice, because the tools lack the means to predict an ESP failure. By the time the alarms are sent and received, performance conditions have degraded to where a failure is unavoidable.",
+      "text": "While this monitoring model can alert operators to issues requiring their urgent attention, most often it is reactive in practice, because the tools lack the means to predict an ESP failure. By the time the alarms are sent and received, performance conditions have degraded to where a failure is unavoidable."
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 389.20400000000046,
+            "r": 534.4620000000001,
+            "b": 375.493154375615,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            71
+          ]
+        }
+      ],
+      "orig": "The use of predictive, AI-enabled monitoring as an early-warning system",
+      "text": "The use of predictive, AI-enabled monitoring as an early-warning system",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 369.4620000000005,
+            "r": 561.6599999999997,
+            "b": 315.90163419483156,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            350
+          ]
+        }
+      ],
+      "orig": "Given the stakes involved in ESP reliability and availability, operators need an early-warning system that can better predict degrading performance and provide insights into symptomatic changes and conditions. Such a model can provide them with actionable intelligence, such as the nature of an operational behavior change and how severe it might be.",
+      "text": "Given the stakes involved in ESP reliability and availability, operators need an early-warning system that can better predict degrading performance and provide insights into symptomatic changes and conditions. Such a model can provide them with actionable intelligence, such as the nature of an operational behavior change and how severe it might be."
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 311.8620000000006,
+            "r": 561.6479999999998,
+            "b": 272.7016341948316,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            294
+          ]
+        }
+      ],
+      "orig": "Given such insights much earlier, they can make more informed decisions about how to best manage their ESP issues. Options can include: taking immediate corrective action; managing the issue via specific operational interventions until the next planned shutdown; or, running the ESP to failure.",
+      "text": "Given such insights much earlier, they can make more informed decisions about how to best manage their ESP issues. Options can include: taking immediate corrective action; managing the issue via specific operational interventions until the next planned shutdown; or, running the ESP to failure."
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 268.6620000000007,
+            "r": 561.612,
+            "b": 215.08963419483098,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            365
+          ]
+        }
+      ],
+      "orig": "Whereas  before,  even  with  complex  SCADA  monitoring  tools,  failures  either  occurred  or  were impending. In contrast, a predictive, early-warning system can at least provide options to consider, such as those just mentioned. In the pilot use case explained later in this paper, AI-enabled probabilities forecasted an ESP failure 12 days before it occurred.",
+      "text": "Whereas  before,  even  with  complex  SCADA  monitoring  tools,  failures  either  occurred  or  were impending. In contrast, a predictive, early-warning system can at least provide options to consider, such as those just mentioned. In the pilot use case explained later in this paper, AI-enabled probabilities forecasted an ESP failure 12 days before it occurred."
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.83999999999999,
+            "t": 196.985,
+            "r": 326.9539999999998,
+            "b": 183.27415437561456,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            41
+          ]
+        }
+      ],
+      "orig": "AI and machine learning, a brief overview",
+      "text": "AI and machine learning, a brief overview",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.83999999999999,
+            "t": 177.24299999999994,
+            "r": 561.5999999999999,
+            "b": 138.08263419483103,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            324
+          ]
+        }
+      ],
+      "orig": "Technologists can define AI in many ways. Most often, they refer to the application of software algorithms that can be taught to do the kinds of work that typically require human intellect and learning abilities. It draws from such disciplines as logic, statistics, and probabilities, as well as neuroscience and psychology.",
+      "text": "Technologists can define AI in many ways. Most often, they refer to the application of software algorithms that can be taught to do the kinds of work that typically require human intellect and learning abilities. It draws from such disciplines as logic, statistics, and probabilities, as well as neuroscience and psychology."
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.83999999999998,
+            "t": 134.043,
+            "r": 561.6239999999998,
+            "b": 80.48263419483101,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            405
+          ]
+        }
+      ],
+      "orig": "Pattern recognition is a common AI example, whether it involves finding exceptions and differences in data - ESP performance anomalies, for example - or distinguishing patterns in images, speech, or music. AI powers online inference engines, such as those used by websites and social media platforms, to recommend products and services to their customers. Credit card companies use AI for fraud detection.",
+      "text": "Pattern recognition is a common AI example, whether it involves finding exceptions and differences in data - ESP performance anomalies, for example - or distinguishing patterns in images, speech, or music. AI powers online inference engines, such as those used by websites and social media platforms, to recommend products and services to their customers. Credit card companies use AI for fraud detection."
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 51.83999999999998,
+            "t": 76.44299999999998,
+            "r": 561.5279999999999,
+            "b": 51.68263419483094,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            205
+          ]
+        },
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 725.076,
+            "r": 561.6360000000002,
+            "b": 685.9156341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            206,
+            439
+          ]
+        }
+      ],
+      "orig": "Conceptually, AI has been around a long time. Even centuries ago, as machines were invented to exert physical forces in lieu of the muscle power of humans or animals, it wasn't much of a stretch to imagine machines that also could reason, learn, and solve problems. But not until recent years has the convergence of many different tech trends made AI, once the realm of science fiction, real and with practical applications emerging today.",
+      "text": "Conceptually, AI has been around a long time. Even centuries ago, as machines were invented to exert physical forces in lieu of the muscle power of humans or animals, it wasn't much of a stretch to imagine machines that also could reason, learn, and solve problems. But not until recent years has the convergence of many different tech trends made AI, once the realm of science fiction, real and with practical applications emerging today."
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 106.83200000000005,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 557.152,
+            "t": 756.8330000000001,
+            "r": 561.6,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "3",
+      "text": "3"
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 681.8760000000001,
+            "r": 561.6119999999996,
+            "b": 613.9156341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            471
+          ]
+        }
+      ],
+      "orig": "Among those trends are vast reductions in costs and space required for powerful, parallel-processing computers. Once known as supercomputers - now called high-performance cloud computing - they are accessible on a pay-as-you-go basis over the web from just about anywhere in the world. Another trend is secure, ubiquitous, and ultra-fast broadband connectivity, increasingly wireless, that has \"things talking to things\" in what's now called the Internet of Things (IoT).",
+      "text": "Among those trends are vast reductions in costs and space required for powerful, parallel-processing computers. Once known as supercomputers - now called high-performance cloud computing - they are accessible on a pay-as-you-go basis over the web from just about anywhere in the world. Another trend is secure, ubiquitous, and ultra-fast broadband connectivity, increasingly wireless, that has \"things talking to things\" in what's now called the Internet of Things (IoT)."
+    },
+    {
+      "self_ref": "#/texts/31",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 609.8760000000002,
+            "r": 561.5999999999993,
+            "b": 541.9156341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            517
+          ]
+        }
+      ],
+      "orig": "Then there are advancements in data and software technologies. For example, increasingly \"smart,\" selfcalibrating sensors can monitor offshore platform equipment operations and relay their data to higher-level systems and control rooms, even onshore ones many hundreds of kilometers away. Cloud-based platforms can provide offshore E&P operators with access to advanced analytics software featuring AI algorithms that can analyze incoming data for anomalies that could signal trouble ahead in the monitored equipment.",
+      "text": "Then there are advancements in data and software technologies. For example, increasingly \"smart,\" selfcalibrating sensors can monitor offshore platform equipment operations and relay their data to higher-level systems and control rooms, even onshore ones many hundreds of kilometers away. Cloud-based platforms can provide offshore E&P operators with access to advanced analytics software featuring AI algorithms that can analyze incoming data for anomalies that could signal trouble ahead in the monitored equipment."
+    },
+    {
+      "self_ref": "#/texts/32",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 537.8760000000003,
+            "r": 561.6959999999998,
+            "b": 455.5156341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            546
+          ]
+        }
+      ],
+      "orig": "This type of AI capability is often referred to as machine learning (ML). It uses statistical analysis to infer the probability of a hypothesized event happening, given more and more data as evidence. It combines this capability with neural network models to \"learn\" the relational behavior of a system and its components. That's why AI-based, ML algorithms, once authored and deployed, first need to be trained with sample baseline operating data, then \"fueled\" with actual operating data to become effectively smarter and better at their tasks.",
+      "text": "This type of AI capability is often referred to as machine learning (ML). It uses statistical analysis to infer the probability of a hypothesized event happening, given more and more data as evidence. It combines this capability with neural network models to \"learn\" the relational behavior of a system and its components. That's why AI-based, ML algorithms, once authored and deployed, first need to be trained with sample baseline operating data, then \"fueled\" with actual operating data to become effectively smarter and better at their tasks."
+    },
+    {
+      "self_ref": "#/texts/33",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 437.41100000000046,
+            "r": 487.0159999999999,
+            "b": 423.700154375615,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            66
+          ]
+        }
+      ],
+      "orig": "Using AI to forecast ESP operational issues and potential failures",
+      "text": "Using AI to forecast ESP operational issues and potential failures",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/34",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84,
+            "t": 417.6570000000005,
+            "r": 561.6099999999998,
+            "b": 349.68463419483106,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            533
+          ]
+        }
+      ],
+      "orig": "Today's  ESP  diagnostic  systems  typically  use  two  ways  to  ascertain  operating  issues: physics-based modeling and expert modeling . In the former, mathematical equations describe the physical behavior of a process. Although this model can predict ESP behaviors accurately, the equations take a lot of expensive, highly skilled effort to develop. Also, it can be limited in its applicability across a fleet of similar systems operating with slightly varied parameters due to different environmental and geological conditions.",
+      "text": "Today's  ESP  diagnostic  systems  typically  use  two  ways  to  ascertain  operating  issues: physics-based modeling and expert modeling . In the former, mathematical equations describe the physical behavior of a process. Although this model can predict ESP behaviors accurately, the equations take a lot of expensive, highly skilled effort to develop. Also, it can be limited in its applicability across a fleet of similar systems operating with slightly varied parameters due to different environmental and geological conditions."
+    },
+    {
+      "self_ref": "#/texts/35",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 345.6450000000001,
+            "r": 561.6359999999996,
+            "b": 292.08463419483115,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            413
+          ]
+        }
+      ],
+      "orig": "The latter - expert modeling - costs less to develop because its analytical model doesn't require as sophisticated skills as physics-based modeling. Its results are also more easily interpreted. But it has the disadvantage of having expert biases built-in, so that it tends to discover known anomalies in equipment behaviors, overlooking unknown ones that can still disrupt an ESP's operation or cause it to fail.",
+      "text": "The latter - expert modeling - costs less to develop because its analytical model doesn't require as sophisticated skills as physics-based modeling. Its results are also more easily interpreted. But it has the disadvantage of having expert biases built-in, so that it tends to discover known anomalies in equipment behaviors, overlooking unknown ones that can still disrupt an ESP's operation or cause it to fail."
+    },
+    {
+      "self_ref": "#/texts/36",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 288.0450000000002,
+            "r": 561.6479999999999,
+            "b": 234.4846341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            339
+          ]
+        }
+      ],
+      "orig": "This is where ML comes into play. It starts with a programmed neural network model, then uses historical equipment data to teach the model how a system and its constituent parts should behave in terms of the system's as-designed and as-tested operating parameters. In effect, the more data that is processed, the smarter the model becomes.",
+      "text": "This is where ML comes into play. It starts with a programmed neural network model, then uses historical equipment data to teach the model how a system and its constituent parts should behave in terms of the system's as-designed and as-tested operating parameters. In effect, the more data that is processed, the smarter the model becomes."
+    },
+    {
+      "self_ref": "#/texts/37",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 230.44500000000016,
+            "r": 561.6599999999999,
+            "b": 162.4846341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            431
+          ]
+        }
+      ],
+      "orig": "ML enables complex systems to be modeled with relative ease, and the models can then recognize new phenomena in a particular set of data. One challenge, however, is that the complexity of a neural network model can make its analytical results difficult to interpret. But other process industries have worked that issue out, and the analytics have proven adaptable to monitoring ESP operations, as they were in the subject use case.",
+      "text": "ML enables complex systems to be modeled with relative ease, and the models can then recognize new phenomena in a particular set of data. One challenge, however, is that the complexity of a neural network model can make its analytical results difficult to interpret. But other process industries have worked that issue out, and the analytics have proven adaptable to monitoring ESP operations, as they were in the subject use case."
+    },
+    {
+      "self_ref": "#/texts/38",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 158.44500000000016,
+            "r": 561.6600000000002,
+            "b": 104.88463419483116,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            355
+          ]
+        }
+      ],
+      "orig": "Another big challenge with an ML-based monitoring and diagnostics model is that it requires a data training set, which needs significant time and effort to prepare. That's because this depends on having highquality process data available to teach the model the dynamic, relational interactions among multiple process variables within the monitored system.",
+      "text": "Another big challenge with an ML-based monitoring and diagnostics model is that it requires a data training set, which needs significant time and effort to prepare. That's because this depends on having highquality process data available to teach the model the dynamic, relational interactions among multiple process variables within the monitored system."
+    },
+    {
+      "self_ref": "#/texts/39",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 100.84500000000014,
+            "r": 561.6959999999997,
+            "b": 47.28463419483114,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            430
+          ]
+        },
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 725.076,
+            "r": 561.6479999999998,
+            "b": 700.3156341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            431,
+            543
+          ]
+        }
+      ],
+      "orig": "Nonetheless, once the ML model has learned the normal behavioral relations across all of the varied parameters of a system, such as an ESP, it can start comparing massive amounts of system data to its baseline data set in near real time. Using pattern recognition, it can uncover any anomalous relationships that emerge in a system's operation. It can then analyze those differences and provide the probabilities of how the system might behave in the future, much like meteorologists use percentage probabilities to predict tomorrow's weather.",
+      "text": "Nonetheless, once the ML model has learned the normal behavioral relations across all of the varied parameters of a system, such as an ESP, it can start comparing massive amounts of system data to its baseline data set in near real time. Using pattern recognition, it can uncover any anomalous relationships that emerge in a system's operation. It can then analyze those differences and provide the probabilities of how the system might behave in the future, much like meteorologists use percentage probabilities to predict tomorrow's weather."
+    },
+    {
+      "self_ref": "#/texts/40",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 54.848,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "4",
+      "text": "4"
+    },
+    {
+      "self_ref": "#/texts/41",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 505.168,
+            "t": 756.8330000000001,
+            "r": 561.5999999999998,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/42",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 696.2760000000001,
+            "r": 561.576,
+            "b": 642.7156341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            402
+          ]
+        }
+      ],
+      "orig": "Several caveats are in order with this description of ML-based monitoring and diagnostics models. First, operators  must  have  ways  to  effectively  manage  vast  amounts  of  process  data.  Second,  to  ensure  data integrity, proper data structuring is critical. Third, data availability and its time synchronization are important to ensure the fidelity of the data as input to the ML-based model.",
+      "text": "Several caveats are in order with this description of ML-based monitoring and diagnostics models. First, operators  must  have  ways  to  effectively  manage  vast  amounts  of  process  data.  Second,  to  ensure  data integrity, proper data structuring is critical. Third, data availability and its time synchronization are important to ensure the fidelity of the data as input to the ML-based model."
+    },
+    {
+      "self_ref": "#/texts/43",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 638.6760000000002,
+            "r": 561.6359999999999,
+            "b": 556.3156341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            581
+          ]
+        }
+      ],
+      "orig": "Notably,  especially  in  offshore  E&P  applications,  ML-based  models  are  typically  based  in  cloud platforms where the advanced analytics software resides and does its work. Data in motion is encrypted and transmitted via IoT connectivity, either via wired or wireless media. Public cloud platforms can be as secure or more secure than on-premise facilities. They also offer pay-as-you-go subscriptions that conserve capital and, importantly, time. Building an on-premise infrastructure can take months, while turning up a cloud-based solution can be done in hours or days.",
+      "text": "Notably,  especially  in  offshore  E&P  applications,  ML-based  models  are  typically  based  in  cloud platforms where the advanced analytics software resides and does its work. Data in motion is encrypted and transmitted via IoT connectivity, either via wired or wireless media. Public cloud platforms can be as secure or more secure than on-premise facilities. They also offer pay-as-you-go subscriptions that conserve capital and, importantly, time. Building an on-premise infrastructure can take months, while turning up a cloud-based solution can be done in hours or days."
+    },
+    {
+      "self_ref": "#/texts/44",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 538.2110000000004,
+            "r": 501.8139999999999,
+            "b": 524.5001543756149,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            63
+          ]
+        }
+      ],
+      "orig": "How ML was deployed for a predictive maintenance model for ESPs",
+      "text": "How ML was deployed for a predictive maintenance model for ESPs",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/45",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 518.4690000000004,
+            "r": 561.6479999999999,
+            "b": 450.5086341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            444
+          ]
+        }
+      ],
+      "orig": "In  the  subject  use  case  proof-of-concept  and  later  pilot,  ML  was  employed  to  develop  a  probabilistic, predictive maintenance model that was implemented on an IoT-based cloud platform for a fleet of 30 ESPs operating in an onshore oil field at various depths. The ESP pumps varied from 200-500 kW in power, driven from an above-ground variable frequency drive (VFD) with a medium-voltage input drawn from a local electric utility.",
+      "text": "In  the  subject  use  case  proof-of-concept  and  later  pilot,  ML  was  employed  to  develop  a  probabilistic, predictive maintenance model that was implemented on an IoT-based cloud platform for a fleet of 30 ESPs operating in an onshore oil field at various depths. The ESP pumps varied from 200-500 kW in power, driven from an above-ground variable frequency drive (VFD) with a medium-voltage input drawn from a local electric utility."
+    },
+    {
+      "self_ref": "#/texts/46",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 64.80000000000004,
+            "t": 446.4690000000005,
+            "r": 381.36000000000007,
+            "b": 436.108634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            67
+          ]
+        }
+      ],
+      "orig": "In Figure 1 below, the overall architecture of the system is shown.",
+      "text": "In Figure 1 below, the overall architecture of the system is shown."
+    },
+    {
+      "self_ref": "#/texts/47",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 97.1,
+            "t": 162.135,
+            "r": 516.3399999999996,
+            "b": 135.10023107177972,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            315
+          ]
+        }
+      ],
+      "orig": "Figure 1-The ESP-monitoring system architecture. Shown ae each of the key components and the main data flow required to establish secure connectivity between the physical ESP system and the cloud-based, artificial intelligence/machine-learning system that supports the predictive, condition-based maintenance model.",
+      "text": "Figure 1-The ESP-monitoring system architecture. Shown ae each of the key components and the main data flow required to establish secure connectivity between the physical ESP system and the cloud-based, artificial intelligence/machine-learning system that supports the predictive, condition-based maintenance model."
+    },
+    {
+      "self_ref": "#/texts/48",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 132.66666666666669,
+            "t": 406.6666666666667,
+            "r": 168.66666666666669,
+            "b": 397.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "ESP PUMP",
+      "text": "ESP PUMP"
+    },
+    {
+      "self_ref": "#/texts/49",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 268.66666666666663,
+            "t": 406.6666666666667,
+            "r": 322.3333333333333,
+            "b": 397.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "SCADA SYSTEM",
+      "text": "SCADA SYSTEM"
+    },
+    {
+      "self_ref": "#/texts/50",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 436.3333333333333,
+            "t": 405.6666666666667,
+            "r": 490.0,
+            "b": 396.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            14
+          ]
+        }
+      ],
+      "orig": "AI APPLICATION",
+      "text": "AI APPLICATION"
+    },
+    {
+      "self_ref": "#/texts/51",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 137.66666666666669,
+            "t": 397.6666666666667,
+            "r": 164.33333333333331,
+            "b": 388.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "Oil field",
+      "text": "Oil field"
+    },
+    {
+      "self_ref": "#/texts/52",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 260.66666666666663,
+            "t": 397.3333333333333,
+            "r": 330.0,
+            "b": 388.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            20
+          ]
+        }
+      ],
+      "orig": "Central control Room",
+      "text": "Central control Room"
+    },
+    {
+      "self_ref": "#/texts/53",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 428.3333333333333,
+            "t": 397.3333333333333,
+            "r": 497.6666666666667,
+            "b": 387.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "Public cloud platform",
+      "text": "Public cloud platform"
+    },
+    {
+      "self_ref": "#/texts/54",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 337.3333333333333,
+            "t": 349.6666666666667,
+            "r": 383.6666666666667,
+            "b": 342.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            14
+          ]
+        }
+      ],
+      "orig": "REAL TIME DATA",
+      "text": "REAL TIME DATA"
+    },
+    {
+      "self_ref": "#/texts/55",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 337.3333333333333,
+            "t": 342.3333333333333,
+            "r": 395.0,
+            "b": 334.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "CLOUD CONNECTION",
+      "text": "CLOUD CONNECTION"
+    },
+    {
+      "self_ref": "#/texts/56",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 180.66666666666669,
+            "t": 332.6666666666667,
+            "r": 197.66666666666666,
+            "b": 325.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "FIELD",
+      "text": "FIELD"
+    },
+    {
+      "self_ref": "#/texts/57",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 180.66666666666669,
+            "t": 325.3333333333333,
+            "r": 228.33333333333334,
+            "b": 317.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "COMMUNICATION",
+      "text": "COMMUNICATION"
+    },
+    {
+      "self_ref": "#/texts/58",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 456.3333333333333,
+            "t": 306.0,
+            "r": 477.0,
+            "b": 298.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "AI APP",
+      "text": "AI APP"
+    },
+    {
+      "self_ref": "#/texts/59",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 453.6666666666667,
+            "t": 298.0,
+            "r": 480.0,
+            "b": 291.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "MACHINE",
+      "text": "MACHINE"
+    },
+    {
+      "self_ref": "#/texts/60",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 452.0,
+            "t": 291.0,
+            "r": 481.3333333333333,
+            "b": 283.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "LEARNING",
+      "text": "LEARNING"
+    },
+    {
+      "self_ref": "#/texts/61",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 282.33333333333337,
+            "t": 272.66666666666663,
+            "r": 308.33333333333337,
+            "b": 263.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "SCADA",
+      "text": "SCADA"
+    },
+    {
+      "self_ref": "#/texts/62",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 277.0,
+            "t": 264.0,
+            "r": 314.0,
+            "b": 254.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "HISTORIAN",
+      "text": "HISTORIAN"
+    },
+    {
+      "self_ref": "#/texts/63",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 463.6666666666667,
+            "t": 263.66666666666663,
+            "r": 472.6666666666667,
+            "b": 254.66666666666663,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "AI",
+      "text": "AI"
+    },
+    {
+      "self_ref": "#/texts/64",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 455.0,
+            "t": 256.0,
+            "r": 481.0,
+            "b": 244.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Training",
+      "text": "Training"
+    },
+    {
+      "self_ref": "#/texts/65",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 461.0,
+            "t": 246.33333333333337,
+            "r": 475.3333333333333,
+            "b": 236.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "Set",
+      "text": "Set"
+    },
+    {
+      "self_ref": "#/texts/66",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 64.79999999999998,
+            "t": 118.19000000000005,
+            "r": 315.85200000000003,
+            "b": 107.82963419483099,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            51
+          ]
+        }
+      ],
+      "orig": "Following are brief descriptions of each component:",
+      "text": "Following are brief descriptions of each component:"
+    },
+    {
+      "self_ref": "#/texts/67",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 68.84699999999998,
+            "t": 95.28700000000003,
+            "r": 561.627,
+            "b": 56.12663419483101,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            241
+          ]
+        }
+      ],
+      "orig": "■ ESP: Each ESP operated with below-ground instrumentation to monitor pump parameters. VFD instrumentation also gathered data inputs from the pumps along with other well-site instrumentation used to monitor additional operational parameters.",
+      "text": "■ ESP: Each ESP operated with below-ground instrumentation to monitor pump parameters. VFD instrumentation also gathered data inputs from the pumps along with other well-site instrumentation used to monitor additional operational parameters.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/68",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 106.83200000000005,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/69",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 557.152,
+            "t": 756.8330000000001,
+            "r": 561.6,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "5",
+      "text": "5"
+    },
+    {
+      "self_ref": "#/texts/70",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 68.84700000000004,
+            "t": 725.076,
+            "r": 561.558,
+            "b": 700.315634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            183
+          ]
+        }
+      ],
+      "orig": "■ SCADA system: A centralized SCADA system linked the ESPs, providing supervisory and control of the fleet's pumps. The system fed the process data to a high-speed historian database.",
+      "text": "■ SCADA system: A centralized SCADA system linked the ESPs, providing supervisory and control of the fleet's pumps. The system fed the process data to a high-speed historian database.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/71",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 68.84700000000001,
+            "t": 696.276,
+            "r": 561.6389999999998,
+            "b": 671.515634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            164
+          ]
+        }
+      ],
+      "orig": "■ Fiber-optic  network: The  SCADA  system  was  permanently  connected  to  the  distributed  ESP systems via a high-availability, high-speed, fiber-optic network.",
+      "text": "■ Fiber-optic  network: The  SCADA  system  was  permanently  connected  to  the  distributed  ESP systems via a high-availability, high-speed, fiber-optic network.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/72",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 68.84700000000001,
+            "t": 667.476,
+            "r": 561.651,
+            "b": 613.9156341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            371
+          ]
+        }
+      ],
+      "orig": "■ Monitoring application: The ML-based monitoring application was developed with the TensorFlow ML open-source  software  library.  By  enabling  data-flow  programming  across  a  range  of  tasks, developers use it for building ML applications, such as what this project required. Programmed in Python, the application was deployed in an off-site public cloud platform.",
+      "text": "■ Monitoring application: The ML-based monitoring application was developed with the TensorFlow ML open-source  software  library.  By  enabling  data-flow  programming  across  a  range  of  tasks, developers use it for building ML applications, such as what this project required. Programmed in Python, the application was deployed in an off-site public cloud platform.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/73",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 68.84700000000001,
+            "t": 609.8760000000001,
+            "r": 561.651,
+            "b": 556.3156341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            304
+          ]
+        }
+      ],
+      "orig": "■ Predictive maintenance application: The web-based, predictive maintenance application was coded in HTML and deployed in the same public cloud as the monitoring application. As a standalone support system for the ESP experts, it has no features or functionally that are integrated with the SCADA system.",
+      "text": "■ Predictive maintenance application: The web-based, predictive maintenance application was coded in HTML and deployed in the same public cloud as the monitoring application. As a standalone support system for the ESP experts, it has no features or functionally that are integrated with the SCADA system.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/74",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 51.839999999999996,
+            "t": 543.7730000000001,
+            "r": 561.5540000000001,
+            "b": 519.012634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            168
+          ]
+        }
+      ],
+      "orig": "Figure 2 above is both a visual key for the following two types of process variables from which sensor data fueled the project's ML-based, predictive maintenance model:",
+      "text": "Figure 2 above is both a visual key for the following two types of process variables from which sensor data fueled the project's ML-based, predictive maintenance model:"
+    },
+    {
+      "self_ref": "#/texts/75",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 255.66666666666666,
+            "t": 488.3333333333333,
+            "r": 271.6666666666667,
+            "b": 475.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "P2",
+      "text": "P2"
+    },
+    {
+      "self_ref": "#/texts/76",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 253.66666666666666,
+            "t": 348.33333333333337,
+            "r": 270.6666666666667,
+            "b": 336.66666666666663,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "P3",
+      "text": "P3"
+    },
+    {
+      "self_ref": "#/texts/77",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 293.3333333333333,
+            "t": 348.33333333333337,
+            "r": 310.0,
+            "b": 336.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "T1",
+      "text": "T1"
+    },
+    {
+      "self_ref": "#/texts/78",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 294.3333333333333,
+            "t": 294.66666666666663,
+            "r": 311.0,
+            "b": 282.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "T2",
+      "text": "T2"
+    },
+    {
+      "self_ref": "#/texts/79",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 222.556,
+            "t": 222.95900000000006,
+            "r": 390.88399999999984,
+            "b": 215.12423107177972,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            41
+          ]
+        }
+      ],
+      "orig": "Figure 2-ESP monitored process variables.",
+      "text": "Figure 2-ESP monitored process variables."
+    },
+    {
+      "self_ref": "#/texts/80",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 51.84,
+            "t": 198.30999999999995,
+            "r": 142.32000000000002,
+            "b": 187.99442536585366,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            17
+          ]
+        }
+      ],
+      "orig": "Surface Variables",
+      "text": "Surface Variables",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/81",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 54.848,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "6",
+      "text": "6"
+    },
+    {
+      "self_ref": "#/texts/82",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 505.168,
+            "t": 756.8330000000001,
+            "r": 561.5999999999998,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/83",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 725.172,
+            "r": 166.33200000000005,
+            "b": 714.8564253658537,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "Sub-Surface Variables",
+      "text": "Sub-Surface Variables",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/84",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84,
+            "t": 621.192,
+            "r": 561.4919999999998,
+            "b": 596.4316341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            207
+          ]
+        }
+      ],
+      "orig": "A polling feature in the central SCADA system sampled the process variables at 5 to 10 second intervals, continuously updating their values in an historian database with a store-on-change compression method.",
+      "text": "A polling feature in the central SCADA system sampled the process variables at 5 to 10 second intervals, continuously updating their values in an historian database with a store-on-change compression method."
+    },
+    {
+      "self_ref": "#/texts/85",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84,
+            "t": 578.3270000000001,
+            "r": 313.73799999999983,
+            "b": 564.6161543756147,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            40
+          ]
+        }
+      ],
+      "orig": "Preparing the baseline training data set",
+      "text": "Preparing the baseline training data set",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/86",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84,
+            "t": 558.585,
+            "r": 561.6239999999999,
+            "b": 505.02463419483115,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            396
+          ]
+        }
+      ],
+      "orig": "In order to develop a common operating model of the complex ESP systems used in this project, sufficient high-quality data were required over enough of a time period to reasonably represent an ESP's typical operation.  In  addition,  process  data  drawn  from  the  SCADA  historian  database  was  examined  to  find extended periods of high-quality data without significant data discrepancies.",
+      "text": "In order to develop a common operating model of the complex ESP systems used in this project, sufficient high-quality data were required over enough of a time period to reasonably represent an ESP's typical operation.  In  addition,  process  data  drawn  from  the  SCADA  historian  database  was  examined  to  find extended periods of high-quality data without significant data discrepancies."
+    },
+    {
+      "self_ref": "#/texts/87",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 500.9850000000002,
+            "r": 561.6359999999996,
+            "b": 447.42463419483124,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            340
+          ]
+        }
+      ],
+      "orig": "After  extracting  these  data  sets,  the  project's  data  scientists  conducted  manual  data  cleansing  and evaluation, resulting in an optimized, baseline training data set for the ML predictive maintenance model. It represented a one-year period of ESP operation that the project could use as representative of normal ESP operations.",
+      "text": "After  extracting  these  data  sets,  the  project's  data  scientists  conducted  manual  data  cleansing  and evaluation, resulting in an optimized, baseline training data set for the ML predictive maintenance model. It represented a one-year period of ESP operation that the project could use as representative of normal ESP operations."
+    },
+    {
+      "self_ref": "#/texts/88",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 443.3850000000003,
+            "r": 561.6599999999996,
+            "b": 375.42463419483136,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            451
+          ]
+        }
+      ],
+      "orig": "However, across the ESP fleet of 30 pumps, numerous variants existed among the process variables used for a particular ESP type. So, ESP types with similar process variables were grouped together to minimize the number of ESP variant groups. This way, the data scientists could further refine the fleet's training data set, using it as the basis for creating training data sets for each ESP variant group, providing its own baseline operational model.",
+      "text": "However, across the ESP fleet of 30 pumps, numerous variants existed among the process variables used for a particular ESP type. So, ESP types with similar process variables were grouped together to minimize the number of ESP variant groups. This way, the data scientists could further refine the fleet's training data set, using it as the basis for creating training data sets for each ESP variant group, providing its own baseline operational model."
+    },
+    {
+      "self_ref": "#/texts/89",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 371.3850000000004,
+            "r": 561.6479999999999,
+            "b": 332.2246341948314,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            268
+          ]
+        }
+      ],
+      "orig": "The last step in this preparatory phase of the project was to develop a generic, multi-layer, neural network with the ML monitoring application, then apply the different training sets to train each of the neural networks corresponding to their ESP variant counterpart.",
+      "text": "The last step in this preparatory phase of the project was to develop a generic, multi-layer, neural network with the ML monitoring application, then apply the different training sets to train each of the neural networks corresponding to their ESP variant counterpart."
+    },
+    {
+      "self_ref": "#/texts/90",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 314.1200000000004,
+            "r": 337.77599999999984,
+            "b": 300.40915437561495,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "Using historical data for a proof of concept",
+      "text": "Using historical data for a proof of concept",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/91",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 294.37800000000044,
+            "r": 561.66,
+            "b": 240.8176341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            352
+          ]
+        }
+      ],
+      "orig": "Although the project's hypothesized that a ML-based, probabilistic predictive maintenance model for a sizeable ESP fleet was possible, the first step was to prove the concept. Verification of how well the ML variant models predicted operational issues was needed, tested against actual known historical results drawn from each ESP's physical operation.",
+      "text": "Although the project's hypothesized that a ML-based, probabilistic predictive maintenance model for a sizeable ESP fleet was possible, the first step was to prove the concept. Verification of how well the ML variant models predicted operational issues was needed, tested against actual known historical results drawn from each ESP's physical operation."
+    },
+    {
+      "self_ref": "#/texts/92",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 236.77800000000047,
+            "r": 561.6719999999998,
+            "b": 168.8176341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            437
+          ]
+        }
+      ],
+      "orig": "For this important validation, data pulled from the SCADA historian database for identical periods of an ESP's operations was used. It included normal operating data as well as data associated with ESP failures. That became the data source input to the ML-based model, which was expected to conduct analytics on the data, so that time periods of normal ESP operation could be distinguished from time periods with anomalous ESP behaviors.",
+      "text": "For this important validation, data pulled from the SCADA historian database for identical periods of an ESP's operations was used. It included normal operating data as well as data associated with ESP failures. That became the data source input to the ML-based model, which was expected to conduct analytics on the data, so that time periods of normal ESP operation could be distinguished from time periods with anomalous ESP behaviors."
+    },
+    {
+      "self_ref": "#/texts/93",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 164.77800000000047,
+            "r": 561.6239999999997,
+            "b": 111.21763419483148,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            327
+          ]
+        }
+      ],
+      "orig": "This way, the ML-based model's detection of anomalies and predictions of ESP behaviors could then be verified against actual ESP operating events, shown by the historical data. ESP events could also be verified from information gleaned from the entries in operator logs as well as expert systems that record ESP failure events.",
+      "text": "This way, the ML-based model's detection of anomalies and predictions of ESP behaviors could then be verified against actual ESP operating events, shown by the historical data. ESP events could also be verified from information gleaned from the entries in operator logs as well as expert systems that record ESP failure events."
+    },
+    {
+      "self_ref": "#/texts/94",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 107.17800000000045,
+            "r": 561.6599999999999,
+            "b": 53.61763419483145,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            407
+          ]
+        }
+      ],
+      "orig": "Once the ML-based model began processing the unfiltered historical data of the ESP fleet's variant groups, it showed that it could differentiate normal and abnormal behaviors over comparable time periods. In fact, the ML-based model accurately predicted abnormal behavior in the unfiltered historical data. This was validated by comparing its predictions against the the historical records of the ESP fleet.",
+      "text": "Once the ML-based model began processing the unfiltered historical data of the ESP fleet's variant groups, it showed that it could differentiate normal and abnormal behaviors over comparable time periods. In fact, the ML-based model accurately predicted abnormal behavior in the unfiltered historical data. This was validated by comparing its predictions against the the historical records of the ESP fleet."
+    },
+    {
+      "self_ref": "#/texts/95",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 106.83200000000005,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/96",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 557.152,
+            "t": 756.8330000000001,
+            "r": 561.6,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "7",
+      "text": "7"
+    },
+    {
+      "self_ref": "#/texts/97",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000007,
+            "t": 725.076,
+            "r": 561.6119999999999,
+            "b": 685.903634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            280
+          ]
+        }
+      ],
+      "orig": "Numerous experiments were done with the ML-model by using the same historical data as input and then adjusting different tuning parameters of the monitoring application that employed the ML technology. One of the key parameters tested this way was an anomaly threshold parameter .",
+      "text": "Numerous experiments were done with the ML-model by using the same historical data as input and then adjusting different tuning parameters of the monitoring application that employed the ML technology. One of the key parameters tested this way was an anomaly threshold parameter ."
+    },
+    {
+      "self_ref": "#/texts/98",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000007,
+            "t": 681.864,
+            "r": 561.6719999999998,
+            "b": 628.3036341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            338
+          ]
+        }
+      ],
+      "orig": "The anomaly threshold parameter, shown as a percentage value, is a cumulative indication across all process variables of the probability that the ML-based model will predict an anomaly. The test of this parameter was to determine its relative effect on the timing and accuracy of the model's advance notification for any specific anomaly.",
+      "text": "The anomaly threshold parameter, shown as a percentage value, is a cumulative indication across all process variables of the probability that the ML-based model will predict an anomaly. The test of this parameter was to determine its relative effect on the timing and accuracy of the model's advance notification for any specific anomaly."
+    },
+    {
+      "self_ref": "#/texts/99",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000007,
+            "t": 624.2640000000001,
+            "r": 561.6599999999999,
+            "b": 585.1036341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            297
+          ]
+        }
+      ],
+      "orig": "Indeed, the anomaly threshold parameter did impact the accuracy and timing of the predictions. When set to a high value, such as greater than 80 percent, the ML-based model would accurately predict anomalies before an ESP's failure inside short notification periods, usually in the range of hours.",
+      "text": "Indeed, the anomaly threshold parameter did impact the accuracy and timing of the predictions. When set to a high value, such as greater than 80 percent, the ML-based model would accurately predict anomalies before an ESP's failure inside short notification periods, usually in the range of hours."
+    },
+    {
+      "self_ref": "#/texts/100",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000007,
+            "t": 581.0640000000002,
+            "r": 561.6120000000001,
+            "b": 541.9036341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            232
+          ]
+        }
+      ],
+      "orig": "Conversely, if the anomaly threshold was set to a lower value, such as less than 40 percent, the MLbased model would still accurately detect data anomalies but within a much earlier notification period, in the range of several days.",
+      "text": "Conversely, if the anomaly threshold was set to a lower value, such as less than 40 percent, the MLbased model would still accurately detect data anomalies but within a much earlier notification period, in the range of several days."
+    },
+    {
+      "self_ref": "#/texts/101",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000007,
+            "t": 537.8640000000003,
+            "r": 561.684,
+            "b": 484.3036341948314,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            335
+          ]
+        }
+      ],
+      "orig": "Obviously, the longer notification period associated with setting the anomaly threshold parameter to a lower value can provide an ESP operator more time to decide on mitigation measures. But the disadvantage is that the ML-based model becomes more sensitive to smaller changes in the data, making it prone to false anomaly predictions.",
+      "text": "Obviously, the longer notification period associated with setting the anomaly threshold parameter to a lower value can provide an ESP operator more time to decide on mitigation measures. But the disadvantage is that the ML-based model becomes more sensitive to smaller changes in the data, making it prone to false anomaly predictions."
+    },
+    {
+      "self_ref": "#/texts/102",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.839999999999975,
+            "t": 480.2640000000004,
+            "r": 561.6359999999997,
+            "b": 426.691634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            419
+          ]
+        }
+      ],
+      "orig": "Fortunately, the model was able to be finely tuned to balance between providing early predictions with longer notification  periods  without  generating  large  numbers  of  false  anomaly  predictions.  In  one  test, the ML-based model discovered significant anomalies 12 days ahead of one ESP's failure. The predicted anomalies were carefully analyzed and verified with data from the failed ESP's historical records.",
+      "text": "Fortunately, the model was able to be finely tuned to balance between providing early predictions with longer notification  periods  without  generating  large  numbers  of  false  anomaly  predictions.  In  one  test, the ML-based model discovered significant anomalies 12 days ahead of one ESP's failure. The predicted anomalies were carefully analyzed and verified with data from the failed ESP's historical records."
+    },
+    {
+      "self_ref": "#/texts/103",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.83999999999998,
+            "t": 422.65200000000004,
+            "r": 561.6479999999997,
+            "b": 383.4916341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            252
+          ]
+        }
+      ],
+      "orig": "Given the outcomes of the ML-based model's performance in numerous tests conducted in controlled conditions, it proved the hypothesis that AI/ML technology can be usefully applied in the deployment of a practical, predictive maintenance model for ESPs.",
+      "text": "Given the outcomes of the ML-based model's performance in numerous tests conducted in controlled conditions, it proved the hypothesis that AI/ML technology can be usefully applied in the deployment of a practical, predictive maintenance model for ESPs."
+    },
+    {
+      "self_ref": "#/texts/104",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.83999999999998,
+            "t": 365.38700000000006,
+            "r": 343.20799999999997,
+            "b": 351.6761543756146,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            44
+          ]
+        }
+      ],
+      "orig": "Pilot phase, using real-time production data",
+      "text": "Pilot phase, using real-time production data",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/105",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.83999999999998,
+            "t": 345.6450000000001,
+            "r": 561.6000000000001,
+            "b": 292.084634194831,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            357
+          ]
+        }
+      ],
+      "orig": "After the successful proof of concept, the ESP fleet operator agreed to conduct a pilot project version of the ML-based, ESP predictive maintenance solution with anomaly detection. The goal was to test its deployment and performance in a production environment. The pilot was done using the same system architecture as the pilot and illustrated in Figure 1.",
+      "text": "After the successful proof of concept, the ESP fleet operator agreed to conduct a pilot project version of the ML-based, ESP predictive maintenance solution with anomaly detection. The goal was to test its deployment and performance in a production environment. The pilot was done using the same system architecture as the pilot and illustrated in Figure 1."
+    },
+    {
+      "self_ref": "#/texts/106",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 288.045,
+            "r": 561.6,
+            "b": 220.08463419483098,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            496
+          ]
+        }
+      ],
+      "orig": "In  the  pilot,  real-time  production  data  was  transmitted  directly  from  the  ESP  fleet's  central  SCADA system.  From  there,  it  fed  into  the  ML-based  predictive  maintenance  model  via  highly  secure  IoT connectivity to a public cloud platform where the analytics applications resided. The latter processes the ESP operating data as input, analyzing it in real-time to identify anomalous behaviors that could be mitigated or remediated by appropriate preventative maintenance.",
+      "text": "In  the  pilot,  real-time  production  data  was  transmitted  directly  from  the  ESP  fleet's  central  SCADA system.  From  there,  it  fed  into  the  ML-based  predictive  maintenance  model  via  highly  secure  IoT connectivity to a public cloud platform where the analytics applications resided. The latter processes the ESP operating data as input, analyzing it in real-time to identify anomalous behaviors that could be mitigated or remediated by appropriate preventative maintenance."
+    },
+    {
+      "self_ref": "#/texts/107",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 216.04499999999996,
+            "r": 561.6479999999998,
+            "b": 176.88463419483105,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            245
+          ]
+        }
+      ],
+      "orig": "The pilot project again verified the use of ML as the basis for an ESP predictive maintenance model. At that point, the ESP fleet operator deployed it as a supplementary expert system with no additional integration with the central SCADA system.",
+      "text": "The pilot project again verified the use of ML as the basis for an ESP predictive maintenance model. At that point, the ESP fleet operator deployed it as a supplementary expert system with no additional integration with the central SCADA system."
+    },
+    {
+      "self_ref": "#/texts/108",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 172.84500000000003,
+            "r": 561.5519999999999,
+            "b": 148.08463419483098,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            192
+          ]
+        }
+      ],
+      "orig": "In  the  model's  current  architecture  and  configuration,  ESP  operators  using  it  must  determine  the appropriate mitigation or remediation steps to take should an anomaly be detected.",
+      "text": "In  the  model's  current  architecture  and  configuration,  ESP  operators  using  it  must  determine  the appropriate mitigation or remediation steps to take should an anomaly be detected."
+    },
+    {
+      "self_ref": "#/texts/109",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 144.04499999999996,
+            "r": 561.5279999999999,
+            "b": 104.88463419483094,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            260
+          ]
+        }
+      ],
+      "orig": "Actions can range from an immediate shutdown to avoid a potential HSE catastrophe to taking advantage of the notification period to identify an anomaly's root cause or causes, then carefully manage the particular ESP until the next planned production shutdown.",
+      "text": "Actions can range from an immediate shutdown to avoid a potential HSE catastrophe to taking advantage of the notification period to identify an anomaly's root cause or causes, then carefully manage the particular ESP until the next planned production shutdown."
+    },
+    {
+      "self_ref": "#/texts/110",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 86.77999999999997,
+            "r": 374.21799999999996,
+            "b": 73.06915437561452,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            48
+          ]
+        }
+      ],
+      "orig": "Conclusion: AI, a powerful decision support tool",
+      "text": "Conclusion: AI, a powerful decision support tool",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/111",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 7,
+          "bbox": {
+            "l": 51.84000000000001,
+            "t": 67.03800000000001,
+            "r": 561.6239999999999,
+            "b": 42.277634194830966,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            210
+          ]
+        },
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 725.076,
+            "r": 561.5279999999999,
+            "b": 700.3156341948311,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            211,
+            407
+          ]
+        }
+      ],
+      "orig": "What this project has shown is that, in effect, AI can be incorporated into a ML-based predictive maintenance model, thereby providing valuable decision-support to human operators of ESPs. One advantage of this pilot project's architecture is that the anomaly detections can be validated easily and independently using diagnostic tools that are available from the central SCADA system connected to the ESPs.",
+      "text": "What this project has shown is that, in effect, AI can be incorporated into a ML-based predictive maintenance model, thereby providing valuable decision-support to human operators of ESPs. One advantage of this pilot project's architecture is that the anomaly detections can be validated easily and independently using diagnostic tools that are available from the central SCADA system connected to the ESPs."
+    },
+    {
+      "self_ref": "#/texts/112",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 50.4,
+            "t": 756.8330000000001,
+            "r": 54.848,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "8",
+      "text": "8"
+    },
+    {
+      "self_ref": "#/texts/113",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 505.168,
+            "t": 756.8330000000001,
+            "r": 561.5999999999998,
+            "b": 749.2689402985076,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "OTC-29384-MS",
+      "text": "OTC-29384-MS"
+    },
+    {
+      "self_ref": "#/texts/114",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 696.2760000000001,
+            "r": 561.6239999999998,
+            "b": 657.1156341948312,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            257
+          ]
+        }
+      ],
+      "orig": "Following  several  months  of  testing  the  ML-based  predictive  maintenance  solution  in  the  pilot deployment, the project team and the ESP fleet operator concluded that the system can detect multiple kinds of anomalies, even previously unknown ones.",
+      "text": "Following  several  months  of  testing  the  ML-based  predictive  maintenance  solution  in  the  pilot deployment, the project team and the ESP fleet operator concluded that the system can detect multiple kinds of anomalies, even previously unknown ones."
+    },
+    {
+      "self_ref": "#/texts/115",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 653.0760000000001,
+            "r": 561.624,
+            "b": 599.5156341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            377
+          ]
+        }
+      ],
+      "orig": "For example, while in the pilot testing period, the ML-based model predicted many anomalies with which the ESP operators were familiar. However, it also detected new, more complex, and previously unknown ones. That capability is a significant distinction between the ML-based model and both the physics-based modeling and expert modeling employed by other ESP diagnostic tools.",
+      "text": "For example, while in the pilot testing period, the ML-based model predicted many anomalies with which the ESP operators were familiar. However, it also detected new, more complex, and previously unknown ones. That capability is a significant distinction between the ML-based model and both the physics-based modeling and expert modeling employed by other ESP diagnostic tools."
+    },
+    {
+      "self_ref": "#/texts/116",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 595.4760000000002,
+            "r": 561.648,
+            "b": 556.3156341948313,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            262
+          ]
+        }
+      ],
+      "orig": "Although these new, unknown types of complex ESP operational anomalies were difficult to interpret as  to  their  root  causes,  they  could  still  have  led  to  ESP  performance  degradation  and  possible  failure nonetheless, if not mitigated or remediated.",
+      "text": "Although these new, unknown types of complex ESP operational anomalies were difficult to interpret as  to  their  root  causes,  they  could  still  have  led  to  ESP  performance  degradation  and  possible  failure nonetheless, if not mitigated or remediated."
+    },
+    {
+      "self_ref": "#/texts/117",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 552.2760000000003,
+            "r": 561.5639999999997,
+            "b": 498.7156341948314,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            381
+          ]
+        }
+      ],
+      "orig": "The  newly  discovered  anomalies  have  given  the  ESP  fleet  operator  fresh  insights  into  the  ongoing operation of these complex machines and now a record of those particular types of ESP operating behaviors. The operator also has a reason to investigate, find, and document their causes and develop appropriate mitigations or remediations should they occur in the future.",
+      "text": "The  newly  discovered  anomalies  have  given  the  ESP  fleet  operator  fresh  insights  into  the  ongoing operation of these complex machines and now a record of those particular types of ESP operating behaviors. The operator also has a reason to investigate, find, and document their causes and develop appropriate mitigations or remediations should they occur in the future."
+    },
+    {
+      "self_ref": "#/texts/118",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 494.67600000000044,
+            "r": 561.5399999999998,
+            "b": 455.5156341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            226
+          ]
+        }
+      ],
+      "orig": "Finally, the identification of previously unknown ESP operating anomalies itself further validates the use of AI/ML technology as a valuable analytical tool and the basis for a practical, predictive maintenance model for ESPs.",
+      "text": "Finally, the identification of previously unknown ESP operating anomalies itself further validates the use of AI/ML technology as a valuable analytical tool and the basis for a practical, predictive maintenance model for ESPs."
+    },
+    {
+      "self_ref": "#/texts/119",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000004,
+            "t": 437.41100000000046,
+            "r": 120.27200000000005,
+            "b": 423.700154375615,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Acronyms",
+      "text": "Acronyms",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/120",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 127.96100000000004,
+            "t": 420.5030000000005,
+            "r": 257.25600000000014,
+            "b": 410.1426341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            27
+          ]
+        }
+      ],
+      "orig": "AI: Artificial Intelligence",
+      "text": "AI: Artificial Intelligence"
+    },
+    {
+      "self_ref": "#/texts/121",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 115.98500000000003,
+            "t": 406.1030000000005,
+            "r": 278.3520000000001,
+            "b": 395.7426341948315,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "E&P: Exploration & Production",
+      "text": "E&P: Exploration & Production"
+    },
+    {
+      "self_ref": "#/texts/122",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 119.30900000000003,
+            "t": 391.70300000000054,
+            "r": 293.60400000000016,
+            "b": 381.34263419483153,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            32
+          ]
+        }
+      ],
+      "orig": "ESP: Electrical Submersible Pump",
+      "text": "ESP: Electrical Submersible Pump"
+    },
+    {
+      "self_ref": "#/texts/123",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 123.52100000000003,
+            "t": 377.30300000000057,
+            "r": 240.3720000000001,
+            "b": 366.94263419483156,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            23
+          ]
+        }
+      ],
+      "orig": "IoT: Internet of Things",
+      "text": "IoT: Internet of Things"
+    },
+    {
+      "self_ref": "#/texts/124",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 121.98500000000003,
+            "t": 362.9030000000006,
+            "r": 242.00400000000008,
+            "b": 352.5426341948316,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            20
+          ]
+        }
+      ],
+      "orig": "ML: Machine Learning",
+      "text": "ML: Machine Learning"
+    },
+    {
+      "self_ref": "#/texts/125",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 99.96500000000003,
+            "t": 348.5030000000006,
+            "r": 356.28000000000003,
+            "b": 338.1426341948316,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            47
+          ]
+        }
+      ],
+      "orig": "SCADA: Supervisory Control and Data Acquisition",
+      "text": "SCADA: Supervisory Control and Data Acquisition"
+    },
+    {
+      "self_ref": "#/texts/126",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 116.64500000000004,
+            "t": 334.10300000000063,
+            "r": 277.64400000000006,
+            "b": 323.7426341948316,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "VFD: Variable Frequency Drive",
+      "text": "VFD: Variable Frequency Drive"
+    },
+    {
+      "self_ref": "#/texts/127",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 51.84000000000003,
+            "t": 305.6380000000006,
+            "r": 127.30000000000008,
+            "b": 291.92715437561515,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "References",
+      "text": "References",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/128",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 80.18600000000004,
+            "t": 289.08400000000063,
+            "r": 561.58,
+            "b": 256.45036182902584,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            268
+          ]
+        }
+      ],
+      "orig": "Jansen van Rensburg, Nico. Usage of Artificial Intelligence to Reduce Operational Disruptions of ESPs by Implementing Predictive Maintenance. Presented at the Abu Dhabi International Petroleum Exhibition and Conference (ADIPEC) 2018, 11-14 November 2018. SPE-192610-MS",
+      "text": "Jansen van Rensburg, Nico. Usage of Artificial Intelligence to Reduce Operational Disruptions of ESPs by Implementing Predictive Maintenance. Presented at the Abu Dhabi International Petroleum Exhibition and Conference (ADIPEC) 2018, 11-14 November 2018. SPE-192610-MS"
+    },
+    {
+      "self_ref": "#/texts/129",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 8,
+          "bbox": {
+            "l": 80.186,
+            "t": 253.08400000000006,
+            "r": 561.5590000000001,
+            "b": 232.45036182902584,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            204
+          ]
+        }
+      ],
+      "orig": "Gruss,  Alec.  Artificial  Intelligence:  Steps  to  Transforming  Offshore  E&P  for  Vastly  Improved  Business  Outcomes. Presented at the Offshore Technology Conference (OTC) 2018. 30 April-3 May 2018",
+      "text": "Gruss,  Alec.  Artificial  Intelligence:  Steps  to  Transforming  Offshore  E&P  for  Vastly  Improved  Business  Outcomes. Presented at the Offshore Technology Conference (OTC) 2018. 30 April-3 May 2018"
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/11"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 495.5509948730469,
+            "t": 766.6782398223877,
+            "r": 558.57275390625,
+            "b": 702.9400939941406,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/47"
+        },
+        {
+          "$ref": "#/texts/48"
+        },
+        {
+          "$ref": "#/texts/49"
+        },
+        {
+          "$ref": "#/texts/50"
+        },
+        {
+          "$ref": "#/texts/51"
+        },
+        {
+          "$ref": "#/texts/52"
+        },
+        {
+          "$ref": "#/texts/53"
+        },
+        {
+          "$ref": "#/texts/54"
+        },
+        {
+          "$ref": "#/texts/55"
+        },
+        {
+          "$ref": "#/texts/56"
+        },
+        {
+          "$ref": "#/texts/57"
+        },
+        {
+          "$ref": "#/texts/58"
+        },
+        {
+          "$ref": "#/texts/59"
+        },
+        {
+          "$ref": "#/texts/60"
+        },
+        {
+          "$ref": "#/texts/61"
+        },
+        {
+          "$ref": "#/texts/62"
+        },
+        {
+          "$ref": "#/texts/63"
+        },
+        {
+          "$ref": "#/texts/64"
+        },
+        {
+          "$ref": "#/texts/65"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 74.64605712890625,
+            "t": 418.1247863769531,
+            "r": 538.0678100585938,
+            "b": 171.14593505859375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/47"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/75"
+        },
+        {
+          "$ref": "#/texts/76"
+        },
+        {
+          "$ref": "#/texts/77"
+        },
+        {
+          "$ref": "#/texts/78"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 215.10533142089844,
+            "t": 501.6688537597656,
+            "r": 397.3515319824219,
+            "b": 232.77874755859375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    }
+  ],
+  "tables": [
+    {
+      "self_ref": "#/tables/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "table",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 170.42886352539062,
+            "t": 167.3974609375,
+            "r": 441.48052978515625,
+            "b": 99.1524658203125,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "data": {
+        "table_cells": [
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 630.82,
+              "r": 186.677,
+              "b": 637.6970497560976,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 0,
+            "end_row_offset_idx": 1,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "P1:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 630.82,
+              "r": 284.75800000000004,
+              "b": 637.7269105367793,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 0,
+            "end_row_offset_idx": 1,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Annulus pressure",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 647.4200000000001,
+              "r": 186.677,
+              "b": 654.2970497560975,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 1,
+            "end_row_offset_idx": 2,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "P2:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 647.4200000000001,
+              "r": 303.17400000000004,
+              "b": 654.3269105367793,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 1,
+            "end_row_offset_idx": 2,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Production oil pressure",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 664.024,
+              "r": 183.125,
+              "b": 670.9010497560976,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 2,
+            "end_row_offset_idx": 3,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "E:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 664.028,
+              "r": 369.19800000000004,
+              "b": 670.9349105367793,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 2,
+            "end_row_offset_idx": 3,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Electrical motor current (measured at VFD)",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 680.632,
+              "r": 182.245,
+              "b": 687.5090497560975,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 3,
+            "end_row_offset_idx": 4,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "S:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 680.636,
+              "r": 333.07800000000003,
+              "b": 687.5429105367793,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 3,
+            "end_row_offset_idx": 4,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Motor speed (measured at VFD)",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          }
+        ],
+        "num_rows": 4,
+        "num_cols": 2,
+        "orientation": "rot_0",
+        "grid": [
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 630.82,
+                "r": 186.677,
+                "b": 637.6970497560976,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 0,
+              "end_row_offset_idx": 1,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "P1:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 630.82,
+                "r": 284.75800000000004,
+                "b": 637.7269105367793,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 0,
+              "end_row_offset_idx": 1,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Annulus pressure",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 647.4200000000001,
+                "r": 186.677,
+                "b": 654.2970497560975,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 1,
+              "end_row_offset_idx": 2,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "P2:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 647.4200000000001,
+                "r": 303.17400000000004,
+                "b": 654.3269105367793,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 1,
+              "end_row_offset_idx": 2,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Production oil pressure",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 664.024,
+                "r": 183.125,
+                "b": 670.9010497560976,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 2,
+              "end_row_offset_idx": 3,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "E:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 664.028,
+                "r": 369.19800000000004,
+                "b": 670.9349105367793,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 2,
+              "end_row_offset_idx": 3,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Electrical motor current (measured at VFD)",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 680.632,
+                "r": 182.245,
+                "b": 687.5090497560975,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 3,
+              "end_row_offset_idx": 4,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "S:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 680.636,
+                "r": 333.07800000000003,
+                "b": 687.5429105367793,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 3,
+              "end_row_offset_idx": 4,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Motor speed (measured at VFD)",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ]
+        ]
+      },
+      "annotations": []
+    },
+    {
+      "self_ref": "#/tables/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "table",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 170.4545440673828,
+            "t": 694.1034317016602,
+            "r": 441.6640319824219,
+            "b": 642.3997192382812,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "data": {
+        "table_cells": [
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 103.95799999999997,
+              "r": 186.677,
+              "b": 110.83504975609753,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 0,
+            "end_row_offset_idx": 1,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "P3:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 103.95799999999997,
+              "r": 310.702,
+              "b": 110.86491053677935,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 0,
+            "end_row_offset_idx": 1,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Inlet oil pressure at pump",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 120.55799999999999,
+              "r": 187.125,
+              "b": 127.43504975609756,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 1,
+            "end_row_offset_idx": 2,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "T1:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 120.55799999999999,
+              "r": 322.21399999999994,
+              "b": 127.46491053677937,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 1,
+            "end_row_offset_idx": 2,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Inlet oil temperature at pump",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 175.133,
+              "t": 137.1579999999999,
+              "r": 187.125,
+              "b": 144.03504975609746,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 2,
+            "end_row_offset_idx": 3,
+            "start_col_offset_idx": 0,
+            "end_col_offset_idx": 1,
+            "text": "T2:",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          },
+          {
+            "bbox": {
+              "l": 229.014,
+              "t": 137.1579999999999,
+              "r": 308.92599999999993,
+              "b": 144.06491053677928,
+              "coord_origin": "TOPLEFT"
+            },
+            "row_span": 1,
+            "col_span": 1,
+            "start_row_offset_idx": 2,
+            "end_row_offset_idx": 3,
+            "start_col_offset_idx": 1,
+            "end_col_offset_idx": 2,
+            "text": "Pump motor temperature",
+            "column_header": false,
+            "row_header": false,
+            "row_section": false,
+            "fillable": false
+          }
+        ],
+        "num_rows": 3,
+        "num_cols": 2,
+        "orientation": "rot_0",
+        "grid": [
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 103.95799999999997,
+                "r": 186.677,
+                "b": 110.83504975609753,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 0,
+              "end_row_offset_idx": 1,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "P3:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 103.95799999999997,
+                "r": 310.702,
+                "b": 110.86491053677935,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 0,
+              "end_row_offset_idx": 1,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Inlet oil pressure at pump",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 120.55799999999999,
+                "r": 187.125,
+                "b": 127.43504975609756,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 1,
+              "end_row_offset_idx": 2,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "T1:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 120.55799999999999,
+                "r": 322.21399999999994,
+                "b": 127.46491053677937,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 1,
+              "end_row_offset_idx": 2,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Inlet oil temperature at pump",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ],
+          [
+            {
+              "bbox": {
+                "l": 175.133,
+                "t": 137.1579999999999,
+                "r": 187.125,
+                "b": 144.03504975609746,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 2,
+              "end_row_offset_idx": 3,
+              "start_col_offset_idx": 0,
+              "end_col_offset_idx": 1,
+              "text": "T2:",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            },
+            {
+              "bbox": {
+                "l": 229.014,
+                "t": 137.1579999999999,
+                "r": 308.92599999999993,
+                "b": 144.06491053677928,
+                "coord_origin": "TOPLEFT"
+              },
+              "row_span": 1,
+              "col_span": 1,
+              "start_row_offset_idx": 2,
+              "end_row_offset_idx": 3,
+              "start_col_offset_idx": 1,
+              "end_col_offset_idx": 2,
+              "text": "Pump motor temperature",
+              "column_header": false,
+              "row_header": false,
+              "row_section": false,
+              "fillable": false
+            }
+          ]
+        ]
+      },
+      "annotations": []
+    }
+  ],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 2
+    },
+    "3": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 3
+    },
+    "4": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 4
+    },
+    "5": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 5
+    },
+    "6": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 6
+    },
+    "7": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 7
+    },
+    "8": {
+      "size": {
+        "width": 612.0,
+        "height": 792.0
+      },
+      "page_no": 8
+    }
+  }
+}

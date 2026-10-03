@@ -1,0 +1,336 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Amps",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nDischarge Pressure,Increase\r\nAmps,Decrease\r\nMotor Temperature,Increase\r\nWellhead Pressure,Decrease\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Parameter.Amps",
+      "Trend.Increase"
+    ],
+    "rows": [
+      {
+        "Parameter.Amps": "Frequency",
+        "Trend.Increase": "Remains Low"
+      }
+    ],
+    "csv": "Parameter.Amps,Trend.Increase\r\nFrequency,Remains Low\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nDischarge Pressure,Decrease\r\nWellhead Pressure,Decrease\r\nMotor Temperature,Increase\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Amps",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nAmps,Decrease\r\nDischarge Pressure,Decrease\r\nWellhead Pressure,Decrease\r\nMotor Temperature,Increase\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Parameter",
+      "Before",
+      "After"
+    ],
+    "rows": [
+      {
+        "Parameter": "Freq",
+        "Before": "53",
+        "After": "56"
+      },
+      {
+        "Parameter": "Amps",
+        "Before": "42",
+        "After": "41"
+      },
+      {
+        "Parameter": "Pi",
+        "Before": "2408",
+        "After": "2507"
+      },
+      {
+        "Parameter": "Pd",
+        "Before": "3200",
+        "After": "2865"
+      },
+      {
+        "Parameter": "Tm",
+        "Before": "282",
+        "After": "284"
+      },
+      {
+        "Parameter": "FWHP",
+        "Before": "970",
+        "After": "670"
+      },
+      {
+        "Parameter": "Choke",
+        "Before": "12%",
+        "After": "10%"
+      }
+    ],
+    "csv": "Parameter,Before,After\r\nFreq,53,56\r\nAmps,42,41\r\nPi,2408,2507\r\nPd,3200,2865\r\nTm,282,284\r\nFWHP,970,670\r\nChoke,12%,10%\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Amps",
+        "Trend": "Decrease"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nDischarge Pressure,Increase\r\nWellhead Pressure,Increase\r\nMotor Temperature,Increase\r\nAmps,Decrease\r\n"
+  },
+  {
+    "table_index": 7,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nDischarge Pressure,Decrease\r\nWellhead Pressure,Decrease\r\nMotor Temperature,Increase\r\n"
+  },
+  {
+    "table_index": 8,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Discharge Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      },
+      {
+        "Parameter": "Amps",
+        "Trend": "Decrease"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nDischarge Pressure,Decrease\r\nWellhead Pressure,Decrease\r\nMotor Temperature,Increase\r\nAmps,Decrease\r\n"
+  },
+  {
+    "table_index": 9,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Amps",
+        "Trend": "Zero"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nAmps,Zero\r\n"
+  },
+  {
+    "table_index": 10,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "Intake Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Wellhead Pressure",
+        "Trend": "Decrease"
+      },
+      {
+        "Parameter": "Motor Temperature",
+        "Trend": "Increase"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nIntake Pressure,Decrease\r\nWellhead Pressure,Decrease\r\nMotor Temperature,Increase\r\n"
+  },
+  {
+    "table_index": 11,
+    "columns": [
+      "Parameter.Amps",
+      "Trend.Increase"
+    ],
+    "rows": [
+      {
+        "Parameter.Amps": "Discharge Pressure",
+        "Trend.Increase": "Increase"
+      },
+      {
+        "Parameter.Amps": "Motor Temperature",
+        "Trend.Increase": "Increase"
+      },
+      {
+        "Parameter.Amps": "Wellhead Pressure",
+        "Trend.Increase": "Decrease"
+      }
+    ],
+    "csv": "Parameter.Amps,Trend.Increase\r\nDischarge Pressure,Increase\r\nMotor Temperature,Increase\r\nWellhead Pressure,Decrease\r\n"
+  },
+  {
+    "table_index": 12,
+    "columns": [
+      "Parameter.Amps",
+      "Trend.Decrease"
+    ],
+    "rows": [
+      {
+        "Parameter.Amps": "Discharge Pressure",
+        "Trend.Decrease": "Decrease"
+      },
+      {
+        "Parameter.Amps": "Motor Temperature",
+        "Trend.Decrease": "Increase"
+      }
+    ],
+    "csv": "Parameter.Amps,Trend.Decrease\r\nDischarge Pressure,Decrease\r\nMotor Temperature,Increase\r\n"
+  },
+  {
+    "table_index": 13,
+    "columns": [
+      "Frequency Setting",
+      "Choke Valve Opening",
+      "Advantages",
+      "Disadvantages"
+    ],
+    "rows": [
+      {
+        "Frequency Setting": "Low",
+        "Choke Valve Opening": "Small",
+        "Advantages": "Low flowrate leading to less drawdown, higher intake pressure, and less GVF%. Relatively higher gas-handling efficiency due to the higher intake pressure.",
+        "Disadvantages": "Less heavy fluid handling capability due to the low head developed by the pump and the restriction imposed by the small choke opening. Relatively lower gas-handling capability due to operating on the left hand-side of the curve which means the ESP can trip on higher intake pressure compared to when it is operating at higher frequency."
+      },
+      {
+        "Frequency Setting": "High",
+        "Choke Valve Opening": "Small",
+        "Advantages": "Relatively higher gas-handling capability which means the ESP can sustain lower intake pressure compared to when it is operating at lower frequency. The small choke valve opening can still keep the intake pressure relatively sustained.",
+        "Disadvantages": "While the higher frequency can help with the heavy fluid the small choke valve opening still leads to less heavy fluid handling capability due to the flow restriction. For wells that are susceptible to gas slugging flow behavior a smaller choke valve setting can worsen the issue."
+      },
+      {
+        "Frequency Setting": "Low",
+        "Choke Valve Opening": "Large",
+        "Advantages": "Beneficial for wells with relatively high water cut and small GVF%. Sometimes the only solution for wells that experience repetitive pump-off and gas-locking events due to the lower centrifugal forces being imposed on the fluid.",
+        "Disadvantages": "While the big choke size can help with the heavy fluid the low frequency still leads to less heavy fluid handling capability due to the head developed by the pump. For some special scenarios higher head might be necessary to maintain the flow with an increase in gassy flow."
+      },
+      {
+        "Frequency Setting": "High",
+        "Choke Valve Opening": "Large",
+        "Advantages": "Relatively better heavy fluid handling capability due to the high head developed by the pump and the absent of restrictions imposed by the choke valve opening. Relatively better gas-handling efficiency and improved gas-handling capability.",
+        "Disadvantages": "Very fast pressure depletion leading to lower intake pressure and higher GVF%. Higher frequency will lead to higher centrifugal forces being imposed on the fluid leading to higher phase separation."
+      }
+    ],
+    "csv": "Frequency Setting,Choke Valve Opening,Advantages,Disadvantages\r\nLow,Small,\"Low flowrate leading to less drawdown, higher intake pressure, and less GVF%. Relatively higher gas-handling efficiency due to the higher intake pressure.\",Less heavy fluid handling capability due to the low head developed by the pump and the restriction imposed by the small choke opening. Relatively lower gas-handling capability due to operating on the left hand-side of the curve which means the ESP can trip on higher intake pressure compared to when it is operating at higher frequency.\r\nHigh,Small,Relatively higher gas-handling capability which means the ESP can sustain lower intake pressure compared to when it is operating at lower frequency. The small choke valve opening can still keep the intake pressure relatively sustained.,While the higher frequency can help with the heavy fluid the small choke valve opening still leads to less heavy fluid handling capability due to the flow restriction. For wells that are susceptible to gas slugging flow behavior a smaller choke valve setting can worsen the issue.\r\nLow,Large,Beneficial for wells with relatively high water cut and small GVF%. Sometimes the only solution for wells that experience repetitive pump-off and gas-locking events due to the lower centrifugal forces being imposed on the fluid.,While the big choke size can help with the heavy fluid the low frequency still leads to less heavy fluid handling capability due to the head developed by the pump. For some special scenarios higher head might be necessary to maintain the flow with an increase in gassy flow.\r\nHigh,Large,Relatively better heavy fluid handling capability due to the high head developed by the pump and the absent of restrictions imposed by the choke valve opening. Relatively better gas-handling efficiency and improved gas-handling capability.,Very fast pressure depletion leading to lower intake pressure and higher GVF%. Higher frequency will lead to higher centrifugal forces being imposed on the fluid leading to higher phase separation.\r\n"
+  },
+  {
+    "table_index": 14,
+    "columns": [
+      "Parameter",
+      "Trend"
+    ],
+    "rows": [
+      {
+        "Parameter": "All Parameters",
+        "Trend": "Fluctuating"
+      }
+    ],
+    "csv": "Parameter,Trend\r\nAll Parameters,Fluctuating\r\n"
+  }
+]

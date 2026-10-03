@@ -1,0 +1,104 @@
+{
+  "filename": "700746239-ESP-Failure.pdf",
+  "total_pages": 8,
+  "total_words": 668,
+  "total_chars": 4542,
+  "pages": [
+    {
+      "page_number": 1,
+      "word_count": 6,
+      "char_count": 55,
+      "page_hash": "912d84406b0aa7c47120cd5b8aaa45db065f973a87458b4d58a0890f2848c8c5",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 2,
+      "word_count": 3,
+      "char_count": 18,
+      "page_hash": "523d91a514ee5526e4a68d688a736a2e307684b84d9051dbeacccde6af754cbe",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 3,
+      "word_count": 148,
+      "char_count": 987,
+      "page_hash": "b810392b5ac374c14fc8de3daee3a02ac6fb30e5e867f623055220b0e5051d5f",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 4,
+      "word_count": 133,
+      "char_count": 930,
+      "page_hash": "80690319e819e4d4fa51afdc4640ea98caddb55a5c403be75c2162607918272c",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 5,
+      "word_count": 169,
+      "char_count": 1103,
+      "page_hash": "9f7f2d1bde63322eeae4ad35413b9f4f2dbd613b5473e346d33d90b0b1b69088",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 6,
+      "word_count": 141,
+      "char_count": 962,
+      "page_hash": "571be23f48c4319fbbfcf2d0f69a8847a1d8f5aea92e8cea433e939c5c24fdba",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 7,
+      "word_count": 45,
+      "char_count": 325,
+      "page_hash": "36ce3b7d50b4a517da27ec9aa9cbfcb172d18b7b228db1ebac2ea1dfe5886f74",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    },
+    {
+      "page_number": 8,
+      "word_count": 23,
+      "char_count": 162,
+      "page_hash": "efd374e399980a3bdfe3adebb691d522be1a24fa50424be8af3ed9130209b7b0",
+      "rect": [
+        0.0,
+        0.0,
+        959.760009765625,
+        540.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S1-V4",
+    "title": "API RP 11S1: ESP Dismantle, Inspection and Failure Analysis (4th Ed Draft)",
+    "canonical_category": "standards",
+    "doc_type": "INDUSTRY_STANDARD",
+    "author_publisher": "American Petroleum Institute",
+    "publication_year": "2022",
+    "source_filename": "ilide.info-pr_7aeba706176f8360f6972987f009cfab.pdf",
+    "standardized_filename": "API_RP_11S1_Dismantle_Failure_Analysis_2022.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\API_RP_11S1_Dismantle_Failure_Analysis_2022.pdf",
+    "file_size_bytes": 894871,
+    "sha256_checksum": "d084b0422ae51d4595e5be23197bc5ab731946780f4895d3fb55dc9ec4799792",
+    "total_pages": 61,
+    "extracted_char_count": 130540,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 598,
+      "word_count": 87
+    },
+    {
+      "page_number": 2,
+      "char_count": 2778,
+      "word_count": 396
+    },
+    {
+      "page_number": 3,
+      "char_count": 2430,
+      "word_count": 391
+    },
+    {
+      "page_number": 4,
+      "char_count": 2249,
+      "word_count": 350
+    },
+    {
+      "page_number": 5,
+      "char_count": 1860,
+      "word_count": 293
+    },
+    {
+      "page_number": 6,
+      "char_count": 1858,
+      "word_count": 294
+    },
+    {
+      "page_number": 7,
+      "char_count": 1997,
+      "word_count": 321
+    },
+    {
+      "page_number": 8,
+      "char_count": 1704,
+      "word_count": 253
+    },
+    {
+      "page_number": 9,
+      "char_count": 2068,
+      "word_count": 325
+    },
+    {
+      "page_number": 10,
+      "char_count": 2253,
+      "word_count": 339
+    },
+    {
+      "page_number": 11,
+      "char_count": 2440,
+      "word_count": 374
+    },
+    {
+      "page_number": 12,
+      "char_count": 3194,
+      "word_count": 490
+    },
+    {
+      "page_number": 13,
+      "char_count": 2939,
+      "word_count": 455
+    },
+    {
+      "page_number": 14,
+      "char_count": 2998,
+      "word_count": 492
+    },
+    {
+      "page_number": 15,
+      "char_count": 2256,
+      "word_count": 326
+    },
+    {
+      "page_number": 16,
+      "char_count": 2329,
+      "word_count": 369
+    },
+    {
+      "page_number": 17,
+      "char_count": 2329,
+      "word_count": 354
+    },
+    {
+      "page_number": 18,
+      "char_count": 1803,
+      "word_count": 279
+    },
+    {
+      "page_number": 19,
+      "char_count": 2365,
+      "word_count": 368
+    },
+    {
+      "page_number": 20,
+      "char_count": 1898,
+      "word_count": 296
+    },
+    {
+      "page_number": 21,
+      "char_count": 1634,
+      "word_count": 265
+    },
+    {
+      "page_number": 22,
+      "char_count": 2169,
+      "word_count": 338
+    },
+    {
+      "page_number": 23,
+      "char_count": 2520,
+      "word_count": 408
+    },
+    {
+      "page_number": 24,
+      "char_count": 2159,
+      "word_count": 355
+    },
+    {
+      "page_number": 25,
+      "char_count": 1224,
+      "word_count": 188
+    },
+    {
+      "page_number": 26,
+      "char_count": 480,
+      "word_count": 76
+    },
+    {
+      "page_number": 27,
+      "char_count": 2271,
+      "word_count": 369
+    },
+    {
+      "page_number": 28,
+      "char_count": 592,
+      "word_count": 94
+    },
+    {
+      "page_number": 29,
+      "char_count": 478,
+      "word_count": 77
+    },
+    {
+      "page_number": 30,
+      "char_count": 2801,
+      "word_count": 443
+    },
+    {
+      "page_number": 31,
+      "char_count": 2879,
+      "word_count": 462
+    },
+    {
+      "page_number": 32,
+      "char_count": 2084,
+      "word_count": 339
+    },
+    {
+      "page_number": 33,
+      "char_count": 2189,
+      "word_count": 331
+    },
+    {
+      "page_number": 34,
+      "char_count": 2558,
+      "word_count": 407
+    },
+    {
+      "page_number": 35,
+      "char_count": 2413,
+      "word_count": 402
+    },
+    {
+      "page_number": 36,
+      "char_count": 2452,
+      "word_count": 411
+    },
+    {
+      "page_number": 37,
+      "char_count": 2067,
+      "word_count": 339
+    },
+    {
+      "page_number": 38,
+      "char_count": 1869,
+      "word_count": 295
+    },
+    {
+      "page_number": 39,
+      "char_count": 483,
+      "word_count": 78
+    },
+    {
+      "page_number": 40,
+      "char_count": 2633,
+      "word_count": 405
+    },
+    {
+      "page_number": 41,
+      "char_count": 2475,
+      "word_count": 404
+    },
+    {
+      "page_number": 42,
+      "char_count": 2079,
+      "word_count": 315
+    },
+    {
+      "page_number": 43,
+      "char_count": 2043,
+      "word_count": 321
+    },
+    {
+      "page_number": 44,
+      "char_count": 2340,
+      "word_count": 368
+    },
+    {
+      "page_number": 45,
+      "char_count": 485,
+      "word_count": 78
+    },
+    {
+      "page_number": 46,
+      "char_count": 3172,
+      "word_count": 515
+    },
+    {
+      "page_number": 47,
+      "char_count": 3689,
+      "word_count": 587
+    },
+    {
+      "page_number": 48,
+      "char_count": 3444,
+      "word_count": 559
+    },
+    {
+      "page_number": 49,
+      "char_count": 3366,
+      "word_count": 554
+    },
+    {
+      "page_number": 50,
+      "char_count": 3608,
+      "word_count": 596
+    },
+    {
+      "page_number": 51,
+      "char_count": 3454,
+      "word_count": 539
+    },
+    {
+      "page_number": 52,
+      "char_count": 1065,
+      "word_count": 163
+    },
+    {
+      "page_number": 53,
+      "char_count": 2495,
+      "word_count": 324
+    },
+    {
+      "page_number": 54,
+      "char_count": 2237,
+      "word_count": 283
+    },
+    {
+      "page_number": 55,
+      "char_count": 1197,
+      "word_count": 156
+    },
+    {
+      "page_number": 56,
+      "char_count": 2828,
+      "word_count": 432
+    },
+    {
+      "page_number": 57,
+      "char_count": 3639,
+      "word_count": 588
+    },
+    {
+      "page_number": 58,
+      "char_count": 1178,
+      "word_count": 152
+    },
+    {
+      "page_number": 59,
+      "char_count": 659,
+      "word_count": 92
+    },
+    {
+      "page_number": 60,
+      "char_count": 872,
+      "word_count": 121
+    },
+    {
+      "page_number": 61,
+      "char_count": 826,
+      "word_count": 121
+    }
+  ]
+}

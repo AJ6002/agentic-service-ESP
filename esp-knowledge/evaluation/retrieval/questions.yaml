@@ -1,0 +1,121 @@
+# ESP-PMM Retrieval Benchmark Questions (Seed Evaluation Set)
+# Version: 1.0.0
+
+questions:
+  - id: Q01
+    question: "What is the Recommended Operating Range (ROR) of an ESP?"
+    expected_knowledge_type: GLOSSARY
+    expected_term_id: ROR
+    expected_source: "SLB Defining Series ESP"
+
+  - id: Q02
+    question: "What is Best Efficiency Point (BEP)?"
+    expected_knowledge_type: GLOSSARY
+    expected_term_id: BEP
+
+  - id: Q03
+    question: "How is Total Dynamic Head (TDH) calculated?"
+    expected_knowledge_type: ESP_PHYSICS
+    expected_term_id: TDH
+
+  - id: Q04
+    question: "What causes gas interference or gas lock in an ESP?"
+    expected_knowledge_type: ESP_FAULT_TROUBLESHOOTING
+    expected_fault_id: GAS_LOCK
+
+  - id: Q05
+    question: "What indicates motor overheating in telemetry metrics?"
+    expected_knowledge_type: ESP_FAULT_TROUBLESHOOTING
+    expected_fault_id: MOTOR_OVERHEATING
+
+  - id: Q06
+    question: "What radial vibration level triggers a warning threshold?"
+    expected_knowledge_type: ALERT_PLAYBOOK
+    expected_alert_id: RADIAL_VIBRATION_WARNING
+
+  - id: Q07
+    question: "What should an operator do when motor temperature exceeds 130°C?"
+    expected_knowledge_type: ALERT_PLAYBOOK
+    expected_alert_id: MOTOR_TEMP_MARGIN_LOW
+
+  - id: Q08
+    question: "What causes stage wear or impeller erosion?"
+    expected_knowledge_type: ESP_FAULT_TROUBLESHOOTING
+    expected_fault_id: PUMP_WEAR
+
+  - id: Q09
+    question: "What are the key components of an ESP assembly?"
+    expected_knowledge_type: EQUIPMENT_KNOWLEDGE
+
+  - id: Q10
+    question: "What is the canonical unit for motor temperature in the ESP platform?"
+    expected_knowledge_type: CANONICAL_UNITS
+    expected_unit: "°C"
+
+  - id: Q11
+    question: "What is the canonical unit for intake pressure?"
+    expected_knowledge_type: CANONICAL_UNITS
+    expected_unit: "psi"
+
+  - id: Q12
+    question: "What does risk_24h mean in model output predictions?"
+    expected_knowledge_type: MODEL_SEMANTICS
+    expected_model_id: failure_predictor
+
+  - id: Q13
+    question: "What actions are forbidden when motor temperature is critical?"
+    expected_knowledge_type: ALERT_PLAYBOOK
+    expected_alert_id: MOTOR_TEMP_CRITICAL
+
+  - id: Q14
+    question: "What is the effect of scale deposition on ESP performance?"
+    expected_knowledge_type: ESP_FAULT_TROUBLESHOOTING
+    expected_fault_id: SCALE_DEPOSITION
+
+  - id: Q15
+    question: "What causes voltage and current imbalance in ESP motors?"
+    expected_knowledge_type: ESP_FAULT_TROUBLESHOOTING
+
+  - id: Q16
+    question: "What is the function of the gas separator section?"
+    expected_knowledge_type: EQUIPMENT_KNOWLEDGE
+
+  - id: Q17
+    question: "What is the relationship between pump speed frequency and flow rate?"
+    expected_knowledge_type: ESP_PHYSICS
+
+  - id: Q18
+    question: "What is remaining useful life (RUL)?"
+    expected_knowledge_type: GLOSSARY
+    expected_term_id: RUL
+
+  - id: Q19
+    question: "What is the canonical field name for motor current?"
+    expected_knowledge_type: CANONICAL_UNITS
+    expected_field: primary_electrical_load
+
+  - id: Q20
+    question: "Who is the authoritative source for asset registration and identity?"
+    expected_knowledge_type: SOURCE_OF_TRUTH_POLICY
+    expected_authority: "Advait / Client Platform Asset API"
+
+  - id: Q21
+    question: "Why is restarting an ESP during backspin prohibited?"
+    expected_knowledge_type: ALERT_PLAYBOOK
+    expected_alert_id: ALERT_BACKSPIN_TORSION_LOCKOUT
+    expected_source: "DOC-ENG-BP-001"
+
+  - id: Q22
+    question: "How should underload protection be set relative to normal operating current?"
+    expected_knowledge_type: ALERT_PLAYBOOK
+    expected_alert_id: ALERT_UNDERLOAD_DEADHEAD_SAFEGUARD
+
+  - id: Q23
+    question: "How does a water cut increase to 90% affect motor load in an ESP?"
+    expected_knowledge_type: ESP_PHYSICS
+    expected_source: "DOC-ENG-BP-001"
+
+  - id: Q24
+    question: "What is the Best Efficiency Point of an Alnas 362 S700 pump?"
+    expected_knowledge_type: ESP_PHYSICS
+    expected_source: "DOC-ENG-BP-001"

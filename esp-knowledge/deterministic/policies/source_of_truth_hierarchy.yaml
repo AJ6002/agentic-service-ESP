@@ -1,0 +1,34 @@
+# ESP-PMM Source of Truth Hierarchy Policy
+# Version: 1.0.0
+# Frozen Date: 2026-08-24
+
+hierarchy:
+  asset_identity_and_configuration:
+    authoritative_source: "Advait / Client Platform Asset API"
+    local_dev_fallback: "knowledge_bases/esp/metadata.json"
+    is_kb_authoritative: false
+    description: "Asset registration, serial numbers, well ID, installed pump model, stage count, motor HP, and client naming."
+
+  live_and_historical_telemetry:
+    authoritative_source: "ESP Simulator API (dev) / EPR Telemetry API (prod)"
+    local_dev_fallback: "knowledge_bases/esp/telemetry/esp_telemetry.csv"
+    is_kb_authoritative: false
+    description: "Time-series measurements: motor temperature, intake pressure, discharge pressure, motor current, vibration, flow rate."
+
+  predictive_model_outputs:
+    authoritative_source: "External ESP AI Model Team Services"
+    local_dev_fallback: "ESP_MODEL/ (MockModelAdapter)"
+    is_kb_authoritative: false
+    description: "Anomaly score, fault classification, failure probability (1h/24h/7d), remaining useful life (RUL), and model rule triggers."
+
+  domain_and_engineering_knowledge:
+    authoritative_source: "ESP-PMM Knowledge Base (esp-knowledge/)"
+    local_dev_fallback: "knowledge_bases/esp/documents/"
+    is_kb_authoritative: true
+    description: "OEM manuals, physics formulas, fault taxonomy, troubleshooting playbooks, glossary, standards, and model output semantics."
+
+  engineering_calculations:
+    authoritative_source: "Calculation / Feature Service (or local deterministic tools)"
+    local_dev_fallback: "src/tools/ (calculate_tdh, calculate_ror_deviation)"
+    is_kb_authoritative: false
+    description: "TDH, ROR deviation percentage, pump head, frequency-normalized flow, motor temperature margin."

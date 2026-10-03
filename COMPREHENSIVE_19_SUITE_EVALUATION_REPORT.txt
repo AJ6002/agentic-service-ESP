@@ -1,0 +1,166 @@
+==========================================================================================
+COMPREHENSIVE 19-QUERY VERIFICATION & QUALITY AUDIT REPORT
+Executed At: 2026-10-02 11:51:22 UTC
+==========================================================================================
+
+
+### Definitional — Single Term
+------------------------------------------------------------------------------------------
+[Q01] "What is gas lock?" (Latency: 10099.09ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (111 words, 4 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (111 words, 4 sentences):
+    Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock is a critical issue in ESP operations, as it can lead to significant operational inefficiencies, reduced production, and potential mechanical failures if not properly managed. To prevent gas lock, it is essential to install a gas separator or use an advanced gas handling system that conditions the gas to prevent it from entering the pump.
+  Recommendation: Install a gas separator or use an advanced gas handling system to prevent gas lock in ESP operations.
+  Cited Evidence: ['EV-R-1023957d-0001']
+
+[Q02] "What is underload protection?" (Latency: 8935.52ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (117 words, 4 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (117 words, 4 sentences):
+    This feature is crucial for safeguarding the pump and motor from operating in extreme conditions and subsequent damage. Underload protection is set to trip the pump when a certain low level of current is reached, protecting the pump from operating in adverse conditions and safeguarding the motor from overheating due to low or no flow past the motor. The underload must be set above the idle amperage of the system, which is the current the motor will draw when the pump it is attached to is performing no work. If the underload setting is below the idle amperage, the pump may fall to the idle current when gas locking, leading to motor overheating and potential catastrophic failure.
+  Cited Evidence: ['EV-R-c42efdd7-0002']
+
+[Q03] "What is PIP?" (Latency: 7090.59ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (106 words, 4 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (106 words, 4 sentences):
+    Pump Intake Pressure (PIP) is the pressure of the column of fluid at the pump's intake, typically measured at the wellhead. It is a critical parameter in ESP operations as it determines the pump's suction capacity and the amount of fluid it can draw from the well. PIP is calculated using the Productivity Index (PI) method, which involves determining the Pressure Well Flowing Desired (Pwfd), Composite Specific Gravity (SGL), and then using these values to calculate PIP. The PIP is essential for sizing the pump and ensuring that it can effectively draw fluid from the well without causing gas lock or other operational issues.
+  Recommendation: Ensure that PIP is accurately measured and recorded during ESP operations to maintain optimal pump performance and prevent operational issues.
+  Cited Evidence: ['EV-R-11e8527f-0003']
+
+[Q04] "Define TDH." (Latency: 7703.47ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (148 words, 7 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (148 words, 7 sentences):
+    Total Dynamic Head (TDH) is a critical engineering term in the design and operation of Electric Submersible Pumps (ESP). It represents the total energy required to pump a specified volume of fluid from the well to the surface. TDH is calculated as the sum of three main components: Net Vertical Lift (NL), Tubing Friction Loss (TFL), and Tubing Head Pressure (THP). Net Vertical Lift is the vertical distance the fluid must be lifted from the wellhead to the desired production level. Tubing Friction Loss accounts for the energy lost due to friction in the tubing as the fluid flows through it. Tubing Head Pressure is the pressure the pump must overcome to push the fluid against the back pressure at the wellhead. The total dynamic head is essential for determining the pump's performance, motor requirements, and the number of stages needed to achieve the desired pumping capacity.
+  Cited Evidence: ['EV-R-f178854b-0004']
+
+[Q05] "Explain water cut." (Latency: 6827.24ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (103 words, 5 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (103 words, 5 sentences):
+    Water cut is the ratio of water produced to the total volume of fluids produced, expressed as a fraction in percent. It is a critical metric in oil and gas production, as it indicates the proportion of water in the produced fluids. High water cut can lead to increased pressure loss, reduced oil production, and potential equipment damage due to the increased weight of the fluids. Water cut is influenced by various factors such as reservoir pressure, bottom hole temperature, and oil API gravity. Monitoring and controlling water cut is essential for maintaining optimal production efficiency and ensuring the health of the well.
+  Recommendation: Regularly monitor water cut and adjust production parameters as necessary to maintain optimal water cut levels.
+  Cited Evidence: ['EV-R-2b3f73f1-0005']
+
+
+### Definitional — Comparative
+------------------------------------------------------------------------------------------
+[Q06] "What's the difference between intake pressure and discharge pressure?" (Latency: 9111.9ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (174 words, 7 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (174 words, 7 sentences):
+    Intake pressure and discharge pressure are two critical operational parameters in an Electric Submersible Pump (ESP) system, each serving distinct roles and influencing the pump's performance and efficiency. Intake pressure refers to the pressure at the pump's intake, which is crucial for the pump to draw fluid from the well. It is typically set to match the well's operating pressure (OPR) to ensure efficient fluid flow. On the other hand, discharge pressure is the pressure at the pump's discharge, which is essential for maintaining the desired flow rate and pressure in the well. It is set to match the initial injection pressure (IPR) to ensure that the pump delivers the required flow rate to the well. The difference between intake and discharge pressure, known as the pressure increment, is the amount of pressure the pump must deliver to the well to achieve the desired flow rate. Proper adjustment of these pressures is critical for maintaining the pump's efficiency and preventing operational issues such as gas lock or underload trips.
+  Recommendation: Ensure that the intake and discharge pressures are set correctly to match the well's operating and injection pressures to maintain efficient fluid flow and prevent operational issues.
+  Cited Evidence: ['EV-R-fe7ee32a-0006']
+
+[Q07] "Explain gas lock vs gas interference." (Latency: 8912.42ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (146 words, 5 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (146 words, 5 sentences):
+    Gas lock and gas interference are both conditions that can cause a centrifugal pump to underperform or fail, but they differ in their causes, symptoms, and potential impacts on the ESP system. Gas lock occurs when free gas accumulates at the suction or impeller eye of a centrifugal pump stage, reducing fluid density and pump head, while gas interference is intermittent slugging without complete head collapse. Gas lock is typically caused by high free gas content in the fluid, while gas interference can be due to a combination of factors including free gas, mechanical drag, and electrical power imbalances. Gas lock can lead to severe loss of liquid production and an underload trip, while gas interference can cause intermittent slugging and reduced pump performance. Both conditions require careful monitoring and appropriate mitigation strategies to prevent damage to the ESP system and ensure safe and efficient operation.
+  Recommendation: Implement gas separators or gas handlers in applications where free gas causes interference with pump performance. Use of a vortex gas separator is recommended for applications where the free gas available at the intake exceeds 10% with a radial flow stage and 20% with a mixed flow stage. Carefully consider the use of tandem gas separators for extreme applications. Monitor pump performance and adjust gas handling strategies as needed to prevent gas lock and gas interference.
+  Cited Evidence: ['EV-R-f5ce8d6d-0007']
+
+[Q08] "Difference between BEP and operating point?" (Latency: 15653.42ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Depth target met (108 words, 5 sents) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (108 words, 5 sentences):
+    The Best Efficiency Point (BEP) and operating point are two distinct concepts in the context of Electric Submersible Pumps (ESP) operations. This point represents the optimal operating condition for the pump, as it maximizes energy efficiency and production. The operating point, on the other hand, refers to the actual flow rate at which the pump is currently operating. It can vary from the BEP due to factors such as fluid viscosity, pump efficiency, and production requirements. The BEP is crucial for determining the pump's recommended operating range, while the operating point is essential for monitoring and adjusting the pump's performance to maintain optimal efficiency and production.
+  Recommendation: Ensure that the ESP is operating at the BEP or within a reasonable range around it to maximize efficiency and production.
+  Cited Evidence: ['EV-R-1287c7b3-0008']
+
+
+### Procedural
+------------------------------------------------------------------------------------------
+[Q09] "How do I restart an ESP?" (Latency: 31719.63ms)
+  Status Checks: FAIL: Expected procedural steps | PASS: Clean formatting (no <!-- or tables)
+  Assessment (2 words, 1 sentences):
+    Knowledge lookup:
+
+[Q10] "How do I troubleshoot motor overload?" (Latency: 12660.72ms)
+  Status Checks: PASS: Procedural steps present | PASS: Clean formatting (no <!-- or tables)
+  Assessment (130 words, 6 sentences):
+    Motor overload in an Electric Submersible Pump (ESP) occurs when the motor current exceeds its continuous rated full-load amperage, typically due to heavy fluid viscosity, high emulsion, sand/solids binding, mechanical drag, or electrical power imbalances. This condition can lead to severe damage to the motor and potentially cause the ESP to shut down. To troubleshoot motor overload, conduct a wellbore and reservoir analysis to identify the root cause. Common symptoms include elevated motor temperature, excessive vibration, and voltage fluctuations. Troubleshooting steps include checking the cooling system, inspecting and realigning components, performing electrical tests, and adjusting pump speed or addressing well conditions. It is crucial to adjust the motor overload setpoint based on the actual motor nameplate current rating and refer to the manufacturer's manual for proper setup.
+  Recommendation: Adjust the motor overload setpoint based on the actual motor nameplate current rating and refer to the manufacturer's manual for proper setup.
+  Troubleshooting Steps:
+    - [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 4: Motor Overheating: Check cooling system and ensure proper ventilation.
+    - [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 5: Electrical Issues: Perform electrical tests and inspect cables, connections, and Variable Speed Drives (VSDs).
+    - [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 6: Gas Locking: Adjust pump speed to prevent gas locking and install gas separation equipment.
+    - [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 7: Cable Failures: Inspect cables for wear, abrasion, or physical damage.
+  Verification Steps:
+    - Confirm the system is back online and nominal operating parameters are re-established before resuming production.
+  Cited Evidence: ['EV-R-c70a4727-0010']
+
+[Q11] "What are the steps for a teardown inspection?" (Latency: 11386.34ms)
+  Status Checks: PASS: Procedural steps present | PASS: Clean formatting (no <!-- or tables)
+  Assessment (50 words, 3 sentences):
+    A teardown inspection of an Electric Submersible Pump (ESP) involves several key steps to assess the mechanical condition and integrity of the pump components. This process typically includes visual inspection, pressure testing, and sampling of various components. The following are the steps for a thorough teardown inspection of an ESP:
+  Recommendation: Follow established API standards and procedures for safe and effective dismantling of ESP components.
+  Troubleshooting Steps:
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 1: Visual Inspection
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 2: Pressure Check
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 3: Oil Sampling
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.6 Cable and Splices] Step 4: Cable Inspection
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.4.2.3 I-Block, Shaft and Oil Samples] Step 5: Motor I-block Inspection
+    - [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.4.2.3 I-Block, Shaft and Oil Samples] Step 6: Shaft Inspection
+  Verification Steps:
+    - Confirm the system is back online and nominal operating parameters are re-established before resuming production.
+  Cited Evidence: ['EV-R-b2300dc0-0011']
+
+[Q12] "How do I check motor insulation resistance?" (Latency: 41722.25ms)
+  Status Checks: FAIL: Expected procedural steps | PASS: Clean formatting (no <!-- or tables)
+  Assessment (2 words, 1 sentences):
+    Knowledge lookup:
+
+
+### Standards Lookup
+------------------------------------------------------------------------------------------
+[Q13] "What does API RP 11S say about underload protection?" (Latency: 9058.96ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (86 words, 3 sentences):
+    This feature is designed to safeguard against pump-off, fluid starvation, gas lock, or broken shaft. Underload protection is set to trip the pump when a certain low level of current is reached, protecting the pump from operating in extreme conditions and subsequent damage, and also protecting the motor from overheating due to low or no flow past the motor. Underload trips are a vital part of the protection and correct operation of an ESP system, ensuring that the pump operates within safe and optimal conditions.
+  Cited Evidence: ['EV-R-06e10a75-0013']
+
+[Q14] "What does IEC 60034 cover?" (Latency: 6117.18ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (59 words, 2 sentences):
+    IEC 60034 covers a wide range of standards related to rotating electrical machines, including their performance characteristics, mechanical vibration, partial discharge, insulation, and electromagnetic compatibility. The document provides a comprehensive framework for the design, testing, and operation of electrical machines used in converter supplies, including specific test methods for determining losses and efficiency of converter-fed AC induction motors.
+  Cited Evidence: ['EV-R-b9a2875b-0014']
+
+
+### Compound / Multi-Part
+------------------------------------------------------------------------------------------
+[Q15] "What is gas lock and how do I fix it?" (Latency: 9762.74ms)
+  Status Checks: PASS: Procedural steps present | PASS: Clean formatting (no <!-- or tables)
+  Assessment (152 words, 6 sentences):
+    Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This occurs when the pump's discharge capacity exceeds its intake capacity, resulting in a continuous drop in fluid level and generation of free gas. The physical mechanism involves the pump's discharge exceeding the well's production capacity, leading to a decrease in fluid level and the accumulation of free gas. Diagnostic and telemetry indicators include high discharge pressure, low pump intake pressure, and a sudden drop in motor current. The operational impact of gas lock is severe, as it can lead to underload trips, reduced production, and potential damage to the pump. Standard engineering mitigation principles include installing gas separators or gas handlers to manage free gas and prevent gas lock.
+  Recommendation: Install gas separators or gas handlers to manage free gas and prevent gas lock.
+  Troubleshooting Steps:
+    - [DOC-804612320-Electric-Submersible-Pumps] Section: Gas Separator: Step 1: Install a gas separator to manage free gas and prevent gas lock.
+  Verification Steps:
+    - Confirm the system is back online and nominal operating parameters are re-established before resuming production.
+  Cited Evidence: ['EV-R-f884b468-0015']
+
+[Q16] "Explain the H-Q curve and how it relates to BEP." (Latency: 20715.1ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables)
+  Assessment (21 words, 1 sentences):
+    The H-Q curve and BEP are related concepts in reservoir engineering, particularly in the context of wellbore performance and productivity.
+  Recommendation: To understand the H-Q curve and BEP, refer to the provided verified evidence and consult relevant standards and documents.
+  Cited Evidence: ['EV-R-5fb2104d-0016']
+
+
+### Adversarial / Routing Boundary
+------------------------------------------------------------------------------------------
+[Q17] "What is 2+2?" (Latency: 649.49ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables) | PASS: Routed to direct handler / did not trigger KB
+  Assessment (0 words, 0 sentences):
+    
+
+[Q18] "Explain the well FS-17 trip mechanism." (Latency: 8024.18ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables) | PASS: Clean false-premise trip refusal (did not fabricate trip)
+  Assessment (42 words, 3 sentences):
+    No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 running?') or health assessment ('How healthy is FS-17?') instead.
+
+
+### Regression / Negative
+------------------------------------------------------------------------------------------
+[Q19] "What is flux capacitor?" (Latency: 13718.03ms)
+  Status Checks: PASS: Clean definitional contract (0 steps) | PASS: Clean formatting (no <!-- or tables) | NOTE: Evaluated unknown concept response
+  Assessment (149 words, 7 sentences):
+    A flux capacitor is a high-voltage capacitor used in electric circuits to store and release energy rapidly. It is typically used in capacitive discharge ignition (CDI) systems to provide a high-voltage spark for ignition. The capacitor stores energy in an electric field when charged and releases it quickly when discharged, which is essential for the ignition process in engines. The capacitor is connected in parallel with the spark plug and is charged by a high-voltage power source, such as a battery or a generator. The capacitor discharges through the spark plug, creating a spark that ignites the fuel mixture in the engine. The energy stored in the capacitor is released in a short period of time, which is why it is called a flux capacitor. The capacitor is a critical component in the ignition system of many vehicles and is essential for the engine to start.
+  Recommendation: Ensure proper grounding and bonding of the vehicle's electrical system to prevent electrical shocks and damage to the vehicle's components.
+  Cited Evidence: ['EV-R-1e1b17d7-0026']

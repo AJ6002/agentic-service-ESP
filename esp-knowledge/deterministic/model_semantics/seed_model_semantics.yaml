@@ -1,0 +1,57 @@
+# ESP-PMM External Model Output Semantics
+# Defines output field meanings, valid ranges, and confidence interpretations for Other Team's 4 AI Models
+# Version: 1.0.0
+
+models:
+  - model_id: rule_engine
+    owner: "Other Team (Predictive Models)"
+    output_fields:
+      triggered_rules:
+        type: "list[str]"
+        description: "List of rule IDs triggered by current telemetry values."
+      severity:
+        type: "str"
+        allowed_values: ["NORMAL", "WARNING", "CRITICAL"]
+        description: "Highest severity level among triggered rules."
+
+  - model_id: anomaly_detector
+    owner: "Other Team (Predictive Models)"
+    output_fields:
+      status:
+        type: "str"
+        allowed_values: ["NORMAL", "ANOMALOUS"]
+        description: "Multivariate time-series baseline health classification."
+      score:
+        type: "float"
+        range: [0.0, 1.0]
+        interpretation: "Distance metric from normal multivariate operating envelope. >0.8 indicates significant deviation."
+
+  - model_id: fault_classifier
+    owner: "Other Team (Predictive Models)"
+    output_fields:
+      identified_fault:
+        type: "str"
+        description: "Primary diagnosed equipment failure mode (e.g. MOTOR_OVERHEATING, BEARING_WEAR, GAS_LOCK)."
+      confidence:
+        type: "float"
+        range: [0.0, 1.0]
+        interpretation: "Model prediction probability. >0.75 considered high-confidence diagnosis."
+
+  - model_id: failure_predictor
+    owner: "Other Team (Predictive Models)"
+    output_fields:
+      risk_1h:
+        type: "float"
+        range: [0.0, 1.0]
+        description: "Probability of asset failure or trip within the next 1 hour."
+      risk_24h:
+        type: "float"
+        range: [0.0, 1.0]
+        description: "Probability of asset failure or trip within the next 24 hours."
+      risk_7d:
+        type: "float"
+        range: [0.0, 1.0]
+        description: "Probability of asset failure or trip within the next 7 days."
+      rul_hours:
+        type: "float"
+        description: "Estimated Remaining Useful Life in operating hours."

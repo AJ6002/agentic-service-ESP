@@ -2,7 +2,7 @@
 
 """
 Tool Gateway.
-Dispatches plan calls to domain adapters against Server 184 (:8090).
+Dispatches plan calls directly to domain adapters backed by PostgreSQL (esp_apm_db).
 Zero hardcoded measurement fallback data. Partial failures tolerated.
 Reference: ESP_APM_AGENT_APIS_COMPLETE_SPECIFICATION.md v2.0.0 & SLICE_2_PLAN.md §0.5.
 """
@@ -18,7 +18,7 @@ from app.contracts.evidence import CallResult
 from app.contracts.plan import PlanArtifact, PlanCall
 from app.context.well_ids import normalize_well_id
 from .adapters import cards, events, historian, kb, kpi, live, ml
-from .adapters.common import AdapterError, DEFAULT_TIMEOUT_SEC, get_gateway_base_url, handle_adapter_response
+from .adapters.common import AdapterError, DEFAULT_TIMEOUT_SEC
 
 _FAULT_MAPPING_CACHE: Optional[dict[str, Any]] = None
 
@@ -45,7 +45,7 @@ def _get_fault_mapping(fault_class: str) -> Optional[dict[str, Any]]:
 # and the caller supplied neither — i.e. the user asked no explicit time
 # phrase and there was no UI selection. Anchored at "now" so the window
 # always tracks the present, never a stale hardcoded calendar date.
-_DEFAULT_WINDOW_SEC = int(2 * 3600)  # 2 hours (anchored to rolling 1-Hz retention window)
+_DEFAULT_WINDOW_SEC = int(24 * 3600)  # 24 hours default rolling window
 
 
 def _default_window() -> tuple[str, str]:
@@ -132,7 +132,7 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
                         first_ts = cov.get("first_ts")
                         last_ts = cov.get("last_ts")
                         row_count = cov.get("row_count", 0)
-                        if row_count == 0 or (first_ts and start < first_ts) or (last_ts and end > last_ts):
+                        if row_count > 0 and ((first_ts and start < first_ts) or (last_ts and end > last_ts)):
                             raise AdapterError(
                                 code="COVERAGE_EXCEEDED",
                                 status_code=400,
@@ -159,7 +159,7 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
                         first_ts = cov.get("first_ts")
                         last_ts = cov.get("last_ts")
                         row_count = cov.get("row_count", 0)
-                        if row_count == 0 or (first_ts and start < first_ts) or (last_ts and end > last_ts):
+                        if row_count > 0 and ((first_ts and start < first_ts) or (last_ts and end > last_ts)):
                             raise AdapterError(
                                 code="COVERAGE_EXCEEDED",
                                 status_code=400,
@@ -206,18 +206,7 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
             data = await ml.fetch_ml_health(well_id, client=client)
 
         elif tool == "get_degradation":
-            try:
-                base = get_gateway_base_url()
-                url = f"{base}/ml/degradation/{well_id}"
-                if client:
-                    resp = await client.get(url, timeout=DEFAULT_TIMEOUT_SEC)
-                    data = handle_adapter_response(resp, "ml", f"/ml/degradation/{well_id}")
-                else:
-                    async with httpx.AsyncClient() as c:
-                        resp = await c.get(url, timeout=DEFAULT_TIMEOUT_SEC)
-                        data = handle_adapter_response(resp, "ml", f"/ml/degradation/{well_id}")
-            except Exception:
-                data = await ml.fetch_ml_health(well_id, client=client)
+            data = await ml.fetch_ml_health(well_id, client=client)
 
         elif tool == "get_explanation":
             output = args.get("output", "fault")

@@ -13,11 +13,17 @@ optional_evidence:
   - get_events
   - get_explanation
 allowed_visuals:
+  - working_status_smart_fault_card
+  - subsystem_equalizer
+  - multi_tag_live_trends
   - anomaly-score
   - risk-trajectory
   - vibration
   - intake-pressure
   - motor-temperature
+default_visuals:
+  - working_status_smart_fault_card
+  - subsystem_equalizer
 arg_schema:
   type: object
   properties:

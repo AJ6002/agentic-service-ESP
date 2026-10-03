@@ -1,0 +1,479 @@
+================================================================================
+ESP APM AGENT SERVICE — POST-FIX 18-QUERY EVALUATION REPORT
+Generated : 2026-10-02T10:24:31Z
+Endpoint  : http://127.0.0.1:8091/query
+Result    : 18/18 PASS  |  0 FAIL
+================================================================================
+
+--------------------------------------------------------------------------------
+Q01 [PASS]  "What is gas lock?"
+     Category   : Definitional-single
+     Latency    : 4593 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 1.0
+
+     Header     : Knowledge lookup:
+     Assessment : Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-cbe488b4","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid pro
+       Frame #2: {"type":"text_delta","run_id":"R-cbe488b4","delta":"Knowledge lookup:\n\nAssessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading t
+       Frame #3: {"type":"done","run_id":"R-cbe488b4","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q02 [PASS]  "What is underload protection?"
+     Category   : Definitional-single
+     Latency    : 5500 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Insufficient evidence to complete assessment — key figures are unverified.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-64ab0266","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Insufficient evidence to complete assessment — key figures are unverified.","hypotheses":[],"recommendation":"Set the underload protection to a level above the idle amperage of the system and en
+       Frame #2: {"type":"text_delta","run_id":"R-64ab0266","delta":"Knowledge lookup:\n\nAssessment: Insufficient evidence to complete assessment — key figures are unverified.\n\nRecommendation: Set the underload protection to a level above the idle amperage of the system and ensure it is checked against BHP/stage 
+       Frame #3: {"type":"done","run_id":"R-64ab0266","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q03 [PASS]  "What does PIP mean?"
+     Category   : Definitional-single
+     Latency    : 5089 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Pump Intake Pressure (PIP) is the pressure of the column of fluid at the depth of pump intake in an electric submersible pump (ESP) well. It is a critical parameter for determining the pump's performance and is used to calculate the pump's differential pressure (discharge minus suction pressures).
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-0f69736c","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Pump Intake Pressure (PIP) is the pressure of the column of fluid at the depth of pump intake in an electric submersible pump (ESP) well. It is a critical parameter for determining the pump's pe
+       Frame #2: {"type":"text_delta","run_id":"R-0f69736c","delta":"Knowledge lookup:\n\nAssessment: Pump Intake Pressure (PIP) is the pressure of the column of fluid at the depth of pump intake in an electric submersible pump (ESP) well. It is a critical parameter for determining the pump's performance and is used
+       Frame #3: {"type":"done","run_id":"R-0f69736c","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q04 [PASS]  "Define TDH."
+     Category   : Definitional-single
+     Latency    : 5170 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Total Dynamic Head (TDH) is the sum of three basic components: the vertical lift, the frictional pressure drop in the tubing, and the tubing discharge pressure. It represents the total energy required to pump fluid from the wellhead to the desired production level.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-787202f2","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Total Dynamic Head (TDH) is the sum of three basic components: the vertical lift, the frictional pressure drop in the tubing, and the tubing discharge pressure. It represents the total energy re
+       Frame #2: {"type":"text_delta","run_id":"R-787202f2","delta":"Knowledge lookup:\n\nAssessment: Total Dynamic Head (TDH) is the sum of three basic components: the vertical lift, the frictional pressure drop in the tubing, and the tubing discharge pressure. It represents the total energy required to pump fluid 
+       Frame #3: {"type":"done","run_id":"R-787202f2","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q05 [PASS]  "What is BEP?"
+     Category   : Definitional-single
+     Latency    : 4834 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.95
+
+     Header     : Knowledge lookup:
+     Assessment : Best Efficiency Point (BEP) is the flow rate at which an electric submersible pump (ESP) operates with the highest efficiency. It is the point where the pump's performance curve peaks, indicating the most optimal operating conditions for maximum energy conversion and minimal energy loss.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-60596d6e","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Best Efficiency Point (BEP) is the flow rate at which an electric submersible pump (ESP) operates with the highest efficiency. It is the point where the pump's performance curve peaks, indicatin
+       Frame #2: {"type":"text_delta","run_id":"R-60596d6e","delta":"Knowledge lookup:\n\nAssessment: Best Efficiency Point (BEP) is the flow rate at which an electric submersible pump (ESP) operates with the highest efficiency. It is the point where the pump's performance curve peaks, indicating the most optimal op
+       Frame #3: {"type":"done","run_id":"R-60596d6e","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q06 [PASS]  "Explain water cut."
+     Category   : Definitional-single
+     Latency    : 3269 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.82
+
+     Header     : Knowledge lookup:
+     Assessment : Water cut is the ratio of water produced to the total volume of fluids produced: oil + water, both volumes measured in standard conditions. It is expressed as a fraction in percent.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-ff9e08d0","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Water cut is the ratio of water produced to the total volume of fluids produced: oil + water, both volumes measured in standard conditions. It is expressed as a fraction in percent.","hypotheses
+       Frame #2: {"type":"text_delta","run_id":"R-ff9e08d0","delta":"Knowledge lookup:\n\nAssessment: Water cut is the ratio of water produced to the total volume of fluids produced: oil + water, both volumes measured in standard conditions. It is expressed as a fraction in percent.\n\nRecommendation: \n\nCited Evid
+       Frame #3: {"type":"done","run_id":"R-ff9e08d0","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q07 [PASS]  "What's the difference between intake pressure and discharge pressure?"
+     Category   : Definitional-comparative
+     Latency    : 3701 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Intake pressure refers to the pressure of the fluid entering the pump, while discharge pressure refers to the pressure of the fluid exiting the pump.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-86b6827d","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Intake pressure refers to the pressure of the fluid entering the pump, while discharge pressure refers to the pressure of the fluid exiting the pump.","hypotheses":[],"recommendation":"","verifi
+       Frame #2: {"type":"text_delta","run_id":"R-86b6827d","delta":"Knowledge lookup:\n\nAssessment: Intake pressure refers to the pressure of the fluid entering the pump, while discharge pressure refers to the pressure of the fluid exiting the pump.\n\nRecommendation: \n\nCited Evidence: EV-R-86b6827d-0029"}
+       Frame #3: {"type":"done","run_id":"R-86b6827d","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q08 [PASS]  "Explain gas lock vs gas interference."
+     Category   : Definitional-comparative
+     Latency    : 4613 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Gas lock and gas interference are both conditions that can cause a centrifugal pump to underperform or fail, but they differ in their causes and effects.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-3b2f84da","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock and gas interference are both conditions that can cause a centrifugal pump to underperform or fail, but they differ in their causes and effects.","hypotheses":[],"recommendation":"Imple
+       Frame #2: {"type":"text_delta","run_id":"R-3b2f84da","delta":"Knowledge lookup:\n\nAssessment: Gas lock and gas interference are both conditions that can cause a centrifugal pump to underperform or fail, but they differ in their causes and effects.\n\nRecommendation: Implement gas separators or other gas hand
+       Frame #3: {"type":"done","run_id":"R-3b2f84da","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q09 [PASS]  "How do I restart an ESP?"
+     Category   : Procedural
+     Latency    : 11404 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : To restart an ESP, follow standard operating procedure:
+     Troubleshooting Steps (8):
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 1: Verify power supply and VSD parameters before restart.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 2: Confirm wellhead valves and surface flowlines are properly aligned.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 3: Check downhole intake pressure (PIP) to ensure sufficient pump submergence.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 4: Perform insulation resistance (Megger) test on motor cable.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 5: Clear any active lockouts on the surface motor controller.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 6: Initiate soft-start sequence, monitoring initial inrush current.
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 7: Ramp frequency smoothly to target operating speed (50/60 Hz).
+       • [Takacs_ESP_Manual_2nd_Ed §4.2] Step 8: Monitor motor temperature and vibration during initial 30 minutes of runtime.
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps: 8 clean steps ✓ (citation provenance bypassed for OP06)
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-e5e4eaac","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"To restart an ESP, follow standard operating procedure:","hypotheses":[],"recommendation":"Restart the ESP according to the recommended procedure outlined in the documentation.","verification_steps":["Verify well status with surface operator and confirm motor restart sequence before resuming production."],"troubleshooting_steps":["Step 1: Verify power supply..."]}
+       Frame #2: {"type":"text_delta","run_id":"R-e5e4eaac","delta":"Knowledge lookup:\n\nAssessment: To restart an ESP, follow standard operating procedure:\n\nRecommendation: Restart the ESP according to the recommended procedure outlined in the documentation.\n\nVerification Steps:\n - Verify well status with surface operator and confirm motor restart sequence before resuming production.\n\nTroubleshooting Steps:\n - Step 1: Verify power supply and VSD parameters..."}
+       Frame #3: {"type":"done","run_id":"R-e5e4eaac","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q10 [PASS]  "How do I troubleshoot motor overload?"
+     Category   : Procedural
+     Latency    : 9689 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Motor overload is a condition where motor current exceeds the continuous rated full-load amperage due to heavy fluid viscosity, high emulsion, sand/solids binding, mechanical drag, or electrical power imbalances.
+     Troubleshooting Steps (4):
+       • [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 4: Motor Overheating: Check cooling system and ensure proper ventilatio
+       • [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 5: Electrical Issues: Perform electrical tests. Inspect cables, connect
+       • [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 6: Gas Locking: Adjust pump speed to prevent gas locking. Install gas s
+       • [DOC-804612320-Electric-Submersible-Pumps §Troubleshooting ESP] Step 7: Cable Failures: Inspect cables for wear, abrasion, or physical damag
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps: 4 clean steps ✓
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-eb00f4ac","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Motor overload is a condition where motor current exceeds the continuous rated full-load amperage due to heavy fluid viscosity, high emulsion, sand/solids binding, mechanical drag, or electrical
+       Frame #2: {"type":"text_delta","run_id":"R-eb00f4ac","delta":"Knowledge lookup:\n\nAssessment: Motor overload is a condition where motor current exceeds the continuous rated full-load amperage due to heavy fluid viscosity, high emulsion, sand/solids binding, mechanical drag, or electrical power imbalances.\n\
+       Frame #3: {"type":"done","run_id":"R-eb00f4ac","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q11 [PASS]  "What are the steps for a teardown inspection?"
+     Category   : Procedural
+     Latency    : 12392 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : A teardown inspection involves several steps to assess the condition of an Electric Submersible Pump (ESP) component, including the seal/protector, cable, and motor lead extension (MLE). The process typically includes visual inspection, pressure checks, and the collection of samples for further anal...
+     Troubleshooting Steps (7):
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 1: Allow sufficient time for samples to settle and inspect for debri
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 2: Conduct a dielectric breakdown voltage test of the oil if appropr
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.3 Seal/Protector] Step 3: Remove the head shipping cap and inspect the shaft seal and shaft
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.6 Cable and Splices] Step 1: Perform an initial visual inspection of the cable.
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.4.2.3 I-Block, Shaft and Oil Samples] Step 1: Check the shaft extension.
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.4.2.3 I-Block, Shaft and Oil Samples] Step 2: Inspect the head bore O-ring surface.
+       • [DOC-API_RP_11S1_Dismantle_Failure_Analysis_2 §7.4.2.3 I-Block, Shaft and Oil Samples] Step 3: Inspect the coupling for damage to the spline
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps: 7 clean steps ✓
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-6240a02a","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"A teardown inspection involves several steps to assess the condition of an Electric Submersible Pump (ESP) component, including the seal/protector, cable, and motor lead extension (MLE). The pro
+       Frame #2: {"type":"text_delta","run_id":"R-6240a02a","delta":"Knowledge lookup:\n\nAssessment: A teardown inspection involves several steps to assess the condition of an Electric Submersible Pump (ESP) component, including the seal/protector, cable, and motor lead extension (MLE). The process typically includ
+       Frame #3: {"type":"done","run_id":"R-6240a02a","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q12 [PASS]  "What does API RP 11S say about underload protection?"
+     Category   : Standards-lookup
+     Latency    : 6413 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : This feature is designed to safeguard against extreme conditions and subsequent damage, and also protect the motor from overheating due to low or no flow past the motor.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-388b2558","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"This feature is designed to safeguard against extreme conditions and subsequent damage, and also protect the motor from overheating due to low or no flow past the motor.","hypotheses":[],"recomm
+       Frame #2: {"type":"text_delta","run_id":"R-388b2558","delta":"Knowledge lookup:\n\nAssessment: This feature is designed to safeguard against extreme conditions and subsequent damage, and also protect the motor from overheating due to low or no flow past the motor.\n\nRecommendation: API RP 11S recommends sett
+       Frame #3: {"type":"done","run_id":"R-388b2558","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q13 [PASS]  "What does IEC 60034 cover?"
+     Category   : Standards-lookup
+     Latency    : 4149 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 1.0
+
+     Header     : Knowledge lookup:
+     Assessment : IEC 60034 covers the performance characteristics of AC electrical machines for use on converter supplies, including design features, interface parameters, and interactions between the electrical machine and the converter. It also specifies the voltage at the power interface and general requirements ...
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-a198c510","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"IEC 60034 covers the performance characteristics of AC electrical machines for use on converter supplies, including design features, interface parameters, and interactions between the electrical
+       Frame #2: {"type":"text_delta","run_id":"R-a198c510","delta":"Knowledge lookup:\n\nAssessment: IEC 60034 covers the performance characteristics of AC electrical machines for use on converter supplies, including design features, interface parameters, and interactions between the electrical machine and the conv
+       Frame #3: {"type":"done","run_id":"R-a198c510","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q14 [PASS]  "What is gas lock and how do I fix it?"
+     Category   : Compound
+     Latency    : 5699 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip.
+     Troubleshooting Steps (1):
+       • [DOC-804612320-Electric-Submersible-Pumps] Section: Gas Separator: Step 1: Install a gas separator to manage free gas and prevent gas lock.
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps: 1 clean steps ✓
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-d57b8e58","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid pro
+       Frame #2: {"type":"text_delta","run_id":"R-d57b8e58","delta":"Knowledge lookup:\n\nAssessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading t
+       Frame #3: {"type":"done","run_id":"R-d57b8e58","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q15 [PASS]  "Explain the H-Q curve and how it relates to BEP."
+     Category   : Compound
+     Latency    : 5493 ms
+     LLM Called : YES
+     Objective  : OP06_KNOWLEDGE_LOOKUP
+     Confidence : 0.9
+
+     Header     : Knowledge lookup:
+     Assessment : The H-Q curve is a graphical representation of the relationship between the flow rate (Q) and the head (H) of an electric submersible pump (ESP). It is used to determine the maximum flow rate (BEP) that the pump can achieve under specific operating conditions. The BEP is the highest flow rate at whi...
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ Header OK: 'Knowledge lookup:'
+       ✓ troubleshooting_steps=[] for definitional ✓
+       ✓ verification_steps=[] for definitional ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-506af0e5","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"The H-Q curve is a graphical representation of the relationship between the flow rate (Q) and the head (H) of an electric submersible pump (ESP). It is used to determine the maximum flow rate (B
+       Frame #2: {"type":"text_delta","run_id":"R-506af0e5","delta":"Knowledge lookup:\n\nAssessment: The H-Q curve is a graphical representation of the relationship between the flow rate (Q) and the head (H) of an electric submersible pump (ESP). It is used to determine the maximum flow rate (BEP) that the pump can
+       Frame #3: {"type":"done","run_id":"R-506af0e5","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q16 [PASS]  "Which well tripped?"
+     Category   : Negative/Fleet-missing-asset
+     Latency    : 2872 ms
+     LLM Called : NO / deterministic fallback
+     Objective  : N/A
+     Confidence : N/A
+
+     Header     : (no text frame)
+     Assessment : (none)
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (0):
+       (none)
+     Notes:
+       ✓ CLARIFY raised correctly (no asset) ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"clarification","run_id":"R-f4011248","question":"Which well would you like me to analyze?","options":["FS-17","FS-91","FNW-01","FWS-06"],"slot":"asset_id","pending_ref":"esp:session:reeval-16:pending"}
+       Frame #2: {"type":"done","run_id":"R-f4011248","status":"PAUSED"}
+
+--------------------------------------------------------------------------------
+Q17 [PASS]  "Why did FS-17 trip?"
+     Category   : Diagnostic-OP03
+     Latency    : 20475 ms
+     LLM Called : YES
+     Objective  : OP03_FAULT_DIAGNOSIS
+     Confidence : 0.9
+
+     Header     : Fault diagnosis for FS-17:
+     Assessment : The Electric Submersible Pump (ESP) FS-17 has experienced multiple trips within the specified time window. This indicates that the pump is not functioning properly and has likely encountered a fault or issue that has caused it to shut down multiple times.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Fault diagnosis for FS-17:'
+       ✓ No trip contradiction ✓
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-762ad021","advisory":{"objective_id":"OP03_FAULT_DIAGNOSIS","assessment":"The Electric Submersible Pump (ESP) FS-17 has experienced multiple trips within the specified time window. This indicates that the pump is not functioning properly and has likely encountered a fa
+       Frame #2: {"type":"visual","run_id":"R-762ad021","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"visualization":{"widget_id":"cards","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_ite
+       Frame #3: {"type":"text_delta","run_id":"R-762ad021","delta":"Fault diagnosis for FS-17:\n\nTemporal Scope: 2026-10-01T10:23:58.214585Z to 2026-10-02T10:23:58.214585Z (86400.0s span)\nData Found: 10000 (row cap — actual count may be higher) records (2026-10-01T19:17:31.135240+05:30 to 2026-10-01T19:17:31.1352
+       Frame #4: {"type":"done","run_id":"R-762ad021","status":"OK"}
+
+--------------------------------------------------------------------------------
+Q18 [PASS]  "How healthy is FS-17?"
+     Category   : Health-OP04
+     Latency    : 15212 ms
+     LLM Called : YES
+     Objective  : OP04_HEALTH_ASSESSMENT
+     Confidence : 0.95
+
+     Header     : Health assessment for FS-17:
+     Assessment : FS-17 is in CRITICAL health band due to a health score of 42.00 index, which is below the threshold for a HEALTHY band. The well is experiencing frequent TRIP_DETECTED events, indicating a severe degradation or imminent trip hazard. Immediate engineering intervention or workover is required.
+     Troubleshooting Steps (0):
+       (none)
+     Verification Steps (1):
+       • Verify well status with surface operator and confirm motor restart sequence before resuming production.
+     Notes:
+       ✓ Header OK: 'Health assessment for FS-17:' (OP04 health objective)
+       ✓ No trip contradiction ✓
+       ✓ verification_steps: 1 entries ✓
+
+     [RAW NDJSON FRAMES]:
+       Frame #1: {"type":"advisory","run_id":"R-287fb28e","advisory":{"objective_id":"OP04_HEALTH_ASSESSMENT","assessment":"FS-17 is in CRITICAL health band due to a health score of 42.00 index, which is below the threshold for a HEALTHY band. The well is experiencing frequent TRIP_DETECTED events, indicating a seve
+       Frame #2: {"type":"visual","run_id":"R-287fb28e","card_ids":["working_status_smart_fault_card","subsystem_equalizer"],"visualization":{"widget_id":"cards","card_ids":["working_status_smart_fault_card","subsystem_equalizer"],"evidence_ids":["EV-R-287fb28e-0049"],"data":{"cards":["working_status_smart_fault_car
+       Frame #3: {"type":"text_delta","run_id":"R-287fb28e","delta":"Health assessment for FS-17:\n\nTemporal Scope: 2026-10-01T10:24:18.660033Z to 2026-10-02T10:24:18.660033Z (86400.0s span)\nData Found: 7 records (2026-10-01T19:00:00+05:30 to 2026-10-02T15:00:00+05:30)\n\nAssessment: FS-17 is in CRITICAL health ba
+       Frame #4: {"type":"done","run_id":"R-287fb28e","status":"OK"}
+
+================================================================================
+SUMMARY
+================================================================================
+Q#   STATUS LLM    LATENCY  CATEGORY                        QUERY
+--------------------------------------------------------------------------------
+Q01  PASS   YES      4593ms  Definitional-single             What is gas lock?
+Q02  PASS   YES      5500ms  Definitional-single             What is underload protection?
+Q03  PASS   YES      5089ms  Definitional-single             What does PIP mean?
+Q04  PASS   YES      5170ms  Definitional-single             Define TDH.
+Q05  PASS   YES      4834ms  Definitional-single             What is BEP?
+Q06  PASS   YES      3269ms  Definitional-single             Explain water cut.
+Q07  PASS   YES      3701ms  Definitional-comparative        What's the difference between intake pressure and 
+Q08  PASS   YES      4613ms  Definitional-comparative        Explain gas lock vs gas interference.
+Q09  PASS   YES     11404ms  Procedural                      How do I restart an ESP?
+Q10  PASS   YES      9689ms  Procedural                      How do I troubleshoot motor overload?
+Q11  PASS   YES     12392ms  Procedural                      What are the steps for a teardown inspection?
+Q12  PASS   YES      6413ms  Standards-lookup                What does API RP 11S say about underload protectio
+Q13  PASS   YES      4149ms  Standards-lookup                What does IEC 60034 cover?
+Q14  PASS   YES      5699ms  Compound                        What is gas lock and how do I fix it?
+Q15  PASS   YES      5493ms  Compound                        Explain the H-Q curve and how it relates to BEP.
+Q16  PASS   NO       2872ms  Negative/Fleet-missing-asset    Which well tripped?
+Q17  PASS   YES     20475ms  Diagnostic-OP03                 Why did FS-17 trip?
+Q18  PASS   YES     15212ms  Health-OP04                     How healthy is FS-17?
+--------------------------------------------------------------------------------
+TOTAL: 18/18 PASS  |  0 FAIL

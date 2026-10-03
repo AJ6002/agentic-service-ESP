@@ -1,0 +1,208 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Constraints",
+      "Typical Range",
+      "Maximum"
+    ],
+    "rows": [
+      {
+        "Constraints": "Operating Depth",
+        "Typical Range": "1,000' - 10,000' TVD",
+        "Maximum": "15,000' TVD"
+      },
+      {
+        "Constraints": "Operating Volume",
+        "Typical Range": "200 - 20,000 BPD",
+        "Maximum": "60,000 BPD"
+      },
+      {
+        "Constraints": "Operating Temperature",
+        "Typical Range": "100 \u00b0 - 275 \u00b0 F",
+        "Maximum": "400 \u00b0 F"
+      },
+      {
+        "Constraints": "Wellbore Deviation",
+        "Typical Range": "10 \u00b0",
+        "Maximum": "0 - 90 \u00b0"
+      },
+      {
+        "Constraints": "Corrosion Handling",
+        "Typical Range": "Good",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Gas Handling",
+        "Typical Range": "Poor to Fair",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Solids Handling",
+        "Typical Range": "Poor to Fair",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Fluid Gravity",
+        "Typical Range": ">10 \u00b0 API",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Servicing",
+        "Typical Range": "Workover Rig",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Prime Mover Type",
+        "Typical Range": "Electric Submersible Motor",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "Offshore Application",
+        "Typical Range": "Excellent",
+        "Maximum": ""
+      },
+      {
+        "Constraints": "System Efficiency",
+        "Typical Range": "35%-60% depending on pump type, fluid volume",
+        "Maximum": ""
+      }
+    ],
+    "csv": "Constraints,Typical Range,Maximum\r\nOperating Depth,\"1,000' - 10,000' TVD\",\"15,000' TVD\"\r\nOperating Volume,\"200 - 20,000 BPD\",\"60,000 BPD\"\r\nOperating Temperature,100 \u00b0 - 275 \u00b0 F,400 \u00b0 F\r\nWellbore Deviation,10 \u00b0,0 - 90 \u00b0\r\nCorrosion Handling,Good,\r\nGas Handling,Poor to Fair,\r\nSolids Handling,Poor to Fair,\r\nFluid Gravity,>10 \u00b0 API,\r\nServicing,Workover Rig,\r\nPrime Mover Type,Electric Submersible Motor,\r\nOffshore Application,Excellent,\r\nSystem Efficiency,\"35%-60% depending on pump type, fluid volume\",\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Measures",
+      "Type 0",
+      "Type 1",
+      "Type 2"
+    ],
+    "rows": [
+      {
+        "Measures": "Pump Intake Pressure, PIP",
+        "Type 0": "Yes",
+        "Type 1": "Yes",
+        "Type 2": "Yes"
+      },
+      {
+        "Measures": "Pump Discharge Pressure, PDP",
+        "Type 0": "No",
+        "Type 1": "Yes",
+        "Type 2": "Yes"
+      },
+      {
+        "Measures": "Fluid Intake Temp, Ti",
+        "Type 0": "Yes",
+        "Type 1": "Yes",
+        "Type 2": "Yes"
+      },
+      {
+        "Measures": "Electric Motor Temp, Tm",
+        "Type 0": "Yes",
+        "Type 1": "Yes",
+        "Type 2": "Yes"
+      },
+      {
+        "Measures": "Flow Rate, q",
+        "Type 0": "No",
+        "Type 1": "No",
+        "Type 2": "Yes"
+      },
+      {
+        "Measures": "Motor Vibration, Vib",
+        "Type 0": "Yes",
+        "Type 1": "Yes",
+        "Type 2": "Yes"
+      }
+    ],
+    "csv": "Measures,Type 0,Type 1,Type 2\r\n\"Pump Intake Pressure, PIP\",Yes,Yes,Yes\r\n\"Pump Discharge Pressure, PDP\",No,Yes,Yes\r\n\"Fluid Intake Temp, Ti\",Yes,Yes,Yes\r\n\"Electric Motor Temp, Tm\",Yes,Yes,Yes\r\n\"Flow Rate, q\",No,No,Yes\r\n\"Motor Vibration, Vib\",Yes,Yes,Yes\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Time",
+      "Pi",
+      "Pd",
+      "Ti",
+      "Tm",
+      "Vib",
+      "Cl"
+    ],
+    "rows": [
+      {
+        "Time": "9:56:34",
+        "Pi": "3029",
+        "Pd": "4414",
+        "Ti": "125.6",
+        "Tm": "133.8",
+        "Vib": "0.23",
+        "Cl": "0.1"
+      },
+      {
+        "Time": "9:56:55",
+        "Pi": "3027",
+        "Pd": "4426",
+        "Ti": "125.8",
+        "Tm": "134",
+        "Vib": "0.253",
+        "Cl": "0.102"
+      },
+      {
+        "Time": "9:57:16",
+        "Pi": "3026",
+        "Pd": "4410",
+        "Ti": "125.8",
+        "Tm": "134.1",
+        "Vib": "0.249",
+        "Cl": "0.105"
+      },
+      {
+        "Time": "9:57:36",
+        "Pi": "3031",
+        "Pd": "4418",
+        "Ti": "125.5",
+        "Tm": "133.8",
+        "Vib": "0.24",
+        "Cl": "0.101"
+      },
+      {
+        "Time": "9:57:57",
+        "Pi": "3024",
+        "Pd": "4408",
+        "Ti": "125.8",
+        "Tm": "134",
+        "Vib": "0.231",
+        "Cl": "0.105"
+      },
+      {
+        "Time": "9:58:17",
+        "Pi": "3023",
+        "Pd": "4404",
+        "Ti": "125.5",
+        "Tm": "133.8",
+        "Vib": "0.246",
+        "Cl": "0.102"
+      },
+      {
+        "Time": "9:58:38",
+        "Pi": "3033",
+        "Pd": "4420",
+        "Ti": "125.8",
+        "Tm": "134.1",
+        "Vib": "0.251",
+        "Cl": "0.099"
+      },
+      {
+        "Time": "9:58:58",
+        "Pi": "3029",
+        "Pd": "4410",
+        "Ti": "125.6",
+        "Tm": "134",
+        "Vib": "0.262",
+        "Cl": "0.096"
+      }
+    ],
+    "csv": "Time,Pi,Pd,Ti,Tm,Vib,Cl\r\n9:56:34,3029,4414,125.6,133.8,0.23,0.1\r\n9:56:55,3027,4426,125.8,134,0.253,0.102\r\n9:57:16,3026,4410,125.8,134.1,0.249,0.105\r\n9:57:36,3031,4418,125.5,133.8,0.24,0.101\r\n9:57:57,3024,4408,125.8,134,0.231,0.105\r\n9:58:17,3023,4404,125.5,133.8,0.246,0.102\r\n9:58:38,3033,4420,125.8,134.1,0.251,0.099\r\n9:58:58,3029,4410,125.6,134,0.262,0.096\r\n"
+  }
+]

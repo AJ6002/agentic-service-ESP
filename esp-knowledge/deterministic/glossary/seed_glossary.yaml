@@ -1,0 +1,107 @@
+# ESP-PMM Glossary (Seed Data)
+# Version: 1.0.0
+
+terms:
+  - term_id: ROR
+    preferred_name: Recommended Operating Range
+    synonyms: ["recommended operating range", "operating window", "designed flow range"]
+    definition: >
+      The flow rate range recommended by the pump manufacturer within which the ESP
+      operates efficiently, avoiding upthrust/downthrust bearing wear and cavitation.
+    domain: ESP_PHYSICS
+    unit: bpd
+
+  - term_id: BEP
+    preferred_name: Best Efficiency Point
+    synonyms: ["best efficiency point", "peak efficiency flow"]
+    definition: >
+      The flow rate at which the pump operates at its maximum hydraulic efficiency.
+      Operating close to BEP maximizes equipment run life.
+    domain: ESP_PHYSICS
+    unit: bpd
+
+  - term_id: TDH
+    preferred_name: Total Dynamic Head
+    synonyms: ["total dynamic head", "pump head demand"]
+    definition: >
+      The total equivalent height of fluid that the pump must lift, accounting for
+      vertical lift height, friction losses in tubing, and wellhead surface pressure.
+    domain: ESP_PHYSICS
+    unit: ft
+
+  - term_id: PIP
+    preferred_name: Pump Intake Pressure
+    synonyms: ["pump intake pressure", "intake pressure", "PIP"]
+    definition: >
+      The pressure of the fluid at the pump intake depth. Critical for preventing
+      gas breakout and maintaining adequate motor cooling fluid flow.
+    domain: TELEMETRY
+    unit: psi
+
+  - term_id: PDP
+    preferred_name: Pump Discharge Pressure
+    synonyms: ["pump discharge pressure", "discharge pressure", "PDP"]
+    definition: >
+      The pressure measured at the outlet of the pump section before fluid enters the tubing string.
+    domain: TELEMETRY
+    unit: psi
+
+  - term_id: WHP
+    preferred_name: Wellhead Pressure
+    synonyms: ["wellhead pressure", "tubing head pressure", "WHP"]
+    definition: >
+      The surface backpressure measured at the wellhead choke or Christmas tree valve.
+    domain: TELEMETRY
+    unit: psi
+
+  - term_id: GOR
+    preferred_name: Gas-Oil Ratio
+    synonyms: ["gas oil ratio", "GOR"]
+    definition: >
+      The ratio of produced gas volume to produced oil volume. High GOR increases free gas risk at the intake.
+    domain: WELL_PROCESS
+    unit: scf/bbl
+
+  - term_id: BHT
+    preferred_name: Bottomhole Temperature
+    synonyms: ["bottomhole temperature", "reservoir temperature", "BHT"]
+    definition: >
+      The static temperature of the formation fluid at pump depth.
+    domain: TELEMETRY
+    unit: "°C"
+
+  - term_id: VSD
+    preferred_name: Variable Speed Drive
+    synonyms: ["variable speed drive", "VFD", "variable frequency drive"]
+    definition: >
+      Surface power controller that adjusts motor operating frequency (Hz) to control pump speed and flow.
+    domain: ELECTRICAL
+
+  - term_id: RUL
+    preferred_name: Remaining Useful Life
+    synonyms: ["remaining useful life", "RUL", "time to failure"]
+    definition: >
+      The estimated operational hours remaining before an asset or component experiences a functional failure.
+    domain: AI_MODELS
+    unit: hours
+
+  - term_id: TDS
+    preferred_name: Total Dissolved Solids
+    synonyms: ["total dissolved solids", "tds", "water salinity", "salinity", "dissolved solids"]
+    definition: >
+      The total concentration of dissolved minerals, salts (primarily chlorides, carbonates, and sulfates),
+      and metals present in produced well water, typically expressed in mg/L or ppm. High TDS increases produced fluid
+      density (specific gravity), altering required Total Dynamic Head (TDH), accelerating galvanic corrosion of pump housing,
+      and driving mineral scale precipitation (calcium carbonate and barium sulfate) across pump stages.
+    domain: PRODUCED_WATER_CHEMISTRY
+    unit: mg/L (ppm)
+
+  - term_id: BSW
+    preferred_name: Basic Sediment and Water
+    synonyms: ["basic sediment and water", "bs&w", "bsw", "sediment and water"]
+    definition: >
+      The percentage of water and inorganic solids suspended in produced crude oil. Elevated BS&W increases fluid density,
+      accelerates abrasive impeller erosion, and reduces overall net hydrocarbon recovery.
+    domain: WELL_PROCESS
+    unit: "%"
+

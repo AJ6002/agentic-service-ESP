@@ -1,0 +1,13 @@
+{
+  "document_id": "DOC-AI-3W-001",
+  "title": "Petrobras 3W Dataset: Real, Simulated and Hand-drawn Rare Events in Oil Wells",
+  "canonical_category": "ai_context",
+  "doc_type": "PUBLIC_DATASET_AND_DOCS",
+  "author_publisher": "Petrobras / State University of Campinas (UNICAMP)",
+  "publication_year": "2023",
+  "source_filename": "petrobras/3W",
+  "standardized_filename": "3W_Dataset_Documentation",
+  "file_path": "esp-knowledge/sources/raw/ai_context/3W_full",
+  "sha256_checksum": "git-commit-petrobras-3w",
+  "status": "INGESTED_AND_MANIFESTED"
+}

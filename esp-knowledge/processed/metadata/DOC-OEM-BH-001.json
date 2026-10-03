@@ -1,0 +1,415 @@
+{
+  "manifest": {
+    "document_id": "DOC-OEM-BH-001",
+    "title": "Baker Hughes FusionPro Operations and Installation Manual (500031032 Rev B)",
+    "canonical_category": "oem",
+    "doc_type": "OEM_MANUAL",
+    "author_publisher": "Baker Hughes Company",
+    "publication_year": "2025",
+    "source_filename": "500031032-B.pdf",
+    "standardized_filename": "Baker_Hughes_FusionPro_Manual.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\oem\\Baker_Hughes_FusionPro_Manual.pdf",
+    "file_size_bytes": 4909128,
+    "sha256_checksum": "2a25fd22df0bed4e69bfb92596d8fa76048104cc56634da2fbfc94a430d0a1f1",
+    "total_pages": 79,
+    "extracted_char_count": 120413,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 203,
+      "word_count": 25
+    },
+    {
+      "page_number": 2,
+      "char_count": 691,
+      "word_count": 100
+    },
+    {
+      "page_number": 3,
+      "char_count": 559,
+      "word_count": 76
+    },
+    {
+      "page_number": 4,
+      "char_count": 6283,
+      "word_count": 359
+    },
+    {
+      "page_number": 5,
+      "char_count": 8565,
+      "word_count": 602
+    },
+    {
+      "page_number": 6,
+      "char_count": 3267,
+      "word_count": 306
+    },
+    {
+      "page_number": 7,
+      "char_count": 2890,
+      "word_count": 434
+    },
+    {
+      "page_number": 8,
+      "char_count": 2066,
+      "word_count": 279
+    },
+    {
+      "page_number": 9,
+      "char_count": 2213,
+      "word_count": 316
+    },
+    {
+      "page_number": 10,
+      "char_count": 3049,
+      "word_count": 479
+    },
+    {
+      "page_number": 11,
+      "char_count": 1421,
+      "word_count": 216
+    },
+    {
+      "page_number": 12,
+      "char_count": 1211,
+      "word_count": 184
+    },
+    {
+      "page_number": 13,
+      "char_count": 1313,
+      "word_count": 198
+    },
+    {
+      "page_number": 14,
+      "char_count": 1440,
+      "word_count": 215
+    },
+    {
+      "page_number": 15,
+      "char_count": 1571,
+      "word_count": 239
+    },
+    {
+      "page_number": 16,
+      "char_count": 1627,
+      "word_count": 235
+    },
+    {
+      "page_number": 17,
+      "char_count": 1504,
+      "word_count": 220
+    },
+    {
+      "page_number": 18,
+      "char_count": 749,
+      "word_count": 108
+    },
+    {
+      "page_number": 19,
+      "char_count": 2471,
+      "word_count": 393
+    },
+    {
+      "page_number": 20,
+      "char_count": 890,
+      "word_count": 131
+    },
+    {
+      "page_number": 21,
+      "char_count": 2279,
+      "word_count": 339
+    },
+    {
+      "page_number": 22,
+      "char_count": 2089,
+      "word_count": 318
+    },
+    {
+      "page_number": 23,
+      "char_count": 2175,
+      "word_count": 327
+    },
+    {
+      "page_number": 24,
+      "char_count": 2397,
+      "word_count": 370
+    },
+    {
+      "page_number": 25,
+      "char_count": 1290,
+      "word_count": 190
+    },
+    {
+      "page_number": 26,
+      "char_count": 2137,
+      "word_count": 327
+    },
+    {
+      "page_number": 27,
+      "char_count": 3690,
+      "word_count": 555
+    },
+    {
+      "page_number": 28,
+      "char_count": 1889,
+      "word_count": 282
+    },
+    {
+      "page_number": 29,
+      "char_count": 816,
+      "word_count": 135
+    },
+    {
+      "page_number": 30,
+      "char_count": 299,
+      "word_count": 46
+    },
+    {
+      "page_number": 31,
+      "char_count": 295,
+      "word_count": 45
+    },
+    {
+      "page_number": 32,
+      "char_count": 288,
+      "word_count": 43
+    },
+    {
+      "page_number": 33,
+      "char_count": 456,
+      "word_count": 64
+    },
+    {
+      "page_number": 34,
+      "char_count": 943,
+      "word_count": 144
+    },
+    {
+      "page_number": 35,
+      "char_count": 558,
+      "word_count": 78
+    },
+    {
+      "page_number": 36,
+      "char_count": 2196,
+      "word_count": 330
+    },
+    {
+      "page_number": 37,
+      "char_count": 1495,
+      "word_count": 241
+    },
+    {
+      "page_number": 38,
+      "char_count": 1165,
+      "word_count": 183
+    },
+    {
+      "page_number": 39,
+      "char_count": 1941,
+      "word_count": 327
+    },
+    {
+      "page_number": 40,
+      "char_count": 1197,
+      "word_count": 166
+    },
+    {
+      "page_number": 41,
+      "char_count": 1274,
+      "word_count": 217
+    },
+    {
+      "page_number": 42,
+      "char_count": 2138,
+      "word_count": 330
+    },
+    {
+      "page_number": 43,
+      "char_count": 1009,
+      "word_count": 156
+    },
+    {
+      "page_number": 44,
+      "char_count": 1717,
+      "word_count": 257
+    },
+    {
+      "page_number": 45,
+      "char_count": 1127,
+      "word_count": 175
+    },
+    {
+      "page_number": 46,
+      "char_count": 323,
+      "word_count": 44
+    },
+    {
+      "page_number": 47,
+      "char_count": 2921,
+      "word_count": 487
+    },
+    {
+      "page_number": 48,
+      "char_count": 1515,
+      "word_count": 224
+    },
+    {
+      "page_number": 49,
+      "char_count": 509,
+      "word_count": 72
+    },
+    {
+      "page_number": 50,
+      "char_count": 1182,
+      "word_count": 181
+    },
+    {
+      "page_number": 51,
+      "char_count": 1202,
+      "word_count": 203
+    },
+    {
+      "page_number": 52,
+      "char_count": 1502,
+      "word_count": 234
+    },
+    {
+      "page_number": 53,
+      "char_count": 1769,
+      "word_count": 284
+    },
+    {
+      "page_number": 54,
+      "char_count": 381,
+      "word_count": 51
+    },
+    {
+      "page_number": 55,
+      "char_count": 1263,
+      "word_count": 190
+    },
+    {
+      "page_number": 56,
+      "char_count": 1126,
+      "word_count": 186
+    },
+    {
+      "page_number": 57,
+      "char_count": 1606,
+      "word_count": 223
+    },
+    {
+      "page_number": 58,
+      "char_count": 947,
+      "word_count": 153
+    },
+    {
+      "page_number": 59,
+      "char_count": 2698,
+      "word_count": 175
+    },
+    {
+      "page_number": 60,
+      "char_count": 1529,
+      "word_count": 244
+    },
+    {
+      "page_number": 61,
+      "char_count": 1622,
+      "word_count": 248
+    },
+    {
+      "page_number": 62,
+      "char_count": 731,
+      "word_count": 105
+    },
+    {
+      "page_number": 63,
+      "char_count": 2379,
+      "word_count": 365
+    },
+    {
+      "page_number": 64,
+      "char_count": 2292,
+      "word_count": 342
+    },
+    {
+      "page_number": 65,
+      "char_count": 1107,
+      "word_count": 172
+    },
+    {
+      "page_number": 66,
+      "char_count": 1055,
+      "word_count": 185
+    },
+    {
+      "page_number": 67,
+      "char_count": 1324,
+      "word_count": 196
+    },
+    {
+      "page_number": 68,
+      "char_count": 800,
+      "word_count": 137
+    },
+    {
+      "page_number": 69,
+      "char_count": 1249,
+      "word_count": 198
+    },
+    {
+      "page_number": 70,
+      "char_count": 2405,
+      "word_count": 397
+    },
+    {
+      "page_number": 71,
+      "char_count": 249,
+      "word_count": 34
+    },
+    {
+      "page_number": 72,
+      "char_count": 385,
+      "word_count": 44
+    },
+    {
+      "page_number": 73,
+      "char_count": 300,
+      "word_count": 42
+    },
+    {
+      "page_number": 74,
+      "char_count": 298,
+      "word_count": 42
+    },
+    {
+      "page_number": 75,
+      "char_count": 298,
+      "word_count": 42
+    },
+    {
+      "page_number": 76,
+      "char_count": 298,
+      "word_count": 42
+    },
+    {
+      "page_number": 77,
+      "char_count": 298,
+      "word_count": 42
+    },
+    {
+      "page_number": 78,
+      "char_count": 298,
+      "word_count": 42
+    },
+    {
+      "page_number": 79,
+      "char_count": 297,
+      "word_count": 42
+    }
+  ]
+}

@@ -38,6 +38,12 @@ async def handle_direct_query(query: str) -> DirectAnswer:
     # a deterministic glossary lookup so a SIMPLE glossary query still gets
     # some answer, but the caller knows the model itself did not respond.
     lower = query.lower()
+    if any(g in lower for g in ["hi", "hii", "hello", "hey", "greetings", "good morning", "good afternoon", "good evening"]):
+        return DirectAnswer(
+            text="Hello! I am your ESP Operations Copilot. You can ask me to assess well health (e.g., 'Why did FS-017 trip?'), check telemetry status, or look up operational procedures.",
+            llm_available=True,
+        )
+
     for term, definition in GLOSSARY_FALLBACKS.items():
         if term in lower:
             return DirectAnswer(text=definition, llm_available=False)

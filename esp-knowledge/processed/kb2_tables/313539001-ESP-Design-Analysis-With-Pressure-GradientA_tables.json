@@ -1,0 +1,44 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "What's measured",
+      "What it can help with"
+    ],
+    "rows": [
+      {
+        "What's measured": "Pump discharge pressure",
+        "What it can help with": "Water cut, tubing GOR estimation and well shut in protection"
+      },
+      {
+        "What's measured": "Well head pressure",
+        "What it can help with": "Water cut and tubing GOR"
+      },
+      {
+        "What's measured": "Pump intake pressure",
+        "What it can help with": "Gas locking (P b and free gas volumes), reservoir drawdown, sand control, coning"
+      },
+      {
+        "What's measured": "\uf044 P pump",
+        "What it can help with": "Upthrust and downthrust protection; flow estimation, pump performance (wear, viscosity,materials)"
+      },
+      {
+        "What's measured": "Motor temperature",
+        "What it can help with": "Overheating"
+      },
+      {
+        "What's measured": "Motor amps",
+        "What it can help with": "Overload/underload protection"
+      },
+      {
+        "What's measured": "Current leakage",
+        "What it can help with": "Overheating - insulation breakdown"
+      },
+      {
+        "What's measured": "Vibration",
+        "What it can help with": "Fatigue, loading"
+      }
+    ],
+    "csv": "What's measured,What it can help with\r\nPump discharge pressure,\"Water cut, tubing GOR estimation and well shut in protection\"\r\nWell head pressure,Water cut and tubing GOR\r\nPump intake pressure,\"Gas locking (P b and free gas volumes), reservoir drawdown, sand control, coning\"\r\n\uf044 P pump,\"Upthrust and downthrust protection; flow estimation, pump performance (wear, viscosity,materials)\"\r\nMotor temperature,Overheating\r\nMotor amps,Overload/underload protection\r\nCurrent leakage,Overheating - insulation breakdown\r\nVibration,\"Fatigue, loading\"\r\n"
+  }
+]

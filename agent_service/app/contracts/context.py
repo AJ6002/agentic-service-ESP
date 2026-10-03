@@ -42,3 +42,5 @@ class ContextFrame(BaseModel):
     clarify_reason: InterruptType | None = None   # was a free string — must use the shared enum
     session_snapshot: SessionSnapshot = Field(default_factory=SessionSnapshot)
     query_params: dict[str, Any] = Field(default_factory=dict)
+    ui_context: dict[str, Any] = Field(default_factory=dict)
+    page_route: str | None = None

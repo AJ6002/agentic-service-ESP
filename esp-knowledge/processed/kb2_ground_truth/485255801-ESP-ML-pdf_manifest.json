@@ -1,0 +1,104 @@
+{
+  "filename": "485255801-ESP-ML-pdf.pdf",
+  "total_pages": 8,
+  "total_words": 3833,
+  "total_chars": 25370,
+  "pages": [
+    {
+      "page_number": 1,
+      "word_count": 574,
+      "char_count": 3791,
+      "page_hash": "8d01f35fc405333c75c75981b2a8dfc70133cc59d9affc812e0348747fa016bb",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 2,
+      "word_count": 595,
+      "char_count": 3859,
+      "page_hash": "f6cbd83a20eb9b21950402513fbc5913c8f2e8bcbf05fed70aac309d83c6a40b",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 3,
+      "word_count": 667,
+      "char_count": 4352,
+      "page_hash": "b1c7f357e9a3522ac2b4fb03fbade8b033ae454856b28d4e88a86aa7c1ab9163",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 4,
+      "word_count": 330,
+      "char_count": 2257,
+      "page_hash": "5a9f9935cad4e4c457dddc6299484288ddfab5ff0ccc51632a143c15f9f7716c",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 5,
+      "word_count": 198,
+      "char_count": 1373,
+      "page_hash": "01e6f9d416e5d90ce67ddfc79f4685103b1ad65415b2a6a9246b92aa32fc3632",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 6,
+      "word_count": 519,
+      "char_count": 3382,
+      "page_hash": "78e447b41b31aaa460b85423f2810eaf58ce957ce14b7f2c475e49820a2afd0b",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 7,
+      "word_count": 610,
+      "char_count": 3983,
+      "page_hash": "5a9c08fce37b596c93fbd533f7cb1bc5a0d93873a9656a1895a55b9c445227d9",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    },
+    {
+      "page_number": 8,
+      "word_count": 340,
+      "char_count": 2373,
+      "page_hash": "a6a42c9e8838a09a23642d4438176e177b5f7798a165c893d1ed0cc6e83aa812",
+      "rect": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "",
+      "FRQ (Hz)",
+      "PDP (Psi)",
+      "PIP (Psi)",
+      "WHP (Psi)",
+      "WHT (F)",
+      "MT (F)",
+      "CHP (Psi)",
+      "CURRENT (A)"
+    ],
+    "rows": [
+      {
+        "": "mean",
+        "FRQ (Hz)": "52.68",
+        "PDP (Psi)": "1522.96",
+        "PIP (Psi)": "855.89",
+        "WHP (Psi)": "642.20",
+        "WHT (F)": "62.38",
+        "MT (F)": "137.11",
+        "CHP (Psi)": "922.13",
+        "CURRENT (A)": "349.65"
+      },
+      {
+        "": "std",
+        "FRQ (Hz)": "4.29",
+        "PDP (Psi)": "187.46",
+        "PIP (Psi)": "211.08",
+        "WHP (Psi)": "608.61",
+        "WHT (F)": "11.49",
+        "MT (F)": "32.39",
+        "CHP (Psi)": "1883.03",
+        "CURRENT (A)": "86.90"
+      },
+      {
+        "": "min",
+        "FRQ (Hz)": "35.00",
+        "PDP (Psi)": "1086.51",
+        "PIP (Psi)": "610.45",
+        "WHP (Psi)": "194.06",
+        "WHT (F)": "60.54",
+        "MT (F)": "120.62",
+        "CHP (Psi)": "0",
+        "CURRENT (A)": "101.59"
+      },
+      {
+        "": "25%",
+        "FRQ (Hz)": "49.70",
+        "PDP (Psi)": "1506.13",
+        "PIP (Psi)": "660.90",
+        "WHP (Psi)": "213.38",
+        "WHT (F)": "63.23",
+        "MT (F)": "122.20",
+        "CHP (Psi)": "91.54",
+        "CURRENT (A)": "317.00"
+      },
+      {
+        "": "50%",
+        "FRQ (Hz)": "52.76",
+        "PDP (Psi)": "1543.80",
+        "PIP (Psi)": "721.80",
+        "WHP (Psi)": "243.58",
+        "WHT (F)": "65.99",
+        "MT (F)": "154.19",
+        "CHP (Psi)": "261.38",
+        "CURRENT (A)": "354.00"
+      },
+      {
+        "": "75%",
+        "FRQ (Hz)": "56.58",
+        "PDP (Psi)": "1595.04",
+        "PIP (Psi)": "778.89",
+        "WHP (Psi)": "547.33",
+        "WHT (F)": "67.65",
+        "MT (F)": "160.60",
+        "CHP (Psi)": "405.28",
+        "CURRENT (A)": "394.73"
+      },
+      {
+        "": "max",
+        "FRQ (Hz)": "64.96",
+        "PDP (Psi)": "1893.23",
+        "PIP (Psi)": "1578.28",
+        "WHP (Psi)": "845.86",
+        "WHT (F)": "122.84",
+        "MT (F)": "169.30",
+        "CHP (Psi)": "986.74",
+        "CURRENT (A)": "598.21"
+      }
+    ],
+    "csv": ",FRQ (Hz),PDP (Psi),PIP (Psi),WHP (Psi),WHT (F),MT (F),CHP (Psi),CURRENT (A)\r\nmean,52.68,1522.96,855.89,642.20,62.38,137.11,922.13,349.65\r\nstd,4.29,187.46,211.08,608.61,11.49,32.39,1883.03,86.90\r\nmin,35.00,1086.51,610.45,194.06,60.54,120.62,0,101.59\r\n25%,49.70,1506.13,660.90,213.38,63.23,122.20,91.54,317.00\r\n50%,52.76,1543.80,721.80,243.58,65.99,154.19,261.38,354.00\r\n75%,56.58,1595.04,778.89,547.33,67.65,160.60,405.28,394.73\r\nmax,64.96,1893.23,1578.28,845.86,122.84,169.30,986.74,598.21\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "condition",
+      "reported data points"
+    ],
+    "rows": [
+      {
+        "condition": "normal",
+        "reported data points": "339 089"
+      },
+      {
+        "condition": "preworkover",
+        "reported data points": "1728"
+      },
+      {
+        "condition": "workover",
+        "reported data points": "288"
+      }
+    ],
+    "csv": "condition,reported data points\r\nnormal,339 089\r\npreworkover,1728\r\nworkover,288\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "",
+      "PC1",
+      "PC2",
+      "PC3",
+      "PC4",
+      "PC5",
+      "PC6",
+      "PC7",
+      "PC8"
+    ],
+    "rows": [
+      {
+        "": "FRQ",
+        "PC1": "- 0.90",
+        "PC2": "- 0.05",
+        "PC3": "0.06",
+        "PC4": "0.05",
+        "PC5": "- 0.05",
+        "PC6": "- 0.26",
+        "PC7": "0.05",
+        "PC8": "0.01"
+      },
+      {
+        "": "PDP",
+        "PC1": "- 0.54",
+        "PC2": "- 0.14",
+        "PC3": "- 0.70",
+        "PC4": "0.32",
+        "PC5": "- 0.07",
+        "PC6": "- 0.08",
+        "PC7": "0.04",
+        "PC8": "0.05"
+      },
+      {
+        "": "PIP",
+        "PC1": "0.03",
+        "PC2": "- 0.17",
+        "PC3": "- 0.47",
+        "PC4": "0.14",
+        "PC5": "- 0.05",
+        "PC6": "0.81",
+        "PC7": "- 0.18",
+        "PC8": "- 0.04"
+      },
+      {
+        "": "WHP",
+        "PC1": "0.10",
+        "PC2": "- 0.02",
+        "PC3": "- 0.79",
+        "PC4": "0.37",
+        "PC5": "- 0.01",
+        "PC6": "- 0.15",
+        "PC7": "0.23",
+        "PC8": "- 0.28"
+      },
+      {
+        "": "WHT",
+        "PC1": "- 0.63",
+        "PC2": "0.00",
+        "PC3": "0.35",
+        "PC4": "- 0.30",
+        "PC5": "0.18",
+        "PC6": "0.22",
+        "PC7": "0.12",
+        "PC8": "- 0.32"
+      },
+      {
+        "": "MT",
+        "PC1": "- 0.79",
+        "PC2": "- 0.12",
+        "PC3": "- 0.07",
+        "PC4": "0.04",
+        "PC5": "- 0.12",
+        "PC6": "0.25",
+        "PC7": "- 0.16",
+        "PC8": "0.22"
+      },
+      {
+        "": "CHP",
+        "PC1": "- 0.85",
+        "PC2": "- 0.15",
+        "PC3": "- 0.07",
+        "PC4": "0.15",
+        "PC5": "- 0.03",
+        "PC6": "- 0.27",
+        "PC7": "0.07",
+        "PC8": "0.12"
+      },
+      {
+        "": "CURRENT",
+        "PC1": "- 0.84",
+        "PC2": "- 0.10",
+        "PC3": "0.21",
+        "PC4": "- 0.17",
+        "PC5": "0.07",
+        "PC6": "0.21",
+        "PC7": "- 0.06",
+        "PC8": "- 0.19"
+      },
+      {
+        "": "di ff _FRQ",
+        "PC1": "- 0.14",
+        "PC2": "0.78",
+        "PC3": "0.03",
+        "PC4": "0.27",
+        "PC5": "0.09",
+        "PC6": "0.02",
+        "PC7": "- 0.22",
+        "PC8": "- 0.17"
+      },
+      {
+        "": "di ff _PDP",
+        "PC1": "- 0.05",
+        "PC2": "0.09",
+        "PC3": "- 0.45",
+        "PC4": "- 0.54",
+        "PC5": "0.21",
+        "PC6": "- 0.19",
+        "PC7": "- 0.40",
+        "PC8": "0.28"
+      },
+      {
+        "": "di ff _PIP",
+        "PC1": "0.06",
+        "PC2": "- 0.35",
+        "PC3": "- 0.34",
+        "PC4": "- 0.67",
+        "PC5": "- 0.21",
+        "PC6": "0.06",
+        "PC7": "0.18",
+        "PC8": "0.11"
+      },
+      {
+        "": "di ff _WHP",
+        "PC1": "- 0.03",
+        "PC2": "0.11",
+        "PC3": "- 0.42",
+        "PC4": "- 0.50",
+        "PC5": "0.36",
+        "PC6": "- 0.15",
+        "PC7": "- 0.05",
+        "PC8": "- 0.42"
+      },
+      {
+        "": "di ff _WHT",
+        "PC1": "- 0.10",
+        "PC2": "0.43",
+        "PC3": "- 0.08",
+        "PC4": "- 0.11",
+        "PC5": "0.37",
+        "PC6": "0.23",
+        "PC7": "0.69",
+        "PC8": "0.26"
+      },
+      {
+        "": "di ff _MT",
+        "PC1": "- 0.15",
+        "PC2": "0.84",
+        "PC3": "- 0.10",
+        "PC4": "- 0.10",
+        "PC5": "- 0.34",
+        "PC6": "0.03",
+        "PC7": "- 0.03",
+        "PC8": "- 0.03"
+      },
+      {
+        "": "di ff _CHP",
+        "PC1": "0.03",
+        "PC2": "- 0.29",
+        "PC3": "0.03",
+        "PC4": "0.30",
+        "PC5": "0.85",
+        "PC6": "0.01",
+        "PC7": "- 0.14",
+        "PC8": "0.11"
+      },
+      {
+        "": "di ff _CURRENT",
+        "PC1": "- 0.13",
+        "PC2": "0.80",
+        "PC3": "- 0.14",
+        "PC4": "- 0.04",
+        "PC5": "0.16",
+        "PC6": "0.05",
+        "PC7": "- 0.09",
+        "PC8": "0.20"
+      }
+    ],
+    "csv": ",PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8\r\nFRQ,- 0.90,- 0.05,0.06,0.05,- 0.05,- 0.26,0.05,0.01\r\nPDP,- 0.54,- 0.14,- 0.70,0.32,- 0.07,- 0.08,0.04,0.05\r\nPIP,0.03,- 0.17,- 0.47,0.14,- 0.05,0.81,- 0.18,- 0.04\r\nWHP,0.10,- 0.02,- 0.79,0.37,- 0.01,- 0.15,0.23,- 0.28\r\nWHT,- 0.63,0.00,0.35,- 0.30,0.18,0.22,0.12,- 0.32\r\nMT,- 0.79,- 0.12,- 0.07,0.04,- 0.12,0.25,- 0.16,0.22\r\nCHP,- 0.85,- 0.15,- 0.07,0.15,- 0.03,- 0.27,0.07,0.12\r\nCURRENT,- 0.84,- 0.10,0.21,- 0.17,0.07,0.21,- 0.06,- 0.19\r\ndi ff _FRQ,- 0.14,0.78,0.03,0.27,0.09,0.02,- 0.22,- 0.17\r\ndi ff _PDP,- 0.05,0.09,- 0.45,- 0.54,0.21,- 0.19,- 0.40,0.28\r\ndi ff _PIP,0.06,- 0.35,- 0.34,- 0.67,- 0.21,0.06,0.18,0.11\r\ndi ff _WHP,- 0.03,0.11,- 0.42,- 0.50,0.36,- 0.15,- 0.05,- 0.42\r\ndi ff _WHT,- 0.10,0.43,- 0.08,- 0.11,0.37,0.23,0.69,0.26\r\ndi ff _MT,- 0.15,0.84,- 0.10,- 0.10,- 0.34,0.03,- 0.03,- 0.03\r\ndi ff _CHP,0.03,- 0.29,0.03,0.30,0.85,0.01,- 0.14,0.11\r\ndi ff _CURRENT,- 0.13,0.80,- 0.14,- 0.04,0.16,0.05,- 0.09,0.20\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "parameter",
+      "reference to",
+      "sampling type",
+      "range"
+    ],
+    "rows": [
+      {
+        "parameter": "max_depth",
+        "reference to": "control of over fi tting, higher depth facilitates such that the model learns relations that are speci fi c to particular sample",
+        "sampling type": "suggest integer value",
+        "range": "2, 10"
+      },
+      {
+        "parameter": "min_child_weight",
+        "reference to": "a minimum sum of weights is de fi ned for all observations required in a child",
+        "sampling type": "log uniform",
+        "range": "1e - 10, 1e10"
+      },
+      {
+        "parameter": "colsample_bytree",
+        "reference to": "the subsample ratio of columns when constructing each tree",
+        "sampling type": "uniform",
+        "range": "0, 1"
+      },
+      {
+        "parameter": "learning_rate",
+        "reference to": "over fi tting prevention through step size shrinkage in updates",
+        "sampling type": "uniform",
+        "range": "0, 0.1"
+      },
+      {
+        "parameter": "gamma",
+        "reference to": "speci fi cation of the minimum loss reduction required to make a split",
+        "sampling type": "suggest integer value",
+        "range": "0, 5"
+      }
+    ],
+    "csv": "parameter,reference to,sampling type,range\r\nmax_depth,\"control of over fi tting, higher depth facilitates such that the model learns relations that are speci fi c to particular sample\",suggest integer value,\"2, 10\"\r\nmin_child_weight,a minimum sum of weights is de fi ned for all observations required in a child,log uniform,\"1e - 10, 1e10\"\r\ncolsample_bytree,the subsample ratio of columns when constructing each tree,uniform,\"0, 1\"\r\nlearning_rate,over fi tting prevention through step size shrinkage in updates,uniform,\"0, 0.1\"\r\ngamma,speci fi cation of the minimum loss reduction required to make a split,suggest integer value,\"0, 5\"\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "",
+      "precision",
+      "recall",
+      "F1-score",
+      "support"
+    ],
+    "rows": [
+      {
+        "": "normal",
+        "precision": "0.99",
+        "recall": "1.00",
+        "F1-score": "1.00",
+        "support": "101 726"
+      },
+      {
+        "": "7 days or less pre-event",
+        "precision": "0.80",
+        "recall": "0.60",
+        "F1-score": "0.71",
+        "support": "604"
+      }
+    ],
+    "csv": ",precision,recall,F1-score,support\r\nnormal,0.99,1.00,1.00,101 726\r\n7 days or less pre-event,0.80,0.60,0.71,604\r\n"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "document_id": "DOC-ARCH-001",
+  "title": "ESP-PMM Knowledge Base Architecture & Implementation Design Specification",
+  "canonical_category": "standards",
+  "doc_type": "ARCHITECTURE_DOC",
+  "author_publisher": "ADVAIT / Agentic Team",
+  "publication_year": "2026",
+  "source_filename": "ESP_PMM_Knowledge_Base_Architecture_Implementation_Design.docx",
+  "standardized_filename": "ESP_PMM_KB_Architecture_Design.docx",
+  "file_path": "esp-knowledge\\sources\\raw\\standards\\ESP_PMM_KB_Architecture_Design.docx",
+  "file_size_bytes": 53680,
+  "sha256_checksum": "7b3a3bcbda8ed77707db62e7e0bd216586f8949217f75610995006d398623f0f",
+  "total_pages": 1,
+  "extracted_char_count": 20,
+  "status": "PARSED_AND_NORMALIZED"
+}

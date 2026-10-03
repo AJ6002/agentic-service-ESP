@@ -12,11 +12,14 @@ optional_evidence:
   - get_trips
   - get_historian_coverage
 allowed_visuals:
+  - multi_tag_live_trends
   - intake-pressure
   - discharge-pressure
   - motor-load
   - gross-liquid-rate
   - energy-balance
+default_visuals:
+  - multi_tag_live_trends
 arg_schema:
   type: object
   properties:

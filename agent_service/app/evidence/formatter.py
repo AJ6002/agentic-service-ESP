@@ -142,6 +142,29 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                 )
             )
 
+    # 1.1 Flat / top-level measurements in payload (only canonical sensor/telemetry measurements)
+    _CANONICAL_MEASUREMENT_SIGNALS = {
+        "freq_hz", "amp_a", "motor_temp_c", "int_prs_psi", "disch_prs_psi",
+        "volt_v", "vib_g", "vibration_g", "whp_psi", "flp_psi", "ap_psi",
+        "liquid_rate_bpd", "oil_rate_bopd", "water_cut_pct", "gas_rate_mscfd",
+        "int_temp_c", "leak_current_ct", "dhg_current_ma", "vfd_sts"
+    }
+    top_level_measurements = normalize_measurements_dict(payload)
+    for signal, value in top_level_measurements.items():
+        if signal not in _CANONICAL_MEASUREMENT_SIGNALS:
+            continue
+        if isinstance(value, (int, float, bool)) and not any(v.signal == signal for v in result.values):
+            unit = item.unit_map.get(signal, "")
+            result.values.append(
+                FormattedValue(
+                    value_str=_format_value(value, unit),
+                    unit=unit,
+                    evidence_id=item.evidence_id,
+                    signal=signal,
+                    raw=value,
+                )
+            )
+
     # 2. kpis dict (/kpi/{well} responses from get_current_status)
     raw_kpis = payload.get("kpis")
     if raw_kpis and isinstance(raw_kpis, dict):

@@ -40,6 +40,7 @@ class AdvisoryFrame(BaseModel):
 class VisualFrame(BaseModel):
     type: Literal["visual"] = "visual"
     run_id: str
+    card_ids: list[str] = Field(default_factory=list)
     visualization: Union[VisualizationSpec, dict[str, Any]] = Field(default_factory=dict)
 
 AdvisoryFrame.model_rebuild()

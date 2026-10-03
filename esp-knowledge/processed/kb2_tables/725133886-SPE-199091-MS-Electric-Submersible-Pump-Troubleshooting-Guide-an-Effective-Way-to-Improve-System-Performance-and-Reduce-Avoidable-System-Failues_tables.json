@@ -1,0 +1,408 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases / Stable"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor Current)",
+        "Effect": "Decreases / Stable"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Decreases\r\nWHP (Wellhead Pressure),Decreases / Stable\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor Current),Decreases / Stable\r\n"
+  },
+  {
+    "table_index": 2,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Progressively decreases"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Progressively decreases\r\nWHP (Wellhead Pressure),Decreases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 3,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decrease / Absence of flow"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "It decreases significantly, A reference in most cases would be for the field \u2248 30%, but may vary according to the application."
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Decrease / Absence of flow\r\nWHP (Wellhead Pressure),Decreases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),\"It decreases significantly, A reference in most cases would be for the field \u2248 30%, but may vary according to the application.\"\r\n"
+  },
+  {
+    "table_index": 4,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decrease / Absence of flow / Flow fluctuation"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Decrease / Absence of flow / Flow fluctuation\r\nWHP (Wellhead Pressure),Decreases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 5,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decrease / Absence of flow / Flow fluctuation"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Decrease / Absence of flow / Flow fluctuation\r\nWHP (Wellhead Pressure),Decreases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 6,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Frozen reading / No data"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Frozen reading / No data"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Does not change"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Does not change"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Frozen reading / No data"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Frozen reading / No data"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Frozen reading / No data\r\nPdP (Pump discharge pressure),Frozen reading / No data\r\nQ (Surface Flow),Does not change\r\nWHP (Wellhead Pressure),Does not change\r\nM. Temp (Motor temperature),Frozen reading / No data\r\nM. Amps (Motor current),Frozen reading / No data\r\n"
+  },
+  {
+    "table_index": 7,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Decreases\r\nQ (Surface Flow),Decreases\r\nWHP (Wellhead Pressure),Decreases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 8,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "Voltage Unbalance Trips",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "Current Unbalance Trips",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "O-xing trips",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "Power ridethrough trips",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "OV/UV Trips",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "Convertor fault trips",
+        "Effect": "Increases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nVoltage Unbalance Trips,Increases\r\nCurrent Unbalance Trips,Increases\r\nO-xing trips,Increases\r\nPower ridethrough trips,Increases\r\nOV/UV Trips,Increases\r\nConvertor fault trips,Increases\r\n"
+  },
+  {
+    "table_index": 9,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decrease or no fluid"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Increases\r\nQ (Surface Flow),Decrease or no fluid\r\nWHP (Wellhead Pressure),Increases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 10,
+    "columns": [
+      "Parameter",
+      "Effect"
+    ],
+    "rows": [
+      {
+        "Parameter": "PI (Pump intake pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "PdP (Pump discharge pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "Q (Surface Flow)",
+        "Effect": "Decreases"
+      },
+      {
+        "Parameter": "WHP (Wellhead Pressure)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Temp (Motor temperature)",
+        "Effect": "Increases"
+      },
+      {
+        "Parameter": "M. Amps (Motor current)",
+        "Effect": "Decreases"
+      }
+    ],
+    "csv": "Parameter,Effect\r\nPI (Pump intake pressure),Increases\r\nPdP (Pump discharge pressure),Increases\r\nQ (Surface Flow),Decreases\r\nWHP (Wellhead Pressure),Increases\r\nM. Temp (Motor temperature),Increases\r\nM. Amps (Motor current),Decreases\r\n"
+  },
+  {
+    "table_index": 11,
+    "columns": [
+      "Parameter Condition",
+      "Equation",
+      "Indicates",
+      "Condition"
+    ],
+    "rows": [
+      {
+        "Parameter Condition": "Discharge pressure (high)",
+        "Equation": "Head Pressure + Gravity + Friction",
+        "Indicates": "Increase in pressure on the pump or increase in fluid density on the pump",
+        "Condition": "\u2022 Closed well \u2022 Block over the pump Increase in water cut Extremely high flow \u2022 Scaled pipe"
+      },
+      {
+        "Parameter Condition": "Discharge Pressure (Low)",
+        "Equation": "Head Pressure + Gravity + Friction",
+        "Indicates": "Increase in pressure on the pump or increase in fluid density on the pump",
+        "Condition": "Low flow on the line Hole in Pipe Gas Increase in the Pipeline"
+      },
+      {
+        "Parameter Condition": "Intake pressure (high)",
+        "Equation": "Pd, Pump Parameters (Hz, # Stages, Q, wear, viscosity, gas) input flow (Pr, PI).",
+        "Indicates": "High Pd or Pump does not provide dP",
+        "Condition": "\u2022 High Pd \u2022 Wear \u2022 Recirculation \u2022 High Gas \u2022 High viscosity \u2022 Scaled Bomb Broken Shaft"
+      },
+      {
+        "Parameter Condition": "Intake Pressure (Low)",
+        "Equation": "Pd, Pump Parameters (Hz, # Stages, Q, wear, viscosity, gas) input flow (Pr, PI).",
+        "Indicates": "High dP Pump Poor reservoir Intake flow or support pressure",
+        "Condition": "\u2022 High frequency \u2022 Pr decrement \u2022 PI decrease"
+      },
+      {
+        "Parameter Condition": "Pump- Discharge Pressure (High)",
+        "Equation": "Pump Parameters and Fluid Speed",
+        "Indicates": "Low flow or high frequency",
+        "Condition": "\u2022 Closed well \u2022 Low Flow"
+      },
+      {
+        "Parameter Condition": "Pump- Discharge Pressure (Low)",
+        "Equation": "Pump Parameters and Fluid Speed",
+        "Indicates": "High flow, low frequency or pump stages",
+        "Condition": "\u2022 Broken shaft \u2022 Recirculation \u2022 Low frequency \u2022 Lock on Pump intake"
+      },
+      {
+        "Parameter Condition": "Motor Temperature (High)",
+        "Equation": "Cooling and RPM",
+        "Indicates": "Low or little flow through the engine",
+        "Condition": "\u2022 High Viscosity \u2022 Gas \u2022 Low flow or pump with zero head \u2022 Recirculation \u2022 Well Closure \u2022 Broken shaft"
+      },
+      {
+        "Parameter Condition": "Vibration",
+        "Equation": "\u201cShake\u201d System",
+        "Indicates": "Imbalance, Critical Frequency, solids, gas, heating.",
+        "Condition": "\u2022 Solids \u2022 Gas \u2022 Pump wear Excessive Temperature Critical Frequency"
+      },
+      {
+        "Parameter Condition": "Current (high)",
+        "Equation": "Flow",
+        "Indicates": "Resistance",
+        "Condition": "\u2022 Short Circuit (surface or botton Excessive Temperature \u2022 Noise data"
+      }
+    ],
+    "csv": "Parameter Condition,Equation,Indicates,Condition\r\nDischarge pressure (high),Head Pressure + Gravity + Friction,Increase in pressure on the pump or increase in fluid density on the pump,\u2022 Closed well \u2022 Block over the pump Increase in water cut Extremely high flow \u2022 Scaled pipe\r\nDischarge Pressure (Low),Head Pressure + Gravity + Friction,Increase in pressure on the pump or increase in fluid density on the pump,Low flow on the line Hole in Pipe Gas Increase in the Pipeline\r\nIntake pressure (high),\"Pd, Pump Parameters (Hz, # Stages, Q, wear, viscosity, gas) input flow (Pr, PI).\",High Pd or Pump does not provide dP,\u2022 High Pd \u2022 Wear \u2022 Recirculation \u2022 High Gas \u2022 High viscosity \u2022 Scaled Bomb Broken Shaft\r\nIntake Pressure (Low),\"Pd, Pump Parameters (Hz, # Stages, Q, wear, viscosity, gas) input flow (Pr, PI).\",High dP Pump Poor reservoir Intake flow or support pressure,\u2022 High frequency \u2022 Pr decrement \u2022 PI decrease\r\nPump- Discharge Pressure (High),Pump Parameters and Fluid Speed,Low flow or high frequency,\u2022 Closed well \u2022 Low Flow\r\nPump- Discharge Pressure (Low),Pump Parameters and Fluid Speed,\"High flow, low frequency or pump stages\",\u2022 Broken shaft \u2022 Recirculation \u2022 Low frequency \u2022 Lock on Pump intake\r\nMotor Temperature (High),Cooling and RPM,Low or little flow through the engine,\u2022 High Viscosity \u2022 Gas \u2022 Low flow or pump with zero head \u2022 Recirculation \u2022 Well Closure \u2022 Broken shaft\r\nVibration,\u201cShake\u201d System,\"Imbalance, Critical Frequency, solids, gas, heating.\",\u2022 Solids \u2022 Gas \u2022 Pump wear Excessive Temperature Critical Frequency\r\nCurrent (high),Flow,Resistance,\u2022 Short Circuit (surface or botton Excessive Temperature \u2022 Noise data\r\n"
+  }
+]

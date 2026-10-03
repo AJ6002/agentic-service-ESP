@@ -1,0 +1,58 @@
+[
+  {
+    "table_index": 1,
+    "columns": [
+      "Document Number",
+      "Document Title",
+      "Scope"
+    ],
+    "rows": [
+      {
+        "Document Number": "RP11S",
+        "Document Title": "Recommended Practice for the Operation, Maintenance, and Troubleshooting of Electric Submersible Pumps",
+        "Scope": "Covers all the major components that form the standard ESP pumping system\u2014operation, maintenance, and troubleshooting. It is specifically prepared for installations in oil/water producing wells where the equipment is installed on tubing."
+      },
+      {
+        "Document Number": "RP11S1",
+        "Document Title": "Recommended Practice for Electric Submersible Pump Teardown Report",
+        "Scope": "Covers the recommended ESP teardown report form. It also includes equipment schematic drawings which may provide assistance in identifying equipment components."
+      },
+      {
+        "Document Number": "RP11S2",
+        "Document Title": "Recommended Practice for Electric Submersible Pump Testing",
+        "Scope": "Provides guidelines and procedures covering ESP pump performance testing intended to establish product consistency. It covers the acceptance testing of ESP pumps (sold as new) by the manufacturer, vendor, or user to the prescribed minimum specifications."
+      },
+      {
+        "Document Number": "RP11S3",
+        "Document Title": "Recommended Practice for Electric Submersible Pump Installations",
+        "Scope": "Covers the installation and replacement of all major components that form the typical, ESP system. Specifically, it covers installations in oil/gas operations where the equipment is installed on tubing. It does not cover equipment selection or application."
+      },
+      {
+        "Document Number": "RP11S4",
+        "Document Title": "Recommended Practice for Sizing and Selection of Electric Submersible Pump Installations",
+        "Scope": "Addresses the fundamental procedures for sizing and selecting ESPs and related equipment for various well conditions."
+      },
+      {
+        "Document Number": "RP11S5",
+        "Document Title": "Recommended Practice for Application of Electric Submersible Cable Systems",
+        "Scope": "Covers the materials and application of ESP cable systems."
+      },
+      {
+        "Document Number": "RP11S6",
+        "Document Title": "Recommended Practice for Testing of Electric Submersible Pump Cable Systems",
+        "Scope": "Covers the testing of ESP cable systems. It includes only the field testing category, not factory testing."
+      },
+      {
+        "Document Number": "RP11S7",
+        "Document Title": "Recommended Practice for Application and Testing of Electric Submersible Pump Seal Chamber Sections",
+        "Scope": "It contains tutorial, testing, and failure evaluation information. It provides a general understanding of the construction and functioning of seal-chamber sections and identification of well conditions, system requirements, and characteristics that influence component selection and application."
+      },
+      {
+        "Document Number": "RP11S8",
+        "Document Title": "Recommended Practice for Electric Submersible Pump System Vibrations",
+        "Scope": "Provides guidelines to establish consistency in control and analysis of ESP system vibration. It covers the vibration limits, testing, and analysis of ESP systems and subsystems."
+      }
+    ],
+    "csv": "Document Number,Document Title,Scope\r\nRP11S,\"Recommended Practice for the Operation, Maintenance, and Troubleshooting of Electric Submersible Pumps\",\"Covers all the major components that form the standard ESP pumping system\u2014operation, maintenance, and troubleshooting. It is specifically prepared for installations in oil/water producing wells where the equipment is installed on tubing.\"\r\nRP11S1,Recommended Practice for Electric Submersible Pump Teardown Report,Covers the recommended ESP teardown report form. It also includes equipment schematic drawings which may provide assistance in identifying equipment components.\r\nRP11S2,Recommended Practice for Electric Submersible Pump Testing,\"Provides guidelines and procedures covering ESP pump performance testing intended to establish product consistency. It covers the acceptance testing of ESP pumps (sold as new) by the manufacturer, vendor, or user to the prescribed minimum specifications.\"\r\nRP11S3,Recommended Practice for Electric Submersible Pump Installations,\"Covers the installation and replacement of all major components that form the typical, ESP system. Specifically, it covers installations in oil/gas operations where the equipment is installed on tubing. It does not cover equipment selection or application.\"\r\nRP11S4,Recommended Practice for Sizing and Selection of Electric Submersible Pump Installations,Addresses the fundamental procedures for sizing and selecting ESPs and related equipment for various well conditions.\r\nRP11S5,Recommended Practice for Application of Electric Submersible Cable Systems,Covers the materials and application of ESP cable systems.\r\nRP11S6,Recommended Practice for Testing of Electric Submersible Pump Cable Systems,\"Covers the testing of ESP cable systems. It includes only the field testing category, not factory testing.\"\r\nRP11S7,Recommended Practice for Application and Testing of Electric Submersible Pump Seal Chamber Sections,\"It contains tutorial, testing, and failure evaluation information. It provides a general understanding of the construction and functioning of seal-chamber sections and identification of well conditions, system requirements, and characteristics that influence component selection and application.\"\r\nRP11S8,Recommended Practice for Electric Submersible Pump System Vibrations,\"Provides guidelines to establish consistency in control and analysis of ESP system vibration. It covers the vibration limits, testing, and analysis of ESP systems and subsystems.\"\r\n"
+  }
+]

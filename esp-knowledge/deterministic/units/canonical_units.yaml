@@ -1,0 +1,58 @@
+# Canonical Units Map
+# Aligned with mapping_config.json and engineering specifications
+# Version: 1.0.0
+
+dimensions:
+  temperature:
+    canonical_name: primary_thermal_metric
+    canonical_unit: "°C"
+    canonical_code: degC
+    allowed_input_units: ["C", "°C", "Celsius", "degC", "F", "Fahrenheit"]
+    conversion_from_F: "(value - 32) * 5 / 9"
+
+  intake_pressure:
+    canonical_name: primary_intake_pressure
+    canonical_unit: psi
+    canonical_code: PSI
+    allowed_input_units: ["psi", "PSI", "P.S.I.", "lb/in²", "bar", "kPa"]
+    conversion_from_bar: "value * 14.5038"
+    conversion_from_kPa: "value * 0.145038"
+
+  discharge_pressure:
+    canonical_name: primary_discharge_pressure
+    canonical_unit: psi
+    canonical_code: PSI
+    allowed_input_units: ["psi", "PSI", "P.S.I.", "lb/in²", "bar", "kPa"]
+    conversion_from_bar: "value * 14.5038"
+
+  current:
+    canonical_name: primary_electrical_load
+    canonical_unit: amps
+    canonical_code: A
+    allowed_input_units: ["amps", "Amps", "A", "Amperes"]
+
+  radial_vibration:
+    canonical_name: vibration_metric
+    canonical_unit: g
+    canonical_code: G
+    allowed_input_units: ["g", "G", "g-force", "mm/s"]
+    conversion_from_mms: "value / 9.81"
+
+  axial_vibration:
+    canonical_name: axial_vibration_metric
+    canonical_unit: g
+    canonical_code: G
+    allowed_input_units: ["g", "G", "g-force"]
+
+  flow:
+    canonical_name: flow_metric
+    canonical_unit: bpd
+    canonical_code: BPD
+    allowed_input_units: ["bpd", "BPD", "bbl/day", "m3/day"]
+    conversion_from_m3day: "value * 6.28981"
+
+  efficiency:
+    canonical_name: efficiency_metric
+    canonical_unit: "%"
+    canonical_code: PCT
+    allowed_input_units: ["%", "percent", "pct"]

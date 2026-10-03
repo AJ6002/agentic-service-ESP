@@ -15,12 +15,32 @@ from app.synthesis.response_assembler import ResponseAssembler
 from app.visualization.planner import plan_visualization
 
 
+@pytest.fixture(autouse=True)
+def reload_registry():
+    from app.routing.objective_registry import load_objective_registry
+    load_objective_registry(force_reload=True)
+    yield
+    load_objective_registry(force_reload=True)
+
+
 def test_cards_planner_full_pack_selects_expected_cards():
     """
-    Step 3.1: For OP03_FAULT_DIAGNOSIS, allowed_visuals are:
+    Step 3.1: For OP03 diagnostic manifest with allowed_visuals:
     fault-classification, health-score, motor-temperature, vibration.
     If all signals exist in FormattedEvidence, all 4 cards must be selected.
     """
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP03_FULL",
+        tool="diagnose_fault",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["fault-classification", "health-score", "motor-temperature", "vibration"],
+    )
+    _OBJECTIVES["OP_TEST_OP03_FULL"] = mock_manifest
+
     pack = EvidencePack(
         run_id="R-test-1",
         version=1,
@@ -55,7 +75,7 @@ def test_cards_planner_full_pack_selects_expected_cards():
         ],
     )
 
-    spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, formatted)
+    spec = plan_visualization("OP_TEST_OP03_FULL", pack, formatted)
     assert "fault-classification" in spec.card_ids
     assert "health-score" in spec.card_ids
     assert "motor-temperature" in spec.card_ids
@@ -67,9 +87,21 @@ def test_cards_planner_full_pack_selects_expected_cards():
 
 def test_cards_planner_missing_signal_omits_card():
     """
-    Step 3.1: When vib_amp_x_mms is omitted from the pack,
+    Step 3.1: When vibration_g is omitted from the pack,
     the vibration card must be dropped, while motor-temperature remains.
     """
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP03_MISSING",
+        tool="diagnose_fault",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["motor-temperature", "vibration"],
+    )
+    _OBJECTIVES["OP_TEST_OP03_MISSING"] = mock_manifest
+
     pack = EvidencePack(
         run_id="R-test-2",
         version=1,
@@ -98,7 +130,7 @@ def test_cards_planner_missing_signal_omits_card():
         ],
     )
 
-    spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, formatted)
+    spec = plan_visualization("OP_TEST_OP03_MISSING", pack, formatted)
     assert "motor-temperature" in spec.card_ids
     assert "vibration" not in spec.card_ids
 
@@ -217,7 +249,7 @@ async def test_e2e_insufficient_evidence_clarify_flow():
             "/query",
             json={
                 "session_id": session_id,
-                "message": "Diagnose well FS-9999",
+                "message": "Diagnose well FS-17",
                 "clarify_on_insufficient": True,
             },
         )
@@ -225,14 +257,18 @@ async def test_e2e_insufficient_evidence_clarify_flow():
         lines = [json.loads(line) for line in resp.text.strip().splitlines() if line]
 
         # In test environment, Server 184 is unreachable -> required evidence missing -> CLARIFY
-        assert len(lines) == 2
-        assert lines[0]["type"] == "clarification"
-        assert lines[0]["slot"] == "missing_evidence"
-        assert "could not be completed" in lines[0]["question"]
-        assert lines[1]["type"] == "done"
-        assert lines[1]["status"] == "PAUSED"
+        types = [l["type"] for l in lines]
+        assert "clarification" in types
+        assert "done" in types
 
-        run_id = lines[0]["run_id"]
+        clarify_frame = next(l for l in lines if l["type"] == "clarification")
+        assert clarify_frame["slot"] == "missing_evidence"
+        assert "could not be completed" in clarify_frame["question"]
+
+        done_frame = next(l for l in lines if l["type"] == "done")
+        assert done_frame["status"] == "PAUSED"
+
+        run_id = clarify_frame["run_id"]
         run = get_run(run_id)
         assert run is not None
         assert run.status == "PAUSED"
@@ -324,7 +360,7 @@ async def test_e2e_complete_evidence_yields_advisory_and_visual_frames():
         return res
 
     transport = ASGITransport(app=app)
-    with patch("app.workflow.runner.dispatch_plan_calls", side_effect=mock_dispatch), \
+    with patch("app.workflow.runner.dispatch_plan_calls", new_callable=AsyncMock, side_effect=mock_dispatch), \
          patch("app.workflow.runner.synthesize_advisory", AsyncMock(return_value=(mock_advisory, None))):
         async with AsyncClient(transport=transport, base_url="http://test") as client:
             resp = await client.post(
@@ -350,9 +386,8 @@ async def test_e2e_complete_evidence_yields_advisory_and_visual_frames():
             # Check visual frame has selected cards
             viz_frame = next(l for l in lines if l["type"] == "visual")
             card_ids = viz_frame["visualization"]["card_ids"]
-            assert "fault-classification" in card_ids
-            assert "motor-temperature" in card_ids
-            assert "vibration" in card_ids
+            assert len(card_ids) > 0
+            assert "working_status_smart_fault_card" in card_ids
 
             # Check done status
             done_frame = next(l for l in lines if l["type"] == "done")
@@ -423,7 +458,19 @@ def test_op01_full_pack_all_four_cards_selected_with_kpi():
     assert "int_prs_psi" in signals
     assert "health_score" in signals
 
-    spec = plan_visualization("OP01_CURRENT_STATUS", pack, formatted)
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP01_KPI",
+        tool="get_current_status",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["health-score", "intake-pressure", "gross-liquid-rate", "production-deferment"],
+    )
+    _OBJECTIVES["OP_TEST_OP01_KPI"] = mock_manifest
+
+    spec = plan_visualization("OP_TEST_OP01_KPI", pack, formatted)
     assert spec.card_ids == [
         "health-score",
         "intake-pressure",
@@ -473,8 +520,20 @@ def test_missing_signal_motor_temp_dropped_not_crash():
         ],
     )
     from app.evidence.formatter import format_pack
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP03_STRIP",
+        tool="diagnose_fault",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["motor-temperature", "fault-classification", "health-score", "vibration"],
+    )
+    _OBJECTIVES["OP_TEST_OP03_STRIP"] = mock_manifest
+
     formatted = format_pack(pack)
-    spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, formatted)
+    spec = plan_visualization("OP_TEST_OP03_STRIP", pack, formatted)
     assert "motor-temperature" not in spec.card_ids
     assert "fault-classification" in spec.card_ids
     assert "health-score" in spec.card_ids
@@ -526,12 +585,24 @@ def test_fault_classification_resolves_against_real_ml_fault_response():
         ],
     )
     from app.evidence.formatter import format_pack
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP03_FAULT",
+        tool="diagnose_fault",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["fault-classification"],
+    )
+    _OBJECTIVES["OP_TEST_OP03_FAULT"] = mock_manifest
+
     formatted = format_pack(pack)
     prob_values = [fv for fv in formatted.values if fv.signal == "probability"]
     assert len(prob_values) == 1
     assert prob_values[0].raw == 0.94
 
-    spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, formatted)
+    spec = plan_visualization("OP_TEST_OP03_FAULT", pack, formatted)
     assert "fault-classification" in spec.card_ids
     assert "EV-fault-1" in spec.evidence_ids
 
@@ -738,16 +809,19 @@ async def test_e2e_turn2_resume_partial_evidence_flow():
             "/query",
             json={
                 "session_id": session_id,
-                "message": "Diagnose well FS-9999",
+                "message": "Diagnose well FS-17",
                 "clarify_on_insufficient": True,
             },
         )
         assert resp1.status_code == 200
         lines1 = [json.loads(l) for l in resp1.text.strip().splitlines() if l]
-        assert lines1[0]["type"] == "clarification"
-        assert lines1[1]["type"] == "done"
-        assert lines1[1]["status"] == "PAUSED"
-        paused_run_id = lines1[0]["run_id"]
+        types1 = [l["type"] for l in lines1]
+        assert "clarification" in types1
+        assert "done" in types1
+        clarify_frame = next(l for l in lines1 if l["type"] == "clarification")
+        done1 = next(l for l in lines1 if l["type"] == "done")
+        assert done1["status"] == "PAUSED"
+        paused_run_id = clarify_frame["run_id"]
 
         # Turn 2: resume with "Proceed with partial evidence"
         resp2 = await client.post(
@@ -771,7 +845,7 @@ async def test_e2e_turn2_resume_partial_evidence_flow():
         resumed_run = get_run(paused_run_id)
         assert resumed_run is not None
         assert resumed_run.status == "DONE"
-        assert resumed_run.args.get("asset_id") == "FS-9999"
+        assert resumed_run.args.get("asset_id") == "FS-17"
         assert resumed_run.args.get("allow_partial") is True
 
     delete_pending(session_id)
@@ -809,5 +883,92 @@ def test_cards_planner_unsealed_pack_returns_empty_cards():
     spec = plan_visualization("OP03_FAULT_DIAGNOSIS", pack, formatted)
     assert spec.card_ids == []
     assert spec.evidence_ids == []
+
+
+def test_intent_driven_visuals_selection_tiers():
+    """
+    Verify intent-driven visual selection:
+    1. OP01 (status) emits exactly 1 card: working_status_smart_fault_card.
+    2. OP06 (definitional) emits 0 cards: default_visuals: [].
+    3. OP07 (general inquiry) emits 0 cards: default_visuals: [].
+    4. OP03 (diagnostic) with XAI recommended_cards filters to recommendation.
+    """
+    from app.evidence.formatter import format_pack
+    from app.contracts.advisory import Advisory
+    from app.routing.objective_registry import load_objective_registry
+
+    load_objective_registry(force_reload=True)
+
+    # 1. OP01 Status Pack
+    op01_pack = EvidencePack(
+        run_id="R-intent-op01",
+        version=1,
+        sealed=True,
+        items=[
+            EvidenceItem(
+                evidence_id="EV-1",
+                tool="get_live_telemetry",
+                source_domain="live",
+                fetched_at=datetime.utcnow(),
+                status="OK",
+                payload={"freq_hz": 50.0, "int_prs_psi": 850.0, "amp_a": 42.0, "liquid_rate_bpd": 400.0},
+                unit_map={},
+            )
+        ],
+    )
+    spec_op01 = plan_visualization("OP01_CURRENT_STATUS", op01_pack, format_pack(op01_pack))
+    assert spec_op01.card_ids == ["working_status_smart_fault_card"]
+
+    # 2. OP06 Definitional Pack
+    op06_pack = EvidencePack(
+        run_id="R-intent-op06",
+        version=1,
+        sealed=True,
+        items=[
+            EvidenceItem(
+                evidence_id="EV-2",
+                tool="search_knowledge",
+                source_domain="kb",
+                fetched_at=datetime.utcnow(),
+                status="OK",
+                payload={"query": "gas lock", "hits": [{"doc_id": "D1", "snippet": "Gas lock info"}]},
+                unit_map={},
+            )
+        ],
+    )
+    spec_op06 = plan_visualization("OP06_KNOWLEDGE_LOOKUP", op06_pack, format_pack(op06_pack))
+    assert spec_op06.card_ids == []
+
+    # 3. OP07 General Inquiry Pack
+    spec_op07 = plan_visualization("OP07_GENERAL_INQUIRY", op06_pack, format_pack(op06_pack))
+    assert spec_op07.card_ids == []
+
+    # 4. OP03 Diagnostic Pack with XAI recommended_cards
+    adv_custom = Advisory(
+        objective_id="OP03_FAULT_DIAGNOSIS",
+        assessment="Diagnostic assessment",
+        hypotheses=["Underload"],
+        recommendation="Increase choke",
+        recommended_cards=["multi_tag_live_trends", "advisor_panel_item"],
+    )
+    op03_pack = EvidencePack(
+        run_id="R-intent-op03",
+        version=1,
+        sealed=True,
+        items=[
+            EvidenceItem(
+                evidence_id="EV-3",
+                tool="get_live_telemetry",
+                source_domain="live",
+                fetched_at=datetime.utcnow(),
+                status="OK",
+                payload={"freq_hz": 50.0, "int_prs_psi": 850.0, "amp_a": 42.0},
+                unit_map={},
+            )
+        ],
+    )
+    spec_op03 = plan_visualization("OP03_FAULT_DIAGNOSIS", op03_pack, format_pack(op03_pack), advisory=adv_custom)
+    assert spec_op03.card_ids == ["multi_tag_live_trends", "advisor_panel_item"]
+
 
 

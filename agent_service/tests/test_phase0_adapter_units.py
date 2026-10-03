@@ -434,34 +434,28 @@ class TestGapReasonClassification:
         assert classify_gap_reason(call) == "DEGRADED"
 
     @pytest.mark.anyio
-    async def test_search_knowledge_dispatches_when_kb_unreachable_yields_degraded(self):
+    async def test_search_knowledge_dispatches_when_kb_unreachable_yields_degraded(self, monkeypatch):
         """
-        esp_kb_service (:8085) now exists — search_knowledge is no longer
-        hardcoded to ABSENT. If the KB host is unreachable right now, that
-        is DEGRADED (the source exists, we just can't reach it), the same
-        as any other Server 184 domain being temporarily down. ABSENT is
-        reserved for sources with genuinely no backing service at all.
+        When KB database is unreachable, search_knowledge returns FAILED/DEGRADED.
         """
         import os
         from app.contracts.plan import PlanCall
         from app.evidence.pack import classify_gap_reason
         from app.gateway.tool_gateway import execute_tool_call
+        from app.gateway.adapters.common import AdapterError
+        from app.gateway.adapters import kb as kb_mod
 
-        prev_kb = os.environ.get("KB_SERVICE_BASE_URL")
-        try:
-            os.environ["KB_SERVICE_BASE_URL"] = "http://127.0.0.1:59998"
+        async def fake_failing_search(*args, **kwargs):
+            raise AdapterError("PostgreSQL connection error", status_code=503, code="DB_UNAVAILABLE")
 
-            call = PlanCall(seq=1, kind="READ", tool="search_knowledge", args={"asset_id": "FS-17"})
-            res = await execute_tool_call(call)
+        monkeypatch.setattr(kb_mod, "search_kb", fake_failing_search)
 
-            assert res.status in ("FAILED", "TIMEOUT")
-            assert res.error_code != "ABSENT"
-            assert classify_gap_reason(res) in ("DEGRADED", "TIMEOUT")
-        finally:
-            if prev_kb is not None:
-                os.environ["KB_SERVICE_BASE_URL"] = prev_kb
-            else:
-                os.environ.pop("KB_SERVICE_BASE_URL", None)
+        call = PlanCall(seq=1, kind="READ", tool="search_knowledge", args={"asset_id": "FS-17"})
+        res = await execute_tool_call(call)
+
+        assert res.status in ("FAILED", "TIMEOUT")
+        assert res.error_code != "ABSENT"
+        assert classify_gap_reason(res) in ("DEGRADED", "TIMEOUT")
 
     @pytest.mark.anyio
     async def test_unreachable_server_yields_degraded_not_absent(self):
@@ -498,118 +492,49 @@ class TestGapReasonClassification:
 
 
 # ---------------------------------------------------------------------------
-# Knowledge Base adapter (esp_kb_service, :8085 — separate service from
-# Server 184's :8090 domains). POST-based, not GET; own base URL.
-# Reference: ESP_KB_SERVICE_COMPLETE_API_SPECIFICATION.md v2.1.0.
+# Knowledge Base adapter (Native PostgreSQL 16 + pgvector).
+# Reference: ESP_KB_SERVICE_COMPLETE_API_SPECIFICATION.md & KNOWLEDGE_BASE_MASTER_INVENTORY_AND_API_SERVICE.md.
 # ---------------------------------------------------------------------------
 
 class TestKbAdapter:
     @pytest.mark.anyio
-    async def test_search_posts_query_body(self):
-        cap: dict = {}
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["path"] = request.url.path
-            cap["method"] = request.method
-            cap["json"] = json.loads(request.content)
-            return httpx.Response(200, json=load_fixture("kb_search_nominal.json"))
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            data = await kb.search_kb("underload trip fluid starvation current drop", top_k=3, client=c)
-
-        assert cap["method"] == "POST"
-        assert cap["path"] == "/api/kb/search"
-        assert cap["json"]["query"] == "underload trip fluid starvation current drop"
-        assert cap["json"]["top_k"] == 3
-        assert data["hits"][0]["authority"] == "LEVEL_A_STANDARD"
+    async def test_kb_health(self):
+        health = await kb.check_kb_health()
+        assert health["status"] == "HEALTHY"
+        assert health["engine"] == "POSTGRESQL_PGVECTOR"
+        assert health["chunks"] > 0
 
     @pytest.mark.anyio
-    async def test_search_empty_hits_is_valid_not_an_error(self):
-        """Zero corpus matches is a legitimate result, not a failure."""
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            return httpx.Response(200, json=load_fixture("kb_search_empty.json"))
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            data = await kb.search_kb("nonsense query", client=c)
-
-        assert data["hits"] == []
-        assert data["total_found"] == 0
+    async def test_search_kb_pgvector(self):
+        data = await kb.search_kb("underload trip fluid starvation current drop", top_k=3)
+        assert data["source"] == "POSTGRESQL_PGVECTOR"
+        assert len(data["hits"]) > 0
+        assert data["hits"][0]["authority"] in ("LEVEL_A_STANDARD", "LEVEL_B_OEM", "LEVEL_C_BEST_PRACTICE")
 
     @pytest.mark.anyio
-    async def test_search_optional_filters_included_when_given(self):
-        cap: dict = {}
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["json"] = json.loads(request.content)
-            return httpx.Response(200, json=load_fixture("kb_search_nominal.json"))
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            await kb.search_kb("x", min_authority="LEVEL_A_STANDARD", category="troubleshooting", client=c)
-
-        assert cap["json"]["min_authority"] == "LEVEL_A_STANDARD"
-        assert cap["json"]["category"] == "troubleshooting"
+    async def test_fault_by_id(self):
+        data = await kb.get_kb_fault("GAS_LOCK")
+        assert data["fault_class"] == "GAS_LOCK"
+        assert data["category"] == "HYDRAULIC"
+        assert len(data["symptoms"]) > 0
 
     @pytest.mark.anyio
-    async def test_fault_by_id_url(self):
-        cap: dict = {}
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["path"] = request.url.path
-            return httpx.Response(200, json={"fault_id": "MOTOR_OVERHEATING"})
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            data = await kb.get_kb_fault("MOTOR_OVERHEATING", client=c)
-
-        assert cap["path"] == "/api/kb/faults/MOTOR_OVERHEATING"
-        assert data["fault_id"] == "MOTOR_OVERHEATING"
+    async def test_fault_by_id_unmapped(self):
+        data = await kb.get_kb_fault("UNKNOWN_FAULT_XYZ")
+        assert data.get("unmapped") is True
 
     @pytest.mark.anyio
-    async def test_fault_by_id_404_raises_with_code(self):
-        def handler(request: httpx.Request) -> httpx.Response:
-            return httpx.Response(
-                404, json={"detail": "Fault taxonomy ID 'UNKNOWN_FAULT_XYZ' not found"}
-            )
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            with pytest.raises(AdapterError) as ei:
-                await kb.get_kb_fault("UNKNOWN_FAULT_XYZ", client=c)
-        assert ei.value.status_code == 404
+    async def test_standard_by_id(self):
+        data = await kb.get_kb_standard("API_RP_11S")
+        assert data["standard_id"] == "API_RP_11S"
+        assert len(data["clauses"]) > 0
 
     @pytest.mark.anyio
-    async def test_standard_by_id_url(self):
-        cap: dict = {}
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["path"] = request.url.path
-            return httpx.Response(200, json={"standard_id": "API_RP_11S"})
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            await kb.get_kb_standard("API_RP_11S", client=c)
-        assert cap["path"] == "/api/kb/standards/API_RP_11S"
-
-    @pytest.mark.anyio
-    async def test_health_url(self):
-        cap: dict = {}
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["path"] = request.url.path
-            return httpx.Response(200, json=load_fixture("kb_health_nominal.json"))
-
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            data = await kb.check_kb_health(client=c)
-        assert cap["path"] == "/health"
-        assert data["indexed_documents"] == 3657
-
-    def test_kb_base_url_is_separate_from_server184(self):
-        """
-        KB is a different service on a different port. If someone
-        accidentally routes it through get_gateway_base_url() (:8090),
-        every KB call would silently hit the wrong server.
-        """
-        from app.gateway.adapters.common import get_gateway_base_url
-        assert kb.get_kb_base_url() != get_gateway_base_url()
-        assert ":8085" in kb.get_kb_base_url()
+    async def test_trace_causal_graph(self):
+        data = await kb.trace_kb_graph(["Low Intake Pressure (<150 psi)"])
+        assert data["status"] == "OK"
+        assert len(data["paths"]) > 0
+        assert len(data["root_causes"]) > 0
 
 
 # ---------------------------------------------------------------------------
@@ -619,16 +544,11 @@ class TestKbAdapter:
 class TestSearchKnowledgeToolDispatch:
     @pytest.mark.anyio
     async def test_search_knowledge_dispatches_to_kb_not_absent(self, monkeypatch):
-        """
-        Before this task, tool_gateway intercepted search_knowledge and
-        always returned error_code="ABSENT" without attempting a call.
-        Now that esp_kb_service exists, it must actually dispatch.
-        """
         from app.contracts.plan import PlanCall
         from app.gateway import tool_gateway as tg_mod
 
         async def fake_search_kb(query, top_k=5, min_authority=None, category=None, client=None):
-            assert "FS-17" in query or query  # deterministic query built from args
+            assert "FS-17" in query or query
             return load_fixture("kb_search_nominal.json")
 
         monkeypatch.setattr(tg_mod.kb, "search_kb", fake_search_kb)
@@ -643,35 +563,15 @@ class TestSearchKnowledgeToolDispatch:
 
 class TestPhase45KbToolDispatch:
     @pytest.mark.anyio
-    async def test_trace_kb_graph_url_and_payload(self):
-        cap: dict = {}
+    async def test_trace_kb_graph_tool_gateway(self):
+        from app.contracts.plan import PlanCall
+        from app.gateway import tool_gateway as tg_mod
 
-        def handler(request: httpx.Request) -> httpx.Response:
-            cap["path"] = request.url.path
-            cap["method"] = request.method
-            cap["json"] = json.loads(request.content)
-            return httpx.Response(200, json={
-                "symptom_ids": ["high_motor_temperature"],
-                "paths": [
-                    {
-                        "fault_id": "MOTOR_OVERHEATING",
-                        "fault_name": "Motor Overheating",
-                        "confidence": 0.9,
-                        "chain": ["symptom -> fault"],
-                        "recommended_sop": {"sop_id": "SOP_1", "action": "Inspect cooling"}
-                    }
-                ],
-                "total_paths": 1
-            })
+        call = PlanCall(seq=1, kind="READ", tool="trace_causal_graph", args={"symptom_ids": ["Low Intake Pressure (<150 psi)"]})
+        res = await tg_mod.execute_tool_call(call)
 
-        async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as c:
-            data = await kb.trace_kb_graph(["high_motor_temperature"], client=c)
-
-        assert cap["method"] == "POST"
-        assert cap["path"] == "/api/kb/graph/trace"
-        assert cap["json"]["symptom_ids"] == ["high_motor_temperature"]
-        assert data["total_paths"] == 1
-        assert data["paths"][0]["fault_id"] == "MOTOR_OVERHEATING"
+        assert res.status == "OK"
+        assert len(res.raw_response.get("paths", [])) > 0
 
     @pytest.mark.anyio
     async def test_get_fault_taxonomy_tool_dispatch(self, monkeypatch):

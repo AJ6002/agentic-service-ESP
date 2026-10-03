@@ -1,0 +1,180 @@
+{
+  "manifest": {
+    "document_id": "DOC-STD-API-11S5",
+    "title": "Caledonian Submersible Pump Cables for Oil Industry (API RP 11S5 / IEEE 1018 / 1019)",
+    "canonical_category": "standards",
+    "doc_type": "TECHNICAL_CATALOG",
+    "author_publisher": "Caledonian Cables Ltd",
+    "publication_year": "2015",
+    "source_filename": "electric submersible pump cables.pdf",
+    "standardized_filename": "Caledonian_ESP_Cables_API_11S5.pdf",
+    "file_path": "esp-knowledge\\sources\\raw\\standards\\Caledonian_ESP_Cables_API_11S5.pdf",
+    "file_size_bytes": 2236850,
+    "sha256_checksum": "05eb8de5cd7922066e86eb7ff6cbf3c109d589db206c54850ff82146ad9e8bd4",
+    "total_pages": 32,
+    "extracted_char_count": 35136,
+    "status": "PARSED_AND_NORMALIZED"
+  },
+  "pages_summary": [
+    {
+      "page_number": 1,
+      "char_count": 99,
+      "word_count": 17
+    },
+    {
+      "page_number": 2,
+      "char_count": 2551,
+      "word_count": 369
+    },
+    {
+      "page_number": 3,
+      "char_count": 1789,
+      "word_count": 155
+    },
+    {
+      "page_number": 4,
+      "char_count": 606,
+      "word_count": 73
+    },
+    {
+      "page_number": 5,
+      "char_count": 1667,
+      "word_count": 249
+    },
+    {
+      "page_number": 6,
+      "char_count": 650,
+      "word_count": 83
+    },
+    {
+      "page_number": 7,
+      "char_count": 1343,
+      "word_count": 215
+    },
+    {
+      "page_number": 8,
+      "char_count": 630,
+      "word_count": 77
+    },
+    {
+      "page_number": 9,
+      "char_count": 1619,
+      "word_count": 252
+    },
+    {
+      "page_number": 10,
+      "char_count": 762,
+      "word_count": 96
+    },
+    {
+      "page_number": 11,
+      "char_count": 1636,
+      "word_count": 251
+    },
+    {
+      "page_number": 12,
+      "char_count": 748,
+      "word_count": 95
+    },
+    {
+      "page_number": 13,
+      "char_count": 1638,
+      "word_count": 253
+    },
+    {
+      "page_number": 14,
+      "char_count": 695,
+      "word_count": 89
+    },
+    {
+      "page_number": 15,
+      "char_count": 1486,
+      "word_count": 257
+    },
+    {
+      "page_number": 16,
+      "char_count": 903,
+      "word_count": 114
+    },
+    {
+      "page_number": 17,
+      "char_count": 1780,
+      "word_count": 249
+    },
+    {
+      "page_number": 18,
+      "char_count": 762,
+      "word_count": 100
+    },
+    {
+      "page_number": 19,
+      "char_count": 556,
+      "word_count": 86
+    },
+    {
+      "page_number": 20,
+      "char_count": 1045,
+      "word_count": 138
+    },
+    {
+      "page_number": 21,
+      "char_count": 845,
+      "word_count": 109
+    },
+    {
+      "page_number": 22,
+      "char_count": 1799,
+      "word_count": 248
+    },
+    {
+      "page_number": 23,
+      "char_count": 829,
+      "word_count": 107
+    },
+    {
+      "page_number": 24,
+      "char_count": 1799,
+      "word_count": 248
+    },
+    {
+      "page_number": 25,
+      "char_count": 743,
+      "word_count": 97
+    },
+    {
+      "page_number": 26,
+      "char_count": 974,
+      "word_count": 130
+    },
+    {
+      "page_number": 27,
+      "char_count": 1157,
+      "word_count": 170
+    },
+    {
+      "page_number": 28,
+      "char_count": 628,
+      "word_count": 82
+    },
+    {
+      "page_number": 29,
+      "char_count": 716,
+      "word_count": 127
+    },
+    {
+      "page_number": 30,
+      "char_count": 1285,
+      "word_count": 174
+    },
+    {
+      "page_number": 31,
+      "char_count": 621,
+      "word_count": 85
+    },
+    {
+      "page_number": 32,
+      "char_count": 209,
+      "word_count": 25
+    }
+  ]
+}

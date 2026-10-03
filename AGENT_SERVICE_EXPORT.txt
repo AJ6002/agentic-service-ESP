@@ -1,0 +1,718 @@
+================================================================================
+ESP APM AGENT SERVICE - SYSTEM ARCHITECTURE & CONTRACT AUDIT EXPORT
+Target File: AGENT_SERVICE_EXPORT.txt
+Timestamp: 2026-10-02T05:59:00Z
+================================================================================
+
+TABLE OF CONTENTS:
+1. OBJECTIVES & ROUTER (OP01-OP14 Manifests & Routing Heuristics)
+2. VISUALIZATION & CARD IDS (Planner, Catalog Card Payloads, Missing Data Behavior)
+3. STREAMING FRAMES (Verbatim Pydantic Contracts: events.py, advisory.py, api.py)
+4. BIND & CLARIFICATION RESUME (HITL Architecture, /query Resume Flow, Slot Mechanics)
+5. LIVE TEST RUN OUTPUT (Raw NDJSON Streams for Q1 Diagnostic & Q2 Clarification)
+
+================================================================================
+1. OBJECTIVES & ROUTER
+================================================================================
+
+--------------------------------------------------------------------------------
+1.1 REGISTERED OBJECTIVES (OP01 - OP14)
+Source: app/routing/objective_registry.py & config/objectives/*.yaml
+--------------------------------------------------------------------------------
+
+[OP01] OP01_CURRENT_STATUS
+  - Manifest File     : config/objectives/OP01_CURRENT_STATUS.yaml
+  - Tool Invoked      : get_current_status
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_live_telemetry']
+  - Optional Evidence : ['get_events']
+  - Allowed Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'esp_well_schematic', 'pump_curve_operating_point', 'vfm_production_ribbon', 'advisor_panel_item', 'health-score', 'intake-pressure', 'gross-liquid-rate', 'production-deferment']
+  - Default Visuals   : ['working_status_smart_fault_card']
+  - Required Args     : ['asset_id']
+  - Optional Args     : []
+  - Max Gap-Fill Rounds: 0
+
+[OP02] OP02_PRODUCTION_DECLINE_RCA
+  - Manifest File     : config/objectives/OP02.yaml
+  - Tool Invoked      : get_historian_aggregates
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_historian_aggregates', 'get_events']
+  - Optional Evidence : ['get_current_status', 'get_historian_window']
+  - Allowed Visuals   : ['production-decline', 'pressure-corridor', 'trip-timeline', 'gross-liquid-rate', 'net-oil-rate']
+  - Default Visuals   : ['production-decline', 'pressure-corridor']
+  - Required Args     : ['asset_id']
+  - Optional Args     : ['start', 'end']
+  - Max Gap-Fill Rounds: 1
+
+[OP03] OP03_FAULT_DIAGNOSIS
+  - Manifest File     : config/objectives/OP03_FAULT_DIAGNOSIS.yaml
+  - Tool Invoked      : diagnose_fault
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_live_telemetry', 'get_historian_window']
+  - Optional Evidence : ['get_ml_results', 'search_knowledge', 'get_fault_taxonomy', 'trace_causal_graph', 'get_events', 'get_trips']
+  - Allowed Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'esp_well_schematic', 'pump_curve_operating_point', 'advisor_panel_item', 'fault-classification', 'health-score', 'motor-temperature', 'vibration']
+  - Default Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'advisor_panel_item']
+  - Required Args     : ['asset_id']
+  - Optional Args     : ['trip_ts']
+  - Max Gap-Fill Rounds: 1
+
+[OP04] OP04_HEALTH_ASSESSMENT
+  - Manifest File     : config/objectives/OP04.yaml
+  - Tool Invoked      : get_health_index
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_health_index', 'get_historian_aggregates']
+  - Optional Evidence : ['get_current_status', 'get_anomaly', 'get_events']
+  - Allowed Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'health-score', 'degradation-trend', 'risk-trajectory', 'motor-temperature', 'vibration']
+  - Default Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer']
+  - Required Args     : ['asset_id']
+  - Optional Args     : []
+  - Max Gap-Fill Rounds: 1
+
+[OP05] OP05_EARLY_WARNING
+  - Manifest File     : config/objectives/OP05.yaml
+  - Tool Invoked      : get_anomaly
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_anomaly', 'get_historian_aggregates']
+  - Optional Evidence : ['get_current_status', 'get_health_index', 'get_events', 'get_explanation']
+  - Allowed Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'anomaly-score', 'risk-trajectory', 'vibration', 'intake-pressure', 'motor-temperature']
+  - Default Visuals   : ['working_status_smart_fault_card', 'subsystem_equalizer']
+  - Required Args     : ['asset_id']
+  - Optional Args     : []
+  - Max Gap-Fill Rounds: 1
+
+[OP06] OP06_KNOWLEDGE_LOOKUP
+  - Manifest File     : config/objectives/OP06.yaml
+  - Tool Invoked      : search_knowledge
+  - Safety Class      : READ
+  - Scope             : GLOBAL
+  - Required Evidence : ['search_knowledge']
+  - Optional Evidence : []
+  - Allowed Visuals   : ['evidence-cards']
+  - Default Visuals   : []
+  - Required Args     : []
+  - Optional Args     : ['query']
+  - Max Gap-Fill Rounds: 0
+
+[OP07] OP07_GENERAL_INQUIRY
+  - Manifest File     : config/objectives/OP07_GENERAL_INQUIRY.yaml
+  - Tool Invoked      : search_knowledge
+  - Safety Class      : READ
+  - Scope             : GLOBAL
+  - Required Evidence : []
+  - Optional Evidence : ['search_knowledge']
+  - Allowed Visuals   : []
+  - Default Visuals   : []
+  - Required Args     : []
+  - Optional Args     : []
+  - Max Gap-Fill Rounds: 0
+
+[OP14] OP14_OPERATIONAL_HISTORY
+  - Manifest File     : config/objectives/OP14.yaml
+  - Tool Invoked      : get_historian_window
+  - Safety Class      : READ
+  - Scope             : ASSET
+  - Required Evidence : ['get_asset_context', 'get_historian_window', 'get_historian_aggregates', 'get_events']
+  - Optional Evidence : ['get_trips', 'get_historian_coverage']
+  - Allowed Visuals   : ['multi_tag_live_trends', 'intake-pressure', 'discharge-pressure', 'motor-load', 'gross-liquid-rate', 'energy-balance']
+  - Default Visuals   : ['multi_tag_live_trends']
+  - Required Args     : ['asset_id']
+  - Optional Args     : ['start', 'end']
+  - Max Gap-Fill Rounds: 1
+
+--------------------------------------------------------------------------------
+1.2 ROUTER HEURISTICS AND FALLBACK RULES
+Source: app/routing/router.py
+--------------------------------------------------------------------------------
+
+```python
+# Raw code snippet from app/routing/router.py
+
+ACTUATION_REGEX = re.compile(r"\b(set|bump|change|increase|decrease|speed up)\b.*\b(\d+\s*hz|frequency|choke|speed)\b", re.IGNORECASE)
+
+FOLLOWUP_PATTERNS = re.compile(
+    r"\b(why\s+(did\s+you|you)\s+(say|said|conclude|concluded|flag|flagged|choose|chose|diagnose|diagnosed)|"
+    r"what\s+data\s+(did\s+you|was)\s+(use|used|look\s+at|looked\s+at|check|checked|review|reviewed|rely\s+on|consult|consulted)|"
+    r"how\s+did\s+you\s+(figure\s+that\s+out|come\s+to\s+that|arrive\s+at\s+that)|"
+    r"explain\s+(the\s+graph|the\s+chart|your\s+reasoning|the\s+diagnosis)|"
+    r"what\s+does\s+(that|the)\s+(mean|chart|graph|diagnosis|plot|trend)(\s+(mean|show|indicate|represent))?|"
+    r"can\s+you\s+elaborate\s+on\s+that)\b",
+    re.IGNORECASE,
+)
+AMBIGUOUS_FOLLOWUP_PATTERNS = re.compile(
+    r"^\s*(why\s+did\s+that\s+happen|how\s+did\s+that\s+occur|what\s+happened\s+there|explain\s+that)\??\s*$",
+    re.IGNORECASE,
+)
+
+DEFINITIONAL_PATTERNS = re.compile(
+    r"^\s*(what\s+(is|does|are|\'?s)\b|explain\s+(what\s+|how\s+)?|how\s+(do\s+i|can\s+i|to)\b|procedure\s+(for|to)|define\s+|describe\s+"
+    r"|what(\'?s)?\s+the\s+(difference|meaning)|tell\s+me\s+(what|about)|what\s+causes)",
+    re.IGNORECASE,
+)
+
+def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -> RouteDecision:
+    raw_lower = router_input.raw_message.lower()
+
+    # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective
+    if any(w in raw_lower for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id=router_input.prior_objective or "OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.9,
+            deferred_intents=deferred,
+        )
+
+    # Ambiguity guard: "Why did that happen?" or "Explain that" in empty session -> CLARIFY
+    if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message) and not router_input.has_prior:
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": router_input.asset_id},
+            confidence=0.4,
+            deferred_intents=deferred,
+            clarification_needed=True,
+            clarify_reason="CLARIFY",
+            clarify_slot="asset_id",
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
+        )
+
+    # Follow-up intent check: past-tense explanatory inquiries
+    if FOLLOWUP_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="FOLLOW_UP",
+            intent="explain_prior",
+            objective_id=None,
+            args={"asset_id": router_input.asset_id},
+            confidence=0.9,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
+
+    # Rule 0 guard: definitional intent wins over any diagnostic keyword when no asset is named.
+    if router_input.asset_id is None and DEFINITIONAL_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="SIMPLE",
+            intent="general_inquiry",
+            objective_id="OP06_KNOWLEDGE_LOOKUP",
+            args={},
+            confidence=0.9,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
+
+    raw_lower = router_input.raw_message.lower()
+    needs_asset_clarify = (
+        router_input.asset_id is None
+        and any(w in raw_lower for w in ["trip", "status", "vibration", "temp", "amps", "hz", "pressure", "why did", "health", "early warning", "warning", "anomaly", "history", "runtime"])
+    )
+
+    if needs_asset_clarify:
+        obj_id = "OP03_FAULT_DIAGNOSIS"
+        if any(w in raw_lower for w in ["health", "rul", "degradation", "condition"]):
+            obj_id = "OP04_HEALTH_ASSESSMENT"
+        elif any(w in raw_lower for w in ["early warning", "warning sign", "anomaly"]):
+            obj_id = "OP05_EARLY_WARNING"
+        elif any(w in raw_lower for w in ["history", "operational history", "runtime", "historical"]):
+            obj_id = "OP14_OPERATIONAL_HISTORY"
+        elif any(w in raw_lower for w in ["decline", "drop in production", "dropped", "producing less", "production drop", "production decline", "production analysis"]):
+            obj_id = "OP02_PRODUCTION_DECLINE_RCA" 
+        elif any(w in raw_lower for w in ["status", "reading", "sensor", "telemetry"]):
+            obj_id = "OP01_CURRENT_STATUS"
+
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="diagnose",
+            objective_id=obj_id,
+            args={"asset_id": None},
+            confidence=0.5,
+            deferred_intents=deferred,
+            clarification_needed=True,
+            clarify_reason="CLARIFY",
+            clarify_slot="asset_id",
+            clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
+        )
+    ...
+```
+
+================================================================================
+2. VISUALIZATION & CARD IDS
+================================================================================
+
+--------------------------------------------------------------------------------
+2.1 COMPLETE CARD IDS CATALOG
+Source: app/gateway/adapters/cards.py & config/cards_registry.yaml
+--------------------------------------------------------------------------------
+
+1. `working_status_smart_fault_card` (Alias: `smart-fault-card`, `fault-classification`, `health-score`)
+2. `subsystem_equalizer` (Alias: `subsystem-equalizer`)
+3. `pump_curve_operating_point` (Alias: `pump-curve`)
+4. `esp_well_schematic` (Alias: `well-schematic`)
+5. `multi_tag_live_trends` (Alias: `live-trends`)
+6. `vfm_production_ribbon` (Alias: `vfm-ribbon`)
+7. `system_operational_summary` (Alias: `fleet-health`)
+8. `advisor_panel_item` (Alias: `vsd-advisor`)
+
+Additional Authoritative Registry Cards:
+`gross-liquid-rate`, `net-oil-rate`, `water-cut`, `associated-gas`, `production-deferment`,
+`energy-balance`, `health-score`, `anomaly-score`, `fault-classification`, `motor-load`,
+`motor-temperature`, `vibration`, `intake-pressure`, `discharge-pressure`, `vsd-advisor`,
+`fleet-health`, `system-ingestion`, `degradation-trend`, `risk-trajectory`, `production-decline`,
+`pressure-corridor`, `trip-timeline`, `evidence-cards`.
+
+--------------------------------------------------------------------------------
+2.2 EXACT PAYLOAD SHAPE FOR EACH CARD ID
+--------------------------------------------------------------------------------
+
+[1] working_status_smart_fault_card
+```json
+{
+  "wellId": "FS-17",
+  "category": "Normal",
+  "isHealthy": true,
+  "severity": "normal",
+  "confidence": 0.95,
+  "healthScore": 98.5,
+  "description": "Assessment indicates nominal operation.",
+  "actionAdvisory": "Continue nominal monitoring. Inspect trends on next scheduled pass.",
+  "rootCauseDrivers": [
+    "High anomaly score with reconstruction error exceeding normal manifold.",
+    "Total Liquid Production Rate: 0.0 BPD"
+  ],
+  "scores": {
+    "Normal": 0.95,
+    "Gas Interference": 0.05
+  },
+  "measurements": {
+    "Frequency": 50.25,
+    "Inp bar/psi": 406.18,
+    "Disch pr. Bar/psi": 1913.21,
+    "VSD Amps/Load": 36.5,
+    "Motor temp deg C": 87.37
+  },
+  "updatedAt": "2026-10-02T05:07:21.000Z"
+}
+```
+
+[2] subsystem_equalizer
+```json
+{
+  "subsystems": [
+    {
+      "name": "1. HYDRAULICS [PIP, PDP, WHP]",
+      "short_name": "Hydraulics",
+      "domain": "HYDRAULIC",
+      "deviation": 0.5,
+      "status": "NOMINAL",
+      "metric": "Intake 406 PSI | Discharge 1913 PSI"
+    },
+    {
+      "name": "2. ELECTRICAL [Amps, Volts, Hz]",
+      "short_name": "Electrical",
+      "domain": "ELECTRICAL",
+      "deviation": -33.6,
+      "status": "WATCH",
+      "metric": "VSD 50.3 Hz | 36.5 Amps | 460 V"
+    },
+    {
+      "name": "3. THERMAL [Motor Temp, Intake Temp]",
+      "short_name": "Thermal",
+      "domain": "THERMAL",
+      "deviation": -8.0,
+      "status": "NOMINAL",
+      "metric": "Motor 87.4 °C"
+    },
+    {
+      "name": "4. MECHANICAL [Vibration]",
+      "short_name": "Mechanical",
+      "domain": "MECHANICAL",
+      "deviation": -37.8,
+      "status": "NOMINAL",
+      "metric": "Vibration 0.28 g"
+    }
+  ],
+  "activePip": 406.18,
+  "activePdp": 1913.21,
+  "activeAmps": 36.5,
+  "activeTemp": 87.37,
+  "activeVib": 0.28,
+  "activeFreq": 50.25
+}
+```
+
+[3] pump_curve_operating_point
+```json
+{
+  "wellId": "FS-17",
+  "operating_point": {
+    "flow_bpd": 1658.5,
+    "head_ft": 3953.5,
+    "head_psi": 1507.0,
+    "frequency_hz": 50.3,
+    "power_bhp": 48.3,
+    "efficiency_pct": 68.5
+  },
+  "bep_range": {
+    "min_flow_bpd": 1400.0,
+    "max_flow_bpd": 2100.0,
+    "rated_head_ft": 4500.0
+  },
+  "curve_points": [
+    {"flow_bpd": 500.0, "head_ft": 5200.0, "power_bhp": 35.0, "efficiency_pct": 32.0},
+    {"flow_bpd": 1000.0, "head_ft": 4900.0, "power_bhp": 52.0, "efficiency_pct": 54.0},
+    {"flow_bpd": 1500.0, "head_ft": 4400.0, "power_bhp": 68.0, "efficiency_pct": 68.0},
+    {"flow_bpd": 1800.0, "head_ft": 4000.0, "power_bhp": 74.0, "efficiency_pct": 69.5},
+    {"flow_bpd": 2200.0, "head_ft": 3200.0, "power_bhp": 78.0, "efficiency_pct": 62.0},
+    {"flow_bpd": 2600.0, "head_ft": 2100.0, "power_bhp": 80.0, "efficiency_pct": 45.0}
+  ]
+}
+```
+
+[4] esp_well_schematic
+```json
+{
+  "wellId": "FS-17",
+  "state": "normal",
+  "hz": 50.3,
+  "motorTempF": 189.3,
+  "motorTempLimitF": 280.0,
+  "motorLoadPct": 48.7,
+  "pipPsi": 406.2,
+  "pdpPsi": 1913.2,
+  "amps": 36.5,
+  "volts": 460.0,
+  "flowRateBpd": 1658.5
+}
+```
+
+[5] multi_tag_live_trends
+```json
+{
+  "wellId": "FS-17",
+  "timeWindow": "24h",
+  "points": [
+    {
+      "time": "10:35:07",
+      "pdp": 1913.21,
+      "pip": 406.18,
+      "amps": 36.5,
+      "temp": 87.37
+    }
+  ]
+}
+```
+
+[6] vfm_production_ribbon
+```json
+{
+  "grossLiquidBpd": 500.0,
+  "netOilBopd": 375.0,
+  "waterCutPct": 25.0,
+  "gasOilRatio": 320.0,
+  "energyBalanceStatus": "VERIFIED",
+  "energyBalanceVariancePct": 3.2,
+  "hydraulicPowerHp": 20.9,
+  "electricalPowerHp": 29.1,
+  "lostProductionBpd": 0.0
+}
+```
+
+[7] system_operational_summary
+```json
+{
+  "totalRecords": 11015353,
+  "throughputMsgSec": 11.0,
+  "isConnected": true,
+  "brokerHost": "192.168.1.184",
+  "brokerPort": 1883,
+  "uptimeSeconds": 604800,
+  "runningWells": 32,
+  "totalWells": 35,
+  "downWells": 3,
+  "fleetHealth": 91.5
+}
+```
+
+[8] advisor_panel_item
+```json
+{
+  "kind": "Assessment",
+  "observation": "Well FS-17 assessment detected condition: Normal.",
+  "engineeringContext": "Real-time electrical and hydraulic diagnostic analysis.",
+  "assessment": "Confidence: 95.0%. Recommended field action verified.",
+  "actions": [
+    "Continue nominal monitoring. Inspect trends on next scheduled pass."
+  ],
+  "confidence": 0.95,
+  "evidence": [
+    "High anomaly score with reconstruction error exceeding normal manifold.",
+    "Total Liquid Production Rate: 0.0 BPD"
+  ]
+}
+```
+
+--------------------------------------------------------------------------------
+2.3 MISSING DATA BEHAVIOR
+--------------------------------------------------------------------------------
+- OMITTED vs EMPTY ARRAY vs NULL:
+  - In `fetch_card` (Cards Adapter): When a well has no matching records in PostgreSQL, the card returns `status: "OMITTED"` and `data: null`:
+    ```json
+    {
+      "well_id": "FS-999",
+      "card_id": "working_status_smart_fault_card",
+      "status": "OMITTED",
+      "data": null,
+      "source": "POSTGRESQL_EMPTY"
+    }
+    ```
+  - In Visualization Planner (`plan_visualization`): If a required signal is missing in the sealed EvidencePack, the card is excluded entirely from `card_ids: []` (Omitted from the VisualFrame list).
+  - In Insufficient Evidence Workflows: The VisualFrame is completely omitted, emitting `ErrorFrame(code="INSUFFICIENT_EVIDENCE")` and `DoneFrame(status="INSUFFICIENT")`.
+
+================================================================================
+3. STREAMING FRAMES (Pydantic Models Verbatim)
+================================================================================
+
+--------------------------------------------------------------------------------
+3.1 app/contracts/events.py (VERBATIM CODE)
+--------------------------------------------------------------------------------
+```python
+from typing import Any, Literal, Union
+from pydantic import BaseModel, Field
+from .advisory import Advisory
+from .enums import DecisionAction, FrameType, InterruptType
+from .visualization import VisualizationSpec
+
+class StatusFrame(BaseModel):
+    type: Literal["status"] = "status"
+    run_id: str
+    stage: str
+    progress: int
+    message: str
+
+class TextDeltaFrame(BaseModel):
+    type: Literal["text_delta"] = "text_delta"
+    run_id: str
+    delta: str
+
+class ClarificationFrame(BaseModel):
+    type: Literal["clarification"] = "clarification"
+    run_id: str
+    question: str
+    options: list[str] = Field(default_factory=list)
+    slot: str | None = None
+    pending_ref: str | None = None
+
+class InterruptFrame(BaseModel):
+    type: Literal["interrupt"] = "interrupt"
+    run_id: str
+    reason: InterruptType = "APPROVE"
+    pending_call: dict[str, Any] = Field(default_factory=dict)
+    options: list[DecisionAction] = Field(default_factory=lambda: ["APPROVE", "MODIFY", "REJECT"])
+
+class AdvisoryFrame(BaseModel):
+    type: Literal["advisory"] = "advisory"
+    run_id: str
+    advisory: Union[Advisory, dict[str, Any]] = Field(default_factory=dict)
+    source_refs: list[str] = Field(default_factory=list)
+
+class VisualFrame(BaseModel):
+    type: Literal["visual"] = "visual"
+    run_id: str
+    card_ids: list[str] = Field(default_factory=list)
+    visualization: Union[VisualizationSpec, dict[str, Any]] = Field(default_factory=dict)
+
+AdvisoryFrame.model_rebuild()
+VisualFrame.model_rebuild()
+
+
+class ErrorFrame(BaseModel):
+    type: Literal["error"] = "error"
+    run_id: str
+    code: str
+    message: str
+
+class DoneFrame(BaseModel):
+    type: Literal["done"] = "done"
+    run_id: str
+    status: str | None = None
+
+Frame = Union[
+    StatusFrame,
+    TextDeltaFrame,
+    ClarificationFrame,
+    InterruptFrame,
+    AdvisoryFrame,
+    VisualFrame,
+    ErrorFrame,
+    DoneFrame,
+]
+```
+
+--------------------------------------------------------------------------------
+3.2 app/contracts/advisory.py (VERBATIM CODE)
+--------------------------------------------------------------------------------
+```python
+from __future__ import annotations
+
+from pydantic import BaseModel, Field
+
+# Re-export canonical FormattedValue & FormattedEvidence from app.evidence.formatter
+from app.evidence.formatter import FormattedValue, FormattedEvidence
+
+
+class Advisory(BaseModel):
+    """
+    Synthesised XAI diagnostic output produced by LLM #3 (narrate).
+    Strictly grounded in verified EvidencePack data.
+    """
+    objective_id: str
+    assessment: str
+    hypotheses: list[str] = Field(default_factory=list)
+    recommendation: str
+    verification_steps: list[str] = Field(default_factory=list)
+    troubleshooting_steps: list[str] = Field(default_factory=list)
+    confidence: float = 1.0
+    cited_evidence_ids: list[str] = Field(default_factory=list)
+    provenance_warnings: list[str] = Field(default_factory=list)
+    degraded_sources: list[str] = Field(default_factory=list)
+    recommended_cards: list[str] = Field(default_factory=list)
+
+
+class ProvenanceResult(BaseModel):
+    """
+    Outcome of numeric provenance check (Step 2.2).
+    Lists any unattributed numeric tokens found in Advisory prose.
+    """
+    passed: bool
+    unattributed_numbers: list[str] = Field(default_factory=list)
+```
+
+--------------------------------------------------------------------------------
+3.3 app/contracts/api.py (VERBATIM CODE)
+--------------------------------------------------------------------------------
+```python
+from pydantic import BaseModel, Field
+from typing import Any, Optional, Union
+from .enums import DecisionAction, TimeRangeLabel
+
+class UIContext(BaseModel, extra="allow"):
+    selected_asset: Optional[str] = None
+    selected_time_range: Optional[str] = None
+    selected_visualization: Optional[str] = None
+    selected_finding: Optional[str] = None
+    active_tab: Optional[str] = None
+    active_anomaly: Optional[str] = None
+    fleet_filter: Optional[str] = None
+    station_id: Optional[str] = None
+
+class QueryRequest(BaseModel, extra="allow"):
+    session_id: str
+    message: str
+    well_id: Optional[str] = None
+    asset_id: Optional[str] = None
+    page_route: Optional[str] = None
+    time_range: Optional[str] = None
+    ui_context: Optional[Union[UIContext, dict[str, Any]]] = None
+    clarify_on_insufficient: bool = False
+
+class DecisionRequest(BaseModel):
+    run_id: str
+    action: DecisionAction
+    token: str
+    modified_args: Optional[dict[str, Any]] = None
+```
+
+================================================================================
+4. BIND & CLARIFICATION RESUME LIFECYCLE
+================================================================================
+
+--------------------------------------------------------------------------------
+4.1 HOW THE RESUME PROTOCOL WORKS
+--------------------------------------------------------------------------------
+1. Route: The frontend sends the clarification answer to the standard `POST /query` endpoint as a normal `QueryRequest(session_id="...", message="FS-017")`.
+2. Resolution Detection:
+   - `resolve_context()` checks if a `PendingInterrupt` exists for the session via `get_pending(session_id)`.
+   - If the incoming message matches the expected slot (e.g. `slot == "asset_id"`) or one of the options, `resolve_context()` sets `frame.resolution = "BIND"`.
+3. Execution Flow in app/main.py:
+   ```python
+   if frame.resolution == "BIND":
+       pending = get_pending(session_id)
+       if pending:
+           run_id = pending.run_id
+           bound_val = frame.asset.id or raw_msg
+           resume_outcome = await resume(run_id, bound_val)
+           delete_pending(session_id)
+
+           run = get_run(run_id)
+           if run:
+               run.status = "DONE"
+               save_run(run)
+           ...
+   ```
+4. How run_id and slot get resolved on resume:
+   - `pending.run_id` provides the exact paused execution ID (`R-xxxxxxxx`).
+   - `resume(run_id, bound_val)` looks up `run = get_run(run_id)`.
+   - It reads `phase = run.resume_at` (e.g. `"PLAN_BUILD"` or `"ROUTER"`).
+   - It executes `continue_after_router(run, bound_val)`, which normalizes the well ID and merges it: `args = {**run.args, "asset_id": norm_asset}`.
+   - It executes `run_workflow(run_id, session_id, objective_id, args, confidence)`, streaming the real diagnostic result.
+
+================================================================================
+5. LIVE TEST RUN OUTPUT (RAW NDJSON)
+================================================================================
+
+--------------------------------------------------------------------------------
+5.1 QUERY 1: DIAGNOSTIC QUERY WITH WELL SPECIFIED
+Request:
+POST /query
+{"session_id": "test-sync-1", "message": "Why did FS-017 trip?", "well_id": "FS-017"}
+--------------------------------------------------------------------------------
+
+RAW NDJSON STREAM FRAMES:
+Line 1:
+{"type":"status","run_id":"R-7e808d44","stage":"llm_gateway","progress":0,"message":"LLM gateway unavailable — response generated by deterministic fallback, not the model."}
+
+Line 2:
+{"type":"error","run_id":"R-7e808d44","code":"INSUFFICIENT_EVIDENCE","message":"Diagnostic run for FS-17 (objective: OP03_FAULT_DIAGNOSIS) could not be completed: required evidence missing (get_historian_window). Status notes: get_ml_results: DEGRADED; get_events: DEGRADED; get_trips: DEGRADED; diagnose_fault: DEGRADED; get_historian_window: DEGRADED."}
+
+Line 3:
+{"type":"done","run_id":"R-7e808d44","status":"INSUFFICIENT"}
+
+[WHEN POSTGRES TELEMETRY IS STREAMED / SEALED (from 10-Well Verification)]:
+Line 1:
+{"type":"status","run_id":"R-9a0a28f0","stage":"llm_gateway","progress":0,"message":"LLM gateway unavailable — response generated by deterministic fallback, not the model."}
+
+Line 2:
+{"type":"visual","run_id":"R-9a0a28f0","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"visualization":{"widget_id":"cards","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"evidence_ids":["EV-R-9a0a28f0-0011"],"data":{"cards":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"]}}}
+
+Line 3:
+{"type":"text_delta","run_id":"R-9a0a28f0","delta":"Diagnostic run for FS-17 (objective: OP03_FAULT_DIAGNOSIS):\n\nTemporal Scope: 2026-10-01T05:07:21.289476Z to 2026-10-02T05:07:21.289476Z (86400.0s span)\nData Found: 10000 records (2026-10-01T10:37:21.368062+05:30 to 2026-10-01T11:01:37.404709+05:30)"}
+
+Line 4:
+{"type":"done","run_id":"R-9a0a28f0","status":"OK"}
+
+--------------------------------------------------------------------------------
+5.2 QUERY 2: CLARIFICATION QUERY (MISSING WELL_ID)
+Request:
+POST /query
+{"session_id": "test-sync-2", "message": "Assess health status"}
+--------------------------------------------------------------------------------
+
+RAW NDJSON STREAM FRAMES:
+Line 1:
+{"type":"status","run_id":"R-03675aa4","stage":"llm_gateway","progress":0,"message":"LLM gateway unavailable — response generated by deterministic fallback, not the model."}
+
+Line 2:
+{"type":"clarification","run_id":"R-03675aa4","question":"Which well would you like me to analyze?","options":["FS-17","FS-91","FNW-01","FWS-06"],"slot":"asset_id","pending_ref":"esp:session:test-sync-2:pending"}
+
+Line 3:
+{"type":"done","run_id":"R-03675aa4","status":"PAUSED"}
+
+================================================================================
+END OF AGENT_SERVICE_EXPORT.txt
+================================================================================

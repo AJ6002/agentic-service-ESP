@@ -90,6 +90,18 @@ def test_op04_missing_asset_fails_policy():
 
 def test_visual_cards_selection_for_op04():
     # Test that degradation-trend and risk-trajectory qualify when their signals are present
+    from app.contracts.objective_manifest import ObjectiveManifest
+    from app.routing.objective_registry import _OBJECTIVES
+
+    mock_manifest = ObjectiveManifest(
+        objective_id="OP_TEST_OP04_HEALTH",
+        tool="get_health_index",
+        safety_class="READ",
+        scope="ASSET",
+        allowed_visuals=["health-score", "degradation-trend", "risk-trajectory"],
+    )
+    _OBJECTIVES["OP_TEST_OP04_HEALTH"] = mock_manifest
+
     payload = {
         "well_id": "FS-17",
         "health_score": 72.0,
@@ -110,7 +122,7 @@ def test_visual_cards_selection_for_op04():
         sealed=True,
     )
     fe = format_pack(pack)
-    spec = plan_visualization("OP04_HEALTH_ASSESSMENT", pack, formatted_evidence=fe)
+    spec = plan_visualization("OP_TEST_OP04_HEALTH", pack, formatted_evidence=fe)
     assert "health-score" in spec.card_ids
     assert "degradation-trend" in spec.card_ids
     assert "risk-trajectory" in spec.card_ids

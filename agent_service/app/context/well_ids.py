@@ -80,6 +80,10 @@ def normalize_well_id(text: str) -> Optional[str]:
         return None
 
     raw = text.strip().upper()
+    if raw.startswith("ASSET-"):
+        raw = raw[6:]
+    elif raw.startswith("WELL-"):
+        raw = raw[5:]
     _load_canonical_wells()
 
     # 1. Exact canonical hit

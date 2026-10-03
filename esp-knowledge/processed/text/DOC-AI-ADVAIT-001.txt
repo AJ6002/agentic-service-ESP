@@ -1,0 +1,405 @@
+=== PAGE 1 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft
+ESP Pumps
+Operations, AI Modelling & 
+Assistant Development
+Introduction deck for software -background AI interns joining 
+the ADVAIT ESP Asset Performance Monitoring & 
+Management program
+Equipment domain → data model → AI advisor
+Build useful AI on trustworthy 
+plant dataIntern outcome
+Source visuals/data: uploaded ESP knowledge base; SLB Defining Series.
+
+=== PAGE 2 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft01 / PROGRAM CONTEXT
+What interns need to deliver
+Software capability only becomes valuable when it respects equipment physics and operating reality.
+1Understand the 
+ESP
+Components and flow path
+Parameters that matter
+Normal operating envelope2 Model the asset
+Tag mapping and calculations
+Fault patterns and labels
+Health index and risk scoring3 Build the assistant
+Explain anomalies
+Recommend safe actions
+Generate work notes and reports
+Project success metric: reduce avoidable downtime and turn operator experience into repeatable, auditable decision support.
+
+=== PAGE 3 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft02 / ARTIFICIAL LIFT BASICS
+Why ESP exists in oil production
+When reservoir energy is not enough, artificial lift supplies the missing pressure to move fluids to surface.
+ESP = electric motor + multistage centrifugal 
+pump downhole
+High -volume artificial lift for wells that cannot flow economically 
+by natural reservoir pressure.
+Typically selected for moderate -to-high liquid rate wells where rod -
+pump or gas -lift economics are weak.
+The system converts electrical energy into hydraulic head inside 
+the well.
+Software analogy: ESP is a cyber -physical production service with hard constraints
+Source: Electrical Submersible Pumps Manual snippets; ESP Run Life Factors slide deck.
+
+=== PAGE 4 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft03 / SYSTEM ANATOMY
+ESP system anatomy
+Separate the asset into surface power/control, downhole hydraulic string and well/reservoir context.
+Downhole assembly
+Motor
+Protector / seal section
+Intake or gas separator
+Multistage pump
+Cable, check valve, drain valve
+Downhole gaugesSurface system
+Transformer
+VSD / switchboard
+Junction box
+Wellhead
+SCADA / RTU / historian
+Power quality monitoring
+Source: ESP Components Equipment Description, pages 3 –4.
+
+=== PAGE 5 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft04 / WORKING PRINCIPLE
+How the ESP actually pumps
+Each stage adds a small pressure increase; many stages stacked together create the total developed head.
+Stage -level physics
+1Fluid enters the impeller from pump intake.
+2Impeller accelerates fluid outward, adding velocity.
+3Diffuser converts velocity into pressure.
+4Stages repeat until discharge pressure is achieved.
+Source: ESP Components Equipment Description, pages 6 –7; SLB Defining Series.
+
+=== PAGE 6 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft05 / PERFORMANCE CURVES
+Pump curve is the operating contract
+The AI model must know whether the current point is inside the recommended operating range, not just whether values are high 
+or low.
+What the curve tells us
+Flow rate vs head: hydraulic capability
+Horsepower: motor load requirement
+Efficiency: best operating zone
+Operating point: actual production reality
+Left of range: downthrust/low -flow risk; right of range: 
+upthrust/high -flow risk
+Core AI feature: deviation from design / BEP / ROR
+Source: SLB Defining Series page 1; pressure -gradient design slides.
+
+=== PAGE 7 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft06 / WELL HYDRAULICSTotal Dynamic Head links well conditions to pump 
+demandTDH is where production engineering meets sensor data.
+TDH = vertical lift + friction + 
+wellhead pressure
+Net vertical lift changes with producing fluid level.
+Tubing friction rises with flow rate and fluid 
+properties.
+Wellhead pressure/backpressure shifts the required 
+discharge pressure.
+Wrong density, water cut or GOR assumptions break 
+the model.
+Implementation note: create a TDH calculation service, keep every 
+assumption visible, and compare calculated PDP/PIP with gauge 
+values.
+Source: ESP design Total Dynamic Head material; pressure -gradient curves.
+
+=== PAGE 8 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft07 / PARAMETERS
+Minimum tag universe for useful monitoring
+Interns must convert raw historian tags into physics -aware features and asset -level state.
+Domain Typical tags Why it matters
+Production Flow rate, WHP, choke, tubing/casing pressure Confirms production and hydraulic loading
+Downhole PIP, PDP, motor temp, intake temp, vibration Early signatures of gas, wear, blockage, overheating
+Electrical Voltage, current, amps imbalance, frequency, leakage Motor health and power quality
+Design static Pump model, stages, ROR, motor HP, cable, set depth Benchmark for deviation and safe envelope
+Context Water cut, GOR, API, BHT, PI, reservoir pressure Explains why same symptoms differ by well
+Source: pressure -gradient measurements list; real -time monitoring docs.
+
+=== PAGE 9 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft08 / CONTROL
+Operating envelope: monitor, explain, act
+The application should distinguish “needs watch” from “stop now” with traceable logic.
+Frequency / speedFl
+o
+w 
+/ 
+lo
+ad NormalWatch
+Trip riskNormal: keep speed, maintain surveillance.
+Watch: explain deviation and recommend 
+controlled parameter adjustment.
+Warning: create exception, request engineering 
+review.
+Critical: trip prevention or safe shutdown 
+workflow.
+Never allow an AI assistant to command unsafe action directly
+
+=== PAGE 10 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft09 / RUN LIFE
+Run life is limited by the weakest operating factor
+Failure is rarely “one variable high”; it is usually a context -dependent combination.
+Key degradation drivers
+Wrong sizing or operating outside ROR
+High bottom -hole / motor temperature
+Free gas and gas lock / gas interference
+Sand / solids abrasion and erosion
+Corrosion and scale deposition
+Electrical failures and power quality problems
+Operational cycling, frequent starts/stops
+Source: ESP Run Life Factors, pages 2 –4.
+
+=== PAGE 11 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft10 / FAULT TAXONOMY
+Fault taxonomy for modelling and assistant logic
+Start with failure modes operators recognize, then map them to symptoms and data signatures.
+Hydraulic
+Gas interference
+Intake blockage
+Stage wear
+Tubing leakMechanical
+Broken shaft
+Bearing wear
+Vibration
+MisalignmentElectrical
+Overload
+Underload
+Phase imbalance
+Insulation leakageThermal
+Motor overheating
+Poor cooling
+High BHT
+High starts/stopsWell / process
+Reservoir pressure 
+change
+Water cut shift
+Sand production
+Scale/corrosion
+Use this taxonomy in the database, label schema, model output class names, exception workflows and assistant retrieval corpus .
+Source: SPE troubleshooting guide and ESP troubleshooting matrix.
+
+=== PAGE 12 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft11 / SIGNATURES
+Troubleshooting is pattern recognition with physics
+The same symptom can mean different faults; use multiple parameters together.
+Example pattern families
+Reduced/no flow + rising PIP + high temperature: 
+blockage, broken shaft or shutdown -at-surface 
+scenarios.
+Erratic amps and pressure with reduced flow: free gas at 
+pump intake.
+Reduced flow + elevated amps + reduced discharge 
+pressure: possible stage wear.
+Increasing frequency should raise flow, WHP , amps, PDP 
+and temperature unless constrained.
+Source: ChampionX/Unbridled ESP Troubleshooting Guide page 1.
+
+=== PAGE 13 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft12 / VIBRATION & ELECTRICALHigh -value fault signals: vibration, current, 
+temperatureFor machine learning, high -frequency mechanical/electrical features can detect faults earlier than slow process tags.
+Feature direction
+Order tracking around shaft speed: 1X, 2X, harmonics and 
+sidebands.
+RMS, peak, crest factor, kurtosis and band energy from vibration 
+windows.
+Current signature features: imbalance, THD proxy, 
+underload/overload, leakage trend.
+Temperature rise vs load and cooling flow as an early thermal 
+risk indicator.
+ML caution: do not train only on “pretty” data; include startups, trips and sensor dropouts
+Source: ESP vibration analysis paper and uploaded troubleshooting guides.
+
+=== PAGE 14 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft13 / DATA ARCHITECTURE
+ADVAIT ESP -PMM data pipeline
+The backend must preserve raw evidence while publishing clean features for models and assistant reasoning.
+OT / SCADA
+RTU, VSD, gauges, historianAsset Model
+Well, ESP string, design caseFeature Store
+Windows, aggregates, calculated 
+headModel Runtime
+Anomaly, RUL, failure probabilityAI Assistant
+Explanation, next best action, 
+report
+Critical principle: lineage from recommendation back to raw tags, design data and 
+calculation version is non -negotiable.
+
+=== PAGE 15 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft14 / FEATURE ENGINEERING
+Feature engineering backlog
+A strong ESP model starts with robust features before chasing complex algorithms.
+Hydraulic calculated
+ΔPpump = PDP − PIP
+Head = ΔP / gradient
+TDH vs pump curve
+PIP drawdown vs IPROperating behavior
+Frequency -normalized flow
+Start/stop count
+Time outside ROR
+Trend slopes and rate of change
+Thermal/electrical
+Motor temp margin
+Current vs frequency
+Underload/overload events
+Voltage/current imbalanceData quality
+Sensor stale flag
+Dropout interpolation
+Unit conversion confidence
+Tag binding health
+Source: pressure -gradient calculation slides and monitoring parameter lists.
+
+=== PAGE 16 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft15 / AI MODELS
+AI modelling workstreams
+Build models in layers: rules for transparency, ML for prediction, retrieval for assistant context.
+Layer Purpose Candidate methods Intern tasks
+Rule engine Known physics and operating limits Thresholds, state machines, pump -curve checks Encode ROR, TDH and trip logic
+Anomaly detection Detect abnormal behavior without labels Isolation Forest, autoencoder, robust z -score Build baseline by well/pump type
+Failure prediction Estimate probability and lead time Gradient boosting, temporal CNN/LSTM, survival model Create labels and evaluate lead time
+Fault classification Identify likely root cause XGBoost, random forest, sequence classifier Map symptoms to fault taxonomy
+RAG assistant Explain and recommend Retriever + tool calling + evidence cards Build prompt, citations, action templates
+Source: Siemens OTC AI predictive maintenance paper and uploaded troubleshooting papers.
+
+=== PAGE 17 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft16 / LABELS & EVALUATION
+Prediction without labels is theatre
+Define the exact event, prediction horizon and business metric before model training.
+Event labels
+Trip event
+Failure pull/workover
+Operating exception
+Avoided failure / intervention
+Root cause after teardownTime horizons
+Next 1 hour: trip risk
+Next 24 hours: severe exception
+Next 7–14 days: failure risk
+Remaining Useful Life estimateMetrics
+Lead time before failure
+False alarm rate per well -month
+Precision on critical alarms
+Production deferment avoided
+Operator action adoption
+The Siemens ESP pilot reported failure probability forecasting 12 days before an actual failure; use that as an ambition, not asa guaranteed benchmark.
+Source: Applying Artificial Intelligence to Optimize Oil and Gas Production, OTC -29384 -MS.
+
+=== PAGE 18 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft17 / AI ASSISTANT
+ESP AI Assistant: what it must do
+The assistant is not a chatbot; it is an evidence -backed operational copilot.
+Observe
+Read asset state, data 
+quality, recent trends 
+and active 
+exceptions.Diagnose
+Match multi -signal 
+patterns to likely 
+failure modes and 
+confidence.Explain
+Show evidence: tag 
+movements, 
+calculations, design 
+envelope and source 
+procedure.Recommend
+Give safe next steps: 
+monitor, adjust, 
+inspect, escalate or 
+plan intervention.Document
+Generate shift notes, 
+exception reports and 
+model -feedback 
+labels.
+Every answer should include confidence, evidence and escalation criteria
+
+=== PAGE 19 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft18 / GUARDRAILS
+Guardrails for industrial AI
+Wrong advice can damage equipment or stop production. Build controls from day one.
+Assistant must never
+Invent missing sensor values
+Recommend unsafe speed changes without 
+constraints
+Suppress alarms because model confidence is 
+low
+Hide uncertainty or source evidence
+Override operator/company proceduresAssistant must always
+State confidence and data quality
+Link recommendation to tags/calculations
+Offer escalation route
+Create audit trail
+Support human approval before action
+Industrial AI = bounded autonomy + human accountability
+
+=== PAGE 20 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft19 / INTERN BUILD PLAN
+Implementation backlog for interns
+Each task should create reusable product capability, not isolated notebooks.
+Work item Output Definition of done
+Asset schema ESP asset definition tables + sample data Can configure well, pump, motor, protector, cable, VSD and design case
+Tag binding Historian tag dictionary + unit normalization Raw tags map to canonical ESP variables with data -quality flags
+Calculation service TDH, ΔP, head, ROR deviation, temp margins Values reproducible and versioned with assumptions
+Fault rules Rule cards for 10 –15 common patterns Each rule has trigger, evidence, severity and recommended action
+ML baseline Anomaly and failure -risk prototype Backtest notebook + API -ready scoring function
+Assistant prototype RAG + tool calling over ESP knowledge base Answers cite evidence and produce action -ready summary
+
+=== PAGE 21 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft20 / SPRINT PLAN
+Suggested 6 -week onboarding execution plan
+Ship a vertical slice that can be demonstrated with synthetic + historian -ready data.
+Week 1
+Domain 
+bootcamp
+asset schemaWeek 2
+Tag model
+data qualityWeek 3
+Calculations
+feature storeWeek 4
+Fault rules
+exception engineWeek 5
+ML baseline
+backtestingWeek 6
+AI assistant
+demo package
+Demo target: select one ESP well → show current operating point → identify anomaly → explain likely 
+cause → generate recommended action note.
+
+=== PAGE 22 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft21 / EXPECTED DELIVERABLES
+Intern deliverables and quality bar
+Good interns will produce product -grade assets, not just experiments.
+Data
+Canonical variables
+Sample datasets
+Data quality checksEngineering
+Calculation APIs
+Rule engine
+Test casesAI
+Baseline models
+Evaluation reports
+Prompt/RAG harnessProduct
+Screens/demo flow
+Exception workflow
+User documentation
+Quality bar: reproducible, versioned, explainable, testable and demo -ready
+
+=== PAGE 23 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working Draft22 / REFERENCE MAP
+Recommended reading map
+Use the sources below as the knowledge backbone for intern onboarding and RAG ingestion.
+Topic Primary internal/public source
+ESP basics and configuration SLB Defining Series: Electrical Submersible Pumps; ESP Manual introduction
+Components ESP Components Equipment Description; ESP system training decks
+Design and TDH Pressure -gradient curves and ESP Total Dynamic Head design notes
+Operations and run life ESP Run Life Factors; ESP Basic Design and Operational Factors
+Troubleshooting SPE -199091 -MS troubleshooting guide; combined troubleshooting matrix
+AI and predictive maintenance OTC -29384 -MS Siemens AI use case; vibration analysis paper
+Assistant build requirements ADVAIT ESP -PMM project context and current module requirements
+
+=== PAGE 24 ===
+ADVAIT ESP -PMM | Intern Onboarding Confidential Working DraftIntern mission
+Turn ESP data into actionable 
+intelligence —with physics, evidence 
+and operational discipline built in.
+Best first demo: one well, one current operating point, one likely fault, one traceable 
+recommendation.
+

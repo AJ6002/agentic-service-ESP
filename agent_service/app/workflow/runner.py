@@ -67,6 +67,29 @@ class WorkflowResult:
     llm_available: bool = True
 
 
+# ---------------------------------------------------------------------------
+# Objective-to-header mapping — fixes the wrong "Diagnostic run" label (Bug #3)
+# ---------------------------------------------------------------------------
+_OBJECTIVE_HEADERS: dict[str, str] = {
+    "OP01": "Status check for {asset}:",
+    "OP02": "Production trend for {asset}:",
+    "OP03": "Fault diagnosis for {asset}:",
+    "OP04": "Health assessment for {asset}:",
+    "OP05": "Early-warning assessment for {asset}:",
+    "OP06": "Knowledge lookup:",
+    "OP14": "Historical review for {asset}:",
+}
+
+
+def _objective_header(objective_id: str, asset_id: str) -> str:
+    """Returns the correct human-readable header line for an objective."""
+    for prefix, tmpl in _OBJECTIVE_HEADERS.items():
+        if prefix in objective_id:
+            return tmpl.format(asset=asset_id)
+    # Fallback — still identifies objective
+    return f"Diagnostic run for {asset_id} (objective: {objective_id}):"
+
+
 def _format_advisory_text(
     objective_id: str,
     args: dict,
@@ -79,10 +102,9 @@ def _format_advisory_text(
     """
     Renders human-readable text for WorkflowResult.text.
     Includes Advisory findings if available, provenance warnings, and data source statuses.
-    Preserves backwards compatibility for assertions expecting 'Diagnostic run for ...'.
     """
     asset_id = args.get("asset_id", "the selected asset")
-    lines = [f"Diagnostic run for {asset_id} (objective: {objective_id}):"]
+    lines = [_objective_header(objective_id, asset_id)]
     if pack:
         for item in pack.items:
             tm = item.payload.get("temporal_meta") if isinstance(item.payload, dict) else None
@@ -92,7 +114,10 @@ def _format_advisory_text(
                 span_desc = f" ({qw.get('span_seconds')}s span)" if qw.get('span_seconds') else ""
                 lines.append(f"\nTemporal Scope: {qw.get('start')} to {qw.get('end')}{span_desc}")
                 if db.get("earliest_ts"):
-                    lines.append(f"Data Found: {db.get('point_count')} records ({db.get('earliest_ts')} to {db.get('latest_ts')})")
+                    # P2 fix: if point_count == 10000 it's a row cap — say so
+                    pc = db.get('point_count')
+                    cap_note = " (row cap — actual count may be higher)" if pc == 10000 else ""
+                    lines.append(f"Data Found: {pc}{cap_note} records ({db.get('earliest_ts')} to {db.get('latest_ts')})")
                 break
 
     if advisory:
@@ -110,21 +135,17 @@ def _format_advisory_text(
             lines.append("\nTroubleshooting Steps:")
             for s in advisory.troubleshooting_steps:
                 lines.append(f" - {s}")
-        if advisory.cited_evidence_ids:
-            unique_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
-            lines.append(f"\nCited Evidence: {', '.join(unique_ids)}")
+    if advisory and advisory.cited_evidence_ids:
+        unique_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
+        lines.append(f"\nCited Evidence: {', '.join(unique_ids)}")
 
-    if provenance and not provenance.passed:
-        lines.append(f"\n[WARNING: {len(provenance.unattributed_numbers)} unverified figure(s) removed from assessment]")
+    if provenance and not provenance.passed and provenance.unattributed_numbers:
+        count = len(provenance.unattributed_numbers)
+        lines.append(f"\n[WARNING: {count} unverified figure(s) removed from assessment]")
 
-    if citation_res and not citation_res.passed:
-        lines.append(f"\n[WARNING: {len(citation_res.unverified_citations)} unverified citation(s) removed]")
-
-    if pack and pack.gaps:
-        lines.append(f"\nData source status notes:")
-        for g in pack.gaps:
-            req_str = " (Required)" if g.required else " (Optional)"
-            lines.append(f" - {g.source_domain}: {g.reason}{req_str}")
+    if citation_res and not citation_res.passed and citation_res.unverified_citations:
+        count = len(citation_res.unverified_citations)
+        lines.append(f"\n[WARNING: {count} unverified citation(s) removed]")
 
     return "\n".join(lines).strip()
 
@@ -173,6 +194,26 @@ def strip_unverified_provenance(text: str, unattributed_numbers: list[str]) -> s
             filtered_sents.append(modified_s.strip())
 
     return " ".join(filtered_sents).strip()
+
+
+def sanitize_advisory_language(text: str) -> str:
+    """
+    Ensures non-actuating, strictly advisory phrasing across all agent communications.
+    Transforms direct imperative commands into operator advisory recommendations.
+    """
+    if not text:
+        return text
+    import re as _re
+    subs = [
+        (r"(?i)\b(?:shutdown|shut\s+down)\s+(?:the\s+)?well\b", "recommend evaluating well shutdown with field operator"),
+        (r"(?i)\brestart\s+immediately\b", "advise evaluating controlled restart sequence"),
+        (r"(?i)\b(?:close|open)\s+(?:the\s+)?(?:choke|valve)\b", "recommend verifying valve/choke alignment with operator"),
+        (r"(?i)\btrip\s+(?:the\s+)?breaker\b", "advise confirming electrical circuit breaker status"),
+    ]
+    res = text
+    for pat, rep in subs:
+        res = _re.sub(pat, rep, res)
+    return res
 
 
 async def run_workflow(
@@ -275,6 +316,46 @@ async def run_workflow(
     formatted_evidence = format_pack(pack)
 
     # 7. XAI Synthesizer (LLM #3)
+    # ---------------------------------------------------------------------------
+    # P0 FIX — OP03 pre-check: if events window is empty AND user is asking
+    # "why did X trip / what caused trip", refuse rather than narrate a false trip.
+    # ---------------------------------------------------------------------------
+    if "OP03" in objective_id:
+        import re as _re
+        _trip_query = bool(_re.search(
+            r"\b(trip(?:ped)?|fault|cause|why|what\s+happened|shut.?down|fail(?:ed|ure)?)\b",
+            (user_query or ""), _re.IGNORECASE
+        ))
+        _has_events = any(
+            (not ev.is_empty_window)
+            for ev in (formatted_evidence.events or [])
+        )
+        _all_empty = not _has_events
+        if _trip_query and _all_empty:
+            asset = args.get("asset_id", "the requested well")
+            _empty_text = (
+                f"No trip or fault events recorded for {asset} in the requested time window. "
+                "I cannot diagnose a trip that has not been recorded. "
+                f"Try a status check ('How is {asset} running?') or health assessment ('How healthy is {asset}?') instead."
+            )
+            viz_spec = plan_visualization(objective_id, pack, formatted_evidence, advisory=None)
+            save_run_artifacts(
+                run_id=run_id,
+                advisory={},
+                visualization=viz_spec.model_dump() if viz_spec else {},
+            )
+            return WorkflowResult(
+                text=_empty_text,
+                ok=True,
+                plan=plan,
+                call_results=results,
+                pack=pack,
+                seal_result=seal_res,
+                advisory=None,
+                visualization=viz_spec,
+                insufficient_evidence=False,
+            )
+
     advisory: Optional[Advisory] = None
     alarm_result: Optional[KpiAlarmResult] = None
     llm_available = True
@@ -364,8 +445,60 @@ async def run_workflow(
                     s for s in advisory.verification_steps if s not in flagged_v_set
                 ]
 
+        # Populate structured warnings and degraded sources on advisory
+        p_warnings: list[str] = []
+        if provenance and not provenance.passed and provenance.unattributed_numbers:
+            p_warnings.append(f"{len(provenance.unattributed_numbers)} unverified figure(s) removed from assessment.")
+        if citation_res and not citation_res.passed and citation_res.unverified_citations:
+            p_warnings.append(f"{len(citation_res.unverified_citations)} unverified citation(s) removed.")
+        advisory.provenance_warnings = p_warnings
+
+        d_sources: list[str] = []
+        if pack and pack.gaps:
+            for g in pack.gaps:
+                d_sources.append(f"{g.source_domain}: {g.reason}")
+        advisory.degraded_sources = d_sources
+
+        # P1 enforcement: verification_steps must be non-empty for diagnostic objectives.
+        # Also covers OP06 PROCEDURAL queries (detected by non-empty troubleshooting_steps —
+        # if the LLM returned steps, it was a procedure query, not definitional).
+        # Context-aware verification ensures realistic operational steps instead of static boilerplate.
+        _needs_verif = "OP03" in objective_id or "OP04" in objective_id or "OP05" in objective_id
+        _op06_procedural = "OP06" in objective_id and bool(advisory.troubleshooting_steps)
+        if (_needs_verif or _op06_procedural) and not advisory.verification_steps:
+            asset = args.get("asset_id", "the well")
+            if "OP03" in objective_id:
+                advisory.verification_steps = [
+                    f"Verify {asset} surface controller trip codes and confirm electrical/mechanical isolation before proceeding with diagnostic checks."
+                ]
+            elif "OP04" in objective_id:
+                advisory.verification_steps = [
+                    f"Cross-reference {asset} real-time telemetry against baseline operating envelope and monitor downhole vibration/temperature trends."
+                ]
+            elif "OP05" in objective_id:
+                advisory.verification_steps = [
+                    f"Inspect {asset} high-frequency trend anomalies and confirm early warning threshold settings with the production engineer."
+                ]
+            elif "OP06" in objective_id:
+                advisory.verification_steps = [
+                    "Confirm approved procedure steps with the field operations supervisor and verify all pre-execution safety prerequisites are satisfied."
+                ]
+            else:
+                advisory.verification_steps = [
+                    f"Confirm {asset} telemetry stabilization and operating parameters with the field technician."
+                ]
+
+        if advisory.assessment:
+            advisory.assessment = sanitize_advisory_language(advisory.assessment)
+        if advisory.recommendation:
+            advisory.recommendation = sanitize_advisory_language(advisory.recommendation)
+        if advisory.troubleshooting_steps:
+            advisory.troubleshooting_steps = [sanitize_advisory_language(s) for s in advisory.troubleshooting_steps]
+        if advisory.verification_steps:
+            advisory.verification_steps = [sanitize_advisory_language(s) for s in advisory.verification_steps]
+
     # 9. Visualization Planner
-    viz_spec = plan_visualization(objective_id, pack, formatted_evidence)
+    viz_spec = plan_visualization(objective_id, pack, formatted_evidence, advisory=advisory)
 
     # 10. Assemble Text
     text = _format_advisory_text(objective_id, args, advisory, pack, provenance, results, citation_res=citation_res)
