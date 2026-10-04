@@ -338,11 +338,11 @@ async def run_workflow(
                 "I cannot diagnose a trip that has not been recorded. "
                 f"Try a status check ('How is {asset} running?') or health assessment ('How healthy is {asset}?') instead."
             )
-            viz_spec = plan_visualization(objective_id, pack, formatted_evidence, advisory=None)
+            viz_spec = VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
             save_run_artifacts(
                 run_id=run_id,
                 advisory={},
-                visualization=viz_spec.model_dump() if viz_spec else {},
+                visualization=viz_spec.model_dump(),
             )
             return WorkflowResult(
                 text=_empty_text,

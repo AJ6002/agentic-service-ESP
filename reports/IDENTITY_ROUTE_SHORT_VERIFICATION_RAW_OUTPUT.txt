@@ -10,24 +10,23 @@ STEP 1: THREE QUERIES AGAINST http://127.0.0.1:8091/query (RAW NDJSON STREAMS)
 REQUEST: POST http://127.0.0.1:8091/query
 BODY: {"session_id": "v1", "message": "What are you?"}
 RESPONSE (raw NDJSON lines):
-{"type":"text_delta","run_id":"R-37ab5d55","delta":"I am the ESP APM Operations Copilot, an AI assistant specializing in Electric Submersible Pump (ESP) operations and diagnostics. My purpose is to assist petroleum and production engineers by monitoring live SCADA telemetry, diagnosing electrical and hydraulic fault trips, evaluating equipment health indices, detecting early warning drift, analyzing production decline, retrieving API/ISO standards, and explaining standard operating procedures. I am strictly an advisory-only copilot and diagnostic assistant, adhering to the safety and read-only mandate."}
-{"type":"done","run_id":"R-37ab5d55","status":"OK"}
+{"type":"text_delta","run_id":"R-be7d2a5f","delta":"I am the ESP APM Operations Copilot, an AI assistant specializing in Electric Submersible Pump (ESP) operations and diagnostics. My purpose is to assist petroleum and production engineers by monitoring live SCADA telemetry, diagnosing electrical and hydraulic fault trips, evaluating equipment health indices, detecting early warning drift, analyzing production decline, retrieving API/ISO standards, and explaining standard operating procedures. I am strictly an advisory-only copilot and diagnostic assistant, adhering to the safety and read-only mandate."}
+{"type":"done","run_id":"R-be7d2a5f","status":"OK"}
 
 --- Query 2 (Disambiguation / KB) ---
 REQUEST: POST http://127.0.0.1:8091/query
 BODY: {"session_id": "v2", "message": "What is gas lock?"}
 RESPONSE (raw NDJSON lines):
-{"type":"advisory","run_id":"R-1065f346","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock is a critical issue in ESP operations, as it can lead to underload trips, motor overload, and potential mechanical failure if not properly managed. To prevent gas lock, it is recommended to install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids. The Advanced Gas Handling system, for example, conditions gas so it can be produced by the pump, thereby avoiding gas locking.","hypotheses":[],"recommendation":"Install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids.","verification_steps":[],"troubleshooting_steps":[],"confidence":0.9,"cited_evidence_ids":["EV-R-1065f346-0057"],"provenance_warnings":[],"degraded_sources":[],"recommended_cards":[]},"source_refs":["EV-R-1065f346-0057"]}
-{"type":"text_delta","run_id":"R-1065f346","delta":"Knowledge lookup:\n\nAssessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock is a critical issue in ESP operations, as it can lead to underload trips, motor overload, and potential mechanical failure if not properly managed. To prevent gas lock, it is recommended to install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids. The Advanced Gas Handling system, for example, conditions gas so it can be produced by the pump, thereby avoiding gas locking.\n\nRecommendation: Install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids.\n\nCited Evidence: EV-R-1065f346-0057"}
-{"type":"done","run_id":"R-1065f346","status":"OK"}
+{"type":"advisory","run_id":"R-479ed1b3","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock can be caused by heavy fluid viscosity, high emulsions, sand/solids binding, mechanical drag, or electrical power imbalances. To prevent gas lock, installing a gas separator or using an advanced gas handling system is recommended.","hypotheses":[],"recommendation":"Install a gas separator or use an advanced gas handling system to prevent gas lock.","verification_steps":[],"troubleshooting_steps":[],"confidence":0.9,"cited_evidence_ids":["EV-R-479ed1b3-0019"],"provenance_warnings":[],"degraded_sources":[],"recommended_cards":[]},"source_refs":["EV-R-479ed1b3-0019"]}
+{"type":"text_delta","run_id":"R-479ed1b3","delta":"Knowledge lookup:\n\nAssessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock can be caused by heavy fluid viscosity, high emulsions, sand/solids binding, mechanical drag, or electrical power imbalances. To prevent gas lock, installing a gas separator or using an advanced gas handling system is recommended.\n\nRecommendation: Install a gas separator or use an advanced gas handling system to prevent gas lock.\n\nCited Evidence: EV-R-479ed1b3-0019"}
+{"type":"done","run_id":"R-479ed1b3","status":"OK"}
 
 --- Query 3 (Regression / Workflow) ---
 REQUEST: POST http://127.0.0.1:8091/query
 BODY: {"session_id": "v3", "message": "Why did FS-17 trip?"}
 RESPONSE (raw NDJSON lines):
-{"type":"visual","run_id":"R-12ed8c57","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"visualization":{"widget_id":"cards","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"evidence_ids":["EV-R-12ed8c57-0060"],"data":{"cards":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"]}}}
-{"type":"text_delta","run_id":"R-12ed8c57","delta":"No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 running?') or health assessment ('How healthy is FS-17?') instead."}
-{"type":"done","run_id":"R-12ed8c57","status":"OK"}
+{"type":"text_delta","run_id":"R-88ebd3b9","delta":"No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 running?') or health assessment ('How healthy is FS-17?') instead."}
+{"type":"done","run_id":"R-88ebd3b9","status":"OK"}
 
 ================================================================================
 STEP 2: PYTEST agent_service/tests/test_identity_route.py -v (RAW OUTPUT)
@@ -64,7 +63,7 @@ agent_service\tests\test_identity_route.py::test_identity_handler_returns_model_
 agent_service\tests\test_identity_route.py::test_identity_handler_offline_fallback[asyncio] PASSED [ 95%]
 agent_service\tests\test_identity_route.py::test_identity_route_never_touches_workflow_pipeline[asyncio] PASSED [100%]
 
-============================= 23 passed in 7.02s ==============================
+============================= 23 passed in 7.78s ==============================
 
 
 ================================================================================
@@ -94,13 +93,13 @@ agent_service\tests\test_router_definitional_regression.py::test_fallback_causal
 agent_service\tests\test_router_definitional_regression.py::test_llm_path_q02_routes_to_op07[asyncio] PASSED [ 93%]
 agent_service\tests\test_router_definitional_regression.py::test_llm_path_causal_asset_still_op03[asyncio] PASSED [100%]
 
-============================= 15 passed in 0.40s ==============================
+============================= 15 passed in 0.47s ==============================
 
 
 ================================================================================
 STEP 4: REDIS STORAGE KEYS BEFORE & AFTER IDENTITY QUERY
 ================================================================================
-KEYS esp:run:* BEFORE identity query (count=493):
+KEYS esp:run:* BEFORE identity query (count=509):
   esp:run:run-prev-6:pack:v1
   esp:run:run-s1:artifacts
   esp:run:run-s1:pack:latest_version
@@ -111,11 +110,11 @@ KEYS esp:run:* BEFORE identity query (count=493):
   esp:run:run-target-99:artifacts
   esp:run:run-target-99:pack:latest_version
   esp:run:run-target-99:pack:v1
-  ... and 483 older runs
+  ... and 499 older runs
 
 FIRING IDENTITY QUERY: POST /query {"session_id": "redis-raw-check", "message": "What are you?"}
 
-KEYS esp:run:* AFTER identity query (count=493):
+KEYS esp:run:* AFTER identity query (count=509):
 NEW esp:run:* KEYS CREATED: []
 SESSION KEYS FOR redis-raw-check: ['esp:session:redis-raw-check']
 ZERO PIPELINE LEAKAGE CONFIRMED: True
