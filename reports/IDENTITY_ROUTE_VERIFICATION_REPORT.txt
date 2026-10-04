@@ -1,0 +1,1724 @@
+================================================================================
+INDEPENDENT VERIFICATION REPORT: IDENTITY ROUTE (V1-SPRINT-1)
+================================================================================
+Timestamp: 2026-10-04 21:44:49
+Target: http://127.0.0.1:8091
+
+LAYER 1: UNIT TESTS
+Command: pytest agent_service/tests/test_identity_route.py -q
+.......................                                                  [100%]
+23 passed in 9.00s
+RESULT: PASS
+--------------------------------------------------------------------------------
+LAYER 2: ROUTING REGRESSION
+Command: pytest agent_service/tests/test_router_definitional_regression.py -q
+...............                                                          [100%]
+15 passed in 0.78s
+RESULT: PASS
+--------------------------------------------------------------------------------
+LAYER 3 & 4: ISOLATION & REDIS STORAGE CHECK
+Isolation Frames: ['done', 'text_delta']
+advisory count: 0 (Expected: 0)
+visual count: 0 (Expected: 0)
+evidence_id count: 0 (Expected: 0)
+New esp:run:* keys created: [] (Expected: [])
+Session keys created: ['esp:session:verify-isolation'] (Expected: >= 1)
+RESULT: PASS
+--------------------------------------------------------------------------------
+LAYER 5: LIVE API (6 QUERIES)
+
+--- Query 1: Identity detection ('What are you?') ---
+Frames: {'done', 'text_delta'}
+Done frame status: OK
+Answer snippet: I am the ESP APM Operations Copilot, an AI assistant specializing in Electric Submersible Pump (ESP) operations and diagnostics. My purpose is to assist petroleum and production engineers by monitorin...
+Query 1: PASS
+
+--- Query 2: Capabilities ('What can you do?') ---
+Answer snippet: You can access live SCADA telemetry, diagnose electrical and hydraulic fault trips, evaluate equipment health indices, detect early warning drift, analyze production decline, retrieve API/ISO standards, and explain standard operating procedures....
+Query 2: PASS
+
+--- Query 3: Boundaries ('What can you not do?') ---
+Answer snippet: You cannot actuate physical hardware, send control signals to VSD, PLC, or ESD systems, approve or modify setpoints, or take any actions that would alter the operational state of the ESPs....
+Query 3: PASS
+
+--- Query 4: Disambiguation ('What is gas lock?') ---
+Frames: {'done', 'text_delta', 'advisory'}
+Done frame status: OK
+Answer snippet: Knowledge lookup:
+
+Assessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an...
+Query 4: PASS
+
+--- Query 5: Diagnostic path unchanged ('Why did FS-17 trip?') ---
+Frames: {'visual', 'done', 'text_delta'}
+Advisory present: False (Hypotheses: 0)
+Visual cards present: True (Cards: 0)
+Query 5: FAIL
+
+--- Query 6: Edge case: identity mid-conversation (Turn 1: Diagnostic, Turn 2: Identity) ---
+Turn 1: 'Why did FS-17 trip?'
+Turn 1 advisory produced: False
+Turn 2: 'What can you do?' in same session
+Turn 2 Frames: {'done', 'text_delta'}
+Turn 2 text snippet: You can assist with the following objectives and tools:
+
+1. **OP01_CURRENT_STATUS**: Retrieve the current operational status of the ESP pumps in the Farha South Fleet.
+2. **OP02_PRODUCTION_DECLINE_RCA**: Analyze and provide recommendations for produc...
+Query 6: PASS
+--------------------------------------------------------------------------------
+LAYER 6: FULL REGRESSION SUITE
+Command: pytest agent_service/tests/ -q
+...F.................................................F.................. [ 15%]
+..........FF....F.F..F.F............F..F...FF..FF.....F................. [ 31%]
+.................FFF..................................F.F............F.. [ 46%]
+.........................................................F.FFFFFFF.FFFFF [ 62%]
+FFFFFFFFF.FFF.FFF................F....FF...............F................ [ 78%]
+...............FFF...................................................... [ 93%]
+.......F..F...F..............                                            [100%]
+================================== FAILURES ===================================
+________________ test_boundary_trip_query_after_op03[asyncio] _________________
+
+seed_prior_analysis = <function seed_prior_analysis.<locals>._seed at 0x000001265082DD00>
+
+    @pytest.mark.anyio
+    async def test_boundary_trip_query_after_op03(seed_prior_analysis):
+        """Boundary 1: 'Why did it trip?' after OP03 routes to WORKFLOW, not FOLLOW_UP."""
+        session_id, _, _, _, _ = seed_prior_analysis("sess-bound-1", "run-prev-1")
+        transport = ASGITransport(app=app)
+    
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": "Why did it trip?"})
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+            assert done["status"] in ("OK", "INSUFFICIENT")
+            adv = next((l for l in lines if l["type"] == "advisory"), None)
+            if adv:
+                assert adv["advisory"]["objective_id"] == "OP03_FAULT_DIAGNOSIS"
+            else:
+                err = next((l for l in lines if l["type"] == "error"), None)
+                if err:
+                    assert "OP03_FAULT_DIAGNOSIS" in err["message"]
+                else:
+                    delta = next(l for l in lines if l["type"] == "text_delta")
+>                   assert "OP03_FAULT_DIAGNOSIS" in delta["delta"]
+E                   assert 'OP03_FAULT_DIAGNOSIS' in "No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 running?') or health assessment ('How healthy is FS-17?') instead."
+
+agent_service\tests\acceptance\phase4\test_followup_boundary.py:27: AssertionError
+_____ test_ac45_6_kb_down_renders_without_troubleshooting_steps[asyncio] ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000012670C10750>
+
+    @pytest.mark.anyio
+    async def test_ac45_6_kb_down_renders_without_troubleshooting_steps(monkeypatch):
+        """
+        Query 3: When KB service is completely down / fails:
+        - OP03 still seals (KB is optional evidence)
+        - troubleshooting_steps is [] (zero fabrication)
+        - Gap is named in data source status notes
+        """
+        from app.gateway import tool_gateway as tg_mod
+        from app.gateway.adapters.common import AdapterError
+    
+        async def failing_search_kb(*args, **kwargs):
+            raise AdapterError("KB service down", status_code=503, code="SERVICE_UNAVAILABLE")
+    
+        async def failing_get_kb_fault(*args, **kwargs):
+            raise AdapterError("KB service down", status_code=503, code="SERVICE_UNAVAILABLE")
+    
+        async def failing_trace_kb_graph(*args, **kwargs):
+            raise AdapterError("KB service down", status_code=503, code="SERVICE_UNAVAILABLE")
+    
+        monkeypatch.setattr(tg_mod.kb, "search_kb", failing_search_kb)
+        monkeypatch.setattr(tg_mod.kb, "get_kb_fault", failing_get_kb_fault)
+        monkeypatch.setattr(tg_mod.kb, "trace_kb_graph", failing_trace_kb_graph)
+    
+        res: WorkflowResult = await run_workflow(
+            run_id="R-test-ac45-kb-down",
+            session_id="S-test-ac45-kb-down",
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": "FS-17"},
+            confidence=0.9,
+            user_query="Troubleshoot FS-17",
+        )
+        if res.ok:
+            assert res.seal_result is not None
+            assert res.seal_result.status == "COMPLETE"
+            assert res.advisory is not None
+            # Zero fabrication guarantee: troubleshooting_steps MUST be empty
+            assert res.advisory.troubleshooting_steps == []
+            # Status note contains KB gap
+            assert any(g.source_domain in ("search_knowledge", "get_fault_taxonomy", "trace_causal_graph") for g in res.pack.gaps)
+>           assert "Data source status notes:" in res.text
+E           AssertionError: assert 'Data source status notes:' in 'Fault diagnosis for FS-17:\n\nTemporal Scope: 2026-10-03T16:17:44.119444Z to 2026-10-04T16:17:44.119444Z (86400.0s sp... EV-R-test-ac45-kb-down-0040, EV-R-test-ac45-kb-down-0038\n\n[WARNING: 1 unverified figure(s) removed from assessment]'
+E            +  where 'Fault diagnosis for FS-17:\n\nTemporal Scope: 2026-10-03T16:17:44.119444Z to 2026-10-04T16:17:44.119444Z (86400.0s sp... EV-R-test-ac45-kb-down-0040, EV-R-test-ac45-kb-down-0038\n\n[WARNING: 1 unverified figure(s) removed from assessment]' = WorkflowResult(text='Fault diagnosis for FS-17:\n\nTemporal Scope: 2026-10-03T16:17:44.119444Z to 2026-10-04T16:17:44....'multi_tag_live_trends', 'advisor_panel_item']}), insufficient_evidence=False, missing_required=[], llm_available=True).text
+
+agent_service\tests\acceptance\phase4_5\test_kb_troubleshooting.py:152: AssertionError
+_____________________ test_op04_seal_q1_nominal[asyncio] ______________________
+
+    @pytest.mark.anyio
+    async def test_op04_seal_q1_nominal():
+        """OP04 Query 1 (Nominal): FS-17 health assessment passes with OK, visuals, and health band."""
+        session_id = "test-op04-q1"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "Assess the health of well FS-17"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+            assert done["status"] == "OK"
+    
+            # Check visual cards
+            assert "visual" in types
+            # Check advisory names health band
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            assert advisory_frame is not None
+            assessment = advisory_frame["advisory"]["assessment"].upper()
+>           assert any(b in assessment for b in ["HEALTHY", "DEGRADED", "CRITICAL"])
+E           assert False
+E            +  where False = any(<generator object test_op04_seal_q1_nominal.<locals>.<genexpr> at 0x00000126507CEC00>)
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:36: AssertionError
+__________________ test_op04_seal_q2_secondary_well[asyncio] __________________
+
+    @pytest.mark.anyio
+    async def test_op04_seal_q2_secondary_well():
+        """OP04 Query 2 (Secondary Well): FS-91 health assessment passes with OK."""
+        session_id = "test-op04-q2"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "Assess health status of well FS-91"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+>           assert done["status"] == "OK"
+E           AssertionError: assert 'INSUFFICIENT' == 'OK'
+E             
+E             - OK
+E             + INSUFFICIENT
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:58: AssertionError
+__________________ test_op05_seal_q2_secondary_well[asyncio] __________________
+
+    @pytest.mark.anyio
+    async def test_op05_seal_q2_secondary_well():
+        """OP05 Query 2 (Secondary Well): FS-91 early warning query passes with OK."""
+        session_id = "test-op05-q2"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "What is the early warning risk on FS-91?"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+>           assert done["status"] == "OK"
+E           AssertionError: assert 'INSUFFICIENT' == 'OK'
+E             
+E             - OK
+E             + INSUFFICIENT
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:177: AssertionError
+__________________ test_op05_seal_q4_missing_asset[asyncio] ___________________
+
+    @pytest.mark.anyio
+    async def test_op05_seal_q4_missing_asset():
+        """OP05 Query 4 (Clarification): Query missing asset ID pauses for clarification."""
+        session_id = "test-op05-q4"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "Check early warning indicators"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+>           assert done["status"] == "PAUSED"
+E           AssertionError: assert 'FAILED' == 'PAUSED'
+E             
+E             - PAUSED
+E             + FAILED
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:223: AssertionError
+__________________ test_op14_seal_q2_secondary_well[asyncio] __________________
+
+    @pytest.mark.anyio
+    async def test_op14_seal_q2_secondary_well():
+        """OP14 Query 2 (Secondary Well): FS-91 history passes with OK."""
+        session_id = "test-op14-q2"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={
+                    "session_id": session_id,
+                    "message": "Provide operational history for FS-91",
+                },
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+>           assert done["status"] == "OK"
+E           AssertionError: assert 'INSUFFICIENT' == 'OK'
+E             
+E             - OK
+E             + INSUFFICIENT
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:302: AssertionError
+__________________ test_op14_seal_q4_missing_asset[asyncio] ___________________
+
+    @pytest.mark.anyio
+    async def test_op14_seal_q4_missing_asset():
+        """OP14 Query 4 (Clarification): History query missing asset ID pauses for clarification."""
+        session_id = "test-op14-q4"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "Review past operational runtime history"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            done = next(l for l in lines if l["type"] == "done")
+>           assert done["status"] == "PAUSED"
+E           AssertionError: assert 'FAILED' == 'PAUSED'
+E             
+E             - PAUSED
+E             + FAILED
+
+agent_service\tests\acceptance\test_op04_op05_op14_seal.py:348: AssertionError
+__________________ test_kill_switch_server_184_down[asyncio] __________________
+
+    @pytest.mark.anyio
+    async def test_kill_switch_server_184_down():
+        """Kill switch 1: Server 184 down -> INSUFFICIENT ErrorFrame, status INSUFFICIENT, zero fake numbers."""
+        session_id = "test-kill-184"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        # Simulate network failure to Server 184 (:8090)
+        with patch("httpx.AsyncClient.get", side_effect=httpx.ConnectError("Connection refused to Server 184:8090")):
+            async with AsyncClient(transport=transport, base_url="http://test") as client:
+                resp = await client.post(
+                    "/query",
+                    json={"session_id": session_id, "message": "Why has FS-17 production declined?"},
+                )
+                assert resp.status_code == 200
+                lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+                types = [l["type"] for l in lines]
+                done = next(l for l in lines if l["type"] == "done")
+>               assert done["status"] == "INSUFFICIENT"
+E               AssertionError: assert 'OK' == 'INSUFFICIENT'
+E                 
+E                 - INSUFFICIENT
+E                 + OK
+
+agent_service\tests\acceptance\test_phase2_disambiguation_and_failures.py:90: AssertionError
+_ test_seal_matrix_query[asyncio-op04-q1-Assess the health of well FS-17-OP04_HEALTH_ASSESSMENT-HEALTHY,DEGRADED,CRITICAL-expected_cards0] _
+
+session_id = 'op04-q1', message = 'Assess the health of well FS-17'
+expected_op = 'OP04_HEALTH_ASSESSMENT'
+expected_keywords = 'HEALTHY,DEGRADED,CRITICAL'
+expected_cards = ['health-score']
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+            assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+    
+            # 2. Check advisory frame if workflow completed OK
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if advisory_frame and done["status"] == "OK":
+                adv = advisory_frame["advisory"]
+                obj_id = adv["objective_id"]
+                assert obj_id in (expected_op, "OP06_KNOWLEDGE_LOOKUP", "OP07_GENERAL_INQUIRY")
+    
+                # Check 4: Provenance check (cited_evidence_ids non-empty when items cited)
+                source_refs = advisory_frame.get("source_refs", [])
+                assert isinstance(source_refs, list)
+    
+                # Check expected keywords (e.g. HEALTHY/DEGRADED/CRITICAL for OP04)
+                if expected_keywords:
+                    assessment_upper = adv["assessment"].upper()
+                    keywords = [k.strip() for k in expected_keywords.split(",")]
+>                   assert any(k in assessment_upper for k in keywords)
+E                   assert False
+E                    +  where False = any(<generator object test_seal_matrix_query.<locals>.<genexpr> at 0x0000012650892180>)
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:82: AssertionError
+_ test_seal_matrix_query[asyncio-op04-q5-Perform a full multi-signal health assessment for FS-17-OP04_HEALTH_ASSESSMENT-HEALTHY,DEGRADED,CRITICAL-expected_cards4] _
+
+session_id = 'op04-q5'
+message = 'Perform a full multi-signal health assessment for FS-17'
+expected_op = 'OP04_HEALTH_ASSESSMENT'
+expected_keywords = 'HEALTHY,DEGRADED,CRITICAL'
+expected_cards = ['health-score']
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+            assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+    
+            # 2. Check advisory frame if workflow completed OK
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if advisory_frame and done["status"] == "OK":
+                adv = advisory_frame["advisory"]
+                obj_id = adv["objective_id"]
+                assert obj_id in (expected_op, "OP06_KNOWLEDGE_LOOKUP", "OP07_GENERAL_INQUIRY")
+    
+                # Check 4: Provenance check (cited_evidence_ids non-empty when items cited)
+                source_refs = advisory_frame.get("source_refs", [])
+                assert isinstance(source_refs, list)
+    
+                # Check expected keywords (e.g. HEALTHY/DEGRADED/CRITICAL for OP04)
+                if expected_keywords:
+                    assessment_upper = adv["assessment"].upper()
+                    keywords = [k.strip() for k in expected_keywords.split(",")]
+>                   assert any(k in assessment_upper for k in keywords)
+E                   assert False
+E                    +  where False = any(<generator object test_seal_matrix_query.<locals>.<genexpr> at 0x0000012668AAA500>)
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:82: AssertionError
+_ test_seal_matrix_query[asyncio-op05-q1-Check early warning indicators for well FS-17-OP05_EARLY_WARNING--expected_cards5] _
+
+session_id = 'op05-q1'
+message = 'Check early warning indicators for well FS-17'
+expected_op = 'OP05_EARLY_WARNING', expected_keywords = ''
+expected_cards = ['anomaly-score']
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+            assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+    
+            # 2. Check advisory frame if workflow completed OK
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if advisory_frame and done["status"] == "OK":
+                adv = advisory_frame["advisory"]
+                obj_id = adv["objective_id"]
+                assert obj_id in (expected_op, "OP06_KNOWLEDGE_LOOKUP", "OP07_GENERAL_INQUIRY")
+    
+                # Check 4: Provenance check (cited_evidence_ids non-empty when items cited)
+                source_refs = advisory_frame.get("source_refs", [])
+                assert isinstance(source_refs, list)
+    
+                # Check expected keywords (e.g. HEALTHY/DEGRADED/CRITICAL for OP04)
+                if expected_keywords:
+                    assessment_upper = adv["assessment"].upper()
+                    keywords = [k.strip() for k in expected_keywords.split(",")]
+                    assert any(k in assessment_upper for k in keywords)
+    
+            # 3. Check 3: Cards selected match allowed_visuals \u2229 pack
+            visual_frame = next((l for l in lines if l["type"] == "visual"), None)
+            if visual_frame:
+                card_ids = visual_frame["visualization"].get("card_ids") or visual_frame["visualization"].get("cards", [])
+                for c in expected_cards:
+                    if c:
+>                       assert c in card_ids, f"Expected card {c} in {card_ids}"
+E                       AssertionError: Expected card anomaly-score in ['working_status_smart_fault_card', 'subsystem_equalizer']
+E                       assert 'anomaly-score' in ['working_status_smart_fault_card', 'subsystem_equalizer']
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:90: AssertionError
+_ test_seal_matrix_query[asyncio-op05-q4-Check early warnings and anomaly risk-OP05_EARLY_WARNING--expected_cards8] _
+
+session_id = 'op05-q4', message = 'Check early warnings and anomaly risk'
+expected_op = 'OP05_EARLY_WARNING', expected_keywords = '', expected_cards = []
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+>           assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+E           AssertionError: assert 'FAILED' in ('OK', 'INSUFFICIENT', 'PAUSED')
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:65: AssertionError
+_ test_seal_matrix_query[asyncio-op05-q5-Run a deep early warning scan on FS-17 with all available signals-OP05_EARLY_WARNING--expected_cards9] _
+
+session_id = 'op05-q5'
+message = 'Run a deep early warning scan on FS-17 with all available signals'
+expected_op = 'OP05_EARLY_WARNING', expected_keywords = ''
+expected_cards = ['anomaly-score']
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+            assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+    
+            # 2. Check advisory frame if workflow completed OK
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if advisory_frame and done["status"] == "OK":
+                adv = advisory_frame["advisory"]
+                obj_id = adv["objective_id"]
+                assert obj_id in (expected_op, "OP06_KNOWLEDGE_LOOKUP", "OP07_GENERAL_INQUIRY")
+    
+                # Check 4: Provenance check (cited_evidence_ids non-empty when items cited)
+                source_refs = advisory_frame.get("source_refs", [])
+                assert isinstance(source_refs, list)
+    
+                # Check expected keywords (e.g. HEALTHY/DEGRADED/CRITICAL for OP04)
+                if expected_keywords:
+                    assessment_upper = adv["assessment"].upper()
+                    keywords = [k.strip() for k in expected_keywords.split(",")]
+                    assert any(k in assessment_upper for k in keywords)
+    
+            # 3. Check 3: Cards selected match allowed_visuals \u2229 pack
+            visual_frame = next((l for l in lines if l["type"] == "visual"), None)
+            if visual_frame:
+                card_ids = visual_frame["visualization"].get("card_ids") or visual_frame["visualization"].get("cards", [])
+                for c in expected_cards:
+                    if c:
+>                       assert c in card_ids, f"Expected card {c} in {card_ids}"
+E                       AssertionError: Expected card anomaly-score in ['working_status_smart_fault_card', 'subsystem_equalizer']
+E                       assert 'anomaly-score' in ['working_status_smart_fault_card', 'subsystem_equalizer']
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:90: AssertionError
+_ test_seal_matrix_query[asyncio-op02-q1-Why has FS-17 production declined?-OP02_PRODUCTION_DECLINE_RCA--expected_cards15] _
+
+session_id = 'op02-q1', message = 'Why has FS-17 production declined?'
+expected_op = 'OP02_PRODUCTION_DECLINE_RCA', expected_keywords = ''
+expected_cards = ['production-decline']
+
+    @pytest.mark.anyio
+    @pytest.mark.parametrize("session_id,message,expected_op,expected_keywords,expected_cards", SEAL_QUERIES)
+    async def test_seal_matrix_query(session_id, message, expected_op, expected_keywords, expected_cards):
+        """Check 2, 3, 4: Seal queries return expected shape, cards match allowed_visuals, numbers trace to evidence."""
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        t0 = time.time()
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post("/query", json={"session_id": session_id, "message": message})
+            assert resp.status_code == 200
+            latency = time.time() - t0
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+            types = [l["type"] for l in lines]
+            assert "done" in types
+            done = next(l for l in lines if l["type"] == "done")
+    
+            # 1. Done status check (OK, INSUFFICIENT, or PAUSED for clarify)
+            assert done["status"] in ("OK", "INSUFFICIENT", "PAUSED")
+    
+            # 2. Check advisory frame if workflow completed OK
+            advisory_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if advisory_frame and done["status"] == "OK":
+                adv = advisory_frame["advisory"]
+                obj_id = adv["objective_id"]
+                assert obj_id in (expected_op, "OP06_KNOWLEDGE_LOOKUP", "OP07_GENERAL_INQUIRY")
+    
+                # Check 4: Provenance check (cited_evidence_ids non-empty when items cited)
+                source_refs = advisory_frame.get("source_refs", [])
+                assert isinstance(source_refs, list)
+    
+                # Check expected keywords (e.g. HEALTHY/DEGRADED/CRITICAL for OP04)
+                if expected_keywords:
+                    assessment_upper = adv["assessment"].upper()
+                    keywords = [k.strip() for k in expected_keywords.split(",")]
+                    assert any(k in assessment_upper for k in keywords)
+    
+            # 3. Check 3: Cards selected match allowed_visuals \u2229 pack
+            visual_frame = next((l for l in lines if l["type"] == "visual"), None)
+            if visual_frame:
+                card_ids = visual_frame["visualization"].get("card_ids") or visual_frame["visualization"].get("cards", [])
+                for c in expected_cards:
+                    if c:
+>                       assert c in card_ids, f"Expected card {c} in {card_ids}"
+E                       AssertionError: Expected card production-decline in ['pressure-corridor']
+E                       assert 'production-decline' in ['pressure-corridor']
+
+agent_service\tests\acceptance\test_phase2_seal_matrix.py:90: AssertionError
+__________ test_verification_steps_with_uncited_step_fails_and_flags __________
+
+    def test_verification_steps_with_uncited_step_fails_and_flags():
+        """An uncited verification step is flagged in flagged_verification_steps."""
+        pack = _make_test_pack(doc_id="API_RP_11S", section="5.4")
+        advisory = Advisory(
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            assessment="Gas lock detected.",
+            hypotheses=[],
+            recommendation="Follow SOP.",
+            troubleshooting_steps=["[API_RP_11S §5.4] Check intake pressure."],
+            verification_steps=["Verify fluid level recovery manually without standard reference."],
+            cited_evidence_ids=["EV-KB-001"],
+        )
+    
+        res = check_citation_provenance(advisory, pack)
+>       assert not res.passed
+E       AssertionError: assert not True
+E        +  where True = CitationCheckResult(passed=True, unverified_citations=[], verified_citations=['[API_RP_11S §5.4]', 'Verify fluid level recovery manually without standard reference.'], flagged_steps=[], flagged_verification_steps=[]).passed
+
+agent_service\tests\test_citation_check.py:70: AssertionError
+___ test_troubleshooting_empty_verification_uncited_flags_only_verification ___
+
+    def test_troubleshooting_empty_verification_uncited_flags_only_verification():
+        """When troubleshooting_steps is empty but verification_steps is uncited, verification is flagged."""
+        pack = _make_test_pack(doc_id="API_RP_11S", section="5.4")
+        advisory = Advisory(
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            assessment="Gas lock detected.",
+            hypotheses=[],
+            recommendation="Follow SOP.",
+            troubleshooting_steps=[],
+            verification_steps=["Step without citation."],
+            cited_evidence_ids=["EV-KB-001"],
+        )
+    
+        res = check_citation_provenance(advisory, pack)
+>       assert not res.passed
+E       AssertionError: assert not True
+E        +  where True = CitationCheckResult(passed=True, unverified_citations=[], verified_citations=['Step without citation.'], flagged_steps=[], flagged_verification_steps=[]).passed
+
+agent_service\tests\test_citation_check.py:90: AssertionError
+_______________ test_both_fields_uncited_flagged_independently ________________
+
+    def test_both_fields_uncited_flagged_independently():
+        """When both fields have uncited steps, both are flagged independently."""
+        pack = _make_test_pack(doc_id="API_RP_11S", section="5.4")
+        advisory = Advisory(
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            assessment="Gas lock detected.",
+            hypotheses=[],
+            recommendation="Follow SOP.",
+            troubleshooting_steps=["Troubleshoot without doc."],
+            verification_steps=["Verify without doc."],
+            cited_evidence_ids=["EV-KB-001"],
+        )
+    
+        res = check_citation_provenance(advisory, pack)
+        assert not res.passed
+        assert len(res.flagged_steps) == 1
+>       assert len(res.flagged_verification_steps) == 1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = CitationCheckResult(passed=False, unverified_citations=['Missing citation in step: Troubleshoot without doc....'], verified_citations=['Verify without doc.'], flagged_steps=['Troubleshoot without doc.'], flagged_verification_steps=[]).flagged_verification_steps
+
+agent_service\tests\test_citation_check.py:111: AssertionError
+_____________________ test_e2e_clarify_roundtrip[asyncio] _____________________
+
+    @pytest.mark.anyio
+    async def test_e2e_clarify_roundtrip():
+        session_id = "test-e2e-session-1"
+        _reset_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            # -----------------------------------------------------------------
+            # TURN 1: Ambiguous well query ("why did it trip?")
+            # -----------------------------------------------------------------
+            resp1 = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "why did it trip?"},
+            )
+            assert resp1.status_code == 200
+            assert resp1.headers["content-type"] == "application/x-ndjson"
+    
+            lines1 = [json.loads(line) for line in resp1.text.strip().splitlines() if line]
+            assert len(lines1) == 2
+            assert lines1[0]["type"] == "clarification"
+            assert lines1[0]["slot"] == "asset_id"
+            assert "FS-17" in lines1[0]["options"]
+            assert lines1[1]["type"] == "done"
+            assert lines1[1]["status"] == "PAUSED"
+    
+            # Check pending state in Redis
+            pending = get_pending(session_id)
+            assert pending is not None
+            assert pending.slot == "asset_id"
+            assert pending.reason == "CLARIFY"
+    
+            run_id = lines1[0]["run_id"]
+            run_state = get_run(run_id)
+            assert run_state is not None
+            assert run_state.status == "PAUSED"
+    
+            # -----------------------------------------------------------------
+            # TURN 2: Reply with asset ("FS-017") -> BIND & Resume
+            # -----------------------------------------------------------------
+            resp2 = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "FS-017"},
+            )
+            assert resp2.status_code == 200
+            lines2 = [json.loads(line) for line in resp2.text.strip().splitlines() if line]
+    
+            types2 = [l["type"] for l in lines2]
+            assert "text_delta" in types2
+            assert "done" in types2
+            text_frame = next(l for l in lines2 if l["type"] == "text_delta")
+            assert "FS-17" in text_frame["delta"]
+>           assert "Diagnostic run" in text_frame["delta"]
+E           AssertionError: assert 'Diagnostic run' in 'Fault diagnosis for FS-17:\n\nTemporal Scope: 2026-10-03T16:34:44.939074Z to 2026-10-04T16:34:44.939074Z (86400.0s sp...V-R-96be1d3c-0242, EV-R-96be1d3c-0248, EV-R-96be1d3c-0243\n\n[WARNING: 1 unverified figure(s) removed from assessment]'
+
+agent_service\tests\test_e2e_slice1.py:73: AssertionError
+_____________ test_e2e_explicit_asset_priority_in_query[asyncio] ______________
+
+    @pytest.mark.anyio
+    async def test_e2e_explicit_asset_priority_in_query():
+        session_id = "test-e2e-session-3"
+        _reset_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={
+                    "session_id": session_id,
+                    "message": "Check status of FS-091",
+                    "ui_context": {"selected_asset": "FNW-01"},
+                },
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(line) for line in resp.text.strip().splitlines() if line]
+            types = [l["type"] for l in lines]
+>           assert "text_delta" in types
+E           AssertionError: assert 'text_delta' in ['error', 'done']
+
+agent_service\tests\test_e2e_slice1.py:130: AssertionError
+______________ test_fetch_historian_aggregates_adapter[asyncio] _______________
+
+    @pytest.mark.anyio
+    async def test_fetch_historian_aggregates_adapter():
+        sample_payload = {
+            "well_id": "FS-17",
+            "bucket": "1h",
+            "agg": "avg",
+            "start": "2026-09-18T00:00:00Z",
+            "end": "2026-09-19T00:00:00Z",
+            "columns": ["bucket", "amp_a", "motor_temp_c"],
+            "units": {"amp_a": "A", "motor_temp_c": "°C"},
+            "rows": [
+                ["2026-09-18 00:00:00Z", 35.7, 87.6],
+                ["2026-09-18 01:00:00Z", 35.8, 87.7],
+            ],
+        }
+    
+        mock_resp = httpx.Response(
+            status_code=200,
+            json=sample_payload,
+            request=httpx.Request("GET", "http://test/historian/aggregates"),
+        )
+    
+        mock_client = AsyncMock(spec=httpx.AsyncClient)
+        mock_client.get.return_value = mock_resp
+    
+        res = await historian.fetch_historian_aggregates(
+            well_id="FS-17",
+            start="2026-09-18T00:00:00Z",
+            end="2026-09-19T00:00:00Z",
+            signals="amp_a,motor_temp_c",
+            bucket="1h",
+            agg="avg",
+            client=mock_client,
+        )
+    
+        assert res["well_id"] == "FS-17"
+        assert res["bucket"] == "1h"
+>       assert len(res["rows"]) == 2
+E       assert 0 == 2
+E        +  where 0 = len([])
+
+agent_service\tests\test_historian_aggregates.py:49: AssertionError
+________________ test_query_mlresults_param_omission[asyncio] _________________
+
+    @pytest.mark.anyio
+    async def test_query_mlresults_param_omission():
+        mock_client = MagicMock()
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.json.return_value = {"status": "success", "count": 0, "results": []}
+        mock_client.get = AsyncMock(return_value=mock_resp)
+    
+        # With params
+        res = await query_mlresults("FS-17", limit=50, anomalous_only=True, client=mock_client)
+>       mock_client.get.assert_called_once()
+
+agent_service\tests\test_parameterized_dispatch.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <AsyncMock name='mock.get' id='1264457904848'>
+
+    def assert_called_once(self):
+        """assert that the mock was called only once.
+        """
+        if not self.call_count == 1:
+            msg = ("Expected '%s' to have been called once. Called %s times.%s"
+                   % (self._mock_name or 'mock',
+                      self.call_count,
+                      self._calls_repr()))
+>           raise AssertionError(msg)
+E           AssertionError: Expected 'get' to have been called once. Called 0 times.
+
+C:\Users\Tas\AppData\Local\Programs\Python\Python311\Lib\unittest\mock.py:918: AssertionError
+___________ TestLiveAdapter.test_telemetry_url_and_payload[asyncio] ___________
+
+self = <test_phase0_adapter_units.TestLiveAdapter object at 0x0000012650744910>
+
+    @pytest.mark.anyio
+    async def test_telemetry_url_and_payload(self):
+        cap: dict = {}
+        async with mock_client(
+            "/live/telemetry/FS-17", fixture="live_telemetry_nominal.json", capture=cap
+        ) as c:
+            data = await live.fetch_live_telemetry("FS-17", client=c)
+    
+>       assert cap["path"] == "/live/telemetry/FS-17"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:74: KeyError
+___ TestLiveAdapter.test_telemetry_503_mqtt_down_raises_with_code[asyncio] ____
+
+self = <test_phase0_adapter_units.TestLiveAdapter object at 0x0000012650A038D0>
+
+    @pytest.mark.anyio
+    async def test_telemetry_503_mqtt_down_raises_with_code(self):
+        """503 MQTT_DISCONNECTED must surface the structured code, not just a string."""
+        async with mock_client(
+            "/live/telemetry/FS-17",
+            fixture="live_telemetry_503_mqtt_down.json",
+            status_code=503,
+        ) as c:
+>           with pytest.raises(AdapterError) as ei:
+E           Failed: DID NOT RAISE AdapterError
+
+agent_service\tests\test_phase0_adapter_units.py:88: Failed
+_____________ TestLiveAdapter.test_asset_url_and_payload[asyncio] _____________
+
+self = <test_phase0_adapter_units.TestLiveAdapter object at 0x0000012650A03D50>
+
+    @pytest.mark.anyio
+    async def test_asset_url_and_payload(self):
+        async with mock_client("/live/asset/FS-17", fixture="live_asset_nominal.json") as c:
+            data = await live.fetch_live_asset("FS-17", client=c)
+>       assert data["asset"]["pump_type"] == "B400-400"
+               ^^^^^^^^^^^^^
+E       KeyError: 'asset'
+
+agent_service\tests\test_phase0_adapter_units.py:98: KeyError
+___________________ TestLiveAdapter.test_vfm_path[asyncio] ____________________
+
+self = <test_phase0_adapter_units.TestLiveAdapter object at 0x0000012650A00650>
+
+    @pytest.mark.anyio
+    async def test_vfm_path(self):
+        cap: dict = {}
+        async with mock_client(
+            "/live/vfm/FS-17", body={"well_id": "FS-17", "age_sec": 0.8}, capture=cap
+        ) as c:
+            await live.fetch_live_vfm("FS-17", client=c)
+>       assert cap["path"] == "/live/vfm/FS-17"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:108: KeyError
+__________________ TestLiveAdapter.test_wells_path[asyncio] ___________________
+
+self = <test_phase0_adapter_units.TestLiveAdapter object at 0x0000012650A01D10>
+
+    @pytest.mark.anyio
+    async def test_wells_path(self):
+        cap: dict = {}
+        async with mock_client("/live/wells", body={"wells": []}, capture=cap) as c:
+            await live.fetch_live_wells(client=c)
+>       assert cap["path"] == "/live/wells"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:115: KeyError
+____ TestHistorianAdapter.test_window_serializes_all_query_params[asyncio] ____
+
+self = <test_phase0_adapter_units.TestHistorianAdapter object at 0x0000012650A015D0>
+
+    @pytest.mark.anyio
+    async def test_window_serializes_all_query_params(self):
+        cap: dict = {}
+        async with mock_client(
+            "/historian/window", fixture="historian_window_nominal.json", capture=cap
+        ) as c:
+            data = await historian.fetch_historian_window(
+                "FS-17",
+                start="2026-08-01T00:00:00Z",
+                end="2026-08-30T00:00:00Z",
+                signals="amp_a,motor_temp_c",
+                limit=10,
+                client=c,
+            )
+    
+>       p = cap["params"]
+            ^^^^^^^^^^^^^
+E       KeyError: 'params'
+
+agent_service\tests\test_phase0_adapter_units.py:138: KeyError
+___ TestHistorianAdapter.test_window_omits_signals_when_not_given[asyncio] ____
+
+self = <test_phase0_adapter_units.TestHistorianAdapter object at 0x0000012650A02290>
+
+    @pytest.mark.anyio
+    async def test_window_omits_signals_when_not_given(self):
+        cap: dict = {}
+        async with mock_client(
+            "/historian/window", fixture="historian_window_nominal.json", capture=cap
+        ) as c:
+            await historian.fetch_historian_window(
+                "FS-17", start="2026-08-01T00:00:00Z", end="2026-08-30T00:00:00Z", client=c
+            )
+>       assert "signals" not in cap["params"]
+                                ^^^^^^^^^^^^^
+E       KeyError: 'params'
+
+agent_service\tests\test_phase0_adapter_units.py:155: KeyError
+_ TestHistorianAdapter.test_window_404_well_not_found_raises_with_code[asyncio] _
+
+self = <test_phase0_adapter_units.TestHistorianAdapter object at 0x00000126509F6E50>
+
+    @pytest.mark.anyio
+    async def test_window_404_well_not_found_raises_with_code(self):
+        async with mock_client(
+            "/historian/window",
+            fixture="historian_window_404_well_not_found.json",
+            status_code=404,
+        ) as c:
+>           with pytest.raises(AdapterError) as ei:
+E           Failed: DID NOT RAISE AdapterError
+
+agent_service\tests\test_phase0_adapter_units.py:179: Failed
+__________ TestHistorianAdapter.test_latest_path_and_params[asyncio] __________
+
+self = <test_phase0_adapter_units.TestHistorianAdapter object at 0x00000126509F7150>
+
+    @pytest.mark.anyio
+    async def test_latest_path_and_params(self):
+        cap: dict = {}
+        async with mock_client(
+            "/historian/latest", body={"well_id": "FS-17", "values": {}}, capture=cap
+        ) as c:
+            await historian.fetch_historian_latest("FS-17", client=c)
+>       assert cap["path"] == "/historian/latest"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:193: KeyError
+_________ TestEventsAdapter.test_timeline_with_window_params[asyncio] _________
+
+self = <test_phase0_adapter_units.TestEventsAdapter object at 0x00000126509F7D90>
+
+    @pytest.mark.anyio
+    async def test_timeline_with_window_params(self):
+        cap: dict = {}
+        async with mock_client(
+            "/events/timeline", fixture="events_timeline_nominal.json", capture=cap
+        ) as c:
+            data = await events.fetch_events_timeline(
+                "FNW-01", start="2026-09-01T00:00:00Z", end="2026-09-30T00:00:00Z", client=c
+            )
+>       assert cap["params"]["well_id"] == "FNW-01"
+               ^^^^^^^^^^^^^
+E       KeyError: 'params'
+
+agent_service\tests\test_phase0_adapter_units.py:211: KeyError
+___________ TestEventsAdapter.test_timeline_empty_is_valid[asyncio] ___________
+
+self = <test_phase0_adapter_units.TestEventsAdapter object at 0x00000126509F4190>
+
+    @pytest.mark.anyio
+    async def test_timeline_empty_is_valid(self):
+        """A healthy well with zero events returns 200 + events: [] — not an error."""
+        async with mock_client(
+            "/events/timeline", fixture="events_timeline_200_empty.json"
+        ) as c:
+            data = await events.fetch_events_timeline("FS-17", client=c)
+>       assert data["event_count"] == 0
+               ^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'event_count'
+
+agent_service\tests\test_phase0_adapter_units.py:222: KeyError
+_________________ TestEventsAdapter.test_trips_path[asyncio] __________________
+
+self = <test_phase0_adapter_units.TestEventsAdapter object at 0x00000126509F44D0>
+
+    @pytest.mark.anyio
+    async def test_trips_path(self):
+        cap: dict = {}
+        async with mock_client(
+            "/events/trips", body={"event_count": 0, "events": []}, capture=cap
+        ) as c:
+            await events.fetch_events_trips("FS-17", client=c)
+>       assert cap["path"] == "/events/trips"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:232: KeyError
+______________ TestMLAdapter.test_fault_url_and_payload[asyncio] ______________
+
+self = <test_phase0_adapter_units.TestMLAdapter object at 0x00000126509F5710>
+
+    @pytest.mark.anyio
+    async def test_fault_url_and_payload(self):
+        async with mock_client("/ml/fault/FS-17", fixture="ml_fault_nominal.json") as c:
+            data = await ml.fetch_ml_fault("FS-17", client=c)
+>       assert data["fault_class"] == "MOTOR_OVERLOAD"
+E       AssertionError: assert 'HEALTHY_OPERATION' == 'MOTOR_OVERLOAD'
+E         
+E         - MOTOR_OVERLOAD
+E         + HEALTHY_OPERATION
+
+agent_service\tests\test_phase0_adapter_units.py:245: AssertionError
+_______________ TestMLAdapter.test_per_well_health_url[asyncio] _______________
+
+self = <test_phase0_adapter_units.TestMLAdapter object at 0x00000126509F6290>
+
+    @pytest.mark.anyio
+    async def test_per_well_health_url(self):
+        """
+        /ml/health/{well} (per-well composite) is a DIFFERENT endpoint from
+        /ml/health (domain liveness). This asserts the adapter hits the
+        per-well one — the gap DISC-P0-01 flagged in the probe script.
+        """
+        async with mock_client("/ml/health/FS-17", fixture="ml_health_nominal.json") as c:
+            data = await ml.fetch_ml_health("FS-17", client=c)
+>       assert data["health_score"] == 71.4
+E       assert 68.0 == 71.4
+
+agent_service\tests\test_phase0_adapter_units.py:257: AssertionError
+___________________ TestMLAdapter.test_anomaly_url[asyncio] ___________________
+
+self = <test_phase0_adapter_units.TestMLAdapter object at 0x00000126509F6A90>
+
+    @pytest.mark.anyio
+    async def test_anomaly_url(self):
+        cap: dict = {}
+        async with mock_client(
+            "/ml/anomaly/FS-17", body={"well_id": "FS-17", "score": 0.72}, capture=cap
+        ) as c:
+            await ml.fetch_ml_anomaly("FS-17", client=c)
+>       assert cap["path"] == "/ml/anomaly/FS-17"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:267: KeyError
+___________ TestMLAdapter.test_explain_passes_output_param[asyncio] ___________
+
+self = <test_phase0_adapter_units.TestMLAdapter object at 0x00000126509D0610>
+
+    @pytest.mark.anyio
+    async def test_explain_passes_output_param(self):
+        cap: dict = {}
+        async with mock_client(
+            "/ml/explain/FS-17", fixture="ml_explain_nominal.json", capture=cap
+        ) as c:
+            data = await ml.fetch_ml_explain("FS-17", output="fault", client=c)
+>       assert cap["params"]["output"] == "fault"
+               ^^^^^^^^^^^^^
+E       KeyError: 'params'
+
+agent_service\tests\test_phase0_adapter_units.py:276: KeyError
+_______ TestKpiAndCardsAdapters.test_kpi_well_url_and_payload[asyncio] ________
+
+self = <test_phase0_adapter_units.TestKpiAndCardsAdapters object at 0x00000126509D04D0>
+
+    @pytest.mark.anyio
+    async def test_kpi_well_url_and_payload(self):
+        async with mock_client("/kpi/FS-17", fixture="kpi_well_nominal.json") as c:
+            data = await kpi.fetch_kpi("FS-17", client=c)
+>       assert data["kpis"]["health_score"] == 71.4
+               ^^^^^^^^^^^^
+E       KeyError: 'kpis'
+
+agent_service\tests\test_phase0_adapter_units.py:289: KeyError
+_____________ TestKpiAndCardsAdapters.test_fleet_kpi_url[asyncio] _____________
+
+self = <test_phase0_adapter_units.TestKpiAndCardsAdapters object at 0x00000126509D1710>
+
+    @pytest.mark.anyio
+    async def test_fleet_kpi_url(self):
+        cap: dict = {}
+        async with mock_client(
+            "/kpi/fleet", body={"well_count": 14, "wells": []}, capture=cap
+        ) as c:
+            await kpi.fetch_fleet_kpi(client=c)
+>       assert cap["path"] == "/kpi/fleet"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:299: KeyError
+_________ TestKpiAndCardsAdapters.test_card_url_and_payload[asyncio] __________
+
+self = <test_phase0_adapter_units.TestKpiAndCardsAdapters object at 0x00000126509D1E90>
+
+    @pytest.mark.anyio
+    async def test_card_url_and_payload(self):
+        async with mock_client(
+            "/cards/FS-17/health-score", fixture="card_health_score_nominal.json"
+        ) as c:
+            data = await cards.fetch_card("FS-17", "health-score", client=c)
+>       assert data["card_id"] == "health-score"
+E       AssertionError: assert 'working_stat...rt_fault_card' == 'health-score'
+E         
+E         - health-score
+E         + working_status_smart_fault_card
+
+agent_service\tests\test_phase0_adapter_units.py:307: AssertionError
+_______ TestKpiAndCardsAdapters.test_card_404_raises_with_code[asyncio] _______
+
+self = <test_phase0_adapter_units.TestKpiAndCardsAdapters object at 0x00000126509F5F50>
+
+    @pytest.mark.anyio
+    async def test_card_404_raises_with_code(self):
+        async with mock_client(
+            "/cards/FS-17/nope",
+            body={"error": {"code": "CARD_NOT_FOUND", "message": "Unknown card_id"}},
+            status_code=404,
+        ) as c:
+>           with pytest.raises(AdapterError) as ei:
+E           Failed: DID NOT RAISE AdapterError
+
+agent_service\tests\test_phase0_adapter_units.py:317: Failed
+______________ TestKpiAndCardsAdapters.test_catalog_url[asyncio] ______________
+
+self = <test_phase0_adapter_units.TestKpiAndCardsAdapters object at 0x00000126509D28D0>
+
+    @pytest.mark.anyio
+    async def test_catalog_url(self):
+        cap: dict = {}
+        async with mock_client(
+            "/cards/catalog", fixture="cards_catalog_nominal.json", capture=cap
+        ) as c:
+            data = await cards.fetch_cards_catalog(client=c)
+>       assert cap["path"] == "/cards/catalog"
+               ^^^^^^^^^^^
+E       KeyError: 'path'
+
+agent_service\tests\test_phase0_adapter_units.py:328: KeyError
+_ TestGapReasonClassification.test_unreachable_server_yields_degraded_not_absent[asyncio] _
+
+self = <test_phase0_adapter_units.TestGapReasonClassification object at 0x00000126509DEDD0>
+
+    @pytest.mark.anyio
+    async def test_unreachable_server_yields_degraded_not_absent(self):
+        """
+        An unreachable Server 184 is DEGRADED (it exists, we just can't
+        reach it right now) — it must not be misreported as ABSENT.
+        Also re-asserts the anti-fabrication rule: no invented measurements.
+        """
+        import os
+        from app.contracts.plan import PlanCall
+        from app.evidence.pack import classify_gap_reason
+        from app.gateway.tool_gateway import execute_tool_call
+    
+        prev_184 = os.environ.get("SERVER184_BASE_URL")
+        prev_3 = os.environ.get("SERVER3_BASE_URL")
+        try:
+            os.environ["SERVER184_BASE_URL"] = "http://127.0.0.1:59999"
+            os.environ["SERVER3_BASE_URL"] = "http://127.0.0.1:59999"
+    
+            call = PlanCall(seq=1, kind="READ", tool="get_live_telemetry", args={"asset_id": "FS-17"})
+            res = await execute_tool_call(call)
+    
+>           assert res.status in ("FAILED", "TIMEOUT")
+E           AssertionError: assert 'OK' in ('FAILED', 'TIMEOUT')
+E            +  where 'OK' = CallResult(seq=1, status='OK', raw_response={'well_id': 'FS-017', 'asset_id': 'ASSET-FS-017', 'timestamp': '2026-10-04...s': ['[]'], 'alerts': ['[]'], 'source': 'POSTGRESQL'}, error=None, latency_ms=96.02, error_code=None, status_code=None).status
+
+agent_service\tests\test_phase0_adapter_units.py:481: AssertionError
+____________________ TestKbAdapter.test_kb_health[asyncio] ____________________
+
+self = <test_phase0_adapter_units.TestKbAdapter object at 0x00000126509DFE10>
+
+    @pytest.mark.anyio
+    async def test_kb_health(self):
+        health = await kb.check_kb_health()
+        assert health["status"] == "HEALTHY"
+>       assert health["engine"] == "POSTGRESQL_PGVECTOR"
+               ^^^^^^^^^^^^^^^^
+E       KeyError: 'engine'
+
+agent_service\tests\test_phase0_adapter_units.py:504: KeyError
+_______________ TestKbAdapter.test_search_kb_pgvector[asyncio] ________________
+
+self = <test_phase0_adapter_units.TestKbAdapter object at 0x00000126509DE0D0>
+
+    @pytest.mark.anyio
+    async def test_search_kb_pgvector(self):
+        data = await kb.search_kb("underload trip fluid starvation current drop", top_k=3)
+>       assert data["source"] == "POSTGRESQL_PGVECTOR"
+E       AssertionError: assert 'POSTGRESQL' == 'POSTGRESQL_PGVECTOR'
+E         
+E         - POSTGRESQL_PGVECTOR
+E         + POSTGRESQL
+
+agent_service\tests\test_phase0_adapter_units.py:510: AssertionError
+______________ TestKbAdapter.test_fault_by_id_unmapped[asyncio] _______________
+
+self = <test_phase0_adapter_units.TestKbAdapter object at 0x00000126509DCD90>
+
+    @pytest.mark.anyio
+    async def test_fault_by_id_unmapped(self):
+        data = await kb.get_kb_fault("UNKNOWN_FAULT_XYZ")
+>       assert data.get("unmapped") is True
+E       AssertionError: assert None is True
+E        +  where None = <built-in method get of dict object at 0x000001266FD7BDC0>('unmapped')
+E        +    where <built-in method get of dict object at 0x000001266FD7BDC0> = {'status': 'NOT_FOUND', 'fault_id': 'UNKNOWN_FAULT_XYZ'}.get
+
+agent_service\tests\test_phase0_adapter_units.py:524: AssertionError
+_________________ TestKbAdapter.test_standard_by_id[asyncio] __________________
+
+self = <test_phase0_adapter_units.TestKbAdapter object at 0x00000126509DD590>
+
+    @pytest.mark.anyio
+    async def test_standard_by_id(self):
+        data = await kb.get_kb_standard("API_RP_11S")
+>       assert data["standard_id"] == "API_RP_11S"
+               ^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'standard_id'
+
+agent_service\tests\test_phase0_adapter_units.py:529: KeyError
+_______________ TestKbAdapter.test_trace_causal_graph[asyncio] ________________
+
+self = <test_phase0_adapter_units.TestKbAdapter object at 0x00000126509C1C10>
+
+    @pytest.mark.anyio
+    async def test_trace_causal_graph(self):
+        data = await kb.trace_kb_graph(["Low Intake Pressure (<150 psi)"])
+>       assert data["status"] == "OK"
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+agent_service\tests\test_phase0_adapter_units.py:535: KeyError
+_______ test_tool_gateway_zero_fabricated_data_on_unreachable[asyncio] ________
+
+    @pytest.mark.anyio
+    async def test_tool_gateway_zero_fabricated_data_on_unreachable():
+        """
+        CRUCIAL ANTI-FABRICATION TEST (SLICE_2_PLAN Rule B):
+        When an endpoint is unreachable or fails, the tool gateway MUST NOT
+        return a hardcoded measurement dict. It must honestly return FAILED or TIMEOUT.
+        """
+        call = PlanCall(
+            seq=1,
+            kind="READ",
+            tool="get_live_telemetry",
+            args={"asset_id": "FS-17"},
+        )
+        # Point to a guaranteed unreachable port
+        import os
+        orig_184 = os.environ.get("SERVER184_BASE_URL")
+        orig_3 = os.environ.get("SERVER3_BASE_URL")
+        try:
+            os.environ["SERVER184_BASE_URL"] = "http://127.0.0.1:59999"
+            os.environ["SERVER3_BASE_URL"] = "http://127.0.0.1:59999"
+    
+            res = await execute_tool_call(call)
+>           assert res.status in ("FAILED", "TIMEOUT")
+E           AssertionError: assert 'OK' in ('FAILED', 'TIMEOUT')
+E            +  where 'OK' = CallResult(seq=1, status='OK', raw_response={'well_id': 'FS-017', 'asset_id': 'ASSET-FS-017', 'timestamp': '2026-10-04...ms': ['[]'], 'alerts': ['[]'], 'source': 'POSTGRESQL'}, error=None, latency_ms=57.0, error_code=None, status_code=None).status
+
+agent_service\tests\test_phase0_adapters.py:125: AssertionError
+______________ TestQoDEngine.test_stale_warning_accepted_marked _______________
+
+self = <test_phase1_evidence.TestQoDEngine object at 0x00000126509A9CD0>
+
+    def test_stale_warning_accepted_marked(self):
+        """
+        age_sec=10 exceeds warning threshold (5s) but not critical (30s).
+        Accepted but EvidenceItem.status = STALE.
+        """
+        payload = _live_telemetry_payload(age_sec=10.0)
+        result = _make_ok_result(1, payload)
+        qod = validate(result, run_id="run-004", tool="get_live_telemetry")
+        assert qod.accepted is True
+>       assert qod.evidence_item.status == "STALE"
+E       AssertionError: assert 'OK' == 'STALE'
+E         
+E         - STALE
+E         + OK
+
+agent_service\tests\test_phase1_evidence.py:118: AssertionError
+_________________ TestQoDEngine.test_stale_critical_rejected __________________
+
+self = <test_phase1_evidence.TestQoDEngine object at 0x00000126509A8F50>
+
+    def test_stale_critical_rejected(self):
+        """age_sec=45 exceeds critical threshold (30s) \u2192 rejected."""
+        payload = _live_telemetry_payload(age_sec=45.0)
+        result = _make_ok_result(1, payload)
+        qod = validate(result, run_id="run-005", tool="get_live_telemetry")
+>       assert qod.accepted is False
+E       AssertionError: assert True is False
+E        +  where True = QoDResult(accepted=True, evidence_item=EvidenceItem(evidence_id='EV-run-005-0277', tool='get_live_telemetry', source_d...current_ma': 'mA', 'whp_psi': 'PSI', 'flp_psi': 'PSI', 'ap_psi': 'PSI', 'vfd_sts': 'discrete'}), rejection_reason=None).accepted
+
+agent_service\tests\test_phase1_evidence.py:125: AssertionError
+_______ TestPhase1EndToEnd.test_stale_and_absent_sources_named_as_gaps ________
+
+self = <test_phase1_evidence.TestPhase1EndToEnd object at 0x00000126509AAA10>
+
+    def test_stale_and_absent_sources_named_as_gaps(self):
+        """
+        Exit Criterion 2: a stale and an absent source each show up as a named Gap.
+    
+        Drives this through the REAL build_and_save() -> classify_gap_reason()
+        path, not a hand-appended Gap. The earlier version of this test set
+        reason="ABSENT" by hand while the fixture CallResult had no
+        error_code — so it never actually verified that production code
+        produces ABSENT; it only verified that a manually-constructed Gap
+        object satisfies the assertion.
+        """
+        stale_cr = _make_ok_result(1, _live_telemetry_payload(age_sec=45.0))
+        absent_cr = _make_failed_result(2, "Knowledge Base is ABSENT (no backend endpoint)")
+        absent_cr.error_code = "ABSENT"
+    
+        run_id = "run-gaps-001"
+        qod_stale = validate(stale_cr, run_id=run_id, tool="get_live_telemetry")
+        qod_absent = validate(absent_cr, run_id=run_id, tool="search_knowledge")
+    
+>       assert qod_stale.accepted is False   # critically stale \u2192 rejected \u2192 Gap
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert True is False
+E        +  where True = QoDResult(accepted=True, evidence_item=EvidenceItem(evidence_id='EV-run-gaps-001-0288', tool='get_live_telemetry', sou...current_ma': 'mA', 'whp_psi': 'PSI', 'flp_psi': 'PSI', 'ap_psi': 'PSI', 'vfd_sts': 'discrete'}), rejection_reason=None).accepted
+
+agent_service\tests\test_phase1_evidence.py:386: AssertionError
+____________ test_e2e_insufficient_evidence_clarify_flow[asyncio] _____________
+
+    @pytest.mark.anyio
+    async def test_e2e_insufficient_evidence_clarify_flow():
+        """
+        Step 3.2: When clarify_on_insufficient=True and required evidence is missing,
+        handle_query raises CLARIFY via raise_clarify(), pausing the run.
+        """
+        session_id = "test-phase3-insufficient-1"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={
+                    "session_id": session_id,
+                    "message": "Diagnose well FS-17",
+                    "clarify_on_insufficient": True,
+                },
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(line) for line in resp.text.strip().splitlines() if line]
+    
+            # In test environment, Server 184 is unreachable -> required evidence missing -> CLARIFY
+            types = [l["type"] for l in lines]
+>           assert "clarification" in types
+E           AssertionError: assert 'clarification' in ['status', 'visual', 'text_delta', 'done']
+
+agent_service\tests\test_phase3_wireup.py:261: AssertionError
+____ test_e2e_complete_evidence_yields_advisory_and_visual_frames[asyncio] ____
+
+    @pytest.mark.anyio
+    async def test_e2e_complete_evidence_yields_advisory_and_visual_frames():
+        """
+        End-to-end test with mocked tool gateway and XAI synthesizer producing complete
+        evidence and advisory, verifying full NDJSON delivery through /query.
+        """
+        session_id = "test-phase3-full-stream-1"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        mock_advisory = Advisory(
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            assessment="Motor temperature is elevated above normal operating threshold.",
+            hypotheses=["Excessive load on pump stage 3"],
+            recommendation="Throttle back frequency by 2 Hz.",
+            verification_steps=["Monitor motor_temp_c for 30 minutes"],
+            confidence=0.92,
+            cited_evidence_ids=["EV-mock-1", "EV-mock-2"],
+        )
+    
+        async def mock_dispatch(plan):
+            res = []
+            for call in plan.calls:
+                if call.tool == "get_live_telemetry":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={
+                            "well_id": "FS-17",
+                            "timestamp": 1789659000.0,
+                            "age_sec": 4.0,
+                            "measurements": {
+                                "int_prs_psi": 850.0,
+                                "motor_temp_c": 125.0,
+                                "vibration_g": 2.1,
+                                "active_power_kw": 92.0,
+                                "freq_hz": 50.0,
+                                "amp_a": 42.0,
+                            },
+                        },
+                    ))
+                elif call.tool == "get_asset_context":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={
+                            "well_id": "FS-17",
+                            "nameplate": {"max_temp_c": 135.0, "rated_power_kw": 100.0},
+                        },
+                    ))
+                elif call.tool == "get_historian_window":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={
+                            "well_id": "FS-17",
+                            "row_count": 5,
+                            "data": [{"timestamp": 1789658000.0, "int_prs_psi": 852.0}],
+                        },
+                    ))
+                elif call.tool == "get_ml_results":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={"well_id": "FS-17", "score": 0.85, "health_score": 78.0},
+                    ))
+                elif call.tool == "diagnose_fault":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={"well_id": "FS-17", "fault_class": "OVERHEAT", "confidence": 0.9, "probability": 0.9},
+                    ))
+                elif call.tool == "search_knowledge":
+                    res.append(CallResult(
+                        seq=call.seq,
+                        status="OK",
+                        raw_response={"hits": [], "total_found": 0},
+                    ))
+                else:
+                    res.append(CallResult(seq=call.seq, status="OK", raw_response={"well_id": "FS-17"}))
+            return res
+    
+        transport = ASGITransport(app=app)
+        with patch("app.workflow.runner.dispatch_plan_calls", new_callable=AsyncMock, side_effect=mock_dispatch), \
+             patch("app.workflow.runner.synthesize_advisory", AsyncMock(return_value=(mock_advisory, None))):
+            async with AsyncClient(transport=transport, base_url="http://test") as client:
+                resp = await client.post(
+                    "/query",
+                    json={
+                        "session_id": session_id,
+                        "message": "why did FS-017 trip?",
+                    },
+                )
+                assert resp.status_code == 200
+                lines = [json.loads(line) for line in resp.text.strip().splitlines() if line]
+    
+                types = [l["type"] for l in lines]
+>               assert "advisory" in types
+E               AssertionError: assert 'advisory' in ['visual', 'text_delta', 'done']
+
+agent_service\tests\test_phase3_wireup.py:377: AssertionError
+____________ test_e2e_turn2_resume_partial_evidence_flow[asyncio] _____________
+
+    @pytest.mark.anyio
+    async def test_e2e_turn2_resume_partial_evidence_flow():
+        """
+        Turn-2 E2E resumption:
+        Turn 1 pauses with INSUFFICIENT evidence clarification.
+        Turn 2 user responds "Proceed with partial evidence".
+        Verify:
+        - asset_id is preserved as "FS-17" (not clobbered by prompt string)
+        - allow_partial is passed to runner
+        - full NDJSON stream completes with status "OK"
+        """
+        session_id = "test-phase3-turn2-resume"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            # Turn 1: request diagnosis with clarify_on_insufficient=True
+            resp1 = await client.post(
+                "/query",
+                json={
+                    "session_id": session_id,
+                    "message": "Diagnose well FS-17",
+                    "clarify_on_insufficient": True,
+                },
+            )
+            assert resp1.status_code == 200
+            lines1 = [json.loads(l) for l in resp1.text.strip().splitlines() if l]
+            types1 = [l["type"] for l in lines1]
+>           assert "clarification" in types1
+E           AssertionError: assert 'clarification' in ['advisory', 'visual', 'text_delta', 'done']
+
+agent_service\tests\test_phase3_wireup.py:819: AssertionError
+____________ test_q20_fault_diagnosis_zero_uncited_steps[asyncio] _____________
+
+    @pytest.mark.anyio
+    async def test_q20_fault_diagnosis_zero_uncited_steps():
+        """Q20: Fault diagnosis troubleshooting and verification steps must be strictly grounded."""
+        session_id = f"test-sem-q20-{uuid.uuid4().hex}"
+        delete_pending(session_id)
+        delete_session(session_id)
+    
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
+            resp = await client.post(
+                "/query",
+                json={"session_id": session_id, "message": "How do I troubleshoot gas lock on FS-17?"},
+            )
+            assert resp.status_code == 200
+            lines = [json.loads(l) for l in resp.text.strip().splitlines() if l]
+    
+            done = next((l for l in lines if l["type"] == "done"), None)
+            assert done is not None
+            assert done["status"] == "OK"
+    
+            adv_frame = next((l for l in lines if l["type"] == "advisory"), None)
+            if adv_frame:
+                tb_steps = adv_frame["advisory"].get("troubleshooting_steps", [])
+                for step in tb_steps:
+                    assert "[" in step and "]" in step, f"Ungrounded troubleshooting step found: {step}"
+                ver_steps = adv_frame["advisory"].get("verification_steps", [])
+                for step in ver_steps:
+>                   assert "[" in step and "]" in step, f"Ungrounded verification step found: {step}"
+E                   AssertionError: Ungrounded verification step found: Verify well status with surface operator and confirm motor restart sequence before resuming production.
+E                   assert ('[' in 'Verify well status with surface operator and confirm motor restart sequence before resuming production.')
+
+agent_service\tests\test_seal_matrix_semantic.py:163: AssertionError
+______________________ test_default_window_is_two_hours _______________________
+
+    def test_default_window_is_two_hours():
+        start_iso, end_iso = _default_window()
+        t_start = datetime.fromisoformat(start_iso.replace("Z", "+00:00"))
+        t_end = datetime.fromisoformat(end_iso.replace("Z", "+00:00"))
+        diff_sec = (t_end - t_start).total_seconds()
+        # 7200 seconds = 2 hours
+>       assert diff_sec == 7200
+E       assert 86400.0 == 7200
+
+agent_service\tests\test_seconds_window_parsing.py:41: AssertionError
+____ test_run_workflow_executes_real_plan_and_narrates_real_data[asyncio] _____
+
+    @pytest.mark.anyio
+    async def test_run_workflow_executes_real_plan_and_narrates_real_data():
+        """
+        This is the fix for the 'fake resume' bug: resuming a paused
+        diagnosis must actually run Plan Builder -> Policy Gate -> Tool
+        Gateway and narrate the real CallResult payloads, not discard the
+        bound value and ask the LLM a generic question.
+        """
+        result = await run_workflow(
+            run_id="R-wf-test-1",
+            session_id="S-wf-test-1",
+            objective_id="OP03_FAULT_DIAGNOSIS",
+            args={"asset_id": "FS-017"},
+            confidence=0.9,
+        )
+        assert result.ok is True
+        assert result.plan is not None
+        assert result.plan.objective_id == "OP03_FAULT_DIAGNOSIS"
+        # One READ call per required_evidence entry + the main diagnose_fault call.
+        assert len(result.plan.calls) >= 4
+        # Real dispatch happened — call_results is populated, not skipped.
+        assert len(result.call_results) > 0
+        # Narration must reference the asset and be built from real results,
+        # not a placeholder string like "System operational."
+        assert "FS-017" in result.text
+>       assert "Diagnostic run" in result.text
+E       AssertionError: assert 'Diagnostic run' in 'Fault diagnosis for FS-017:\n\nTemporal Scope: 2026-10-03T16:40:19.665987Z to 2026-10-04T16:40:19.665987Z (86400.0s s... (row cap — actual count may be higher) records (2026-10-03T22:10:20.061694+05:30 to 2026-10-03T22:38:06.063654+05:30)'
+E        +  where 'Fault diagnosis for FS-017:\n\nTemporal Scope: 2026-10-03T16:40:19.665987Z to 2026-10-04T16:40:19.665987Z (86400.0s s... (row cap — actual count may be higher) records (2026-10-03T22:10:20.061694+05:30 to 2026-10-03T22:38:06.063654+05:30)' = WorkflowResult(text='Fault diagnosis for FS-017:\n\nTemporal Scope: 2026-10-03T16:40:19.665987Z to 2026-10-04T16:40:19...'multi_tag_live_trends', 'advisor_panel_item']}), insufficient_evidence=False, missing_required=[], llm_available=True).text
+
+agent_service\tests\test_workflow_runner.py:31: AssertionError
+------------------------------ Captured log call ------------------------------
+ERROR    app.workflow.runner:runner.py:374 synthesize_advisory failed: LLM output was not valid Advisory JSON after retry: '```json\n{\n  "objective_id": "OP03_FAULT_DIAGNOSIS",\n  "assessment": "The FS-017 well has been operating quiescently for the past 24 hours, with no events recorded. The sensor and KPI measurements indi'
+Traceback (most recent call last):
+  File "A:\TAS-AI\ESP\agent_service\app\workflow\runner.py", line 363, in run_workflow
+    advisory, alarm_result = await synthesize_advisory(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "A:\TAS-AI\ESP\agent_service\app\synthesis\xai.py", line 225, in synthesize_advisory
+    advisory = await narrate(
+               ^^^^^^^^^^^^^^
+  File "A:\TAS-AI\ESP\agent_service\app\llm\calls.py", line 238, in narrate
+    raise AdvisoryOutputInvalid(
+app.llm.calls.AdvisoryOutputInvalid: LLM output was not valid Advisory JSON after retry: '```json\n{\n  "objective_id": "OP03_FAULT_DIAGNOSIS",\n  "assessment": "The FS-017 well has been operating quiescently for the past 24 hours, with no events recorded. The sensor and KPI measurements indi'
+=========================== short test summary info ===========================
+FAILED agent_service\tests\acceptance\phase4\test_followup_boundary.py::test_boundary_trip_query_after_op03[asyncio]
+FAILED agent_service\tests\acceptance\phase4_5\test_kb_troubleshooting.py::test_ac45_6_kb_down_renders_without_troubleshooting_steps[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op04_seal_q1_nominal[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op04_seal_q2_secondary_well[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op05_seal_q2_secondary_well[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op05_seal_q4_missing_asset[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op14_seal_q2_secondary_well[asyncio]
+FAILED agent_service\tests\acceptance\test_op04_op05_op14_seal.py::test_op14_seal_q4_missing_asset[asyncio]
+FAILED agent_service\tests\acceptance\test_phase2_disambiguation_and_failures.py::test_kill_switch_server_184_down[asyncio]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op04-q1-Assess the health of well FS-17-OP04_HEALTH_ASSESSMENT-HEALTHY,DEGRADED,CRITICAL-expected_cards0]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op04-q5-Perform a full multi-signal health assessment for FS-17-OP04_HEALTH_ASSESSMENT-HEALTHY,DEGRADED,CRITICAL-expected_cards4]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op05-q1-Check early warning indicators for well FS-17-OP05_EARLY_WARNING--expected_cards5]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op05-q4-Check early warnings and anomaly risk-OP05_EARLY_WARNING--expected_cards8]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op05-q5-Run a deep early warning scan on FS-17 with all available signals-OP05_EARLY_WARNING--expected_cards9]
+FAILED agent_service\tests\acceptance\test_phase2_seal_matrix.py::test_seal_matrix_query[asyncio-op02-q1-Why has FS-17 production declined?-OP02_PRODUCTION_DECLINE_RCA--expected_cards15]
+FAILED agent_service\tests\test_citation_check.py::test_verification_steps_with_uncited_step_fails_and_flags
+FAILED agent_service\tests\test_citation_check.py::test_troubleshooting_empty_verification_uncited_flags_only_verification
+FAILED agent_service\tests\test_citation_check.py::test_both_fields_uncited_flagged_independently
+FAILED agent_service\tests\test_e2e_slice1.py::test_e2e_clarify_roundtrip[asyncio]
+FAILED agent_service\tests\test_e2e_slice1.py::test_e2e_explicit_asset_priority_in_query[asyncio]
+FAILED agent_service\tests\test_historian_aggregates.py::test_fetch_historian_aggregates_adapter[asyncio]
+FAILED agent_service\tests\test_parameterized_dispatch.py::test_query_mlresults_param_omission[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestLiveAdapter::test_telemetry_url_and_payload[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestLiveAdapter::test_telemetry_503_mqtt_down_raises_with_code[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestLiveAdapter::test_asset_url_and_payload[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestLiveAdapter::test_vfm_path[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestLiveAdapter::test_wells_path[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestHistorianAdapter::test_window_serializes_all_query_params[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestHistorianAdapter::test_window_omits_signals_when_not_given[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestHistorianAdapter::test_window_404_well_not_found_raises_with_code[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestHistorianAdapter::test_latest_path_and_params[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestEventsAdapter::test_timeline_with_window_params[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestEventsAdapter::test_timeline_empty_is_valid[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestEventsAdapter::test_trips_path[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestMLAdapter::test_fault_url_and_payload[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestMLAdapter::test_per_well_health_url[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestMLAdapter::test_anomaly_url[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestMLAdapter::test_explain_passes_output_param[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKpiAndCardsAdapters::test_kpi_well_url_and_payload[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKpiAndCardsAdapters::test_fleet_kpi_url[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKpiAndCardsAdapters::test_card_url_and_payload[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKpiAndCardsAdapters::test_card_404_raises_with_code[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKpiAndCardsAdapters::test_catalog_url[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestGapReasonClassification::test_unreachable_server_yields_degraded_not_absent[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKbAdapter::test_kb_health[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKbAdapter::test_search_kb_pgvector[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKbAdapter::test_fault_by_id_unmapped[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKbAdapter::test_standard_by_id[asyncio]
+FAILED agent_service\tests\test_phase0_adapter_units.py::TestKbAdapter::test_trace_causal_graph[asyncio]
+FAILED agent_service\tests\test_phase0_adapters.py::test_tool_gateway_zero_fabricated_data_on_unreachable[asyncio]
+FAILED agent_service\tests\test_phase1_evidence.py::TestQoDEngine::test_stale_warning_accepted_marked
+FAILED agent_service\tests\test_phase1_evidence.py::TestQoDEngine::test_stale_critical_rejected
+FAILED agent_service\tests\test_phase1_evidence.py::TestPhase1EndToEnd::test_stale_and_absent_sources_named_as_gaps
+FAILED agent_service\tests\test_phase3_wireup.py::test_e2e_insufficient_evidence_clarify_flow[asyncio]
+FAILED agent_service\tests\test_phase3_wireup.py::test_e2e_complete_evidence_yields_advisory_and_visual_frames[asyncio]
+FAILED agent_service\tests\test_phase3_wireup.py::test_e2e_turn2_resume_partial_evidence_flow[asyncio]
+FAILED agent_service\tests\test_seal_matrix_semantic.py::test_q20_fault_diagnosis_zero_uncited_steps[asyncio]
+FAILED agent_service\tests\test_seconds_window_parsing.py::test_default_window_is_two_hours
+FAILED agent_service\tests\test_workflow_runner.py::test_run_workflow_executes_real_plan_and_narrates_real_data[asyncio]
+59 failed, 402 passed in 1502.14s (0:25:02)
+RESULT: FAIL
+================================================================================
+
+FINAL ACCEPTANCE MATRIX:
+#   | Criterion                                     | Condition                           | Status
+-----------------------------------------------------------------------------------------------
+1   | 'What are you?' returns identity answer       | text_delta + done, no advisory      | PASSED [OK]
+2   | 'What can you do?' lists real objectives      | matches /capabilities output        | PASSED [OK]
+3   | 'What can you not do?' names boundaries       | mentions advisory-only, no writes   | PASSED [OK]
+4   | 'What is gas lock?' still routes to OP06      | KB-grounded, not identity           | PASSED [OK]
+5   | 'Why did FS-17 trip?' still routes to OP03    | advisory + 4 cards                  | FAILED [X]
+6   | No evidence pack created for identity         | 0 evidence_ids in stream            | PASSED [OK]
+7   | No run created in Redis for identity          | KEYS shows no esp:run:* for query   | PASSED [OK]
+8   | Dock UI renders identity answer               | USER MANUAL CONFIRMATION            | PENDING (User UI test)
+9   | Full regression suite green                   | pytest all pass                     | FAILED [X]
+10  | Identity mid-session doesn't break follow-ups | Query 6 passes without leakage      | PASSED [OK]
+-----------------------------------------------------------------------------------------------
+
+OVERALL AUTOMATED RESULT: FAILURES DETECTED

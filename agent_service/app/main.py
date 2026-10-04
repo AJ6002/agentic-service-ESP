@@ -531,6 +531,8 @@ async def handle_query(req: QueryRequest):
     if decision.route == "IDENTITY":
         _t0 = time.perf_counter()
         from app.synthesis.identity_handler import handle_identity_query
+        from app.stores.run_store import delete_run
+        delete_run(run_id)
         identity_res = await handle_identity_query(raw_msg)
         log_stage(
             "identity_handler",
@@ -539,16 +541,6 @@ async def handle_query(req: QueryRequest):
             run_id=run_id,
             session_id=session_id,
             llm_available=identity_res.llm_available,
-        )
-        run = get_run(run_id)
-        if run:
-            run.status = "DONE"
-            save_run(run)
-        record_audit(
-            "query_completed",
-            run_id=run_id,
-            session_id=session_id,
-            payload={"route": "IDENTITY", "llm_available": identity_res.llm_available},
         )
         # Advance turn count, but preserve last_asset_id and last_analysis_id
         _persist_session_turn(session_id, frame)

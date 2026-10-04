@@ -41,6 +41,15 @@ def get_run(run_id: str) -> Optional[RunState]:
         return RunState.model_validate_json(local_data)
     return None
 
+def delete_run(run_id: str) -> None:
+    key = _run_key(run_id)
+    _LOCAL_RUN_STORE.pop(key, None)
+    try:
+        r = get_redis_client()
+        r.delete(key)
+    except Exception:
+        pass
+
 def get_run_ttl(run_id: str) -> int:
     try:
         r = get_redis_client()
