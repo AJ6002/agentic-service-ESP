@@ -44,3 +44,4 @@ class ContextFrame(BaseModel):
     query_params: dict[str, Any] = Field(default_factory=dict)
     ui_context: dict[str, Any] = Field(default_factory=dict)
     page_route: str | None = None
+    selected_route: str | None = None

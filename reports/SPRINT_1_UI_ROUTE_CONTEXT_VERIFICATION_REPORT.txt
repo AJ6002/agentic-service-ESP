@@ -1,0 +1,124 @@
+================================================================================
+SPRINT 1 — UI ROUTE CONTEXT CONTRACT VERIFICATION REPORT
+================================================================================
+
+TASK 1.1 — VERIFY REQUEST MODEL ACCEPTS ui_context.selected_route
+Sending POST http://127.0.0.1:8091/query with ui_context.selected_route = '/working-status'
+HTTP Status: 200
+Frames count: 2
+Task 1.1 Result: PASS (HTTP 200, no 422)
+--------------------------------------------------------------------------------
+
+TASK 1.2 — VERIFY CONTEXT FRAME CARRIES selected_route
+ContextFrame.selected_route from dict: /working-status
+ContextFrame.ui_context['selected_route']: /working-status
+ContextFrame.selected_route from UIContext obj: /wells/FS-17
+Task 1.2 Result: PASS (Frame carries selected_route)
+--------------------------------------------------------------------------------
+
+TASK 1.3 — VERIFY QUERIES FLOW WITHOUT BREAKING ANYTHING
+
+--- Query t2: Identity with route context ('What are you?') ---
+BODY: {'session_id':'t2','message':'What are you?','ui_context':{'selected_route':'/working-status'}}
+HTTP Status: 200
+Frame types: ['text_delta', 'done']
+Answer snippet: I am the ESP APM Operations Copilot, an AI assistant specializing in Electric Submersible Pump (ESP) operations and diagnostics. My purpose is to assist petrole...
+Query t2 Result: PASS
+
+--- Query t3: KB lookup with route context ('What is gas lock?') ---
+BODY: {'session_id':'t3','message':'What is gas lock?','ui_context':{'selected_route':'/working-status'}}
+HTTP Status: 200
+Frame types: ['advisory', 'text_delta', 'done']
+Answer snippet: Knowledge lookup:
+
+Assessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reduci...
+Query t3 Result: PASS
+
+--- Query t4: WORKFLOW with route context ('Why did FS-17 trip?') ---
+BODY: {'session_id':'t4','message':'Why did FS-17 trip?','ui_context':{'selected_route':'/wells/FS-17'}}
+HTTP Status: 200
+Frame types: ['text_delta', 'done']
+Answer snippet: No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 ...
+Query t4 Result: PASS
+
+--- Query t5: WORKFLOW normal with route context ('Why did FS-16 trip?') ---
+BODY: {'session_id':'t5','message':'Why did FS-16 trip?','ui_context':{'selected_route':'/wells/FS-16'}}
+HTTP Status: 200
+Frame types: ['status', 'visual', 'text_delta', 'done']
+Visual cards (4): ['working_status_smart_fault_card', 'subsystem_equalizer', 'multi_tag_live_trends', 'advisor_panel_item']
+Query t5 Result: PASS
+--------------------------------------------------------------------------------
+
+UNIT TESTS & REGRESSION EXECUTION:
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- a:\TAS-AI\ESP\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: A:\TAS-AI\ESP\agent_service
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 45 items
+
+agent_service\tests\test_ui_route_context.py::test_uicontext_model_accepts_selected_route PASSED [  2%]
+agent_service\tests\test_ui_route_context.py::test_queryrequest_model_accepts_ui_context_selected_route PASSED [  4%]
+agent_service\tests\test_ui_route_context.py::test_resolve_context_carries_selected_route_from_dict PASSED [  6%]
+agent_service\tests\test_ui_route_context.py::test_resolve_context_carries_selected_route_from_uicontext_obj PASSED [  8%]
+agent_service\tests\test_ui_route_context.py::test_resolve_context_absent_ui_context PASSED [ 11%]
+agent_service\tests\test_ui_route_context.py::test_resolve_context_fallback_branch_carries_selected_route PASSED [ 13%]
+agent_service\tests\test_ui_route_context.py::test_api_endpoint_accepts_selected_route_200[asyncio] PASSED [ 15%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are you] PASSED [ 17%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are you?] PASSED [ 20%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are u ?] PASSED [ 22%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-who are you] PASSED [ 24%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-who are you?] PASSED [ 26%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can you do] PASSED [ 28%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can you do?] PASSED [ 31%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what do you do] PASSED [ 33%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can't you do] PASSED [ 35%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are your limits] PASSED [ 37%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are your capabilities] PASSED [ 40%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-tell me about yourself] PASSED [ 42%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-explain your role] PASSED [ 44%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-explain your architecture] PASSED [ 46%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is gas lock?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 48%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is PIP?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 51%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-Explain water cut.-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 53%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-Why did FS-17 trip?-WORKFLOW-OP03_FAULT_DIAGNOSIS] PASSED [ 55%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is the current status of FS-91?-WORKFLOW-OP01_CURRENT_STATUS] PASSED [ 57%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-How do I restart an ESP?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 60%]
+agent_service\tests\test_identity_route.py::test_identity_handler_returns_model_answer_when_live[asyncio] PASSED [ 62%]
+agent_service\tests\test_identity_route.py::test_identity_handler_offline_fallback[asyncio] PASSED [ 64%]
+agent_service\tests\test_identity_route.py::test_identity_route_never_touches_workflow_pipeline[asyncio] PASSED [ 66%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Explain what underload trip is and why it happens.] PASSED [ 68%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Explain what overload protection does.] PASSED [ 71%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What is gas lock in an ESP?] PASSED [ 73%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What does PIP stand for?] PASSED [ 75%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What's the difference between intake pressure and discharge pressure?] PASSED [ 77%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Define downhole vibration.] PASSED [ 80%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Describe how the H-Q curve works.] PASSED [ 82%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Tell me what an underload trip is.] PASSED [ 84%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What causes a high current overload trip?] PASSED [ 86%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What are the stages in a centrifugal pump?] PASSED [ 88%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_with_asset_routes_to_op03[Why did FS-17 trip?-FS-17] PASSED [ 91%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_with_asset_routes_to_op03[Why did FS-91 trip last night?-FS-91] PASSED [ 93%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_no_asset_triggers_clarify PASSED [ 95%]
+agent_service\tests\test_router_definitional_regression.py::test_llm_path_q02_routes_to_op07[asyncio] PASSED [ 97%]
+agent_service\tests\test_router_definitional_regression.py::test_llm_path_causal_asset_still_op03[asyncio] PASSED [100%]
+
+============================= 45 passed in 9.82s ==============================
+
+--------------------------------------------------------------------------------
+REDIS STORAGE CHECK:
+New esp:run:* keys created by identity query: []
+
+================================================================================
+SPRINT 1 EXIT CRITERIA EVALUATION
+================================================================================
+#   | Check                                          | Pass condition                   | Status
+-----------------------------------------------------------------------------------------------
+1   | Request model accepts ui_context.selected_route | HTTP 200, no 422                 | PASSED [OK]
+2   | Context frame carries selected_route           | Frame field populated            | PASSED [OK]
+3   | Three test queries return normally             | Identity + KB + WORKFLOW succeed | PASSED [OK]
+4   | No regression in existing routes               | Targeted test suites all green   | PASSED [OK]
+-----------------------------------------------------------------------------------------------
+
+OVERALL RESULT: SPRINT 1 SEALED — READY FOR SPRINT 2

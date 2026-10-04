@@ -464,6 +464,7 @@ def resolve_context(
                 active_anomaly=ui_context.get("active_anomaly"),
                 fleet_filter=ui_context.get("fleet_filter"),
                 station_id=ui_context.get("station_id"),
+                selected_route=ui_context.get("selected_route"),
             )
     elif isinstance(ui_context, UIContext):
         ui_ctx_obj = ui_context
@@ -516,6 +517,12 @@ def resolve_context(
     if _extracted_anom is not None:
         query_params["anomalous_only"] = _extracted_anom
 
+    selected_route = (
+        ui_ctx_obj.selected_route
+        if (ui_ctx_obj and ui_ctx_obj.selected_route)
+        else ui_ctx_dict.get("selected_route")
+    )
+
     return ContextFrame(
         session_id=session_id,
         query_params=query_params,
@@ -531,4 +538,5 @@ def resolve_context(
         session_snapshot=session,
         ui_context=ui_ctx_dict,
         page_route=page_route,
+        selected_route=selected_route,
     )

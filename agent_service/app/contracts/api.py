@@ -11,6 +11,7 @@ class UIContext(BaseModel, extra="allow"):
     active_anomaly: Optional[str] = None
     fleet_filter: Optional[str] = None
     station_id: Optional[str] = None
+    selected_route: Optional[str] = None
 
 class QueryRequest(BaseModel, extra="allow"):
     session_id: str
