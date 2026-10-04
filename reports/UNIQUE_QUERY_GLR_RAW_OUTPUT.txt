@@ -1,0 +1,31 @@
+================================================================================
+ESP APM AGENT SERVICE — UNIQUE QUERY EXECUTION AUDIT REPORT
+Timestamp: 2026-10-04 14:39:13 UTC
+LLM Gateway Target: http://192.168.1.188:8080/v1/models
+Agent Service Target: http://127.0.0.1:8091/query
+================================================================================
+
+QUERY: "Explain how gas-liquid ratio (GLR) impacts ESP pump head and motor load."
+LATENCY: 15009.96 ms
+STATUS: OK
+WORD COUNT: 123 words
+STEP CONTRACT CHECK: TB Steps=0, Verification Steps=0 (Expected [] for definitional query)
+CITED EVIDENCE IDS: ['EV-R-e48e7b60-0001']
+
+--------------------------------------------------------------------------------
+PARSED ADVISORY ASSESSMENT (4-PART TECHNICAL DEPTH):
+--------------------------------------------------------------------------------
+The gas-liquid ratio (GLR) significantly impacts the ESP pump head and motor load. GLR is the ratio of the volume of gas to the volume of liquid in the produced fluid. A higher GLR means a greater proportion of the fluid is gas, which reduces the effective density of the fluid. This results in a lower pump head, as the pump must generate more pressure to overcome the higher density of the gas-laden fluid. Additionally, the higher GLR increases the motor load, as the pump must work harder to push the heavier gas-laden fluid through the system. This can lead to increased wear and tear on the pump components and potentially cause underload trips if the motor current drops below the preset threshold.
+
+RECOMMENDATION: Monitor GLR and adjust pump settings accordingly to maintain optimal performance and prevent underload trips.
+
+--------------------------------------------------------------------------------
+RAW NDJSON STREAM FRAMES (AS RECEIVED BY FRONTEND / CALLER):
+--------------------------------------------------------------------------------
+[Frame 01] {"type":"advisory","run_id":"R-e48e7b60","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"The gas-liquid ratio (GLR) significantly impacts the ESP pump head and motor load. GLR is the ratio of the volume of gas to the volume of liquid in the produced fluid. A higher GLR means a greater proportion of the fluid is gas, which reduces the effective density of the fluid. This results in a lower pump head, as the pump must generate more pressure to overcome the higher density of the gas-laden fluid. Additionally, the higher GLR increases the motor load, as the pump must work harder to push the heavier gas-laden fluid through the system. This can lead to increased wear and tear on the pump components and potentially cause underload trips if the motor current drops below the preset threshold.","hypotheses":[],"recommendation":"Monitor GLR and adjust pump settings accordingly to maintain optimal performance and prevent underload trips.","verification_steps":[],"troubleshooting_steps":[],"confidence":0.95,"cited_evidence_ids":["EV-R-e48e7b60-0001"],"provenance_warnings":[],"degraded_sources":[],"recommended_cards":[]},"source_refs":["EV-R-e48e7b60-0001"]}
+[Frame 02] {"type":"text_delta","run_id":"R-e48e7b60","delta":"Knowledge lookup:\n\nAssessment: The gas-liquid ratio (GLR) significantly impacts the ESP pump head and motor load. GLR is the ratio of the volume of gas to the volume of liquid in the produced fluid. A higher GLR means a greater proportion of the fluid is gas, which reduces the effective density of the fluid. This results in a lower pump head, as the pump must generate more pressure to overcome the higher density of the gas-laden fluid. Additionally, the higher GLR increases the motor load, as the pump must work harder to push the heavier gas-laden fluid through the system. This can lead to increased wear and tear on the pump components and potentially cause underload trips if the motor current drops below the preset threshold.\n\nRecommendation: Monitor GLR and adjust pump settings accordingly to maintain optimal performance and prevent underload trips.\n\nCited Evidence: EV-R-e48e7b60-0001"}
+[Frame 03] {"type":"done","run_id":"R-e48e7b60","status":"OK"}
+
+================================================================================
+END OF REPORT
+================================================================================
