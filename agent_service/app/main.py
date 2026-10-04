@@ -527,6 +527,42 @@ async def handle_query(req: QueryRequest):
             _timed_stream(stream, run_id, "FOLLOW_UP"), media_type="application/x-ndjson"
         )
 
+    # If route is IDENTITY
+    if decision.route == "IDENTITY":
+        _t0 = time.perf_counter()
+        from app.synthesis.identity_handler import handle_identity_query
+        identity_res = await handle_identity_query(raw_msg)
+        log_stage(
+            "identity_handler",
+            (time.perf_counter() - _t0) * 1000,
+            "OK",
+            run_id=run_id,
+            session_id=session_id,
+            llm_available=identity_res.llm_available,
+        )
+        run = get_run(run_id)
+        if run:
+            run.status = "DONE"
+            save_run(run)
+        record_audit(
+            "query_completed",
+            run_id=run_id,
+            session_id=session_id,
+            payload={"route": "IDENTITY", "llm_available": identity_res.llm_available},
+        )
+        # Advance turn count, but preserve last_asset_id and last_analysis_id
+        _persist_session_turn(session_id, frame)
+
+        stream = ResponseAssembler.assemble_stream(
+            run_id=run_id,
+            route="IDENTITY",
+            text=identity_res.text,
+            llm_available=route_result.llm_available and identity_res.llm_available,
+        )
+        return StreamingResponse(
+            _timed_stream(stream, run_id, "IDENTITY"), media_type="application/x-ndjson"
+        )
+
     # If route is SIMPLE
     if decision.route == "SIMPLE":
         if decision.objective_id in ("OP06", "OP06_KNOWLEDGE_LOOKUP"):

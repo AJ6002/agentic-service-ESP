@@ -135,6 +135,26 @@ async def direct_answer(query: str) -> str:
     )
 
 
+async def identity_answer(query: str, static_self_model: str, live_capabilities: str) -> str:
+    """
+    LLM call for IDENTITY route self-knowledge synthesis.
+    Combines static self-model and live capabilities into the user content.
+    """
+    system_prompt = load_prompt("narrator_identity_v1.txt")
+    user_content = (
+        f"<StaticSelfModel>\n{static_self_model}\n</StaticSelfModel>\n\n"
+        f"<LiveCapabilities>\n{live_capabilities}\n</LiveCapabilities>\n\n"
+        f"User Query: {query}"
+    )
+    return await call_llm_chat(
+        system_prompt=system_prompt,
+        user_content=user_content,
+        temperature=0.1,
+        caller="identity_handler",
+    )
+
+
+
 class AdvisoryOutputInvalid(Exception):
     """
     LLM responded (no outage), but its output never became valid JSON

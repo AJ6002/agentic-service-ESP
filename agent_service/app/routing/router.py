@@ -40,6 +40,17 @@ GREETING_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+IDENTITY_PATTERNS = re.compile(
+    r"\b(who\s+(are\s+you|are\s+u)|what\s+(are\s+you|are\s+u)|what\s+(do\s+you|do\s+u)\s+do|"
+    r"what\s+(can\s+you|can\s+u)\s+do|what\s+(can\'t\s+you|cannot\s+you|can\s+you\s+not)\s+do|"
+    r"what\s+are\s+your\s+(limits|limitations|capabilities|features|functions)|"
+    r"what\s+(features|capabilities)\s+do\s+you\s+have|"
+    r"about\s+(yourself|this\s+assistant|this\s+system|this\s+copilot)|"
+    r"explain\s+your\s+(role|architecture|purpose|capabilities))\b",
+    re.IGNORECASE,
+)
+
+
 
 @dataclass
 class RouteResult:
@@ -71,6 +82,19 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             deferred_intents=deferred,
             clarification_needed=False,
         )
+
+    # Identity / self-knowledge guard: questions about the agent itself -> IDENTITY
+    if IDENTITY_PATTERNS.search(router_input.raw_message):
+        return RouteDecision(
+            route="IDENTITY",
+            intent="self_knowledge",
+            objective_id=None,
+            args={},
+            confidence=1.0,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
+
 
     # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective
     if any(w in raw_lower for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
@@ -305,6 +329,23 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
             llm_available=True,
             fallback_used=False,
         )
+
+    # 0.1 Deterministic identity guard: self-knowledge questions -> IDENTITY
+    if IDENTITY_PATTERNS.search(router_input.raw_message):
+        return RouteResult(
+            decision=RouteDecision(
+                route="IDENTITY",
+                intent="self_knowledge",
+                objective_id=None,
+                args={},
+                confidence=1.0,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
 
     # 1. Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
     if FOLLOWUP_PATTERNS.search(router_input.raw_message):

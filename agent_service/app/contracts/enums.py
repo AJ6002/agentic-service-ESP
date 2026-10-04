@@ -1,6 +1,6 @@
 from typing import Literal
 
-Route = Literal["SIMPLE", "WORKFLOW", "FOLLOW_UP"]
+Route = Literal["SIMPLE", "WORKFLOW", "FOLLOW_UP", "IDENTITY"]
 AssetSource = Literal["EXPLICIT", "RESOLVED", "SESSION", "UI", "UNRESOLVED"]
 TimeSource = Literal["EXPLICIT", "UI", "SESSION", "DEFAULT"]
 TimeRangeLabel = Literal["last_1h", "last_6h", "last_24h", "last_7d", "last_30d"]
