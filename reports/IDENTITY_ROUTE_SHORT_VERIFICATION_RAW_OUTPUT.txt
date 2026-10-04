@@ -1,0 +1,121 @@
+================================================================================
+IDENTITY ROUTE INDEPENDENT VERIFICATION — FULL RAW OUTPUT
+================================================================================
+
+================================================================================
+STEP 1: THREE QUERIES AGAINST http://127.0.0.1:8091/query (RAW NDJSON STREAMS)
+================================================================================
+
+--- Query 1 (Identity) ---
+REQUEST: POST http://127.0.0.1:8091/query
+BODY: {"session_id": "v1", "message": "What are you?"}
+RESPONSE (raw NDJSON lines):
+{"type":"text_delta","run_id":"R-37ab5d55","delta":"I am the ESP APM Operations Copilot, an AI assistant specializing in Electric Submersible Pump (ESP) operations and diagnostics. My purpose is to assist petroleum and production engineers by monitoring live SCADA telemetry, diagnosing electrical and hydraulic fault trips, evaluating equipment health indices, detecting early warning drift, analyzing production decline, retrieving API/ISO standards, and explaining standard operating procedures. I am strictly an advisory-only copilot and diagnostic assistant, adhering to the safety and read-only mandate."}
+{"type":"done","run_id":"R-37ab5d55","status":"OK"}
+
+--- Query 2 (Disambiguation / KB) ---
+REQUEST: POST http://127.0.0.1:8091/query
+BODY: {"session_id": "v2", "message": "What is gas lock?"}
+RESPONSE (raw NDJSON lines):
+{"type":"advisory","run_id":"R-1065f346","advisory":{"objective_id":"OP06_KNOWLEDGE_LOOKUP","assessment":"Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock is a critical issue in ESP operations, as it can lead to underload trips, motor overload, and potential mechanical failure if not properly managed. To prevent gas lock, it is recommended to install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids. The Advanced Gas Handling system, for example, conditions gas so it can be produced by the pump, thereby avoiding gas locking.","hypotheses":[],"recommendation":"Install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids.","verification_steps":[],"troubleshooting_steps":[],"confidence":0.9,"cited_evidence_ids":["EV-R-1065f346-0057"],"provenance_warnings":[],"degraded_sources":[],"recommended_cards":[]},"source_refs":["EV-R-1065f346-0057"]}
+{"type":"text_delta","run_id":"R-1065f346","delta":"Knowledge lookup:\n\nAssessment: Gas lock is a condition where free gas accumulates at the suction or impeller eye of a centrifugal pump stage, drastically reducing fluid density and pump head, causing severe loss of liquid production and leading to an underload trip. This condition is distinct from gas interference, which is intermittent slugging without complete head collapse. Gas lock is a critical issue in ESP operations, as it can lead to underload trips, motor overload, and potential mechanical failure if not properly managed. To prevent gas lock, it is recommended to install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids. The Advanced Gas Handling system, for example, conditions gas so it can be produced by the pump, thereby avoiding gas locking.\n\nRecommendation: Install a gas separator to manage free gas and ensure the pump is capable of handling gas-laden fluids.\n\nCited Evidence: EV-R-1065f346-0057"}
+{"type":"done","run_id":"R-1065f346","status":"OK"}
+
+--- Query 3 (Regression / Workflow) ---
+REQUEST: POST http://127.0.0.1:8091/query
+BODY: {"session_id": "v3", "message": "Why did FS-17 trip?"}
+RESPONSE (raw NDJSON lines):
+{"type":"visual","run_id":"R-12ed8c57","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"visualization":{"widget_id":"cards","card_ids":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"],"evidence_ids":["EV-R-12ed8c57-0060"],"data":{"cards":["working_status_smart_fault_card","subsystem_equalizer","multi_tag_live_trends","advisor_panel_item"]}}}
+{"type":"text_delta","run_id":"R-12ed8c57","delta":"No trip or fault events recorded for FS-17 in the requested time window. I cannot diagnose a trip that has not been recorded. Try a status check ('How is FS-17 running?') or health assessment ('How healthy is FS-17?') instead."}
+{"type":"done","run_id":"R-12ed8c57","status":"OK"}
+
+================================================================================
+STEP 2: PYTEST agent_service/tests/test_identity_route.py -v (RAW OUTPUT)
+================================================================================
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- a:\TAS-AI\ESP\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: A:\TAS-AI\ESP\agent_service
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 23 items
+
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are you] PASSED [  4%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are you?] PASSED [  8%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are u ?] PASSED [ 13%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-who are you] PASSED [ 17%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-who are you?] PASSED [ 21%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can you do] PASSED [ 26%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can you do?] PASSED [ 30%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what do you do] PASSED [ 34%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what can't you do] PASSED [ 39%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are your limits] PASSED [ 43%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-what are your capabilities] PASSED [ 47%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-tell me about yourself] PASSED [ 52%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-explain your role] PASSED [ 56%]
+agent_service\tests\test_identity_route.py::test_router_identifies_self_knowledge_queries[asyncio-explain your architecture] PASSED [ 60%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is gas lock?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 65%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is PIP?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 69%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-Explain water cut.-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 73%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-Why did FS-17 trip?-WORKFLOW-OP03_FAULT_DIAGNOSIS] PASSED [ 78%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-What is the current status of FS-91?-WORKFLOW-OP01_CURRENT_STATUS] PASSED [ 82%]
+agent_service\tests\test_identity_route.py::test_router_negative_preserves_other_routes[asyncio-How do I restart an ESP?-SIMPLE-OP06_KNOWLEDGE_LOOKUP] PASSED [ 86%]
+agent_service\tests\test_identity_route.py::test_identity_handler_returns_model_answer_when_live[asyncio] PASSED [ 91%]
+agent_service\tests\test_identity_route.py::test_identity_handler_offline_fallback[asyncio] PASSED [ 95%]
+agent_service\tests\test_identity_route.py::test_identity_route_never_touches_workflow_pipeline[asyncio] PASSED [100%]
+
+============================= 23 passed in 7.02s ==============================
+
+
+================================================================================
+STEP 3: PYTEST agent_service/tests/test_router_definitional_regression.py -v (RAW OUTPUT)
+================================================================================
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- a:\TAS-AI\ESP\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: A:\TAS-AI\ESP\agent_service
+configfile: pytest.ini
+plugins: anyio-4.15.1
+collecting ... collected 15 items
+
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Explain what underload trip is and why it happens.] PASSED [  6%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Explain what overload protection does.] PASSED [ 13%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What is gas lock in an ESP?] PASSED [ 20%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What does PIP stand for?] PASSED [ 26%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What's the difference between intake pressure and discharge pressure?] PASSED [ 33%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Define downhole vibration.] PASSED [ 40%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Describe how the H-Q curve works.] PASSED [ 46%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[Tell me what an underload trip is.] PASSED [ 53%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What causes a high current overload trip?] PASSED [ 60%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_definitional_routes_to_op07[What are the stages in a centrifugal pump?] PASSED [ 66%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_with_asset_routes_to_op03[Why did FS-17 trip?-FS-17] PASSED [ 73%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_with_asset_routes_to_op03[Why did FS-91 trip last night?-FS-91] PASSED [ 80%]
+agent_service\tests\test_router_definitional_regression.py::test_fallback_causal_no_asset_triggers_clarify PASSED [ 86%]
+agent_service\tests\test_router_definitional_regression.py::test_llm_path_q02_routes_to_op07[asyncio] PASSED [ 93%]
+agent_service\tests\test_router_definitional_regression.py::test_llm_path_causal_asset_still_op03[asyncio] PASSED [100%]
+
+============================= 15 passed in 0.40s ==============================
+
+
+================================================================================
+STEP 4: REDIS STORAGE KEYS BEFORE & AFTER IDENTITY QUERY
+================================================================================
+KEYS esp:run:* BEFORE identity query (count=493):
+  esp:run:run-prev-6:pack:v1
+  esp:run:run-s1:artifacts
+  esp:run:run-s1:pack:latest_version
+  esp:run:run-s1:pack:v1
+  esp:run:run-s3:artifacts
+  esp:run:run-s3:pack:latest_version
+  esp:run:run-s3:pack:v1
+  esp:run:run-target-99:artifacts
+  esp:run:run-target-99:pack:latest_version
+  esp:run:run-target-99:pack:v1
+  ... and 483 older runs
+
+FIRING IDENTITY QUERY: POST /query {"session_id": "redis-raw-check", "message": "What are you?"}
+
+KEYS esp:run:* AFTER identity query (count=493):
+NEW esp:run:* KEYS CREATED: []
+SESSION KEYS FOR redis-raw-check: ['esp:session:redis-raw-check']
+ZERO PIPELINE LEAKAGE CONFIRMED: True
