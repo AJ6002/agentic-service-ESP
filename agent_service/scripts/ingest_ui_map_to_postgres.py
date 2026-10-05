@@ -91,9 +91,12 @@ def ingest_ui_map(yaml_path: str = None) -> int:
             content = entry.description
             token_count = len(entry.description.split())
             source_domain = "ui_map"
+            tier = entry.id.split(".")[0]
             meta_json = json.dumps({
                 "id": entry.id,
-                "type": entry.type,
+                "type": tier,
+                "contract_type": entry.type,
+                "tier": tier,
                 "workspace": entry.workspace,
                 "path": entry.path,
                 "summary": entry.summary,

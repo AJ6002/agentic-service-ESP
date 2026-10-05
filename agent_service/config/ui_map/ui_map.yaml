@@ -1,45 +1,2451 @@
-- id: "route.working-status"
-  type: "route"
-  title: "Well Working Status & Model Fault Spectrum"
-  path: "/working-status"
-  workspace: "operations"
-  summary: "Comprehensive multi-signal diagnostic dashboard and fault visualization matrix for ESP-lifted wells in the Farha South field."
-  description: "The Well Working Status dashboard serves as the primary real-time operational interface for production engineers monitoring Electric Submersible Pump (ESP) assets across the field. It aggregates downhole sensor telemetry, high-frequency surface electrical signals from the Variable Speed Drive (VSD), and production metrics to provide immediate operational status classification (Running, Degraded, Critical, or Tripped). The view features interactive diagnostic cards including the Smart Fault Card, Subsystem Equalizer, and Multi-Tag Live Trends, allowing operators to diagnose electrical anomalies, gas locking, pump underload, or motor overheating. Users can navigate across multiple timeframes (1h to 30d) to correlate hydraulic and electrical dynamics with field events and operational alerts seamlessly."
-  related:
-    - "component.subsystem-equalizer"
-    - "concept.tdh"
-  aliases:
-    - "working status"
-    - "status page"
-    - "fault spectrum"
-    - "overview dashboard"
+# ==============================================================================
+# UI Map — Platform Self-Description & Static Grounding Source of Truth (V1)
+# ==============================================================================
+# Each entry defines a grounded element of the platform interface (routes,
+# components, concepts, navigation flows, and glossary items).
+#
+# Field Definitions:
+#   id:          Stable dot-namespaced identifier (e.g. route.<name>, component.<name>, concept.<name>)
+#   type:        Entry classification enum: route | component | concept | navigation | glossary
+#   title:       Human-readable display name
+#   path:        URL path (required for type: route; omitted or null for others)
+#   workspace:   Platform workspace enum: operations | engineering | single-well | platform
+#   summary:     One-sentence concise summary
+#   description: Full grounded explanation (100–300 words)
+#   related:     List of stable entry IDs cross-referenced by this item
+#   aliases:     List of synonyms or user phrasing variations
+# ==============================================================================
 
-- id: "component.subsystem-equalizer"
-  type: "component"
-  title: "Subsystem Equalizer"
-  workspace: "operations"
-  summary: "Visual health index equalizer displaying real-time composite stress and degradation across electrical, hydraulic, mechanical, and thermal subsystems."
-  description: "The Subsystem Equalizer is an interactive diagnostic visualization widget embedded directly within the primary working status dashboard interface. It breaks down overall ESP equipment health into four vital subsystem dimensions: Electrical (voltage balance, current THD, motor insulation), Hydraulic (intake pressure, discharge head, pump efficiency), Mechanical (vibration amplitude, shaft alignment, thrust bearing wear), and Thermal (motor internal winding temperature, pump discharge temperature). Each dimension displays normalized health scores between 0% and 100%, with dynamic threshold coloring (nominal green, warning amber, critical red) enabling immediate root-cause localization when a well is operating in a degraded regime, experiencing severe load fluctuation, or approaching trip conditions."
+- id: route.working-status
+  type: route
+  title: Well Working Status & Model Fault Spectrum
+  path: /working-status
+  workspace: operations
+  summary: Fleet-wide operations queue prioritizing ESP wells by anomaly severity, ML fault classifications, sensor telemetry,
+    and dispatch workflows.
+  description: 'The Well Working Status page serves as the operational nerve center for fleet-wide ESP surveillance and triage.
+    It displays real-time well operational status categorized across five distinct severity tiers: Critical, Warning, Watch,
+    Normal, and Opportunity, ranked in descending order of operational urgency. Each row visualizes live sensor telemetry,
+    pump intake pressure drawdown, motor temperature, vibration amplitude, and fluid rate reconciliation alongside canonical
+    ML fault classifications such as Gas Interference, Broken Shaft, Intake Drawdown, Sand Ingestion, and Thermal Overload.
+    Surveillance engineers and production operators utilize this page to triage anomalies, acknowledge operational alarms,
+    assign mitigation tickets, and track well stabilization workflows across the fleet. Selecting any well navigates directly
+    into the Single-Well diagnostic workspace for detailed physics and telemetry inspection.'
   related:
-    - "route.working-status"
-    - "concept.tdh"
+  - component.subsystem-equalizer
+  - concept.tdh
   aliases:
-    - "equalizer"
-    - "subsystem health"
-    - "health equalizer"
-    - "subsystem matrix"
-
-- id: "concept.tdh"
-  type: "concept"
-  title: "Total Dynamic Head (TDH)"
-  workspace: "platform"
-  summary: "The total equivalent height of fluid column that an ESP pump stage assembly must lift, accounting for elevation differential, friction losses, and surface pressure."
-  description: "Total Dynamic Head (TDH) represents the net work required per pound of fluid imparted by the centrifugal pump stages in an Electric Submersible Pump installation. TDH is calculated by summing the net vertical lift from dynamic downhole fluid level to the surface wellhead, the friction head losses incurred across tubing and surface flowlines at operating flow rate, and the head equivalent of wellhead backpressure (WHP). In the ESP APM platform, calculated real-time TDH is continuously compared against pump catalogue H-Q performance curves to detect gas interference, stage wear, fluid viscosity shifts, or severe downhole flow restrictions before irreversible mechanical pump damage occurs."
+  - working status
+  - well queue
+  - fleet status
+  - operations queue
+  - fault spectrum
+- id: component.subsystem-equalizer
+  type: component
+  title: Subsystem Equalizer
+  workspace: operations
+  summary: Real-time 4-channel divergent stereo meter displaying operational percentage deviations across Hydraulics, Electrical,
+    Thermal, and Mechanical ESP subsystems.
+  description: 'The Subsystem Equalizer is a real-time diagnostic widget that isolates ESP equipment health into four distinct
+    physical domains: Hydraulics (intake, discharge, and wellhead pressures), Electrical (current load, phase balance, voltage,
+    and VFD frequency), Thermal (internal motor temperature and cooling flow adequacy), and Mechanical (radial vibration,
+    axial vibration, and shaft torque). Each domain renders a divergent meter bar centered on zero baseline equilibrium. Deviations
+    within the ±15% dashed corridor reflect nominal baseline operating conditions. The divergent bars turn amber during elevated
+    warning deviations (+15% to +35%) and shift to crimson at critical hazard thresholds, such as deviations exceeding ±35%,
+    motor thermal runaway beyond 135°C, or mechanical vibration surpassing 0.35 G. Hovering over any subsystem reveals underlying
+    SCADA telemetry channels, baseline setpoints, and physics diagnostic tags.'
   related:
-    - "route.working-status"
-    - "component.subsystem-equalizer"
+  - route.working-status
+  - concept.tdh
   aliases:
-    - "TDH"
-    - "dynamic head"
-    - "pump head"
-    - "head calculation"
+  - equalizer
+  - subsystem bars
+  - subsystem meter
+  - 4 bar chart
+  - four bar meter
+  - subsystem deviation
+- id: concept.tdh
+  type: concept
+  title: Total Dynamic Head (TDH)
+  workspace: platform
+  summary: Total equivalent vertical head in feet that the ESP must generate to lift reservoir fluids to the surface against
+    friction and wellhead backpressure.
+  description: 'Total Dynamic Head (TDH) measures the total effective work in equivalent liquid feet that an electric submersible
+    pump must generate to lift reservoir fluids to the surface separator at a given production rate. TDH comprises three primary
+    hydraulic components: dynamic vertical lift from the producing fluid level to the surface wellhead, frictional piping
+    losses calculated via Hazen-Williams or Darcy-Weisbach flow regimes through production tubing, and surface wellhead backpressure
+    converted from PSI into equivalent liquid feet using fluid specific gravity (at 0.433 psi/ft multiplied by SG). Within
+    the platform, TDH is computed dynamically from real-time SCADA telemetry, reconciled against pump catalog performance
+    curves to locate Best Efficiency Point (BEP) head, visualized within the Engineering Workbench TDH Waterfall, and utilized
+    to calculate hydraulic power and brake horsepower.'
+  related:
+  - component.subsystem-equalizer
+  - route.working-status
+  aliases:
+  - TDH
+  - total dynamic head
+  - dynamic head
+  - pump head
+  - total head
+  - head feet
+- id: route.cockpit
+  type: route
+  title: ESP Fleet Cockpit
+  path: /
+  workspace: operations
+  summary: Centralized ESP fleet surveillance console displaying aggregate health indices, production rates, deferment, and
+    ranked exception queues.
+  description: The ESP Fleet Cockpit serves as the primary executive and operational command dashboard for surveillance across
+    all artificial lift wells in the asset portfolio. It presents a comprehensive, high-level synthesis of total fleet performance,
+    active operating well count, aggregate gross liquid production in barrels per day, total electrical power demand in kilowatts,
+    and estimated net production deferment resulting from trips or degraded pump efficiency. At the top of the interface,
+    the Fleet KPI Strip provides immediate visibility into top-level asset availability, mean time between failures (MTBF),
+    and fleet-wide run-life statistics. Directly beneath the KPIs, the Attention Queue ranks active wells by operational exception
+    severity, highlighting units operating outside their recommended operating range, experiencing motor thermal overload,
+    or exhibiting severe electrical phase imbalance. Production engineers utilize the integrated Category Breakdown panel
+    to evaluate root-cause distributions across electrical, mechanical, and reservoir domains, while the Fleet Asset Table
+    provides interactive sorting, multi-attribute filtering by field or gathering center, and direct drill-down links into
+    individual well monitors. The Cockpit operates in both live streaming mode, connected to the local MQTT broker and PostgreSQL
+    telemetry historian, and fail-safe offline baseline mode when SCADA field telemetry is interrupted.
+  related:
+  - route.working-status
+  - component.subsystem-equalizer
+  - concept.tdh
+  aliases:
+  - fleet cockpit
+  - home
+  - cockpit
+  - overview
+  - dashboard
+  - fleet summary
+- id: route.live-calculations
+  type: route
+  title: Live Real-Time Telemetry & Derived Physics Calculations
+  path: /live-calculations
+  workspace: operations
+  summary: Sub-second telemetry processing hub computing Virtual Flow Metering (VFM), dynamic head, and stage-by-stage hydraulic
+    diagnostics.
+  description: The Live Real-Time Telemetry & Derived Physics Calculations workspace provides an intensive, high-frequency
+    analytical view of electrical submersible pump operational dynamics across all active field assets. Streaming real-time
+    SCADA telemetry packets every second over WebSocket connections, the engine ingests raw sensor inputs including variable
+    speed drive frequency in Hertz, motor current draw in amperes, bus supply voltage, pump intake pressure (PIP), pump discharge
+    pressure (PDP), wellhead flowing pressure (WHP), downhole vibration amplitude, and motor winding temperature. Downstream
+    physics algorithms continuously execute multiphase Virtual Flow Metering (VFM) models, reconciling gross liquid rates
+    against surface test records and computing key performance indicators such as total dynamic head (TDH), differential pressure
+    across pump stages, head degradation percentage relative to catalog curves, and hydraulic power delivery. Operating engineers
+    utilize this view to audit formula coefficients, inspect live sensor quality flags, analyze higher-order thermodynamic
+    parameters including gas volume fraction (GVF) and fluid specific gravity corrections, and adjust baseline operating thresholds
+    in real time. The page also features a dedicated Master Formulae and KPI thresholds configuration drawer, enabling authorized
+    users to fine-tune production allocation models and alert boundaries without interrupting background data ingestion.
+  related:
+  - route.working-status
+  - concept.tdh
+  - component.subsystem-equalizer
+  aliases:
+  - live calculations
+  - derived physics
+  - vfm calculations
+  - real-time telemetry
+  - telemetry stream
+- id: route.events
+  type: route
+  title: Event & Incident Intelligence
+  path: /events
+  workspace: operations
+  summary: Comprehensive event logging and lifecycle surveillance engine tracking alarms, operational trips, and standard
+    operating procedures.
+  description: The Event and Incident Intelligence workspace functions as the central audit log and real-time operational
+    alarm console for the entire ESP fleet. The interface aggregates discrete operational incidents, variable speed drive
+    electrical trip codes, downhole sensor limit excursions, and automated machine learning anomaly detections into a single
+    prioritized surveillance ledger. Each event entry captures precise microsecond timestamps, affected well identification,
+    severity tier (Critical, Warning, or Watch), triggered alarm classification, root-cause categorization, and active incident
+    duration counters. Surveillance teams rely on the integrated Event Detail Drawer to inspect historical sensor trends leading
+    up to a trip, review pre-trip operating parameters, analyze post-trip system response, and execute structured standard
+    operating procedures (SOPs) for well restart and stabilization. The workspace provides filtering by event category—including
+    electrical faults, gas interference, underload pump-off, and mechanical vibration spikes—alongside dedicated workflows
+    for operational acknowledgement, engineering ticket assignment, and root cause analysis sign-off. By centralizing alarm
+    governance, this page prevents alarm fatigue, ensures regulatory compliance, and accelerates mean time to recovery (MTTR)
+    during unscheduled well downtime.
+  related:
+  - route.working-status
+  - component.subsystem-equalizer
+  aliases:
+  - events
+  - incident intelligence
+  - alarm log
+  - trips
+  - incident tracker
+  - alarms
+- id: route.reports
+  type: route
+  title: Operational Reports & Governance Hub
+  path: /reports
+  workspace: operations
+  summary: Audited operational reporting suite generating zero-fabrication engineering logs, well performance sheets, and
+    exportable datasets.
+  description: The Operational Reports & Governance Hub provides production technologists, asset managers, and reservoir engineers
+    with automated, auditable operational reporting derived directly from the PostgreSQL historian and digital twin time-series
+    archives. Adhering strictly to zero-fabrication reporting principles, the engine constructs formal engineering summaries,
+    operational run logs, downtime pareto reports, and well performance deep-dives without synthetic interpolation or unverified
+    data substitution. Users can define custom temporal reporting windows ranging from the last hour up to monthly and annual
+    audit cycles, specify data aggregation cadences, select individual assets or entire gathering center clusters, and preview
+    publication-ready documents before generation. The interface integrates the Advait Excel Export Service for multi-tab
+    operational workbooks containing raw sensor logs, formula parameters, and data quality flags, alongside a high-fidelity
+    PDF report previewer complete with embedded pump performance H-Q curves, operating point snapshots, and wellbore mechanical
+    schematics. An immutable Report Archive maintains a versioned ledger of previously generated compliance documents, providing
+    instant retrieval, SHA-256 integrity checksums, and streamlined audit tracking for asset governance.
+  related:
+  - route.working-status
+  - route.cockpit
+  aliases:
+  - reports
+  - reporting hub
+  - governance reports
+  - pdf export
+  - excel export
+  - log reports
+- id: route.custom-testing
+  type: route
+  title: Interactive What-If Simulation Studio
+  path: /custom-testing
+  workspace: operations
+  summary: Deterministic What-If simulator modeling dynamic ESP hydraulic, electrical, and thermal responses across operational
+    presets and parameter sweeps.
+  description: The Interactive What-If Simulation Studio empowers petroleum engineers and field operators to safely model
+    complex ESP operating scenarios, evaluate frequency adjustments, and diagnose hypothetical failure states in a sandboxed
+    digital twin environment. By decoupling the simulator from live wellhead control, users can manipulate key operational
+    parameters—such as drive frequency in Hertz, surface choke opening percentage, reservoir productivity index, water cut,
+    gas-oil ratio, and intake pressure—and instantly observe deterministic changes in pump head, flow rate, motor current,
+    power factor, and downhole winding temperature. The studio provides one-click scenario presets representing classic oilfield
+    operational challenges, including Normal Operating Baseline, Gas Interference and Gas Locking, Dry Well Pump-Off Underload,
+    Sand Ingestion with Particulate Friction, Bearing Degradation, and Surface Electrical Phase Imbalance. Comparative chart
+    overlays plot the baseline operating envelope against the simulated operating point on catalog H-Q curves, calculating
+    head degradation margins, risk corridors, and electrical power differentials. Production engineers utilize this facility
+    to de-risk VFD speed changes, optimize artificial lift setpoints, and forecast pump run-life impacts before issuing surface
+    dispatch commands.
+  related:
+  - route.working-status
+  - concept.tdh
+  - component.subsystem-equalizer
+  aliases:
+  - what-if simulator
+  - custom testing
+  - scenario simulator
+  - digital twin simulator
+  - simulation studio
+- id: route.ml-studio
+  type: route
+  title: EDA & Physics Dynamics — ML Studio
+  path: /ml-studio
+  workspace: platform
+  summary: Advanced machine learning and exploratory data analysis studio providing Pearson correlations, OLS regressions,
+    and distribution density curves.
+  description: 'The ML Studio and Exploratory Data Analysis workspace bridges empirical time-series data science with physics-based
+    artificial lift engineering. Designed for asset data scientists and senior surveillance specialists, the studio facilitates
+    deep investigation into multivariate sensor relationships, feature drift, and diagnostic classification accuracy across
+    historical field datasets. The application organizes analytical tools into five specialized investigation modules: the
+    Correlation Matrix tab displays interactive Pearson correlation heatmaps between electrical, mechanical, and hydraulic
+    telemetry channels; the Cross-Plot Studio performs ordinary least squares (OLS) regressions with customizable confidence
+    intervals and scatter point outlier detection; the Distribution Density viewer models Gaussian Kernel Density Estimations
+    (KDE) to uncover multi-modal operational distributions; the Subsystems tab evaluates cross-subsystem energy transfer and
+    coupling; and the Pipeline Inspector visualizes feature engineering pipelines, normalization bounds, and model training
+    metrics. By uncovering latent correlations between subtle electrical current harmonics, downhole pressure drawdown, and
+    mechanical vibration signatures, the studio enables continuous refinement of automated anomaly detection models and enhances
+    predictive maintenance forecasting.'
+  related:
+  - route.working-status
+  - component.subsystem-equalizer
+  aliases:
+  - ml studio
+  - eda
+  - data science studio
+  - correlation matrix
+  - machine learning studio
+  - cross plots
+- id: route.engineering-overview
+  type: route
+  title: Engineering Asset Definitions & Hierarchy
+  path: /engineering
+  workspace: engineering
+  summary: Authoritative engineering master data hierarchy mapping gathering center stations, wellbore mechanical configurations,
+    and OEM pump catalogs.
+  description: The Engineering Asset Definitions and Hierarchy overview provides the authoritative structural foundation for
+    all artificial lift surveillance within the platform. It establishes the physical relationship model linking surface gathering
+    stations (GCS 03 and GCS 04), field header manifolds, wellbore completions, downhole electric submersible pump assemblies,
+    and surface variable speed drive motor control centers. Users can inspect comprehensive engineering nameplate metadata
+    for each active well, including manufacturer pump model, number of centrifugal stages, motor horsepower rating, rated
+    voltage and full-load amperage, cable length and gauge, operating depth, perforation intervals, and reservoir productivity
+    index. The page provides immediate visibility into cluster-level operational metrics, displaying aggregate fluid throughput
+    and power consumption partitioned by field sector. Integrated summary cards detail OEM equipment catalog distributions,
+    highlighting operational pump families such as Baker Hughes, Schlumberger REDA, and Novomet models currently deployed
+    in the field. Technical teams use this overview to verify asset registry integrity, ensure synchronized engineering parameters
+    across database tables, and initiate new well onboarding or workover updates.
+  related:
+  - route.cockpit
+  - route.working-status
+  aliases:
+  - engineering
+  - engineering overview
+  - asset definitions
+  - well hierarchy
+  - master data
+- id: route.engineering-workbench
+  type: route
+  title: Engineering Workbench — Pump Design & Curves
+  path: /engineering/workbench
+  workspace: engineering
+  summary: Comprehensive deterministic pump design workbench featuring catalog H-Q curves, BEP operating range bands, TDH
+    waterfalls, and depth profiles.
+  description: 'The Engineering Workbench is the central design and diagnostics suite for deep deterministic artificial lift
+    analysis. Centered on rigorous petroleum engineering fundamentals, the workbench visualizes the active well''s pump performance
+    curve (head vs flow rate, brake horsepower, and hydraulic efficiency) overlaid with the current real-time operating point.
+    The chart renders clear operational boundaries, including the manufacturer''s Recommended Operating Range (ROR) and Best
+    Efficiency Point (BEP), automatically scaled across variable speed drive frequencies using the classical centrifugal pump
+    Affinity Laws. Adjacent to the performance curve, the Total Dynamic Head (TDH) Waterfall Chart decomposes total lifting
+    energy into its governing physical components: dynamic vertical elevation lift from producing fluid level, tubing friction
+    head loss computed via Hazen-Williams equations, and wellhead surface backpressure. Furthermore, an interactive Wellbore
+    Pressure Gradient profile displays fluid pressure evolution from reservoir datum to wellhead tree, while a synchronized
+    mechanical completion visual shows casing, tubing, pump intake, seal section, and downhole sensor depths. Surveillance
+    engineers leverage this workbench to evaluate sizing accuracy, identify throttling inefficiencies, and verify that operating
+    conditions remain within safe hydrodynamic limits.'
+  related:
+  - concept.tdh
+  - component.subsystem-equalizer
+  - route.working-status
+  aliases:
+  - engineering workbench
+  - workbench
+  - pump curves
+  - tdh waterfall
+  - pump design
+  - bep analysis
+- id: route.engineering-catalog
+  type: route
+  title: Equipment Catalog & Governed Formulae
+  path: /engineering/catalog
+  workspace: engineering
+  summary: Central equipment repository containing OEM pump curve polynomial coefficients, gathering center definitions, and
+    editable calculation formulae.
+  description: The Equipment Catalog & Governed Formulae workspace manages the underlying technical specifications, mathematical
+    coefficients, and physical formulas that drive platform calculations. The catalog maintains an extensive library of OEM
+    multistage centrifugal pump models from leading manufacturers, recording nominal flow ranges, Best Efficiency Point (BEP)
+    coordinates, stage head curves, power curves, and high-order polynomial regression coefficients used to calculate head
+    as a function of liquid throughput. In addition to pump specifications, the workspace defines surface infrastructure hierarchies,
+    including Gathering Center Stations (GCS), separator pressure ratings, and production manifold routing. A dedicated Master
+    Formulae management tab allows authorized petroleum engineers to review and update governing physical equations, including
+    Hazen-Williams hydraulic friction factors, fluid specific gravity calculations, water cut blending rules, and Virtual
+    Flow Metering calibration coefficients. Modifications undergo audit logging to maintain full traceability across engineering
+    changes. This centralized governance ensures that operational triage, live calculations, and What-If simulations across
+    all platform screens share an authoritative, mathematically synchronized engineering baseline.
+  related:
+  - concept.tdh
+  - route.engineering-overview
+  aliases:
+  - equipment catalog
+  - pump catalog
+  - master formulae
+  - catalog
+  - oem catalog
+- id: route.engineering-catalog-pump-detail
+  type: route
+  title: OEM Pump Model Specification & Curve Explorer
+  path: /engineering/catalog/pumps/$modelId
+  workspace: engineering
+  summary: Deep technical specification sheet for individual OEM pump models displaying stage geometries, multi-frequency
+    curve charts, and polynomial formulas.
+  description: The OEM Pump Model Specification and Curve Explorer page provides an exhaustive technical dossier for an individual
+    electric submersible pump model selected from the catalog. It renders high-resolution, interactive multi-frequency performance
+    curve families (H-Q head capacity, brake horsepower, and hydraulic efficiency) evaluated across standard operating frequencies
+    from 35 Hz to 65 Hz in 5 Hz increments using centrifugal affinity laws. Key physical characteristics are clearly tabulated,
+    including nominal outer diameter in inches, stage housing series, housing pressure burst limits, minimum recommended flow
+    rate, Best Efficiency Point (BEP) rate, maximum continuous flow limit, and per-stage head generation. Technical teams
+    can inspect the exact high-order polynomial regression equations (H = a0 + a1*Q + a2*Q^2 + a3*Q^3 + a4*Q^4 + a5*Q^5) utilized
+    by the platform's calculation services to derive dynamic head during live surveillance. The page also identifies active
+    wells currently outfitted with this specific pump model, facilitating fleet-wide equipment tracking, stage wear comparison
+    across differing reservoir environments, and replacement planning during artificial lift workover operations.
+  related:
+  - concept.tdh
+  - route.engineering-catalog
+  aliases:
+  - pump detail
+  - pump curve explorer
+  - pump model
+  - curve explorer
+  - model spec
+- id: route.esp-configuration
+  type: route
+  title: ESP Equipment Configuration & Well Provisioning
+  path: /esp-configuration
+  workspace: single-well
+  summary: Comprehensive equipment lifecycle and provisioning console for configuring well completions, pump stages, motor
+    ratings, and sensor baselines.
+  description: 'The ESP Equipment Configuration and Well Provisioning workspace is the administrative and operational console
+    for managing well completion architecture, downhole equipment changes, and baseline operating parameters. Technicians
+    and artificial lift specialists use this interface when commissioning newly drilled assets, updating completions following
+    well workovers, or recalibrating operational envelopes after pump pull-and-replace interventions. The configuration workflow
+    encompasses four key domains: Wellbore & Completion geometry (wellhead elevation, casing outer diameter, tubing size and
+    weight, true vertical depth, measured depth, and perforation intervals); ESP String Assembly (selection of catalog pump
+    model, total installed stage count, intake gas separator or gas handler type, protector/seal section configuration, downhole
+    sensor gauge model, and motor horsepower, voltage, and full-load amperage ratings); Electrical Infrastructure (surface
+    drive type, step-up transformer ratios, cable length, copper conductor size, and flat cable extension specs); and Baseline
+    Setpoints (reference operating frequency, nominal PIP/PDP targets, vibration alert limits, and motor winding thermal thresholds).
+    Form validation guarantees engineering consistency before committing updates to the primary PostgreSQL asset database.'
+  related:
+  - route.working-status
+  - concept.tdh
+  aliases:
+  - esp configuration
+  - well provisioning
+  - equipment configuration
+  - commissioning
+  - completion setup
+- id: route.reliability
+  type: route
+  title: Reliability & Run Life Analytics
+  path: /reliability
+  workspace: operations
+  summary: Historical equipment reliability suite analyzing run-life distributions, failure mode Pareto charts, and teardown
+    DIFA findings.
+  description: The Reliability & Run Life Analytics workspace delivers comprehensive asset reliability surveillance, equipment
+    longevity modeling, and failure trend diagnostics across the historical lifecycle of the ESP fleet. By analyzing cumulative
+    operating days, pull histories, and workover records, the system computes vital operational reliability benchmarks, including
+    mean time between failures (MTBF), expected remaining useful life (RUL), and run-life distributions segmented by field
+    cluster, equipment family, and manufacturer. An interactive Failure Mode Pareto Chart categorizes historical pull causes
+    into primary engineering domains—such as motor electrical insulation breakdown, mechanical seal seal-section contamination,
+    pump abrasive sand erosion, broken shaft shear, and tubing corrosion leaks. Detailed Dismantle, Inspection, and Failure
+    Analysis (DIFA) tear-down reports are cataloged with failure photos and metallurgical laboratory summaries, enabling engineering
+    teams to identify persistent bad-actor wells and recurrent systemic failure mechanisms. Production organizations leverage
+    these analytics to refine equipment metallurgy specifications, optimize downhole chemical treatment programs, and negotiate
+    equipment warranty terms based on empirical field performance data.
+  related:
+  - route.working-status
+  - route.cockpit
+  aliases:
+  - reliability
+  - run life
+  - mtbf
+  - difa
+  - failure pareto
+  - bad actors
+  - longevity
+- id: route.administration
+  type: route
+  title: Administration & Platform Integration
+  path: /administration
+  workspace: platform
+  summary: Platform administration and OTConnex telemetry integration console governing tag mappings, surveillance rules,
+    and security permissions.
+  description: The Administration & Platform Integration workspace manages underlying connectivity infrastructure, industrial
+    SCADA tag bindings, automated surveillance rule thresholds, and user security permissions across the ESP platform. The
+    interface displays the active OTConnex Industrial Gateway signal mapping registry, detailing raw telemetry tag paths,
+    engineering measurement descriptions, physical units (Hz, A, V, psi, degF, G, bpd), transmission sources (VSD drive controllers
+    vs downhole digital gauges), scan cadences (2s, 5s, 10s, hourly), and field-wide sensor coverage statistics. System administrators
+    configure global surveillance threshold rules (such as R-01 Outside Recommended Operating Range excursions sustained over
+    30 minutes, R-02 Motor Overload currents exceeding 75% for 15 minutes, and R-03 Motor Thermal limits within 12°F of nameplate
+    maximum), defining automated severity escalations and alert notification dispatch channels. In addition, the console oversees
+    role-based access control (RBAC), auditing session activity and governing artificial intelligence Copilot agent authority
+    to ensure safe, secure, and authenticated human-in-the-loop operational advisory delivery.
+  related:
+  - route.working-status
+  - route.cockpit
+  aliases:
+  - administration
+  - admin
+  - platform integration
+  - tag mapping
+  - surveillance rules
+  - settings
+- id: route.well-detail
+  type: route
+  title: Single-Well Surveillance & Forensic Monitor
+  path: /wells/$wellId
+  workspace: single-well
+  summary: Dedicated single-well deep-dive cockpit combining synchronized telemetry trends, live pump curves, downhole schematics,
+    and Subsystem Equalizers.
+  description: 'The Single-Well Surveillance & Forensic Monitor is the definitive operational investigation cockpit for analyzing
+    an individual well''s real-time artificial lift performance. The screen integrates all core analytical widgets into a
+    unified layout: the Subsystem Equalizer provides an immediate visual health check across hydraulic, electrical, thermal,
+    and mechanical domains; the Live Pump Performance Curve plots real-time operating flow and head coordinates against manufacturer
+    BEP envelopes and affinity-adjusted frequency curves; the Synchronized Multi-Tag Trends viewer enables multi-channel temporal
+    alignment of current, pressure, vibration, and temperature telemetry; the Downhole Wellbore Visual illustrates completion
+    geometry, casing perforations, and pump intake depths; and the Pressure Profile illustrates fluid gradient changes along
+    the tubing string. Operating engineers utilize this page to conduct deep forensics during operational anomalies, evaluate
+    artificial lift efficiency, adjust choke settings, review model-derived Virtual Flow Metering estimates, and collaborate
+    directly with the Copilot Explainer in the Agent Dock to diagnose complex downhole failure mechanisms in real time.'
+  related:
+  - route.working-status
+  - component.subsystem-equalizer
+  - concept.tdh
+  aliases:
+  - well monitor
+  - well detail
+  - single well
+  - well forensics
+  - well view
+  - well dashboard
+- id: component.esp-well-visual
+  type: component
+  title: Downhole Wellbore Mechanical Visual
+  workspace: single-well
+  summary: Interactive completion schematic illustrating true vertical depth locations of casing, tubing, ESP pump, seal,
+    motor, and perforations.
+  description: 'The Downhole Wellbore Mechanical Visual is an engineering completion graphic that models the physical downhole
+    architecture of an electric submersible pump installation. Rendering true-to-scale vertical depth cross-sections from
+    surface wellhead to reservoir total depth (TD), the schematic highlights the outer surface casing, production casing string,
+    production tubing, downhole chemical injection mandrels, and casing perforation intervals. The assembly clearly details
+    the relative positioning and depths of the ESP equipment stack: the multistage centrifugal pump intake, gas separator
+    or advanced gas handler, protector seal section chambers, electric induction motor, motor lead extension (MLE) cable,
+    and downhole digital pressure-temperature gauge (DHG). Interactive hover overlays indicate vital mechanical parameters,
+    including casing inside diameter, tubing outer diameter, measured depth, true vertical depth, fluid perforation top and
+    bottom boundaries, and fluid entry velocity. Production technologists and workover engineers rely on this schematic during
+    operational troubleshooting to confirm pump submersion depth relative to the dynamic fluid level, detect potential gas
+    accumulation near the casing-tubing annulus, and evaluate clearance constraints prior to running intervention tools or
+    wireline logging strings.'
+  related:
+  - route.well-detail
+  - concept.tdh
+  aliases:
+  - well visual
+  - downhole schematic
+  - wellbore diagram
+  - completion visual
+  - esp schematic
+- id: component.live-pump-performance-curve
+  type: component
+  title: Live Pump Performance H-Q Curve
+  workspace: single-well
+  summary: Real-time pump performance curve displaying dynamic operating head, rate, brake horsepower, and efficiency relative
+    to catalog BEP.
+  description: The Live Pump Performance H-Q Curve component plots real-time operating coordinates on manufacturer centrifugal
+    pump performance curves. The primary axis depicts total dynamic head (TDH) in feet against gross liquid flow rate in barrels
+    per day, while secondary axes display hydraulic efficiency percentage and motor brake horsepower (BHP). The widget continuously
+    evaluates variable speed drive frequency, utilizing classical affinity laws to shift the baseline 50 Hz or 60 Hz catalog
+    head and power curves to match the active operating frequency. The manufacturer's Recommended Operating Range (ROR) and
+    Best Efficiency Point (BEP) are highlighted as green confidence corridors, bounded by minimum continuous flow and maximum
+    upthrust limits. A pulsing target marker visualizes the well's real-time operating point derived from downhole gauge intake/discharge
+    pressure differential and Virtual Flow Metering throughput. Operational excursions into downthrust (low flow, high head)
+    or upthrust (high flow, low head) trigger immediate visual warning zones, alerting surveillance engineers to accelerated
+    mechanical thrust bearing wear, internal fluid recirculation, or impending pump-off conditions before mechanical damage
+    occurs.
+  related:
+  - route.well-detail
+  - concept.tdh
+  - component.subsystem-equalizer
+  aliases:
+  - pump curve
+  - live pump curve
+  - h-q curve
+  - operating point
+  - performance curve
+  - bep curve
+- id: component.pressure-profile
+  type: component
+  title: Wellbore Pressure Gradient Profile
+  workspace: single-well
+  summary: Interactive depth-versus-pressure gradient chart visualizing fluid hydrostatic columns, drawdown, pump head boost,
+    and wellhead backpressure.
+  description: The Wellbore Pressure Gradient Profile renders a continuous pressure distribution curve plotted against true
+    vertical depth, tracking pressure progression from the reservoir drainage radius to the surface production manifold. Starting
+    at static reservoir pressure and bottom-hole flowing pressure (Pwf), the profile traces fluid drawdown across the perforation
+    face into the pump intake, where intake pressure (PIP) marks the lowest pressure point in the hydraulic circuit. Across
+    the multistage centrifugal pump depth interval, the curve exhibits a sharp rightward pressure jump representing total
+    dynamic head boost generated by the pump stages, culminating in pump discharge pressure (PDP). From the discharge depth
+    to the surface wellhead, the chart plots the fluid column gradient through the production tubing, accounting for multiphase
+    fluid hydrostatic weight and Hazen-Williams frictional pressure drop before terminating at surface wellhead flowing pressure
+    (WHP). Surveillance engineers use this profile to verify adequate net positive suction head (NPSH), ensure fluid pressure
+    remains safely above the bubble point to suppress free gas breakout, and detect tubing fluid recirculation or casing leak
+    anomalies.
+  related:
+  - route.well-detail
+  - concept.tdh
+  aliases:
+  - pressure profile
+  - pressure gradient
+  - gradient chart
+  - depth pressure curve
+  - gradient profile
+- id: component.kpi-ribbon
+  type: component
+  title: Fleet KPI & Production Ribbon
+  workspace: operations
+  summary: Top-line operational telemetry ribbon summarizing fleet gross liquid production, active well count, uptime, and
+    energy consumption.
+  description: 'The Fleet KPI & Production Ribbon is the high-visibility metric summary banner positioned at the apex of the
+    fleet surveillance and operations interfaces. The component delivers instant situational awareness by synthesizing thousands
+    of live SCADA telemetry packets into core asset performance indicators: Total Active Operating Wells versus Shut-In Count,
+    Aggregate Gross Liquid Production in barrels per day (BPD), Estimated Oil Production Rate, Total Fleet Electrical Demand
+    in kilowatts (kW), Overall Asset Availability Percentage, and Net Deferred Production Rate resulting from alarms or equipment
+    trips. Each metric card features micro-sparkline visualizations tracking 24-hour trends, delta percentage comparisons
+    against 7-day moving averages, and automated color-coded status badges indicating whether performance is within target
+    corridors, drifting, or in breach of operational targets. Hovering over any KPI card displays an expanded breakdown panel
+    revealing field-level contributions, gathering center station distributions, and top contributor wells. Operations teams
+    utilize this ribbon during daily production meetings and shift handovers to evaluate fleet efficiency, track production
+    quota adherence, and coordinate field electrical power optimization.'
+  related:
+  - route.cockpit
+  - route.working-status
+  aliases:
+  - kpi ribbon
+  - fleet kpis
+  - production ribbon
+  - kpi strip
+  - metric ribbon
+  - summary banner
+- id: component.ml-fault-spectrum
+  type: component
+  title: ML Fault Spectrum & Probability Distribution
+  workspace: operations
+  summary: Multivariate machine learning diagnostic bar matrix quantifying probability scores across all 14 canonical ESP
+    failure modes.
+  description: 'The ML Fault Spectrum & Probability Distribution component provides granular visibility into the diagnostic
+    inference engine of the platform. Evaluating real-time multi-sensor telemetry, the model calculates probability distributions
+    across the 14 canonical ESP fault classes: Gas Interference & Lock, Intake Pressure Drawdown, Motor Thermal Overload,
+    Scale or Pump Wear, Bearing Degradation, Broken Shaft / Free Spin, Blocked Intake / Screen, Sand Ingestion, High Viscosity
+    Cold Start, High Backpressure, Open Choke Flashing, Undervoltage, Phase Imbalance, and Sensor Drift. The component renders
+    a compact, color-coded bar chart where each fault class is assigned a probability percentage and confidence rating. When
+    a well is healthy, the spectrum confirms baseline stability with an all-clear green signature and sub-5% background noise
+    across all fault classes. As anomalous behavior emerges, the offending fault classes expand and transition through amber
+    to crimson bars. Users can click any fault bar to inspect underlying feature attribution weights, identifying which specific
+    sensor signals—such as motor current harmonics, intake pressure fluctuations, or high-frequency vibration spikes—drove
+    the classifier''s diagnosis.'
+  related:
+  - route.working-status
+  - component.subsystem-equalizer
+  aliases:
+  - fault spectrum
+  - ml fault bars
+  - fault probability
+  - ml spectrum
+  - model diagnosis
+- id: component.event-table
+  type: component
+  title: Event & Alarm Intelligence Table
+  workspace: operations
+  summary: Interactive tabular log of operational alarms, drive trips, limit breaches, and automated anomaly events with lifecycle
+    triage controls.
+  description: 'The Event & Alarm Intelligence Table is an enterprise-grade operational data table that logs, filters, and
+    manages all discrete alarm events, electrical drive trips, and machine learning anomaly detections across the asset portfolio.
+    Each row in the table encapsulates key event metadata: exact event occurrence timestamp, well identifier, severity tier
+    badge (Critical, Warning, Watch), event category (Electrical, Hydraulic, Mechanical, Thermal, Reservoir), alarm description,
+    duration, and current operational triage status (Active, Acknowledged, Ticketed, Resolved). The table supports multi-column
+    sorting, full-text search, and multi-tier filtering by gathering center, severity, and event type. Inline action buttons
+    allow surveillance operators to acknowledge incoming alarms, open diagnostic drill-downs, initiate root-cause analysis
+    (RCA) records, or dispatch maintenance tickets directly into field work-order systems. Selecting any row expands a detailed
+    incident summary panel containing pre-trip and post-trip sensor trends, variable speed drive fault codes, and contextual
+    standard operating procedures (SOPs) designed to assist operators in safely diagnosing and clearing downhole equipment
+    trip conditions.'
+  related:
+  - route.events
+  - route.working-status
+  aliases:
+  - event table
+  - alarm table
+  - trip log table
+  - events list
+  - alarm log
+- id: component.dynamic-pump-curve
+  type: component
+  title: Dynamic What-If Pump Curve Overlay
+  workspace: operations
+  summary: Comparative pump curve visualizer rendering baseline versus simulated operating points, head degradation, and risk
+    corridors.
+  description: The Dynamic What-If Pump Curve Overlay is an interactive simulation chart located within the Interactive What-If
+    Simulation Studio. It renders the manufacturer's catalog head-capacity (H-Q) curve alongside an interactive, user-adjusted
+    simulation curve. As users modify simulation sliders—such as VFD operating frequency, choke opening percentage, intake
+    pressure, fluid viscosity, or gas-oil ratio—the component instantaneously recalculates and renders the new operating envelope
+    in real time using centrifugal affinity laws and multiphase fluid corrections. The chart plots both the nominal baseline
+    operating point and the simulated target operating point, accompanied by differential vectors that quantify head loss,
+    flow rate variation, power demand shift, and efficiency change. Dynamic visual corridors highlight the manufacturer's
+    Recommended Operating Range (ROR), Best Efficiency Point (BEP), and hazardous operating boundaries including low-flow
+    minimum cooling limits and high-flow cavitation zones. By providing instant visual feedback on hydraulic and electrical
+    consequences, this component allows petroleum engineers to test operational adjustments safely before transmitting setpoint
+    changes to field variable speed drives.
+  related:
+  - route.custom-testing
+  - component.live-pump-performance-curve
+  - concept.tdh
+  aliases:
+  - dynamic pump curve
+  - what-if curve
+  - simulated pump curve
+  - simulation curve
+  - curve overlay
+- id: channel.frequency_hz
+  type: concept
+  title: Drive Operating Frequency (Hz)
+  workspace: operations
+  summary: Surface variable speed drive output electrical frequency governing motor rotational speed, pump head, and fluid
+    throughput.
+  description: Drive Operating Frequency measures the alternating current electrical frequency in Hertz (Hz) delivered by
+    the surface Variable Speed Drive (VFD) to the downhole electric submersible motor. Operating frequency is the primary
+    surface control variable for modulating artificial lift production. Governed by the classical centrifugal pump Affinity
+    Laws, rotational speed varies directly with frequency, fluid flow rate scales linearly with frequency, total dynamic head
+    developed by the pump scales with the square of frequency, and required brake horsepower scales with the cube of frequency.
+    Standard field operations maintain frequencies between 35 Hz and 65 Hz. In the platform, live frequency is streamed via
+    SCADA and displayed across the Cockpit, Live Calculations, and Single-Well monitor. Operating engineers monitor frequency
+    to ensure the pump operates within its Recommended Operating Range (ROR) and to adjust production quotas without exceeding
+    motor thermal limits, transformer kVA ratings, or downhole mechanical thrust bearing capacities.
+  related:
+  - route.live-calculations
+  - concept.affinity-laws
+  - concept.tdh
+  aliases:
+  - frequency
+  - hz
+  - drive frequency
+  - vsd frequency
+  - vfd frequency
+- id: channel.motor_current_a
+  type: concept
+  title: Motor Current Draw (Amperes)
+  workspace: operations
+  summary: Electrical current consumed by the downhole induction motor, directly reflecting mechanical load, fluid density,
+    and electrical health.
+  description: Motor Current Draw measures the root-mean-square (RMS) electrical current in amperes (A) delivered across the
+    three-phase power cable to the downhole induction motor. Current draw serves as a direct real-time indicator of the mechanical
+    load imposed on the pump shaft by fluid lifting, mechanical friction, and fluid specific gravity. Under nominal steady-state
+    conditions, current remains stable near the motor nameplate full-load amperage (FLA). An abrupt drop in motor current
+    indicates underload conditions—such as dry-well pump-off, severe gas locking, or a broken drive shaft where the motor
+    spins without load. Conversely, elevated current draw signals mechanical overloading caused by scale accumulation, sand
+    ingestion, bearing seizure, or heavy emulsion formation. In the platform, current is monitored by automated surveillance
+    rules and visualized in the Subsystem Equalizer and multi-tag trends. Tracking current fluctuations and phase balance
+    is vital for protecting motor windings against thermal degradation and preventing premature downhole electrical burnouts.
+  related:
+  - route.live-calculations
+  - component.subsystem-equalizer
+  aliases:
+  - motor current
+  - amps
+  - current
+  - motor load
+  - motor amps
+- id: channel.motor_voltage_v
+  type: concept
+  title: Bus Supply Voltage (Volts)
+  workspace: operations
+  summary: Three-phase alternating current supply voltage delivered by the surface drive and step-up transformer system.
+  description: Bus Supply Voltage measures the line-to-line alternating current potential in volts (V) supplied by the surface
+    variable speed drive through the step-up transformer to the downhole cable. Proper voltage regulation is critical for
+    maintaining magnetic flux density within the induction motor core without causing magnetic saturation or excessive winding
+    heat. The surface drive system modulates voltage proportionally with frequency to maintain a constant volts-per-hertz
+    (V/Hz) ratio, ensuring stable motor torque output across varying operating speeds. Voltage dips or phase-to-phase voltage
+    imbalances degrade motor efficiency, increase resistive I2R heating, and risk tripping the drive on undervoltage fault
+    protections. Within the platform, voltage telemetry is logged in the Live Calculations engine and analyzed within the
+    ML Studio to evaluate power quality and surface transformer health. Surveillance engineers monitor voltage stability to
+    distinguish between downhole electrical insulation failure and external surface electrical grid disturbances.
+  related:
+  - route.live-calculations
+  - component.subsystem-equalizer
+  aliases:
+  - voltage
+  - volts
+  - motor voltage
+  - bus voltage
+  - supply voltage
+- id: channel.power_factor
+  type: concept
+  title: Electrical Power Factor
+  workspace: operations
+  summary: Dimensionless ratio of real electrical power to apparent power indicating motor inductive load efficiency and power
+    transmission quality.
+  description: Electrical Power Factor is a dimensionless ratio ranging from 0.0 to 1.0 that quantifies the phase relationship
+    between alternating voltage and current waveforms in the electrical submersible pump circuit. Defined as the cosine of
+    the phase angle between voltage and current, power factor reflects the proportion of electrical energy converted into
+    useful mechanical shaft work (real power in kilowatts) versus energy stored in magnetic fields (reactive power in kVAR).
+    Well-loaded induction motors typically achieve power factors between 0.82 and 0.89 under nominal production conditions.
+    A significant decline in power factor toward 0.60 or lower signals severe motor underload, occurring during gas locking,
+    dry-well pump-off, or broken shaft events where the motor operates with minimal mechanical resistance. The platform utilizes
+    power factor telemetry in the Subsystem Equalizer and What-If simulator to detect uncoupling between electrical energy
+    input and hydrodynamic fluid delivery, alerting operators to inefficient energy utilization and potential downhole mechanical
+    disconnection.
+  related:
+  - route.live-calculations
+  - component.subsystem-equalizer
+  aliases:
+  - power factor
+  - pf
+  - cos phi
+  - electrical efficiency
+- id: channel.motor_temperature_c
+  type: concept
+  title: Motor Internal Winding Temperature (°C)
+  workspace: operations
+  summary: Internal temperature of downhole motor windings measured by downhole sensor gauges to safeguard electrical insulation
+    integrity.
+  description: Motor Internal Winding Temperature measures the thermal state of the downhole electric submersible motor windings
+    in degrees Celsius (°C), transmitted by the downhole digital sensor gauge via the motor power cable. Motor temperature
+    is governed by the equilibrium between internal resistive I2R and eddy current heat generation versus thermal cooling
+    provided by fluid passing uphole past the motor housing exterior. Sustained fluid velocity of at least 1.0 ft/sec across
+    the motor skin is required for adequate cooling. When intake fluid drops below this threshold—or during severe electrical
+    overloading, scale deposition on the motor jacket, or pump-off conditions—motor temperature escalates rapidly. Exceeding
+    manufacturer thermal limits (typically 120°C to 145°C depending on insulation class) accelerates dielectric breakdown
+    of motor winding varnish and lead wire insulation, drastically shortening equipment run-life. In the platform, motor temperature
+    is tracked with critical threshold alerts, visualized in the Subsystem Equalizer, and evaluated in ML thermal overload
+    fault models.
+  related:
+  - route.live-calculations
+  - component.subsystem-equalizer
+  aliases:
+  - motor temp
+  - motor temperature
+  - winding temperature
+  - internal temperature
+  - temp c
+- id: channel.vibration_g
+  type: concept
+  title: Downhole Mechanical Vibration (G)
+  workspace: operations
+  summary: Radial and axial acceleration amplitude measured downhole in G-force units to monitor mechanical stability and
+    bearing wear.
+  description: Downhole Mechanical Vibration measures the mechanical acceleration amplitude of the ESP assembly in units of
+    gravitational acceleration (G), captured by downhole triaxial accelerometers integrated into the sensor gauge. Vibration
+    telemetry provides the primary empirical window into the mechanical condition of rotating components downhole, including
+    pump stages, shaft couplings, protector thrust bearings, and motor rotors. Nominal steady-state baseline vibration typically
+    remains below 0.35 G. Elevated vibration levels (0.50 G to 1.50 G) indicate mechanical imbalances, shaft misalignment,
+    abrasive particulate ingestion, or hydrodynamic gas slugging. Severe vibration exceeding 2.50 G warns of imminent catastrophic
+    failure, such as broken shaft whipping, bearing destruction, or stage seizure. The platform processes vibration data in
+    the Subsystem Equalizer and automated surveillance rules, alerting operators to schedule diagnostic throttling, verify
+    gas separation effectiveness, or initiate controlled shutdowns before severe mechanical damage ruins the entire downhole
+    completion.
+  related:
+  - route.live-calculations
+  - component.subsystem-equalizer
+  aliases:
+  - vibration
+  - vibration g
+  - downhole vibration
+  - accel
+  - vibe
+- id: channel.intake_pressure_psi
+  type: concept
+  title: Pump Intake Pressure (PIP / psi)
+  workspace: operations
+  summary: Hydrostatic fluid pressure at the pump suction intake representing downhole flowing bottomhole pressure and reservoir
+    drawdown.
+  description: Pump Intake Pressure (PIP), measured in pounds per square inch gauge (psig), represents the absolute fluid
+    suction pressure available at the entrance to the electric submersible pump intake or gas separator. Directly related
+    to flowing bottomhole pressure (Pwf) through the fluid hydrostatic column between perforations and pump setting depth,
+    PIP is the single most critical hydraulic parameter for artificial lift management. Maintaining adequate PIP ensures that
+    the pump operates with sufficient Net Positive Suction Head (NPSH) and keeps downhole pressure above the fluid bubble
+    point to prevent volatile solution gas from breaking out into free gas bubbles that cause gas locking. Depleted PIP signals
+    aggressive reservoir drawdown, declining reservoir pressure, or wellbore skin buildup. The platform displays PIP across
+    all operational screens, utilizing it to calculate dynamic vertical lift in the TDH Waterfall, evaluate inflow performance
+    relationships (IPR), and trigger automated underload pump-off alarms.
+  related:
+  - route.live-calculations
+  - concept.tdh
+  aliases:
+  - intake pressure
+  - pip
+  - pump intake pressure
+  - suction pressure
+  - inp psi
+- id: channel.discharge_pressure_psi
+  type: concept
+  title: Pump Discharge Pressure (PDP / psi)
+  workspace: operations
+  summary: Hydraulic pressure generated at the pump discharge head driving produced fluids uphole through the tubing string.
+  description: Pump Discharge Pressure (PDP), measured in pounds per square inch gauge (psig), represents the fluid pressure
+    delivered at the top discharge head of the electric submersible pump assembly directly below the production tubing check
+    valve. PDP reflects the cumulative energy imparted to the wellbore fluid by the series of centrifugal pump impellers and
+    diffusers. The differential pressure (Delta P = PDP - PIP) directly quantifies the total hydraulic pressure boost generated
+    by the pump stages. Comparing PDP against theoretical catalog performance curves allows surveillance engineers to diagnose
+    internal pump stage wear, impeller erosion, or scale accumulation inside the pump housing. A sudden drop in PDP while
+    motor current remains normal indicates severe pump stage degradation or fluid recirculation, whereas an abnormal surge
+    in PDP suggests downstream tubing restrictions, closed surface choke valves, or wax deposition in the production string.
+    In the platform, PDP is integrated into live Virtual Flow Metering calculations and Wellbore Pressure Gradient profiles.
+  related:
+  - route.live-calculations
+  - concept.tdh
+  - concept.differential-pressure
+  aliases:
+  - discharge pressure
+  - pdp
+  - pump discharge pressure
+  - disch psi
+  - discharge
+- id: channel.wellhead_pressure_psi
+  type: concept
+  title: Wellhead Flowing Pressure (WHP / psi)
+  workspace: operations
+  summary: Surface pressure measured at the production Christmas tree upstream of the surface production choke manifold.
+  description: Wellhead Flowing Pressure (WHP), measured in pounds per square inch gauge (psig), represents the surface backpressure
+    exerted on produced fluids at the wellhead Christmas tree prior to entering the production choke and flowline manifold.
+    WHP is a vital boundary condition for the complete artificial lift hydraulic circuit. In the Total Dynamic Head (TDH)
+    calculation, surface wellhead pressure represents the final backpressure against which the downhole pump must work, converted
+    into equivalent liquid feet using fluid specific gravity. Fluctuations in WHP reflect changes in downstream surface gathering
+    line pressure, separator operations, or surface choke position adjustments. High WHP increases the required pump discharge
+    pressure, shifting the pump operating point to the left toward lower throughput and higher hydraulic head. In the platform,
+    WHP telemetry is continuously recorded and utilized in Virtual Flow Metering algorithms, What-If simulation modeling,
+    and wellbore pressure gradient reconciliations to ensure balanced surface and subsurface hydraulics.
+  related:
+  - route.live-calculations
+  - concept.tdh
+  aliases:
+  - wellhead pressure
+  - whp
+  - surface pressure
+  - tubing head pressure
+  - thp
+- id: channel.casing_pressure_psi
+  type: concept
+  title: Casing Annulus Pressure (psi)
+  workspace: operations
+  summary: Gas pressure accumulated in the annular space between the production tubing and well casing string.
+  description: Casing Annulus Pressure, measured in pounds per square inch gauge (psig), represents the gas or fluid pressure
+    trapped within the annular space between the production casing and the tubing string uphole of the downhole pump. In wells
+    producing volatile crude with high gas-oil ratios (GOR), volatile solution gas naturally separates from liquid in the
+    casing annulus and migrates to the surface. If annular gas is not vented or routed into the flowline via casing-head check
+    valves, annular pressure builds up, depressing the fluid level in the annulus and lowering the effective pump intake pressure.
+    Conversely, monitoring casing pressure assists operators in evaluating annular gas venting effectiveness, calculating
+    dynamic fluid level depth via acoustic echometer correlation, and verifying wellbore barrier integrity. The platform logs
+    casing pressure in live telemetry streams and What-If simulations to model gas venting dynamics and optimize total artificial
+    lift system performance.
+  related:
+  - route.live-calculations
+  - concept.tdh
+  aliases:
+  - casing pressure
+  - annulus pressure
+  - annular pressure
+  - casing head pressure
+  - chp
+- id: channel.choke_position_pct
+  type: concept
+  title: Surface Choke Valve Opening (%)
+  workspace: operations
+  summary: Percentage opening of the surface adjustable production choke valve controlling surface flowline backpressure.
+  description: Surface Choke Valve Opening measures the fractional opening percentage (from 0% fully closed to 100% fully
+    open) of the surface adjustable production choke valve installed at the wellhead manifold. The choke valve provides manual
+    or automated surface throttling control, allowing production operators to regulate wellhead backpressure and liquid throughput
+    without immediately modifying downhole variable speed drive frequency. Restricting the choke (reducing percentage opening)
+    creates an artificial flow restriction, elevating wellhead pressure, increasing total dynamic head requirements, and driving
+    the pump operating point leftward toward lower production rates. Conversely, opening the choke reduces surface friction
+    and backpressure, increasing production rate while decreasing pump intake pressure. In the platform, choke position is
+    integrated into the Interactive What-If Simulation Studio and live calculation displays, enabling petroleum engineers
+    to evaluate choke-frequency interactions and prevent hazardous pump throttling conditions.
+  related:
+  - route.custom-testing
+  - route.live-calculations
+  aliases:
+  - choke
+  - choke position
+  - choke opening
+  - choke pct
+  - surface choke
+- id: channel.flow_rate_bpd
+  type: concept
+  title: Gross Liquid Production Rate (BPD)
+  workspace: operations
+  summary: Total volumetric liquid production rate in barrels per day computed via Virtual Flow Metering or surface test separators.
+  description: 'Gross Liquid Production Rate measures the total volumetric fluid production rate delivered by the electric
+    submersible pump, expressed in stock tank barrels per day (BPD). Liquid throughput is the definitive production benchmark
+    for oilfield asset management. In the platform, flow rate is determined through two primary mechanisms: periodic physical
+    well test separator measurements and continuous multiphase Virtual Flow Metering (VFM). The VFM engine calculates real-time
+    liquid rate by solving the inverted centrifugal pump performance curve using active VFD frequency, differential pressure
+    across pump stages, motor electrical power consumption, and fluid density. Real-time rate telemetry allows surveillance
+    engineers to continuously evaluate pump operating position relative to the Best Efficiency Point (BEP) and Recommended
+    Operating Range (ROR). Sudden rate declines highlight operational problems such as pump gas interference, severe scale
+    deposition, or tubing flowline restrictions requiring rapid operational intervention.'
+  related:
+  - route.live-calculations
+  - concept.vfm
+  - concept.bep
+  aliases:
+  - flow rate
+  - bpd
+  - liquid rate
+  - production rate
+  - gross rate
+  - fluid rate
+- id: channel.water_cut_pct
+  type: concept
+  title: Produced Water Cut Percentage (%)
+  workspace: operations
+  summary: Volumetric percentage of produced water relative to total gross liquid production influencing mixture density and
+    viscosity.
+  description: Produced Water Cut Percentage measures the volumetric fraction of produced formation water relative to total
+    gross liquid production, expressed as a percentage from 0% to 100%. Water cut is a critical thermodynamic and reservoir
+    parameter that directly governs composite fluid specific gravity, fluid mixture viscosity, and downhole hydraulic head
+    calculations. Because formation water is significantly denser than crude oil (specific gravity ~1.00 to 1.15 versus 0.82
+    to 0.88 for crude), an increase in water cut increases the hydrostatic weight of the fluid column in the production tubing.
+    This requires the electric submersible pump to generate higher total dynamic head (TDH) and draw greater electrical motor
+    current to lift the same volumetric barrel rate. In the platform, water cut is updated from laboratory fluid tests and
+    used by calculation services to calibrate Hazen-Williams friction factors, adjust fluid density constants, and optimize
+    artificial lift operating parameters.
+  related:
+  - route.live-calculations
+  - concept.tdh
+  - concept.water-cut
+  aliases:
+  - water cut
+  - wc
+  - bsw
+  - water cut pct
+  - water percentage
+- id: channel.gas_flow_mscfd
+  type: concept
+  title: Associated Gas Flow Rate (MSCFD)
+  workspace: operations
+  summary: Volumetric production rate of associated hydrocarbon gas measured in thousand standard cubic feet per day.
+  description: Associated Gas Flow Rate measures the volumetric flow rate of produced hydrocarbon gas in thousand standard
+    cubic feet per day (MSCFD), measured at surface test separators or estimated via gas-oil ratio (GOR) allocations. Free
+    gas entering the downhole electric submersible pump assembly is the primary cause of hydraulic performance degradation,
+    gas interference, and catastrophic gas locking. High gas volumes compress under pressure inside centrifugal pump stages,
+    displacing dense liquids, reducing stage head generation, causing motor current hunting, and degrading motor cooling.
+    In the platform, gas flow rate is reconciled against liquid throughput to calculate producing gas-oil ratios and downhole
+    Gas Volume Fractions (GVF) at pump intake conditions. Monitoring gas flow rates enables surveillance engineers to optimize
+    downhole gas separator configurations, adjust casing annular venting chokes, and prevent volatile gas breakout from destabilizing
+    downhole pump hydraulics.
+  related:
+  - route.live-calculations
+  - concept.gvf
+  aliases:
+  - gas flow
+  - gas rate
+  - mscfd
+  - gas volume
+  - gas production
+- id: preset.normal-baseline
+  type: concept
+  title: Normal Operating Baseline Scenario
+  workspace: operations
+  summary: Optimal steady-state baseline scenario operating at nominal 50.0 Hz with balanced electrical, thermal, and hydraulic
+    parameters.
+  description: The Normal Operating Baseline scenario represents an ideal, steady-state artificial lift operating condition
+    where the electric submersible pump operates at its rated 50.0 Hz frequency directly within the manufacturer's Best Efficiency
+    Point (BEP) corridor. In this benchmark scenario, hydraulic parameters reflect stable reservoir inflow and balanced discharge
+    pressures (PIP 420 psi, PDP 1850 psi), with minimal free gas interference (gas volume fraction 8%). Electrical telemetry
+    exhibits symmetrical three-phase current draw (48.5 A) and an optimal power factor of 0.88, while downhole motor winding
+    temperature remains safely normalized at 85.0°C and mechanical vibration levels remain subdued at 0.45 G. Production technologists
+    and surveillance operators utilize this baseline in the What-If Simulation Studio as the reference control model against
+    which degraded, anomalous, or extreme operational scenarios are evaluated, establishing clear benchmarks for power consumption,
+    head generation, and lift efficiency across the asset fleet.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - concept.bep
+  aliases:
+  - normal preset
+  - baseline scenario
+  - optimal baseline
+  - normal operating baseline
+- id: preset.gas-interference
+  type: concept
+  title: Gas Interference & Locking Scenario
+  workspace: operations
+  summary: Operational scenario simulating excessive free gas ingress causing head degradation, severe motor current hunting,
+    and rate collapse.
+  description: The Gas Interference & Locking preset simulates severe multiphase flow complications caused by free gas entering
+    the downhole pump intake. In this scenario, producing Gas Volume Fraction (GVF) surges to 38.0% while pump intake pressure
+    drops to 210 psi, causing volatile hydrocarbons to flash out of liquid solution. The presence of compressible free gas
+    within centrifugal impellers severely degrades hydraulic head generation, dropping pump discharge pressure from 1850 psi
+    to 1180 psi and collapsing gross liquid throughput to 620 BPD. Electrically, the motor experiences rapid load hunting,
+    with current oscillating around 32.0 A and power factor degrading to 0.74, while downhole vibration rises to 1.45 G due
+    to dynamic fluid slugging and cavitation. Operating engineers run this preset in the What-If Studio to evaluate the performance
+    of downhole rotary gas separators, test casing annulus venting strategies, and identify frequency throttling setpoints
+    required to stabilize the pump before gas locking triggers a total underload trip.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - fault.gas-interference
+  - concept.gvf
+  aliases:
+  - gas interference preset
+  - gas locking scenario
+  - gas preset
+  - gas scenario
+- id: preset.dry-well-pump-off
+  type: concept
+  title: Dry Well / Pump-Off Underload Scenario
+  workspace: operations
+  summary: Hazardous reservoir depletion scenario where producing fluid drops below pump intake, causing underload and rapid
+    motor overheating.
+  description: The Dry Well / Pump-Off Underload scenario models a critical operating condition where reservoir fluid inflow
+    drops below the pump's minimum capacity, causing the dynamic fluid level to fall directly to the pump intake depth. Pump
+    Intake Pressure drops drastically to 65.0 psi, fluid flow collapses to a mere 180 BPD, and the pump begins drawing gaseous
+    vapour rather than dense liquid. With minimal fluid mass to lift, the motor experiences an acute electrical underload,
+    with current draw dropping to 24.0 A and power factor plunging to 0.62. Deprived of adequate fluid flow across the motor
+    housing to carry away electrical heat, internal motor winding temperature surges dangerously toward 122.0°C. Testing this
+    scenario in the What-If Studio helps surveillance teams verify automated underload trip thresholds, configure cyclic pump-off
+    timers, and design artificial lift operational guidelines to prevent irreversible motor insulation burnout.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - fault.intake-drawdown
+  aliases:
+  - dry well preset
+  - pump-off scenario
+  - underload preset
+  - dry well scenario
+- id: preset.sand-ingestion
+  type: concept
+  title: Sand Ingestion & Particulate Friction Scenario
+  workspace: operations
+  summary: Severe particulate contamination scenario simulating formation sand abrasion, mechanical drag, current surges,
+    and vibration spikes.
+  description: The Sand Ingestion & Particulate Friction preset simulates formation solids production where abrasive sand
+    particles bypass downhole gravel packs and enter the pump intake. Solid quartz particulates create intense mechanical
+    drag across impeller seals, diffusers, and shaft bushings, leading to a substantial surge in motor mechanical loading
+    (current spiking to 66.0 A at 47.5 Hz) and a sharp rise in motor winding temperature to 108.0°C. Particulate erosion and
+    fluid turbulence drive mechanical vibration up to 2.85 G, while hydraulic head generation degrades due to severe internal
+    recirculatory wear. Petroleum engineers use this simulation to understand the operational trade-offs between throttling
+    drive frequency to reduce downhole fluid entry velocities versus maintaining sufficient uphole fluid velocity in the production
+    tubing to prevent sand grains from settling out and locking the pump stages during an unscheduled shutdown.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - fault.sand-ingestion
+  aliases:
+  - sand preset
+  - sand ingestion scenario
+  - sand scenario
+  - particulate friction
+- id: preset.bearing-degradation
+  type: concept
+  title: Bearing Degradation & Thermal Stress Scenario
+  workspace: operations
+  summary: Advanced mechanical failure scenario simulating thrust bearing wear, elevated radial vibration (3.4 G), and winding
+    thermal stress.
+  description: The Bearing Degradation & Thermal Stress preset models severe mechanical wear of the pump and protector thrust
+    bearing assemblies. As downhole thrust bearings experience mechanical fatigue, hydrodynamic lubrication film breakdown,
+    or abrasive wear, rotating shaft clearances degrade, inducing severe mechanical friction and shaft eccentricity. In this
+    preset, mechanical vibration escalates to an alarming 3.40 G, accompanied by elevated motor current draw (54.0 A) and
+    critical motor winding temperatures climbing to 128.0°C. Despite operating at 52.0 Hz, effective fluid throughput drops
+    to 940 BPD due to stage clearance loss and internal fluid slippage. Engineers utilize this preset in the What-If Studio
+    to evaluate vibration diagnostic alert boundaries, train predictive maintenance classifiers, and establish safe operating
+    limits to prevent complete shaft shear or downhole stator seizure before a planned workover can be mobilized.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - fault.bearing-degradation
+  aliases:
+  - bearing wear preset
+  - bearing degradation scenario
+  - bearing wear scenario
+  - thermal stress preset
+- id: preset.electrical-phase-imbalance
+  type: concept
+  title: Electrical Phase Imbalance Scenario
+  workspace: operations
+  summary: Surface electrical disturbance scenario simulating transformer or cable phase asymmetry causing negative sequence
+    motor heating.
+  description: The Electrical Phase Imbalance preset simulates an electrical power distribution fault resulting from surface
+    transformer phase degradation, loose junction box connections, or power cable insulation leakage. The resulting voltage
+    and current phase asymmetry degrades overall electrical efficiency, driving the power factor down to 0.68 while causing
+    substantial current imbalance across the three motor phases. Even moderate phase voltage imbalances generate severe negative
+    sequence magnetic fields inside the downhole induction motor, resulting in opposing counter-torques and intense localized
+    rotor heating. Surveillance personnel run this scenario in the What-If Studio to evaluate how electrical asymmetry manifests
+    across telemetry channels, verify that automated protective relays trip before thermal insulation breakdown occurs, and
+    establish diagnostic checklists for distinguishing surface electrical supply problems from downhole cable faults.
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - fault.phase-imbalance
+  aliases:
+  - phase imbalance preset
+  - imbalance scenario
+  - electrical imbalance preset
+  - voltage imbalance scenario
+- id: fault.gas-interference
+  type: concept
+  title: Gas Interference & Gas Lock
+  workspace: operations
+  summary: Centrifugal pump operational fault where free gas accumulation in impellers degrades head, causes current hunting,
+    or halts flow.
+  description: Gas Interference & Gas Lock is a prevalent operational failure mode occurring in wells with high producing
+    Gas-Oil Ratios (GOR) or depressed pump intake pressures below the fluid bubble point. Free gas bubbles entering centrifugal
+    pump impellers aggregate along the low-pressure concave surfaces of the impeller vanes, forming stagnant gas pockets that
+    displace dense liquid. This impairs the pump's ability to generate differential head, resulting in erratic, oscillating
+    motor current draw, declining discharge pressure, and surging production rates. In severe cases known as Gas Lock, impellers
+    become completely filled with compressible gas, causing gross liquid throughput to drop to zero while the pump churns
+    gas without building pressure. Operating personnel address gas interference by increasing surface casing-head gas venting
+    to lower annular fluid levels, reducing VFD frequency to stabilize fluid inflow, or installing specialized rotary gas
+    separators or multiphase gas handling pump stages during workovers.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - preset.gas-interference
+  - concept.gvf
+  aliases:
+  - gas interference
+  - gas lock
+  - gas locking
+  - free gas fault
+- id: fault.intake-drawdown
+  type: concept
+  title: Intake Pressure Drawdown / Pump-Off
+  workspace: operations
+  summary: Hydraulic underload fault caused by excessive pump capacity exceeding reservoir inflow, depleting intake pressure
+    toward pump-off.
+  description: Intake Pressure Drawdown (commonly termed Pump-Off) occurs when the fluid withdrawal rate of the electric submersible
+    pump exceeds the reservoir's ability to deliver fluids into the wellbore. Consequently, the dynamic fluid level drops
+    toward the pump setting depth, causing Pump Intake Pressure (PIP) to drop precipitously toward zero. As fluid supply starves,
+    the pump begins lifting a mixture of foam and gas, leading to a sharp decline in motor electrical load, diminished motor
+    current, and degraded power factor. Deprived of sufficient fluid velocity across the motor housing to dissipate electrical
+    heat, internal motor temperatures rise rapidly toward critical thresholds. The platform's automated surveillance logic
+    detects intake drawdown through synchronized declines in PIP and motor amperage, recommending immediate VFD speed reduction
+    or triggering automated underload shutdown timers to allow reservoir fluid replenishment and protect downhole equipment.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - preset.dry-well-pump-off
+  aliases:
+  - intake drawdown
+  - pump off
+  - underload
+  - drawdown fault
+  - fluid starvation
+- id: fault.thermal-overload
+  type: concept
+  title: Motor Thermal Overload
+  workspace: operations
+  summary: Hazardous motor overheating fault exceeding insulation temperature ratings due to high current, inadequate flow,
+    or jacket scale.
+  description: Motor Thermal Overload is a high-severity operational fault characterized by internal motor winding temperatures
+    exceeding safe manufacturer design thresholds (typically 120°C to 140°C). Overheating results from excessive electrical
+    I2R resistive heating (due to sustained motor overload currents, low operating voltage, or severe phase imbalances) combined
+    with compromised heat dissipation to the wellbore environment. Thermal dissipation failures frequently stem from inadequate
+    uphole fluid velocity past the motor jacket (under 1.0 ft/sec), heavy scale or wax deposition coating the motor housing,
+    or fluid gasification during pump-off events. Sustained thermal overload accelerates the thermal degradation and brittleness
+    of motor winding varnish, lead wire insulation, and elastomeric seals, leading directly to catastrophic electrical ground
+    faults. The platform triggers immediate critical alarms and automated trip advisories when winding temperatures enter
+    danger zones, directing operators to inspect fluid velocity and reduce drive load.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.motor_temperature_c
+  aliases:
+  - thermal overload
+  - motor overheating
+  - motor thermal fault
+  - winding temp fault
+- id: fault.pump-wear
+  type: concept
+  title: Scale Deposition or Pump Wear
+  workspace: operations
+  summary: Gradual hydraulic degradation fault caused by internal impeller erosion, scale accumulation, or mechanical wear
+    of pump stages.
+  description: Scale Deposition or Pump Wear represents progressive mechanical and hydraulic deterioration within the centrifugal
+    pump stages. Mechanical wear occurs over extended operating lifetimes through cavitation erosion, particulate abrasion,
+    or downthrust bearing friction, resulting in enlarged impeller eye clearances and increased fluid recirculation between
+    stages. Alternatively, mineral scale precipitation (such as calcium carbonate or barium sulfate) coats internal diffuser
+    passages and impeller vanes, restricting flow areas and increasing hydraulic drag. Both phenomena manifest as a gradual
+    decline in developed total dynamic head and liquid production rate for a given operating frequency, accompanied by a leftward
+    drift on catalog H-Q curves and declining hydraulic efficiency. Surveillance engineers identify this fault through long-term
+    trends in differential pressure and Virtual Flow Metering coefficients, scheduling chemical scale inhibitor flushes or
+    planning replacement pump workovers before total hydraulic failure occurs.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - concept.tdh
+  aliases:
+  - pump wear
+  - scale deposition
+  - impeller wear
+  - scale fault
+  - hydraulic degradation
+- id: fault.bearing-degradation
+  type: concept
+  title: Bearing Degradation & Mechanical Wear
+  workspace: operations
+  summary: Mechanical failure fault characterized by thrust bearing fatigue, shaft misalignment, elevated vibration, and mechanical
+    drag.
+  description: Bearing Degradation represents mechanical fatigue, hydrodynamic lubrication film breakdown, or physical wear
+    across the downhole pump, seal section, and motor thrust bearing assemblies. Operating an ESP outside its Recommended
+    Operating Range—either in deep downthrust (low flow) or upthrust (high flow)—imposes severe axial hydrodynamic loads onto
+    thrust bearings, leading to surface spalling, metal-to-metal contact, and high frictional heat. The fault manifests as
+    elevated radial and axial mechanical vibration (G levels rising past 0.50 G toward 3.0 G), subtle increases in motor current
+    draw, and elevated seal section temperatures. Left unaddressed, bearing wear leads to shaft misalignment, seal chamber
+    breach with wellbore fluid contamination of the motor oil, and ultimate shaft seizure or motor burnout. Surveillance teams
+    track bearing health via vibration trends and Subsystem Equalizer mechanical bars to execute preventative speed adjustments
+    or schedule orderly interventions.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - preset.bearing-degradation
+  - channel.vibration_g
+  aliases:
+  - bearing degradation
+  - bearing wear
+  - thrust bearing fault
+  - mechanical wear
+- id: fault.broken-shaft
+  type: concept
+  title: Broken Shaft / Free Spin
+  workspace: operations
+  summary: Catastrophic mechanical disconnection fault where the drive shaft shears, allowing the motor to spin freely without
+    lifting fluid.
+  description: Broken Shaft / Free Spin is an acute, catastrophic mechanical failure where the drive shaft linking the motor,
+    seal section, or pump stages shears due to torsional fatigue, sudden mechanical shock, or stage seizure. Following shaft
+    breakage, the induction motor becomes completely mechanically decoupled from the pump impellers. Consequently, the motor
+    spins at near-synchronous speed with virtually zero mechanical resistance, causing motor current draw to plummet to no-load
+    levels (typically 20% to 35% of full-load amperage) and power factor to collapse. Simultaneously, pump discharge pressure
+    and gross liquid production instantly drop to zero, while downhole vibration exhibits a characteristic sharp transient
+    spike followed by an abnormal drop. The platform's diagnostic classifier flags this condition with high confidence, advising
+    operators against restarting the well and initiating workover mobilization procedures to retrieve and replace the downhole
+    equipment.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.motor_current_a
+  aliases:
+  - broken shaft
+  - free spin
+  - shaft shear
+  - sheared shaft
+- id: fault.blocked-intake
+  type: concept
+  title: Blocked Intake / Screen Plugging
+  workspace: operations
+  summary: Physical intake restriction fault caused by scale, debris, or asphaltic sludge clogging pump intake ports.
+  description: Blocked Intake / Screen Plugging occurs when downhole debris, formation fines, scale deposits, asphaltic sludge,
+    or foreign matter accumulate across the pump intake ports or intake screen protector. The resulting physical restriction
+    starves the pump of fluid inflow, causing pump intake pressure measured inside the intake cavity to drop sharply while
+    fluid velocity through the restricted openings accelerates. This causes pronounced fluid cavitation, erratic motor load
+    oscillations, and rapid production decline. Unlike true reservoir-driven pump-off, a blocked intake is often accompanied
+    by high fluid levels in the casing annulus above the pump, indicating that reservoir fluids are present in the wellbore
+    but unable to enter the pump suction. The platform detects this signature through differential analysis of annular acoustic
+    fluid levels versus downhole PIP, guiding operators to execute backflushing, solvent soaks, or chemical treatment to dissolve
+    the intake blockage.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.intake_pressure_psi
+  aliases:
+  - blocked intake
+  - screen plugging
+  - intake plugged
+  - plugged screen
+- id: fault.sand-ingestion
+  type: concept
+  title: Sand Ingestion & Particulate Abrasion
+  workspace: operations
+  summary: Abrasive solids production fault causing mechanical friction, elevated current draw, vibration spikes, and rapid
+    component erosion.
+  description: Sand Ingestion occurs when unconsolidated reservoir formation sand, proppant particulates, or drilling fines
+    bypass wellbore sand control completions and enter the pump intake. Solid quartz particulates suspended in produced fluids
+    create severe mechanical friction against rotating impellers, diffusers, and radial bushings, generating immediate current
+    spikes and thermal rise in the motor. Simultaneously, abrasive solid impacts generate pronounced high-frequency vibration
+    signals (frequently exceeding 2.0 G). Continued operation under sand ingestion leads to catastrophic erosive wear of pump
+    stage geometry, destruction of thrust washers, and eventual stage lockup when sand settles during unexpected shutdowns.
+    The platform identifies sand ingestion by cross-correlating current harmonics with high vibration amplitudes and fluid
+    rate changes, advising surveillance engineers to adjust choke settings, flush the wellbore with clean fluids, or reduce
+    drawdown to stabilize the sand face.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - preset.sand-ingestion
+  - channel.vibration_g
+  aliases:
+  - sand ingestion
+  - sand production
+  - solids ingestion
+  - abrasive wear
+- id: fault.high-viscosity
+  type: concept
+  title: High Viscosity Cold Start / Emulsion
+  workspace: operations
+  summary: Fluid rheology fault characterized by high mechanical drag, elevated starting torque, and head derating from viscous
+    fluids or emulsions.
+  description: High Viscosity Cold Start occurs when an electric submersible pump attempts to restart after an extended shut-in
+    in heavy oil or tight emulsion environments where fluids have cooled in the wellbore. The dramatic increase in kinematic
+    fluid viscosity drastically increases disk friction drag across rotating impeller surfaces and elevates piping friction
+    losses along the tubing string. Consequently, the motor demands extraordinarily high starting torque, causing motor current
+    to surge near locked-rotor limits and power factor to drop. In addition, centrifugal pump head generation and hydraulic
+    efficiency suffer severe derating under viscous fluid flow regimes. The platform guides operators through controlled cold
+    start procedures, recommending low-frequency soft starts, gradual ramp-up profiles, or downhole diluent chemical injection
+    to break emulsions and normalize fluid rheology before full production frequency is engaged.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.motor_current_a
+  aliases:
+  - high viscosity
+  - cold start
+  - viscous fluid fault
+  - emulsion fault
+- id: fault.high-backpressure
+  type: concept
+  title: High Backpressure / Surface Restriction
+  workspace: operations
+  summary: Hydraulic throttling fault caused by closed flowlines, paraffin blockages, or high surface separator backpressure.
+  description: High Backpressure is a hydraulic restriction fault occurring on the discharge side of the ESP system, caused
+    by partially closed surface manifold chokes, wax or hydrate deposition in surface flowlines, or elevated separator vessel
+    pressures. The excessive downstream backpressure directly elevates pump discharge pressure (PDP) and wellhead pressure
+    (WHP), increasing the total dynamic head that the pump must overcome. This forces the pump operating point leftward along
+    its performance curve into the low-flow, high-head downthrust zone, reducing produced fluid rate and decreasing fluid
+    cooling flow past the motor. In severe cases, backpressure can force the pump near shut-in head conditions, risking severe
+    thermal fluid boiling inside pump stages. The platform flags abnormal surges in PDP and WHP relative to flow rate, prompting
+    surveillance operators to inspect surface choke configurations and verify flowline pipeline clearance.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.discharge_pressure_psi
+  - channel.wellhead_pressure_psi
+  aliases:
+  - high backpressure
+  - backpressure fault
+  - surface restriction
+  - flowline restriction
+- id: fault.open-choke-flashing
+  type: concept
+  title: Open Choke Flashing / Upthrust Runaway
+  workspace: operations
+  summary: Hydraulic upthrust fault caused by oversized choke openings lowering backpressure and driving pump beyond maximum
+    flow limits.
+  description: Open Choke Flashing / Upthrust Runaway occurs when surface production chokes are opened excessively, rapidly
+    decreasing wellhead backpressure and causing the ESP operating point to race far to the right of its Recommended Operating
+    Range into the high-flow upthrust region. Under extreme high-flow conditions, hydrodynamic lifting forces overcome the
+    downward gravitational weight of the impellers, causing them to float upward and grind against stationary diffuser pads.
+    Simultaneously, the drastic reduction in wellhead and tubing pressure can cause volatile hydrocarbons to flash into vapor
+    inside the upper tubing string, creating turbulent multiphase flow and pressure shocks. Motor current escalates toward
+    maximum continuous ratings due to the large fluid volume lifted. The platform identifies upthrust excursions through high
+    fluid throughput, depressed wellhead pressure, and characteristic upthrust vibration frequencies, advising operators to
+    choke back the surface valve to restore balanced hydrodynamic thrust.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - component.live-pump-performance-curve
+  aliases:
+  - open choke flashing
+  - upthrust runaway
+  - upthrust fault
+  - over-pumping
+- id: fault.undervoltage
+  type: concept
+  title: Electrical Undervoltage
+  workspace: operations
+  summary: Surface electrical supply fault where bus voltage drops below rated limits, causing motor current escalation and
+    excessive heat.
+  description: Electrical Undervoltage is a power infrastructure fault occurring when the three-phase alternating voltage
+    delivered to the ESP motor drops significantly below nominal nameplate ratings. Undervoltage conditions typically stem
+    from surface electrical grid instability, overloaded field transformers, or excessive voltage drop across long, undersized
+    downhole power cables. Because induction motor mechanical power output is proportional to the product of voltage and current,
+    a decrease in supply voltage forces the motor to draw higher amperage to sustain the same mechanical lifting torque. This
+    elevated current drastically increases internal I2R resistive heating within the downhole motor windings and surface cable,
+    accelerating insulation thermal aging and risking thermal overload shutdowns. The platform's electrical surveillance algorithms
+    detect undervoltage conditions through real-time telemetry, notifying field electrical maintenance personnel to adjust
+    transformer tap changers or rebalance electrical substation loads.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - channel.motor_voltage_v
+  aliases:
+  - undervoltage
+  - low voltage
+  - voltage drop
+  - electrical undervoltage
+- id: fault.phase-imbalance
+  type: concept
+  title: Electrical Phase Imbalance
+  workspace: operations
+  summary: Asymmetrical electrical fault across the three power phases producing negative sequence currents and severe rotor
+    heating.
+  description: Electrical Phase Imbalance is an electrical fault where voltage or current magnitudes across the three power
+    phases (A, B, and C) diverge significantly from symmetry. Permissible phase current unbalance in ESP systems should not
+    exceed 5% during continuous operation. Imbalances originate from asymmetric transformer windings, unbalanced surface utility
+    grid loads, degraded motor lead extension (MLE) cable splices, or localized downhole cable insulation deterioration. Even
+    small phase voltage imbalances generate disproportionately large negative sequence magnetic fields inside the induction
+    motor stator, producing opposing counter-torques, severe localized rotor heating, and mechanical vibration. Continued
+    operation under severe phase imbalance leads to premature motor winding burnout and insulation failure. The platform's
+    Subsystem Equalizer isolates electrical phase imbalance in real time, alerting surveillance personnel to test cable phase
+    continuity and inspect surface transformer connections before permanent equipment damage occurs.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - preset.electrical-phase-imbalance
+  aliases:
+  - phase imbalance
+  - current imbalance
+  - voltage imbalance
+  - electrical asymmetry
+- id: fault.sensor-drift
+  type: concept
+  title: Sensor Calibration Drift
+  workspace: operations
+  summary: Telemetry degradation fault where downhole or surface instruments drift out of calibration, producing contradictory
+    diagnostic signals.
+  description: Sensor Calibration Drift is an instrumentation reliability fault characterized by the gradual or abrupt loss
+    of measurement accuracy in downhole or surface telemetry sensors without a corresponding physical change in well operating
+    state. Electronic sensor drift frequently affects downhole digital pressure quartz gauges, motor temperature thermocouples,
+    or surface flow meters due to high-temperature electronic aging, downhole thermal cycling, or chemical corrosion of sensor
+    diaphragms. Drifting sensors manifest as physically contradictory telemetry—such as discharge pressure reporting lower
+    than intake pressure during active production, or motor temperature reporting freezing values while current remains high.
+    The platform's integrity algorithms identify sensor drift by cross-validating telemetry against adjacent sensors, physics-based
+    Virtual Flow Metering models, and mass balance conservation laws, flagging bad sensor data quality flags and isolating
+    corrupt channels from automated control workflows.
+  related:
+  - route.working-status
+  - component.ml-fault-spectrum
+  - route.administration
+  aliases:
+  - sensor drift
+  - instrument drift
+  - bad telemetry
+  - sensor fault
+  - calibration drift
+- id: concept.hazen-williams
+  type: concept
+  title: Hazen-Williams Hydraulic Friction Loss
+  workspace: engineering
+  summary: Empirical hydraulic formula modeling piping frictional pressure drop as a function of liquid throughput, tubing
+    diameter, and roughness.
+  description: The Hazen-Williams Hydraulic Friction equation is an empirical formulation utilized in petroleum and pipeline
+    engineering to calculate frictional head loss resulting from liquid flow through circular production tubing. In the ESP
+    Insights platform, the engine computes friction head loss (h_friction in feet) using the standard equation h = (10.67
+    * L * Q^1.852) / (C^1.852 * d^4.8655), where L represents tubing measured length in feet, Q is liquid flow rate in gallons
+    per minute, d is tubing internal diameter in inches, and C is the Hazen-Williams pipe roughness coefficient (nominally
+    120.0 for steel production tubing). Frictional head loss constitutes a key additive component of Total Dynamic Head (TDH),
+    scaling exponentially with fluid production velocity. Petroleum engineers inspect Hazen-Williams calculations within the
+    Engineering Workbench TDH Waterfall to identify excessive friction choking in undersized tubing strings, evaluate tubing
+    replacement options, and ensure accurate sizing of replacement downhole pump assemblies.
+  related:
+  - concept.tdh
+  - route.engineering-workbench
+  aliases:
+  - hazen-williams
+  - hazen williams
+  - tubing friction
+  - friction head
+  - hydraulic friction
+- id: concept.affinity-laws
+  type: concept
+  title: Centrifugal Pump Affinity Laws
+  workspace: engineering
+  summary: Mathematical scaling laws governing centrifugal pump capacity, dynamic head, and power requirements across variable
+    operating frequencies.
+  description: 'The Centrifugal Pump Affinity Laws represent the mathematical principles governing the dynamic performance
+    scaling of multistage centrifugal pumps when operating rotational speed varies. Because the downhole motor speed is directly
+    modulated by surface variable speed drive (VFD) frequency, affinity laws define how pump performance curves shift: volumetric
+    liquid flow rate (Q) scales proportionally with speed (Q1/Q2 = N1/N2), developed total dynamic head (H) scales with the
+    square of speed (H1/H2 = (N1/N2)^2), and brake horsepower (BHP) scales with the cube of speed (P1/P2 = (N1/N2)^3). In
+    the platform, these laws dynamically project catalog 50 Hz and 60 Hz pump performance curves to the active operating frequency
+    (e.g., 45 Hz or 55 Hz) in the Live Pump Curve widget and What-If Simulation Studio. Engineers utilize affinity scaling
+    to evaluate the production upside and electrical power impact of frequency adjustments before implementing speed changes
+    in the field.'
+  related:
+  - concept.tdh
+  - component.live-pump-performance-curve
+  - channel.frequency_hz
+  aliases:
+  - affinity laws
+  - pump affinity
+  - speed scaling
+  - centrifugal scaling
+  - affinity
+- id: concept.vfm
+  type: concept
+  title: Multiphase Virtual Flow Metering (VFM)
+  workspace: operations
+  summary: Real-time algorithmic calculation inferring multiphase production rates from downhole pressures, motor power, and
+    pump curves.
+  description: Multiphase Virtual Flow Metering (VFM) is an advanced calculation methodology that continuously estimates real-time
+    gross liquid production rates without requiring physical surface test separators or expensive multiphase flow meters.
+    By inverting the mathematical relationship of the centrifugal pump performance curve, the VFM algorithm reconciles active
+    variable speed drive frequency, differential pressure across pump stages (PDP minus PIP), fluid specific gravity, and
+    motor electrical power consumption to compute instantaneous volumetric throughput in barrels per day. The platform's VFM
+    engine continuously corrects for fluid viscosity, in-situ gas breakout, and water cut blending ratios, comparing derived
+    estimates against periodic well test records to ensure high confidence. Surveillance engineers and asset managers rely
+    on VFM continuous production streams across the Cockpit and Live Calculations interfaces to optimize artificial lift allocation,
+    identify rapid wellhead choke restrictions, and detect early reservoir productivity decline without waiting for monthly
+    physical separator tests.
+  related:
+  - channel.flow_rate_bpd
+  - route.live-calculations
+  - concept.tdh
+  aliases:
+  - vfm
+  - virtual flow metering
+  - virtual flow meter
+  - virtual rate
+  - inferred production
+- id: concept.gvf
+  type: concept
+  title: Gas Volume Fraction (GVF)
+  workspace: operations
+  summary: Volumetric ratio of free gas to total fluid mixture at pump intake conditions governing multiphase hydraulic degradation.
+  description: Gas Volume Fraction (GVF) represents the volumetric percentage of free, undissolved gas relative to the total
+    multiphase fluid volume (free gas plus liquid oil and water) evaluated at downhole pump intake pressure and temperature
+    conditions. Expressed as GVF = V_gas / (V_gas + V_liquid), GVF is the governing criterion for downhole pump selection
+    and multiphase performance stability. When GVF remains below 10% to 15%, standard centrifugal pump stages operate with
+    minimal hydraulic degradation. When GVF surpasses 20%, compressible gas bubbles expand inside impeller passages, causing
+    head derating, fluid cavitation, and motor current hunting. Above 35% GVF, standard pumps experience severe gas interference
+    and imminent gas locking, requiring specialized downhole gas handlers or vortex gas separators to vent gas into the casing
+    annulus. The platform computes live in-situ GVF across all active wells, displaying it in Live Calculations and What-If
+    simulations to guide gas mitigation strategies.
+  related:
+  - fault.gas-interference
+  - preset.gas-interference
+  - route.live-calculations
+  aliases:
+  - gvf
+  - gas volume fraction
+  - free gas fraction
+  - gas fraction
+  - intake gvf
+- id: concept.water-cut
+  type: concept
+  title: Water Cut & Emulsion Rheology
+  workspace: operations
+  summary: Volumetric ratio of produced water impacting composite fluid specific gravity, hydrostatic head, and emulsion viscosity.
+  description: 'Water Cut represents the volumetric fraction of produced formation water relative to total gross liquid production,
+    typically expressed as a percentage. In petroleum artificial lift engineering, water cut plays a profound role in determining
+    fluid physical properties: as water cut increases, the composite specific gravity of the produced liquid mixture rises
+    from that of crude oil (typically 0.82 to 0.88) toward that of saline formation brine (1.02 to 1.15). This density increase
+    raises the hydrostatic pressure gradient of the fluid column in the production tubing, requiring higher pump discharge
+    pressure and greater motor brake horsepower to lift each barrel. Furthermore, intermediate water cut ranges (30% to 70%)
+    frequently form tight water-in-oil or oil-in-water emulsions with significantly elevated apparent viscosity, multiplying
+    piping friction losses. The platform accounts for water cut in all hydraulic head, Hazen-Williams friction, and Virtual
+    Flow Metering models to ensure accurate production surveillance.'
+  related:
+  - channel.water_cut_pct
+  - concept.tdh
+  - route.live-calculations
+  aliases:
+  - water cut
+  - emulsion
+  - bsw
+  - water fraction
+  - fluid density
+- id: concept.bep
+  type: concept
+  title: Best Efficiency Point (BEP)
+  workspace: engineering
+  summary: Optimal operating design point on a centrifugal pump curve where hydraulic conversion efficiency reaches its absolute
+    maximum.
+  description: The Best Efficiency Point (BEP) represents the unique volumetric flow rate and head coordinate on a centrifugal
+    pump performance curve where the pump operates at its maximum hydraulic efficiency. At BEP, fluid enters the impeller
+    vanes and diffuser channels with minimal incidence angle shock, minimal internal fluid recirculation, and minimal hydraulic
+    turbulence. Consequently, internal mechanical thrust forces acting on the pump rotor assemblies reach equilibrium, resulting
+    in minimized radial vibration and optimal bearing longevity. The manufacturer defines a Recommended Operating Range (ROR)
+    around the BEP (typically 70% to 125% of BEP flow rate). Operating outside the ROR induces destructive downthrust (at
+    low flow rates) or upthrust (at excessive flow rates), accelerating mechanical wear and triggering hydraulic instability.
+    The platform highlights BEP and ROR corridors across all pump curve visualizations, empowering surveillance engineers
+    to keep operating points centered within safe, energy-efficient hydrodynamic zones.
+  related:
+  - concept.tdh
+  - component.live-pump-performance-curve
+  - route.engineering-workbench
+  aliases:
+  - bep
+  - best efficiency point
+  - optimal point
+  - peak efficiency
+  - bep rate
+- id: concept.differential-pressure
+  type: concept
+  title: Pump Differential Pressure (Delta P)
+  workspace: operations
+  summary: Net hydraulic pressure boost generated across the ESP assembly calculated as discharge pressure minus intake pressure.
+  description: 'Pump Differential Pressure (Delta P), measured in pounds per square inch (psi), represents the net hydraulic
+    pressure boost generated across the stages of the electric submersible pump assembly. Calculated directly as the difference
+    between pump discharge pressure and pump intake pressure (Delta P = PDP - PIP), differential pressure is the primary empirical
+    measure of the mechanical work delivered by the pump to the wellbore fluid. When converted into equivalent liquid feet
+    using fluid specific gravity, Delta P directly reflects the total dynamic head developed by the pump stages under active
+    operating frequency and fluid viscosity conditions. Monitoring differential pressure trends allows surveillance engineers
+    to rapidly identify downhole abnormalities: an abrupt drop in Delta P indicates pump stage erosion, mechanical disconnection,
+    or fluid gasification, whereas a gradual decline signals progressive pump wear. The platform visualizes Delta P across
+    the Live Calculations hub, Single-Well monitor, and ML diagnostics.'
+  related:
+  - channel.discharge_pressure_psi
+  - channel.intake_pressure_psi
+  - concept.tdh
+  aliases:
+  - differential pressure
+  - delta p
+  - dp
+  - pump delta p
+  - pressure boost
+- id: nav.to-well
+  type: navigation
+  title: 'Navigation: Opening a Single-Well Monitor'
+  workspace: operations
+  summary: Step-by-step workflow for navigating from fleet surveillance consoles directly into the Single-Well diagnostic
+    workspace.
+  description: 'Navigating to an individual well monitor allows operators and surveillance engineers to transition seamlessly
+    from aggregate fleet surveillance into granular, single-well forensic investigation. From the ESP Fleet Cockpit (route:
+    /) or Well Working Status queue (route: /working-status), users locate the target well in the interactive table or attention
+    queue. Clicking anywhere on the well row or selecting the explicit ''Open Well Monitor'' link instantly routes the application
+    to /wells/$wellId, passing the unique well identifier parameter. Upon arrival, the workspace populates with dedicated
+    single-well analytical instruments: the Subsystem Equalizer provides an immediate 4-domain health check, the Live Pump
+    Performance Curve plots real-time operating coordinates on catalog curves, Synchronized Multi-Tag Trends render aligned
+    historical telemetry streams, and the Downhole Wellbore Visual illustrates completion geometry. Users can also leverage
+    the global navigation breadcrumb or the Agent Dock Copilot to switch between wells without returning to the main menu.'
+  related:
+  - route.well-detail
+  - route.cockpit
+  - route.working-status
+  aliases:
+  - nav to well
+  - open well
+  - navigate to well
+  - drill down well
+- id: nav.to-configuration
+  type: navigation
+  title: 'Navigation: Reaching the Configuration Workspace'
+  workspace: operations
+  summary: Procedure for switching from daily operations surveillance into the governed engineering configuration workspace.
+  description: 'Reaching the Engineering Configuration workspace enables authorized artificial lift specialists and system
+    administrators to transition from day-to-day operations surveillance to governed equipment provisioning and parameter
+    management. To switch workspaces, users access the top-left Workspace Selector dropdown located in the main AppShell header,
+    which toggles between ''Operations'' and ''Configuration''. Selecting ''Configuration'' switches the active sidebar navigation
+    menu to display engineering groups, including Engineering Overview (route: /engineering), Asset Configuration (route:
+    /esp-configuration), and Equipment Catalog (route: /engineering/catalog). Within this environment, users can provision
+    new well completions, calibrate motor and cable specifications, adjust surveillance alarm thresholds, and review governed
+    engineering calculation formulae. All navigation state transitions preserve active well contexts where applicable, enabling
+    engineers to jump directly into the configuration view of a well currently being monitored without re-entering search
+    parameters.'
+  related:
+  - route.esp-configuration
+  - route.engineering-overview
+  aliases:
+  - nav to config
+  - open configuration
+  - switch workspace
+  - go to configuration
+- id: nav.to-what-if
+  type: navigation
+  title: 'Navigation: Reaching the What-If Simulator'
+  workspace: operations
+  summary: Workflow for launching the Interactive What-If Simulation Studio from the navigation sidebar or single-well diagnostic
+    views.
+  description: 'Accessing the Interactive What-If Simulation Studio provides engineers and field technicians with a deterministic
+    digital twin environment to safely model artificial lift scenarios without impacting physical field equipment. Users can
+    reach the studio directly by clicking ''Scenario Simulator'' in the primary Operations section of the AppShell sidebar
+    navigation, routing to /custom-testing. Alternatively, when analyzing a well inside the Single-Well monitor (route: /wells/$wellId),
+    clicking the ''Simulate Scenario'' action button transports the user to the simulator with that specific well''s active
+    operating parameters pre-populated. Once in the studio, users can select pre-configured scenario presets—such as Gas Interference,
+    Dry Well Pump-Off, or Sand Ingestion—or manipulate interactive sliders for frequency, choke opening, and reservoir pressure.
+    Real-time chart overlays instantly visualize the simulated operating point on catalog pump curves, allowing users to de-risk
+    operating changes before execution.'
+  related:
+  - route.custom-testing
+  - component.dynamic-pump-curve
+  - route.well-detail
+  aliases:
+  - nav to what if
+  - open simulator
+  - go to simulation
+  - navigate to what-if
+- id: nav.to-events
+  type: navigation
+  title: 'Navigation: Reaching Event Intelligence'
+  workspace: operations
+  summary: Workflow for navigating to the Event Intelligence log from the sidebar, KPI badges, or well triage drawers.
+  description: Reaching the Event & Incident Intelligence workspace allows surveillance teams and production supervisors to
+    inspect, audit, and triage operational alarms, drive trips, and machine learning anomaly detections across the fleet.
+    Users can navigate to the workspace at any time by selecting 'Event Intelligence' from the Operations group in the left
+    AppShell navigation sidebar, which directs the browser to route /events. Additionally, clicking on the 'Anomalies Detected'
+    or 'Critical Faults' status pills within the top Fleet KPI Strip on the Cockpit or Working Status pages provides a direct
+    contextual shortcut to the filtered event ledger. Inside the Event Intelligence workspace, users can filter events by
+    severity, review pre-trip sensor histories in the Event Detail Drawer, acknowledge pending alarms, and assign maintenance
+    work orders according to established standard operating procedures.
+  related:
+  - route.events
+  - route.cockpit
+  - route.working-status
+  aliases:
+  - nav to events
+  - open events
+  - go to alarms
+  - navigate to incident log
+- id: nav.to-catalog
+  type: navigation
+  title: 'Navigation: Reaching the Equipment Catalog'
+  workspace: engineering
+  summary: Procedure for opening the OEM Equipment Catalog and Master Formulae repository from the configuration workspace.
+  description: Navigating to the Equipment Catalog & Governed Formulae workspace enables reservoir engineers, artificial lift
+    technicians, and data managers to inspect OEM pump performance curves, gathering center configurations, and mathematical
+    calculation models. From the AppShell navigation sidebar, users ensure the workspace dropdown is set to 'Configuration',
+    then click 'Equipment & Formulae' under the Engineering category, directing the browser to route /engineering/catalog.
+    From the catalog index, users can search across OEM manufacturers (including Baker Hughes, Schlumberger REDA, and Novomet),
+    filter by casing outer diameter and nominal flow capacity, and click any individual pump model row to drill into its dedicated
+    detail dossier at /engineering/catalog/pumps/$modelId. In this detail view, engineers inspect multi-frequency H-Q curve
+    families, polynomial regression coefficients, and active fleet installations outfitted with that pump model.
+  related:
+  - route.engineering-catalog
+  - route.engineering-catalog-pump-detail
+  - route.engineering-overview
+  aliases:
+  - nav to catalog
+  - open catalog
+  - go to equipment
+  - browse pumps
+- id: glossary.pip
+  type: glossary
+  title: Pump Intake Pressure (PIP)
+  workspace: platform
+  summary: Hydrostatic fluid pressure measured at the downhole pump suction intake ports.
+  description: Pump Intake Pressure (PIP), measured in pounds per square inch gauge (psig), represents the absolute suction
+    fluid pressure available at the entrance to the electric submersible pump intake ports downhole. PIP is the foundational
+    operational indicator of reservoir pressure depletion, wellbore drawdown, and fluid inflow performance. Maintaining sufficient
+    PIP is essential for ensuring adequate Net Positive Suction Head (NPSH) to prevent impeller cavitation and keeping downhole
+    pressure safely above the fluid bubble point to avoid free gas breakout. Within the platform, PIP is streamed via real-time
+    SCADA telemetry, displayed across triage queues, and utilized as a vital input in Total Dynamic Head (TDH) calculations,
+    wellbore pressure gradient profiles, and automated underload pump-off protection alarms. Surveillance engineers continuously
+    correlate PIP with motor current to diagnose whether fluid starvation stems from true reservoir depletion or physical
+    intake screen plugging.
+  related:
+  - channel.intake_pressure_psi
+  - concept.tdh
+  aliases:
+  - pip
+  - pump intake pressure
+  - intake pressure
+- id: glossary.pdp
+  type: glossary
+  title: Pump Discharge Pressure (PDP)
+  workspace: platform
+  summary: Hydraulic fluid pressure measured at the discharge head of the electric submersible pump.
+  description: Pump Discharge Pressure (PDP), measured in pounds per square inch gauge (psig), is the hydraulic fluid pressure
+    developed at the discharge head of the downhole multistage centrifugal pump immediately below the production tubing string.
+    PDP represents the cumulative mechanical energy imparted to produced fluids by the series of spinning impellers to overcome
+    vertical elevation lift, tubing wall friction, and surface wellhead backpressure. The platform monitors PDP in real time
+    to calculate differential pressure boost across pump stages, evaluate stage hydraulic wear against catalog H-Q curves,
+    and feed Virtual Flow Metering production allocation models. Comparing PDP against theoretical pump curves allows surveillance
+    engineers to rapidly distinguish between internal pump stage degradation, tubing check valve leaks, and downstream flowline
+    restrictions.
+  related:
+  - channel.discharge_pressure_psi
+  - concept.differential-pressure
+  aliases:
+  - pdp
+  - pump discharge pressure
+  - discharge pressure
+- id: glossary.whp
+  type: glossary
+  title: Wellhead Flowing Pressure (WHP)
+  workspace: platform
+  summary: Surface pressure measured at the wellhead Christmas tree upstream of the production choke.
+  description: Wellhead Flowing Pressure (WHP), measured in pounds per square inch gauge (psig), represents the surface fluid
+    pressure exerted at the production Christmas tree upstream of the surface adjustable choke manifold. WHP serves as the
+    final surface hydraulic boundary condition in the artificial lift circuit, reflecting the backpressure that the downhole
+    pump must overcome to deliver fluids into gathering pipelines. In the platform, WHP is continuously logged from surface
+    SCADA transmitters, converted into equivalent liquid feet for Total Dynamic Head calculations, and utilized in What-If
+    simulations to model the hydraulic impact of downstream flowline restrictions, gathering line pressure fluctuations, and
+    surface separator adjustments. Operators monitor WHP during choke adjustments to maintain stable well deliverability without
+    forcing the downhole pump into hazardous upthrust or downthrust regions.
+  related:
+  - channel.wellhead_pressure_psi
+  - concept.tdh
+  aliases:
+  - whp
+  - wellhead pressure
+  - tubing head pressure
+- id: glossary.flp
+  type: glossary
+  title: Flowline Pressure (FLP)
+  workspace: platform
+  summary: Surface fluid pressure in the gathering flowline downstream of the wellhead choke valve.
+  description: Flowline Pressure (FLP), measured in pounds per square inch gauge (psig), represents the fluid transport pressure
+    in the surface gathering pipeline downstream of the wellhead production choke valve, leading toward the field gathering
+    center station manifold. FLP establishes the minimum surface backpressure against which the well must deliver produced
+    fluids into the gathering system. Surveillance engineers track FLP within the platform to evaluate gathering network hydraulic
+    capacity, detect pipeline wax, scale, or hydrate blockages, and ensure that the surface production choke maintains an
+    appropriate pressure drop for stable fluid control. Significant variations in FLP directly affect wellhead flowing pressure
+    and shift the downhole operating point along the pump performance curve.
+  related:
+  - channel.wellhead_pressure_psi
+  - route.administration
+  aliases:
+  - flp
+  - flowline pressure
+  - gathering pressure
+- id: glossary.ap
+  type: glossary
+  title: Annulus Pressure (AP)
+  workspace: platform
+  summary: Gas or fluid pressure trapped within the annular casing-tubing space above the downhole pump.
+  description: Annulus Pressure (AP), measured in pounds per square inch gauge (psig), represents the pressure of gas or fluid
+    accumulating in the annular space between the production casing and the tubing string uphole of the downhole pump. In
+    wells producing volatile hydrocarbons with high gas-oil ratios, solution gas naturally migrates into the annulus; if unvented,
+    elevated annulus pressure depresses the annular fluid level and impairs pump intake performance. The platform monitors
+    AP across operations dashboards to optimize casing-head gas venting valves and ensure wellbore barrier integrity. Tracking
+    annulus pressure trends alongside acoustic fluid level shots enables production engineers to optimize casing gas collection,
+    reduce downhole gas interference, and protect surface casing valves against overpressure conditions.
+  related:
+  - channel.casing_pressure_psi
+  - concept.tdh
+  aliases:
+  - ap
+  - annulus pressure
+  - casing pressure
+  - chp
+- id: glossary.vsd
+  type: glossary
+  title: Variable Speed Drive (VSD)
+  workspace: platform
+  summary: Surface solid-state power electronics controller regulating motor frequency and speed.
+  description: A Variable Speed Drive (VSD), also designated as a Variable Frequency Drive (VFD), is the surface solid-state
+    power electronics controller that regulates electrical alternating frequency and voltage delivered to the downhole electric
+    submersible motor. By adjusting output frequency (typically between 35 Hz and 65 Hz), the VSD allows operators to modulate
+    pump rotational speed, fluid throughput, and developed head in accordance with centrifugal affinity laws. The platform
+    interfaces directly with VSD controllers via industrial gateways to stream operational telemetry, track run hours, analyze
+    harmonic distortion, and issue diagnostic setpoint advisories. Surveillance teams leverage VSD agility to optimize well
+    productivity dynamically, manage soft-start acceleration ramps, and mitigate mechanical stress during restarts.
+  related:
+  - channel.frequency_hz
+  - concept.affinity-laws
+  aliases:
+  - vsd
+  - vfd
+  - variable speed drive
+  - frequency drive
+- id: glossary.esp
+  type: glossary
+  title: Electric Submersible Pump (ESP)
+  workspace: platform
+  summary: High-volume downhole artificial lift assembly comprising a multistage pump, seal, and motor.
+  description: An Electric Submersible Pump (ESP) is an artificial lift system designed to lift moderate-to-high volumes of
+    fluids from oil and water wells across the asset portfolio. Suspended on production tubing deep within the wellbore, the
+    ESP assembly consists of a downhole three-phase electric induction motor, a protector seal section for pressure equalization
+    and fluid exclusion, an intake or rotary gas separator, and a multistage centrifugal pump. The ESP platform provides end-to-end
+    digital twin surveillance, deterministic physics calculations, and predictive machine learning diagnostics across the
+    complete operating lifecycle of ESP assets. Operating engineers rely on real-time ESP telemetry to balance reservoir drawdown,
+    maximize production throughput, and extend downhole run-life across varying field operating conditions.
+  related:
+  - route.cockpit
+  - route.working-status
+  - concept.tdh
+  aliases:
+  - esp
+  - electric submersible pump
+  - submersible pump
+- id: glossary.mtbf
+  type: glossary
+  title: Mean Time Between Failures (MTBF)
+  workspace: platform
+  summary: Core equipment reliability metric measuring the average operating run days before pull and failure.
+  description: Mean Time Between Failures (MTBF), expressed in operating days, is a primary reliability key performance indicator
+    measuring the average duration of continuous operation achieved by electric submersible pump systems between unscheduled
+    equipment failures. The platform computes MTBF dynamically from historical run-life logs and workover teardown records,
+    segmenting statistics across gathering centers, pump manufacturers, and equipment series. Surveillance teams track MTBF
+    trends in the Reliability workspace to benchmark equipment longevity, evaluate supplier manufacturing quality, and optimize
+    preventative maintenance strategies. Improving fleet-wide MTBF reduces costly rig intervention workovers, minimizes deferred
+    oil production, and optimizes capital expenditure on replacement downhole strings. Tracking MTBF across run-life cohorts
+    allows artificial lift engineers to justify premium metallurgy investments and evaluate root causes during workovers.
+  related:
+  - route.reliability
+  - route.cockpit
+  aliases:
+  - mtbf
+  - mean time between failures
+  - average run life
+- id: glossary.rul
+  type: glossary
+  title: Remaining Useful Life (RUL)
+  workspace: platform
+  summary: Predictive forecast estimating remaining operational days before downhole equipment failure.
+  description: Remaining Useful Life (RUL), expressed in days, is a prognostic modeling metric that estimates the remaining
+    operational lifetime of an active downhole ESP assembly before mechanical or electrical failure necessitates a workover
+    pull. The platform's machine learning models project RUL by analyzing cumulative thermal exposure, vibration stress cycles,
+    motor insulation resistance trends, and historical failure distributions of matching equipment classes. Surveillance engineers
+    use RUL estimates in the Reliability workspace to schedule planned intervention workovers, stage replacement inventory,
+    and minimize catastrophic downhole failures. Accurately forecasting RUL enables asset managers to transition from reactive
+    firefighting to proactive, scheduled well maintenance campaigns. Surveillance models recompute RUL estimates daily as
+    operating hours and stress cycles accumulate across the well fleet.
+  related:
+  - route.reliability
+  - component.subsystem-equalizer
+  aliases:
+  - rul
+  - remaining useful life
+  - expected life
+- id: glossary.gor
+  type: glossary
+  title: Gas-Oil Ratio (GOR)
+  workspace: platform
+  summary: Volumetric ratio of produced gas volume to produced crude oil volume at standard conditions.
+  description: The Gas-Oil Ratio (GOR), expressed in standard cubic feet of gas per stock tank barrel of oil (scf/bbl), quantifies
+    the relative proportion of hydrocarbon gas produced alongside crude oil at standard surface conditions. GOR is a crucial
+    reservoir and production parameter that dictates downhole multiphase flow regimes. Wells exhibiting elevated GOR frequently
+    experience high Gas Volume Fractions (GVF) at downhole pump intake conditions, predisposing the centrifugal pump to gas
+    interference, head degradation, or catastrophic gas lock. The platform incorporates GOR in Virtual Flow Metering and What-If
+    simulations to model downhole gas breakout and guide surface venting operations. Production teams track GOR shifts to
+    detect reservoir gas cap expansion or localized secondary gas coning.
+  related:
+  - concept.gvf
+  - fault.gas-interference
+  aliases:
+  - gor
+  - gas oil ratio
+  - gas-oil ratio
+- id: glossary.wc
+  type: glossary
+  title: Water Cut (WC)
+  workspace: platform
+  summary: Volumetric percentage of produced formation water relative to total gross liquid volume.
+  description: Water Cut (WC), expressed as a percentage (%), measures the fraction of produced formation water contained
+    within the total liquid stream lifted by the pump. As water cut increases, the composite fluid density rises toward that
+    of formation brine, increasing the hydrostatic column weight in the production tubing and elevating required motor power.
+    Within the platform, water cut is updated from physical laboratory test records and utilized in real-time calculations
+    to calibrate fluid specific gravity, Hazen-Williams friction factors, and multiphase Virtual Flow Metering models. Monitoring
+    water cut trends is vital for diagnosing reservoir water coning, planning chemical demulsifier injection, and predicting
+    when elevated fluid hydrostatic head will exceed available pump stage head capacity.
+  related:
+  - channel.water_cut_pct
+  - concept.water-cut
+  - concept.tdh
+  aliases:
+  - wc
+  - water cut
+  - bsw
+  - basic sediment and water
+- id: glossary.bhp
+  type: glossary
+  title: Bottomhole Pressure / Brake Horsepower (BHP)
+  workspace: platform
+  summary: Dual engineering term referring to Bottomhole Pressure (reservoir) or Brake Horsepower (mechanical motor work).
+  description: 'BHP is a dual engineering acronym in artificial lift surveillance: in reservoir engineering, it designates
+    Bottomhole Pressure (Pwf), the in-situ fluid pressure at the reservoir sandface governing well inflow; in mechanical pump
+    engineering, it designates Brake Horsepower, the actual mechanical power in horsepower (hp) delivered to the pump shaft
+    to lift fluid against total dynamic head. The platform resolves both contexts cleanly: flowing bottomhole pressure is
+    tracked in reservoir drawdown models, while motor brake horsepower is plotted across live pump performance curves and
+    engineering catalogs. Distinguishing between hydraulic power and shaft brake horsepower allows engineers to audit electrical
+    motor loading, verify equipment sizing, and optimize downhole energy efficiency.'
+  related:
+  - component.live-pump-performance-curve
+  - concept.tdh
+  aliases:
+  - bhp
+  - bottomhole pressure
+  - brake horsepower
+- id: glossary.hp
+  type: glossary
+  title: Horsepower (HP)
+  workspace: platform
+  summary: Standard unit of mechanical or hydraulic power measurement equal to 746 Watts.
+  description: Horsepower (HP) is the imperial unit of power measurement utilized across the platform to quantify the mechanical
+    capacity of downhole electric motors and the hydraulic work delivered to lifted fluids. One mechanical horsepower equals
+    745.7 watts or 550 foot-pounds per second. The platform records motor nameplate horsepower ratings (typically ranging
+    from 50 HP to 500+ HP for commercial ESP assemblies) and calculates hydraulic horsepower (HHP = Q * TDH * SG / 135,700)
+    to evaluate pump efficiency and energy conversion performance. Engineers compare operating motor horsepower demand against
+    manufacturer thermal rating curves to prevent winding insulation overheating while maximizing artificial lift fluid throughput.
+  related:
+  - concept.tdh
+  - route.engineering-workbench
+  aliases:
+  - hp
+  - horsepower
+  - motor hp
+- id: glossary.rpm
+  type: glossary
+  title: Revolutions Per Minute (RPM)
+  workspace: platform
+  summary: Rotational speed of the downhole motor and pump shaft assembly.
+  description: Revolutions Per Minute (RPM) measures the rotational speed of the downhole induction motor rotor and centrifugal
+    pump shaft assembly. For a standard 2-pole downhole induction motor operating at 60 Hz line frequency, synchronous rotational
+    speed is 3,600 RPM (or 3,000 RPM at 50 Hz), with actual full-load mechanical speed operating slightly lower (typically
+    3,450 to 3,500 RPM) due to rotor slip. As the surface VSD modulates drive frequency, shaft RPM changes proportionally,
+    scaling centrifugal pump throughput and head in accordance with affinity laws. Tracking rotational speed enables surveillance
+    systems to calculate mechanical slip, verify motor torque delivery, and detect abnormal shaft binding or bearing drag.
+  related:
+  - channel.frequency_hz
+  - concept.affinity-laws
+  aliases:
+  - rpm
+  - revolutions per minute
+  - rotational speed
+  - shaft speed
+- id: glossary.hz
+  type: glossary
+  title: Hertz (Hz)
+  workspace: platform
+  summary: Standard unit of alternating electrical frequency measuring cycles per second.
+  description: Hertz (Hz) is the international unit of electrical frequency, defining the number of sinusoidal cycles per
+    second of alternating voltage and current delivered by the surface variable speed drive. Frequency is the primary control
+    setpoint utilized by production operators to manage ESP rotational speed, liquid flow rate, and total developed dynamic
+    head. In the platform, frequency is continuously displayed in real time across the Cockpit, Live Calculations, and Single-Well
+    monitor, serving as the baseline parameter for all affinity law scaling calculations. Operating teams adjust frequency
+    in precise decimal increments to keep the pump within its Best Efficiency Point envelope while adapting to changing reservoir
+    productivity and water cut conditions.
+  related:
+  - channel.frequency_hz
+  - concept.affinity-laws
+  aliases:
+  - hz
+  - hertz
+  - frequency unit
+- id: glossary.gvf
+  type: glossary
+  title: Gas Volume Fraction (GVF)
+  workspace: platform
+  summary: Percentage volumetric fraction of free gas relative to total fluid volume at pump intake.
+  description: Gas Volume Fraction (GVF), expressed as a percentage (%), measures the volumetric ratio of free, undissolved
+    hydrocarbon gas to total multiphase fluid volume evaluated at downhole pump intake pressure and temperature conditions.
+    High GVF causes fluid compressibility inside centrifugal impellers, resulting in severe head degradation, motor load cycling,
+    and potential gas locking. The platform tracks GVF continuously across live surveillance and simulation studios to guide
+    downhole gas separator selection and surface casing-head venting operations. When in-situ GVF exceeds 15%, operators deploy
+    specialized multiphase gas handling pump stages or adjust VFD speed to prevent gas bubble aggregation from destabilizing
+    downhole pump hydraulics.
+  related:
+  - concept.gvf
+  - fault.gas-interference
+  aliases:
+  - gvf
+  - gas volume fraction
+  - free gas ratio
+- id: glossary.ipr
+  type: glossary
+  title: Inflow Performance Relationship (IPR)
+  workspace: platform
+  summary: Mathematical curve describing well production rate as a function of flowing bottomhole pressure.
+  description: The Inflow Performance Relationship (IPR) is a fundamental reservoir engineering curve that defines the mathematical
+    relationship between wellbore liquid production rate and flowing bottomhole pressure (Pwf). Based on Darcy's Law or Vogel's
+    multiphase inflow equation, the IPR curve quantifies reservoir deliverability, predicting the maximum open-flow potential
+    (AOF) when Pwf equals zero. The platform reconciles IPR curves with centrifugal pump performance curves in the Engineering
+    Workbench to determine operating equilibrium and optimize artificial lift drawdown. Comparing historical IPR trends allows
+    engineers to diagnose near-wellbore formation damage, monitor reservoir pressure depletion, and design artificial lift
+    upgrades during workovers. Visualizing the intersection of the pump operating point with the formation IPR ensures that
+    artificial lift drawdown does not exceed safe reservoir outflow limits.
+  related:
+  - concept.tdh
+  - route.engineering-workbench
+  aliases:
+  - ipr
+  - inflow performance
+  - inflow relationship
+  - vogel curve
+- id: glossary.pi
+  type: glossary
+  title: Productivity Index (PI)
+  workspace: platform
+  summary: Reservoir deliverability metric measuring liquid flow rate per unit of pressure drawdown.
+  description: Productivity Index (PI), expressed in barrels per day per pound per square inch (bpd/psi), quantifies the deliverability
+    capacity of a producing hydrocarbon reservoir. Calculated as PI = Q / (P_res - Pwf), where Q is production rate, P_res
+    is static reservoir pressure, and Pwf is flowing bottomhole pressure, PI measures how readily the reservoir delivers fluids
+    into the wellbore per unit of pressure drawdown. The platform uses PI values to model reservoir inflow dynamics, evaluate
+    well stimulation efficacy, and calibrate What-If simulations. A declining PI signals wellbore skin formation, scale precipitation,
+    or localized reservoir pressure depletion requiring acidization or hydraulic fracturing remediation.
+  related:
+  - route.custom-testing
+  - route.engineering-workbench
+  aliases:
+  - pi
+  - productivity index
+  - well productivity
+- id: glossary.tdh
+  type: glossary
+  title: Total Dynamic Head (TDH)
+  workspace: platform
+  summary: Total equivalent liquid head in feet developed by the pump to overcome vertical lift, friction, and backpressure.
+  description: 'Total Dynamic Head (TDH) is the total effective work in equivalent liquid feet that an electric submersible
+    pump must generate to lift produced fluids from the dynamic wellbore fluid level to the surface production separator.
+    TDH comprises three primary components: dynamic vertical elevation lift, tubing piping friction head loss (calculated
+    via Hazen-Williams equations), and surface wellhead backpressure head. TDH is calculated dynamically across all operational
+    views and visualized in the Engineering Workbench TDH Waterfall. Petroleum engineers track TDH to ensure that installed
+    pump stage counts deliver sufficient hydraulic head to sustain target production rates without overloading the motor or
+    operating in downthrust.'
+  related:
+  - concept.tdh
+  - route.engineering-workbench
+  aliases:
+  - tdh
+  - total dynamic head
+  - head feet
+- id: glossary.bep
+  type: glossary
+  title: Best Efficiency Point (BEP)
+  workspace: platform
+  summary: Design flow rate coordinate where centrifugal pump hydraulic efficiency reaches peak maximum.
+  description: The Best Efficiency Point (BEP) is the optimal volumetric flow rate on a pump performance curve where the centrifugal
+    pump operates with maximum hydraulic efficiency and minimum internal mechanical stress. Operating near BEP ensures balanced
+    hydrodynamic thrust forces, minimizing wear on downhole thrust bearings and maximizing equipment run-life. The platform
+    renders BEP markers and Recommended Operating Range (ROR) corridors across all pump curve charts to keep operational operating
+    points safely centered. Excursions away from BEP into upthrust or downthrust accelerate bearing fatigue, induce shaft
+    vibration, and reduce overall artificial lift energy efficiency. Surveillance teams continuously adjust variable speed
+    drive frequencies to steer well operating points toward BEP, minimizing mechanical fatigue and optimizing electrical power
+    consumption across the asset lifecycle.
+  related:
+  - concept.bep
+  - component.live-pump-performance-curve
+  aliases:
+  - bep
+  - best efficiency point
+  - optimal point
+- id: glossary.sg
+  type: glossary
+  title: Specific Gravity (SG)
+  workspace: platform
+  summary: Dimensionless ratio of produced fluid mixture density relative to pure water.
+  description: Specific Gravity (SG) is the dimensionless ratio of produced fluid density compared to the density of fresh
+    water at standard conditions (where water SG equals 1.00, or 0.433 psi/ft hydrostatic gradient). Composite fluid specific
+    gravity is calculated as a volume-weighted blend of crude oil, formation brine, and dissolved gas. SG is an essential
+    conversion factor used across the platform to translate pressure in pounds per square inch (psi) into equivalent liquid
+    head in feet (Head = psi / (0.433 * SG)) for TDH and pump curve calculations. Fluctuations in SG directly alter the hydrostatic
+    pressure gradient in the tubing, impacting motor power requirements and pump head performance.
+  related:
+  - concept.tdh
+  - route.live-calculations
+  aliases:
+  - sg
+  - specific gravity
+  - fluid density ratio
+- id: glossary.pvt
+  type: glossary
+  title: Pressure-Volume-Temperature (PVT)
+  workspace: platform
+  summary: Thermodynamic laboratory fluid properties governing fluid phase behavior, bubble point, and solution gas.
+  description: Pressure-Volume-Temperature (PVT) analysis encompasses the thermodynamic laboratory models that describe how
+    reservoir hydrocarbon fluids change phase, density, volume, and viscosity under changing pressures and temperatures. Crucial
+    PVT parameters include bubble point pressure (Pb), solution gas-oil ratio (Rs), oil formation volume factor (Bo), and
+    fluid viscosity. The platform's calculation services incorporate PVT correlations to model downhole gas breakout, adjust
+    in-situ fluid densities, and calibrate multiphase Virtual Flow Metering algorithms. Accurate PVT characterization ensures
+    that downhole pump performance curves and fluid gradient profiles reflect true thermodynamic reservoir fluid properties.
+    Engineers review PVT tables and fluid property models within the platform to ensure that thermodynamic volume factor calculations
+    and viscosity adjustments remain synchronized with the latest reservoir fluid sampling tests.
+  related:
+  - concept.gvf
+  - route.live-calculations
+  aliases:
+  - pvt
+  - pressure volume temperature
+  - fluid pvt
+- id: glossary.mle
+  type: glossary
+  title: Motor Lead Extension (MLE)
+  workspace: platform
+  summary: Specialized low-profile armored electrical flat cable connecting the main power cable to the motor pothead.
+  description: The Motor Lead Extension (MLE), commonly referred to as the flat cable, is a specialized, low-profile armored
+    electrical cable designed to fit within the narrow annular clearance between the ESP pump housing and the well casing
+    string. The MLE connects the main round three-phase power cable to the motor pothead terminal at the bottom of the assembly.
+    Because the MLE operates in the hottest and most mechanically constrained section of the wellbore, it is historically
+    a frequent source of electrical insulation breakdown. The platform tracks MLE specifications in the Equipment Configuration
+    console, auditing cable thermal ratings and conductor sizing to prevent downhole electrical ground faults.
+  related:
+  - route.esp-configuration
+  - fault.phase-imbalance
+  aliases:
+  - mle
+  - motor lead extension
+  - flat cable
+  - pothead cable
+- id: glossary.tr
+  type: glossary
+  title: Transformer / Turns Ratio (TR)
+  workspace: platform
+  summary: Surface electrical step-up transformer converting VSD output voltage to downhole transmission levels.
+  description: Transformer Ratio (TR) refers to the voltage step-up transformation ratio of the surface three-phase electrical
+    transformer installed between the variable speed drive and the downhole power cable. To minimize resistive I2R electrical
+    power losses along thousands of feet of downhole cable, surface transformers step up the VSD output voltage (e.g., 480
+    V) to downhole transmission levels (e.g., 2,000 V to 4,000 V). The platform logs transformer tap settings and transformation
+    ratios in the Administration and Configuration consoles to verify electrical voltage balancing. Proper TR selection guarantees
+    that rated voltage arrives at the downhole motor terminals without causing transformer saturation or excessive cable voltage
+    drop.
+  related:
+  - channel.motor_voltage_v
+  - route.administration
+  aliases:
+  - tr
+  - transformer
+  - transformer ratio
+  - step-up transformer
+- id: glossary.ot
+  type: glossary
+  title: Operational Technology (OT)
+  workspace: platform
+  summary: Industrial hardware and software systems monitoring and controlling physical field equipment.
+  description: Operational Technology (OT) designates the category of industrial hardware, programmable logic controllers
+    (PLCs), remote terminal units (RTUs), and SCADA telecommunication networks that directly monitor and control physical
+    oilfield equipment. In the platform architecture, OT systems interface with the IT application layer via the OTConnex
+    Industrial Gateway, transmitting high-frequency sensor telemetry, variable speed drive registers, and electrical trip
+    codes into the PostgreSQL historian and web application. The platform maintains strict data integrity boundaries between
+    OT telemetry ingestion and web client visualization to ensure enterprise cybersecurity and uninterrupted real-time surveillance.
+    Ensuring high-speed OT telemetry streaming with low latency allows surveillance engineers to execute sub-second alarm
+    triage, review automated trip events, and verify setpoint updates delivered to field motor controllers.
+  related:
+  - route.administration
+  - glossary.scada
+  aliases:
+  - ot
+  - operational technology
+  - industrial ot
+- id: glossary.scada
+  type: glossary
+  title: Supervisory Control and Data Acquisition (SCADA)
+  workspace: platform
+  summary: Enterprise industrial automation architecture collecting real-time field telemetry and managing remote controls.
+  description: Supervisory Control and Data Acquisition (SCADA) is the enterprise industrial automation and telemetry architecture
+    that collects real-time measurement signals from oilfield sensors and transmits them across radio, cellular, or fiber
+    networks to central control centers. The ESP Insights platform ingests continuous SCADA data streams—including pressures,
+    temperatures, currents, and frequencies—processing incoming packets through event detection engines, physics algorithms,
+    and machine learning models to provide real-time surveillance. SCADA telemetry streams are synchronized with digital twin
+    models to detect operational anomalies, trigger automated alarms, and display real-time equipment status across fleet
+    dashboards. The platform's SCADA interface supports automated quality check rules and sensor heartbeat monitoring, ensuring
+    that surveillance dashboards remain fully operational even when remote communication links experience transient field
+    dropouts.
+  related:
+  - route.administration
+  - glossary.ot
+  aliases:
+  - scada
+  - supervisory control
+  - telemetry system
+- id: glossary.ml
+  type: glossary
+  title: Machine Learning (ML)
+  workspace: platform
+  summary: Statistical algorithms and neural classifiers performing automated anomaly detection and fault classification.
+  description: Machine Learning (ML) encompasses the statistical algorithms, feature engineering pipelines, and classification
+    models embedded within the platform's diagnostic engine. In the ESP Insights system, ML models continuously evaluate multi-channel
+    sensor telemetry streams to detect operational anomalies, calculate health scores, and infer fault probabilities across
+    14 canonical failure modes (such as Gas Interference, Bearing Degradation, and Intake Drawdown). The ML Studio workspace
+    provides data scientists with exploratory data tools to audit and train these models. Integrating ML predictions with
+    physics-based models provides surveillance engineers with explainable, high-confidence root-cause diagnostics. Surveillance
+    operators leverage these automated machine learning insights to accelerate alarm triage, differentiate downhole mechanical
+    failures from surface electrical grid disturbances, and prioritize engineering workover interventions across the fleet.
+  related:
+  - route.ml-studio
+  - component.ml-fault-spectrum
+  aliases:
+  - ml
+  - machine learning
+  - ai model
+  - anomaly detection
+- id: glossary.rca
+  type: glossary
+  title: Root Cause Analysis (RCA)
+  workspace: platform
+  summary: Structured engineering investigation protocol determining the fundamental physical root cause of equipment failure.
+  description: Root Cause Analysis (RCA) is a structured petroleum engineering investigation methodology applied following
+    downhole equipment trips or premature failures to identify the fundamental root mechanism responsible for the event. The
+    platform facilitates RCA workflows within the Event Intelligence and Reliability workspaces by aggregating pre-trip sensor
+    histories, variable speed drive fault codes, downhole operating hours, and teardown DIFA findings, assisting engineering
+    teams in preventing recurrence through improved operating practices or equipment metallurgy. Standardized RCA documentation
+    ensures cross-functional learning and drives continuous equipment reliability improvement across the asset portfolio.
+    By establishing standardized, auditable root-cause documentation across the asset lifecycle, the platform assists artificial
+    lift teams in identifying repetitive equipment failure patterns and executing targeted engineering design improvements.
+  related:
+  - route.events
+  - route.reliability
+  aliases:
+  - rca
+  - root cause analysis
+  - failure analysis
+- id: glossary.kpi
+  type: glossary
+  title: Key Performance Indicator (KPI)
+  workspace: platform
+  summary: Quantifiable operational metric tracking asset performance, production quotas, and equipment uptime.
+  description: A Key Performance Indicator (KPI) is a high-level operational metric utilized across the platform to evaluate
+    asset performance, equipment health, and production efficiency against established business targets. Primary platform
+    KPIs include Total Gross Liquid Production, Active Operating Well Count, Fleet Power Consumption (kW), Asset Availability
+    (%), Mean Time Between Failures (MTBF), and Deferred Production Rate. KPIs are synthesized in real time and displayed
+    across top-line ribbons on the Cockpit and Working Status dashboards. Production leadership and surveillance teams use
+    these KPIs during daily operational reviews to track quota attainment and prioritize engineering interventions. Continuous
+    KPI surveillance provides management with comprehensive visibility into asset health, downtime root causes, and operational
+    efficiency across all producing gathering centers.
+  related:
+  - component.kpi-ribbon
+  - route.cockpit
+  aliases:
+  - kpi
+  - key performance indicator
+  - performance metric
+- id: glossary.vfm
+  type: glossary
+  title: Virtual Flow Metering (VFM)
+  workspace: platform
+  summary: Computational algorithm estimating liquid throughput from pump head, motor power, and frequency.
+  description: Virtual Flow Metering (VFM) is a computational technique that calculates real-time well fluid production rates
+    from active telemetry without relying on physical test separators. By combining downhole differential pressure measurements,
+    variable speed drive operating frequency, motor electrical power consumption, and centrifugal pump performance curves,
+    the VFM engine estimates gross liquid throughput in barrels per day. The platform incorporates VFM across the Cockpit,
+    Live Calculations, and Single-Well views to provide continuous production allocation. VFM enables operators to detect
+    sudden well deliverability drops and optimize artificial lift settings without waiting for monthly physical separator
+    testing. Real-time VFM tracking allows surveillance engineers to detect sudden well productivity impairments, evaluate
+    choke adjustments, and reconcile field-wide production allocation without waiting for periodic physical well separator
+    test campaigns.
+  related:
+  - concept.vfm
+  - channel.flow_rate_bpd
+  aliases:
+  - vfm
+  - virtual flow metering
+  - virtual rate
+- id: glossary.nnl
+  type: glossary
+  title: Net Oil Production Rate (NNL)
+  workspace: platform
+  summary: Calculated hydrocarbon oil production rate after subtracting produced water cut from gross liquid throughput.
+  description: Net Oil Production Rate (NNL), expressed in barrels of oil per day (BOPD), represents the actual hydrocarbon
+    crude oil production volume after deducting produced formation water cut from gross liquid production. Calculated as Net
+    Oil = Gross Liquid * (1 - (Water Cut / 100)), NNL is the definitive commercial revenue metric for asset operations. The
+    platform displays net oil rates across fleet production ribbons, well test records, and operational reports, allowing
+    operators to track commercial production quota attainment. Tracking NNL allows surveillance engineers to optimize artificial
+    lift frequency setpoints for maximum hydrocarbon recovery while managing water production constraints. Production technologists
+    track NNL trends to ensure that well intervention workovers and frequency setpoints maximize commercial oil production
+    while preventing excessive water breakthrough.
+  related:
+  - channel.flow_rate_bpd
+  - channel.water_cut_pct
+  - component.kpi-ribbon
+  aliases:
+  - nnl
+  - net oil
+  - bopd
+  - net rate
+- id: glossary.nvl
+  type: glossary
+  title: Net Water Production Rate (NVL)
+  workspace: platform
+  summary: Calculated formation water production volume requiring surface separation, treatment, and disposal.
+  description: Net Water Production Rate (NVL), expressed in barrels of water per day (BWPD), represents the volumetric rate
+    of formation brine produced alongside hydrocarbon crude oil. Calculated as Net Water = Gross Liquid * (Water Cut / 100),
+    NVL represents the water handling load imposed on surface gathering centers, separation vessels, water treatment facilities,
+    and disposal injection wells. Monitoring NVL in the platform enables production engineers to forecast water disposal requirements,
+    detect early water breakthrough, and manage facility handling constraints. Preventing excessive water production reduces
+    electrical lift costs and protects surface piping against accelerated corrosion. Surveillance teams continuously monitor
+    NVL to optimize downhole water shutoff treatments, balance gathering header hydraulics, and manage produced water disposal
+    capacities across field injection facilities.
+  related:
+  - channel.flow_rate_bpd
+  - channel.water_cut_pct
+  aliases:
+  - nvl
+  - net water
+  - bwpd
+  - water production rate
+- id: glossary.dhg
+  type: glossary
+  title: Downhole Gauge (DHG)
+  workspace: platform
+  summary: Downhole electronic sensor package measuring intake pressure, discharge pressure, motor temperature, and vibration.
+  description: A Downhole Gauge (DHG) is an electronic sensor package installed directly below or within the downhole electric
+    submersible motor assembly. Operating in high-temperature, high-pressure environments, the DHG continuously measures pump
+    intake pressure (PIP), pump discharge pressure (PDP), internal motor winding temperature, and mechanical vibration. These
+    digitized measurements are transmitted to the surface via high-frequency electronic carrier signals imposed on the main
+    motor power cable. DHG telemetry provides the primary empirical foundation for all platform surveillance, Virtual Flow
+    Metering calculations, and automated machine learning fault diagnostics. Engineers rely on high-precision DHG telemetry
+    to evaluate downhole pump intake drawdown, verify discharge head boost across pump stages, and detect early thermal and
+    mechanical degradation before catastrophic failures occur.
+  related:
+  - channel.intake_pressure_psi
+  - channel.motor_temperature_c
+  - channel.vibration_g
+  aliases:
+  - dhg
+  - downhole gauge
+  - sensor gauge
+  - downhole sensor
+- id: glossary.hthp
+  type: glossary
+  title: High Temperature High Pressure (HTHP)
+  workspace: platform
+  summary: Severe reservoir operating conditions characterized by extreme downhole temperatures and hydrostatic pressures.
+  description: High Temperature High Pressure (HTHP) refers to extreme downhole wellbore environments typically characterized
+    by bottomhole temperatures exceeding 150°C (300°F) and hydrostatic reservoir pressures exceeding 10,000 psi. Operating
+    electric submersible pumps in HTHP conditions presents severe engineering challenges, including accelerated motor insulation
+    thermal breakdown, rapid elastomer seal degradation, and cable sheath embrittlement. The platform incorporates specialized
+    HTHP equipment ratings and derating curves in the Engineering Catalog to support surveillance in hostile wellbore conditions.
+    Surveillance algorithms apply strict thermal threshold rules to prevent catastrophic dielectric breakdown in HTHP wells.
+    Artificial lift engineers configure specialized high-temperature surveillance thresholds and thermal limits in the platform
+    to safeguard equipment longevity and maintain operational integrity in hostile deep reservoir wells.
+  related:
+  - route.engineering-catalog
+  - channel.motor_temperature_c
+  aliases:
+  - hthp
+  - high temp high pressure
+  - hostile environment
