@@ -78,6 +78,7 @@ _OBJECTIVE_HEADERS: dict[str, str] = {
     "OP05": "Early-warning assessment for {asset}:",
     "OP06": "Knowledge lookup:",
     "OP14": "Historical review for {asset}:",
+    "OP15": "Platform guide:",
 }
 
 
@@ -297,7 +298,7 @@ async def run_workflow(
         if pack and pack.gaps:
             status_notes = [f"{g.source_domain}: {g.reason}" for g in pack.gaps]
         notes_str = f" Status notes: {'; '.join(status_notes)}." if status_notes else ""
-        target = args.get('asset_id') or ('knowledge lookup' if 'OP06' in objective_id else 'well')
+        target = args.get('asset_id') or ('platform guide' if 'OP15' in objective_id else ('knowledge lookup' if 'OP06' in objective_id else 'well'))
         text = f"Diagnostic run for {target} (objective: {objective_id}) could not be completed: required evidence missing ({missing_text}).{notes_str}"
         viz_spec = VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
         return WorkflowResult(

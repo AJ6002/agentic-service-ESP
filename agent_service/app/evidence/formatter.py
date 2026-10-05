@@ -396,7 +396,68 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     )
                 )
 
-    if item.tool == "search_knowledge" or "hits" in payload:
+    if item.tool == "lookup_ui_map_entry" and payload.get("found") and isinstance(payload.get("entry"), dict):
+        entry = payload["entry"]
+        entry_id = entry.get("id") or payload.get("entry_id") or "ui_map_entry"
+        title = entry.get("title") or entry_id
+        etype = entry.get("type") or "element"
+        path = entry.get("path") or "N/A"
+        workspace = entry.get("workspace") or "platform"
+        summary = entry.get("summary") or ""
+        desc = entry.get("description") or ""
+        related = ", ".join(entry.get("related") or [])
+        aliases = ", ".join(entry.get("aliases") or [])
+        snippet = (
+            f"Title: {title} | Type: {etype} | Path: {path} | Workspace: {workspace} | Summary: {summary}\n"
+            f"Description: {desc}\n"
+            f"Related: {related}\n"
+            f"Aliases: {aliases}"
+        )
+        result.kb_hits.append(
+            FormattedKbHit(
+                evidence_id=item.evidence_id,
+                doc_id=entry_id,
+                section=f"{title} ({etype})",
+                revision="Latest",
+                authority="PLATFORM_UI_MAP",
+                snippet=snippet,
+                score=1.0,
+            )
+        )
+
+    if item.tool == "search_ui_map":
+        raw_hits = payload.get("hits")
+        if isinstance(raw_hits, list):
+            for h in raw_hits:
+                if isinstance(h, dict):
+                    entry_id = h.get("id") or "ui_map_entry"
+                    title = h.get("title") or entry_id
+                    etype = h.get("type") or "element"
+                    path = h.get("path") or "N/A"
+                    workspace = h.get("workspace") or "platform"
+                    summary = h.get("summary") or ""
+                    desc = h.get("description") or ""
+                    related = ", ".join(h.get("related") or [])
+                    aliases = ", ".join(h.get("aliases") or [])
+                    snippet = (
+                        f"Title: {title} | Type: {etype} | Path: {path} | Workspace: {workspace} | Summary: {summary}\n"
+                        f"Description: {desc}\n"
+                        f"Related: {related}\n"
+                        f"Aliases: {aliases}"
+                    )
+                    result.kb_hits.append(
+                        FormattedKbHit(
+                            evidence_id=item.evidence_id,
+                            doc_id=entry_id,
+                            section=f"{title} ({etype})",
+                            revision="Latest",
+                            authority="PLATFORM_UI_MAP",
+                            snippet=snippet,
+                            score=float(h.get("score", 1.0) or 1.0),
+                        )
+                    )
+
+    if item.tool == "search_knowledge" or (item.tool != "search_ui_map" and "hits" in payload):
         raw_hits = payload.get("hits")
         if isinstance(raw_hits, list):
             # Sort LEVEL_A first, then score descending

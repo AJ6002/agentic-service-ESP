@@ -1,0 +1,20 @@
+objective_id: OP15_PLATFORM_GUIDE
+tool: lookup_ui_map_entry
+safety_class: READ
+scope: GLOBAL
+max_gapfill_rounds: 0
+required_evidence: []
+optional_evidence:
+  - lookup_ui_map_entry
+  - search_ui_map
+allowed_visuals:
+  - evidence-cards
+default_visuals: []
+arg_schema:
+  type: object
+  properties:
+    entry_id:
+      type: string
+    query:
+      type: string
+  required: []

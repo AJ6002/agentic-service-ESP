@@ -286,9 +286,8 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
                 latency = round((time.time() - start_time) * 1000, 2)
                 return CallResult(
                     seq=call.seq,
-                    status="FAILED",
-                    error="Tool lookup_ui_map_entry requires entry_id",
-                    error_code="MISSING_ARGUMENT",
+                    status="OK",
+                    raw_response={"found": False, "entry_id": None, "entry": None, "note": "No entry_id provided"},
                     latency_ms=latency,
                 )
             res = await ui_map.lookup_by_id(entry_id, client=client)

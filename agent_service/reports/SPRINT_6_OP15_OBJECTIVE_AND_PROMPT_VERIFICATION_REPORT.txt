@@ -1,0 +1,63 @@
+================================================================================
+SPRINT 6 VERIFICATION REPORT: OP15 PLATFORM GUIDE OBJECTIVE + NARRATOR PROMPT
+================================================================================
+Date: 2026-10-05
+Status: PASSED (All 29/29 UI Map & OP15 Tests Green)
+Scope: OP15 Manifest + Prompt + Direct Invocation Workflow + Acceptance Tests
+
+1. OBJECTIVE MANIFEST (OP15_PLATFORM_GUIDE.yaml)
+--------------------------------------------------------------------------------
+- Location: agent_service/config/objectives/OP15_PLATFORM_GUIDE.yaml
+- Objective ID: OP15_PLATFORM_GUIDE (Short ID: OP15)
+- Tool: lookup_ui_map_entry
+- Safety Class: READ
+- Scope: GLOBAL
+- Optional Evidence: [lookup_ui_map_entry, search_ui_map]
+- Arg Schema: entry_id (string), query (string)
+- Registry verification: Successfully loaded via objective_registry.py
+
+2. NARRATOR PROMPT (narrator_platform_v1.txt)
+--------------------------------------------------------------------------------
+- Location: agent_service/app/llm/prompts/narrator_platform_v1.txt
+- Grounding: Strictly constrained to retrieved ui_map evidence.
+- Citation Mandate: Emits inline citations [entry_id] (e.g. [route.working-status]).
+- Refusal Behavior: Explicit refusal on missing elements ("The requested element or feature is not recognized in the ESP platform UI map.").
+- Word Count & Style: 100-250 words concise technical and navigational synthesis.
+- Wrote & wired into calls.py dispatch table for OP15.
+
+3. PIPELINE & WORKFLOW INTEGRATION
+--------------------------------------------------------------------------------
+- Formatter (app/evidence/formatter.py):
+  * Added extraction for lookup_ui_map_entry (single entry) & search_ui_map (hits).
+  * Injects FormattedKbHit with authority='PLATFORM_UI_MAP' and doc_id=entry_id.
+- Tool Gateway (app/gateway/tool_gateway.py):
+  * Graceful handling for lookup_ui_map_entry when entry_id is omitted during search-only calls.
+- Workflow Runner (app/workflow/runner.py):
+  * Added _OBJECTIVE_HEADERS["OP15"] = "Platform guide:"
+  * Updated target descriptor to "platform guide" for OP15.
+
+4. TEST EXECUTION SUMMARY
+--------------------------------------------------------------------------------
+Command: pytest agent_service/tests -k "ui_map or op15" -v
+Results: 29 passed, 468 deselected in 31.84s
+
+Key Passing Tests:
+[PASS] tests/test_op15_platform_guide.py::test_op15_manifest_loaded
+[PASS] tests/test_op15_platform_guide.py::test_op15_plan_construction_and_policy
+[PASS] tests/test_op15_platform_guide.py::test_op15_evidence_pack_formatting
+[PASS] tests/test_op15_platform_guide.py::test_op15_citation_provenance_check
+[PASS] tests/test_op15_platform_guide.py::test_op15_workflow_direct_invocation_lookup[asyncio]
+[PASS] tests/test_op15_platform_guide.py::test_op15_workflow_direct_invocation_semantic_search[asyncio]
+[PASS] tests/test_op15_platform_guide.py::test_op15_workflow_direct_invocation_concept[asyncio]
+[PASS] tests/test_ui_map_adapter.py (12 tests)
+[PASS] tests/test_ui_map_contract.py (5 tests)
+[PASS] tests/test_ui_map_ingestion.py (5 tests)
+
+Live Workflow Invocation Examples:
+1. Lookup: route.working-status -> Generates "Platform guide:" header, describes /working-status, operations workspace, and cites [route.working-status].
+2. Semantic search: "subsystem equalizer" -> Retrieves component.subsystem-equalizer, describes hydraulic equalizer bars, cites [component.subsystem-equalizer].
+3. Concept: concept.tdh -> Synthesizes Total Dynamic Head explanation, cites [concept.tdh].
+
+================================================================================
+END REPORT
+================================================================================

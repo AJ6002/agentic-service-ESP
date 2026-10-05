@@ -18,10 +18,8 @@ from app.contracts.ui_map import UiMapEntry
 
 def ingest_ui_map(yaml_path: str = None) -> int:
     if yaml_path is None:
-        yaml_path = os.environ.get(
-            "UI_MAP_PATH",
-            str(Path("agent_service/config/ui_map/ui_map.yaml").resolve())
-        )
+        default_p = Path(__file__).resolve().parent.parent / "config" / "ui_map" / "ui_map.yaml"
+        yaml_path = os.environ.get("UI_MAP_PATH", str(default_p))
     
     path_obj = Path(yaml_path)
     if not path_obj.is_file():

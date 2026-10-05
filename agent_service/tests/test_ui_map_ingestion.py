@@ -7,7 +7,7 @@ from app.stores.postgres_client import get_db_cursor
 from scripts.ingest_ui_map_to_postgres import ingest_ui_map
 from scripts.verify_ui_map_retrieval import search_chunks
 
-YAML_PATH = Path("agent_service/config/ui_map/ui_map.yaml")
+YAML_PATH = Path(__file__).resolve().parent.parent / "config" / "ui_map" / "ui_map.yaml"
 
 def test_ui_map_working_copy_exists_and_valid():
     assert YAML_PATH.is_file(), f"Expected UI map YAML at {YAML_PATH}"
