@@ -1,0 +1,45 @@
+- id: "route.working-status"
+  type: "route"
+  title: "Well Working Status & Model Fault Spectrum"
+  path: "/working-status"
+  workspace: "operations"
+  summary: "Comprehensive multi-signal diagnostic dashboard and fault visualization matrix for ESP-lifted wells in the Farha South field."
+  description: "The Well Working Status dashboard serves as the primary real-time operational interface for production engineers monitoring Electric Submersible Pump (ESP) assets across the field. It aggregates downhole sensor telemetry, high-frequency surface electrical signals from the Variable Speed Drive (VSD), and production metrics to provide immediate operational status classification (Running, Degraded, Critical, or Tripped). The view features interactive diagnostic cards including the Smart Fault Card, Subsystem Equalizer, and Multi-Tag Live Trends, allowing operators to diagnose electrical anomalies, gas locking, pump underload, or motor overheating. Users can navigate across multiple timeframes (1h to 30d) to correlate hydraulic and electrical dynamics with field events and operational alerts seamlessly."
+  related:
+    - "component.subsystem-equalizer"
+    - "concept.tdh"
+  aliases:
+    - "working status"
+    - "status page"
+    - "fault spectrum"
+    - "overview dashboard"
+
+- id: "component.subsystem-equalizer"
+  type: "component"
+  title: "Subsystem Equalizer"
+  workspace: "operations"
+  summary: "Visual health index equalizer displaying real-time composite stress and degradation across electrical, hydraulic, mechanical, and thermal subsystems."
+  description: "The Subsystem Equalizer is an interactive diagnostic visualization widget embedded directly within the primary working status dashboard interface. It breaks down overall ESP equipment health into four vital subsystem dimensions: Electrical (voltage balance, current THD, motor insulation), Hydraulic (intake pressure, discharge head, pump efficiency), Mechanical (vibration amplitude, shaft alignment, thrust bearing wear), and Thermal (motor internal winding temperature, pump discharge temperature). Each dimension displays normalized health scores between 0% and 100%, with dynamic threshold coloring (nominal green, warning amber, critical red) enabling immediate root-cause localization when a well is operating in a degraded regime, experiencing severe load fluctuation, or approaching trip conditions."
+  related:
+    - "route.working-status"
+    - "concept.tdh"
+  aliases:
+    - "equalizer"
+    - "subsystem health"
+    - "health equalizer"
+    - "subsystem matrix"
+
+- id: "concept.tdh"
+  type: "concept"
+  title: "Total Dynamic Head (TDH)"
+  workspace: "platform"
+  summary: "The total equivalent height of fluid column that an ESP pump stage assembly must lift, accounting for elevation differential, friction losses, and surface pressure."
+  description: "Total Dynamic Head (TDH) represents the net work required per pound of fluid imparted by the centrifugal pump stages in an Electric Submersible Pump installation. TDH is calculated by summing the net vertical lift from dynamic downhole fluid level to the surface wellhead, the friction head losses incurred across tubing and surface flowlines at operating flow rate, and the head equivalent of wellhead backpressure (WHP). In the ESP APM platform, calculated real-time TDH is continuously compared against pump catalogue H-Q performance curves to detect gas interference, stage wear, fluid viscosity shifts, or severe downhole flow restrictions before irreversible mechanical pump damage occurs."
+  related:
+    - "route.working-status"
+    - "component.subsystem-equalizer"
+  aliases:
+    - "TDH"
+    - "dynamic head"
+    - "pump head"
+    - "head calculation"

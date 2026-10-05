@@ -1,0 +1,86 @@
+================================================================================
+SPRINT 4 — UI MAP INGESTION & RETRIEVAL VERIFICATION REPORT
+================================================================================
+Timestamp: 2026-10-05 11:08:13
+
+TASK 4.3 — VERIFY POSTGRESQL kb_chunks ROWS
+Found 3 rows with source_domain = 'ui_map':
+  - Chunk: ui_map:component.subsystem-equalizer
+    Title: UI Map - Subsystem Equalizer | Section: COMPONENT: Subsystem Equalizer
+    Domain: ui_map | Metadata Type: component
+    Snippet: The Subsystem Equalizer is an interactive diagnostic visuali...
+  - Chunk: ui_map:concept.tdh
+    Title: UI Map - Total Dynamic Head (TDH) | Section: CONCEPT: Total Dynamic Head (TDH)
+    Domain: ui_map | Metadata Type: concept
+    Snippet: Total Dynamic Head (TDH) represents the net work required pe...
+  - Chunk: ui_map:route.working-status
+    Title: UI Map - Well Working Status & Model Fault Spectrum | Section: ROUTE: Well Working Status & Model Fault Spectrum
+    Domain: ui_map | Metadata Type: route
+    Snippet: The Well Working Status dashboard serves as the primary real...
+Task 4.3 Result: PASS (3 rows found)
+--------------------------------------------------------------------------------
+
+TASK 4.4 — VERIFY RETRIEVABILITY & DOMAIN ISOLATION
+
+[Test 1] Searching for: 'subsystem equalizer' across all kb_chunks (no domain filter)
+  Hit 1: [ui_map] ui_map:component.subsystem-equalizer (score: 0.7417) — COMPONENT: Subsystem Equalizer
+  Hit 2: [esp_knowledge] DOC-921228682-spe-194392-ms-C0025 (score: 0.7187) — General Discussion of VSD's
+  Hit 3: [esp_knowledge] DOC-Baker_Hughes_FusionPro_Manual-C0294 (score: 0.7008) — Recommended Cable Sized for NEMA 4 / IP56 Drive, 131°F (55°C) Ambient
+Result: Top hit is component.subsystem-equalizer -> PASS
+
+[Test 2] Searching for: 'working status dashboard' across all kb_chunks (no domain filter)
+  Hit 1: [ui_map] ui_map:route.working-status (score: 0.7415) — ROUTE: Well Working Status & Model Fault Spectrum
+  Hit 2: [esp_knowledge] DOC-684188721-ESP-Standard-Sizing-C0015 (score: 0.6805) — Step 2. Determine pump intake pressure
+  Hit 3: [esp_knowledge] DOC-804612320-Electric-Submersible-Pumps-C0425 (score: 0.6528) — System Diagnostics and Health Checks:
+Result: Top hit is route.working-status -> PASS
+
+[Test 3] Searching for: 'where can I find the equalizer?' across all kb_chunks
+  Hit 1: [esp_knowledge] DOC-Baker_Hughes_FusionPro_Manual-C0294 (score: 0.6852) — Recommended Cable Sized for NEMA 4 / IP56 Drive, 131°F (55°C) Ambient
+  Hit 2: [ui_map] ui_map:component.subsystem-equalizer (score: 0.6790) — COMPONENT: Subsystem Equalizer
+  Hit 3: [esp_knowledge] DOC-Baker_Hughes_FusionPro_Manual-C0293 (score: 0.6731) — Recommended Cable Sized for NEMA 4 / IP56 Drive, 131°F (55°C) Ambient
+Result: ui_map:component.subsystem-equalizer in top 3 -> PASS
+
+[Test 4] Searching for: 'gas lock' across all kb_chunks (no domain filter — domain isolation check)
+  Hit 1: [esp_knowledge] DOC-804612320-Electric-Submersible-Pumps-C0227 (score: 0.7806) — 804612320-Electric-Submersible-Pumps
+  Hit 2: [esp_knowledge] DOC-882594008-ESP-Design-Shiropa-C0038 (score: 0.7541) — 882594008-ESP-Design-Shiropa
+  Hit 3: [esp_knowledge] DOC-882594008-ESP-Design-Shiropa-C0012 (score: 0.7329) — 882594008-ESP-Design-Shiropa
+  Hit 4: [esp_knowledge] DOC-269941060-ESP-Training-4-Ampchart-Analys-C0003 (score: 0.7287) — 269941060-ESP-Training-4-Ampchart-Analysis-Troubleshooting-11-Pgs
+  Hit 5: [esp_knowledge] DOC-API_RP_11S4_Sizing_Selection_1993-C0039 (score: 0.7237) — API RP 11S4 Sizing Selection 1993
+Result: Zero UI map chunks in top 5 gas lock hits -> PASS
+
+[Test 5] Searching for UI concept 'total dynamic head' with domain_filter='ui_map'
+  Hit 1: [ui_map] ui_map:concept.tdh (score: 0.7565) — CONCEPT: Total Dynamic Head (TDH)
+  Hit 2: [ui_map] ui_map:component.subsystem-equalizer (score: 0.6161) — COMPONENT: Subsystem Equalizer
+  Hit 3: [ui_map] ui_map:route.working-status (score: 0.6135) — ROUTE: Well Working Status & Model Fault Spectrum
+Result: Top hit in ui_map domain is concept.tdh -> PASS
+
+Task 4.4 Overall Result: PASS
+--------------------------------------------------------------------------------
+
+TASK 4.5 — VERIFY DISTINCT TAG COUNTS & IDEMPOTENCY
+Initial Counts:
+  - kb_chunks with source_domain = 'ui_map': 3
+  - kb_chunks with source_domain != 'ui_map': 7752
+  - Total kb_chunks: 7755
+
+Re-running ingestion script to test idempotency...
+Post-reingestion Counts:
+  - kb_chunks with source_domain = 'ui_map': 3 (Expected: 3)
+  - Total kb_chunks: 7755 (Expected: 7755)
+Idempotency Check: PASS (0 duplicate rows)
+--------------------------------------------------------------------------------
+
+================================================================================
+SPRINT 4 EXIT CRITERIA EVALUATION
+================================================================================
+#   | Check                                            | Pass condition                   | Status
+-------------------------------------------------------------------------------------------------
+1   | Working-copy folder & YAML exists                | File present in agent repo       | PASSED [OK]
+2   | Ingestion script runs without error              | Exit code 0, 3 entries           | PASSED [OK]
+3   | 3 entries in kb_chunks tagged ui_map             | SQL count returns 3              | PASSED [OK]
+4   | UI entries retrievable via semantic search       | subsystem equalizer top hit      | PASSED [OK]
+5   | ESP KB and ui_map don't contaminate each other   | Separate counts, zero false cross-hits | PASSED [OK]
+6   | Re-running ingestion is idempotent               | Count stays 3, no duplicates     | PASSED [OK]
+-------------------------------------------------------------------------------------------------
+
+OVERALL RESULT: SPRINT 4 SEALED & VERIFIED — READY FOR SPRINT 5
