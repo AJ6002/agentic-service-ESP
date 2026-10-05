@@ -37,7 +37,12 @@ from .evidence import CallResult, EvidenceItem, QoDResult, Gap, Conflict, Eviden
 from .advisory import FormattedValue, FormattedEvidence, Advisory, ProvenanceResult
 from .visualization import VisualizationSpec
 
+from .ui_map import UiMapEntry, UiMapType, UiMapWorkspace
+
 __all__ = [
+    "UiMapEntry",
+    "UiMapType",
+    "UiMapWorkspace",
     "Route",
     "AssetSource",
     "TimeSource",

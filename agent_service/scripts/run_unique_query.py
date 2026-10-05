@@ -10,7 +10,7 @@ import time
 import os
 from pathlib import Path
 
-LLM_URL = "http://192.168.1.188:8080/v1/models"
+LLM_URL = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.134:8080/v1") + "/models"
 AGENT_SERVICE_URL = "http://127.0.0.1:8091/query"
 REPORTS_DIR = Path("a:/TAS-AI/ESP/reports")
 OUTPUT_FILE = REPORTS_DIR / "UNIQUE_QUERY_GLR_RAW_OUTPUT.txt"
@@ -21,7 +21,7 @@ def main():
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     
     print("=" * 80)
-    print("1. PINGING LLM GATEWAY (http://192.168.1.188:8080/v1/models)")
+    print(f"1. PINGING LLM GATEWAY ({LLM_URL})")
     print("=" * 80)
     try:
         r_llm = httpx.get(LLM_URL, timeout=5.0)
