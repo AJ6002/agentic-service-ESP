@@ -18,6 +18,7 @@ class RouterInput(BaseModel):
     turn_count: int = 0
     candidate_objectives: list[str] = Field(default_factory=list)
     candidate_tools: list[str] = Field(default_factory=list)
+    selected_route: str | None = None
 
 class RouteDecision(BaseModel):
     route: Route

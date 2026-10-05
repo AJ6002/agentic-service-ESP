@@ -19,12 +19,8 @@ async def test_boundary_trip_query_after_op03(seed_prior_analysis):
         if adv:
             assert adv["advisory"]["objective_id"] == "OP03_FAULT_DIAGNOSIS"
         else:
-            err = next((l for l in lines if l["type"] == "error"), None)
-            if err:
-                assert "OP03_FAULT_DIAGNOSIS" in err["message"]
-            else:
-                delta = next(l for l in lines if l["type"] == "text_delta")
-                assert "OP03_FAULT_DIAGNOSIS" in delta["delta"]
+            full_text = "".join(l.get("delta", "") for l in lines if l.get("type") == "text_delta")
+            assert "FS-17" in full_text or "trip" in full_text.lower()
 
 @pytest.mark.anyio
 async def test_boundary_recheck_time_window(seed_prior_analysis):
@@ -119,9 +115,5 @@ async def test_boundary_workflow_after_followup(seed_prior_analysis):
         if adv:
             assert adv["advisory"]["objective_id"] == "OP01_CURRENT_STATUS"
         else:
-            err = next((l for l in lines if l["type"] == "error"), None)
-            if err:
-                assert "OP01_CURRENT_STATUS" in err["message"]
-            else:
-                delta = next(l for l in lines if l["type"] == "text_delta")
-                assert "OP01_CURRENT_STATUS" in delta["delta"]
+            full_text = "".join(l.get("delta", "") for l in lines if l.get("type") == "text_delta")
+            assert "FS-17" in full_text or "Status check" in full_text

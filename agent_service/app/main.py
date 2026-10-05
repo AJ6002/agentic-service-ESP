@@ -397,6 +397,7 @@ async def handle_query(req: QueryRequest):
         turn_count=frame.session_snapshot.turn_count + 1,
         candidate_objectives=cand_obj,
         candidate_tools=cand_tools,
+        selected_route=frame.selected_route,
     )
 
     _t0 = time.perf_counter()

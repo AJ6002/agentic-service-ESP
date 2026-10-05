@@ -1,0 +1,99 @@
+================================================================================
+SPRINT 7 VERIFICATION REPORT: AGENT ROUTER + RESOLVER (OP15 & selected_route HINT)
+================================================================================
+Timestamp: 2026-10-05
+Repository: Agent Service (agent_service)
+Scope: Router Prompt, Deterministic Pre-LLM Fallback, Context Frame Hinting, Acceptance Matrix
+
+--------------------------------------------------------------------------------
+1. EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+Sprint 7 updates the agent routing and resolver pipeline to accurately recognize
+platform-guide queries and dispatch them to OP15 (Platform Guide), while using
+the ephemeral `selected_route` context frame parameter as an ambiguity hint.
+
+Domain boundary isolation is strictly maintained:
+- OP06 (Knowledge Lookup): ESP engineering/physics concepts (gas lock, TDH, water cut)
+- OP15 (Platform Guide): UI elements, pages, equalizer widgets, navigation, charts
+- Ambiguity rule: Concept questions like "What is TDH?" default to OP06 unless the
+  query explicitly refers to UI/dashboard elements ("on this page", "in the dashboard").
+
+--------------------------------------------------------------------------------
+2. IMPLEMENTATION DETAILS
+--------------------------------------------------------------------------------
+Task 7.1 — Router Prompt Update:
+- Updated `app/llm/prompts/router_v2.txt` with Rule `-0.5 PLATFORM & UI NAVIGATION INTENT`
+- Outlines clear routing to `OP15_PLATFORM_GUIDE` (route: WORKFLOW) for UI screen,
+  widget, chart, and navigation questions.
+- Includes clear ambiguity resolution prioritizing OP06 for physics concepts.
+
+Task 7.2 — Deterministic Regex Fallback:
+- Added `PLATFORM_GUIDE_PATTERNS` to `app/routing/router.py`.
+- Evaluated in pre-LLM step (Step 0.2) and keyword fallback.
+- Ensures zero LLM overhead for direct phrasings:
+    * "what is/does this/the page/screen/tab/widget/chart"
+    * "explain this/the page/screen/tab/widget/chart"
+    * "how do I get to/find/navigate to"
+    * "where is/can I find"
+    * "what is the .* (page|widget|chart)"
+- Anchored against well IDs to avoid hijacking fault diagnosis (OP03) or telemetry (OP01).
+
+Task 7.3 — Use `selected_route` as a Hint:
+- Updated `RouterInput` contract in `app/contracts/routing.py` with `selected_route`.
+- Wired `frame.selected_route` into `RouterInput` from `app/main.py`.
+- Injected `Current UI Route Context: {router_input.selected_route}` into router prompt.
+- Handled contextual phrases like "explain this chart" by biasing toward OP15 when
+  `selected_route` is present.
+- Storage: Ephemeral on ContextFrame, discarded after routing, never written to Redis.
+
+--------------------------------------------------------------------------------
+3. ACCEPTANCE TEST MATRIX (Task 7.4)
+--------------------------------------------------------------------------------
+Test file: `tests/test_router_op15.py`
+Results: 9 / 9 PASSED
+
+| # | Query                                      | UI Context         | Route    | Objective             | Result |
+|---|--------------------------------------------|--------------------|----------|-----------------------|--------|
+| 1 | "what is the working status page"          | None               | WORKFLOW | OP15_PLATFORM_GUIDE   | PASSED |
+| 2 | "what does the subsystem equalizer show"   | None               | WORKFLOW | OP15_PLATFORM_GUIDE   | PASSED |
+| 3 | "how do I get to reliability"              | None               | WORKFLOW | OP15_PLATFORM_GUIDE   | PASSED |
+| 4 | "explain this chart"                       | /working-status    | WORKFLOW | OP15_PLATFORM_GUIDE   | PASSED |
+| 5 | "What is gas lock?"                        | None               | SIMPLE   | OP06_KNOWLEDGE_LOOKUP | PASSED |
+| 6 | "What is TDH?"                             | None               | SIMPLE   | OP06_KNOWLEDGE_LOOKUP | PASSED |
+| 7 | "Why did FS-17 trip?"                      | None               | WORKFLOW | OP03_FAULT_DIAGNOSIS  | PASSED |
+| 8 | "What are you?"                            | None               | IDENTITY | None                  | PASSED |
+| 9 | "What is the current status of FS-17?"     | None               | WORKFLOW | OP01_STATUS_SUMMARY   | PASSED |
+
+--------------------------------------------------------------------------------
+4. LIVE HTTP ENDPOINT VERIFICATION (Task 7.5)
+--------------------------------------------------------------------------------
+Endpoint: POST http://127.0.0.1:8091/query
+
+Case 1: "what is the working status page" (ui_context: {"selected_route": "/working-status"})
+- Response: Platform guide advisory for Working Status page (OP15), 0 cards.
+- Status: VERIFIED
+
+Case 2: "what does the subsystem equalizer show"
+- Response: Platform guide advisory for Subsystem Equalizer widget (OP15), 0 cards.
+- Status: VERIFIED
+
+Case 3: "What is gas lock?"
+- Response: Knowledge lookup advisory on Gas Lock concept (OP06), 0 cards.
+- Status: VERIFIED
+
+Case 4: "Why did FS-17 trip?"
+- Response: Fault diagnosis workflow advisory for FS-17 (OP03), 4 visual cards.
+- Status: VERIFIED
+
+--------------------------------------------------------------------------------
+5. SUITE REGRESSION STATUS
+--------------------------------------------------------------------------------
+- `test_router_op15.py`: 9 / 9 passed
+- `test_op15_platform_guide.py`: 7 / 7 passed
+- `test_ui_map_adapter.py`: 12 / 12 passed
+- `test_followup_boundary.py`: 6 / 6 passed
+- Total targeted regression: 34 / 34 PASSED
+
+================================================================================
+END OF REPORT — SPRINT 7 COMPLETE
+================================================================================

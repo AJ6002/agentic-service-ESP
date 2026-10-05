@@ -50,6 +50,20 @@ IDENTITY_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+PLATFORM_GUIDE_PATTERNS = re.compile(
+    r"\b("
+    r"what\s+(is|does)\s+(this|the)\s+(page|screen|tab|widget|chart|view|dashboard|interface)|"
+    r"explain\s+(this|the)\s+(page|screen|tab|widget|chart|view|dashboard|interface)|"
+    r"how\s+do\s+i\s+(get\s+to|find|navigate\s+to)|"
+    r"where\s+(is|can\s+i\s+find)\b(?!.*\b(well|fs-\d+|fnw-\d+|fws-\d+|ulfa-\d+)\b)|"
+    r"what\s+is\s+the\s+.*(page|screen|tab|widget|view|dashboard|interface)|"
+    r"what\s+does\s+the\s+subsystem\s+equalizer\s+show|"
+    r"what\s+(does|is)\s+the\s+.*equalizer|"
+    r"how\s+do\s+i\s+get\s+to\s+[a-zA-Z0-9_\-]+"
+    r")\b",
+    re.IGNORECASE,
+)
+
 
 
 @dataclass
@@ -95,6 +109,21 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             clarification_needed=False,
         )
 
+
+    # Platform guide guard: UI elements, routes, components -> OP15_PLATFORM_GUIDE
+    is_platform_ask = bool(PLATFORM_GUIDE_PATTERNS.search(router_input.raw_message)) or bool(
+        router_input.selected_route and re.search(r"\b(explain|what is|what does|show)\s+(this|the)\s+(chart|plot|graph|screen|page|widget|view|dashboard)\b", router_input.raw_message, re.IGNORECASE)
+    )
+    if is_platform_ask:
+        return RouteDecision(
+            route="WORKFLOW",
+            intent="platform_guide",
+            objective_id="OP15_PLATFORM_GUIDE",
+            args={"query": router_input.raw_message},
+            confidence=0.9,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
 
     # Recheck / rerun guard: re-verifying a diagnosis -> OP03 or prior objective
     if any(w in raw_lower for w in ["recheck", "re-check", "rerun", "re-run", "check again"]):
@@ -280,11 +309,16 @@ def _build_context_block(router_input: RouterInput, available_objectives: list[s
     (prompting/parsing-only), so the LLM call module stays domain-agnostic
     about what a RouterInput even is.
     """
-    return (
-        f"Resolved Asset: {router_input.asset_id} (Source: {router_input.asset_source})\n"
-        f"Available Objectives: {available_objectives}\n"
-        f"Candidate Tools: {router_input.candidate_tools}"
-    )
+    lines = [
+        f"Resolved Asset: {router_input.asset_id} (Source: {router_input.asset_source})",
+    ]
+    if router_input.selected_route:
+        lines.append(f"Current UI Route Context: {router_input.selected_route}")
+    lines.extend([
+        f"Available Objectives: {available_objectives}",
+        f"Candidate Tools: {router_input.candidate_tools}",
+    ])
+    return "\n".join(lines)
 
 
 async def route_query(router_input: RouterInput) -> RouteDecision:
@@ -339,6 +373,25 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 objective_id=None,
                 args={},
                 confidence=1.0,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
+    # 0.2 Deterministic platform guide guard: UI elements, routes, screens -> OP15_PLATFORM_GUIDE
+    is_platform_ask = bool(PLATFORM_GUIDE_PATTERNS.search(router_input.raw_message)) or bool(
+        router_input.selected_route and re.search(r"\b(explain|what is|what does|show)\s+(this|the)\s+(chart|plot|graph|screen|page|widget|view|dashboard)\b", router_input.raw_message, re.IGNORECASE)
+    )
+    if is_platform_ask and not WELL_ID_REGEX.search(router_input.raw_message):
+        return RouteResult(
+            decision=RouteDecision(
+                route="WORKFLOW",
+                intent="platform_guide",
+                objective_id="OP15_PLATFORM_GUIDE",
+                args={"query": router_input.raw_message},
+                confidence=0.95,
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
