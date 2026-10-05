@@ -1,0 +1,68 @@
+================================================================================
+SPRINT 5 — UI MAP ADAPTER & TOOL REGISTRATION VERIFICATION REPORT
+================================================================================
+Timestamp: 2026-10-05 11:17:22
+
+TASK 5.1 — ADAPTER DIRECT OPERATIONS (lookup_by_id & search_ui_map)
+
+[1] Testing lookup_by_id('component.subsystem-equalizer'):
+  ID: component.subsystem-equalizer
+  Type: component
+  Title: Subsystem Equalizer
+  Workspace: operations
+  Summary: Visual health index equalizer displaying real-time composite stress and degradat...
+  Description: The Subsystem Equalizer is an interactive diagnostic visualization widget embedd...
+  Related: ['route.working-status', 'concept.tdh']
+  Aliases: ['equalizer', 'subsystem health', 'health equalizer', 'subsystem matrix']
+  All 9 required fields present: True
+
+[2] Testing lookup_by_id('nonexistent.fake-entity-99'):
+  Lookup returned: None (Expected: None)
+
+[3] Testing search_ui_map('subsystem equalizer', top_k=3):
+  Hit 1: [component] component.subsystem-equalizer (score: 0.7417) — Subsystem Equalizer
+  Hit 2: [route] route.working-status (score: 0.5628) — Well Working Status & Model Fault Spectrum
+  Hit 3: [concept] concept.tdh (score: 0.4858) — Total Dynamic Head (TDH)
+  Top hit is component.subsystem-equalizer: True
+
+[4] Testing search_ui_map('gas lock', top_k=3) for domain isolation:
+  Returned 3 hits from ui_map domain.
+  Hit 1: [route] route.working-status (score: 0.5627) — Well Working Status & Model Fault Spectrum
+  Hit 2: [concept] concept.tdh (score: 0.5371) — Total Dynamic Head (TDH)
+  Hit 3: [component] component.subsystem-equalizer (score: 0.5002) — Subsystem Equalizer
+  Domain isolation verified (zero ESP doc chunks returned): True
+
+--------------------------------------------------------------------------------
+TASK 5.2 — TOOL GATEWAY REGISTRATION & DISPATCH
+
+[5] Dispatching PlanCall tool='lookup_ui_map_entry' via execute_tool_call:
+  Status: OK | Latency: 37.0ms
+  Raw response found: True
+  Entry: route.working-status | Path: /working-status | Title: Well Working Status & Model Fault Spectrum
+
+[6] Dispatching PlanCall tool='search_ui_map' via execute_tool_call:
+  Status: OK | Latency: 67.0ms
+  Returned 2 hits:
+    Hit 1: concept.tdh (score: 0.7341) — Total Dynamic Head (TDH)
+    Hit 2: route.working-status (score: 0.6145) — Well Working Status & Model Fault Spectrum
+
+[7] Policy Gate and Domain Capability Probing:
+  Policy Gate ALLOWED_TOOLS registered: True
+  Capability probe 'ui_map' status: AVAILABLE
+  Schema consistency (9 fields across all responses): True
+
+================================================================================
+SPRINT 5 EXIT CRITERIA EVALUATION
+================================================================================
+#   | Check                                | Pass condition                                     | Status
+---------------------------------------------------------------------------------------------------------
+1   | Adapter has two operations           | lookup_by_id and search both present               | PASSED [OK]
+2   | Both tools registered                | Tool gateway and policy gate list both             | PASSED [OK]
+3   | Lookup by ID works                   | Returns full entry with all 9 fields               | PASSED [OK]
+4   | Lookup by missing ID refuses         | Returns None, never fabricates                     | PASSED [OK]
+5   | Semantic search works                | 'subsystem equalizer' returns equalizer as top hit | PASSED [OK]
+6   | Domain filter works                  | Queries strictly search ui_map without cross-contamination | PASSED [OK]
+7   | Schema consistency                   | Every response has all 9 fields                    | PASSED [OK]
+---------------------------------------------------------------------------------------------------------
+
+OVERALL RESULT: SPRINT 5 SEALED & VERIFIED — READY FOR SPRINT 6

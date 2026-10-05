@@ -32,6 +32,8 @@ ALLOWED_TOOLS = {
     "get_cards_catalog",
     "get_live_wells",
     "set_operating_frequency",
+    "lookup_ui_map_entry",
+    "search_ui_map",
 }
 
 def validate_plan(plan: PlanArtifact) -> PolicyResult:

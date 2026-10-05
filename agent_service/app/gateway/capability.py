@@ -8,7 +8,7 @@ from typing import Optional
 import httpx
 
 from app.contracts.enums import AdapterStatus
-from .adapters import cards, events, historian, kb, kpi, live, ml
+from .adapters import cards, events, historian, kb, kpi, live, ml, ui_map
 
 
 async def check_domain_status(domain: str, client: Optional[httpx.AsyncClient] = None) -> AdapterStatus:
@@ -20,6 +20,12 @@ async def check_domain_status(domain: str, client: Optional[httpx.AsyncClient] =
         if domain == "kb":
             health = await kb.check_kb_health(client=client)
             if health.get("status") == "HEALTHY" and health.get("chunks", 0) > 0:
+                return "AVAILABLE"
+            return "DEGRADED"
+
+        elif domain == "ui_map":
+            health = await ui_map.check_ui_map_health(client=client)
+            if health.get("status") == "HEALTHY" and health.get("count", 0) > 0:
                 return "AVAILABLE"
             return "DEGRADED"
 
@@ -55,8 +61,8 @@ async def check_domain_status(domain: str, client: Optional[httpx.AsyncClient] =
 
 
 async def probe_all_capabilities(client: Optional[httpx.AsyncClient] = None) -> dict[str, AdapterStatus]:
-    """Probes all 7 domains against PostgreSQL and returns status dictionary."""
-    domains = ["live", "historian", "events", "ml", "kpi", "cards", "kb"]
+    """Probes all domains against PostgreSQL and returns status dictionary."""
+    domains = ["live", "historian", "events", "ml", "kpi", "cards", "kb", "ui_map"]
     results = {}
     for d in domains:
         results[d] = await check_domain_status(d, client=client)

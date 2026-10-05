@@ -17,7 +17,7 @@ from app.contracts.enums import AdapterStatus
 from app.contracts.evidence import CallResult
 from app.contracts.plan import PlanArtifact, PlanCall
 from app.context.well_ids import normalize_well_id
-from .adapters import cards, events, historian, kb, kpi, live, ml
+from .adapters import cards, events, historian, kb, kpi, live, ml, ui_map
 from .adapters.common import AdapterError, DEFAULT_TIMEOUT_SEC
 
 _FAULT_MAPPING_CACHE: Optional[dict[str, Any]] = None
@@ -93,7 +93,16 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
             latency = round((time.time() - start_time) * 1000, 2)
             return CallResult(seq=call.seq, status="OK", raw_response=data, latency_ms=latency)
 
-        if not well_id and tool not in ("get_cards_catalog", "get_fleet_kpi", "get_live_wells", "get_fault_taxonomy", "trace_causal_graph", "search_knowledge"):
+        if not well_id and tool not in (
+            "get_cards_catalog",
+            "get_fleet_kpi",
+            "get_live_wells",
+            "get_fault_taxonomy",
+            "trace_causal_graph",
+            "search_knowledge",
+            "lookup_ui_map_entry",
+            "search_ui_map",
+        ):
             latency = round((time.time() - start_time) * 1000, 2)
             return CallResult(
                 seq=call.seq,
@@ -270,6 +279,34 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
                 )
             observed_params = args.get("observed_parameters")
             data = await kb.trace_kb_graph(symptom_ids, observed_parameters=observed_params, client=client)
+
+        elif tool == "lookup_ui_map_entry":
+            entry_id = args.get("entry_id") or args.get("id")
+            if not entry_id:
+                latency = round((time.time() - start_time) * 1000, 2)
+                return CallResult(
+                    seq=call.seq,
+                    status="FAILED",
+                    error="Tool lookup_ui_map_entry requires entry_id",
+                    error_code="MISSING_ARGUMENT",
+                    latency_ms=latency,
+                )
+            res = await ui_map.lookup_by_id(entry_id, client=client)
+            if res is None:
+                latency = round((time.time() - start_time) * 1000, 2)
+                return CallResult(
+                    seq=call.seq,
+                    status="OK",
+                    raw_response={"found": False, "entry_id": entry_id, "entry": None},
+                    latency_ms=latency,
+                )
+            data = {"found": True, "entry_id": entry_id, "entry": res}
+
+        elif tool == "search_ui_map":
+            query = args.get("query") or ""
+            top_k = int(args.get("top_k", 5))
+            hits = await ui_map.search_ui_map(query, top_k=top_k, client=client)
+            data = {"query": query, "hits": hits, "count": len(hits)}
 
         else:
             latency = round((time.time() - start_time) * 1000, 2)
