@@ -87,6 +87,7 @@ async def route(raw_message: str, context_block: str) -> RouteDecision:
         user_content=user_content,
         temperature=0.0,
         caller="router",
+        max_tokens=384,
     )
     decision = _try_parse_route_decision(content)
     if decision is not None:
@@ -101,6 +102,7 @@ async def route(raw_message: str, context_block: str) -> RouteDecision:
         user_content=user_content,
         temperature=0.0,
         caller="router_retry",
+        max_tokens=384,
     )
     decision = _try_parse_route_decision(retry_content)
     if decision is not None:
@@ -132,6 +134,7 @@ async def direct_answer(query: str) -> str:
         user_content=query,
         temperature=0.2,
         caller="direct_handler",
+        max_tokens=512,
     )
 
 

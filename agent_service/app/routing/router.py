@@ -36,7 +36,7 @@ DEFINITIONAL_PATTERNS = re.compile(
 )
 
 GREETING_PATTERNS = re.compile(
-    r"^\s*(hi|hii|hello|hey|greetings|good\s+(morning|afternoon|evening)|howdy)\b",
+    r"^\s*(hi|hii|hello|hey|greetings|good\s+(morning|afternoon|evening)|howdy|how\s+are\s+(you|u)(\s+doing)?|how('s|s)\s+(it\s+going|everything|things)|how\s+do\s+you\s+do)\b",
     re.IGNORECASE,
 )
 

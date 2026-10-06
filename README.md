@@ -78,7 +78,7 @@ ESP/
 | `8090` | `192.168.1.184` | Server 3 Backend API | FastAPI backend for telemetry, historian & ML inferencing |
 | `8085` | `192.168.1.184` | KB Qdrant Service | Vector Knowledge Base semantic search |
 | `8091` | `127.0.0.1` | Agent Service API | FastAPI agent co-pilot & decision gateway |
-| `8080` | `192.168.1.188` | Local LLM Server | `llama-server` running Qwen2.5-Coder-3B-Instruct |
+| `8080` | `192.168.1.134` | Local LLM Server | `llama-server` running Qwen3.5-9B-Q4_K_M |
 | `6379` | `192.168.1.184` | Redis | Session state, audit trails & HITL approvals |
 
 ---

@@ -44,7 +44,7 @@ def _config() -> tuple[str, str, float]:
         load_dotenv(env_path)
     else:
         load_dotenv()
-    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.188:8080/v1")
+    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.134:8080/v1")
     model_name = os.getenv("LLM_MODEL_NAME", "Qwen3.5-9B-Q4_K_M")
     timeout = float(os.getenv("LLM_TIMEOUT_SEC", "300.0"))
     return llm_url, model_name, timeout
@@ -55,6 +55,7 @@ async def call_llm_chat(
     user_content: str,
     temperature: float = 0.0,
     caller: str = "unknown",
+    max_tokens: int = 1024,
 ) -> str:
     """
     Calls the LLM gateway's chat/completions endpoint.
@@ -81,7 +82,7 @@ async def call_llm_chat(
                         {"role": "user", "content": user_content},
                     ],
                     "temperature": temperature,
-                    "max_tokens": 2048,
+                    "max_tokens": max_tokens,
                 },
             )
     except (httpx.ConnectError, httpx.TimeoutException, httpx.TransportError) as ex:
@@ -112,3 +113,4 @@ async def call_llm_chat(
         raise LLMUnavailableError(f"LLM gateway returned malformed response: {ex}") from ex
 
     return content
+
