@@ -154,3 +154,4 @@ Thumbs.db
 scratch/
 .system_generated/
 api_01_backup/
+.playwright-mcp/

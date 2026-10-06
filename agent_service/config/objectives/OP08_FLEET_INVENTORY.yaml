@@ -1,0 +1,20 @@
+objective_id: OP08_FLEET_INVENTORY
+tool: get_live_wells
+safety_class: READ
+scope: FLEET
+max_gapfill_rounds: 0
+required_evidence:
+  - get_live_wells
+optional_evidence:
+  - get_fleet_kpi
+allowed_visuals:
+  - fleet-health
+  - fleet-health-table
+  - system_operational_summary
+default_visuals:
+  - fleet-health-table
+  - system_operational_summary
+arg_schema:
+  type: object
+  properties: {}
+  required: []

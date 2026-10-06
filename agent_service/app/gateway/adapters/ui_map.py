@@ -94,11 +94,12 @@ async def lookup_by_id(
                   AND (
                     metadata->>'id' = %s
                     OR metadata->>'id' ILIKE %s
+                    OR metadata->>'path' = %s
                     OR chunk_id = %s
                     OR chunk_id = %s
                   )
                 LIMIT 1;
-            """, (clean_id, clean_id, clean_id, f"ui_map:{clean_id}"))
+            """, (clean_id, clean_id, clean_id, clean_id, f"ui_map:{clean_id}"))
             
             row = cur.fetchone()
             if not row:

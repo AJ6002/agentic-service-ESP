@@ -208,6 +208,12 @@ async def narrate(objective_id: str, formatted_evidence_text: str, user_query: s
         system_prompt = load_prompt("narrator_procedure_v1.txt")
     elif "OP15" in objective_id:
         system_prompt = load_prompt("narrator_platform_v1.txt")
+    elif "OP08" in objective_id:
+        system_prompt = load_prompt("narrator_fleet_inventory_v1.txt")
+    elif "OP09" in objective_id:
+        system_prompt = load_prompt("narrator_fleet_optimization_v1.txt")
+    elif "OP13" in objective_id:
+        system_prompt = load_prompt("narrator_fleet_executive_v1.txt")
     else:
         system_prompt = load_prompt("narrator_v1.txt")
     user_content = (

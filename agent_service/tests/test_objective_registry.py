@@ -41,3 +41,34 @@ def test_get_objective_details():
     assert op14.tool == "get_historian_window"
     assert "get_historian_aggregates" in op14.required_evidence
     assert "get_events" in op14.required_evidence
+
+    # OP08
+    op08 = get_objective("OP08")
+    assert op08 is not None
+    assert op08.objective_id == "OP08_FLEET_INVENTORY"
+    assert op08.tool == "get_live_wells"
+    assert op08.scope == "FLEET"
+    assert "get_live_wells" in op08.required_evidence
+    assert "asset_id" not in op08.arg_schema.get("required", [])
+
+    # OP09
+    op09 = get_objective("OP09")
+    assert op09 is not None
+    assert op09.objective_id == "OP09_FLEET_PRODUCTION_OPTIMIZATION"
+    assert op09.tool == "get_fleet_kpi"
+    assert op09.scope == "FLEET"
+    assert "get_fleet_kpi" in op09.required_evidence
+    assert "get_fleet_health" in op09.required_evidence
+    assert "asset_id" not in op09.arg_schema.get("required", [])
+
+    # OP13
+    op13 = get_objective("OP13")
+    assert op13 is not None
+    assert op13.objective_id == "OP13_FLEET_EXECUTIVE_REPORT"
+    assert op13.tool == "get_fleet_kpi"
+    assert op13.scope == "FLEET"
+    assert "get_fleet_kpi" in op13.required_evidence
+    assert "get_fleet_health" in op13.required_evidence
+    assert "get_fleet_events" in op13.required_evidence
+    assert "asset_id" not in op13.arg_schema.get("required", [])
+

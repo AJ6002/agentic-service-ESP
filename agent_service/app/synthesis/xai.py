@@ -36,24 +36,30 @@ def format_evidence_for_prompt(evidence: FormattedEvidence) -> str:
     # 1. Discrete Events & Trip History
     if evidence.events:
         ev_lines = ["--- OPERATIONAL EVENTS & TRIP RECORDS ---"]
-        for ev in evidence.events:
+        display_events = evidence.events[:25]
+        for ev in display_events:
+            well_part = f"Well: {ev.well_id} | " if ev.well_id else ""
             if ev.is_empty_window:
                 w_info = f"({ev.window_start} to {ev.window_end})" if ev.window_start and ev.window_end else ""
-                ev_lines.append(f"- [{ev.evidence_id}] Events in window {w_info}: 0 events recorded (quiescent).")
+                well_prefix = f" [{ev.well_id}]" if ev.well_id else ""
+                ev_lines.append(f"- [{ev.evidence_id}]{well_prefix} Events in window {w_info}: 0 events recorded (quiescent).")
             else:
                 alarms_str = ", ".join(ev.alarms) if ev.alarms else "None"
                 ev_lines.append(
-                    f"- [{ev.evidence_id}] Event ID: {ev.event_id} | Timestamp: {ev.timestamp} | "
+                    f"- [{ev.evidence_id}] {well_part}Event ID: {ev.event_id} | Timestamp: {ev.timestamp} | "
                     f"State: {ev.operating_state} | Cause: {ev.trip_cause or 'N/A'} | "
                     f"Scenario: {ev.scenario or 'N/A'} | Alarms: [{alarms_str}]"
                 )
+        if len(evidence.events) > len(display_events):
+            ev_lines.append(f"- ... and {len(evidence.events) - len(display_events)} additional historical events recorded in this window.")
         sections.append("\n".join(ev_lines))
 
     # 2. Numeric Sensor & KPI Measurements
     if evidence.values:
         val_lines = ["--- SENSOR & KPI MEASUREMENTS ---"]
         for item in evidence.values:
-            val_lines.append(f"- [{item.evidence_id}] {item.signal}: {item.value_str} (Unit: {item.unit})")
+            well_str = f" [Well: {item.well_id}]" if item.well_id else ""
+            val_lines.append(f"- [{item.evidence_id}]{well_str} {item.signal}: {item.value_str} (Unit: {item.unit})")
         sections.append("\n".join(val_lines))
 
 
@@ -61,8 +67,9 @@ def format_evidence_for_prompt(evidence: FormattedEvidence) -> str:
     if hasattr(evidence, "kb_hits") and evidence.kb_hits:
         kb_lines = ["--- APPROVED KNOWLEDGE BASE CITATIONS & STANDARDS ---"]
         for hit in evidence.kb_hits:
+            doc_label = "Entry ID" if hit.authority == "PLATFORM_UI_MAP" else "Document"
             kb_lines.append(
-                f"- [{hit.evidence_id}] Document: {hit.doc_id} | Section: {hit.section} | "
+                f"- [{hit.evidence_id}] {doc_label}: {hit.doc_id} | Section: {hit.section} | "
                 f"Authority: {hit.authority} | Page: {hit.page or 'N/A'} | Relevance Score: {hit.score:.2f}\n"
                 f"  Snippet: \"{hit.snippet}\""
             )

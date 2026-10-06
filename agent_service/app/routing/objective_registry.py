@@ -43,7 +43,9 @@ def load_objective_registry(
     return _OBJECTIVES
 
 
-def get_objective(objective_id: str) -> Optional[ObjectiveManifest]:
+def get_objective(objective_id: Optional[str]) -> Optional[ObjectiveManifest]:
+    if not objective_id:
+        return None
     registry = load_objective_registry()
     if objective_id in registry:
         return registry[objective_id]

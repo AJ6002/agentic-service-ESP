@@ -108,22 +108,22 @@ class TestQoDEngine:
 
     def test_stale_warning_accepted_marked(self):
         """
-        age_sec=10 exceeds warning threshold (5s) but not critical (30s).
+        age_sec=120 exceeds warning threshold (60s) but not critical (86400s).
         Accepted but EvidenceItem.status = STALE.
         """
-        payload = _live_telemetry_payload(age_sec=10.0)
+        payload = _live_telemetry_payload(age_sec=120.0)
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-004", tool="get_live_telemetry")
         assert qod.accepted is True
         assert qod.evidence_item.status == "STALE"
 
     def test_stale_critical_rejected(self):
-        """age_sec=45 exceeds critical threshold (30s) → rejected."""
-        payload = _live_telemetry_payload(age_sec=45.0)
+        """age_sec=100000 exceeds critical threshold (86400s) → rejected."""
+        payload = _live_telemetry_payload(age_sec=100000.0)
         result = _make_ok_result(1, payload)
         qod = validate(result, run_id="run-005", tool="get_live_telemetry")
         assert qod.accepted is False
-        assert "critical" in qod.rejection_reason.lower() or "45" in qod.rejection_reason
+        assert "critical" in qod.rejection_reason.lower() or "100000" in qod.rejection_reason
 
     def test_failed_result_rejected(self):
         """FAILED CallResult → always rejected."""
@@ -375,7 +375,7 @@ class TestPhase1EndToEnd:
         produces ABSENT; it only verified that a manually-constructed Gap
         object satisfies the assertion.
         """
-        stale_cr = _make_ok_result(1, _live_telemetry_payload(age_sec=45.0))
+        stale_cr = _make_ok_result(1, _live_telemetry_payload(age_sec=100000.0))
         absent_cr = _make_failed_result(2, "Knowledge Base is ABSENT (no backend endpoint)")
         absent_cr.error_code = "ABSENT"
 

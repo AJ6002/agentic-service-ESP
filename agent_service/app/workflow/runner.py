@@ -77,18 +77,40 @@ _OBJECTIVE_HEADERS: dict[str, str] = {
     "OP04": "Health assessment for {asset}:",
     "OP05": "Early-warning assessment for {asset}:",
     "OP06": "Knowledge lookup:",
+    "OP08": "Fleet analysis (objective: {objective_id}):",
+    "OP09": "Fleet analysis (objective: {objective_id}):",
+    "OP13": "Fleet analysis (objective: {objective_id}):",
     "OP14": "Historical review for {asset}:",
     "OP15": "Platform guide:",
 }
 
 
-def _objective_header(objective_id: str, asset_id: str) -> str:
-    """Returns the correct human-readable header line for an objective."""
+def _objective_header(
+    objective_id: str,
+    asset_id: Optional[str] = None,
+    scope: Optional[str] = None,
+) -> str:
+    """Returns the correct human-readable header line for an objective based on scope."""
+    # 1. Fleet-wide scope
+    if scope == "FLEET" or any(p in objective_id for p in ("OP08", "OP09", "OP13", "FLEET")):
+        return f"Fleet analysis (objective: {objective_id}):"
+
+    # 2. Global / Platform-wide scope
+    if scope == "GLOBAL" or any(p in objective_id for p in ("OP06", "OP07", "OP15", "GLOBAL")):
+        if "OP06" in objective_id:
+            return "Knowledge lookup:"
+        if "OP15" in objective_id:
+            return "Platform guide:"
+        return f"Analysis (objective: {objective_id}):"
+
+    # 3. Asset scope
+    well_id = asset_id or "the selected asset"
     for prefix, tmpl in _OBJECTIVE_HEADERS.items():
-        if prefix in objective_id:
-            return tmpl.format(asset=asset_id)
-    # Fallback — still identifies objective
-    return f"Diagnostic run for {asset_id} (objective: {objective_id}):"
+        if prefix in objective_id and "{asset}" in tmpl:
+            return tmpl.format(asset=well_id)
+
+    # Fallback for asset scope
+    return f"Diagnostic run for {well_id} (objective: {objective_id}):"
 
 
 def _format_advisory_text(
@@ -99,13 +121,15 @@ def _format_advisory_text(
     provenance: Optional[ProvenanceResult],
     results: list[CallResult],
     citation_res: Optional[CitationCheckResult] = None,
+    scope: Optional[str] = None,
 ) -> str:
     """
     Renders human-readable text for WorkflowResult.text.
     Includes Advisory findings if available, provenance warnings, and data source statuses.
     """
-    asset_id = args.get("asset_id", "the selected asset")
-    lines = [_objective_header(objective_id, asset_id)]
+    asset_id = args.get("asset_id")
+    effective_scope = scope or args.get("scope")
+    lines = [_objective_header(objective_id, asset_id=asset_id, scope=effective_scope)]
     if pack:
         for item in pack.items:
             tm = item.payload.get("temporal_meta") if isinstance(item.payload, dict) else None
@@ -224,14 +248,25 @@ async def run_workflow(
     args: dict,
     confidence: float = 0.9,
     user_query: str = "",
+    scope: Optional[str] = None,
 ) -> WorkflowResult:
     """
     Executes end-to-end Slice 2 workflow pipeline.
     """
+    effective_scope = scope or args.get("scope")
+    if not effective_scope:
+        if any(p in (objective_id or "") for p in ("OP08", "OP09", "OP13", "FLEET")):
+            effective_scope = "FLEET"
+        elif any(p in (objective_id or "") for p in ("OP06", "OP07", "OP15", "GLOBAL")):
+            effective_scope = "GLOBAL"
+        else:
+            effective_scope = "ASSET"
+
     manifest = get_objective(objective_id)
     if manifest is None:
+        err_msg = f"Objective '{objective_id}' is not yet implemented." if objective_id else "Fleet objective is not yet implemented."
         return WorkflowResult(
-            text=f"Unknown objective '{objective_id}' — cannot run diagnosis.",
+            text=err_msg,
             ok=False,
             violations=[f"unknown_objective:{objective_id}"],
         )
@@ -298,8 +333,14 @@ async def run_workflow(
         if pack and pack.gaps:
             status_notes = [f"{g.source_domain}: {g.reason}" for g in pack.gaps]
         notes_str = f" Status notes: {'; '.join(status_notes)}." if status_notes else ""
-        target = args.get('asset_id') or ('platform guide' if 'OP15' in objective_id else ('knowledge lookup' if 'OP06' in objective_id else 'well'))
-        text = f"Diagnostic run for {target} (objective: {objective_id}) could not be completed: required evidence missing ({missing_text}).{notes_str}"
+        if effective_scope == "FLEET":
+            text = f"Fleet analysis (objective: {objective_id}) could not be completed: required evidence missing ({missing_text}).{notes_str}"
+        elif effective_scope == "GLOBAL":
+            target = args.get('asset_id') or ('platform guide' if 'OP15' in objective_id else ('knowledge lookup' if 'OP06' in objective_id else 'system'))
+            text = f"Analysis for {target} (objective: {objective_id}) could not be completed: required evidence missing ({missing_text}).{notes_str}"
+        else:
+            target = args.get('asset_id') or 'the selected asset'
+            text = f"Diagnostic run for {target} (objective: {objective_id}) could not be completed: required evidence missing ({missing_text}).{notes_str}"
         viz_spec = VisualizationSpec(widget_id="cards", card_ids=[], evidence_ids=[])
         return WorkflowResult(
             text=text,
@@ -360,11 +401,15 @@ async def run_workflow(
     advisory: Optional[Advisory] = None
     alarm_result: Optional[KpiAlarmResult] = None
     llm_available = True
+    query_for_synth = user_query or f"Diagnose well {args.get('asset_id', '')}"
+    if "OP15" in objective_id and args.get("selected_route"):
+        query_for_synth = f"{query_for_synth} (Current UI Route: {args.get('selected_route')})"
+
     try:
         advisory, alarm_result = await synthesize_advisory(
             objective_id=objective_id,
             evidence=formatted_evidence,
-            user_query=user_query or f"Diagnose well {args.get('asset_id', '')}",
+            user_query=query_for_synth,
         )
     except LLMUnavailableError:
         advisory = None
@@ -500,9 +545,34 @@ async def run_workflow(
 
     # 9. Visualization Planner
     viz_spec = plan_visualization(objective_id, pack, formatted_evidence, advisory=advisory)
+    if viz_spec and viz_spec.card_ids:
+        try:
+            from app.gateway.adapters.cards import fetch_card
+            cards_payloads = {}
+            target_asset = args.get("asset_id") or "GLOBAL"
+            for cid in viz_spec.card_ids:
+                try:
+                    c_res = await fetch_card(target_asset, cid)
+                    if c_res and c_res.get("status") == "OK" and "payload" in c_res:
+                        cards_payloads[cid] = c_res["payload"]
+                except Exception:
+                    pass
+            if cards_payloads:
+                viz_spec.data = cards_payloads
+        except Exception:
+            pass
 
     # 10. Assemble Text
-    text = _format_advisory_text(objective_id, args, advisory, pack, provenance, results, citation_res=citation_res)
+    text = _format_advisory_text(
+        objective_id,
+        args,
+        advisory,
+        pack,
+        provenance,
+        results,
+        citation_res=citation_res,
+        scope=effective_scope,
+    )
 
     # Persist artifacts for subsequent FOLLOW_UP route reuse
     if advisory or viz_spec:

@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any
 from pydantic import BaseModel, Field, field_validator
-from .enums import AssetSource, InterruptType, Route
+from .enums import AssetSource, InterruptType, Route, Scope
 
 class CandidateTool(BaseModel):
     tool: str
@@ -22,6 +22,7 @@ class RouterInput(BaseModel):
 
 class RouteDecision(BaseModel):
     route: Route
+    scope: Scope = "ASSET"
     intent: str | None = None
     objective_id: str | None = None
     args: dict[str, Any] = Field(default_factory=dict)
@@ -31,6 +32,11 @@ class RouteDecision(BaseModel):
     clarify_reason: InterruptType | None = None
     clarify_slot: str | None = None
     clarify_options: list[str] = Field(default_factory=list)
+
+    @field_validator("scope", mode="before")
+    @classmethod
+    def _null_scope_to_default(cls, v):
+        return "ASSET" if v is None else v
 
     # The LLM sometimes emits an explicit JSON `null` for "no items" instead
     # of omitting the key or emitting `[]`/`{}` — both are reasonable model

@@ -4,8 +4,9 @@ fences, no explanation text before or after it, and no trailing commas.
 
 Schema (all fields required, use null where a field does not apply):
 {
-  "route": "SIMPLE" | "WORKFLOW" | "FOLLOW_UP",
-  "intent": "general_inquiry" | "diagnose" | "status" | "actuation" | "explain_prior",
+  "route": "SIMPLE" | "WORKFLOW" | "FOLLOW_UP" | "IDENTITY",
+  "scope": "ASSET" | "MULTI_ASSET" | "FLEET" | "GLOBAL",
+  "intent": "general_inquiry" | "diagnose" | "status" | "actuation" | "explain_prior" | "self_knowledge" | "platform_guide" | "fleet_summary",
   "objective_id": string | null,
   "args": { "asset_id": string | null },
   "confidence": float (0.0 to 1.0),

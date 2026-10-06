@@ -96,6 +96,8 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
         if not well_id and tool not in (
             "get_cards_catalog",
             "get_fleet_kpi",
+            "get_fleet_health",
+            "get_fleet_events",
             "get_live_wells",
             "get_fault_taxonomy",
             "trace_causal_graph",
@@ -224,6 +226,19 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
         elif tool == "get_current_status":
             data = await kpi.fetch_kpi(well_id, client=client)
 
+        elif tool == "get_fleet_kpi":
+            data = await kpi.fetch_fleet_kpi(client=client)
+
+        elif tool == "get_fleet_health":
+            data = await kpi.fetch_fleet_health(client=client)
+
+        elif tool == "get_fleet_events":
+            _def_start, _def_end = _default_window()
+            start = args.get("start") or _def_start
+            end = args.get("end") or _def_end
+            limit = int(args.get("limit", 100))
+            data = await events.fetch_fleet_events(start=start, end=end, limit=limit, client=client)
+
         elif tool == "get_card":
             card_id = args.get("card_id", "health-score")
             data = await cards.fetch_card(well_id, card_id, client=client)
@@ -281,7 +296,7 @@ async def execute_tool_call(call: PlanCall, client: Optional[httpx.AsyncClient] 
             data = await kb.trace_kb_graph(symptom_ids, observed_parameters=observed_params, client=client)
 
         elif tool == "lookup_ui_map_entry":
-            entry_id = args.get("entry_id") or args.get("id")
+            entry_id = args.get("entry_id") or args.get("id") or args.get("selected_route") or args.get("route")
             if not entry_id:
                 latency = round((time.time() - start_time) * 1000, 2)
                 return CallResult(

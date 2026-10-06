@@ -58,11 +58,34 @@ PLATFORM_GUIDE_PATTERNS = re.compile(
     r"where\s+(is|can\s+i\s+find)\b(?!.*\b(well|fs-\d+|fnw-\d+|fws-\d+|ulfa-\d+)\b)|"
     r"what\s+is\s+the\s+.*(page|screen|tab|widget|view|dashboard|interface)|"
     r"what\s+does\s+the\s+subsystem\s+equalizer\s+show|"
+    r"what\s+(does|is)\s+the\s+.*preset|" 
+    r"what\s+does\s+.*preset\s+simulate|" 
     r"what\s+(does|is)\s+the\s+.*equalizer|"
     r"how\s+do\s+i\s+get\s+to\s+[a-zA-Z0-9_\-]+"
     r")\b",
     re.IGNORECASE,
 )
+
+FLEET_PATTERNS = re.compile(
+    r"\b("
+    r"which\s+wells?\b|"
+    r"list\s+(all\s+)?wells\b|"
+    r"rank\s+(the\s+)?(wells|fleet)\b|"
+    r"fleet\s+(summary|health|production|status|overview|inventory|opportunity)\b|"
+    r"show\s+(me\s+)?fleet(\s+summary|\s+status|\s+overview)?\b|"
+    r"how\s+many\s+wells\b"
+    r")",
+    re.IGNORECASE,
+)
+
+def _resolve_fleet_objective(raw_message: str) -> tuple[str, str]:
+    msg = raw_message.lower()
+    if any(w in msg for w in ['underperform', 'opportunity', 'rank', 'ranking', 'potential', 'recovery', 'defer', 'deferment', 'optimize', 'gain']):
+        return 'OP09_FLEET_PRODUCTION_OPTIMIZATION', 'fleet_optimization'
+    if any(w in msg for w in ['executive', 'kpi ribbon', 'leadership', 'management report', 'executive report']):
+        return 'OP13_FLEET_EXECUTIVE_REPORT', 'fleet_executive_report'
+    return 'OP08_FLEET_INVENTORY', 'fleet_inventory'
+
 
 
 
@@ -89,6 +112,7 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     if GREETING_PATTERNS.search(router_input.raw_message):
         return RouteDecision(
             route="SIMPLE",
+            scope="GLOBAL",
             intent="greeting",
             objective_id=None,
             args={},
@@ -101,6 +125,7 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     if IDENTITY_PATTERNS.search(router_input.raw_message):
         return RouteDecision(
             route="IDENTITY",
+            scope="GLOBAL",
             intent="self_knowledge",
             objective_id=None,
             args={},
@@ -109,17 +134,36 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
             clarification_needed=False,
         )
 
+    # Fleet guard: fleet-wide / multi-well queries -> WORKFLOW with scope="FLEET"
+    if FLEET_PATTERNS.search(router_input.raw_message) and not router_input.asset_id:
+        fleet_obj, fleet_intent = _resolve_fleet_objective(router_input.raw_message)
+        return RouteDecision(
+            route="WORKFLOW",
+            scope="FLEET",
+            intent=fleet_intent,
+            objective_id=fleet_obj,
+            args={"user_query": router_input.raw_message},
+            confidence=0.95,
+            deferred_intents=deferred,
+            clarification_needed=False,
+        )
 
     # Platform guide guard: UI elements, routes, components -> OP15_PLATFORM_GUIDE
     is_platform_ask = bool(PLATFORM_GUIDE_PATTERNS.search(router_input.raw_message)) or bool(
         router_input.selected_route and re.search(r"\b(explain|what is|what does|show)\s+(this|the)\s+(chart|plot|graph|screen|page|widget|view|dashboard)\b", router_input.raw_message, re.IGNORECASE)
     )
     if is_platform_ask:
+        op15_args = {"query": router_input.raw_message}
+        if router_input.selected_route:
+            op15_args["selected_route"] = router_input.selected_route
+            if re.search(r"\b(this|the)\s+(page|screen|view|dashboard)\b", router_input.raw_message, re.IGNORECASE) or re.search(r"\bwhat\s+(is|does)\s+this\s+page\b", router_input.raw_message, re.IGNORECASE):
+                op15_args["entry_id"] = router_input.selected_route
         return RouteDecision(
             route="WORKFLOW",
+            scope="GLOBAL",
             intent="platform_guide",
             objective_id="OP15_PLATFORM_GUIDE",
-            args={"query": router_input.raw_message},
+            args=op15_args,
             confidence=0.9,
             deferred_intents=deferred,
             clarification_needed=False,
@@ -168,6 +212,7 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
     if router_input.asset_id is None and DEFINITIONAL_PATTERNS.search(router_input.raw_message):
         return RouteDecision(
             route="SIMPLE",
+            scope="GLOBAL",
             intent="general_inquiry",
             objective_id="OP06_KNOWLEDGE_LOOKUP",
             args={},
@@ -177,8 +222,10 @@ def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -
         )
 
     raw_lower = router_input.raw_message.lower()
+    is_fleet_ask = bool(FLEET_PATTERNS.search(router_input.raw_message))
     needs_asset_clarify = (
         router_input.asset_id is None
+        and not is_fleet_ask
         and any(w in raw_lower for w in ["trip", "status", "vibration", "temp", "amps", "hz", "pressure", "why did", "health", "early warning", "warning", "anomaly", "history", "runtime"])
     )
 
@@ -353,6 +400,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         return RouteResult(
             decision=RouteDecision(
                 route="SIMPLE",
+                scope="GLOBAL",
                 intent="greeting",
                 objective_id=None,
                 args={},
@@ -369,10 +417,29 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         return RouteResult(
             decision=RouteDecision(
                 route="IDENTITY",
+                scope="GLOBAL",
                 intent="self_knowledge",
                 objective_id=None,
                 args={},
                 confidence=1.0,
+                deferred_intents=deferred,
+                clarification_needed=False,
+            ),
+            llm_available=True,
+            fallback_used=False,
+        )
+
+    # 0.15 Deterministic fleet guard: fleet-wide / multi-well queries -> WORKFLOW with scope="FLEET"
+    if FLEET_PATTERNS.search(router_input.raw_message) and not router_input.asset_id:
+        fleet_obj, fleet_intent = _resolve_fleet_objective(router_input.raw_message)
+        return RouteResult(
+            decision=RouteDecision(
+                route="WORKFLOW",
+                scope="FLEET",
+                intent=fleet_intent,
+                objective_id=fleet_obj,
+                args={"user_query": router_input.raw_message},
+                confidence=0.95,
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
@@ -385,12 +452,18 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         router_input.selected_route and re.search(r"\b(explain|what is|what does|show)\s+(this|the)\s+(chart|plot|graph|screen|page|widget|view|dashboard)\b", router_input.raw_message, re.IGNORECASE)
     )
     if is_platform_ask and not WELL_ID_REGEX.search(router_input.raw_message):
+        op15_args = {"query": router_input.raw_message}
+        if router_input.selected_route:
+            op15_args["selected_route"] = router_input.selected_route
+            if re.search(r"\b(this|the)\s+(page|screen|view|dashboard)\b", router_input.raw_message, re.IGNORECASE) or re.search(r"\bwhat\s+(is|does)\s+this\s+page\b", router_input.raw_message, re.IGNORECASE):
+                op15_args["entry_id"] = router_input.selected_route
         return RouteResult(
             decision=RouteDecision(
                 route="WORKFLOW",
+                scope="GLOBAL",
                 intent="platform_guide",
                 objective_id="OP15_PLATFORM_GUIDE",
-                args={"query": router_input.raw_message},
+                args=op15_args,
                 confidence=0.95,
                 deferred_intents=deferred,
                 clarification_needed=False,
@@ -405,6 +478,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         return RouteResult(
             decision=RouteDecision(
                 route="FOLLOW_UP",
+                scope="ASSET" if router_input.asset_id else "GLOBAL",
                 intent="explain_prior",
                 objective_id=None,
                 args={"asset_id": router_input.asset_id},
@@ -421,6 +495,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         return RouteResult(
             decision=RouteDecision(
                 route="WORKFLOW",
+                scope="ASSET",
                 intent="diagnose",
                 objective_id="OP03_FAULT_DIAGNOSIS",
                 args={"asset_id": router_input.asset_id},
@@ -440,6 +515,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
         return RouteResult(
             decision=RouteDecision(
                 route="SIMPLE",
+                scope="GLOBAL",
                 intent="general_inquiry",
                 objective_id="OP06_KNOWLEDGE_LOOKUP",
                 args={},

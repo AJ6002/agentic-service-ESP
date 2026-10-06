@@ -61,6 +61,9 @@ _REQUIRED_FIELDS: dict[str, list[str]] = {
     "get_card":           [],
     "get_cards_catalog":  [],
     "get_live_wells":     [],
+    "get_fleet_kpi":      [],
+    "get_fleet_health":   [],
+    "get_fleet_events":   [],
     # KB search returns {"query": ..., "hits": [...], "total_found": ...}
     # per esp_kb_service spec §3 — "hits" is the one field that must be
     # present (an empty list is a valid zero-result search, not missing data).
@@ -74,6 +77,9 @@ _TOOL_TO_DOMAIN: dict[str, str] = {
     "get_live_telemetry":   "live_telemetry",
     "get_vfm":              "live_vfm",
     "get_current_status":   "kpi",
+    "get_fleet_kpi":        "kpi",
+    "get_fleet_health":     "ml",
+    "get_fleet_events":     "events",
     "get_card":             "cards",
     "get_cards_catalog":    "cards",
     "get_events":           "events",
@@ -201,11 +207,14 @@ def validate(result: CallResult, run_id: str, tool: str) -> QoDResult:
     evidence_id = _next_ev_id(run_id)
     fetched_at = datetime.now(timezone.utc)
     source_domain = domain_key or tool
+    raw_asset = payload.get("well_id") or payload.get("asset_id")
+    asset_id = str(raw_asset).strip() if raw_asset else None
 
     item = EvidenceItem(
         evidence_id=evidence_id,
         tool=tool,
         source_domain=source_domain,
+        asset_id=asset_id,
         fetched_at=fetched_at,
         status=freshness_status,
         payload=payload,
@@ -317,8 +326,11 @@ def _check_freshness(
 # (min_plausible, max_plausible) pair for fields with no signal_bounds
 # entry — probabilities and confidences are always physically 0.0-1.0
 # regardless of which endpoint they came from.
-_TOPLEVEL_RANGE_FIELDS: dict[str, tuple[str, tuple[float, float] | None]] = {
+_TOPLEVEL_RANGE_FIELDS: dict[str, tuple[str | None, tuple[float, float] | None]] = {
     "health_score": ("health_score", None),      # -> _SIGNAL_BOUNDS["health_score"]
+    "fleet_health_score": (None, (0.0, 100.0)),
+    "fleet_health_estimate": (None, (0.0, 100.0)),
+    "total_production_bpd": (None, (0.0, 1000000.0)),
     "score": ("anomaly_score", None),             # /ml/anomaly -> _SIGNAL_BOUNDS["anomaly_score"]
     "anomaly_score": ("anomaly_score", None),
     "probability": (None, (0.0, 1.0)),            # /ml/fault

@@ -33,8 +33,17 @@ _CARD_ALIAS_MAP: dict[str, str] = {
     "vfm-ribbon": "vfm_production_ribbon",
     "system_operational_summary": "system_operational_summary",
     "fleet-health": "system_operational_summary",
+    "fleet_health": "system_operational_summary",
+    "production-deferment": "vfm_production_ribbon",
+    "production_deferment": "vfm_production_ribbon",
     "advisor_panel_item": "advisor_panel_item",
     "vsd-advisor": "advisor_panel_item",
+    "fleet-health-table": "fleet_health_table",
+    "fleet_health_table": "fleet_health_table",
+    "fleet-opportunity-view": "fleet_opportunity_view",
+    "fleet_opportunity_view": "fleet_opportunity_view",
+    "fleet-production-summary": "fleet_production_summary",
+    "fleet_production_summary": "fleet_production_summary",
 }
 
 _DASHBOARD_CATALOG: list[str] = [
@@ -46,6 +55,9 @@ _DASHBOARD_CATALOG: list[str] = [
     "vfm_production_ribbon",
     "system_operational_summary",
     "advisor_panel_item",
+    "fleet_health_table",
+    "fleet_opportunity_view",
+    "fleet_production_summary",
 ]
 
 
@@ -410,6 +422,207 @@ def _query_advisor_panel_item(cur, variants: list[str], well_id: str) -> Optiona
     }
 
 
+def _query_fleet_health_table(cur) -> Optional[dict[str, Any]]:
+    cur.execute("""
+        WITH latest_telem AS (
+            SELECT DISTINCT ON (well_id) well_id, flow_rate_bpd, operating_state, 
+                   motor_temperature_c, intake_pressure_psi, discharge_pressure_psi, vibration_g, trip_cause
+            FROM opg_well_telemetry
+            ORDER BY well_id, timestamp DESC
+        ),
+        latest_ml AS (
+            SELECT DISTINCT ON (well_id) well_id, overall_status, fault_name, anomaly_score
+            FROM esp_unified_assessments
+            ORDER BY well_id, timestamp DESC
+        )
+        SELECT 
+            t.well_id,
+            COALESCE(
+                CASE 
+                    WHEN UPPER(m.overall_status) LIKE '%CRITICAL%' OR UPPER(m.overall_status) LIKE '%ALARM%' THEN 42.0
+                    WHEN UPPER(m.overall_status) LIKE '%WARN%' OR UPPER(m.overall_status) LIKE '%DEGRADED%' THEN 68.0
+                    ELSE 92.0
+                END, 90.0
+            ) AS health_score,
+            COALESCE(
+                CASE 
+                    WHEN UPPER(m.overall_status) LIKE '%CRITICAL%' OR UPPER(m.overall_status) LIKE '%ALARM%' THEN 'CRITICAL'
+                    WHEN UPPER(m.overall_status) LIKE '%WARN%' OR UPPER(m.overall_status) LIKE '%DEGRADED%' THEN 'DEGRADED'
+                    ELSE 'HEALTHY'
+                END, 'HEALTHY'
+            ) AS health_band,
+            UPPER(COALESCE(t.operating_state, 'RUNNING')) AS operating_state,
+            COALESCE(t.flow_rate_bpd, 0.0) AS gross_rate_bpd,
+            COALESCE(t.trip_cause, m.fault_name, 'NOMINAL') AS last_event,
+            COALESCE(t.motor_temperature_c, 85.0) AS motor_temp,
+            COALESCE(t.intake_pressure_psi, 400.0) AS pip,
+            COALESCE(t.vibration_g, 0.08) AS vib
+        FROM latest_telem t
+        LEFT JOIN latest_ml m ON m.well_id = t.well_id
+        ORDER BY health_score ASC, t.well_id ASC;
+    """)
+    rows = cur.fetchall()
+    wells = []
+    healthy_cnt = 0
+    degraded_cnt = 0
+    critical_cnt = 0
+
+    for r in rows:
+        w_id = str(r[0])
+        h_score = round(float(r[1]), 1)
+        h_band = str(r[2])
+        op_state = str(r[3])
+        gross_bpd = round(float(r[4]), 1)
+        last_ev = str(r[5])
+        m_temp = float(r[6])
+        pip = float(r[7])
+        vib = float(r[8])
+
+        if h_band == "CRITICAL":
+            critical_cnt += 1
+            top_sig = f"motor_temp_c ({m_temp:.1f} °C)" if m_temp > 100 else f"int_prs_psi ({pip:.1f} PSI)"
+        elif h_band == "DEGRADED":
+            degraded_cnt += 1
+            top_sig = f"vibration_g ({vib:.2f} g)" if vib > 0.15 else f"motor_temp_c ({m_temp:.1f} °C)"
+        else:
+            healthy_cnt += 1
+            top_sig = "All signals within nominal baseline"
+
+        wells.append({
+            "wellId": w_id,
+            "healthScore": h_score,
+            "healthBand": h_band,
+            "operatingState": op_state,
+            "topSignal": top_sig,
+            "grossRateBpd": gross_bpd,
+            "lastEvent": last_ev if last_ev != "NOMINAL" else "None",
+        })
+
+    return {
+        "wells": wells,
+        "totalWells": len(wells),
+        "healthyCount": healthy_cnt,
+        "degradedCount": degraded_cnt,
+        "criticalCount": critical_cnt,
+    }
+
+
+def _query_fleet_opportunity_view(cur) -> Optional[dict[str, Any]]:
+    cur.execute("""
+        WITH latest_telem AS (
+            SELECT DISTINCT ON (well_id) well_id, flow_rate_bpd, operating_state, trip_cause, frequency_hz
+            FROM opg_well_telemetry
+            ORDER BY well_id, timestamp DESC
+        ),
+        latest_ml AS (
+            SELECT DISTINCT ON (well_id) well_id, overall_status, fault_name, anomaly_score, operator_action
+            FROM esp_unified_assessments
+            ORDER BY well_id, timestamp DESC
+        )
+        SELECT 
+            t.well_id,
+            UPPER(COALESCE(t.operating_state, 'RUNNING')) AS operating_state,
+            COALESCE(t.flow_rate_bpd, 0.0) AS flow_rate,
+            COALESCE(
+                CASE 
+                    WHEN UPPER(m.overall_status) LIKE '%CRITICAL%' OR UPPER(m.overall_status) LIKE '%ALARM%' THEN 42.0
+                    WHEN UPPER(m.overall_status) LIKE '%WARN%' OR UPPER(m.overall_status) LIKE '%DEGRADED%' THEN 68.0
+                    ELSE 92.0
+                END, 90.0
+            ) AS health_score,
+            COALESCE(m.anomaly_score, 0.0) AS anomaly_score,
+            m.operator_action,
+            t.trip_cause,
+            COALESCE(t.frequency_hz, 50.0) AS freq
+        FROM latest_telem t
+        LEFT JOIN latest_ml m ON m.well_id = t.well_id
+        ORDER BY health_score ASC, anomaly_score DESC, t.well_id ASC;
+    """)
+    rows = cur.fetchall()
+    ranked_wells = []
+    total_deferred = 0.0
+
+    rank = 1
+    for r in rows:
+        w_id = str(r[0])
+        op_state = str(r[1])
+        rate = float(r[2])
+        h_score = round(float(r[3]), 1)
+        anom = round(float(r[4]), 2)
+        op_action = r[5]
+        trip_cause = r[6]
+        freq = float(r[7])
+
+        if op_state != "RUNNING" or rate <= 0.0:
+            opp_type = "TRIP_RECOVERY"
+            deferment = 850.0  # Estimated nominal lost production
+            action = str(op_action) if op_action else f"Clear {trip_cause or 'trip'} and execute restart sequence."
+        elif h_score < 75.0 or anom >= 0.4:
+            opp_type = "LIFT_OPTIMIZATION"
+            deferment = round(max(50.0, rate * 0.25), 1)
+            action = str(op_action) if op_action else f"Tune VFD drive from {freq:.0f} Hz to optimize drawdown."
+        else:
+            continue
+
+        total_deferred += deferment
+        ranked_wells.append({
+            "rank": rank,
+            "wellId": w_id,
+            "opportunityType": opp_type,
+            "deferredProductionBpd": deferment,
+            "healthScore": h_score,
+            "anomalyScore": anom,
+            "recommendedAction": action,
+        })
+        rank += 1
+
+    return {
+        "rankedWells": ranked_wells,
+        "totalOpportunityBpd": round(total_deferred, 1),
+        "candidateCount": len(ranked_wells),
+    }
+
+
+def _query_fleet_production_summary(cur) -> Optional[dict[str, Any]]:
+    cur.execute("""
+        WITH latest_telem AS (
+            SELECT DISTINCT ON (well_id) well_id, flow_rate_bpd, water_cut_pct, gas_flow_mscfd, operating_state
+            FROM opg_well_telemetry
+            ORDER BY well_id, timestamp DESC
+        )
+        SELECT 
+            COUNT(well_id) AS total_wells,
+            COUNT(well_id) FILTER (WHERE LOWER(operating_state) = 'running') AS active_wells,
+            COUNT(well_id) FILTER (WHERE LOWER(operating_state) != 'running') AS down_wells,
+            COALESCE(SUM(flow_rate_bpd), 0.0) AS gross_liquid_bpd,
+            COALESCE(AVG(water_cut_pct), 0.0) AS avg_water_cut_pct,
+            COALESCE(SUM(gas_flow_mscfd), 0.0) AS total_gas_mscfd
+        FROM latest_telem;
+    """)
+    row = cur.fetchone()
+    tot_wells = int(row[0]) if (row and row[0]) else 0
+    active_wells = int(row[1]) if (row and row[1]) else 0
+    down_wells = int(row[2]) if (row and row[2]) else 0
+    gross_liq = round(float(row[3]), 1) if (row and row[3]) else 0.0
+    avg_wc = round(float(row[4]), 1) if (row and row[4]) else 0.0
+    tot_gas = round(float(row[5]), 1) if (row and row[5]) else 0.0
+
+    net_oil = round(gross_liq * (1.0 - (avg_wc / 100.0)), 1)
+    avail_pct = round((active_wells / tot_wells * 100.0), 1) if tot_wells > 0 else 0.0
+    total_deferment = round(down_wells * 850.0, 1)
+
+    return {
+        "totalGrossLiquidBpd": gross_liq,
+        "totalNetOilBopd": net_oil,
+        "averageWaterCutPct": avg_wc,
+        "totalGasRateMscfd": tot_gas,
+        "activeWells": active_wells,
+        "downWells": down_wells,
+        "fleetAvailabilityPct": avail_pct,
+        "totalDefermentBpd": total_deferment,
+    }
+
+
 async def fetch_card(well_id: str, card_id: str, client: Optional[httpx.AsyncClient] = None) -> dict[str, Any]:
     """Fetch single card populated from PostgreSQL state matching DOC.txt §4 contract."""
     def _query():
@@ -435,6 +648,12 @@ async def fetch_card(well_id: str, card_id: str, client: Optional[httpx.AsyncCli
                 payload = _query_system_summary(cur)
             elif canonical_card == "advisor_panel_item":
                 payload = _query_advisor_panel_item(cur, variants, well_id)
+            elif canonical_card == "fleet_health_table":
+                payload = _query_fleet_health_table(cur)
+            elif canonical_card == "fleet_opportunity_view":
+                payload = _query_fleet_opportunity_view(cur)
+            elif canonical_card == "fleet_production_summary":
+                payload = _query_fleet_production_summary(cur)
 
             if payload is None:
                 return {

@@ -185,3 +185,95 @@ async def check_events_health(client: Optional[httpx.AsyncClient] = None) -> dic
         return await asyncio.to_thread(_query)
     except Exception as e:
         return {"status": "DEGRADED", "error": str(e), "source": "POSTGRESQL"}
+
+
+async def fetch_fleet_events(
+    start: Optional[str] = None,
+    end: Optional[str] = None,
+    limit: int = 100,
+    client: Optional[httpx.AsyncClient] = None,
+) -> dict[str, Any]:
+    """Fetch chronological event timeline across the entire fleet."""
+    if not start or not end:
+        now = datetime.now(timezone.utc)
+        if not end:
+            end = now.isoformat().replace("+00:00", "Z")
+        if not start:
+            start = (now - timedelta(hours=24)).isoformat().replace("+00:00", "Z")
+
+    def _query():
+        with get_db_cursor() as cur:
+            # 1. Query explicit events table
+            cur.execute("""
+                SELECT event_id, well_id, timestamp, operating_state, scenario, trip_cause, alarms, severity
+                FROM events
+                WHERE timestamp >= %s AND timestamp <= %s
+                ORDER BY timestamp DESC
+                LIMIT %s;
+            """, (start, end, limit))
+            rows = cur.fetchall()
+
+            events_list = []
+            for r in rows:
+                ts = r[2].isoformat() if hasattr(r[2], "isoformat") else str(r[2])
+                alarm_arr = [a.strip() for a in str(r[6] or "").split(",") if a.strip()]
+                events_list.append({
+                    "event_id": r[0],
+                    "well_id": r[1],
+                    "timestamp": ts,
+                    "ts": ts,
+                    "operating_state": r[3] or "NORMAL",
+                    "scenario": r[4] or "NOMINAL",
+                    "trip_cause": r[5] or "",
+                    "alarms": alarm_arr,
+                    "severity": r[7] or "INFO",
+                    "event_type": "trip" if (r[5] or "TRIP" in (r[3] or "").upper()) else "status_change",
+                })
+
+            # 2. If events table has 0 records, query recent telemetry transitions
+            if not events_list:
+                cur.execute("""
+                    SELECT well_id, timestamp, operating_state, scenario, trip_cause, alarms
+                    FROM opg_well_telemetry
+                    WHERE timestamp >= %s AND timestamp <= %s
+                      AND (trip_cause IS NOT NULL AND trip_cause != '' OR LOWER(operating_state) IN ('tripped', 'stopped'))
+                    ORDER BY timestamp DESC
+                    LIMIT %s;
+                """, (start, end, limit))
+                t_rows = cur.fetchall()
+                for tr in t_rows:
+                    ts = tr[1].isoformat() if hasattr(tr[1], "isoformat") else str(tr[1])
+                    alarm_arr = [a.strip() for a in str(tr[5] or "").split(",") if a.strip()]
+                    events_list.append({
+                        "event_id": f"EV-TELEM-{tr[0]}-{len(events_list)+1}",
+                        "well_id": tr[0],
+                        "timestamp": ts,
+                        "ts": ts,
+                        "operating_state": tr[2] or "NORMAL",
+                        "scenario": tr[3] or "NOMINAL",
+                        "trip_cause": tr[4] or "",
+                        "alarms": alarm_arr,
+                        "severity": "CRITICAL" if tr[4] else "INFO",
+                        "event_type": "trip" if tr[4] else "status_change",
+                    })
+
+            temporal_meta = build_temporal_meta(
+                query_start=start,
+                query_end=end,
+                records=events_list,
+                ts_field="timestamp",
+            )
+
+            return {
+                "status": "OK",
+                "events": events_list,
+                "count": len(events_list),
+                "temporal_meta": temporal_meta,
+                "source": "POSTGRESQL",
+            }
+
+    try:
+        return await asyncio.to_thread(_query)
+    except Exception as e:
+        raise AdapterError(f"PostgreSQL fetch_fleet_events failed: {e}", status_code=500, code="DB_QUERY_FAILED")
+

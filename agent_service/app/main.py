@@ -572,6 +572,7 @@ async def handle_query(req: QueryRequest):
                 args=kb_args,
                 confidence=decision.confidence,
                 user_query=raw_msg,
+                scope=decision.scope,
             )
             log_stage(
                 "workflow_runner",
@@ -676,6 +677,7 @@ async def handle_query(req: QueryRequest):
         args=decision.args,
         confidence=decision.confidence,
         user_query=raw_msg,
+        scope=decision.scope,
     )
     log_stage(
         "workflow_runner",
@@ -718,6 +720,12 @@ async def handle_query(req: QueryRequest):
     if workflow_result.insufficient_evidence:
         if getattr(req, "clarify_on_insufficient", False):
             missing_str = ", ".join(workflow_result.missing_required)
+            if decision.scope == "FLEET":
+                scope_prefix = "Fleet analysis"
+            elif decision.scope == "GLOBAL":
+                scope_prefix = "Analysis"
+            else:
+                scope_prefix = f"Diagnostic run for {persisted_asset_id or 'the well'}"
             clarify_frame = raise_clarify(
                 run_id=run_id,
                 session_id=session_id,
@@ -727,7 +735,7 @@ async def handle_query(req: QueryRequest):
                 resume_at="PLAN_BUILD",
                 objective_id=decision.objective_id,
                 args=decision.args,
-                custom_question=f"Diagnostic run for {persisted_asset_id or 'the well'} could not be completed: required evidence missing ({missing_str}). How would you like to proceed?",
+                custom_question=f"{scope_prefix} could not be completed: required evidence missing ({missing_str}). How would you like to proceed?",
             )
             record_audit(
                 "clarification_raised",

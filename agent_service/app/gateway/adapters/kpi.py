@@ -94,21 +94,51 @@ async def fetch_kpi(well_id: str, client: Optional[httpx.AsyncClient] = None) ->
 
 
 async def fetch_fleet_kpi(client: Optional[httpx.AsyncClient] = None) -> dict[str, Any]:
-    """Fetch field-level fleet KPI summary."""
+    """Fetch field-level fleet KPI summary aggregated directly from PostgreSQL."""
     def _query():
         with get_db_cursor() as cur:
-            cur.execute("SELECT count(*), count(*) FILTER (WHERE is_active) FROM asset_registry;")
+            cur.execute("""
+                WITH latest_telem AS (
+                    SELECT DISTINCT ON (well_id) well_id, flow_rate_bpd, operating_state
+                    FROM opg_well_telemetry
+                    ORDER BY well_id, timestamp DESC
+                ),
+                latest_ml AS (
+                    SELECT DISTINCT ON (well_id) well_id, overall_status
+                    FROM esp_unified_assessments
+                    ORDER BY well_id, timestamp DESC
+                )
+                SELECT 
+                    COUNT(t.well_id) AS total_wells,
+                    COUNT(t.well_id) FILTER (WHERE LOWER(t.operating_state) = 'running') AS running_wells,
+                    COUNT(t.well_id) FILTER (WHERE LOWER(t.operating_state) != 'running') AS down_wells,
+                    COALESCE(SUM(t.flow_rate_bpd), 0.0) AS total_production_bpd,
+                    COALESCE(AVG(
+                        CASE 
+                            WHEN UPPER(m.overall_status) LIKE '%CRITICAL%' OR UPPER(m.overall_status) LIKE '%ALARM%' THEN 42.0
+                            WHEN UPPER(m.overall_status) LIKE '%WARN%' OR UPPER(m.overall_status) LIKE '%DEGRADED%' THEN 68.0
+                            ELSE 92.0
+                        END
+                    ), 90.0) AS avg_health_score
+                FROM latest_telem t
+                LEFT JOIN latest_ml m ON m.well_id = t.well_id;
+            """)
             row = cur.fetchone()
-            total_wells = row[0] if row else 35
-            running_wells = row[1] if row else 32
-            down_wells = total_wells - running_wells
+            total_wells = int(row[0]) if row and row[0] is not None else 0
+            running_wells = int(row[1]) if row and row[1] is not None else 0
+            down_wells = int(row[2]) if row and row[2] is not None else 0
+            total_prod = round(float(row[3]), 2) if row and row[3] is not None else 0.0
+            avg_health = round(float(row[4]), 1) if row and row[4] is not None else 90.0
 
             return {
+                "status": "OK",
                 "total_wells": total_wells,
                 "running_wells": running_wells,
                 "down_wells": down_wells,
-                "fleet_health_score": 88.5,
-                "total_production_bpd": 15420.0,
+                "fleet_health_estimate": avg_health,
+                "fleet_health_score": avg_health,  # backward compatibility
+                "method": "bucketed_status",
+                "total_production_bpd": total_prod,
                 "source": "POSTGRESQL",
             }
 
@@ -116,3 +146,56 @@ async def fetch_fleet_kpi(client: Optional[httpx.AsyncClient] = None) -> dict[st
         return await asyncio.to_thread(_query)
     except Exception as e:
         raise AdapterError(f"PostgreSQL fetch_fleet_kpi failed: {e}", status_code=500, code="DB_QUERY_FAILED")
+
+
+async def fetch_fleet_health(client: Optional[httpx.AsyncClient] = None) -> dict[str, Any]:
+    """Fetch per-well health ranking across the fleet."""
+    def _query():
+        with get_db_cursor() as cur:
+            cur.execute("""
+                WITH latest_ml AS (
+                    SELECT DISTINCT ON (well_id) well_id, overall_status, anomaly_score, timestamp
+                    FROM esp_unified_assessments
+                    ORDER BY well_id, timestamp DESC
+                )
+                SELECT 
+                    well_id,
+                    CASE 
+                        WHEN UPPER(overall_status) LIKE '%CRITICAL%' OR UPPER(overall_status) LIKE '%ALARM%' THEN 42.0
+                        WHEN UPPER(overall_status) LIKE '%WARN%' OR UPPER(overall_status) LIKE '%DEGRADED%' THEN 68.0
+                        ELSE 92.0
+                    END AS health_score,
+                    CASE 
+                        WHEN UPPER(overall_status) LIKE '%CRITICAL%' OR UPPER(overall_status) LIKE '%ALARM%' THEN 'CRITICAL'
+                        WHEN UPPER(overall_status) LIKE '%WARN%' OR UPPER(overall_status) LIKE '%DEGRADED%' THEN 'DEGRADED'
+                        ELSE 'HEALTHY'
+                    END AS band
+                FROM latest_ml
+                ORDER BY health_score ASC, well_id ASC;
+            """)
+            rows = cur.fetchall()
+            wells = []
+            for r in rows:
+                wells.append({
+                    "well_id": str(r[0]),
+                    "health_score": float(r[1]),
+                    "band": str(r[2]),
+                })
+
+            worst = wells[0]["well_id"] if wells else None
+            best = wells[-1]["well_id"] if wells else None
+
+            return {
+                "status": "OK",
+                "wells": wells,
+                "count": len(wells),
+                "worst": worst,
+                "best": best,
+                "source": "POSTGRESQL",
+            }
+
+    try:
+        return await asyncio.to_thread(_query)
+    except Exception as e:
+        raise AdapterError(f"PostgreSQL fetch_fleet_health failed: {e}", status_code=500, code="DB_QUERY_FAILED")
+

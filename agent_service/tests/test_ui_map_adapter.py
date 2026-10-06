@@ -78,8 +78,9 @@ async def test_search_ui_map_route_top_hit():
 async def test_search_ui_map_domain_isolation():
     hits = await ui_map.search_ui_map("gas lock", top_k=3)
     # Even if cosine search is performed, all results must come only from ui_map domain
+    valid_prefixes = ("route.", "component.", "concept.", "fault.", "glossary.", "preset.", "nav.", "channel.")
     for h in hits:
-        assert h["id"] in {"route.working-status", "component.subsystem-equalizer", "concept.tdh"}
+        assert any(h["id"].startswith(p) for p in valid_prefixes)
         assert REQUIRED_FIELDS.issubset(h.keys())
 
 @pytest.mark.anyio

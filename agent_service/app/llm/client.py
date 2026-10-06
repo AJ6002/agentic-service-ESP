@@ -44,8 +44,8 @@ def _config() -> tuple[str, str, float]:
         load_dotenv(env_path)
     else:
         load_dotenv()
-    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.191:8080/v1")
-    model_name = os.getenv("LLM_MODEL_NAME", "Qwen2.5-Coder-3B-Instruct-Q4_K_M")
+    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.188:8080/v1")
+    model_name = os.getenv("LLM_MODEL_NAME", "Qwen3.5-9B-Q4_K_M")
     timeout = float(os.getenv("LLM_TIMEOUT_SEC", "300.0"))
     return llm_url, model_name, timeout
 
@@ -93,11 +93,20 @@ async def call_llm_chat(
             "llm_unavailable",
             payload={"caller": caller, "reason": f"http_{resp.status_code}"},
         )
-        raise LLMUnavailableError(f"LLM gateway returned HTTP {resp.status_code}")
+        raise LLMUnavailableError(f"LLM gateway returned HTTP {resp.status_code}: {resp.text}")
 
     try:
         data = resp.json()
-        content = data["choices"][0]["message"]["content"].strip()
+        choice_msg = data["choices"][0]["message"]
+        content = choice_msg.get("content") or ""
+        if not content.strip() and choice_msg.get("reasoning_content"):
+            content = choice_msg.get("reasoning_content")
+        
+        # If thinking tags are present, separate final answer if </think> exists
+        if "</think>" in content:
+            content = content.split("</think>")[-1].strip()
+        else:
+            content = content.strip()
     except (ValueError, KeyError, IndexError) as ex:
         record_audit("llm_unavailable", payload={"caller": caller, "reason": f"malformed_response: {ex}"})
         raise LLMUnavailableError(f"LLM gateway returned malformed response: {ex}") from ex

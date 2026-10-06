@@ -1,0 +1,24 @@
+objective_id: OP13_FLEET_EXECUTIVE_REPORT
+tool: get_fleet_kpi
+safety_class: READ
+scope: FLEET
+max_gapfill_rounds: 0
+required_evidence:
+  - get_fleet_kpi
+  - get_fleet_health
+  - get_fleet_events
+optional_evidence:
+  - get_live_wells
+allowed_visuals:
+  - fleet-health
+  - fleet-health-table
+  - fleet-production-summary
+  - system_operational_summary
+default_visuals:
+  - fleet-production-summary
+  - fleet-health-table
+  - system_operational_summary
+arg_schema:
+  type: object
+  properties: {}
+  required: []

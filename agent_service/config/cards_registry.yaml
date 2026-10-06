@@ -220,3 +220,22 @@ cards:
     widget_type: advisor_panel_card
     required_signals:
       - freq_hz
+
+  fleet-health-table:
+    component_id: FleetHealthTable
+    unit: wells
+    widget_type: table_card
+    required_signals: []
+
+  fleet-opportunity-view:
+    component_id: FleetOpportunityView
+    unit: ranking
+    widget_type: ranked_list_card
+    required_signals: []
+
+  fleet-production-summary:
+    component_id: FleetProductionSummary
+    unit: BPD
+    widget_type: kpi_ribbon_card
+    required_signals: []
+

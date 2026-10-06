@@ -23,12 +23,14 @@ class FormattedValue:
     evidence_id: str     # Provenance: "EV-abc-0001"
     signal: str          # Canonical signal name: "motor_temp_c"
     raw: float | int | bool | None = None  # Raw value for downstream comparisons
+    well_id: Optional[str] = None          # Specific well ID if well-attributed fact
 
 
 @dataclass
 class FormattedEventRecord:
     """A single attributed discrete event fact (or empty window indicator)."""
     evidence_id: str
+    well_id: Optional[str] = None
     event_id: Optional[str] = None
     timestamp: Optional[str] = None
     operating_state: Optional[str] = None
@@ -85,6 +87,26 @@ class FormattedEvidence:
                 return v
         return None
 
+    def by_well_and_signal(self, well_id: str, signal: str) -> FormattedValue | None:
+        from app.gateway.adapters.common import get_well_id_variants
+        target_variants = set(get_well_id_variants(well_id))
+        for v in self.values:
+            if v.signal == signal and v.well_id:
+                if v.well_id in target_variants or any(var in get_well_id_variants(v.well_id) for var in target_variants):
+                    return v
+        return None
+
+    def all_by_signal(self, signal: str) -> list[FormattedValue]:
+        return [v for v in self.values if v.signal == signal]
+
+    def events_by_well(self, well_id: str) -> list[FormattedEventRecord]:
+        from app.gateway.adapters.common import get_well_id_variants
+        target_variants = set(get_well_id_variants(well_id))
+        return [
+            ev for ev in self.events
+            if ev.well_id and (ev.well_id in target_variants or any(var in get_well_id_variants(ev.well_id) for var in target_variants))
+        ]
+
 
 def format_pack(pack: EvidencePack) -> FormattedEvidence:
     """
@@ -123,6 +145,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
     numeric fields (e.g. health_score, score, probability).
     """
     payload = item.payload
+    default_well = item.asset_id or (str(payload.get("well_id")).strip() if payload.get("well_id") else None)
 
     # 1. measurements dict (live telemetry, historian)
     raw_measurements = payload.get("measurements")
@@ -139,6 +162,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     evidence_id=item.evidence_id,
                     signal=signal,
                     raw=value,
+                    well_id=default_well,
                 )
             )
 
@@ -162,6 +186,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     evidence_id=item.evidence_id,
                     signal=signal,
                     raw=value,
+                    well_id=default_well,
                 )
             )
 
@@ -180,6 +205,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     evidence_id=item.evidence_id,
                     signal=signal,
                     raw=value,
+                    well_id=default_well,
                 )
             )
             # If KPI has anomaly_score, also emit as 'score' so anomaly-score card
@@ -192,6 +218,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                         evidence_id=item.evidence_id,
                         signal="score",
                         raw=value,
+                        well_id=default_well,
                     )
                 )
 
@@ -213,6 +240,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                         evidence_id=item.evidence_id,
                         signal=col_name,
                         raw=val,
+                        well_id=default_well,
                     )
                 )
 
@@ -255,6 +283,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                         evidence_id=item.evidence_id,
                         signal="decline_rate_bpd_per_day",
                         raw=round(max(0.0, decline_rate_per_day), 2),
+                        well_id=default_well,
                     )
                 )
                 result.values.append(
@@ -264,6 +293,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                         evidence_id=item.evidence_id,
                         signal="production_trend",
                         raw=trend_str,
+                        well_id=default_well,
                     )
                 )
                 result.values.append(
@@ -273,6 +303,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                         evidence_id=item.evidence_id,
                         signal="production_decline_pct",
                         raw=round(pct_change, 2),
+                        well_id=default_well,
                     )
                 )
 
@@ -287,6 +318,12 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
         "projected_days_to_threshold": "days",                                  # /ml/degradation (RUL)
         "rate_per_day": "points/day",                                           # /ml/degradation
         "confidence": "confidence",                                             # present on every /ml/* response
+        "fleet_health_score": "index",
+        "fleet_health_estimate": "index",
+        "total_production_bpd": "BPD",
+        "total_wells": "wells",
+        "running_wells": "wells",
+        "down_wells": "wells",
     }
     for field_name, unit in _TOPLEVEL_NUMERIC.items():
         value = payload.get(field_name)
@@ -298,6 +335,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                     evidence_id=item.evidence_id,
                     signal=field_name,
                     raw=value,
+                    well_id=default_well,
                 )
             )
 
@@ -311,8 +349,53 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
                 evidence_id=item.evidence_id,
                 signal="health_band",
                 raw=band.strip().upper(),
+                well_id=default_well,
             )
         )
+
+    # 3.6 Multi-well payloads (e.g. get_fleet_health returning {"wells": [...]})
+    wells = payload.get("wells")
+    if wells and isinstance(wells, list):
+        for w in wells:
+            if not isinstance(w, dict):
+                continue
+            w_id = str(w.get("well_id") or "").strip() or None
+            w_health = w.get("health_score")
+            if w_health is not None and isinstance(w_health, (int, float)) and not isinstance(w_health, bool):
+                result.values.append(
+                    FormattedValue(
+                        value_str=_format_value(w_health, "index"),
+                        unit="index",
+                        evidence_id=item.evidence_id,
+                        signal="health_score",
+                        raw=w_health,
+                        well_id=w_id,
+                    )
+                )
+            w_band = w.get("band") or w.get("health_band")
+            if w_band and isinstance(w_band, str):
+                result.values.append(
+                    FormattedValue(
+                        value_str=w_band.strip().upper(),
+                        unit="band",
+                        evidence_id=item.evidence_id,
+                        signal="health_band",
+                        raw=w_band.strip().upper(),
+                        well_id=w_id,
+                    )
+                )
+            w_prod = w.get("gross_liquid_rate_bpd") or w.get("liquid_rate_bpd")
+            if w_prod is not None and isinstance(w_prod, (int, float)) and not isinstance(w_prod, bool):
+                result.values.append(
+                    FormattedValue(
+                        value_str=_format_value(w_prod, "BPD"),
+                        unit="BPD",
+                        evidence_id=item.evidence_id,
+                        signal="liquid_rate_bpd",
+                        raw=w_prod,
+                        well_id=w_id,
+                    )
+                )
 
     # 4. Discrete Events & Trips (get_events, get_trips, /events/*)
     if item.tool in ("get_events", "get_trips") or "events" in payload or "event_count" in payload:
@@ -322,6 +405,7 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
             result.events.append(
                 FormattedEventRecord(
                     evidence_id=item.evidence_id,
+                    well_id=default_well,
                     is_empty_window=True,
                     window_start=payload.get("start"),
                     window_end=payload.get("end"),
@@ -330,9 +414,11 @@ def _extract_from_item(item: EvidenceItem, result: FormattedEvidence) -> None:
         elif isinstance(raw_events, list):
             for ev in raw_events:
                 if isinstance(ev, dict):
+                    ev_well = str(ev.get("well_id")).strip() if ev.get("well_id") else default_well
                     result.events.append(
                         FormattedEventRecord(
                             evidence_id=item.evidence_id,
+                            well_id=ev_well,
                             event_id=ev.get("event_id"),
                             timestamp=ev.get("timestamp"),
                             operating_state=ev.get("operating_state"),

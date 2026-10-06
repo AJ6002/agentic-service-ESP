@@ -1,0 +1,23 @@
+objective_id: OP09_FLEET_PRODUCTION_OPTIMIZATION
+tool: get_fleet_kpi
+safety_class: READ
+scope: FLEET
+max_gapfill_rounds: 0
+required_evidence:
+  - get_fleet_kpi
+  - get_fleet_health
+optional_evidence:
+  - get_live_wells
+allowed_visuals:
+  - fleet-health
+  - fleet-opportunity-view
+  - fleet-production-summary
+  - production-deferment
+  - system_operational_summary
+default_visuals:
+  - fleet-opportunity-view
+  - fleet-production-summary
+arg_schema:
+  type: object
+  properties: {}
+  required: []

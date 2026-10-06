@@ -20,6 +20,7 @@ class EvidenceItem(BaseModel):
     evidence_id: str
     tool: str
     source_domain: str
+    asset_id: Optional[str] = None
     fetched_at: datetime
     freshness_sec: float | None = None
     status: Literal["OK", "STALE", "PARTIAL"] = "OK"
