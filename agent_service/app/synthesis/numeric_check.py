@@ -187,3 +187,49 @@ def check_numeric_provenance(
             continue
 
     return ProvenanceResult(passed=len(unattributed) == 0, unattributed_numbers=unattributed)
+
+
+def strip_unverified_provenance(text: str, unattributed_numbers: list[str]) -> str:
+    """
+    Surgically strips unattributed numbers from prose.
+    First attempts clause-level removal (e.g. relative clauses, parentheticals, baselines)
+    to preserve valid telemetry numbers in the main clause.
+    Falls back to dropping the sentence if the main predicate itself contains the unverified number.
+    """
+    if not text or not unattributed_numbers:
+        return text
+
+    import re as _re
+    sents = _re.split(r"(?<=[.!?])\s+", text)
+    filtered_sents = []
+
+    for s in sents:
+        modified_s = s
+        for num in unattributed_numbers:
+            escaped_num = _re.escape(num)
+            if not _re.search(rf"\b{escaped_num}\b", modified_s):
+                continue
+
+            # 1. Try stripping parenthetical containing the unverified number: e.g. (expected 70-80°C)
+            paren_pattern = rf"\s*\([^)]*\b{escaped_num}\b[^)]*\)"
+            if _re.search(paren_pattern, modified_s):
+                modified_s = _re.sub(paren_pattern, "", modified_s).strip()
+                continue
+
+            # 2. Try stripping relative/subordinate clause containing the unverified number:
+            # e.g. ", which is below the recommended baseline of 500 BOPD"
+            clause_pattern = rf",\s*(?:which\s+is|which\s+was|exceeding|below|above|target|baseline|threshold|norm|nominal|expected)\b[^.,;?!]*\b{escaped_num}\b[^.,;?!]*"
+            if _re.search(clause_pattern, modified_s, _re.IGNORECASE):
+                modified_s = _re.sub(clause_pattern, "", modified_s, flags=_re.IGNORECASE).strip()
+                if not modified_s.endswith((".", "!", "?")) and s.endswith((".", "!", "?")):
+                    modified_s += s[-1]
+                continue
+
+        # If any unattributed number still remains in modified_s, drop the whole sentence
+        if any(_re.search(rf"\b{_re.escape(num)}\b", modified_s) for num in unattributed_numbers):
+            continue
+
+        if modified_s.strip():
+            filtered_sents.append(modified_s.strip())
+
+    return " ".join(filtered_sents).strip()

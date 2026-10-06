@@ -44,7 +44,7 @@ def _config() -> tuple[str, str, float]:
         load_dotenv(env_path)
     else:
         load_dotenv()
-    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.134:8080/v1")
+    llm_url = os.getenv("LLM_GATEWAY_URL", "http://192.168.1.188:8080/v1")
     model_name = os.getenv("LLM_MODEL_NAME", "Qwen3.5-9B-Q4_K_M")
     timeout = float(os.getenv("LLM_TIMEOUT_SEC", "300.0"))
     return llm_url, model_name, timeout

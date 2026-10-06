@@ -31,6 +31,7 @@ from app.synthesis.numeric_check import check_numeric_provenance
 from app.synthesis.citation_check import check_citation_provenance, CitationCheckResult
 from app.synthesis.gapfill import run_gapfill
 from app.synthesis.xai import synthesize_advisory
+from app.synthesis.post_processing_guards import apply_post_processing_guards
 from app.visualization.planner import plan_visualization
 from app.stores.run_store import save_pack, save_run_artifacts
 
@@ -160,6 +161,22 @@ def _format_advisory_text(
             lines.append("\nTroubleshooting Steps:")
             for s in advisory.troubleshooting_steps:
                 lines.append(f" - {s}")
+    elif pack and pack.items:
+        evidence_lines = []
+        for item in pack.items:
+            payload = item.payload
+            if isinstance(payload, dict):
+                if "total_wells" in payload:
+                    evidence_lines.append(f"Fleet Status: {payload.get('total_wells')} wells total ({payload.get('active_wells')} active, {payload.get('down_wells')} down). Fleet health estimate: {payload.get('fleet_health_estimate', payload.get('fleet_health_score', 'N/A'))}.")
+                elif "ranked_wells" in payload:
+                    top_candidates = payload.get("ranked_wells", [])[:5]
+                    names = [w.get("well_id", "") for w in top_candidates if w.get("well_id")]
+                    evidence_lines.append(f"Opportunity Analysis: {payload.get('candidate_count', len(top_candidates))} candidates identified with total potential recovery of {payload.get('total_opportunity_bpd', 0)} BPD. Top candidates: {', '.join(names)}.")
+                elif "total_gross_liquid_bpd" in payload:
+                    evidence_lines.append(f"Production Summary: Gross {payload.get('total_gross_liquid_bpd')} BPD, Net Oil {payload.get('total_net_oil_bopd')} BOPD, Water Cut {payload.get('average_water_cut_pct')}%, Fleet Availability {payload.get('fleet_availability_pct')}%.")
+        if evidence_lines:
+            lines.append("\nAssessment: " + " ".join(evidence_lines))
+            lines.append("\nRecommendation: Review the fleet summary and opportunity view cards in the dashboard for detailed operational optimization.")
     if advisory and advisory.cited_evidence_ids:
         unique_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
         lines.append(f"\nCited Evidence: {', '.join(unique_ids)}")
@@ -421,13 +438,13 @@ async def run_workflow(
         advisory = None
         alarm_result = None
 
-    # 7a. Post-synthesis alarm override guard.
-    # If CRITICAL KPI alarms are active but the LLM assessment still claims
-    # the well is "normal", silently replace the assessment with the alarm
-    # summary. This is a last-resort safety net — the injected evidence block
-    # should prevent this from firing, but we cannot trust the LLM fully.
+    # 7a. Post-synthesis alarm override guard (Single-well diagnostics only).
+    # If CRITICAL KPI alarms are active on a single well but the LLM assessment
+    # still claims the well is "normal", replace with alarm summary.
+    is_fleet_scope = (scope == "FLEET") or any(op in objective_id for op in ("OP08", "OP09", "OP13"))
     if (
-        advisory is not None
+        not is_fleet_scope
+        and advisory is not None
         and alarm_result is not None
         and alarm_result.has_critical
     ):
@@ -447,20 +464,39 @@ async def run_workflow(
                 "alarms": [a.signal for a in alarm_result.alarms if a.severity == "CRITICAL"],
             })
 
-    # 8. Numeric Provenance Check
+    # 8. Visualization Planner & Card Data Prefetch
+    viz_spec: Optional[VisualizationSpec] = plan_visualization(objective_id, pack, formatted_evidence, advisory=advisory)
+    if viz_spec and viz_spec.card_ids:
+        try:
+            from app.gateway.adapters.cards import fetch_card
+            cards_payloads = {}
+            target_asset = args.get("asset_id") or "GLOBAL"
+            for cid in viz_spec.card_ids:
+                try:
+                    c_res = await fetch_card(target_asset, cid)
+                    if c_res and c_res.get("status") == "OK" and "payload" in c_res:
+                        cards_payloads[cid] = c_res["payload"]
+                except Exception:
+                    pass
+            if cards_payloads:
+                viz_spec.data = cards_payloads
+        except Exception:
+            pass
+
+    # 8b. Post-Processing Guards: Number Provenance, Cause Provenance & Self-Contradiction
     provenance: Optional[ProvenanceResult] = None
     if advisory:
         advisory.cited_evidence_ids = list(dict.fromkeys(advisory.cited_evidence_ids))
         provenance = check_numeric_provenance(advisory, formatted_evidence)
-        if provenance and not provenance.passed and provenance.unattributed_numbers:
-            # Zero-fabrication enforcement: surgically strip unverified clauses/sentences
-            advisory.assessment = strip_unverified_provenance(advisory.assessment, provenance.unattributed_numbers)
-            if not advisory.assessment:
-                advisory.assessment = "Insufficient evidence to complete assessment — key figures are unverified."
-            if advisory.recommendation:
-                advisory.recommendation = strip_unverified_provenance(advisory.recommendation, provenance.unattributed_numbers)
+        cards_data = viz_spec.data if viz_spec else {}
+        advisory = apply_post_processing_guards(
+            advisory=advisory,
+            evidence_source=formatted_evidence,
+            cards_data=cards_data,
+            is_fleet_scope=is_fleet_scope,
+        )
 
-    # 8b. Troubleshooting Citation & Zero-Fabrication Guard (Phase 4.5)
+    # 8c. Troubleshooting Citation & Zero-Fabrication Guard (Phase 4.5)
     citation_res: Optional[CitationCheckResult] = None
     if advisory:
         has_kb = any(
@@ -543,26 +579,7 @@ async def run_workflow(
         if advisory.verification_steps:
             advisory.verification_steps = [sanitize_advisory_language(s) for s in advisory.verification_steps]
 
-    # 9. Visualization Planner
-    viz_spec = plan_visualization(objective_id, pack, formatted_evidence, advisory=advisory)
-    if viz_spec and viz_spec.card_ids:
-        try:
-            from app.gateway.adapters.cards import fetch_card
-            cards_payloads = {}
-            target_asset = args.get("asset_id") or "GLOBAL"
-            for cid in viz_spec.card_ids:
-                try:
-                    c_res = await fetch_card(target_asset, cid)
-                    if c_res and c_res.get("status") == "OK" and "payload" in c_res:
-                        cards_payloads[cid] = c_res["payload"]
-                except Exception:
-                    pass
-            if cards_payloads:
-                viz_spec.data = cards_payloads
-        except Exception:
-            pass
-
-    # 10. Assemble Text
+    # 9. Assemble Text
     text = _format_advisory_text(
         objective_id,
         args,

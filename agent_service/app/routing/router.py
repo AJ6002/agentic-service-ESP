@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 from dataclasses import dataclass
@@ -8,6 +9,8 @@ from app.contracts.routing import RouteDecision, RouterInput
 from app.llm.calls import RouterOutputInvalid, route as llm_route
 from app.llm.client import LLMUnavailableError
 from app.routing.objective_registry import list_objectives
+
+logger = logging.getLogger(__name__)
 
 # Regex for common actuation requests (e.g., bump frequency, set Hz, change choke)
 ACTUATION_REGEX = re.compile(r"\b(set|bump|change|increase|decrease|speed up)\b.*\b(\d+\s*hz|frequency|choke|speed)\b", re.IGNORECASE)
@@ -41,12 +44,22 @@ GREETING_PATTERNS = re.compile(
 )
 
 IDENTITY_PATTERNS = re.compile(
-    r"\b(who\s+(are\s+you|are\s+u)|what\s+(are\s+you|are\s+u)|what\s+(do\s+you|do\s+u)\s+do|"
-    r"what\s+(can\s+you|can\s+u)\s+do|what\s+(can\'t\s+you|cannot\s+you|can\s+you\s+not)\s+do|"
-    r"what\s+are\s+your\s+(limits|limitations|capabilities|features|functions)|"
-    r"what\s+(features|capabilities)\s+do\s+you\s+have|"
-    r"about\s+(yourself|this\s+assistant|this\s+system|this\s+copilot)|"
-    r"explain\s+your\s+(role|architecture|purpose|capabilities))\b",
+    r"\b("
+    r"who\s+(are\s+you|are\s+u)\b|"
+    r"what\s+(are\s+you|are\s+u)\b|"
+    r"what\s+(?:all\s+)?(do\s+you|do\s+u)\s+(?:all\s+)?do\b|"
+    r"what\s+(?:all\s+)?(can\s+you|can\s+u|can\s+this\s+(?:agent|assistant|copilot|system))\s+(?:all\s+)?do\b|"
+    r"what\s+(?:all\s+)?(can\'t\s+you|cannot\s+you|can\s+you\s+not)\s+do\b|"
+    r"what\s+(?:are|is)\s+(?:(?:all\s+of|all|your|ur)\s+)*(?:limits|limitations|capabilities|capabilties|capablities|capabillities|capabilites|features|featurs|fetures|functions|funcions|tools|objectives)\b|"
+    r"what\s+(?:all\s+)?(?:features|featurs|fetures|capabilities|capabilties|capablities|capabillities|capabilites|functions|funcions)\s+(?:do\s+you|do\s+u)\s+have\b|"
+    r"(?:list|show|tell\s+me|display)\s+(?:(?:all\s+of|all|your|ur)\s+)*(?:capabilities|capabilties|capablities|capabillities|capabilites|features|featurs|fetures|functions|funcions|tools|limits|limitations|objectives)\b|"
+    r"what\s+(?:is|are)\s+(?:your|ur)\s+(purpose|role|identity|scope|job|architecture)\b|"
+    r"what\s+(?:all\s+)?are\s+you\s+capable\s+of\b|"
+    r"what\s+(?:all\s+)?can\s+(?:you|u)\s+help\s+(?:me\s+)?with\b|"
+    r"about\s+(yourself|this\s+assistant|this\s+system|this\s+copilot)\b|"
+    r"explain\s+(?:(?:all\s+of|all|your|ur)\s+)*(?:role|architecture|purpose|capabilities|capabilties|capablities|capabillities|capabilites|features|featurs|fetures|functions|funcions)\b|"
+    r"(?:your|ur)\s+(?:all\s+)?(?:capabilities|capabilties|capablities|capabillities|capabilites|features|featurs|fetures|functions|funcions|tools|objectives|limits|limitations)\b"
+    r")",
     re.IGNORECASE,
 )
 
@@ -94,6 +107,47 @@ class RouteResult:
     decision: RouteDecision
     llm_available: bool = True
     fallback_used: bool = False
+
+
+def _log_and_return_result(
+    path_fired: str,
+    decision: RouteDecision,
+    llm_said: Optional[dict] = None,
+    llm_available: bool = True,
+    fallback_used: bool = False,
+) -> RouteResult:
+    logger.info(
+        "Router decision: path_fired=%s, llm_said=%s, final_route=%s/%s (confidence=%.2f)",
+        path_fired,
+        llm_said,
+        decision.route,
+        decision.objective_id or decision.intent,
+        decision.confidence,
+    )
+    record_audit(
+        event_type="router_decided",
+        payload={
+            "path_fired": path_fired,
+            "llm_said": llm_said,
+            "final_route": {
+                "route": decision.route,
+                "scope": decision.scope,
+                "intent": decision.intent,
+                "objective_id": decision.objective_id,
+                "confidence": decision.confidence,
+                "args": decision.args,
+            },
+            "route": decision.route,
+            "intent": decision.intent,
+            "objective_id": decision.objective_id,
+            "confidence": decision.confidence,
+            "clarification_needed": decision.clarification_needed,
+            "deferred_intents": decision.deferred_intents,
+            "llm_available": llm_available,
+            "fallback_used": fallback_used,
+        },
+    )
+    return RouteResult(decision=decision, llm_available=llm_available, fallback_used=fallback_used)
 
 
 def _keyword_fallback_decision(router_input: RouterInput, deferred: list[str]) -> RouteDecision:
@@ -397,7 +451,8 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
 
     # 0. Deterministic greeting guard: conversational greetings -> SIMPLE direct answer
     if GREETING_PATTERNS.search(router_input.raw_message):
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_greeting",
             decision=RouteDecision(
                 route="SIMPLE",
                 scope="GLOBAL",
@@ -408,13 +463,15 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
 
     # 0.1 Deterministic identity guard: self-knowledge questions -> IDENTITY
     if IDENTITY_PATTERNS.search(router_input.raw_message):
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_identity",
             decision=RouteDecision(
                 route="IDENTITY",
                 scope="GLOBAL",
@@ -425,6 +482,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
@@ -432,7 +490,8 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
     # 0.15 Deterministic fleet guard: fleet-wide / multi-well queries -> WORKFLOW with scope="FLEET"
     if FLEET_PATTERNS.search(router_input.raw_message) and not router_input.asset_id:
         fleet_obj, fleet_intent = _resolve_fleet_objective(router_input.raw_message)
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_fleet",
             decision=RouteDecision(
                 route="WORKFLOW",
                 scope="FLEET",
@@ -443,6 +502,7 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
@@ -457,7 +517,8 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
             op15_args["selected_route"] = router_input.selected_route
             if re.search(r"\b(this|the)\s+(page|screen|view|dashboard)\b", router_input.raw_message, re.IGNORECASE) or re.search(r"\bwhat\s+(is|does)\s+this\s+page\b", router_input.raw_message, re.IGNORECASE):
                 op15_args["entry_id"] = router_input.selected_route
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_platform_guide",
             decision=RouteDecision(
                 route="WORKFLOW",
                 scope="GLOBAL",
@@ -468,14 +529,15 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
 
-
     # 1. Deterministic follow-up guard: questions referencing past statement/graph/data -> FOLLOW_UP
     if FOLLOWUP_PATTERNS.search(router_input.raw_message):
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_followup",
             decision=RouteDecision(
                 route="FOLLOW_UP",
                 scope="ASSET" if router_input.asset_id else "GLOBAL",
@@ -486,13 +548,15 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
 
     # 2. Ambiguous follow-up guard: pronoun-only queries with no prior -> CLARIFY
     if AMBIGUOUS_FOLLOWUP_PATTERNS.search(router_input.raw_message) and not router_input.has_prior:
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_ambiguous_followup",
             decision=RouteDecision(
                 route="WORKFLOW",
                 scope="ASSET",
@@ -506,13 +570,15 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 clarify_slot="asset_id",
                 clarify_options=["FS-17", "FS-91", "FNW-01", "FWS-06"],
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
 
     # 3. Rule 0 guard: Definitional intent with no asset in text must route to SIMPLE (OP06)
     if DEFINITIONAL_PATTERNS.search(router_input.raw_message) and not WELL_ID_REGEX.search(router_input.raw_message) and not (router_input.asset_id and is_telemetry_ask):
-        return RouteResult(
+        return _log_and_return_result(
+            path_fired="deterministic_definitional",
             decision=RouteDecision(
                 route="SIMPLE",
                 scope="GLOBAL",
@@ -523,12 +589,23 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
                 deferred_intents=deferred,
                 clarification_needed=False,
             ),
+            llm_said=None,
             llm_available=True,
             fallback_used=False,
         )
 
+    llm_said: Optional[dict] = None
     try:
         decision = await llm_route(router_input.raw_message, context_block)
+        if decision is not None:
+            llm_said = {
+                "route": decision.route,
+                "scope": decision.scope,
+                "intent": decision.intent,
+                "objective_id": decision.objective_id,
+                "confidence": decision.confidence,
+                "args": decision.args,
+            }
         if deferred and not decision.deferred_intents:
             decision.deferred_intents = deferred
         if decision.confidence < conf_threshold:
@@ -560,20 +637,15 @@ async def route_query_full(router_input: RouterInput) -> RouteResult:
 
     fallback_used = decision is None
     if decision is None:
+        path_fired = "deterministic_keyword_fallback"
         decision = _keyword_fallback_decision(router_input, deferred)
+    else:
+        path_fired = "llm_route"
 
-    record_audit(
-        event_type="router_decided",
-        payload={
-            "route": decision.route,
-            "intent": decision.intent,
-            "objective_id": decision.objective_id,
-            "confidence": decision.confidence,
-            "clarification_needed": decision.clarification_needed,
-            "deferred_intents": decision.deferred_intents,
-            "llm_available": llm_available,
-            "fallback_used": fallback_used,
-        },
+    return _log_and_return_result(
+        path_fired=path_fired,
+        decision=decision,
+        llm_said=llm_said,
+        llm_available=llm_available,
+        fallback_used=fallback_used,
     )
-
-    return RouteResult(decision=decision, llm_available=llm_available, fallback_used=fallback_used)

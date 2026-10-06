@@ -15,6 +15,31 @@ import httpx
 DEFAULT_TIMEOUT_SEC = float(os.getenv("GATEWAY_TIMEOUT_SEC", "2.0"))
 
 
+def parse_alarms_list(raw: Any) -> list[str]:
+    """Parse alarms field which could be list, JSON string array, or comma-separated string."""
+    if not raw:
+        return []
+    if isinstance(raw, list):
+        return [str(x).strip(" []\"'") for x in raw if str(x).strip(" []\"'")]
+    raw_str = str(raw).strip()
+    if not raw_str or raw_str in ("[]", '""', "''", "None", "null"):
+        return []
+    if raw_str.startswith("[") and raw_str.endswith("]"):
+        try:
+            import json
+            parsed = json.loads(raw_str)
+            if isinstance(parsed, list):
+                return [str(x).strip(" []\"'") for x in parsed if str(x).strip(" []\"'")]
+        except Exception:
+            pass
+    items = []
+    for item in raw_str.split(","):
+        cleaned = item.strip(" []\"'")
+        if cleaned:
+            items.append(cleaned)
+    return items
+
+
 def get_well_id_variants(well_id: str) -> list[str]:
     """
     Returns normalized variants of a well identifier to handle differences

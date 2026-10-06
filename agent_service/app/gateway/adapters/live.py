@@ -175,16 +175,29 @@ async def fetch_live_vfm(well_id: str, client: Optional[httpx.AsyncClient] = Non
 
 
 async def fetch_live_wells(client: Optional[httpx.AsyncClient] = None) -> dict[str, Any]:
-    """Fetch active well inventory from asset_registry."""
+    """Fetch active well inventory from live telemetry."""
     def _query():
         with get_db_cursor() as cur:
-            cur.execute("SELECT well_id, cluster, is_active FROM asset_registry ORDER BY well_id;")
+            cur.execute("""
+                WITH latest_state AS (
+                    SELECT DISTINCT ON (well_id) well_id, operating_state
+                    FROM opg_well_telemetry
+                    ORDER BY well_id, timestamp DESC
+                )
+                SELECT l.well_id, COALESCE(a.cluster, 'Field-1'), (LOWER(l.operating_state) = 'running') AS is_running
+                FROM latest_state l
+                LEFT JOIN asset_registry a ON a.well_id = l.well_id
+                ORDER BY l.well_id;
+            """)
             rows = cur.fetchall()
             wells = [r[0] for r in rows]
+            active = [r[0] for r in rows if r[2]]
             return {
                 "total_wells": len(wells),
                 "wells": wells,
-                "active_wells": [r[0] for r in rows if r[2]],
+                "active_wells": active,
+                "running_count": len(active),
+                "down_count": len(wells) - len(active),
                 "source": "POSTGRESQL",
             }
     try:

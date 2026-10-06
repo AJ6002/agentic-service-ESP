@@ -12,7 +12,7 @@ from typing import Any, Optional
 import httpx
 
 from app.stores.postgres_client import get_db_cursor
-from .common import AdapterError, get_well_id_variants, build_temporal_meta
+from .common import AdapterError, get_well_id_variants, build_temporal_meta, parse_alarms_list
 
 
 async def fetch_events_timeline(
@@ -45,7 +45,7 @@ async def fetch_events_timeline(
             events_list = []
             for r in rows:
                 ts = r[1].isoformat() if hasattr(r[1], "isoformat") else str(r[1])
-                alarm_arr = [a.strip() for a in str(r[5] or "").split(",") if a.strip()]
+                alarm_arr = parse_alarms_list(r[5])
                 events_list.append({
                     "event_id": r[0],
                     "timestamp": ts,
@@ -126,7 +126,7 @@ async def fetch_events_trips(
             trips = []
             for r in rows:
                 ts = r[1].isoformat() if hasattr(r[1], "isoformat") else str(r[1])
-                alarm_arr = [a.strip() for a in str(r[5] or "").split(",") if a.strip()]
+                alarm_arr = parse_alarms_list(r[5])
                 trips.append({
                     "event_id": r[0],
                     "timestamp": ts,
@@ -155,7 +155,7 @@ async def fetch_events_trips(
                             "operating_state": tr[1] or "TRIP",
                             "scenario": tr[2] or "TRIP",
                             "trip_cause": tr[3] or "TRIP_DETECTED",
-                            "alarms": [a.strip() for a in str(tr[4] or "").split(",") if a.strip()],
+                            "alarms": parse_alarms_list(tr[4]),
                             "severity": "CRITICAL",
                         })
                         if len(trips) >= 10:
@@ -216,7 +216,7 @@ async def fetch_fleet_events(
             events_list = []
             for r in rows:
                 ts = r[2].isoformat() if hasattr(r[2], "isoformat") else str(r[2])
-                alarm_arr = [a.strip() for a in str(r[6] or "").split(",") if a.strip()]
+                alarm_arr = parse_alarms_list(r[6])
                 events_list.append({
                     "event_id": r[0],
                     "well_id": r[1],
@@ -243,7 +243,7 @@ async def fetch_fleet_events(
                 t_rows = cur.fetchall()
                 for tr in t_rows:
                     ts = tr[1].isoformat() if hasattr(tr[1], "isoformat") else str(tr[1])
-                    alarm_arr = [a.strip() for a in str(tr[5] or "").split(",") if a.strip()]
+                    alarm_arr = parse_alarms_list(tr[5])
                     events_list.append({
                         "event_id": f"EV-TELEM-{tr[0]}-{len(events_list)+1}",
                         "well_id": tr[0],

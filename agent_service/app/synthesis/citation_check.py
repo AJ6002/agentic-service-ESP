@@ -167,14 +167,9 @@ def _validate_step_list(
             filtered_matches.append(m)
 
         if not filtered_matches:
-            if is_verification:
-                # Operational verification steps (e.g. confirm with operator) do not require doc citations
-                verified.append(step)
-                continue
-            else:
-                unverified.append(f"Missing citation in step: {step[:60]}...")
-                flagged.append(step)
-                continue
+            unverified.append(f"Missing citation in step: {step[:60]}...")
+            flagged.append(step)
+            continue
 
         step_has_valid_citation = False
         for m in filtered_matches:

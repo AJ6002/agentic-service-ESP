@@ -14,7 +14,7 @@ from typing import Any, Optional
 import httpx
 
 from app.stores.postgres_client import get_db_cursor
-from .common import AdapterError, get_well_id_variants
+from .common import AdapterError, get_well_id_variants, parse_alarms_list
 
 _CARD_ALIAS_MAP: dict[str, str] = {
     "working_status_smart_fault_card": "working_status_smart_fault_card",
@@ -371,14 +371,44 @@ def _query_vfm_production_ribbon(cur, variants: list[str], well_id: str) -> Opti
 
 
 def _query_system_summary(cur) -> Optional[dict[str, Any]]:
-    cur.execute("SELECT COUNT(*), COUNT(*) FILTER (WHERE is_active) FROM asset_registry;")
+    cur.execute("""
+        WITH latest_telem AS (
+            SELECT DISTINCT ON (well_id) well_id, operating_state
+            FROM opg_well_telemetry
+            ORDER BY well_id, timestamp DESC
+        ),
+        latest_ml AS (
+            SELECT DISTINCT ON (well_id) well_id, overall_status
+            FROM esp_unified_assessments
+            ORDER BY well_id, timestamp DESC
+        )
+        SELECT 
+            COUNT(t.well_id) AS total_wells,
+            COUNT(t.well_id) FILTER (WHERE LOWER(t.operating_state) = 'running') AS running_wells,
+            COUNT(t.well_id) FILTER (WHERE LOWER(t.operating_state) != 'running') AS down_wells,
+            COALESCE(AVG(
+                CASE 
+                    WHEN UPPER(m.overall_status) LIKE '%CRITICAL%' OR UPPER(m.overall_status) LIKE '%ALARM%' THEN 42.0
+                    WHEN UPPER(m.overall_status) LIKE '%WARN%' OR UPPER(m.overall_status) LIKE '%DEGRADED%' THEN 68.0
+                    ELSE 92.0
+                END
+            ), 90.0) AS avg_health_score
+        FROM latest_telem t
+        LEFT JOIN latest_ml m ON m.well_id = t.well_id;
+    """)
     row = cur.fetchone()
-    total_wells = int(row[0]) if (row and row[0]) else 35
-    running = int(row[1]) if (row and row[1]) else 32
-    down = max(0, total_wells - running)
+    total_wells = int(row[0]) if (row and row[0] is not None) else 10
+    running = int(row[1]) if (row and row[1] is not None) else 7
+    down = int(row[2]) if (row and row[2] is not None) else (total_wells - running)
+    fleet_health = round(float(row[3]), 1) if (row and row[3] is not None) else 60.2
+
+    # Query live tuple count if available
+    cur.execute("SELECT n_live_tup FROM pg_stat_user_tables WHERE relname = 'opg_well_telemetry';")
+    rec_row = cur.fetchone()
+    total_records = int(rec_row[0]) if (rec_row and rec_row[0]) else 11015353
 
     return {
-        "totalRecords": 11015353,
+        "totalRecords": total_records,
         "throughputMsgSec": 11.0,
         "isConnected": True,
         "brokerHost": "192.168.1.184",
@@ -387,7 +417,7 @@ def _query_system_summary(cur) -> Optional[dict[str, Any]]:
         "runningWells": running,
         "totalWells": total_wells,
         "downWells": down,
-        "fleetHealth": 91.5,
+        "fleetHealth": fleet_health,
     }
 
 
@@ -434,6 +464,11 @@ def _query_fleet_health_table(cur) -> Optional[dict[str, Any]]:
             SELECT DISTINCT ON (well_id) well_id, overall_status, fault_name, anomaly_score
             FROM esp_unified_assessments
             ORDER BY well_id, timestamp DESC
+        ),
+        latest_event AS (
+            SELECT DISTINCT ON (well_id) well_id, trip_cause, alarms, event_type
+            FROM events
+            ORDER BY well_id, timestamp DESC
         )
         SELECT 
             t.well_id,
@@ -453,12 +488,14 @@ def _query_fleet_health_table(cur) -> Optional[dict[str, Any]]:
             ) AS health_band,
             UPPER(COALESCE(t.operating_state, 'RUNNING')) AS operating_state,
             COALESCE(t.flow_rate_bpd, 0.0) AS gross_rate_bpd,
-            COALESCE(t.trip_cause, m.fault_name, 'NOMINAL') AS last_event,
+            COALESCE(NULLIF(t.trip_cause, ''), NULLIF(e.trip_cause, ''), m.fault_name, 'NOMINAL') AS last_event,
             COALESCE(t.motor_temperature_c, 85.0) AS motor_temp,
             COALESCE(t.intake_pressure_psi, 400.0) AS pip,
-            COALESCE(t.vibration_g, 0.08) AS vib
+            COALESCE(t.vibration_g, 0.08) AS vib,
+            e.alarms AS ev_alarms
         FROM latest_telem t
         LEFT JOIN latest_ml m ON m.well_id = t.well_id
+        LEFT JOIN latest_event e ON e.well_id = t.well_id
         ORDER BY health_score ASC, t.well_id ASC;
     """)
     rows = cur.fetchall()
@@ -477,16 +514,30 @@ def _query_fleet_health_table(cur) -> Optional[dict[str, Any]]:
         m_temp = float(r[6])
         pip = float(r[7])
         vib = float(r[8])
+        raw_alarms = r[9]
+        alarms = parse_alarms_list(raw_alarms)
 
         if h_band == "CRITICAL":
             critical_cnt += 1
-            top_sig = f"motor_temp_c ({m_temp:.1f} °C)" if m_temp > 100 else f"int_prs_psi ({pip:.1f} PSI)"
+            if alarms:
+                top_sig = f"{last_ev} | alarms: {', '.join(alarms)}"
+            elif last_ev not in ("NOMINAL", "Healthy Operation"):
+                top_sig = f"trip: {last_ev}"
+            else:
+                top_sig = f"motor_temp_c ({m_temp:.1f} °C)" if m_temp > 100 else f"int_prs_psi ({pip:.1f} PSI)"
         elif h_band == "DEGRADED":
             degraded_cnt += 1
             top_sig = f"vibration_g ({vib:.2f} g)" if vib > 0.15 else f"motor_temp_c ({m_temp:.1f} °C)"
         else:
             healthy_cnt += 1
             top_sig = "All signals within nominal baseline"
+
+        if alarms and last_ev not in ("NOMINAL", "Healthy Operation", "None", ""):
+            display_event = f"{last_ev} ({', '.join(alarms)})"
+        elif last_ev not in ("NOMINAL", "Healthy Operation", "None", ""):
+            display_event = last_ev
+        else:
+            display_event = "None"
 
         wells.append({
             "wellId": w_id,
@@ -495,7 +546,7 @@ def _query_fleet_health_table(cur) -> Optional[dict[str, Any]]:
             "operatingState": op_state,
             "topSignal": top_sig,
             "grossRateBpd": gross_bpd,
-            "lastEvent": last_ev if last_ev != "NOMINAL" else "None",
+            "lastEvent": display_event,
         })
 
     return {
@@ -518,6 +569,11 @@ def _query_fleet_opportunity_view(cur) -> Optional[dict[str, Any]]:
             SELECT DISTINCT ON (well_id) well_id, overall_status, fault_name, anomaly_score, operator_action
             FROM esp_unified_assessments
             ORDER BY well_id, timestamp DESC
+        ),
+        latest_event AS (
+            SELECT DISTINCT ON (well_id) well_id, trip_cause, alarms, event_type
+            FROM events
+            ORDER BY well_id, timestamp DESC
         )
         SELECT 
             t.well_id,
@@ -532,10 +588,11 @@ def _query_fleet_opportunity_view(cur) -> Optional[dict[str, Any]]:
             ) AS health_score,
             COALESCE(m.anomaly_score, 0.0) AS anomaly_score,
             m.operator_action,
-            t.trip_cause,
+            COALESCE(NULLIF(t.trip_cause, ''), NULLIF(e.trip_cause, ''), 'UNDERLOAD_PUMP_OFF') AS trip_cause,
             COALESCE(t.frequency_hz, 50.0) AS freq
         FROM latest_telem t
         LEFT JOIN latest_ml m ON m.well_id = t.well_id
+        LEFT JOIN latest_event e ON e.well_id = t.well_id
         ORDER BY health_score ASC, anomaly_score DESC, t.well_id ASC;
     """)
     rows = cur.fetchall()
@@ -556,7 +613,7 @@ def _query_fleet_opportunity_view(cur) -> Optional[dict[str, Any]]:
         if op_state != "RUNNING" or rate <= 0.0:
             opp_type = "TRIP_RECOVERY"
             deferment = 850.0  # Estimated nominal lost production
-            action = str(op_action) if op_action else f"Clear {trip_cause or 'trip'} and execute restart sequence."
+            action = str(op_action) if op_action else f"Clear {trip_cause} and execute restart sequence."
         elif h_score < 75.0 or anom >= 0.4:
             opp_type = "LIFT_OPTIMIZATION"
             deferment = round(max(50.0, rate * 0.25), 1)

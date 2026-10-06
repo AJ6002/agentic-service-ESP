@@ -25,6 +25,15 @@ from app.llm.client import LLMUnavailableError
         "what can't you do",
         "what are your limits",
         "what are your capabilities",
+        "what are your all capabilties ?",
+        "what are all your capabilities ?",
+        "what is your all capabilities",
+        "what are your capablities",
+        "what all can you do",
+        "what all do you do",
+        "what all capabilities do you have",
+        "tell me all your capabilities",
+        "list your all capabilities",
         "tell me about yourself",
         "explain your role",
         "explain your architecture",
@@ -154,3 +163,35 @@ async def test_identity_route_never_touches_workflow_pipeline(monkeypatch):
 
     # Workflow pipeline must not have been entered
     assert intercepted == []
+
+
+@pytest.mark.anyio
+async def test_router_decision_logging(monkeypatch):
+    import app.routing.router as router_mod
+    recorded = []
+
+    def mock_record_audit(event_type, payload=None, run_id=None):
+        if event_type == "router_decided":
+            recorded.append(payload)
+
+    monkeypatch.setattr(router_mod, "record_audit", mock_record_audit)
+
+    # Test deterministic identity
+    res1 = await route_query_full(RouterInput(raw_message="what are your all capabilties ?"))
+    assert res1.decision.route == "IDENTITY"
+    assert len(recorded) >= 1
+    latest1 = recorded[-1]
+    assert latest1["path_fired"] == "deterministic_identity"
+    assert latest1["llm_said"] is None
+    assert latest1["final_route"]["route"] == "IDENTITY"
+    assert latest1["final_route"]["intent"] == "self_knowledge"
+
+    # Test deterministic greeting
+    res2 = await route_query_full(RouterInput(raw_message="hello there"))
+    assert res2.decision.route == "SIMPLE"
+    latest2 = recorded[-1]
+    assert latest2["path_fired"] == "deterministic_greeting"
+    assert latest2["llm_said"] is None
+    assert latest2["final_route"]["route"] == "SIMPLE"
+    assert latest2["final_route"]["intent"] == "greeting"
+
